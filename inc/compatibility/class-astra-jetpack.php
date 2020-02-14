@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Jetpack' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Jetpack' ) ) :
 		 * Add theme support for Infinite Scroll.
 		 * See: https://jetpack.me/support/infinite-scroll/
 		 */
-		function jetpack_setup() {
+		public function jetpack_setup() {
 			add_theme_support(
 				'infinite-scroll',
 				array(
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Jetpack' ) ) :
 		/**
 		 * Custom render function for Infinite Scroll.
 		 */
-		function infinite_scroll_render() {
+		public function infinite_scroll_render() {
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/content', astra_get_post_format() );

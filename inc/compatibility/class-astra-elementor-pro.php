@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function do_template_parts() {
+		public function do_template_parts() {
 			// Is Archive?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
 			if ( $did_location ) {
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function do_template_part_404() {
+		public function do_template_part_404() {
 			if ( is_404() ) {
 
 				// Is Single?
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function override_meta() {
+		public function override_meta() {
 
 			// don't override meta for `elementor_library` post type.
 			if ( 'elementor_library' == get_post_type() ) {
@@ -172,7 +172,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @param  integer $post_id  Post ID.
 		 * @return void
 		 */
-		function override_with_post_meta( $post_id = 0 ) {
+		public function override_with_post_meta( $post_id = 0 ) {
 			// Override! Page Title.
 			$title = get_post_meta( $post_id, 'site-post-title', true );
 			if ( 'disabled' === $title ) {
@@ -295,7 +295,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @return array
 		 * @since  1.4.9
 		 */
-		function render_post_class( $classes ) {
+		public function render_post_class( $classes ) {
 			$post_class = array( 'elementor-post elementor-grid-item', 'elementor-portfolio-item' );
 			$result     = array_intersect( $classes, $post_class );
 

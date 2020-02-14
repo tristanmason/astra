@@ -184,4 +184,4 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Breadcrumbs_Typo_Configs;
+new Astra_Breadcrumbs_Typo_Configs();

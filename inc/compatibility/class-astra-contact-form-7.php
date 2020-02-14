@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Contact_Form_7' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
-		function add_styles() {
+		public function add_styles() {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 

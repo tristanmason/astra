@@ -269,4 +269,4 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Colors_Transparent_Header_Configs;
+new Astra_Customizer_Colors_Transparent_Header_Configs();

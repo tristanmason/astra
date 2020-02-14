@@ -80,7 +80,7 @@ if ( ! function_exists( 'astra_blog_get_post_meta' ) ) {
 			$output_str = astra_get_post_meta( $post_meta );
 
 			if ( ! empty( $output_str ) ) {
-				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -140,7 +140,7 @@ if ( ! function_exists( 'astra_blog_post_get_featured_item' ) ) {
 			}
 		}
 
-		echo $post_featured_data; // WPCS: XSS OK.
+		echo $post_featured_data; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 

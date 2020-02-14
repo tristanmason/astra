@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 *  Setup Metabox
 		 */
-		function setup_meta_box() {
+		public function setup_meta_box() {
 
 			// Get all public posts.
 			$post_types = get_post_types(
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @param  object $post Post object.
 		 * @return void
 		 */
-		function markup_meta_box( $post ) {
+		public function markup_meta_box( $post ) {
 
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_meta_box' );
 			$stored = get_post_meta( $post->ID );
@@ -338,7 +338,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @param  number $post_id Post ID.
 		 * @return void
 		 */
-		function save_meta_box( $post_id ) {
+		public function save_meta_box( $post_id ) {
 
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );

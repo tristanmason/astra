@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -87,14 +87,14 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Remove UABB Global Setting Option
 		 */
-		function remove_uabb_global_setting() {
+		public function remove_uabb_global_setting() {
 			return false;
 		}
 
 		/**
 		 * Theme Color
 		 */
-		function theme_color() {
+		public function theme_color() {
 			return astra_get_option( 'theme-color' );
 		}
 
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Text Color
 		 */
-		function text_color() {
+		public function text_color() {
 			return astra_get_option( 'text-color' );
 		}
 
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Link Color
 		 */
-		function link_color() {
+		public function link_color() {
 			return astra_get_option( 'link-color' );
 		}
 
@@ -118,14 +118,14 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Link Hover Color
 		 */
-		function link_hover_color() {
+		public function link_hover_color() {
 			return astra_get_option( 'link-h-color' );
 		}
 
 		/**
 		 * Button Font Family
 		 */
-		function button_font_family() {
+		public function button_font_family() {
 			$font_family = str_replace( "'", '', astra_get_option( 'font-family-button' ) );
 			$font_family = explode( ',', $font_family );
 			return array(
@@ -137,14 +137,14 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Font Size
 		 */
-		function button_font_size() {
+		public function button_font_size() {
 			return '';
 		}
 
 		/**
 		 * Button Line Height
 		 */
-		function button_line_height() {
+		public function button_line_height() {
 			return '';
 		}
 
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_font_size() {
+		public function default_type_button_font_size() {
 			$font_size_arr       = array();
 			$body_font_size      = astra_get_option( 'font-size-body' );
 			$theme_btn_font_size = astra_get_option( 'font-size-button' );
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_line_height() {
+		public function default_type_button_line_height() {
 			$theme_btn_body_line_height = astra_get_option( 'body-line-height', 1.85714285714286 );
 			$theme_btn_line_height      = astra_get_option( 'theme-btn-line-height', $theme_btn_body_line_height );
 			return $theme_btn_line_height;
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Letter Spacing
 		 */
-		function button_letter_spacing() {
+		public function button_letter_spacing() {
 			return '';
 		}
 
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_letter_spacing() {
+		public function default_type_button_letter_spacing() {
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 			return $theme_btn_letter_spacing;
 		}
@@ -206,7 +206,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Text Transform
 		 */
-		function button_text_transform() {
+		public function button_text_transform() {
 			return '';
 		}
 
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_text_transform() {
+		public function default_type_button_text_transform() {
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			return $theme_btn_text_transform;
 		}
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Text Color
 		 */
-		function button_text_color() {
+		public function button_text_color() {
 			$theme_color = astra_get_option( 'theme-color' );
 			$link_color  = astra_get_option( 'link-color', $theme_color );
 			$color       = astra_get_option( 'button-color' );
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_text_color() {
+		public function default_type_button_text_color() {
 			$theme_color    = astra_get_option( 'theme-color' );
 			$btn_text_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_text_color ) ) {
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Text Hover Color
 		 */
-		function button_text_hover_color() {
+		public function button_text_hover_color() {
 			$link_hover_color     = astra_get_option( 'link-h-color' );
 			$btn_text_hover_color = astra_get_option( 'button-h-color' );
 			if ( empty( $btn_text_hover_color ) ) {
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_text_hover_color() {
+		public function default_type_button_text_hover_color() {
 			$link_hover_color     = astra_get_option( 'link-h-color' );
 			$btn_text_hover_color = astra_get_option( 'button-h-color' );
 			if ( empty( $btn_text_hover_color ) ) {
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Background Color
 		 */
-		function button_bg_color() {
+		public function button_bg_color() {
 			return astra_get_option( 'button-bg-color' );
 		}
 
@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_bg_color() {
+		public function default_type_button_bg_color() {
 			$theme_color  = astra_get_option( 'theme-color' );
 			$btn_bg_color = astra_get_option( 'button-bg-color', $theme_color );
 			return $btn_bg_color;
@@ -297,7 +297,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Background Color
 		 */
-		function button_bg_hover_color() {
+		public function button_bg_hover_color() {
 			return astra_get_option( 'button-bg-h-color' );
 		}
 
@@ -306,7 +306,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_bg_hover_color() {
+		public function default_type_button_bg_hover_color() {
 			$link_hover_color   = astra_get_option( 'link-h-color' );
 			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 			return $btn_bg_hover_color;
@@ -315,7 +315,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Border Radius
 		 */
-		function button_border_radius() {
+		public function button_border_radius() {
 			return astra_get_option( 'button-radius' );
 		}
 
@@ -323,7 +323,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Padding
 		 */
-		function button_padding() {
+		public function button_padding() {
 			$padding   = '';
 			$v_padding = astra_get_option( 'button-v-padding' );
 			$h_padding = astra_get_option( 'button-h-padding' );
@@ -338,7 +338,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @since 2.2.0
 		 */
-		function default_type_button_padding() {
+		public function default_type_button_padding() {
 
 			$padding = astra_get_option( 'theme-button-padding' );
 
@@ -348,7 +348,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Border Width
 		 */
-		function button_border_width() {
+		public function button_border_width() {
 
 			$btn_width     = array();
 			$get_btn_width = astra_get_option( 'theme-button-border-group-border-size' );
@@ -363,7 +363,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Border Color
 		 */
-		function button_border_color() {
+		public function button_border_color() {
 
 			$theme_color          = astra_get_option( 'theme-color' );
 			$btn_bg_color         = astra_get_option( 'button-bg-color', $theme_color );
@@ -375,7 +375,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Border Hover Color
 		 */
-		function button_border_hover_color() {
+		public function button_border_hover_color() {
 
 			$link_hover_color       = astra_get_option( 'link-h-color' );
 			$btn_bg_hover_color     = astra_get_option( 'button-bg-h-color', $link_hover_color );
@@ -389,7 +389,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @deprecated 2.2.0
 		 */
-		function button_vertical_padding() {
+		public function button_vertical_padding() {
 
 			$padding   = '';
 			$v_padding = astra_get_option( 'button-v-padding' );
@@ -406,7 +406,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 *
 		 * @deprecated 2.2.0
 		 */
-		function button_horizontal_padding() {
+		public function button_horizontal_padding() {
 
 			$padding   = '';
 			$h_padding = astra_get_option( 'button-h-padding' );

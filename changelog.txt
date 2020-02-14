@@ -1,4 +1,21 @@
-v2.1.1
+v2.3.1
+- Fix: Theme minimum version notice appearing in some cases even after theme is updated.
+
+v2.3.0
+- New: Options for Header Button - Open link in New Tab, add rel attribute. ( https://wpastra.com/docs/new-button-options-in-astra-theme/ )
+- Improvement: Hardened the security of theme.
+- Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules.
+- Improvement: Filter to remove featured image link on blog page. ( https://wpastra.com/docs/remove-featured-image-link-on-blog-page/ )
+- Improvement: Added Fallback for database migration for some edge cases and when CRON is disabled.
+- Fix: Protect theme button padding to be overridden by default values during update.
+- Fix: Breadcrumb customizer doc link fix. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/ )
+- Fix: W3C HTML validation header button ( Replaced button tag with div tag ).
+- Fix: Archive Description <p> tag missing - conflict with SEOPress.
+- Fix: Duplicate search with sticky header.
+- Fix: Breadcrumb compatibility with Yoast Seo 12.8.1. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+- Fix: Comment and Search Button form compatibility with v2.2.0 button options. ( https://wpastra.com/docs/typography-module/#button )
+
+v2.2.1
 - Fix: Mobile Menu toggle not working in some cases.
 - Fix: Possible recursion in the update functions.
 

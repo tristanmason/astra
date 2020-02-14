@@ -73,6 +73,6 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 	}
 }
 
-new Astra_Lifter_Container_Configs;
+new Astra_Lifter_Container_Configs();
 
 

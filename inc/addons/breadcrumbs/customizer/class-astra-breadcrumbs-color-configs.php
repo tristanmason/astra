@@ -159,4 +159,4 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Breadcrumbs_Color_Configs;
+new Astra_Breadcrumbs_Color_Configs();

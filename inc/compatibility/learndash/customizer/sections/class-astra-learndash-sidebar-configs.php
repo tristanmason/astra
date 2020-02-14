@@ -70,4 +70,4 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_Sidebar_Configs;
+new Astra_Learndash_Sidebar_Configs();

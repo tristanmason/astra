@@ -67,7 +67,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @var array
 		 */
-		private static $_dependency_arr = array();
+		private static $dependency_arr = array();
+
 
 		/**
 		 * Initiator
@@ -161,7 +162,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 2.0.0
 		 * @return bool.
 		 */
-		function starts_with( $string, $start_string ) {
+		public function starts_with( $string, $start_string ) {
 			$len = strlen( $start_string );
 			return ( substr( $string, 0, $len ) === $start_string );
 		}
@@ -372,7 +373,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		private function update_dependency_arr( $key, $dependency ) {
-			self::$_dependency_arr[ $key ] = $dependency;
+			self::$dependency_arr[ $key ] = $dependency;
 		}
 
 		/**
@@ -382,7 +383,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
 		private function get_dependency_arr() {
-			return self::$_dependency_arr;
+			return self::$dependency_arr;
 		}
 
 		/**
@@ -446,7 +447,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$output .= Astra_Fonts_Data::js();
 			$output .= '</script>';
 
-			echo $output;
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		/**
@@ -455,7 +456,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register_panel( $wp_customize ) {
+		public function customize_register_panel( $wp_customize ) {
 
 			/**
 			 * Register Extended Panel
@@ -558,6 +559,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-link',
+				array(
+					'callback'          => 'Astra_Control_Link',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'ast-color',
 				array(
 					'callback'          => 'Astra_Control_Color',
@@ -656,7 +665,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Override Defaults
@@ -671,7 +680,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function astra_pro_upgrade_configurations( $wp_customize ) {
+		public function astra_pro_upgrade_configurations( $wp_customize ) {
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
@@ -685,7 +694,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function controls_scripts() {
+		public function controls_scripts() {
 
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -773,13 +782,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @return string
 		 */
-		function generate_font_dropdown() {
+		public function generate_font_dropdown() {
 
 			ob_start();
 
 			?>
 
-			<option value="inherit"><?php _e( 'Default System Font', 'astra' ); ?></option>
+			<option value="inherit"><?php esc_attr_e( 'Default System Font', 'astra' ); ?></option>
 			<optgroup label="Other System Fonts">
 
 			<?php
@@ -820,7 +829,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function preview_init() {
+		public function preview_init() {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
@@ -853,7 +862,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function customize_save() {
+		public function customize_save() {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
@@ -864,13 +873,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
 
 				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				self::generate_logo_by_width( $custom_logo_id );
 				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 
 			} else {
 				// Regenerate the logo without custom image sizes.
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
-				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				self::generate_logo_by_width( $custom_logo_id );
 			}
 
 			do_action( 'astra_customizer_save' );

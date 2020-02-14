@@ -99,6 +99,6 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 	}
 }
 
-new Astra_Footer_Colors_Configs;
+new Astra_Footer_Colors_Configs();
 
 

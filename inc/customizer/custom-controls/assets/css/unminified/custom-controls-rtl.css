@@ -694,6 +694,10 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
+.ast-link-open-in-new-tab-wrapper {
+  margin: 10px 0;
+}
+
 .customize-control-ast-radio-image label {
   position: relative;
   display: inline-block;
@@ -1862,6 +1866,10 @@ input[type="text"].select2-search__field {
 
 .customize-control.customize-control-ast-slider label .wrapper input[type=range] {
   cursor: pointer;
+}
+
+.ast-link-open-in-new-tab-wrapper {
+  margin: 10px 0;
 }
 
 .customize-control-ast-radio-image label {

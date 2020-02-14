@@ -123,6 +123,24 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize link
+		 *
+		 * @param  array $val Customizer setting link.
+		 * @return array        Return array.
+		 * @since  2.3.0
+		 */
+		public static function sanitize_link( $val ) {
+
+			$link = array();
+
+			$link['url']      = esc_url_raw( $val['url'] );
+			$link['new_tab']  = esc_attr( $val['new_tab'] );
+			$link['link_rel'] = esc_attr( $val['link_rel'] );
+
+			return $link;
+		}
+
+		/**
 		 * Sanitize responsive  Spacing
 		 *
 		 * @param  number $val Customizer setting input number.

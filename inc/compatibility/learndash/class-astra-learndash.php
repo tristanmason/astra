@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @since 1.3.0
 		 * @return String Dynamic CSS.
 		 */
-		function add_dynamic_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public function add_dynamic_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			$active_ld_theme = '';
 
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @since 1.3.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			$active_ld_theme = '';
 
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
-		function theme_defaults( $defaults ) {
+		public function theme_defaults( $defaults ) {
 
 			// General.
 			$defaults['learndash-lesson-serial-number'] = false;
@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			$assets['css']['astra-learndash'] = 'compatibility/learndash';
 			return $assets;
 		}
@@ -259,7 +259,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
-		function sidebar_layout( $layout ) {
+		public function sidebar_layout( $layout ) {
 
 			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
 
@@ -303,7 +303,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
-		function content_layout( $layout ) {
+		public function content_layout( $layout ) {
 
 			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
 

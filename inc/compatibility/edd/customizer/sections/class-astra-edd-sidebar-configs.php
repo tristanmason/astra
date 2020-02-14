@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Edd_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Edd_Sidebar_Configs;
+new Astra_Edd_Sidebar_Configs();
 
 
 

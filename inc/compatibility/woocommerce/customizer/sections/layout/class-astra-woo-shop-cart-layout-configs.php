@@ -52,4 +52,4 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 	}
 }
 
-new Astra_Woo_Shop_Cart_Layout_Configs;
+new Astra_Woo_Shop_Cart_Layout_Configs();

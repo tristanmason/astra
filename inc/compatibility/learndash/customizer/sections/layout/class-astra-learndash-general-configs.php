@@ -65,4 +65,4 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_General_Configs;
+new Astra_Learndash_General_Configs();

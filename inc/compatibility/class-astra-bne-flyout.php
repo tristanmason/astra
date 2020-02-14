@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
 		 * @return array List of updated assets.
 		 * @since 1.0.0
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			$assets['css']['astra-bne-flyout'] = 'compatibility/bne-flyout';
 			return $assets;
 		}

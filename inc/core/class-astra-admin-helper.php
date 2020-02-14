@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 		 * @param  boolean $network Whether to allow the network admin setting to be overridden on subsites.
 		 * @return string           Return the option value
 		 */
-		static public function get_admin_settings_option( $key, $network = false ) {
+		public static function get_admin_settings_option( $key, $network = false ) {
 
 			// Get the site-wide option if we're in the network admin.
 			if ( $network && is_multisite() ) {
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 		 * @param bool   $network   Whether to allow the network admin setting to be overridden on subsites.
 		 * @return mixed
 		 */
-		static public function update_admin_settings_option( $key, $value, $network = false ) {
+		public static function update_admin_settings_option( $key, $value, $network = false ) {
 
 			// Update the site-wide option since we're in the network admin.
 			if ( $network && is_multisite() ) {
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 		 * @param bool   $network Whether to allow the network admin setting to be overridden on subsites.
 		 * @return mixed
 		 */
-		static public function delete_admin_settings_option( $key, $network = false ) {
+		public static function delete_admin_settings_option( $key, $network = false ) {
 
 			// Get the site-wide option if we're in the network admin.
 			if ( $network && is_multisite() ) {

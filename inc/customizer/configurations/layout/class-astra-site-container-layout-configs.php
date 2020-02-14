@@ -177,7 +177,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 }
 
 
-new Astra_Site_Container_Layout_Configs;
+new Astra_Site_Container_Layout_Configs();
 
 
 

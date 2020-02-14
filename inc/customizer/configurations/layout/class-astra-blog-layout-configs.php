@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-blog',
-					'priority' => 60,
+					'priority' => 50,
 					'title'    => __( 'Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'section'     => 'section-blog',
 					'transport'   => 'postMessage',
 					'default'     => 1200,
-					'priority'    => 65,
+					'priority'    => 50,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog',
-					'priority' => 70,
+					'priority' => 50,
 					'settings' => array(),
 				),
 
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 }
 
 
-new Astra_Blog_Layout_Configs;
+new Astra_Blog_Layout_Configs();
 
 
 
