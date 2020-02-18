@@ -597,6 +597,98 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			$static_layout_css = array(
+				'#secondary.secondary'                  => array(
+					'padding-top' => 0,
+				),
+				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
+					'padding' => '1.5em 2.14em',
+				),
+				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
+					'padding' => '1.5em 0',
+				),
+				'.ast-separate-container.ast-right-sidebar #secondary' => array(
+					'padding-left' => '1em',
+				),
+				'.ast-separate-container.ast-right-sidebar #secondary' => array(
+					'padding-right' => '1em',
+				),
+				'.ast-separate-container.ast-two-container #secondary' => array(
+					'padding-left'  => 0,
+					'padding-right' => 0,
+				),
+				'.ast-page-builder-template .entry-header #secondary' => array(
+					'margin-top' => '1.5em',
+				),
+				'.ast-page-builder-template #secondary' => array(
+					'margin-top' => '1.5em',
+				),
+				'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+					'padding-right' => '20px',
+				),
+				'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
+					'padding-left' => '20px',
+				),
+				'.ast-right-sidebar #primary'           => array(
+					'padding-right' => 0,
+				),
+				'.ast-right-sidebar #secondary'         => array(
+					'padding-left' => 0,
+				),
+				'.ast-left-sidebar #primary'            => array(
+					'padding-left' => 0,
+				),
+				'.ast-left-sidebar #secondary'          => array(
+					'padding-right' => 0,
+				),
+				'#primary, #secondary'                  => array(
+					'padding' => '1.5em 0',
+					'margin'  => 0,
+				),
+				'.ast-left-sidebar #content > .ast-container' => array(
+					'display'        => 'flex',
+					'flex-direction' => 'column-reverse',
+					'width'          => '100%',
+				),
+			);
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
+
+			$static_layout_css_min = array(
+				'.ast-right-sidebar #primary'   => array(
+					'border-right' => '1px solid #eee',
+				),
+				'.ast-right-sidebar #secondary' => array(
+					'border-left' => '1px solid #eee',
+					'margin-left' => '-1px',
+				),
+				'.ast-left-sidebar #primary'    => array(
+					'border-left' => '1px solid #eee',
+				),
+				'.ast-left-sidebar #secondary'  => array(
+					'border-right' => '1px solid #eee',
+					'margin-right' => '-1px',
+				),
+				'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary' => array(
+					'border' => 0,
+				),
+				'.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' => array(
+					'border'       => 0,
+					'margin-left'  => 'auto',
+					'margin-right' => 'auto',
+				),
+				'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
+					'padding-left'  => '30px',
+					'padding-right' => 0,
+				),
+				'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
+					'padding-right' => '30px',
+					'padding-left'  => 0,
+				),
+			);
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
+
 			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
