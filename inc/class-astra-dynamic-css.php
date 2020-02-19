@@ -791,7 +791,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array() */
-				$parse_css .= astra_parse_css( $global_button_page_builder_tablet, '', '768' );
+				$parse_css .= astra_parse_css( $global_button_page_builder_tablet, '', astra_get_tablet_breakpoint() );
 
 				$global_button_page_builder_mobile = array(
 					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
@@ -804,7 +804,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array() */
-				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', '544' );
+				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', astra_get_mobile_breakpoint() );
 			} else {
 
 				/**
@@ -845,7 +845,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			$global_button_mobile = array(
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
@@ -854,7 +854,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
+			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -868,7 +868,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			/**
 			 * Global button CSS - Mobile.
@@ -883,7 +883,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
+			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
 
 			if ( 'custom-button' === $header_custom_button_style ) {
 				$css_output = array(

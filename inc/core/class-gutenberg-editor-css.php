@@ -328,7 +328,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			$css .= astra_parse_css( $css_prod_button_tablet, '', '768' );
+			$css .= astra_parse_css( $css_prod_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			/**
 			 * Global button CSS - Mobile.
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				$css .= astra_parse_css( $css_global_button_tablet, '', '768' );
+				$css .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 				/**
 				 * Global button CSS - Mobile.
