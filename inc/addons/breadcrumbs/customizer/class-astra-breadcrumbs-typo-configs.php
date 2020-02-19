@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Brainstorm Force
- * @copyright   Copyright (c) 2019, Brainstorm Force
+ * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.7.0
  */
@@ -184,4 +184,4 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Breadcrumbs_Typo_Configs;
+new Astra_Breadcrumbs_Typo_Configs();

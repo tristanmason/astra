@@ -16,7 +16,7 @@ class Astra_Filesystem {
 	 * @since 2.1.0
 	 * @var Astra_Filesystem
 	 */
-	protected static $_instance = null;
+	protected static $instance = null;
 
 	/**
 	 * Get instance of Astra_Filesystem
@@ -25,11 +25,11 @@ class Astra_Filesystem {
 	 * @return Astra_Filesystem
 	 */
 	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
 		}
 
-		return self::$_instance;
+		return self::$instance;
 	}
 
 	/**
@@ -43,10 +43,15 @@ class Astra_Filesystem {
 
 		if ( ! $wp_filesystem ) {
 			require_once ABSPATH . '/wp-admin/includes/file.php';
+
 			$context = apply_filters( 'request_filesystem_credentials_context', false );
 
+			add_filter( 'request_filesystem_credentials', array( $this, 'request_filesystem_credentials' ) );
+
 			$creds = request_filesystem_credentials( site_url(), '', false, $context, null );
+
 			WP_Filesystem( $creds, $context );
+			remove_filter( 'request_filesystem_credentials', array( $this, 'request_filesystem_credentials' ) );
 		}
 
 		// Set the permission constants if not already set.
@@ -59,6 +64,15 @@ class Astra_Filesystem {
 		}
 
 		return $wp_filesystem;
+	}
+
+	/**
+	 * Sets credentials to true.
+	 *
+	 * @since 2.1.3
+	 */
+	public function request_filesystem_credentials() {
+		return true;
 	}
 
 	/**

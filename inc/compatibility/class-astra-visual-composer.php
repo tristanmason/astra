@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * @param int $id Post id.
 		 * @return void
 		 */
-		function vc_update_meta_setting( $id ) {
+		public function vc_update_meta_setting( $id ) {
 
 			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * @since 1.0.13
 		 * @return void
 		 */
-		function vc_frontend_default_setting() {
+		public function vc_frontend_default_setting() {
 
 			global $post;
 			$id                = astra_get_post_id();
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * @since 1.0.13
 		 * @return void
 		 */
-		function vc_default_setting() {
+		public function vc_default_setting() {
 
 			global $post;
 			$id = astra_get_post_id();

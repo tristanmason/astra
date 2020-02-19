@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -27,6 +27,7 @@ require $control_dir . '/responsive-spacing/class-astra-control-responsive-spaci
 require $control_dir . '/divider/class-astra-control-divider.php';
 require $control_dir . '/heading/class-astra-control-heading.php';
 require $control_dir . '/hidden/class-astra-control-hidden.php';
+require $control_dir . '/link/class-astra-control-link.php';
 require $control_dir . '/color/class-astra-control-color.php';
 require $control_dir . '/description/class-astra-control-description.php';
 require $control_dir . '/background/class-astra-control-background.php';

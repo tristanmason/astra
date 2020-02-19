@@ -80,7 +80,7 @@ if ( ! function_exists( 'astra_blog_get_post_meta' ) ) {
 			$output_str = astra_get_post_meta( $post_meta );
 
 			if ( ! empty( $output_str ) ) {
-				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -140,7 +140,7 @@ if ( ! function_exists( 'astra_blog_post_get_featured_item' ) ) {
 			}
 		}
 
-		echo $post_featured_data; // WPCS: XSS OK.
+		echo $post_featured_data; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -246,7 +246,20 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 				do_action( 'astra_archive_post_title_before' );
 
 				/* translators: 1: Current post link, 2: Current post id */
-				astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+				astra_the_post_title(
+					sprintf(
+						'<h2 class="entry-title" %2$s><a href="%1$s" rel="bookmark">',
+						esc_url( get_permalink() ),
+						astra_attr(
+							'article-title-blog',
+							array(
+								'class' => '',
+							)
+						)
+					),
+					'</a></h2>',
+					get_the_id()
+				);
 
 				do_action( 'astra_archive_post_title_after' );
 
@@ -288,7 +301,15 @@ if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
 
 			do_action( 'astra_single_post_title_before' );
 
-			astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+			astra_the_title(
+				'<h1 class="entry-title" ' . astra_attr(
+					'article-title-blog-single',
+					array(
+						'class' => '',
+					)
+				) . '>',
+				'</h1>'
+			);
 
 			do_action( 'astra_single_post_title_after' );
 

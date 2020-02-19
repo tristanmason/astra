@@ -9,6 +9,14 @@
 
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
+	<rule ref="WordPress-Extra" />
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" type="array">
+				<element value="astra_attr"/>
+			</property>
+		</properties>
+	</rule>
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
@@ -21,5 +29,5 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<!-- Exclude Libraries -->
-	<exclude-pattern>*/inc/theme-update/batch-processing/*</exclude-pattern>
+	<exclude-pattern>*/inc/lib/batch-processing/*</exclude-pattern>
 </ruleset>

@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer = require('autoprefixer');
     var flexibility = require('postcss-flexibility');
-    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'radio-image', 'responsive', 'responsive-color', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
+    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
 
     const sass = require('node-sass');
 
@@ -212,6 +212,12 @@ module.exports = function (grunt) {
                             'assets/js/minified/custom-events-polyfill.js'
                         ],
                         dest: 'assets/js/minified/style.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/addons/heading-colors/assets/js/unminified/*.js',
+                        ],
+                        dest: 'inc/addons/heading-colors/assets/js/minified/customizer-preview.min.js',
                     },
                     {
                         src: [
@@ -452,6 +458,7 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/background/background.js',
                             'inc/customizer/custom-controls/border/border.js',
                             'inc/customizer/custom-controls/color/color.js',
+                            'inc/customizer/custom-controls/link/link.js',
                             'inc/customizer/custom-controls/customizer-link/customizer-link.js',
                             'inc/customizer/custom-controls/radio-image/radio-image.js',
                             'inc/customizer/custom-controls/responsive/responsive.js',

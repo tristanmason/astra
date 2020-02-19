@@ -13,16 +13,12 @@
 <?php astra_entry_before(); ?>
 
 <article 
-
 	<?php
 		echo astra_attr(
 			'article-blog',
 			array(
-				'itemtype'  => 'https://schema.org/CreativeWork',
-				'itemscope' => 'itemscope',
-				'id'        => 'post-' . get_the_id(),
-				'class'     => join( ' ', get_post_class() ),
-
+				'id'    => 'post-' . get_the_id(),
+				'class' => join( ' ', get_post_class() ),
 			)
 		);
 		?>

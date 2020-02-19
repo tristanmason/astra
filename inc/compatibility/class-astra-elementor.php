@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return void
 		 * @since  1.0.2
 		 */
-		function elementor_default_setting() {
+		public function elementor_default_setting() {
 
 			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return void
 		 * @since  1.4.0
 		 */
-		function elementor_overlay_zindex() {
+		public function elementor_overlay_zindex() {
 
 			// return if we are not on Elementor's edit page.
 			if ( ! $this->is_elementor_editor() ) {
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @param int $id Post/Page Id.
 		 * @return boolean
 		 */
-		function is_elementor_activated( $id ) {
+		public function is_elementor_activated( $id ) {
 			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
 				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
 			} else {
@@ -156,9 +156,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
 		 */
 		private function is_elementor_editor() {
-			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) ||
-				isset( $_REQUEST['elementor-preview'] )
-			) {
+			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return true;
 			}
 

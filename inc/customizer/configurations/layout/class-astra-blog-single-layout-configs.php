@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -119,18 +119,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'tag'      => __( 'Tag', 'astra' ),
 					),
 				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog-single',
-					'priority' => 9,
-					'settings' => array(),
-				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -142,7 +130,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 }
 
 
-new Astra_Blog_Single_Layout_Configs;
+new Astra_Blog_Single_Layout_Configs();
 
 
 

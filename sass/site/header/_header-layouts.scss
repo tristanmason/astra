@@ -35,7 +35,7 @@
 		vertical-align: top;
 	}
 	.main-header-container {
-		align-items: center;
+		align-items: stretch;
 	}
 }
 
@@ -101,7 +101,7 @@
 
 	.main-header-container	{
 		flex-direction: row-reverse;
-		align-items: center;
+		align-items: stretch;
 	}
 	.main-navigation {
 		padding-right: 15px;

@@ -25,17 +25,17 @@ There are multiple ways you can use a child theme with the Astra Theme, Use any 
 3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
 
 ## ASTRA License
-Astra WordPress Theme, Copyright 2018 WPAstra.
+Astra WordPress Theme, Copyright 2020 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Astra is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 ### Screenshot Licenses
-Screenshot images are all licensed under CC0 Universal
-https://www.pexels.com/photo/adult-business-woman-businessman-chairs-529923/
-https://www.pexels.com/photo/adult-beard-beverage-blur-551652/
-https://www.pexels.com/photo/whiteboard-sketching-design-planning-7366/
+All vectors published on unDraw can be used for free (https://undraw.co/license)
+https://undraw.co/illustrations
+Font Awesome Svg are all licensed under CC BY 4.0 (https://fontawesome.com/license/free)
+https://fontawesome.com/icons
 
 ### Normalizing styles
 Normalizing styles have been helped along thanks to the fine work of.

@@ -29,7 +29,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 		return $dynamic_css;
 	}
 
-	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( false == Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		return $dynamic_css;
 	}
 
@@ -291,7 +291,7 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 		return $dynamic_css;
 	}
 
-	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( false == Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		return $dynamic_css;
 	}
 
