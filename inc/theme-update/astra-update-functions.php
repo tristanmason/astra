@@ -112,3 +112,39 @@ function astra_header_button_new_options() {
 	update_option( 'astra-settings', $theme_options );
 
 }
+
+/**
+ * Migrate option data from site layout background option to its desktop counterpart.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_responsive_base_background_option() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['site-layout-outside-bg-obj']['desktop'] ) ) {
+		$theme_options['site-layout-outside-bg-obj']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
+		$theme_options['site-layout-outside-bg-obj']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['site-layout-outside-bg-obj']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	update_option( 'astra-settings', $theme_options );
+
+}
+
