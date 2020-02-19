@@ -700,9 +700,9 @@ function isJsonString( str ) {
 	/*
 	 * Layout Body Background
 	 */
-	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj]', 'body, .ast-separate-container', 'desktop' );
-	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj]', 'body, .ast-separate-container', 'tablet' );
-	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj]', 'body, .ast-separate-container', 'mobile' );
+	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'mobile' );
 
 	/*
 	 * Blog Custom Width

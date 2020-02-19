@@ -267,7 +267,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Site Layout.
 					'site-layout'                         => 'ast-full-width-layout',
 					'site-content-width'                  => 1200,
-					'site-layout-outside-bg-obj'          => array(
+					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
 							'background-color'      => '',
 							'background-image'      => '',

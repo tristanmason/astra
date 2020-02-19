@@ -49,7 +49,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$body_font_size      = astra_get_option( 'font-size-body' );
 			$body_line_height    = astra_get_option( 'body-line-height' );
 			$body_text_transform = astra_get_option( 'body-text-transform' );
-			$box_bg_obj          = astra_get_option( 'site-layout-outside-bg-obj' );
+			$box_bg_obj          = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 			$text_color          = astra_get_option( 'text-color' );
 
 			$heading_h1_font_size = astra_get_option( 'font-size-h1' );

@@ -124,10 +124,10 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 * Option: Body Background
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
+					'name'     => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj-responsive]',
 					'type'     => 'control',
 					'control'  => 'ast-responsive-background',
-					'default'  => astra_get_option( 'site-layout-outside-bg-obj' ),
+					'default'  => astra_get_option( 'site-layout-outside-bg-obj-responsive' ),
 					'section'  => 'section-colors-body',
 					'priority' => 25,
 					'title'    => __( 'Background', 'astra' ),

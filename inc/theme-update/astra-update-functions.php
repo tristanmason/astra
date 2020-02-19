@@ -124,9 +124,9 @@ function astra_responsive_base_background_option() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['site-layout-outside-bg-obj']['desktop'] ) ) {
-		$theme_options['site-layout-outside-bg-obj']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
-		$theme_options['site-layout-outside-bg-obj']['tablet']  = array(
+	if ( ! isset( $theme_options['site-layout-outside-bg-obj-responsive']['desktop'] ) ) {
+		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
+		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
 			'background-color'      => '',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
@@ -134,7 +134,7 @@ function astra_responsive_base_background_option() {
 			'background-size'       => 'auto',
 			'background-attachment' => 'scroll',
 		);
-		$theme_options['site-layout-outside-bg-obj']['mobile']  = array(
+		$theme_options['site-layout-outside-bg-obj-responsive']['mobile']  = array(
 			'background-color'      => '',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',

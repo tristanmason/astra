@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_logo_width  = astra_get_option( 'ast-header-responsive-logo-width' );
 
 			// Site Background Color.
-			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj' );
+			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 
 			// Color Options.
 			$text_color       = astra_get_option( 'text-color' );
