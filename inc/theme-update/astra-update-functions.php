@@ -124,7 +124,8 @@ function astra_responsive_base_background_option() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['site-layout-outside-bg-obj-responsive']['desktop'] ) ) {
+	if ( false === astra_get_db_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
+
 		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
 		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
 			'background-color'      => '',
