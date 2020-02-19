@@ -865,7 +865,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 
-			$css_output .= astra_parse_css( $css_global_button_mobile, '', '544' );
+			$css_output .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
 
 			if ( 'page-builder' !== astra_get_content_layout() ) {
 				/* Woocommerce Shop Archive width */
