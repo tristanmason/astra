@@ -930,7 +930,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 
 			$separate_container_css = array(
-				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),
+				'body, .ast-separate-container' => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
@@ -1036,6 +1036,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
+				'body, .ast-separate-container'  => astra_get_responsive_background_obj( $box_bg_obj, 'tablet' ),
 			);
 
 			/* Parse CSS from array()*/
@@ -1142,6 +1143,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
+				'body, .ast-separate-container'  => astra_get_responsive_background_obj( $box_bg_obj, 'mobile' ),
 			);
 
 			/* Parse CSS from array()*/

@@ -150,9 +150,9 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 											<button data-name="{{ data.name }}" class="button background-image-upload-remove-button<# if ( ! data.value['desktop']['background-image'] ) { #> hidden <# } #>" data-id='desktop' ><?php esc_attr_e( 'Remove', 'astra-addon' ); ?></button>
 											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button"  data-id='desktop' ><?php esc_attr_e( 'Select Image', 'astra-addon' ); ?></button>
 											<# if ( data.value['desktop']['background-image'] ) { #>
-												<a href="#" class="more-settings" data-direction="up" data-id='desktop' ><span class="message"><?php _e( 'Less Settings', 'astra-addon' ); ?></span> <span class="icon">↑</span></a>
+												<a href="#" class="more-settings" data-direction="up" data-id='desktop' ><span class="message"><?php esc_html_e( 'Less Settings', 'astra-addon' ); ?></span> <span class="icon">↑</span></a>
 											<# } else { #>
-												<a href="#" class="more-settings" data-direction="down" data-id='desktop' ><span class="message"><?php _e( 'More Settings', 'astra-addon' ); ?></span> <span class="icon">↓</span></a>
+												<a href="#" class="more-settings" data-direction="down" data-id='desktop' ><span class="message"><?php esc_html_e( 'More Settings', 'astra-addon' ); ?></span> <span class="icon">↓</span></a>
 											<# } #>
 										</div>
 									</div>
@@ -237,9 +237,9 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 											<button data-name="{{ data.name }}" data-id="tablet" class="button background-image-upload-remove-button<# if ( ! data.value['tablet']['background-image'] ) { #> hidden <# } #>" data-id='tablet' ><?php esc_attr_e( 'Remove', 'astra-addon' ); ?></button>
 											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button" data-id='tablet' ><?php esc_attr_e( 'Select Image', 'astra-addon' ); ?></button>
 											<# if ( data.value['tablet']['background-image'] ) { #>
-												<a href="#" class="more-settings" data-direction="up" data-id='tablet'><span class="message"><?php _e( 'Less Settings', 'astra-addon' ); ?></span> <span class="icon">↑</span></a>
+												<a href="#" class="more-settings" data-direction="up" data-id='tablet'><span class="message"><?php esc_html_e( 'Less Settings', 'astra-addon' ); ?></span> <span class="icon">↑</span></a>
 											<# } else { #>
-												<a href="#" class="more-settings" data-direction="down" data-id='tablet'><span class="message"><?php _e( 'More Settings', 'astra-addon' ); ?></span> <span class="icon">↓</span></a>
+												<a href="#" class="more-settings" data-direction="down" data-id='tablet'><span class="message"><?php esc_html_e( 'More Settings', 'astra-addon' ); ?></span> <span class="icon">↓</span></a>
 											<# } #>
 										</div>
 									</div>
@@ -324,9 +324,9 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 											<button data-name="{{ data.name }}" data-id="mobile" class="button background-image-upload-remove-button<# if ( ! data.value['mobile']['background-image'] ) { #> hidden <# } #>" data-id='mobile' ><?php esc_attr_e( 'Remove', 'astra-addon' ); ?></button>
 											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button" data-id='mobile' ><?php esc_attr_e( 'Select Image', 'astra-addon' ); ?></button>
 											<# if ( data.value['mobile']['background-image'] ) { #>
-												<a href="#" class="more-settings" data-direction="up" data-id='mobile'><span class="message"><?php _e( 'Less Settings', 'astra-addon' ); ?></span> <span class="icon">↑</span></a>
+												<a href="#" class="more-settings" data-direction="up" data-id='mobile'><span class="message"><?php esc_html_e( 'Less Settings', 'astra-addon' ); ?></span> <span class="icon">↑</span></a>
 											<# } else { #>
-												<a href="#" class="more-settings" data-direction="down" data-id='mobile'><span class="message"><?php _e( 'More Settings', 'astra-addon' ); ?></span> <span class="icon">↓</span></a>
+												<a href="#" class="more-settings" data-direction="down" data-id='mobile'><span class="message"><?php esc_html_e( 'More Settings', 'astra-addon' ); ?></span> <span class="icon">↓</span></a>
 											<# } #>
 										</div>
 									</div>

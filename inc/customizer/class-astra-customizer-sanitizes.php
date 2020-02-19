@@ -604,7 +604,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		public static function sanitize_responsive_background( $bg_obj ) {
 			if ( is_callable( 'Astra_Customizer_Sanitizes::sanitize_responsive_background' ) ) {
-				return Astra_Customizer_Sanitizes::sanitize_responsive_background( $bg_obj );
+				return self::sanitize_responsive_background( $bg_obj );
 			}
 
 			// Default Responsive Background Image.
