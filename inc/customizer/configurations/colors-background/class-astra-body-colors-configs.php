@@ -103,6 +103,6 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 	}
 }
 
-new Astra_Body_Colors_Configs;
+new Astra_Body_Colors_Configs();
 
 

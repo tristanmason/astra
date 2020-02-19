@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Woo_Shop_Sidebar_Configs;
+new Astra_Woo_Shop_Sidebar_Configs();
 
 
 

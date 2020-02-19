@@ -180,5 +180,5 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 	}
 }
 
-new Astra_Edd_Archive_Layout_Configs;
+new Astra_Edd_Archive_Layout_Configs();
 

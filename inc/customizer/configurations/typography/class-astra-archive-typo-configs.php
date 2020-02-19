@@ -157,6 +157,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 	}
 }
 
-new Astra_Archive_Typo_Configs;
+new Astra_Archive_Typo_Configs();
 
 

@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -67,11 +67,18 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 * @return Array breadcrumb options array.
 		 * @since 1.0.0
 		 */
-		function astra_breadcrumb_source_list_items( $options ) {
+		public function astra_breadcrumb_source_list_items( $options ) {
 
-			$wpseo_option = get_option( 'wpseo_internallinks' );
+			$breadcrumb_enable = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
+			$wpseo_option      = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
+			if ( ! is_array( $wpseo_option ) ) {
+				unset( $wpseo_option );
+				$wpseo_option = array(
+					'breadcrumbs-enable' => $breadcrumb_enable,
+				);
+			}
 
-			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+			if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] ) {
 				$options['yoast-seo-breadcrumbs'] = 'Yoast SEO Breadcrumbs';
 			}
 

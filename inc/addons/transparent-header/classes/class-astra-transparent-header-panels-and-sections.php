@@ -68,4 +68,4 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Transparent_Header_Panels_And_Sections;
+new Astra_Transparent_Header_Panels_And_Sections();

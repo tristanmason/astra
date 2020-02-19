@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 * @param  array $defaults  Astra options default value array.
 		 * @return array
 		 */
-		function theme_defaults( $defaults ) {
+		public function theme_defaults( $defaults ) {
 
 			/**
 			 * Breadcrumb Typography
@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Register Panel & Sections
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		/**
 		 * Customizer Preview
 		 */
-		function preview_scripts() {
+		public function preview_scripts() {
 			/**
 			 * Load unminified if SCRIPT_DEBUG is true.
 			 */

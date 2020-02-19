@@ -66,7 +66,7 @@ class Astra_Heading_Colors_Loader {
 	 *
 	 * @since 2.2.0
 	 */
-	function theme_defaults( $defaults ) {
+	public function theme_defaults( $defaults ) {
 
 		/**
 		* Heading Tags <h1> to <h6>
@@ -126,7 +126,7 @@ class Astra_Heading_Colors_Loader {
 	 *
 	 * @since 2.2.0
 	 */
-	function customize_register( $wp_customize ) {
+	public function customize_register( $wp_customize ) {
 
 		/**
 		 * Register Panel & Sections
@@ -139,7 +139,7 @@ class Astra_Heading_Colors_Loader {
 	 *
 	 * @since 2.2.0
 	 */
-	function preview_scripts() {
+	public function preview_scripts() {
 		/**
 		 * Load unminified if SCRIPT_DEBUG is true.
 		 */

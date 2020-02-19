@@ -89,4 +89,4 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Lifter_Sidebar_Configs;
+new Astra_Lifter_Sidebar_Configs();

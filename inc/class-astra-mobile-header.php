@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 1.7.2
 		 * @return string Menu item arrow button markup.
 		 */
-		function menu_arrow_button_markup( $item_output, $item ) {
+		public function menu_arrow_button_markup( $item_output, $item ) {
 			$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
 			$item_output .= '<button ' . astra_attr(
 				'ast-menu-toggle',
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 1.4.0
 		 * @return array;
 		 */
-		function menu_toggle_classes( $classes ) {
+		public function menu_toggle_classes( $classes ) {
 			return ' ast-mobile-menu-buttons-' . astra_get_option( 'mobile-header-toggle-btn-style' ) . ' ';
 		}
 
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 *
 		 * @return void
 		 */
-		function mobile_header_markup() {
+		public function mobile_header_markup() {
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 			$different_logo     = astra_get_option( 'different-mobile-logo' );
 
@@ -148,7 +148,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 1.4.0
 		 * @return string html markup of logo.
 		 */
-		function astra_mobile_header_custom_logo( $html, $blog_id ) {
+		public function astra_mobile_header_custom_logo( $html, $blog_id ) {
 
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 2.1.0
 		 * @return bool return if attachment is mobile logo image.
 		 */
-		function add_mobile_logo_svg_class( $is_logo_attachment, $attachment ) {
+		public function add_mobile_logo_svg_class( $is_logo_attachment, $attachment ) {
 
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 			$custom_logo_id     = attachment_url_to_postid( $mobile_header_logo );
@@ -203,7 +203,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @param array $classes Body Class Array.
 		 * @return array
 		 */
-		function add_body_class( $classes ) {
+		public function add_body_class( $classes ) {
 
 			/**
 			 * Add class for header width

@@ -46,4 +46,4 @@ if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 	}
 }
 
-new Astra_Liferlms_Section_Configs;
+new Astra_Liferlms_Section_Configs();

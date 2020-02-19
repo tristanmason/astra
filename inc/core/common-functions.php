@@ -77,7 +77,7 @@ if ( ! function_exists( 'astra_css' ) ) {
 				$css .= '	' . $css_property . ': ' . $value . ';';
 				$css .= '}';
 
-				echo $css;
+				echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -766,7 +766,7 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
-				echo $before . $title . $after; // WPCS: XSS OK.
+				echo $before . $title . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				return $before . $title . $after;
 			}
@@ -809,7 +809,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title;
+			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $title;
 		}
@@ -867,7 +867,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title;
+			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $title;
 		}
@@ -914,7 +914,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -928,7 +928,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -944,7 +944,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+					<h1 class="page-title ast-archive-title"> <?php echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> </h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
 				</section>
 
@@ -958,7 +958,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -969,7 +969,6 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 
 	add_action( 'astra_archive_header', 'astra_archive_page_info' );
 }
-
 
 /**
  * Adjust the HEX color brightness
@@ -1156,7 +1155,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		}
 
 		if ( $echo ) {
-			echo $result;
+			echo $result; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $result;
 		}
@@ -1280,4 +1279,40 @@ endif;
  */
 function astra_get_fonts_display_property() {
 	return apply_filters( 'astra_fonts_display_property', 'fallback' );
+}
+
+/**
+ * Return Theme options from database.
+ *
+ * @param  string $option       Option key.
+ * @param  string $default      Option default value.
+ * @param  string $deprecated   Option default value.
+ * @return Mixed               Return option value.
+ */
+function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
+
+	if ( '' != $deprecated ) {
+		$default = $deprecated;
+	}
+
+	$theme_options = Astra_Theme_Options::get_db_options();
+
+	/**
+	 * Filter the options array for Astra Settings.
+	 *
+	 * @since  1.0.20
+	 * @var Array
+	 */
+	$theme_options = apply_filters( 'astra_get_db_option_array', $theme_options, $option, $default );
+
+	$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
+
+	/**
+	 * Dynamic filter astra_get_option_$option.
+	 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+	 *
+	 * @since  1.0.20
+	 * @var Mixed.
+	 */
+	return apply_filters( "astra_get_db_option_{$option}", $value, $option, $default );
 }

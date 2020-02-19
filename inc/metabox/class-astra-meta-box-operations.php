@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		/**
 		 * Metabox Hooks
 		 */
-		function meta_hooks() {
+		public function meta_hooks() {
 
 			if ( is_singular() ) {
 				add_action( 'wp_head', array( $this, 'primary_header' ) );
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		/**
 		 * Primary Header
 		 */
-		function primary_header() {
+		public function primary_header() {
 
 			$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
 
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		 * @param  boolean $defaults Show default post title.
 		 * @return boolean           Status of default post title.
 		 */
-		function post_title( $defaults ) {
+		public function post_title( $defaults ) {
 
 			$title = get_post_meta( get_the_ID(), 'site-post-title', true );
 			if ( 'disabled' == $title ) {
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		 * @param  array $classes Body Classes Array.
 		 * @return array
 		 */
-		function body_class( $classes ) {
+		public function body_class( $classes ) {
 
 			$title = get_post_meta( get_the_ID(), 'site-post-title', true );
 

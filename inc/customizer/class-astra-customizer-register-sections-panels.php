@@ -384,4 +384,4 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Register_Sections_Panels;
+new Astra_Customizer_Register_Sections_Panels();

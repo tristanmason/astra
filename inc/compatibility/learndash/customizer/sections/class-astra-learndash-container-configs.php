@@ -72,4 +72,4 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_Container_Configs;
+new Astra_Learndash_Container_Configs();

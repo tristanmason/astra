@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 }
 
 
-new Astra_Sidebar_Layout_Configs;
+new Astra_Sidebar_Layout_Configs();
 
 
 

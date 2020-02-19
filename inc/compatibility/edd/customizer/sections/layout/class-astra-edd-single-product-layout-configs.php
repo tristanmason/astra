@@ -52,4 +52,4 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 	}
 }
 
-new Astra_Edd_Single_Product_Layout_Configs;
+new Astra_Edd_Single_Product_Layout_Configs();

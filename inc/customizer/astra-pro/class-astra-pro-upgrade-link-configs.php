@@ -43,5 +43,5 @@ if ( ! class_exists( 'Astra_Pro_Upgrade_Link_Configs' ) ) {
 	}
 }
 
-new Astra_Pro_Upgrade_Link_Configs;
+new Astra_Pro_Upgrade_Link_Configs();
 

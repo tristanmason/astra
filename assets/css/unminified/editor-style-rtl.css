@@ -276,6 +276,8 @@ input[type="search"] {
 #comments .submit {
   padding: 10px 15px;
   border-radius: 2px;
+  line-height: 1.85714285714286;
+  border: 0;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -2029,7 +2031,9 @@ body,
 button,
 input[type="button"],
 input[type="submit"],
-textarea {
+textarea,
+.ast-button,
+.ast-custom-button {
   line-height: 1.85714285714286;
 }
 

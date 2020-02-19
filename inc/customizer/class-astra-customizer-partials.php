@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_partial_site_tagline() {
+		public function render_partial_site_tagline() {
 
 			$site_tagline = astra_get_option( 'display-site-tagline' );
 
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_partial_site_title() {
+		public function render_partial_site_title() {
 
 			$site_title = astra_get_option( 'display-site-title' );
 
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_header_main_rt_section_html() {
+		public function render_header_main_rt_section_html() {
 
 			$right_section_html = astra_get_option( 'header-main-rt-section-html' );
 
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_header_main_rt_section_button_text() {
+		public function render_header_main_rt_section_button_text() {
 			$custom_button_text = astra_get_option( 'header-main-rt-section-button-text' );
 
 			return do_shortcode( $custom_button_text );
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_header_site_title_tagline() {
+		public function render_header_site_title_tagline() {
 			$display_site_title   = astra_get_option( 'display-site-title' );
 			$display_site_tagline = astra_get_option( 'display-site-tagline' );
 
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_footer_sml_section_1_credit() {
+		public function render_footer_sml_section_1_credit() {
 
 			$output = astra_get_small_footer_custom_text( 'footer-sml-section-1-credit' );
 			return do_shortcode( $output );
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function render_footer_sml_section_2_credit() {
+		public function render_footer_sml_section_2_credit() {
 
 			$output = astra_get_small_footer_custom_text( 'footer-sml-section-2-credit' );
 			return do_shortcode( $output );

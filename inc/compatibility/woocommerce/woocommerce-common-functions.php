@@ -30,7 +30,7 @@ if ( ! function_exists( 'astra_woo_shop_products_title' ) ) :
 	function astra_woo_shop_products_title() {
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
 
-		echo '<h2 class="woocommerce-loop-product__title">' . get_the_title() . '</h2>';
+		echo '<h2 class="woocommerce-loop-product__title">' . esc_html( get_the_title() ) . '</h2>';
 
 		echo '</a>';
 	}
@@ -55,10 +55,10 @@ if ( ! function_exists( 'astra_woo_shop_parent_category' ) ) :
 				global $product;
 				$product_categories = function_exists( 'wc_get_product_category_list' ) ? wc_get_product_category_list( get_the_ID(), ';', '', '' ) : $product->get_categories( ';', '', '' );
 
-				$product_categories = htmlspecialchars_decode( strip_tags( $product_categories ) );
+				$product_categories = htmlspecialchars_decode( wp_strip_all_tags( $product_categories ) );
 				if ( $product_categories ) {
 					list( $parent_cat ) = explode( ';', $product_categories );
-					echo apply_filters( 'astra_woo_shop_product_categories', esc_html( $parent_cat ), get_the_ID() );
+					echo apply_filters( 'astra_woo_shop_product_categories', esc_html( $parent_cat ), get_the_ID() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 
 				?>

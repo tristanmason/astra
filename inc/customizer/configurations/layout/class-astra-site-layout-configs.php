@@ -59,4 +59,4 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Site_Layout_Configs;
+new Astra_Site_Layout_Configs();

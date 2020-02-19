@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 *
 		 * @since 1.2.0
 		 */
-		function lifterlms_init() {
+		public function lifterlms_init() {
 
 			// Page Title.
 			if ( is_courses() ) {
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @since 1.2.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Register Sections & Panels
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
-		function theme_defaults( $defaults ) {
+		public function theme_defaults( $defaults ) {
 
 			// General.
 			$defaults['llms-course-grid']     = array(
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( get_post_meta( get_the_ID(), '_llms_display_reviews', true ) ) {
 				?>
 				<div id="old_reviews">
-				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); ?></h3>
+				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 				<?php
 				$args        = array(
 					'posts_per_page'   => get_post_meta( get_the_ID(), '_llms_num_reviews', true ),
@@ -236,14 +236,14 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				}
 
 				foreach ( $posts_array as $post ) {
-					echo $styles['custom-css'];
+					echo $styles['custom-css']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 					?>
 					<div class="llms_review" style="background-color:<?php echo esc_attr( $styles['background-color'] ); ?>;">
 						<h5 style="color:<?php echo esc_attr( $styles['title-color'] ); ?>;"><strong><?php echo esc_html( get_the_title( $post->ID ) ); ?></strong></h5>
 						<?php /* translators: 1 Author Name. */ ?>
-						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h6>
-						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo get_post_field( 'post_content', $post->ID ); ?></p>
+						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo esc_html( sprintf( __( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ) ); ?></h6>
+						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo get_post_field( 'post_content', $post->ID ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					</div>
 					<?php
 				}
@@ -279,26 +279,26 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				if ( get_post_meta( get_the_ID(), '_llms_multiple_reviews_disabled', true ) && $posts_array ) {
 					?>
 					<div id="thank_you_box">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					</div>
 					<?php
 				} else {
 					?>
 					<div class="review_box" id="review_box">
-					<h3><?php _e( 'Write a Review', 'astra' ); ?></h3>
+					<h3><?php esc_html_e( 'Write a Review', 'astra' ); ?></h3>
 					<!--<form method="post" name="review_form" id="review_form">-->
-						<input type="text" name="review_title" placeholder="<?php _e( 'Review Title', 'astra' ); ?>" id="review_title">
-						<h5 style="color:red; display:none" id="review_title_error"><?php _e( 'Review Title is required.', 'astra' ); ?></h5>
-						<textarea name="review_text" placeholder="<?php _e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
-						<h5 style="color:red; display:none" id="review_text_error"><?php _e( 'Review Text is required.', 'astra' ); ?></h5>
+						<input type="text" name="review_title" placeholder="<?php esc_attr_e( 'Review Title', 'astra' ); ?>" id="review_title">
+						<h5 style="color:red; display:none" id="review_title_error"><?php esc_html_e( 'Review Title is required.', 'astra' ); ?></h5>
+						<textarea name="review_text" placeholder="<?php esc_attr_e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
+						<h5 style="color:red; display:none" id="review_text_error"><?php esc_html_e( 'Review Text is required.', 'astra' ); ?></h5>
 						<?php wp_nonce_field( 'submit_review', 'submit_review_nonce_code' ); ?>
 						<input name="action" value="submit_review" type="hidden">
 						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
-						<input type="submit" class="button" value="<?php _e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
+						<input type="submit" class="button" value="<?php esc_attr_e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
 					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					</div>
 					<?php
 				}
@@ -312,7 +312,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param  number $grid Number of grid for course.
 		 * @return number
 		 */
-		function course_grid( $grid ) {
+		public function course_grid( $grid ) {
 
 			$course_grid = astra_get_option( 'llms-course-grid' );
 			if ( ! empty( $course_grid['desktop'] ) ) {
@@ -328,7 +328,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param  array $classes Classes.
 		 * @return array
 		 */
-		function course_responsive_grid( $classes ) {
+		public function course_responsive_grid( $classes ) {
 
 			$llms_grid = astra_get_option( 'llms-course-grid' );
 			if ( in_array( 'llms-membership-list', $classes ) ) {
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @since 1.2.0
 		 * @return void
 		 */
-		function add_dynamic_styles() {
+		public function add_dynamic_styles() {
 
 			/**
 			 * - Variable Declaration
@@ -474,7 +474,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @since 1.2.0
 		 * @return void
 		 */
-		function before_main_content_start() {
+		public function before_main_content_start() {
 			$site_sidebar = astra_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				get_sidebar();
@@ -495,7 +495,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @since 1.2.0
 		 * @return void
 		 */
-		function before_main_content_end() {
+		public function before_main_content_end() {
 			?>
 					</div> <!-- .ast-lifterlms-container -->
 				</main> <!-- #main -->
@@ -519,7 +519,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param    string $id    default sidebar id (an empty string).
 		 * @return   string
 		 */
-		function add_sidebar( $id ) {
+		public function add_sidebar( $id ) {
 			$sidebar_id = 'sidebar-1'; // replace this with theme's sidebar ID.
 			return $sidebar_id;
 		}
@@ -530,7 +530,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @since 1.2.0
 		 * @return   void
 		 */
-		function add_theme_support() {
+		public function add_theme_support() {
 			add_theme_support( 'lifterlms' );
 			add_theme_support( 'lifterlms-quizzes' );
 			add_theme_support( 'lifterlms-sidebars' );
@@ -543,7 +543,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			$assets['css']['astra-lifterlms'] = 'compatibility/lifterlms';
 			return $assets;
 		}
@@ -555,7 +555,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
-		function sidebar_layout( $layout ) {
+		public function sidebar_layout( $layout ) {
 
 			if ( ( is_lifterlms() ) || is_llms_account_page() || is_llms_checkout() ) {
 
@@ -596,7 +596,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
-		function content_layout( $layout ) {
+		public function content_layout( $layout ) {
 
 			if ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) {
 
@@ -634,7 +634,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @param string $default_fields Default custom field definitions.
 		 * @return string $default_fields Updated custom field definitions.
 		 */
-		function register_builder_fields( $default_fields ) {
+		public function register_builder_fields( $default_fields ) {
 			$disable_fields   = array();
 			$show_meta_field  = ! Astra_Meta_Boxes::is_bb_themer_layout();
 			$disable_fields[] = array(

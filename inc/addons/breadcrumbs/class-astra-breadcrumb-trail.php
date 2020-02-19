@@ -67,9 +67,17 @@ function astra_get_breadcrumb( $echo = true ) {
 function astra_get_selected_breadcrumb( $echo = true ) {
 
 	$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
-	$wpseo_option      = get_option( 'wpseo_internallinks' );
 
-	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
+	$breadcrumb_enable = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
+	$wpseo_option      = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
+	if ( ! is_array( $wpseo_option ) ) {
+		unset( $wpseo_option );
+		$wpseo_option = array(
+			'breadcrumbs-enable' => $breadcrumb_enable 
+		);
+	}
+
+	if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 		// Check if breadcrumb is turned on from WPSEO option.
 		return yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>', $echo );
 	} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {

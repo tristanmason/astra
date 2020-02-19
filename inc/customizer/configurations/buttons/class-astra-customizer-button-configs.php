@@ -640,4 +640,4 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Button_Configs;
+new Astra_Customizer_Button_Configs();

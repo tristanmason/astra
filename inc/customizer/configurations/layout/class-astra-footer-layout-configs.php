@@ -382,7 +382,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 }
 
 
-new Astra_Footer_Layout_Configs;
+new Astra_Footer_Layout_Configs();
 
 
 

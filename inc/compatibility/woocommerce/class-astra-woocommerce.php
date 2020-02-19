@@ -128,7 +128,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  int    $count  Total number of ratings.
 		 * @return string
 		 */
-		function rating_markup( $html, $rating, $count ) {
+		public function rating_markup( $html, $rating, $count ) {
 
 			if ( 0 == $rating ) {
 				$html  = '<div class="star-rating">';
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return void
 		 */
-		function cart_page_upselles() {
+		public function cart_page_upselles() {
 
 			$upselles_enabled = astra_get_option( 'enable-cart-upsells' );
 			if ( ! $upselles_enabled ) {
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return array
 		 */
-		function woo_filter_style( $styles ) {
+		public function woo_filter_style( $styles ) {
 
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
@@ -205,11 +205,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  object $category Object of Category.
 		 * @return mixed
 		 */
-		function subcategory_count_markup( $content, $category ) {
+		public function subcategory_count_markup( $content, $category ) {
 
 			$content = sprintf( // WPCS: XSS OK.
 					/* translators: 1: number of products */
-					_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'astra' ),
+				_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'astra' ),
 				number_format_i18n( $category->count )
 			);
 
@@ -219,7 +219,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Product Flip Image
 		 */
-		function product_flip_image() {
+		public function product_flip_image() {
 
 			global $product;
 
@@ -233,7 +233,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
 
-					echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
+					echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			}
 		}
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
-		function theme_defaults( $defaults ) {
+		public function theme_defaults( $defaults ) {
 
 			// Container.
 			$defaults['woocommerce-content-layout'] = 'plain-container';
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  int $col Shop Column.
 		 * @return int
 		 */
-		function shop_columns( $col ) {
+		public function shop_columns( $col ) {
 
 			$col = astra_get_option( 'shop-grids' );
 			return $col['desktop'];
@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param integer $category_id Current page Category ID.
 		 * @return boolean
 		 */
-		function astra_woo_is_subcategory( $category_id = null ) {
+		public function astra_woo_is_subcategory( $category_id = null ) {
 			if ( is_tax( 'product_cat' ) ) {
 				if ( empty( $category_id ) ) {
 					$category_id = get_queried_object_id();
@@ -319,7 +319,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return int
 		 */
-		function shop_no_of_products() {
+		public function shop_no_of_products() {
 			$taxonomy_page_display = get_option( 'woocommerce_category_archive_display', false );
 			if ( is_product_taxonomy() && 'subcategories' === $taxonomy_page_display ) {
 				if ( $this->astra_woo_is_subcategory() ) {
@@ -340,7 +340,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return array.
 		 */
-		function shop_page_products_item_class( $classes = '' ) {
+		public function shop_page_products_item_class( $classes = '' ) {
 
 			if ( is_shop() || is_product_taxonomy() ) {
 				$shop_grid = astra_get_option( 'shop-grids' );
@@ -367,7 +367,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return array.
 		 */
-		function single_product_class( $classes ) {
+		public function single_product_class( $classes ) {
 
 			if ( is_product() && 0 == get_post_meta( get_the_ID(), '_wc_review_count', true ) ) {
 				$classes[] = 'ast-woo-product-no-review';
@@ -390,7 +390,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  array $args Related products array.
 		 * @return array
 		 */
-		function related_products_args( $args ) {
+		public function related_products_args( $args ) {
 
 			$col                    = astra_get_option( 'shop-grids' );
 			$args['posts_per_page'] = $col['desktop'];
@@ -402,7 +402,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.0.3
 		 */
-		function setup_theme() {
+		public function setup_theme() {
 
 			// WooCommerce.
 			add_theme_support( 'wc-product-gallery-zoom' );
@@ -413,7 +413,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Store widgets init.
 		 */
-		function store_widgets_init() {
+		public function store_widgets_init() {
 			register_sidebar(
 				apply_filters(
 					'astra_woocommerce_shop_sidebar_init',
@@ -451,7 +451,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return String $sidebar Sidebar.
 		 */
-		function replace_store_sidebar( $sidebar ) {
+		public function replace_store_sidebar( $sidebar ) {
 
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
 				$sidebar = 'astra-woo-shop-sidebar';
@@ -469,7 +469,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return String $sidebar_layout Layout type.
 		 */
-		function store_sidebar_layout( $sidebar_layout ) {
+		public function store_sidebar_layout( $sidebar_layout ) {
 
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
 
@@ -503,7 +503,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return String $layout Layout type.
 		 */
-		function store_content_layout( $layout ) {
+		public function store_content_layout( $layout ) {
 
 			if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
 
@@ -536,7 +536,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return void
 		 */
-		function shop_meta_option() {
+		public function shop_meta_option() {
 
 			// Page Title.
 			if ( is_shop() ) {
@@ -566,7 +566,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return void
 		 */
-		function shop_customization() {
+		public function shop_customization() {
 
 			if ( ! apply_filters( 'astra_woo_shop_product_structure_override', false ) ) {
 
@@ -596,7 +596,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return void
 		 */
-		function woocommerce_checkout() {
+		public function woocommerce_checkout() {
 
 			if ( is_admin() ) {
 				return;
@@ -619,7 +619,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @return void
 		 */
-		function single_product_customization() {
+		public function single_product_customization() {
 
 			if ( ! is_product() ) {
 				return;
@@ -638,7 +638,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Remove Woo-Commerce Default actions
 		 */
-		function woocommerce_init() {
+		public function woocommerce_init() {
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
@@ -651,7 +651,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Add start of wrapper
 		 */
-		function before_main_content_start() {
+		public function before_main_content_start() {
 			$site_sidebar = astra_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				get_sidebar();
@@ -669,7 +669,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Add end of wrapper
 		 */
-		function before_main_content_end() {
+		public function before_main_content_end() {
 			?>
 					</div> <!-- .ast-woocommerce-container -->
 				</main> <!-- #main -->
@@ -689,7 +689,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.0.31
 		 */
-		function add_styles() {
+		public function add_styles() {
 
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
@@ -963,7 +963,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Register Sections & Panels
@@ -991,7 +991,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
-		function astra_header_cart( $output, $section, $section_type ) {
+		public function astra_header_cart( $output, $section, $section_type ) {
 
 			if ( 'woocommerce' === $section_type && apply_filters( 'astra_woo_header_cart_icon', true ) ) {
 
@@ -1007,7 +1007,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 1.2.2
 		 * @return html
 		 */
-		function woo_mini_cart_markup() {
+		public function woo_mini_cart_markup() {
 
 			if ( is_cart() ) {
 				$class = 'current-menu-item';
@@ -1039,7 +1039,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return Array header options array.
 		 * @since 1.0.0
 		 */
-		function header_section_elements( $options ) {
+		public function header_section_elements( $options ) {
 
 			$options['woocommerce'] = 'WooCommerce';
 
@@ -1053,7 +1053,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return void
 		 * @since  1.0.0
 		 */
-		function astra_get_cart_link() {
+		public function astra_get_cart_link() {
 
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 			?>
@@ -1068,7 +1068,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								<span class="count"> 
 									<?php
 									if ( apply_filters( 'astra_woo_header_cart_total', true ) && null != WC()->cart ) {
-										echo WC()->cart->get_cart_contents_count();
+										echo WC()->cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									}
 									?>
 								</span>
@@ -1090,7 +1090,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  array $fragments Fragments to refresh via AJAX.
 		 * @return array            Fragments to refresh via AJAX
 		 */
-		function cart_link_fragment( $fragments ) {
+		public function cart_link_fragment( $fragments ) {
 
 			ob_start();
 			$this->astra_get_cart_link();

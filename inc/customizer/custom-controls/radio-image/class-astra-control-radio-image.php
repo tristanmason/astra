@@ -42,8 +42,8 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		if ( '' === Astra_Control_Radio_Image::$higlight_color ) {
-			Astra_Control_Radio_Image::astra_set_highlight_color();
+		if ( '' === self::$higlight_color ) {
+			self::astra_set_highlight_color();
 			// Print radio image customizer css.
 			add_action( 'customize_controls_print_styles', array( $this, 'astra_add_radio_img_svg_css' ) );
 		}
@@ -57,7 +57,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 */
 	public static function astra_add_radio_img_svg_css() {
 		?>
-		<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important; stroke: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important }</style>
+		<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo self::$higlight_color; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> !important; stroke: <?php echo self::$higlight_color; ?> !important }</style> 
 		<?php
 	}
 
@@ -75,7 +75,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		if ( empty( $current_color ) || ! isset( $_wp_admin_css_colors[ $current_color ] ) ) {
 			$current_color = 'fresh';
 		}
-		Astra_Control_Radio_Image::$higlight_color = $_wp_admin_css_colors[ $current_color ]->colors[2];
+		self::$higlight_color = $_wp_admin_css_colors[ $current_color ]->colors[2];
 	}
 
 	/**

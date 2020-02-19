@@ -4818,3 +4818,10 @@ button.pswp__button--zoom:hover {
   right: auto;
   margin: -0.5em 0 0 -0.5em;
 }
+
+/**
+ * Product categories - Sub Category CSS.
+ */
+.widget_product_categories .children {
+  padding-right: 20px;
+}
