@@ -633,7 +633,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-right' => 0,
 				),
 				'.ast-right-sidebar #secondary'         => array(
-					'padding-left' => 0,
+					'padding-left' => '1em',
 				),
 				'.ast-left-sidebar #primary'            => array(
 					'padding-left' => 0,
@@ -649,6 +649,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'display'        => 'flex',
 					'flex-direction' => 'column-reverse',
 					'width'          => '100%',
+				),
+				'.ast-author-box img.avatar'            => array(
+					'margin' => '20px 0 0 0',
+				),
+				'.ast-pagination'                       => array(
+					'padding-top' => '1.5em',
+					'text-align'  => 'center',
+				),
+				'.ast-pagination .next.page-numbers'    => array(
+					'display' => 'inherit',
+					'float'   => 'none',
 				),
 			);
 			/* Parse CSS from array() */
@@ -684,6 +695,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
 					'padding-right' => '30px',
 					'padding-left'  => 0,
+				),
+				'.ast-author-box'               => array(
+					'-js-display' => 'flex',
+					'display'     => 'flex',
+				),
+				'.ast-author-bio'               => array(
+					'flex' => '1',
 				),
 			);
 			/* Parse CSS from array() */
