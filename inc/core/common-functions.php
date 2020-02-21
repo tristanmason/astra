@@ -1322,6 +1322,9 @@ function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
  *
  * @param string $min min.
  * @param string $max max.
+ *
+ * @since x.x.x
+ *
  * @return number $breakpoint.
  */
 function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
@@ -1347,6 +1350,9 @@ function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
  *
  * @param string $min min.
  * @param string $max max.
+ *
+ * @since x.x.x
+ *
  * @return number header_breakpoint.
  */
 function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
