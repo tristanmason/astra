@@ -121,7 +121,7 @@ function astra_header_button_new_options() {
 function astra_update_theme_tablet_breakpoint() {
 	$theme_options = get_option( 'astra-settings' );
 
-	if( ! isset( $theme_options['can-update-theme-tablet-breakpoint'] ) ) {
+	if ( ! isset( $theme_options['can-update-theme-tablet-breakpoint'] ) ) {
 		// Set a flag to check if we need to change the theme tablet breakpoint value.
 		$theme_options['can-update-theme-tablet-breakpoint'] = false;
 	}
