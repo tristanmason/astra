@@ -764,9 +764,9 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				 */
 				do_action( 'astra_main_header_custom_menu_item_before' );
 
-				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 					echo '<div class="main-navigation">';
-						echo '<ul id="primary-menu" class="main-header-menu ast-nav-menu">' . astra_masthead_get_menu_items() . '</ul>';
+						echo '<ul id="primary-menu" class="main-header-menu ast-nav-menu">' . astra_masthead_get_menu_items() . '</ul>';  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					echo '</div>';
 				echo '</nav>';
 
