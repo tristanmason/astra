@@ -97,7 +97,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 			}
 		}
 		if ( $echo ) {
-			echo $output;
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $output;
 		}
@@ -167,9 +167,9 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 									printf(
 										'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
-										get_comment_time( 'c' ),
+										esc_attr( get_comment_time( 'c' ) ),
 										/* translators: 1: date, 2: time */
-										sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() )
+										esc_html( sprintf( __( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() ) )
 									);
 								}
 

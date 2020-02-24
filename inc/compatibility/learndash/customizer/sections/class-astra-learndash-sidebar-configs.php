@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Brainstorm Force
- * @copyright   Copyright (c) 2019, Brainstorm Force
+ * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.3.0
  */
@@ -70,4 +70,4 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_Sidebar_Configs;
+new Astra_Learndash_Sidebar_Configs();

@@ -16,7 +16,7 @@ class Astra_Filesystem {
 	 * @since 2.1.0
 	 * @var Astra_Filesystem
 	 */
-	protected static $_instance = null;
+	protected static $instance = null;
 
 	/**
 	 * Get instance of Astra_Filesystem
@@ -25,11 +25,11 @@ class Astra_Filesystem {
 	 * @return Astra_Filesystem
 	 */
 	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
 		}
 
-		return self::$_instance;
+		return self::$instance;
 	}
 
 	/**
@@ -71,7 +71,7 @@ class Astra_Filesystem {
 	 *
 	 * @since 2.1.3
 	 */
-	function request_filesystem_credentials() {
+	public function request_filesystem_credentials() {
 		return true;
 	}
 

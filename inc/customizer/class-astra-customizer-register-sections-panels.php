@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -384,4 +384,4 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Register_Sections_Panels;
+new Astra_Customizer_Register_Sections_Panels();

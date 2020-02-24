@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       1.0.0
  */
@@ -332,7 +332,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		<# } #>
 
 		</label>
-		<select data-inherit="<?php echo $this->ast_inherit; ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
+		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
 		data-value="{{data.value}}" 
 
 		<# if ( data.connect ) { #>

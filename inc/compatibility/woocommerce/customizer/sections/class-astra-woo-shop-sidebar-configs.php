@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Brainstorm Force
- * @copyright   Copyright (c) 2019, Brainstorm Force
+ * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.0
  */
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Woo_Shop_Sidebar_Configs;
+new Astra_Woo_Shop_Sidebar_Configs();
 
 
 

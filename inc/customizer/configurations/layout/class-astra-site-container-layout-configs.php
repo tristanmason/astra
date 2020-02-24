@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 }
 
 
-new Astra_Site_Container_Layout_Configs;
+new Astra_Site_Container_Layout_Configs();
 
 
 

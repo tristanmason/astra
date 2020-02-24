@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -27,11 +27,11 @@ if ( ! class_exists( 'Astra_Fonts_Data' ) ) :
 		/**
 		 * Localize Fonts
 		 */
-		static public function js() {
+		public static function js() {
 
-			$system = json_encode( Astra_Font_Families::get_system_fonts() );
-			$google = json_encode( Astra_Font_Families::get_google_fonts() );
-			$custom = json_encode( Astra_Font_Families::get_custom_fonts() );
+			$system = wp_json_encode( Astra_Font_Families::get_system_fonts() );
+			$google = wp_json_encode( Astra_Font_Families::get_google_fonts() );
+			$custom = wp_json_encode( Astra_Font_Families::get_custom_fonts() );
 			if ( ! empty( $custom ) ) {
 				return 'var AstFontFamilies = { system: ' . $system . ', custom: ' . $custom . ', google: ' . $google . ' };';
 			} else {

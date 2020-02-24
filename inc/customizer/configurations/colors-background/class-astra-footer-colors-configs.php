@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       1.4.3
  */
@@ -99,6 +99,6 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 	}
 }
 
-new Astra_Footer_Colors_Configs;
+new Astra_Footer_Colors_Configs();
 
 

@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.4.3
  */
@@ -640,4 +640,4 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Button_Configs;
+new Astra_Customizer_Button_Configs();
