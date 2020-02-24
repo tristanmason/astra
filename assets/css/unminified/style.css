@@ -3389,7 +3389,7 @@ body {
   line-height: 1.45;
 }
 
-.main-header-bar .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
+.main-header-bar .main-header-bar-navigation .menu-item-has-children > .menu-link .sub-arrow:after {
   content: "\e900";
   display: inline-block;
   font-family: 'Astra';

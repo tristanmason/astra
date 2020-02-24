@@ -937,6 +937,52 @@ function astra_page_menu_link_atts( $atts, $page, $depth, $args, $current_page )
 
 add_filter( 'page_menu_link_attributes', 'astra_page_menu_link_atts', 10, 5 );
 
+/**
+ * Update HTML attributes applied to a menu item's anchor element.
+ *
+ * @since x.x.x
+ *
+ * @param array   $atts {
+ *       The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+ *
+ *     @type string $href         The href attribute.
+ *     @type string $aria_current The aria-current attribute.
+ * }
+ * @param WP_Post $item         Current menu item.
+ * @param int     $args        An object of wp_nav_menu arguments.
+ */
+function astra_menu_anchor_attributes( $atts, $item, $args ) {
+	$atts['class'] = 'menu-link';
+
+	return $atts;
+}
+
+add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_attributes', 10, 3 );
+
+/**
+ * Add wrapper to menu title.
+ *
+ * @since x.x.x
+ *
+ * @param string  $title        Current menu title.
+ * @param WP_Post $item         Current menu item.
+ * @param array   $args         An array of arguments.
+ * @param int     $depth        An object of wp_nav_menu arguments..
+ */
+function astra_nav_menu_title( $title, $item, $args, $depth ) {
+	// Wrap menu text in a span tag.
+	$title_markup = '';
+	if ( is_callable( 'Astra_Ext_Extension::is_active' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) ) {
+		$title_markup .= '';
+	} else {
+		$title_markup .= '<span class="menu-text">' . $title . '</span><span class="sub-arrow"></span>';
+	}
+
+	return $title_markup;
+}
+
+add_filter( 'nav_menu_item_title', 'astra_nav_menu_title', 10, 4 );
+
 
 /**
  * Function to get site Footer

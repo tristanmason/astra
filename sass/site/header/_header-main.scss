@@ -72,7 +72,7 @@
 			line-height: 1.45;
 		}
 
-		.menu-item-has-children > .menu-link:after {
+		.menu-item-has-children > .menu-link .sub-arrow:after {
 			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
