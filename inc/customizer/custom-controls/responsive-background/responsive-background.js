@@ -80,32 +80,38 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 				screen = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
 
+			responsive_input.parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+			responsive_input.attr( 'checked', 'checked' );
 
 			control.saveValue( screen, 'background-size', item_value );
 		});
-
+		
 		// Background-Position.
 		control.container.on( 'change', '.background-position select', function() {
 			var responsive_input = jQuery( this ),
 				screen = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
+
 			control.saveValue( screen, 'background-position', item_value );
 		});
-
+		
 		// Background-Attachment.
 		control.container.on( 'change click', '.background-attachment input', function() {
 			var responsive_input = jQuery( this ),
 				screen = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
 
+			responsive_input.parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+			responsive_input.attr( 'checked', 'checked' );
+
 			control.saveValue( screen, 'background-attachment', item_value );
 		});
-
+		
 		// Background-Image.
 		control.container.on( 'click', '.background-image-upload-button', function( e ) {
 			var responsive_input = jQuery( this ),
-				screen = responsive_input.data( 'id' );
-
+			screen = responsive_input.data( 'id' );
+			
 			var image = wp.media({ multiple: false }).open().on( 'select', function() {
 
 				// This will return the selected image from the Media Uploader, the result is an object.
