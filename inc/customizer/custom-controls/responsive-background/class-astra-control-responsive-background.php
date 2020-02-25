@@ -81,11 +81,16 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 		 * @access public
 		 */
 		public function enqueue() {
-			$css_uri = ASTRA_EXT_URI . 'classes/customizer/controls/responsive-background/';
-			$js_uri  = ASTRA_EXT_URI . 'classes/customizer/controls/responsive-background/';
-
-			wp_enqueue_script( 'responsive-background', $js_uri . 'responsive-background.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
-			wp_enqueue_style( 'responsive-background', $css_uri . 'responsive-background.css', null, ASTRA_THEME_VERSION );
+			
+			wp_localize_script(
+				'custom-control-script',
+				'astraCustomizerControlBackground',
+				array(
+					'placeholder'  => __( 'No file selected', 'astra' ),
+					'lessSettings' => __( 'Less Settings', 'astra' ),
+					'moreSettings' => __( 'More Settings', 'astra' ),
+				)
+			);
 		}
 
 		/**

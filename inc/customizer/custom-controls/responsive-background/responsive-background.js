@@ -191,15 +191,15 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-size' ).toggle();
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-attachment' ).toggle();
 
-			if( 'down' === $(this).attr( 'data-direction' ) )
+			if( 'down' === jQuery(this).attr( 'data-direction' ) )
 			{
-				$(this).attr('data-direction', 'up');
-				$(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
-				$(this).find('.icon').html( '↑' );
+				jQuery(this).attr('data-direction', 'up');
+				jQuery(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+				jQuery(this).find('.icon').html( '↑' );
 			} else {
-				$(this).attr('data-direction', 'down');
-				$(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
-				$(this).find('.icon').html( '↓' );
+				jQuery(this).attr('data-direction', 'down');
+				jQuery(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+				jQuery(this).find('.icon').html( '↓' );
 			}
 		});
 	},
