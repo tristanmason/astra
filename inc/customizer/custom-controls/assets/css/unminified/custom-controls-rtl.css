@@ -670,10 +670,6 @@ input[type="text"].select2-search__field {
   position: relative;
 }
 
-.customize-control-ast-responsive-background .wp-picker-clear {
-  margin-right: 2%;
-}
-
 .customize-control-ast-responsive-background .screen-reader-text {
   top: initial;
 }
@@ -1912,10 +1908,6 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background {
   position: relative;
-}
-
-.customize-control-ast-responsive-background .wp-picker-clear {
-  margin-right: 2%;
 }
 
 .customize-control-ast-responsive-background .screen-reader-text {
