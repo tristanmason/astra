@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 		 * @access public
 		 */
 		public function enqueue() {
-			
+
 			wp_localize_script(
 				'custom-control-script',
 				'astraCustomizerControlBackground',
