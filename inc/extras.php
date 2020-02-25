@@ -973,7 +973,7 @@ function astra_nav_menu_title( $title, $item, $args, $depth ) {
 	// Wrap menu text in a span tag.
 	$title_markup = '';
 	if ( is_callable( 'Astra_Ext_Extension::is_active' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) ) {
-		$title_markup .= '';
+		$title_markup .= $title;
 	} else {
 		$title_markup .= '<span class="menu-text">' . $title . '</span><span class="sub-arrow"></span>';
 	}
