@@ -431,7 +431,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu' => array(
 					'display' => 'none',
 				),
-				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children .dropdown-open+.sub-menu' => array(
+				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children .dropdown-open+ul.sub-menu' => array(
 					'display' => 'block',
 				),
 				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
