@@ -354,7 +354,7 @@ li.ast-masthead-custom-menu-items {
 
 	.main-header-bar-navigation {
 
-		.menu-item-has-children > .menu-link:after {
+		.menu-item-has-children > .menu-link .sub-arrow:after {
 			display: none;
 		}
 	}
