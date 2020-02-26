@@ -268,7 +268,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-navigation'                => array(
 					'padding-left' => '0',
 				),
-				'.ast-amp .main-navigation .sub-menu .menu-item .menu-link, .ast-amp .main-navigation .sub-menu .button-custom-menu-item a' => array(
+				'.ast-amp .main-navigation ul .menu-item .menu-link, .ast-amp .main-navigation ul .button-custom-menu-item a' => array(
 					'padding'             => '0 20px',
 					'display'             => 'inline-block',
 					'width'               => '100%',
@@ -276,10 +276,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'border-style'        => 'solid',
 					'border-color'        => '#eaeaea',
 				),
-				'.ast-amp .main-navigation .sub-menu.sub-menu .menu-item .menu-link' => array(
+				'.ast-amp .main-navigation .sub-menu .menu-item .menu-link' => array(
 					'padding-left' => '30px',
 				),
-				'.ast-amp .main-navigation .sub-menu.sub-menu .menu-item .menu-link:before' => array(
+				'.ast-amp .main-navigation .sub-menu .menu-item .menu-link:before' => array(
 					'content'         => '""',
 					'font-family'     => '"Astra"',
 					'font-size'       => '0.65em',
@@ -288,11 +288,11 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'transform'       => 'translate(0, -2px) rotateZ(270deg)',
 					'margin-right'    => '5px',
 				),
-				'.ast-amp .main-navigation .sub-menu.sub-menu .menu-item .menu-item .menu-link' => array(
+				'.ast-amp .main-navigation .sub-menu .menu-item .menu-item .menu-link' => array(
 					'padding-left' => '40px',
 				),
-				'.ast-amp .main-navigation .sub-menu.sub-menu .menu-item .menu-item .menu-item .menu-link' => array(),
-				'.ast-amp .main-navigation .sub-menu.sub-menu .menu-item .menu-item .menu-item .menu-item .menu-link' => array(
+				'.ast-amp .main-navigation .sub-menu .menu-item .menu-item .menu-item .menu-link' => array(),
+				'.ast-amp .main-navigation .sub-menu .menu-item .menu-item .menu-item .menu-item .menu-link' => array(
 					'padding-left' => '60px',
 				),
 				'.ast-amp .ast-header-custom-item'         => array(
