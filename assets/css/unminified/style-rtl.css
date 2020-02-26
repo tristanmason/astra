@@ -2597,7 +2597,7 @@ body {
   word-wrap: break-word;
 }
 
-.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link:after {
+.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link .sub-arrow:after {
   position: absolute;
   left: 1em;
   top: 50%;
@@ -2631,7 +2631,7 @@ body {
   padding-right: 0;
 }
 
-.ast-header-break-point .main-navigation .sub-menu .menu-item .menu-link {
+.ast-header-break-point .main-navigation ul .menu-item .menu-link {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
@@ -2640,13 +2640,27 @@ body {
   border-color: #eaeaea;
 }
 
-.ast-header-break-point .main-navigation .sub-menu .button-custom-menu-item .menu-link {
+.ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-link {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
   border-bottom-width: 1px;
   border-style: solid;
   border-color: #eaeaea;
+}
+
+.ast-header-break-point .main-navigation ul.sub-menu .menu-item .menu-link:before {
+  content: "\e900";
+  font-family: 'Astra';
+  font-size: .65em;
+  text-decoration: inherit;
+  display: inline-block;
+  transform: translate(0, -2px) rotateZ(-270deg);
+  margin-left: 5px;
+}
+
+.ast-header-break-point .main-navigation .sub-menu .menu-item .menu-link {
+  padding-right: 30px;
 }
 
 .ast-header-break-point .main-navigation .sub-menu .menu-item .menu-item .menu-link {
@@ -3645,7 +3659,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
+.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link .sub-arrow:after {
   display: none;
 }
 
