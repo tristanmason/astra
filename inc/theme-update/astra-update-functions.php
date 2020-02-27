@@ -122,7 +122,7 @@ function astra_header_button_new_options() {
  */
 function astra_responsive_base_background_option() {
 
-	$theme_options = get_option( 'astra-settings', array() );
+	$theme_options = astra_get_db_option( 'astra-settings', array() );
 
 	if ( false === astra_get_db_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
 
