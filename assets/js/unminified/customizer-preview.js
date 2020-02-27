@@ -500,10 +500,12 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 
 			addon = ( addon ) ? addon : 'header';
 
+			control = control.replace( '[', '-' );
+			control = control.replace( ']', '' );
+
 			if( '' === bg_obj[device] || undefined === bg_obj[device] ){
 				return;
 			}
-			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
 		
 			var gen_bg_css 	= '';
 			var bg_img		= bg_obj[device]['background-image'];
@@ -513,10 +515,8 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			var tablet_css  = ( bg_obj['tablet']['background-image'] ) ? true : false;
 			var desktop_css = ( bg_obj['desktop']['background-image'] ) ? true : false;
 
-			if ( '' !== bg_img && '' !== bg_color ) {
-				if ( undefined !== bg_color ) {
-					gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
-				}
+			if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color ) {
+				gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
 			} else if ( '' !== bg_img ) {
 				gen_bg_css = 'background-image: url(' + bg_img + ');';
 			} else if ( '' !== bg_color ) {
@@ -555,6 +555,11 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 				gen_bg_css += 'background-size: ' + bg_obj[device]['background-size'] + ';';
 				gen_bg_css += 'background-attachment: ' + bg_obj[device]['background-attachment'] + ';';
 			}
+
+			// Remove old.
+			console.log( 'style#' + control + '-' + device + '-' + addon )
+			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
+
 			
 			if ( 'desktop' == device ) {	
 				var dynamicStyle = '<style id="' + control + '-' + device + '-' + addon + '">'
