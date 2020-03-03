@@ -124,6 +124,12 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 				'mobile'  => '',
 			);
 
+			$defaults['transparent-menu-a-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
 			$defaults['transparent-submenu-bg-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',

@@ -153,6 +153,21 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'rgba'       => true,
 				),
 
+				array(
+					'name'       => 'transparent-menu-a-color-responsive',
+					'default'    => $defaults['transparent-menu-a-color-responsive'],
+					'type'       => 'sub-control',
+					'priority'   => 3,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
+					'section'    => 'section-transparent-header',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Active', 'astra' ),
+					'title'      => __( 'Link Active', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+				),
+
 				/**
 				 * Option: Sub menu text color.
 				 */
