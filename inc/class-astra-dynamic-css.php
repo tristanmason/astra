@@ -608,9 +608,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding' => '1.5em 0',
 				),
 				'.ast-separate-container.ast-right-sidebar #secondary' => array(
-					'padding-left' => '1em',
-				),
-				'.ast-separate-container.ast-right-sidebar #secondary' => array(
+					'padding-left'  => '1em',
 					'padding-right' => '1em',
 				),
 				'.ast-separate-container.ast-two-container #secondary' => array(
