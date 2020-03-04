@@ -665,7 +665,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '1.5em',
 				),
 			);
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> max-width: (breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
 
 			$static_layout_css_min = array(
@@ -710,7 +710,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '4em',
 				),
 			);
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> min-width: (breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
