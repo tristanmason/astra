@@ -5279,12 +5279,7 @@ input[type="color"]::-webkit-color-swatch {
 .ast-pagination {
   display: inline-block;
   width: 100%;
-}
-
-@media (max-width: 768px) {
-  .ast-pagination {
-    padding-top: 1.5em;
-  }
+  padding-top: 2em;
 }
 
 @media (min-width: 993px) {

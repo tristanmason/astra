@@ -18,9 +18,7 @@
 .ast-pagination {
     display: inline-block;
     width: 100%;
-    @media(max-width: $mx-col-md) {
-        padding-top: 1.5em;
-    }
+    padding-top: 2em;
     @media(min-width: $col-lg) {
         padding-left: 3.33333em;
         padding-right: 3.33333em;
