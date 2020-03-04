@@ -633,7 +633,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-right' => 0,
 				),
 				'.ast-right-sidebar #secondary'         => array(
-					'padding-left' => '0',
+					'padding-left' => 0,
 				),
 				'.ast-left-sidebar #primary'            => array(
 					'padding-left' => 0,
