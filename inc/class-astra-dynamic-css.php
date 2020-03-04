@@ -608,9 +608,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding' => '1.5em 0',
 				),
 				'.ast-separate-container.ast-right-sidebar #secondary' => array(
-					'padding-left' => '1em',
-				),
-				'.ast-separate-container.ast-right-sidebar #secondary' => array(
+					'padding-left'  => '1em',
 					'padding-right' => '1em',
 				),
 				'.ast-separate-container.ast-two-container #secondary' => array(
@@ -650,8 +648,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'flex-direction' => 'column-reverse',
 					'width'          => '100%',
 				),
+				'.ast-author-box img.avatar'            => array(
+					'margin' => '20px 0 0 0',
+				),
+				'.ast-pagination'                       => array(
+					'padding-top' => '1.5em',
+					'text-align'  => 'center',
+				),
+				'.ast-pagination .next.page-numbers'    => array(
+					'display' => 'inherit',
+					'float'   => 'none',
+				),
+				'.ast-separate-container.ast-two-container #secondary .widget, .ast-separate-container #secondary .widget' => array(
+					'margin-bottom' => '1.5em',
+				),
 			);
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> max-width: (breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
 
 			$static_layout_css_min = array(
@@ -685,8 +697,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-right' => '30px',
 					'padding-left'  => 0,
 				),
+				'.ast-author-box'               => array(
+					'-js-display' => 'flex',
+					'display'     => 'flex',
+				),
+				'.ast-author-bio'               => array(
+					'flex' => '1',
+				),
+				'.error404.ast-separate-container #primary, .search-no-results.ast-separate-container #primary' => array(
+					'margin-bottom' => '4em',
+				),
 			);
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> min-width: (breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
