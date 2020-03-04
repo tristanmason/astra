@@ -2602,20 +2602,6 @@ p.demo_store,
 		}
 	}
 
-	@media (min-width: $col-md) {
-	
-		#content .ast-woocommerce-container div.product div.images,
-		.ast-woocommerce-container div.product div.images {
-		    width: 50%;
-		}
-
-		#content .ast-woocommerce-container div.product div.summary,
-		.ast-woocommerce-container div.product div.summary {
-			width: 46%;
-		}
-	}
-
-
 	#content {
 		table.cart {
 			td.actions .input-text {

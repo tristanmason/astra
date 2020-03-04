@@ -2962,21 +2962,6 @@ p.demo_store a,
   font-weight: 700;
 }
 
-@media (min-width: 769px) {
-  .woocommerce #content .ast-woocommerce-container div.product div.images,
-  .woocommerce .ast-woocommerce-container div.product div.images,
-  .woocommerce-page #content .ast-woocommerce-container div.product div.images,
-  .woocommerce-page .ast-woocommerce-container div.product div.images {
-    width: 50%;
-  }
-  .woocommerce #content .ast-woocommerce-container div.product div.summary,
-  .woocommerce .ast-woocommerce-container div.product div.summary,
-  .woocommerce-page #content .ast-woocommerce-container div.product div.summary,
-  .woocommerce-page .ast-woocommerce-container div.product div.summary {
-    width: 46%;
-  }
-}
-
 .woocommerce #content table.cart td.actions .input-text,
 .woocommerce-page #content table.cart td.actions .input-text {
   width: auto;
