@@ -26,22 +26,6 @@
 		font-weight: 300;
 	}
 }
-@media (min-width: $col-md) {
-	.ast-author-box{
-		display: flex;
-	}
-	.ast-author-bio{
-		flex:1;
-	}
-}
-
-@media (max-width: $mx-col-md) {
-	.ast-author-box{
-		img.avatar {
-		    margin: 20px 0 0 0;
-		}
-	}
-}
 
 .ast-separate-container {
 	.ast-author-box,

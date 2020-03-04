@@ -633,7 +633,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-right' => 0,
 				),
 				'.ast-right-sidebar #secondary'         => array(
-					'padding-left' => '1em',
+					'padding-left' => '0',
 				),
 				'.ast-left-sidebar #primary'            => array(
 					'padding-left' => 0,
@@ -708,10 +708,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.error404.ast-separate-container #primary, .search-no-results.ast-separate-container #primary' => array(
 					'margin-bottom' => '4em',
-				),
-				'.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary' => array(
-					'padding-left'  => '0',
-					'padding-right' => '0',
 				),
 			);
 			/* Parse CSS from array() */

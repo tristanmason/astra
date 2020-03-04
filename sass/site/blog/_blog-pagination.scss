@@ -18,7 +18,6 @@
 .ast-pagination {
     display: inline-block;
     width: 100%;
-    padding-top: 2em;
     @media(max-width: $mx-col-md) {
         padding-top: 1.5em;
     }
@@ -78,8 +77,6 @@
         float: right;
         text-align: right;
         @media(max-width: $mx-col-md) {
-            display: inherit;
-            float: none;
             .page-navigation{
                 padding-right: 0;
             }
