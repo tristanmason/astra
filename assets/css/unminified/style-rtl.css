@@ -2355,12 +2355,6 @@ body {
 }
 
 @media (max-width: 992px) {
-  .ast-separate-container.ast-right-sidebar #primary,
-  .ast-separate-container.ast-left-sidebar #primary,
-  .ast-separate-container #primary {
-    padding-right: 0;
-    padding-left: 0;
-  }
   .ast-right-sidebar #primary {
     padding-left: 30px;
   }
@@ -5487,13 +5481,6 @@ input[type="color"]::-webkit-color-swatch {
   .ast-separate-container .no-results {
     margin: 0;
     padding: 5.34em 6.67em;
-  }
-}
-
-@media (min-width: 769px) {
-  .error404.ast-separate-container #primary,
-  .search-no-results.ast-separate-container #primary {
-    margin-bottom: 4em;
   }
 }
 

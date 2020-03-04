@@ -661,6 +661,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'display' => 'inherit',
 					'float'   => 'none',
 				),
+				'.ast-separate-container.ast-two-container #secondary .widget, .ast-separate-container #secondary .widget' => array(
+					'margin-bottom' => '1.5em',
+				),
 			);
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
@@ -702,6 +705,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.ast-author-bio'               => array(
 					'flex' => '1',
+				),
+				'.error404.ast-separate-container #primary, .search-no-results.ast-separate-container #primary' => array(
+					'margin-bottom' => '4em',
+				),
+				'.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary' => array(
+					'padding-left'  => '0',
+					'padding-right' => '0',
 				),
 			);
 			/* Parse CSS from array() */
