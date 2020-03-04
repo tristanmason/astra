@@ -2355,6 +2355,12 @@ body {
 }
 
 @media (max-width: 992px) {
+  .ast-separate-container.ast-right-sidebar #primary,
+  .ast-separate-container.ast-left-sidebar #primary,
+  .ast-separate-container #primary {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .ast-right-sidebar #primary {
     padding-right: 30px;
   }
@@ -4726,22 +4732,6 @@ input[type="color"]::-webkit-color-swatch {
   font-weight: 300;
 }
 
-@media (min-width: 769px) {
-  .ast-author-box {
-    -js-display: flex;
-    display: flex;
-  }
-  .ast-author-bio {
-    flex: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .ast-author-box img.avatar {
-    margin: 20px 0 0 0;
-  }
-}
-
 .ast-separate-container .ast-author-box,
 .ast-separate-container .ast-archive-description {
   background-color: #eee;
@@ -5289,7 +5279,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-pagination {
   display: inline-block;
   width: 100%;
-  padding-top: 2em;
 }
 
 @media (max-width: 768px) {
@@ -5385,10 +5374,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 @media (max-width: 768px) {
-  .ast-pagination .next.page-numbers {
-    display: inherit;
-    float: none;
-  }
   .ast-pagination .next.page-numbers .page-navigation {
     padding-right: 0;
   }
