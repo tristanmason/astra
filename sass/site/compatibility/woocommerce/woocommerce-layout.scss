@@ -147,28 +147,7 @@
 	ul.products {
 		&.columns-1 {
 			li.product {
-				width: 100%;
 				margin-right: 0;
-			}
-		}
-		&.columns-2 {
-			li.product {
-				width: 48%;
-			}
-		}
-		&.columns-3 {
-			li.product {
-				width: 30.75%;
-			}
-		}
-		&.columns-5 {
-			li.product {
-				width: 16.95%;
-			}
-		}
-		&.columns-6 {
-			li.product {
-				width: 13.5%;
 			}
 		}
 	}
@@ -176,7 +155,6 @@
 	&.columns-1 {
 		ul.products {
 			li.product {
-				width: 100%;
 				margin-right: 0;
 			}
 		}
@@ -185,9 +163,6 @@
 	&.columns-2 {
 		ul.products {
 			li.product {
-				width: 48.4%;
-				width: calc(50% - 10px);
-
 				&:nth-child(2n) {
 					margin-right: 0;
 					clear: right;
@@ -202,9 +177,6 @@
 	&.columns-3 {
 		ul.products {
 			li.product {
-				width: 31.2%;
-				width: calc( 33.33% - 14px );
-
 				&:nth-child(3n) {
 					margin-right: 0;
 					clear: right;
@@ -219,9 +191,6 @@
 	&.columns-4 {
 		ul.products {
 			li.product {
-				width: 22.5%;
-				width: calc( 25% - 15px );
-
 				&:nth-child(4n) {
 					margin-right: 0;
 					clear: right;
@@ -236,9 +205,6 @@
 	&.columns-5 {
 		ul.products {
 			li.product {
-				width: 17.5%;
-				width: calc( 20% - 16px );
-
 				&:nth-child(5n) {
 					margin-right: 0;
 					clear: right;
@@ -253,9 +219,6 @@
 	&.columns-6 {
 		ul.products {
 			li.product {
-				width: 14%;
-				width: calc( 16.66% - 16.66px );
-
 				&:nth-child(6n) {
 					margin-right: 0;
 					clear: right;
@@ -300,19 +263,9 @@
 					}
 				}
 			}
-
-			&.tablet-columns-1 {
-				ul.products {
-					li.product {
-						width: 100%;
-					} 
-				}
-			}
 			&.tablet-columns-2 {
 				ul.products {
 					li.product {
-						width: 47.6%;
-						width: calc(50% - 10px);
 						&:nth-child(2n) {
 							margin-right: 0;
 							clear: right;
@@ -326,8 +279,6 @@
 			&.tablet-columns-3 {
 				ul.products {
 					li.product {
-						width: 30.2%;
-						width: calc(33.33% - 14px);
 						&:nth-child(3n) {
 							margin-right: 0;
 							clear: right;
@@ -341,8 +292,6 @@
 			&.tablet-columns-4 {
 				ul.products {
 					li.product {
-						width: 21.5%;
-						width: calc(25% - 15px);
 						&:nth-child(4n) {
 							margin-right: 0;
 							clear: right;
@@ -356,8 +305,6 @@
 			&.tablet-columns-5 {
 				ul.products {
 					li.product {
-						width: 16.2%;
-						width: calc(20% - 16px);
 						&:nth-child(5n) {
 							margin-right: 0;
 							clear: right;
@@ -371,8 +318,6 @@
 			&.tablet-columns-6 {
 				ul.products {
 					li.product {
-						width: 12.7%;
-						width: calc(16.66% - 16.66px);
 						&:nth-child(6n) {
 							margin-right: 0;
 							clear: right;
@@ -423,7 +368,6 @@
 			&.mobile-columns-1 {
 				ul.products {
 					li.product {
-						width: 100%;
 						&:nth-child(n){
 							margin-right: 0;
 						}
@@ -433,8 +377,6 @@
 			&.mobile-columns-2 {
 				ul.products {
 					li.product {
-						width: 46.1%;
-						width: calc(50% - 10px);
 						&:nth-child(2n) {
 							margin-right: 0;
 							clear: right;
@@ -448,8 +390,6 @@
 			&.mobile-columns-3 {
 				ul.products {
 					li.product {
-						width: 28.2%;
-						width: calc(33.33% - 14px);
 						&:nth-child(3n) {
 							margin-right: 0;
 							clear: right;
@@ -463,8 +403,6 @@
 			&.mobile-columns-4 {
 				ul.products {
 					li.product {
-						width: 19%;
-						width: calc(25% - 15px);
 						&:nth-child(4n) {
 							margin-right: 0;
 							clear: right;
@@ -478,8 +416,6 @@
 			&.mobile-columns-5 {
 				ul.products {
 					li.product {
-						width: 13%;
-						width: calc(20% - 16px);
 						&:nth-child(5n) {
 							margin-right: 0;
 							clear: right;
@@ -493,8 +429,6 @@
 			&.mobile-columns-6 {
 				ul.products {
 					li.product {
-						width: 10.2%;
-						width: calc(16.66% - 16.66px);
 						&:nth-child(6n) {
 							margin-right: 0;
 							clear: right;

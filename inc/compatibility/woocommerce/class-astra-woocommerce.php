@@ -734,6 +734,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
 
 			$css_output = array(
+				'.woocommerce ul.products.columns-6 li.product, .woocommerce-page ul.products.columns-6 li.product' => array(
+					'width' => '13.5%',
+				),
+				'.woocommerce ul.products.columns-5 li.product, .woocommerce-page ul.products.columns-5 li.product' => array(
+					'width' => '16.95%',
+				),
+				'.woocommerce ul.products.columns-4 li.product, .woocommerce-page ul.products.columns-4 li.product' => array(
+					'width' => '22.5%',
+				),
+				'.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product' => array(
+					'width' => '30.75%',
+				),
+				'.woocommerce ul.products.columns-2 li.product, .woocommerce-page ul.products.columns-2 li.product' => array(
+					'width' => '48%',
+				),
+				'.woocommerce ul.products.columns-1 li.product, .woocommerce-page ul.products.columns-1 li.product' => array(
+					'width' => '100%',
+				),
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
 					'color'            => astra_get_foreground_color( $theme_color ),
@@ -839,6 +857,34 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
+			$tablet_css_shop_page_grid = array(
+				'.woocommerce.tablet-columns-6 ul.products li.product, .woocommerce-page.tablet-columns-6 ul.products li.product' => array(
+					'width' => '12.7%',
+					'width' => 'calc(16.66% - 16.66px)',
+				),
+				'.woocommerce.tablet-columns-5 ul.products li.product, .woocommerce-page.tablet-columns-5 ul.products li.product' => array(
+					'width' => '16.2%',
+					'width' => 'calc(20% - 16px)',
+				),
+				'.woocommerce.tablet-columns-4 ul.products li.product, .woocommerce-page.tablet-columns-4 ul.products li.product' => array(
+					'width' => '21.5%',
+					'width' => 'calc(25% - 15px)',
+				),
+				'.woocommerce.tablet-columns-3 ul.products li.product, .woocommerce-page.tablet-columns-3 ul.products li.product' => array(
+					'width' => '30.2%',
+					'width' => 'calc(33.33% - 14px)',
+				),
+				'.woocommerce.tablet-columns-2 ul.products li.product, .woocommerce-page.tablet-columns-2 ul.products li.product' => array(
+					'width' => '47.6%',
+					'width' => 'calc(50% - 10px)',
+				),
+				'.woocommerce.tablet-columns-1 ul.products li.product, .woocommerce-page.tablet-columns-1 ul.products li.product' => array(
+					'width' => '100%',
+				),
+			);
+
+			$css_output .= astra_parse_css( $tablet_css_shop_page_grid, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -866,6 +912,29 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+				),
+				'.woocommerce.mobile-columns-6 ul.products li.product, .woocommerce-page.mobile-columns-6 ul.products li.product' => array(
+					'width' => '10.2%',
+					'width' => 'calc(16.66% - 16.66px)',
+				),
+				'.woocommerce.mobile-columns-5 ul.products li.product, .woocommerce-page.mobile-columns-5 ul.products li.product' => array(
+					'width' => '13%',
+					'width' => 'calc(20% - 16px)',
+				),
+				'.woocommerce.mobile-columns-4 ul.products li.product, .woocommerce-page.mobile-columns-4 ul.products li.product' => array(
+					'width' => '19%',
+					'width' => 'calc(25% - 15px)',
+				),
+				'.woocommerce.mobile-columns-3 ul.products li.product, .woocommerce-page.mobile-columns-3 ul.products li.product' => array(
+					'width' => '28.2%',
+					'width' => 'calc(33.33% - 14px)',
+				),
+				'.woocommerce.mobile-columns-2 ul.products li.product, .woocommerce-page.mobile-columns-2 ul.products li.product' => array(
+					'width' => '46.1%',
+					'width' => 'calc(50% - 10px)',
+				),
+				'.woocommerce.mobile-columns-1 ul.products li.product, .woocommerce-page.mobile-columns-1 ul.products li.product' => array(
+					'width' => '100%',
 				),
 			);
 
