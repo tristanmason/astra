@@ -849,6 +849,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
 				),
+				'.woocommerce div.product div.images, .woocommerce div.product div.summary, .woocommerce #content div.product div.images, .woocommerce #content div.product div.summary, .woocommerce-page div.product div.images, .woocommerce-page div.product div.summary, .woocommerce-page #content div.product div.images, .woocommerce-page #content div.product div.summary' => array(
+					'float' => 'none',
+					'width' => '100%',
+				),
 			);
 
 			$css_output .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
@@ -890,6 +894,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 				endif;
 			}
+
+			$woo_product_css = array(
+				'.woocommerce #content .ast-woocommerce-container div.product div.images, .woocommerce .ast-woocommerce-container div.product div.images, .woocommerce-page #content .ast-woocommerce-container div.product div.images, .woocommerce-page .ast-woocommerce-container div.product div.images' => array(
+					'width' => '50%',
+				),
+				'.woocommerce #content .ast-woocommerce-container div.product div.summary, .woocommerce .ast-woocommerce-container div.product div.summary, .woocommerce-page #content .ast-woocommerce-container div.product div.summary, .woocommerce-page .ast-woocommerce-container div.product div.summary' => array(
+					'width' => '46%',
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$css_output .= astra_parse_css( $woo_product_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 
