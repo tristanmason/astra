@@ -930,6 +930,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce.tablet-columns-1 ul.products li.product, .woocommerce-page.tablet-columns-1 ul.products li.product' => array(
 					'width' => '100%',
 				),
+				'.woocommerce.tablet-columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.tablet-columns-3 ul.products li.product:nth-child(3n), 
+				.woocommerce.tablet-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.tablet-columns-2 ul.products li.product:nth-child(2n)' => array(
+					'margin-right' => '0',
+					'clear' => 'right',
+				),
 			);
 
 			$css_output .= astra_parse_css( $shop_grid_tablet_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );

@@ -266,10 +266,6 @@
 			&.tablet-columns-2 {
 				ul.products {
 					li.product {
-						&:nth-child(2n) {
-							margin-right: 0;
-							clear: right;
-						}
 						&:nth-child(2n+1) {
 							clear: left;
 						}
@@ -279,10 +275,6 @@
 			&.tablet-columns-3 {
 				ul.products {
 					li.product {
-						&:nth-child(3n) {
-							margin-right: 0;
-							clear: right;
-						}
 						&:nth-child(3n+1) {
 							clear: left;
 						}
