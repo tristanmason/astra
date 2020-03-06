@@ -904,6 +904,37 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$css_output .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			/**
+			 * Shop page product grid CSS - Tablet.
+			 */
+			$shop_grid_tablet_css = array(
+				'.woocommerce.tablet-columns-6 ul.products li.product, .woocommerce-page.tablet-columns-6 ul.products li.product' => array(
+					'width' => '12.7%',
+					'width' => 'calc(16.66% - 16.66px)',
+				),
+				'.woocommerce.tablet-columns-5 ul.products li.product, .woocommerce-page.tablet-columns-5 ul.products li.product' => array(
+					'width' => '16.2%',
+					'width' => 'calc(20% - 16px)',
+				),
+				'.woocommerce.tablet-columns-4 ul.products li.product, .woocommerce-page.tablet-columns-4 ul.products li.product' => array(
+					'width' => '21.5%',
+					'width' => 'calc(25% - 15px)',
+				),
+				'.woocommerce.tablet-columns-3 ul.products li.product, .woocommerce-page.tablet-columns-3 ul.products li.product' => array(
+					'width' => '30.2%',
+					'width' => 'calc(33.33% - 14px)',
+				),
+				'.woocommerce.tablet-columns-2 ul.products li.product, .woocommerce-page.tablet-columns-2 ul.products li.product' => array(
+					'width' => '47.6%',
+					'width' => 'calc(50% - 10px)',
+				),
+				'.woocommerce.tablet-columns-1 ul.products li.product, .woocommerce-page.tablet-columns-1 ul.products li.product' => array(
+					'width' => '100%',
+				),
+			);
+
+			$css_output .= astra_parse_css( $shop_grid_tablet_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+
+			/**
 			 * Global button CSS - Mobile.
 			 */
 			$css_global_button_mobile = array(
