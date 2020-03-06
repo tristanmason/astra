@@ -373,45 +373,6 @@
   .woocommerce[class*='columns-'].columns-3 > ul.products li.product:nth-child(3n+1), .woocommerce[class*='columns-'].columns-4 > ul.products li.product:nth-child(3n+1), .woocommerce[class*='columns-'].columns-5 > ul.products li.product:nth-child(3n+1), .woocommerce[class*='columns-'].columns-6 > ul.products li.product:nth-child(3n+1), .woocommerce-page[class*='columns-'].columns-3 > ul.products li.product:nth-child(3n+1), .woocommerce-page[class*='columns-'].columns-4 > ul.products li.product:nth-child(3n+1), .woocommerce-page[class*='columns-'].columns-5 > ul.products li.product:nth-child(3n+1), .woocommerce-page[class*='columns-'].columns-6 > ul.products li.product:nth-child(3n+1) {
     clear: right;
   }
-  .woocommerce[class*='columns-'] ul.products li.product:nth-child(n), .woocommerce-page[class*='columns-'] ul.products li.product:nth-child(n) {
-    margin-left: 20px;
-    clear: none;
-  }
-  .woocommerce.tablet-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.tablet-columns-2 ul.products li.product:nth-child(2n) {
-    margin-left: 0;
-    clear: left;
-  }
-  .woocommerce.tablet-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page.tablet-columns-2 ul.products li.product:nth-child(2n+1) {
-    clear: right;
-  }
-  .woocommerce.tablet-columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.tablet-columns-3 ul.products li.product:nth-child(3n) {
-    margin-left: 0;
-    clear: left;
-  }
-  .woocommerce.tablet-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.tablet-columns-3 ul.products li.product:nth-child(3n+1) {
-    clear: right;
-  }
-  .woocommerce.tablet-columns-4 ul.products li.product:nth-child(4n), .woocommerce-page.tablet-columns-4 ul.products li.product:nth-child(4n) {
-    margin-left: 0;
-    clear: left;
-  }
-  .woocommerce.tablet-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page.tablet-columns-4 ul.products li.product:nth-child(4n+1) {
-    clear: right;
-  }
-  .woocommerce.tablet-columns-5 ul.products li.product:nth-child(5n), .woocommerce-page.tablet-columns-5 ul.products li.product:nth-child(5n) {
-    margin-left: 0;
-    clear: left;
-  }
-  .woocommerce.tablet-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page.tablet-columns-5 ul.products li.product:nth-child(5n+1) {
-    clear: right;
-  }
-  .woocommerce.tablet-columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.tablet-columns-6 ul.products li.product:nth-child(6n) {
-    margin-left: 0;
-    clear: left;
-  }
-  .woocommerce.tablet-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.tablet-columns-6 ul.products li.product:nth-child(6n+1) {
-    clear: right;
-  }
 }
 
 @media (max-width: 544px) {
