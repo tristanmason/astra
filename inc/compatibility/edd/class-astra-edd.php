@@ -394,49 +394,49 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$max_tablet_edd_css = array(
 				'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
-					'margin-right'    => '20px',
-					'clear'    => 'none',
+					'margin-right' => '20px',
+					'clear'        => 'none',
 				),
 				'.tablet-columns-1 .ast-edd-archive-article' => array(
-					'width'    => '100%',
+					'width' => '100%',
 				),
 				'.tablet-columns-2 .ast-edd-archive-article' => array(
-					'width'    => '47.6%',
-					'width'    => 'calc(50% - 10px)',
+					'width' => '47.6%',
+					'width' => 'calc(50% - 10px)',
 				),
 				'.tablet-columns-3 .ast-edd-archive-article' => array(
-					'width'    => '30.2%',
-					'width'    => 'calc(33.33% - 14px)',
+					'width' => '30.2%',
+					'width' => 'calc(33.33% - 14px)',
 				),
 				'.tablet-columns-4 .ast-edd-archive-article' => array(
-					'width'    => '21.5%',
-					'width'    => 'calc(25% - 15px)',
+					'width' => '21.5%',
+					'width' => 'calc(25% - 15px)',
 				),
 				'.tablet-columns-5 .ast-edd-archive-article' => array(
-					'width'    => '16.2%',
-					'width'    => 'calc(20% - 16px)',
+					'width' => '16.2%',
+					'width' => 'calc(20% - 16px)',
 				),
 				'.tablet-columns-6 .ast-edd-archive-article' => array(
-					'width'    => '12.7%',
-					'width'    => 'calc(16.66% - 16.66px)',
+					'width' => '12.7%',
+					'width' => 'calc(16.66% - 16.66px)',
 				),
 				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
-					'margin-right'    => '0',
-					'clear'    => 'right',
+					'margin-right' => '0',
+					'clear'        => 'right',
 				),
 				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
-					'clear'    => 'left',
+					'clear' => 'left',
 				),
 				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download' => array(
-					'width'    => '30.2%',
-					'width'    => 'calc(33.33% - 14px)',
+					'width' => '30.2%',
+					'width' => 'calc(33.33% - 14px)',
 				),
 				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
-					'margin-right'    => '0',
-					'clear'    => 'right',
+					'margin-right' => '0',
+					'clear'        => 'right',
 				),
 				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
-					'clear'    => 'left',
+					'clear' => 'left',
 				),
 			);
 
@@ -445,41 +445,41 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$mobile_edd_css = array(
 				'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
-					'margin-right'    => '20px',
-					'clear'    => 'none',
+					'margin-right' => '20px',
+					'clear'        => 'none',
 				),
 				'.mobile-columns-1 .ast-edd-archive-article' => array(
-					'width'    => '100%',
+					'width' => '100%',
 				),
 				'.mobile-columns-1 .ast-edd-archive-article:nth-child(n)' => array(
-					'margin-right'    => '0',
+					'margin-right' => '0',
 				),
 				'.mobile-columns-3 .ast-edd-archive-article' => array(
-					'width'    => '28.2%',
-					'width'    => 'calc(33.33% - 14px)',
+					'width' => '28.2%',
+					'width' => 'calc(33.33% - 14px)',
 				),
 				'.mobile-columns-4 .ast-edd-archive-article' => array(
-					'width'    => '19%',
-					'width'    => 'calc(25% - 15px)',
+					'width' => '19%',
+					'width' => 'calc(25% - 15px)',
 				),
 				'.mobile-columns-5 .ast-edd-archive-article' => array(
-					'width'    => '13%',
-					'width'    => 'calc(20% - 16px)',
+					'width' => '13%',
+					'width' => 'calc(20% - 16px)',
 				),
 				'.mobile-columns-6 .ast-edd-archive-article' => array(
-					'width'    => '10.2%',
-					'width'    => 'calc(16.66% - 16.66px)',
+					'width' => '10.2%',
+					'width' => 'calc(16.66% - 16.66px)',
 				),
 				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download, .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n+1), .mobile-columns-2 .ast-edd-archive-article' => array(
-					'width'    => '46.1%',
-					'width'    => 'calc(50% - 10px)',
+					'width' => '46.1%',
+					'width' => 'calc(50% - 10px)',
 				),
 				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n), .mobile-columns-2 .ast-edd-archive-article:nth-child(2n), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
-					'margin-right'    => '0',
-					'clear'    => 'right',
+					'margin-right' => '0',
+					'clear'        => 'right',
 				),
 				'.mobile-columns-2 .ast-edd-archive-article:nth-child(2n+1), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n+1), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n+1), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n+1), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
-					'clear'    => 'left',
+					'clear' => 'left',
 				),
 			);
 
