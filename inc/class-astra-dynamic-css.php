@@ -888,6 +888,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
 					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
 				),
+				'.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon' => array(
+					'display' => 'inline-block',
+				),
+				'.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon' => array(
+					'margin' => '0',
+				),
+				'.ast-header-break-point .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
+					'right' => '0',
+				),
+				'.ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
+					'right' => '-1em',
+				),
 			);
 
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );

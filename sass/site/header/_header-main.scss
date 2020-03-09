@@ -117,24 +117,6 @@
 	}
 }
 
-@media (max-width: $mx-col-md) {
-	.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
-	    display: inline-block;
-	}
-
-	.ast-header-break-point {
-		&.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon {
-		    margin: 0;
-		}
-		.main-header-bar .ast-search-menu-icon.slide-search .search-form {
-			right: 0;
-		}
-		.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form {
-		    right: -1em;
-		}
-	}
-}
-
 .ast-masthead-custom-menu-items .ast-dropdown-active .slide-search.astra-search-icon,
 .below-header-user-select .ast-dropdown-active .slide-search.astra-search-icon,
 .ast-above-header-section .user-select .ast-dropdown-active .slide-search.astra-search-icon {
