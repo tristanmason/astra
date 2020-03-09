@@ -2761,29 +2761,6 @@ p.demo_store a,
   padding: 10px 20px;
 }
 
-@media (max-width: 544px) {
-  .woocommerce,
-  .woocommerce-page {
-    /* Shop Page */
-  }
-  .woocommerce .woocommerce-ordering,
-  .woocommerce-page .woocommerce-ordering {
-    float: none;
-    margin-bottom: 2em;
-    width: 100%;
-  }
-  .woocommerce ul.products a.button,
-  .woocommerce-page ul.products a.button {
-    padding: 0.5em 0.75em;
-  }
-  .woocommerce ul.products a.button.loading::after,
-  .woocommerce-page ul.products a.button.loading::after {
-    display: inline-block;
-    margin-right: 5px;
-    position: initial;
-  }
-}
-
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
   text-align: right;
@@ -2986,45 +2963,6 @@ p.demo_store a,
 .woocommerce #content table.cart .button[name="apply_coupon"],
 .woocommerce-page #content table.cart .button[name="apply_coupon"] {
   padding: 10px 40px;
-}
-
-@media (max-width: 544px) {
-  .woocommerce #content table.cart .button,
-  .woocommerce-page #content table.cart .button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 544px) {
-  .woocommerce #content table.cart .product-thumbnail,
-  .woocommerce-page #content table.cart .product-thumbnail {
-    display: block;
-    text-align: center !important;
-  }
-  .woocommerce #content table.cart .product-thumbnail:before,
-  .woocommerce-page #content table.cart .product-thumbnail:before {
-    display: none;
-  }
-  .woocommerce #content table.cart td.actions .coupon,
-  .woocommerce-page #content table.cart td.actions .coupon {
-    float: none;
-  }
-  .woocommerce #content table.cart td.actions .coupon .button,
-  .woocommerce-page #content table.cart td.actions .coupon .button {
-    flex: 1;
-  }
-}
-
-@media (max-width: 544px) {
-  .woocommerce #content div.product .woocommerce-tabs ul.tabs li,
-  .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li {
-    display: block;
-    margin-left: 0;
-  }
-  .woocommerce #content div.product .woocommerce-tabs ul.tabs li a,
-  .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li a {
-    display: block;
-  }
 }
 
 .ast-separate-container .ast-woocommerce-container {

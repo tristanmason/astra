@@ -2435,22 +2435,6 @@ p.demo_store,
 			padding: 10px 20px;
 		}
 	}
-	@media (max-width: $mx-col-sm) {
-		/* Shop Page */
-		.woocommerce-ordering{
-			float: none;
-			margin-bottom: 2em;
-			width: 100%;
-		}
-		ul.products a.button {
-			padding: 0.5em 0.75em;
-			&.loading::after {
-				display: inline-block;
-				margin-left: 5px;
-				position: initial;
-			}
-		}
-	}
 	ul.products {
 		li.product {
 			text-align: left;
@@ -2623,44 +2607,7 @@ p.demo_store,
 
 				&[name="apply_coupon"] {
 					padding: 10px 40px;
-				}
-				@media (max-width: $mx-col-sm) {
-					width: 100%;
-				}			
-			}
-
-			@media (max-width: $mx-col-sm) {
-				.product-thumbnail{
-					display: block;
-					text-align: center !important;
-
-					&:before{
-						display: none;
-					}
-				}
-
-				td.actions .coupon {
-					float: none;
-					.button{
-						flex: 1;
-					}
-				}
-			}
-		}
-
-		@media (max-width: $mx-col-sm) {
-			div.product{
-				.woocommerce-tabs{
-					ul.tabs{
-						li{
-							display: block;
-							margin-right: 0;
-							a{
-								display: block;
-							}
-						}
-					}
-				}
+				}		
 			}
 		}
 	}

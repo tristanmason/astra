@@ -840,6 +840,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$css_output = astra_parse_css( $css_output );
 
 			$tablet_css_shop_page_grid = array(
+				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product, .woocommerce[class*="columns-"].columns-4 > ul.products li.product, .woocommerce[class*="columns-"].columns-5 > ul.products li.product, .woocommerce[class*="columns-"].columns-6 > ul.products li.product' => array(
+					'width'        => '30.2%',
+					'width'        => 'calc(33.33% - 14px)',
+					'margin-right' => '20px',
+				),
+				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(3n), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(3n), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(3n), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(3n)' => array(
+					'margin-right' => '0',
+					'clear'        => 'right',
+				),
+				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(3n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(3n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(3n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(3n+1)' => array(
+					'clear' => 'left',
+				),
 				'.woocommerce.tablet-columns-6 ul.products li.product, .woocommerce-page.tablet-columns-6 ul.products li.product' => array(
 					'width' => '12.7%',
 					'width' => 'calc(16.66% - 16.66px)',
@@ -931,15 +943,38 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 * Global button CSS - Mobile.
 			 */
 			$css_global_button_mobile = array(
+				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product, .woocommerce[class*="columns-"].columns-4 > ul.products li.product, .woocommerce[class*="columns-"].columns-5 > ul.products li.product, .woocommerce[class*="columns-"].columns-6 > ul.products li.product' => array(
+					'width'        => '46.1%',
+					'width'        => 'calc(50% - 10px)',
+					'margin-right' => '20px',
+				),
+				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n)' => array(
+					'margin-right' => '20px',
+					'clear'        => 'none',
+				),
+				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n+1)' => array(
+					'clear' => 'left',
+				),
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
 					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 				),
+				'.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)' => array(
+					'margin-right' => '20px',
+					'clear'        => 'none',
+				),
 				'.woocommerce.mobile-columns-6 ul.products li.product, .woocommerce-page.mobile-columns-6 ul.products li.product' => array(
 					'width' => '10.2%',
 					'width' => 'calc(16.66% - 16.66px)',
+				),
+				'.woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n), .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n), .woocommerce-page.mobile-columns-5 ul.products li.product:nth-child(5n), .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n), .woocommerce-page.mobile-columns-4 ul.products li.product:nth-child(4n), .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.mobile-columns-3 ul.products li.product:nth-child(3n), .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n)' => array(
+					'margin-right' => '0',
+					'clear'        => 'right',
+				),
+				'.woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n+1)' => array(
+					'clear' => 'left',
 				),
 				'.woocommerce.mobile-columns-5 ul.products li.product, .woocommerce-page.mobile-columns-5 ul.products li.product' => array(
 					'width' => '13%',
@@ -958,6 +993,49 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => 'calc(50% - 10px)',
 				),
 				'.woocommerce.mobile-columns-1 ul.products li.product, .woocommerce-page.mobile-columns-1 ul.products li.product' => array(
+					'width' => '100%',
+				),
+				'.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering' => array(
+					'float'         => 'none',
+					'margin-bottom' => '2em',
+					'width'         => '100%',
+				),
+				'.woocommerce ul.products a.button, .woocommerce-page ul.products a.button' => array(
+					'padding' => '0.5em 0.75em',
+				),
+				'.woocommerce ul.products a.button.loading::after, .woocommerce-page ul.products a.button.loading::after' => array(
+					'display'     => 'inline-block',
+					'margin-left' => '5em',
+					'position'    => 'initial',
+				),
+				'.woocommerce.mobile-columns-1 ul.products li.product:nth-child(n), .woocommerce-page.mobile-columns-1 ul.products li.product:nth-child(n)' => array(
+					'margin-right' => '0',
+				),
+				'.woocommerce #content table.cart .product-thumbnail' => array(
+					'display'    => 'block',
+					'text-align' => 'center !important',
+				),
+				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li' => array(
+					'display'     => 'block',
+					'margin-righ' => '0',
+				),
+				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li a, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li a' => array(
+					'display' => 'block',
+				),
+				'.woocommerce #content table.cart .product-thumbnail&:before' => array(
+					'display' => 'none',
+				),
+				'.woocommerce #content table.cart td.actions .coupon, .woocommerce-page #content table.cart td.actions .coupon' => array(
+					'float' => 'none',
+				),
+				'.woocommerce #content table.cart td.actions .coupon .button, .woocommerce-page #content table.cart td.actions .coupon .button' => array(
+					'flex' => '1',
+				),
+				'.woocommerce table.cart td.actions .button, .woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button' => array(
+					'padding-left'  => '1em',
+					'padding-right' => '1em',
+				),
+				'.woocommerce #content table.cart .button, .woocommerce-page #content table.cart .button' => array(
 					'width' => '100%',
 				),
 			);

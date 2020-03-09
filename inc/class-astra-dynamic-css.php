@@ -604,6 +604,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
 					'padding' => '1.5em 2.14em',
 				),
+				'.ast-separate-container #content .ast-container' => array(
+					'padding-left'  => '0.54em',
+					'padding-right' => '0.54em',
+				),
+				'.ast-separate-container #secondary'    => array(
+					'padding-top' => '0',
+				),
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
 				),
