@@ -404,7 +404,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'width' => '47.6%',
 					'width' => 'calc(50% - 10px)',
 				),
-				'.tablet-columns-3 .ast-edd-archive-article' => array(
+				'.tablet-columns-3 .ast-edd-archive-article, .edd_downloads_list[class*="edd_download_columns_"] .edd_download' => array(
 					'width' => '30.2%',
 					'width' => 'calc(33.33% - 14px)',
 				),
@@ -420,22 +420,11 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'width' => '12.7%',
 					'width' => 'calc(16.66% - 16.66px)',
 				),
-				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
+				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
 					'margin-right' => '0',
 					'clear'        => 'right',
 				),
-				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
-					'clear' => 'left',
-				),
-				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download' => array(
-					'width' => '30.2%',
-					'width' => 'calc(33.33% - 14px)',
-				),
-				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
-					'margin-right' => '0',
-					'clear'        => 'right',
-				),
-				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
+				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
 					'clear' => 'left',
 				),
 			);
