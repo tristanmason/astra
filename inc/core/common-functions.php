@@ -1223,10 +1223,10 @@ if ( ! function_exists( 'astra_color_responsive_css' ) ) {
 			$css .= $selector . '{' . $css_property . ':' . esc_attr( $setting['desktop'] ) . ';}';
 		}
 		if ( isset( $setting['tablet'] ) && ! empty( $setting['tablet'] ) ) {
-			$css .= '@media (max-width:768px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
+			$css .= '@media (max-width:' . astra_addon_get_tablet_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
 		}
 		if ( isset( $setting['mobile'] ) && ! empty( $setting['mobile'] ) ) {
-			$css .= '@media (max-width:544px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
+			$css .= '@media (max-width:' . astra_addon_get_mobile_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
 		}
 		return $css;
 	}

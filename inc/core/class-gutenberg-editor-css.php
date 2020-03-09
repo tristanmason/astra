@@ -342,7 +342,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			$css .= astra_parse_css( $css_prod_button_mobile, '', '544' );
+			$css .= astra_parse_css( $css_prod_button_mobile, '', astra_get_mobile_breakpoint() );
 
 			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
 				$button_desktop_css = array(
@@ -406,7 +406,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				$css .= astra_parse_css( $css_global_button_mobile, '', '544' );
+				$css .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
 			}
 
 			$tablet_css = array(
