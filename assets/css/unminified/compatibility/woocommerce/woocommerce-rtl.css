@@ -4145,22 +4145,6 @@ button.pswp__button--zoom:hover {
   border-color: #ebebeb;
 }
 
-@media (min-width: 769px) {
-  .woocommerce.woocommerce-checkout form #customer_details.col2-set,
-  .woocommerce-page.woocommerce-checkout form #customer_details.col2-set {
-    width: 55%;
-    float: right;
-    margin-left: 4.347826087%;
-  }
-  .woocommerce.woocommerce-checkout form #customer_details.col2-set .col-1,
-  .woocommerce.woocommerce-checkout form #customer_details.col2-set .col-2,
-  .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-1,
-  .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-2 {
-    float: none;
-    width: auto;
-  }
-}
-
 .woocommerce.woocommerce-checkout form #order_review,
 .woocommerce-page.woocommerce-checkout form #order_review {
   padding: 0 2em;
@@ -4182,18 +4166,6 @@ button.pswp__button--zoom:hover {
   border-left: 0;
   padding-right: 0;
   border-color: #ebebeb;
-}
-
-@media (min-width: 769px) {
-  .woocommerce.woocommerce-checkout form #order_review,
-  .woocommerce.woocommerce-checkout form #order_review_heading,
-  .woocommerce-page.woocommerce-checkout form #order_review,
-  .woocommerce-page.woocommerce-checkout form #order_review_heading {
-    width: 40%;
-    float: left;
-    margin-left: 0;
-    clear: left;
-  }
 }
 
 .woocommerce.woocommerce-checkout form .form-row:last-child,

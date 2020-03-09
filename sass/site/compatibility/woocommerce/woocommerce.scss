@@ -3426,19 +3426,6 @@ button.pswp__button--zoom:hover {
 			    padding: 1.5em 1.5em 1em;
 			    border-color: #ebebeb;
 			}
-
-			#customer_details.col2-set {
-				@media ( min-width: $col-md ) {
-				    width: 55%;
-				    float: left;
-				    margin-right: 4.347826087%;
-				    .col-1,
-				    .col-2{
-				    	float: none;
-				    	width: auto;
-				    }
-				}
-			}	
 			#order_review{
 				padding: 0 2em;
 				border-width: 0 2px 2px;
@@ -3453,16 +3440,6 @@ button.pswp__button--zoom:hover {
 				    border-right:0;
 				    padding-left:0;
 				    border-color: #ebebeb;
-				}
-			}
-			@media ( min-width: $col-md ) {
-				#order_review, 
-				#order_review_heading {
-					width: 40%;
-					float: right;
-					margin-right: 0;
-					clear: right;
-
 				}
 			}
 
