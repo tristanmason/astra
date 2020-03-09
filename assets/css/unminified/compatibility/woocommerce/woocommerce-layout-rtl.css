@@ -308,7 +308,24 @@
 }
 
 .woocommerce ul.products.columns-1 li.product, .woocommerce-page ul.products.columns-1 li.product {
+  width: 100%;
   margin-left: 0;
+}
+
+.woocommerce ul.products.columns-2 li.product, .woocommerce-page ul.products.columns-2 li.product {
+  width: 48%;
+}
+
+.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product {
+  width: 30.75%;
+}
+
+.woocommerce ul.products.columns-5 li.product, .woocommerce-page ul.products.columns-5 li.product {
+  width: 16.95%;
+}
+
+.woocommerce ul.products.columns-6 li.product, .woocommerce-page ul.products.columns-6 li.product {
+  width: 13.5%;
 }
 
 .woocommerce.columns-1 ul.products li.product, .woocommerce-page.columns-1 ul.products li.product {

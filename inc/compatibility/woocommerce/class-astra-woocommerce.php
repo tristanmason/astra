@@ -183,7 +183,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
 					'deps'    => 'woocommerce-layout',
 					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint',  astra_get_tablet_breakpoint() . 'px' ) . ')',
+					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')',
 					'has_rtl' => true,
 				),
 				'woocommerce-general'     => array(
@@ -734,24 +734,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
 
 			$css_output = array(
-				'.woocommerce ul.products.columns-6 li.product, .woocommerce-page ul.products.columns-6 li.product' => array(
-					'width' => '13.5%',
-				),
-				'.woocommerce ul.products.columns-5 li.product, .woocommerce-page ul.products.columns-5 li.product' => array(
-					'width' => '16.95%',
-				),
-				'.woocommerce ul.products.columns-4 li.product, .woocommerce-page ul.products.columns-4 li.product' => array(
-					'width' => '22.5%',
-				),
-				'.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product' => array(
-					'width' => '30.75%',
-				),
-				'.woocommerce ul.products.columns-2 li.product, .woocommerce-page ul.products.columns-2 li.product' => array(
-					'width' => '48%',
-				),
-				'.woocommerce ul.products.columns-1 li.product, .woocommerce-page ul.products.columns-1 li.product' => array(
-					'width' => '100%',
-				),
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
 					'color'            => astra_get_foreground_color( $theme_color ),
@@ -1014,8 +996,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => '46%',
 				),
 				'.woocommerce.woocommerce-checkout form #customer_details.col2-set, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set' => array(
-					'width' => '55%',
-					'float' => 'left',
+					'width'        => '55%',
+					'float'        => 'left',
 					'margin-right' => '4.347826087%',
 				),
 				'.woocommerce.woocommerce-checkout form #customer_details.col2-set .col-1, .woocommerce.woocommerce-checkout form #customer_details.col2-set .col-2, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-1, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-2' => array(
@@ -1023,10 +1005,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => 'auto',
 				),
 				'.woocommerce.woocommerce-checkout form #order_review, .woocommerce.woocommerce-checkout form #order_review_heading, .woocommerce-page.woocommerce-checkout form #order_review, .woocommerce-page.woocommerce-checkout form #order_review_heading' => array(
-					'width' => '40%',
-					'float' => 'right',
+					'width'        => '40%',
+					'float'        => 'right',
 					'margin-right' => '0',
-					'clear' => 'right',
+					'clear'        => 'right',
 				),
 			);
 
