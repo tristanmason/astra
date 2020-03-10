@@ -1905,7 +1905,7 @@ function astra_filesystem() {
  */
 function remove_controls( $wp_customize ) {
 
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.3.2', '<=' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.3.3', '<=' ) ) {
 		$layout = array(
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
