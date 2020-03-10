@@ -469,7 +469,6 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/settings-group/settings-group.js',
                             'inc/customizer/custom-controls/slider/slider.js',
                             'inc/customizer/custom-controls/sortable/sortable.js',
-                            'inc/customizer/custom-controls/spacing/spacing.js',
                             'inc/customizer/custom-controls/typography/typography.js'
 
                         ],
@@ -534,8 +533,15 @@ module.exports = function (grunt) {
                     }
                 ]
             }
-        }
+        },
 
+        wp_readme_to_markdown: {
+			your_target: {
+				files: {
+					'README.md': 'readme.txt'
+				}
+			},
+		},
     }
     );
 
@@ -552,6 +558,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks("grunt-wp-readme-to-markdown")
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
@@ -590,9 +597,7 @@ module.exports = function (grunt) {
                     }
                 });
             }
-
         });
-
     });
 
     // Grunt release - Create installable package of the local files
@@ -610,6 +615,9 @@ module.exports = function (grunt) {
             grunt.task.run('replace');
         }
     });
+
+    // Generate Read me file
+    grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
