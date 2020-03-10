@@ -1899,7 +1899,7 @@ function astra_filesystem() {
 /**
  * Remove Base Color > Background Color option from the customize array.
  *
- * @since x.x.x
+ * @since 2.3.3
  * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
  * @return $wp_customize
  */

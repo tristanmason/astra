@@ -116,7 +116,7 @@ function astra_header_button_new_options() {
 /**
  * Migrate option data from site layout background option to its desktop counterpart.
  *
- * @since x.x.x
+ * @since 2.3.3
  *
  * @return void
  */
