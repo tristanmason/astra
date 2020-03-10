@@ -557,7 +557,6 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			}
 
 			// Remove old.
-			console.log( 'style#' + control + '-' + device + '-' + addon )
 			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
 
 			
