@@ -192,14 +192,14 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 								<div class="background-size">
 									<h4><?php esc_attr_e( 'Background Size', 'astra-addon' ); ?></h4>
 									<div class="buttonset">
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} class="switch-input screen-reader-text" type="radio" value="cover" data-name="{{ data.name }}"  name="_customize-bg-{{{ data.id }}}-desktop-size" data-id='desktop' id="{{ data.name }}-desktop-cover" <# if ( 'cover' === data.value['desktop']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'cover' === data.value['desktop']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-desktop-cover"><?php esc_attr_e( 'Cover', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} class="switch-input screen-reader-text" type="radio" value="cover" data-name="{{{ data.id }}}"  name="_customize-bg-{{{ data.id }}}-desktop-size" data-id='desktop' id="{{{ data.id }}}-desktop-cover" <# if ( 'cover' === data.value['desktop']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'cover' === data.value['desktop']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-desktop-cover"><?php esc_attr_e( 'Cover', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-desktop-size" data-id='desktop' id="{{ data.name }}-desktop-contain" <# if ( 'contain' === data.value['desktop']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'contain' === data.value['desktop']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-desktop-contain"><?php esc_attr_e( 'Contain', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-desktop-size" data-id='desktop' id="{{{ data.id }}}-desktop-contain" <# if ( 'contain' === data.value['desktop']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'contain' === data.value['desktop']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-desktop-contain"><?php esc_attr_e( 'Contain', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-desktop-size" data-id='desktop' id="{{ data.name }}-desktop-auto" <# if ( 'auto' === data.value['desktop']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'auto' === data.value['desktop']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-desktop-auto"><?php esc_attr_e( 'Auto', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-desktop-size" data-id='desktop' id="{{{ data.id }}}-desktop-auto" <# if ( 'auto' === data.value['desktop']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'auto' === data.value['desktop']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-desktop-auto"><?php esc_attr_e( 'Auto', 'astra-addon' ); ?></label>
 
 									</div>
 								</div>
@@ -208,14 +208,14 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 								<div class="background-attachment">
 									<h4><?php esc_attr_e( 'Background Attachment', 'astra-addon' ); ?></h4>
 									<div class="buttonset">
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-desktop-attachment" data-id='desktop' id="{{ data.name }}-desktop-inherit" <# if ( 'inherit' === data.value['desktop']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'inherit' === data.value['desktop']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-desktop-inherit"><?php esc_attr_e( 'Inherit', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-desktop-attachment" data-id='desktop' id="{{{ data.id }}}-desktop-inherit" <# if ( 'inherit' === data.value['desktop']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'inherit' === data.value['desktop']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-desktop-inherit"><?php esc_attr_e( 'Inherit', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-desktop-attachment" data-id='desktop' id="{{ data.name }}-desktop-scroll" <# if ( 'scroll' === data.value['desktop']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'scroll' === data.value['desktop']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-desktop-scroll"><?php esc_attr_e( 'Scroll', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-desktop-attachment" data-id='desktop' id="{{{ data.id }}}-desktop-scroll" <# if ( 'scroll' === data.value['desktop']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'scroll' === data.value['desktop']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-desktop-scroll"><?php esc_attr_e( 'Scroll', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-desktop-attachment" data-id='desktop' id="{{ data.name }}-desktop-fixed" <# if ( 'fixed' === data.value['desktop']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'fixed' === data.value['desktop']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-desktop-fixed"><?php esc_attr_e( 'Fixed', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-desktop-attachment" data-id='desktop' id="{{{ data.id }}}-desktop-fixed" <# if ( 'fixed' === data.value['desktop']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'fixed' === data.value['desktop']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-desktop-fixed"><?php esc_attr_e( 'Fixed', 'astra-addon' ); ?></label>
 
 									</div>
 								</div>
@@ -279,14 +279,14 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 								<div class="background-size">
 									<h4><?php esc_attr_e( 'Background Size', 'astra-addon' ); ?></h4>
 									<div class="buttonset">
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-tablet-size" data-id='tablet' id="{{ data.name }}-tablet-cover" <# if ( 'cover' === data.value['tablet']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'cover' === data.value['tablet']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-tablet-cover"><?php esc_attr_e( 'Cover', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-tablet-size" data-id='tablet' id="{{{ data.id }}}-tablet-cover" <# if ( 'cover' === data.value['tablet']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'cover' === data.value['tablet']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-tablet-cover"><?php esc_attr_e( 'Cover', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-tablet-size" data-id='tablet' id="{{ data.name }}-tablet-contain" <# if ( 'contain' === data.value['tablet']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'contain' === data.value['tablet']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-tablet-contain"><?php esc_attr_e( 'Contain', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-tablet-size" data-id='tablet' id="{{{ data.id }}}-tablet-contain" <# if ( 'contain' === data.value['tablet']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'contain' === data.value['tablet']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-tablet-contain"><?php esc_attr_e( 'Contain', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-tablet-size" data-id='tablet' id="{{ data.name }}-tablet-auto" <# if ( 'auto' === data.value['tablet']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'auto' === data.value['tablet']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-tablet-auto"><?php esc_attr_e( 'Auto', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-tablet-size" data-id='tablet' id="{{{ data.id }}}-tablet-auto" <# if ( 'auto' === data.value['tablet']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'auto' === data.value['tablet']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-tablet-auto"><?php esc_attr_e( 'Auto', 'astra-addon' ); ?></label>
 
 									</div>
 								</div>
@@ -295,14 +295,14 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 								<div class="background-attachment">
 									<h4><?php esc_attr_e( 'Background Attachment', 'astra-addon' ); ?></h4>
 									<div class="buttonset">
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-tablet-attachment" data-id='tablet' id="{{ data.name }}-tablet-inherit" <# if ( 'inherit' === data.value['tablet']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'inherit' === data.value['tablet']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-tablet-inherit"><?php esc_attr_e( 'Inherit', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-tablet-attachment" data-id='tablet' id="{{{ data.id }}}-tablet-inherit" <# if ( 'inherit' === data.value['tablet']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'inherit' === data.value['tablet']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-tablet-inherit"><?php esc_attr_e( 'Inherit', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-tablet-attachment" data-id='tablet' id="{{ data.name }}-tablet-scroll" <# if ( 'scroll' === data.value['tablet']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'scroll' === data.value['tablet']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-tablet-scroll"><?php esc_attr_e( 'Scroll', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-tablet-attachment" data-id='tablet' id="{{{ data.id }}}-tablet-scroll" <# if ( 'scroll' === data.value['tablet']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'scroll' === data.value['tablet']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-tablet-scroll"><?php esc_attr_e( 'Scroll', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-tablet-attachment" data-id='tablet' id="{{ data.name }}-tablet-fixed" <# if ( 'fixed' === data.value['tablet']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'fixed' === data.value['tablet']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-tablet-fixed"><?php esc_attr_e( 'Fixed', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-tablet-attachment" data-id='tablet' id="{{{ data.id }}}-tablet-fixed" <# if ( 'fixed' === data.value['tablet']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'fixed' === data.value['tablet']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-tablet-fixed"><?php esc_attr_e( 'Fixed', 'astra-addon' ); ?></label>
 
 									</div>
 								</div>
@@ -366,14 +366,14 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 								<div class="background-size">
 									<h4><?php esc_attr_e( 'Background Size', 'astra-addon' ); ?></h4>
 									<div class="buttonset">
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-mobile-size"  data-id='mobile' id="{{ data.name }}-mobile-cover" <# if ( 'cover' === data.value['mobile']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'cover' === data.value['mobile']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-mobile-cover"><?php esc_attr_e( 'Cover', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-mobile-size"  data-id='mobile' id="{{{ data.id }}}-mobile-cover" <# if ( 'cover' === data.value['mobile']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'cover' === data.value['mobile']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-mobile-cover"><?php esc_attr_e( 'Cover', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-mobile-size"  data-id='mobile' id="{{ data.name }}-mobile-contain" <# if ( 'contain' === data.value['mobile']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'contain' === data.value['mobile']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-mobile-contain"><?php esc_attr_e( 'Contain', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-mobile-size"  data-id='mobile' id="{{{ data.id }}}-mobile-contain" <# if ( 'contain' === data.value['mobile']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'contain' === data.value['mobile']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-mobile-contain"><?php esc_attr_e( 'Contain', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-mobile-size"  data-id='mobile' id="{{ data.name }}-mobile-auto" <# if ( 'auto' === data.value['mobile']['background-size'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'auto' === data.value['mobile']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-mobile-auto"><?php esc_attr_e( 'Auto', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-mobile-size"  data-id='mobile' id="{{{ data.id }}}-mobile-auto" <# if ( 'auto' === data.value['mobile']['background-size'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'auto' === data.value['mobile']['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-mobile-auto"><?php esc_attr_e( 'Auto', 'astra-addon' ); ?></label>
 
 									</div>
 								</div>
@@ -382,14 +382,14 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 								<div class="background-attachment">
 									<h4><?php esc_attr_e( 'Background Attachment', 'astra-addon' ); ?></h4>
 									<div class="buttonset">
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-mobile-attachment"  data-id='mobile' id="{{ data.name }}-mobile-inherit" <# if ( 'inherit' === data.value['mobile']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'inherit' === data.value['mobile']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-mobile-inherit"><?php esc_attr_e( 'Inherit', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-mobile-attachment"  data-id='mobile' id="{{{ data.id }}}-mobile-inherit" <# if ( 'inherit' === data.value['mobile']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'inherit' === data.value['mobile']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-mobile-inherit"><?php esc_attr_e( 'Inherit', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-mobile-attachment"  data-id='mobile' id="{{ data.name }}-mobile-scroll" <# if ( 'scroll' === data.value['mobile']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'scroll' === data.value['mobile']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-mobile-scroll"><?php esc_attr_e( 'Scroll', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-mobile-attachment"  data-id='mobile' id="{{{ data.id }}}-mobile-scroll" <# if ( 'scroll' === data.value['mobile']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'scroll' === data.value['mobile']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-mobile-scroll"><?php esc_attr_e( 'Scroll', 'astra-addon' ); ?></label>
 
-										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-mobile-attachment"  data-id='mobile' id="{{ data.name }}-mobile-fixed" <# if ( 'fixed' === data.value['mobile']['background-attachment'] ) { #> checked="checked" <# } #>>
-											<label class="switch-label switch-label-<# if ( 'fixed' === data.value['mobile']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-mobile-fixed"><?php esc_attr_e( 'Fixed', 'astra-addon' ); ?></label>
+										<input {{{ data.inputAttrs }}} {{{ data.dataAttrs }}} data-name="{{{ data.id }}}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-mobile-attachment"  data-id='mobile' id="{{{ data.id }}}-mobile-fixed" <# if ( 'fixed' === data.value['mobile']['background-attachment'] ) { #> checked="checked" <# } #>>
+											<label class="switch-label switch-label-<# if ( 'fixed' === data.value['mobile']['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{{ data.id }}}-mobile-fixed"><?php esc_attr_e( 'Fixed', 'astra-addon' ); ?></label>
 
 									</div>
 								</div>
