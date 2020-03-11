@@ -846,7 +846,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'margin-right' => '20px',
 				),
 				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(3n), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(3n), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(3n), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(3n)' => array(
-					'margin-right' => '0',
+					'margin-right' => 0,
 					'clear'        => 'right',
 				),
 				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(3n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(3n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(3n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(3n+1)' => array(
@@ -914,7 +914,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => 'calc(33.33% - 14px)',
 				),
 				'.woocommerce div.product .related.products ul.products li.product:nth-child(3n)' => array(
-					'margin-right' => '0',
+					'margin-right' => 0,
 					'clear'        => 'right',
 				),
 				'.woocommerce div.product .related.products ul.products li.product:nth-child(3n+1)' => array(
@@ -953,8 +953,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 
 				'.ast-header-break-point.ast-woocommerce-cart-menu .header-main-layout-1.ast-mobile-header-stack.ast-no-menu-items .ast-site-header-cart, .ast-header-break-point.ast-woocommerce-cart-menu .header-main-layout-3.ast-mobile-header-stack.ast-no-menu-items .ast-site-header-cart' => array(
-					'padding-right' => '0',
-					'padding-left'  => '0',
+					'padding-right' => 0,
+					'padding-left'  => 0,
 				),
 				'.ast-header-break-point.ast-woocommerce-cart-menu .header-main-layout-1.ast-mobile-header-stack .main-header-bar' => array(
 					'text-align' => 'center',
@@ -1034,7 +1034,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => 'calc(16.66% - 16.66px)',
 				),
 				'.woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n), .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n), .woocommerce-page.mobile-columns-5 ul.products li.product:nth-child(5n), .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n), .woocommerce-page.mobile-columns-4 ul.products li.product:nth-child(4n), .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.mobile-columns-3 ul.products li.product:nth-child(3n), .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n)' => array(
-					'margin-right' => '0',
+					'margin-right' => 0,
 					'clear'        => 'right',
 				),
 				'.woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n+1)' => array(
@@ -1073,15 +1073,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'position'    => 'initial',
 				),
 				'.woocommerce.mobile-columns-1 ul.products li.product:nth-child(n), .woocommerce-page.mobile-columns-1 ul.products li.product:nth-child(n)' => array(
-					'margin-right' => '0',
+					'margin-right' => 0,
 				),
 				'.woocommerce #content table.cart .product-thumbnail' => array(
 					'display'    => 'block',
 					'text-align' => 'center !important',
 				),
 				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li' => array(
-					'display'     => 'block',
-					'margin-righ' => '0',
+					'display'      => 'block',
+					'margin-right' => 0,
 				),
 				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li a, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li a' => array(
 					'display' => 'block',
@@ -1107,7 +1107,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => 'calc(50% - 10px)',
 				),
 				'.woocommerce div.product .related.products ul.products li.product:nth-child(2n)' => array(
-					'margin-right' => '0',
+					'margin-right' => 0,
 					'clear'        => 'right',
 				),
 				'.woocommerce div.product .related.products ul.products li.product:nth-child(2n+1)' => array(

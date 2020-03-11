@@ -609,7 +609,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-right' => '0.54em',
 				),
 				'.ast-separate-container #secondary'    => array(
-					'padding-top' => '0',
+					'padding-top' => 0,
 				),
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
