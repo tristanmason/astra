@@ -70,19 +70,6 @@ body{
 		    padding: 3.34em 2.4em;
 		}
 	}
-	@media (max-width: $mx-col-sm) {
-		.ast-article-post,
-		.ast-article-single{
-		    padding: 1.5em 1em;
-		}
-		#content .ast-container{
-			padding-left: 0.54em;
-			padding-right: 0.54em;
-		}
-		#secondary{
-			padding-top: 0;
-		}
-	}
 }
 
 
