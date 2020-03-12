@@ -112,3 +112,22 @@ function astra_header_button_new_options() {
 	update_option( 'astra-settings', $theme_options );
 
 }
+
+/**
+ * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
+ *
+ * @since 2.3.3
+ *
+ * @return void
+ */
+function astra_elementor_default_color_typo_comp() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['ele-default-color-typo-setting-comp'] ) ) {
+		$theme_options['ele-default-color-typo-setting-comp'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
+}
