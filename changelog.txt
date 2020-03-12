@@ -9,7 +9,6 @@ v2.3.3
 - Fix: Conflict with Fast Velocity Minify plugin.
 - Fix: Unable to copy paste or type RGBA color code in color picker.
 - Fix: Updated Iris library for Color Picker param.
-- Fix: Google Font not loading when FS_METHOD set to ftpext in some cases.
 - Fix: Lifter LMS certificate CSS issue with Boxed and Content Boxed layout.
 
 v2.3.2
