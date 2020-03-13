@@ -604,10 +604,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
 					'padding' => '1.5em 2.14em',
 				),
-				'.ast-separate-container #content .ast-container' => array(
-					'padding-left'  => '0.54em',
-					'padding-right' => '0.54em',
-				),
 				'.ast-separate-container #secondary'    => array(
 					'padding-top' => 0,
 				),
@@ -877,6 +873,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			$global_button_mobile = array(
+				'.ast-separate-container #content .ast-container' => array(
+					'padding-left'  => '0.54em',
+					'padding-right' => '0.54em',
+				),
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
 				),
