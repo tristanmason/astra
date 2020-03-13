@@ -1003,6 +1003,57 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_output .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
 
+			if ( 'page-builder' !== astra_get_content_layout() ) {
+				/* Woocommerce Shop Archive width */
+				if ( 'custom' === $woo_shop_archive_width ) :
+					// Woocommerce shop archive custom width.
+					$site_width  = array(
+						'.ast-woo-shop-archive .site-content > .ast-container' => array(
+							'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
+						),
+					);
+					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+
+				else :
+					// Woocommerce shop archive default width.
+					$site_width = array(
+						'.ast-woo-shop-archive .site-content > .ast-container' => array(
+							'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+						),
+					);
+
+					/* Parse CSS from array()*/
+					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+				endif;
+			}
+
+			$woo_product_css = array(
+				'.woocommerce #content .ast-woocommerce-container div.product div.images, .woocommerce .ast-woocommerce-container div.product div.images, .woocommerce-page #content .ast-woocommerce-container div.product div.images, .woocommerce-page .ast-woocommerce-container div.product div.images' => array(
+					'width' => '50%',
+				),
+				'.woocommerce #content .ast-woocommerce-container div.product div.summary, .woocommerce .ast-woocommerce-container div.product div.summary, .woocommerce-page #content .ast-woocommerce-container div.product div.summary, .woocommerce-page .ast-woocommerce-container div.product div.summary' => array(
+					'width' => '46%',
+				),
+				'.woocommerce.woocommerce-checkout form #customer_details.col2-set, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set' => array(
+					'width'        => '55%',
+					'float'        => 'left',
+					'margin-right' => '4.347826087%',
+				),
+				'.woocommerce.woocommerce-checkout form #customer_details.col2-set .col-1, .woocommerce.woocommerce-checkout form #customer_details.col2-set .col-2, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-1, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-2' => array(
+					'float' => 'none',
+					'width' => 'auto',
+				),
+				'.woocommerce.woocommerce-checkout form #order_review, .woocommerce.woocommerce-checkout form #order_review_heading, .woocommerce-page.woocommerce-checkout form #order_review, .woocommerce-page.woocommerce-checkout form #order_review_heading' => array(
+					'width'        => '40%',
+					'float'        => 'right',
+					'margin-right' => '0',
+					'clear'        => 'right',
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$css_output .= astra_parse_css( $woo_product_css, astra_get_tablet_breakpoint( '', 1 ) );
+
 			/**
 			 * Global button CSS - Mobile.
 			 */
@@ -1075,33 +1126,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce.mobile-columns-1 ul.products li.product:nth-child(n), .woocommerce-page.mobile-columns-1 ul.products li.product:nth-child(n)' => array(
 					'margin-right' => 0,
 				),
-				'.woocommerce #content table.cart .product-thumbnail' => array(
-					'display'    => 'block',
-					'text-align' => 'center !important',
-				),
-				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li' => array(
-					'display'      => 'block',
-					'margin-right' => 0,
-				),
-				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li a, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li a' => array(
-					'display' => 'block',
-				),
-				'.woocommerce #content table.cart .product-thumbnail&:before' => array(
-					'display' => 'none',
-				),
-				'.woocommerce #content table.cart td.actions .coupon, .woocommerce-page #content table.cart td.actions .coupon' => array(
-					'float' => 'none',
-				),
-				'.woocommerce #content table.cart td.actions .coupon .button, .woocommerce-page #content table.cart td.actions .coupon .button' => array(
-					'flex' => '1',
-				),
-				'.woocommerce table.cart td.actions .button, .woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button' => array(
-					'padding-left'  => '1em',
-					'padding-right' => '1em',
-				),
-				'.woocommerce #content table.cart .button, .woocommerce-page #content table.cart .button' => array(
-					'width' => '100%',
-				),
 				'.woocommerce div.product .related.products ul.products li.product' => array(
 					'width' => '46.1%',
 					'width' => 'calc(50% - 10px)',
@@ -1113,60 +1137,36 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce div.product .related.products ul.products li.product:nth-child(2n+1)' => array(
 					'clear' => 'left',
 				),
+				'.woocommerce table.cart td.actions .button, .woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button' => array(
+					'padding-left'  => '1em',
+					'padding-right' => '1em',
+				),
+				'.woocommerce #content table.cart .button, .woocommerce-page #content table.cart .button' => array(
+					'width' => '100%',
+				),
+				'.woocommerce #content table.cart .product-thumbnail, .woocommerce-page #content table.cart .product-thumbnail' => array(
+					'display'    => 'block',
+					'text-align' => 'center !important',
+				),
+				'.woocommerce #content table.cart .product-thumbnail::before, .woocommerce-page #content table.cart .product-thumbnail::before' => array(
+					'display' => 'none',
+				),
+				'.woocommerce #content table.cart td.actions .coupon, .woocommerce-page #content table.cart td.actions .coupon' => array(
+					'float' => 'none',
+				),
+				'.woocommerce #content table.cart td.actions .coupon .button, .woocommerce-page #content table.cart td.actions .coupon .button' => array(
+					'flex' => '1',
+				),
+				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li' => array(
+					'display'      => 'block',
+					'margin-right' => 0,
+				),
+				'.woocommerce #content div.product .woocommerce-tabs ul.tabs li a, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li a' => array(
+					'display' => 'block',
+				),
 			);
 
 			$css_output .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
-
-			if ( 'page-builder' !== astra_get_content_layout() ) {
-				/* Woocommerce Shop Archive width */
-				if ( 'custom' === $woo_shop_archive_width ) :
-					// Woocommerce shop archive custom width.
-					$site_width  = array(
-						'.ast-woo-shop-archive .site-content > .ast-container' => array(
-							'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
-						),
-					);
-					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
-
-				else :
-					// Woocommerce shop archive default width.
-					$site_width = array(
-						'.ast-woo-shop-archive .site-content > .ast-container' => array(
-							'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
-						),
-					);
-
-					/* Parse CSS from array()*/
-					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
-				endif;
-			}
-
-			$woo_product_css = array(
-				'.woocommerce #content .ast-woocommerce-container div.product div.images, .woocommerce .ast-woocommerce-container div.product div.images, .woocommerce-page #content .ast-woocommerce-container div.product div.images, .woocommerce-page .ast-woocommerce-container div.product div.images' => array(
-					'width' => '50%',
-				),
-				'.woocommerce #content .ast-woocommerce-container div.product div.summary, .woocommerce .ast-woocommerce-container div.product div.summary, .woocommerce-page #content .ast-woocommerce-container div.product div.summary, .woocommerce-page .ast-woocommerce-container div.product div.summary' => array(
-					'width' => '46%',
-				),
-				'.woocommerce.woocommerce-checkout form #customer_details.col2-set, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set' => array(
-					'width'        => '55%',
-					'float'        => 'left',
-					'margin-right' => '4.347826087%',
-				),
-				'.woocommerce.woocommerce-checkout form #customer_details.col2-set .col-1, .woocommerce.woocommerce-checkout form #customer_details.col2-set .col-2, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-1, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-2' => array(
-					'float' => 'none',
-					'width' => 'auto',
-				),
-				'.woocommerce.woocommerce-checkout form #order_review, .woocommerce.woocommerce-checkout form #order_review_heading, .woocommerce-page.woocommerce-checkout form #order_review, .woocommerce-page.woocommerce-checkout form #order_review_heading' => array(
-					'width'        => '40%',
-					'float'        => 'right',
-					'margin-right' => '0',
-					'clear'        => 'right',
-				),
-			);
-
-			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( $woo_product_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 
