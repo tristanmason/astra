@@ -1004,7 +1004,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$css_output .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			/**
-			 * Global button CSS - Mobile.
+			 * Global button CSS - Mobile = max-width: (mobile-breakpoint)px.
 			 */
 			$css_global_button_mobile = array(
 				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product, .woocommerce[class*="columns-"].columns-4 > ul.products li.product, .woocommerce[class*="columns-"].columns-5 > ul.products li.product, .woocommerce[class*="columns-"].columns-6 > ul.products li.product' => array(
@@ -1012,9 +1012,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width'        => 'calc(50% - 10px)',
 					'margin-right' => '20px',
 				),
-				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n)' => array(
+				'.woocommerce-page[class*=columns-] ul.products li.product:nth-child(n), .woocommerce[class*=columns-] ul.products li.product:nth-child(n)' => array(
 					'margin-right' => '20px',
 					'clear'        => 'none',
+				),
+				'.woocommerce-page[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-6>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-6>ul.products li.product:nth-child(2n)' => array(
+					'margin-right' => 0,
+					'clear'        => 'right',
 				),
 				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n+1)' => array(
 					'clear' => 'left',
