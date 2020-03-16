@@ -654,7 +654,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 					<p>
 						<?php
-							esc_html_e( 'Import your favorite site one click and start your project in style!', 'astra' );
+							esc_html_e( 'Import your favorite site in one click and start your project with style!', 'astra' );
 						?>
 					</p>
 						<?php
