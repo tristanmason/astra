@@ -48,7 +48,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			),
 			'.trail-items li::after'              => array(
 				'padding' => '0 0.3em',
-				'content' => '"&#187;"',
+				'content' => '"\00bb"',
 			),
 			'.trail-items li:last-of-type::after' => array(
 				'display' => 'none',
