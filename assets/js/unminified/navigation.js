@@ -568,7 +568,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
-	if( astra.current_menu_support ) {
+	if( astra.active_menu_support ) {
 
 		// Single page active menu support.
 		var href_data = [];

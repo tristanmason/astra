@@ -253,10 +253,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
+			$astra_settings                                  		 = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['single-page-active-menu-item-support'] = ( isset( $astra_settings['single-page-active-menu-item-support'] ) && false === $astra_settings['single-page-active-menu-item-support'] ) ? false : true;
+
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
 				'isRtl'       => is_rtl(),
-				'current_menu_support' => single_page_current_menu_item_support()
+				'active_menu_support' => apply_filters( 'astra_single_page_active_menu_item_support', $astra_settings['single-page-active-menu-item-support'] )
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
