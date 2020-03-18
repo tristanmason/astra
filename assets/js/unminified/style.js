@@ -584,9 +584,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			
 			var elements;
 			href_data.forEach( function( item ) {
-				current_element_position = jQuery(item).offset().top;
-				current_element_position = current_element_position - 40;
-				if( current_element_position - 40 <= scrollDistance ) {
+				active_element_position = jQuery(item).offset().top;
+				active_element_position = active_element_position - 40;
+				if( active_element_position - 40 <= scrollDistance ) {
 					elements = item;
 				}
 			});
