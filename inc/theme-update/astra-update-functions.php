@@ -114,18 +114,18 @@ function astra_header_button_new_options() {
 }
 
 /**
- * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
+ * Do not apply single page active menu item support for old users.
  *
- * @since 2.2.0
+ * @since x.x.x
  *
  * @return void
  */
-function astra_single_page_current_menu_item_compatibility() {
+function astra_single_page_active_menu_item_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['single-page-current-menu-item-support'] ) ) {
-		$theme_options['single-page-current-menu-item-support'] = false;
+	if ( ! isset( $theme_options['single-page-active-menu-item-support'] ) ) {
+		$theme_options['single-page-active-menu-item-support'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
