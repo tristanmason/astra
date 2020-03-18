@@ -711,7 +711,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '4em',
 				),
 			);
-			/* Parse CSS from array() -> min-width: (breakpoint)px CSS */
+			/* Parse CSS from array() -> min-width: (breakpoint + 1)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
@@ -869,10 +869,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> min-width: (tablet-breakpoint) px CSS  */
+			$container_min_tablet_css = array(
+				'.ast-container' => array(
+					'max-width' => '100%',
+				),
+			);
+
+			$parse_css .= astra_parse_css( $container_min_tablet_css, astra_get_tablet_breakpoint() );
+
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
+			/* Parse CSS from array() -> min-width: (tablet-breakpoint) px CSS  */
+			$container_min_mobile_css = array(
+				'.ast-container' => array(
+					'max-width' => '100%',
+				),
+			);
+
+			$parse_css .= astra_parse_css( $container_min_mobile_css, astra_get_mobile_breakpoint() );
+
 			$global_button_mobile = array(
+				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
+					'padding'  => '1.5em 1em',
+				),
 				'.ast-separate-container #content .ast-container' => array(
 					'padding-left'  => '0.54em',
 					'padding-right' => '0.54em',
