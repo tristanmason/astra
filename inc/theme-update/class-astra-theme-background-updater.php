@@ -39,6 +39,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.3.0' => array(
 				'astra_header_button_new_options',
 			),
+			'2.4.0' => array(
+				'astra_single_page_current_menu_item_compatibility',
+			),
 		);
 
 		/**

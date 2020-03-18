@@ -112,3 +112,20 @@ function astra_header_button_new_options() {
 	update_option( 'astra-settings', $theme_options );
 
 }
+
+/**
+ * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
+ *
+ * @since 2.2.0
+ *
+ * @return void
+ */
+function astra_single_page_current_menu_item_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['single-page-current-menu-item-support'] ) ) {
+		$theme_options['single-page-current-menu-item-support'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

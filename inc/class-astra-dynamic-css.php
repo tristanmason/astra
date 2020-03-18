@@ -1587,5 +1587,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings['pb-button-color-compatibility'] = ( isset( $astra_settings['pb-button-color-compatibility'] ) && false === $astra_settings['pb-button-color-compatibility'] ) ? false : true;
 			return apply_filters( 'astra_page_builder_button_style_css', $astra_settings['pb-button-color-compatibility'] );
 		}
+
+		/**
+		 * Check backwards compatibility to not load single page current menu item support.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if single page current menu item support should be loaded, False if not.
+		 */
+		public static function single_page_current_menu_item_support() {
+			$astra_settings                                  		 = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['single-page-current-menu-item-support'] = ( isset( $astra_settings['single-page-current-menu-item-support'] ) && false === $astra_settings['single-page-current-menu-item-support'] ) ? false : true;
+			return apply_filters( 'astra_page_builder_button_style_css', $astra_settings['single-page-current-menu-item-support'] );
+		}
 	}
 }

@@ -568,4 +568,48 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
+	if( astra.current_menu_support ) {
+
+		// Single page active menu support.
+		var href_data = [];
+		jQuery('.main-navigation .menu-item').each(function(i) {
+			var href = jQuery( this ).find( '.menu-link' ).attr( 'href' );
+			if( href.startsWith( '#' ) ) {
+				href_data.push( href );
+			}
+		});
+		
+		function onMenuScroll() {
+			var scrollDistance = jQuery(window).scrollTop();
+			
+			var elements;
+			href_data.forEach( function( item ) {
+				current_element_position = jQuery(item).offset().top;
+				current_element_position = current_element_position - 40;
+				if( current_element_position - 40 <= scrollDistance ) {
+					elements = item;
+				}
+			});
+			
+			jQuery('.main-navigation .menu-item').each(function(i) {
+				
+				jQuery( this ).removeClass('current-menu-item');
+				if( jQuery( this ).find( '.menu-link' ).attr( 'href' ) == elements ) {
+					jQuery( this ).addClass( 'current-menu-item' );
+				}
+				if( undefined == elements ) {
+					var href = jQuery( this ).find( '.menu-link' ).attr( 'href' );
+					if( ! href.startsWith('#') ) {
+						jQuery( this ).addClass( 'current-menu-item' );
+					}
+				}
+				
+			});
+		}
+		
+		jQuery(window).scroll(function() {
+			onMenuScroll();
+		}).scroll();
+	}	
+	
 } )();
