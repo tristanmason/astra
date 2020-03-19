@@ -1,6 +1,5 @@
 var title_checkbox = jQuery('#site-post-title');
-console.log('hi');
-console.log(title_meta_customizer_value);
+
 var title_meta_customizer_value =  title_meta_customizer_value.includes("single-title-meta");
 jQuery('.editor-post-title__block').load( title_toggle );
 setTimeout(function() {
