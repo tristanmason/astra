@@ -16,7 +16,6 @@
     }
 }
 
-
 .ast-comment-list {
     margin: 0;
     word-wrap: break-word;
@@ -33,9 +32,6 @@
         margin-left: 2em;
         @media (max-width: $mx-col-lg) {
             margin-left: 1em;
-        }
-        @media (max-width: $mx-col-sm) {
-            margin-left: 0.66666em;
         }
     }
     .comment-respond{
@@ -76,15 +72,9 @@
     float: left;
     clear: right;
     margin-right: 1.33333em;
-    @media (max-width: $mx-col-md) {
-        margin-right: 0.5em;
-    }
 
     img {
         border-radius: 50%;
-        @media (max-width: $mx-col-md) {
-            max-width: 2.5em;
-        }
     }
 }
 .ast-comment-meta-wrap{
@@ -126,9 +116,6 @@
 .comments-area {
     border-top: 1px solid $color-border-content;
     margin-top: 2em;
-    @media(max-width: $mx-col-md) {
-        margin-top: 1.5em;
-    }
     
     /*  1 - Textarea Styles */
     .comment-form-comment {
@@ -182,12 +169,6 @@
         @media (max-width: $mx-col-xl) {
             padding: 2em 3.34em;
         }
-        @media (max-width: $mx-col-md) {
-            padding: 2em 2.14em;
-        }
-        @media (max-width: $mx-col-sm) {
-            padding: 1.5em 1em;
-        }
     }
     .comments-area {
         border-top: 0;
@@ -203,14 +184,6 @@
 
                 @media (max-width: $mx-col-xl) {
                     padding: 3em 3.34em;
-                }
-                @media (max-width: $mx-col-md) {
-                    padding: 1.5em 2.14em;
-                }
-
-                @media (max-width: $mx-col-sm) {
-                    padding: 1.5em 1em;
-                    margin-bottom: 1.5em;
                 }
                 .ast-comment{
                     border-bottom: 0;
@@ -231,10 +204,6 @@
             padding-top: 0;
             padding-bottom: 1em;
             background-color: transparent;
-            @media (min-width: $col-md) {
-                padding-left: 2.66666em;
-                padding-right: 2.66666em;
-            }
         }
 
         .pingback p{
@@ -243,10 +212,6 @@
         .bypostauthor{
             padding: 2em;
             margin-bottom: 1em;
-            @media (max-width: $mx-col-sm) {
-                padding: .5em;
-            }
-
             .bypostauthor{
                 background: transparent;
                 margin-bottom: 0;
@@ -258,9 +223,6 @@
                 background: transparent;
                 margin-bottom: 0;
                 padding: 0 0 0 2em;
-                @media (max-width: $mx-col-sm) {
-                    padding: 0 0 0 .5em;
-                }
             }
         }
     }
@@ -270,13 +232,6 @@
         border-bottom: 0;
         @media (max-width: $mx-col-xl) {
             padding: 3em 2.34em;
-        }
-        @media (max-width: $mx-col-md) {
-            padding: 2em 2.14em;
-        }
-
-        @media (max-width: $mx-col-sm) {
-            padding: 1.5em 1em;
         }
     }
     .comment-reply-title{
