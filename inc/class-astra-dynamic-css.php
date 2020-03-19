@@ -698,6 +698,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-right' => '30px',
 					'padding-left'  => 0,
 				),
+				'.ast-separate-container .ast-comment-list li .comment-respond' => array(
+					'padding-left'  => '2.66666em',
+					'padding-right' => '2.66666em',
+				),
 				'.ast-author-box'               => array(
 					'-js-display' => 'flex',
 					'display'     => 'flex',
@@ -709,7 +713,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '4em',
 				),
 			);
-			/* Parse CSS from array() -> min-width: (breakpoint + 1)px CSS */
+			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
@@ -994,15 +998,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-left'  => '0.54em',
 					'padding-right' => '0.54em',
 				),
+				'.ast-separate-container .comments-count-wrapper' => array(
+					'padding' => '1.5em 1em',
+				),
+				'.ast-comment-list li.children' => array(
+					'margin-left' => '0.66666em',
+				),
+				'.ast-separate-container .ast-comment-list li.depth-1' => array(
+					'padding'       => '1.5em 1em',
+					'margin-bottom' => '1.5em',
+				),
+				'.ast-separate-container .ast-comment-list .bypostauthor' => array(
+					'padding' => '.5em',
+				),
+				'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
+					'padding' => '0 0 0 .5em',
+				),
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
 				),
 			);
 
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
 			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
+
 			/**
-			 * Global button CSS - Tablet.
+			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
 			 */
 			$global_button_tablet = array(
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
@@ -1024,12 +1045,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
 					'right' => '-1em',
 				),
+				'.ast-comment-avatar-wrap'                 => array(
+					'margin-right' => '0.5em',
+				),
+				'.ast-comment-avatar-wrap img'             => array(
+					'max-width' => '2.5em',
+				),
+				'.comments-area'                           => array(
+					'margin-top' => '1.5em',
+				),
+				'.ast-separate-container .comments-count-wrapper' => array(
+					'padding' => '2em 2.14em',
+				),
+				'.ast-separate-container .ast-comment-list li.depth-1' => array(
+					'padding' => '1.5em 2.14em',
+				),
+				'.ast-separate-container .comment-respond' => array(
+					'padding' => '2em 2.14em',
+				),
 			);
 
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			/**
-			 * Global button CSS - Mobile.
+			 * Global button CSS -> max-width: (mobile-breakpoint) px.
 			 */
 			$global_button_mobile = array(
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
@@ -1038,6 +1077,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+				),
+				'.ast-separate-container .comment-respond' => array(
+					'padding' => '1.5em 1em',
 				),
 			);
 
