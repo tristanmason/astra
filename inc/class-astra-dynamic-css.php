@@ -1001,7 +1001,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .comments-count-wrapper' => array(
 					'padding' => '1.5em 1em',
 				),
-				'.ast-comment-list li.children' => array(
+				'.ast-comment-list .children' => array(
 					'margin-left' => '0.66666em',
 				),
 				'.ast-separate-container .ast-comment-list li.depth-1' => array(
