@@ -168,7 +168,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Button Styling.
 			$btn_border_radius     = astra_get_option( 'button-radius' );
 			$theme_btn_padding     = astra_get_option( 'theme-button-padding' );
-			$highlight_link_color  = astra_get_foreground_color( $link_color );
 			$highlight_theme_color = astra_get_foreground_color( $theme_color );
 
 			// Footer Bar Colors.
@@ -194,7 +193,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$primary_submenu_item_b_color = astra_get_option( 'primary-submenu-item-b-color', '#eaeaea' );
 
 			// Custom Buttom menu item.
-			$header_custom_item                  = astra_get_option( 'header-main-rt-section' );
 			$header_custom_button_style          = astra_get_option( 'header-main-rt-section-button-style' );
 			$header_custom_button_text_color     = astra_get_option( 'header-main-rt-section-button-text-color' );
 			$header_custom_button_text_h_color   = astra_get_option( 'header-main-rt-section-button-text-h-color' );
@@ -271,7 +269,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false );
 
-			if ( false == $btn_style_color ) {
+			if ( ! $btn_style_color ) {
 				// button text color.
 				$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
 			} else {
@@ -711,7 +709,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '4em',
 				),
 			);
-			/* Parse CSS from array() -> min-width: (breakpoint)px CSS */
+			/* Parse CSS from array() -> min-width: (breakpoint + 1)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
@@ -869,10 +867,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			/* Parse CSS from array() */
+			/* Parse CSS from array() -> min-width: (tablet-breakpoint) px CSS  */
+			$container_min_tablet_css = array(
+				'.ast-container' => array(
+					'max-width' => '100%',
+				),
+			);
+
+			$parse_css .= astra_parse_css( $container_min_tablet_css, astra_get_tablet_breakpoint() );
+
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
+			/* Parse CSS from array() -> min-width: (tablet-breakpoint) px CSS  */
+			$container_min_mobile_css = array(
+				'.ast-container' => array(
+					'max-width' => '100%',
+				),
+			);
+
+			$parse_css .= astra_parse_css( $container_min_mobile_css, astra_get_mobile_breakpoint() );
+
 			$global_button_mobile = array(
+				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
+					'padding' => '1.5em 1em',
+				),
 				'.ast-separate-container #content .ast-container' => array(
 					'padding-left'  => '0.54em',
 					'padding-right' => '0.54em',
@@ -1389,7 +1408,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
 				),
 				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
-					'border-bottom-width' => ( true == $primary_submenu_item_border ) ? '1px' : '0px',
+					'border-bottom-width' => ( $primary_submenu_item_border ) ? '1px' : '0px',
 					'border-style'        => 'solid',
 					'border-color'        => esc_attr( $primary_submenu_item_b_color ),
 				),
