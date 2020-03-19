@@ -114,17 +114,12 @@ function astra_header_button_new_options() {
 }
 
 /**
-<<<<<<< HEAD
  * Migrate option data from site layout background option to its desktop counterpart.
-=======
- * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
->>>>>>> f74d43d06af71247a497b04f7b288be2f3790d56
  *
- * @since 2.3.3
+ * @since x.x.x
  *
  * @return void
  */
-<<<<<<< HEAD
 function astra_responsive_base_background_option() {
 
 	$theme_options = get_option( 'astra-settings', array() );
@@ -154,7 +149,13 @@ function astra_responsive_base_background_option() {
 
 }
 
-=======
+/**
+ * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
+ *
+ * @since 2.3.3
+ *
+ * @return void
+ */
 function astra_elementor_default_color_typo_comp() {
 
 	$theme_options = get_option( 'astra-settings', array() );
@@ -184,4 +185,3 @@ function astra_breadcrumb_separator_fix() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
->>>>>>> f74d43d06af71247a497b04f7b288be2f3790d56
