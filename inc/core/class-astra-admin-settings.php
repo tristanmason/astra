@@ -654,7 +654,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 					<p>
 						<?php
-							esc_html_e( 'Import your favorite site one click and start your project in style!', 'astra' );
+							esc_html_e( 'Import your favorite site in one click and start your project with style!', 'astra' );
 						?>
 					</p>
 						<?php
@@ -1554,7 +1554,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'astra_header_top_links',
 				array(
 					'astra-theme-info' => array(
-						'title' => __( '<img src="http://localhost/wordpress-5.3/wp-content/themes/astra/inc/assets/images/lightning-speed.svg" class="astra-lightning-icon" alt="Astra Lightning Speed"> Lightning Fast & Fully Customizable WordPress theme!', 'astra' ),
+						'title' => '<img src=" ' . ASTRA_THEME_URI . 'inc/assets/images/lightning-speed.svg" class="astra-lightning-icon" alt="Astra Lightning Speed">' . __( ' Lightning Fast & Fully Customizable WordPress theme!', 'astra' ),
 					),
 				)
 			);
