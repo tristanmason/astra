@@ -113,17 +113,91 @@ function astra_header_button_new_options() {
 }
 
 /**
+ * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
+ *
+ * @since 2.3.3
+ *
+ * @return void
+ */
+function astra_elementor_default_color_typo_comp() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['ele-default-color-typo-setting-comp'] ) ) {
+		$theme_options['ele-default-color-typo-setting-comp'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
+}
+
+/**
+ * For existing users, change the separator from html entity to css entity.
+ *
+ * @since 2.3.4
+ *
+ * @return void
+ */
+function astra_breadcrumb_separator_fix() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Check if the saved database value for Breadcrumb Separator is "&#187;", then change it to '\00bb'.
+	if ( isset( $theme_options['breadcrumb-separator'] ) && '&#187;' === $theme_options['breadcrumb-separator'] ) {
+		$theme_options['breadcrumb-separator'] = '\00bb';
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Check if we need to change the default value for tablet breakpoint.
  *
  * @since x.x.x
  * @return void
  */
 function astra_update_theme_tablet_breakpoint() {
+
 	$theme_options = get_option( 'astra-settings' );
 
 	if ( ! isset( $theme_options['can-update-theme-tablet-breakpoint'] ) ) {
 		// Set a flag to check if we need to change the theme tablet breakpoint value.
 		$theme_options['can-update-theme-tablet-breakpoint'] = false;
 	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Migrate option data from site layout background option to its desktop counterpart.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_responsive_base_background_option() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
+
+		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
+		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['site-layout-outside-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
 	update_option( 'astra-settings', $theme_options );
 }
