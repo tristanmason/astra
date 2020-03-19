@@ -29,6 +29,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 		 */
 		public static function get_css() {
 			global $pagenow;
+			global $post;
+			$post_id = astra_get_post_id();
 
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
@@ -101,6 +103,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$h3_font_weight    = astra_get_option( 'font-weight-h3' );
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
+
+			$single_post_title       = astra_get_option( 'blog-single-post-structure' );
+			$title_enabled_from_meta = get_post_meta( $post_id, 'site-post-title', true );
 
 			// Fallback for H1 - headings typography.
 			if ( 'inherit' == $h1_font_family ) {
@@ -312,6 +317,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
 			);
+
+			if ( ! in_array( 'single-title-meta', $single_post_title ) || ( 'disabled' === $title_enabled_from_meta ) ) {
+				$destop_title_css = array(
+					'.editor-post-title__block' => array(
+						'opacity' => '0.1',
+					),
+				);
+				$desktop_css      = array_merge( $desktop_css, $destop_title_css );
+			}
 
 			$css .= astra_parse_css( $desktop_css );
 
