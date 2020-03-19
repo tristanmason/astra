@@ -602,9 +602,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
 					'padding' => '1.5em 2.14em',
 				),
-				'.ast-separate-container #secondary'    => array(
-					'padding-top' => 0,
-				),
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
 				),
@@ -998,10 +995,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-left'  => '0.54em',
 					'padding-right' => '0.54em',
 				),
+				'.ast-separate-container #secondary' => array(
+					'padding-top' => 0,
+				),
 				'.ast-separate-container .comments-count-wrapper' => array(
 					'padding' => '1.5em 1em',
 				),
-				'.ast-comment-list .children' => array(
+				'.ast-comment-list .children'        => array(
 					'margin-left' => '0.66666em',
 				),
 				'.ast-separate-container .ast-comment-list li.depth-1' => array(
