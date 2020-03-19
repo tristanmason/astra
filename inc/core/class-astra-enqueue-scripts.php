@@ -304,10 +304,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 			wp_localize_script(
-					'astra-block-editor-script',
-					'title_meta_customizer_value',
-					 $single_post_title
-				);
+				'astra-block-editor-script',
+				'title_meta_customizer_value',
+				$single_post_title
+			);
 
 			// Render fonts in Gutenberg layout.
 			Astra_Fonts::render_fonts();
