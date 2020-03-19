@@ -134,6 +134,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Disable Menu', 'astra' ),
 					'priority' => 5,
+					'partial'  => array(
+						'selector'            => '.main-header-bar .main-navigation',
+						'container_inclusive' => false,
+					),
 				),
 
 				array(
@@ -155,6 +159,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						),
 						'primary-header'
 					),
+					'partial'  => array(
+						'selector'            => '.main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.search-custom-menu-item .ast-search-icon .astra-search-icon, .main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.woocommerce-custom-menu-item, .main-header-bar .ast-masthead-custom-menu-items.widget-custom-menu-item .ast-header-widget-area .widget.ast-no-widget-row, .main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.edd-custom-menu-item',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
@@ -168,7 +176,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'   => 'text',
 					'section'   => 'section-primary-menu',
 					'partial'   => array(
-						'selector'            => '.ast-custom-button-link .ast-button',
+						'selector'            => '.button-custom-menu-item',
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_button_text' ),
 					),
@@ -487,6 +495,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'title'     => __( 'Menu Label', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'text',
+					'partial'   => array(
+						'selector'            => '.ast-mobile-menu-buttons',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**

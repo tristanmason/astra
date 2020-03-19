@@ -81,6 +81,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'astra_header_markup_after' => __( 'After Header', 'astra' ),
 						'astra_entry_top'           => __( 'Before Title', 'astra' ),
 					),
+					'partial'  => array(
+						'selector'            => '.ast-breadcrumbs-wrapper .ast-breadcrumbs .trail-items',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
@@ -107,7 +111,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'            => 'control',
 					'control'         => 'text',
 					'section'         => 'section-breadcrumb',
-					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '&#187;',
+					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
 					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority'        => 15,
 					'title'           => __( 'Separator', 'astra' ),
