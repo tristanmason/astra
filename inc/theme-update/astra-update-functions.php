@@ -114,6 +114,42 @@ function astra_header_button_new_options() {
 }
 
 /**
+ * Migrate option data from site layout background option to its desktop counterpart.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_responsive_base_background_option() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
+
+		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
+		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['site-layout-outside-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	update_option( 'astra-settings', $theme_options );
+
+}
+
+/**
  * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
  *
  * @since 2.3.3
