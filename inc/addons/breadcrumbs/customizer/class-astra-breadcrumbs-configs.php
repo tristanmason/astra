@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'            => 'control',
 					'control'         => 'text',
 					'section'         => 'section-breadcrumb',
-					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '&#187;',
+					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
 					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority'        => 15,
 					'title'           => __( 'Separator', 'astra' ),

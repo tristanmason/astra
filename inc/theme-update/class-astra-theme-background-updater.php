@@ -42,6 +42,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.3.3' => array(
 				'astra_elementor_default_color_typo_comp',
 			),
+			'2.3.4' => array(
+				'astra_breadcrumb_separator_fix',
+			),
 		);
 
 		/**
