@@ -318,7 +318,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			if ( ! in_array( 'single-title-meta', $single_post_title ) || ( 'disabled' === $title_enabled_from_meta ) ) {
+			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
 				$destop_title_css = array(
 					'.editor-post-title__block' => array(
 						'opacity' => '0.1',
