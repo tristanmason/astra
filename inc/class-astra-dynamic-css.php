@@ -890,7 +890,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$global_button_mobile = array(
 				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
-					'padding'  => '1.5em 1em',
+					'padding' => '1.5em 1em',
 				),
 				'.ast-separate-container #content .ast-container' => array(
 					'padding-left'  => '0.54em',
