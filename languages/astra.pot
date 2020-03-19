@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 2.3.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-03-17 07:32:09+00:00\n"
+"POT-Creation-Date: 2020-03-19 06:53:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1319,7 +1319,7 @@ msgid "Did you know %1$s offers a free library of %2$s "
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:657
-msgid "Import your favorite site one click and start your project in style!"
+msgid "Import your favorite site in one click and start your project with style!"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:705
