@@ -948,10 +948,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 * Global button CSS - Tablet = max-width: (tab-breakpoint)px.
 			 */
 			$css_global_button_tablet = array(
-				'.ast-separate-container .ast-woocommerce-container' => array(
-					'padding' => '.54em 1em 1.33333em',
-				),
-
 				'.ast-header-break-point.ast-woocommerce-cart-menu .header-main-layout-1.ast-mobile-header-stack.ast-no-menu-items .ast-site-header-cart, .ast-header-break-point.ast-woocommerce-cart-menu .header-main-layout-3.ast-mobile-header-stack.ast-no-menu-items .ast-site-header-cart' => array(
 					'padding-right' => 0,
 					'padding-left'  => 0,
@@ -1007,6 +1003,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 * Global button CSS - Mobile = max-width: (mobile-breakpoint)px.
 			 */
 			$css_global_button_mobile = array(
+				'.ast-separate-container .ast-woocommerce-container' => array(
+					'padding' => '.54em 1em 1.33333em',
+				),
 				'.woocommerce[class*="columns-"].columns-3 > ul.products li.product, .woocommerce[class*="columns-"].columns-4 > ul.products li.product, .woocommerce[class*="columns-"].columns-5 > ul.products li.product, .woocommerce[class*="columns-"].columns-6 > ul.products li.product' => array(
 					'width'        => '46.1%',
 					'width'        => 'calc(50% - 10px)',
