@@ -879,29 +879,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'margin-right' => '20px',
 					'clear'        => 'none',
 				),
-				'.woocommerce.tablet-columns-6 ul.products li.product, .woocommerce-page.tablet-columns-6 ul.products li.product' => array(
-					'width' => '12.7%',
-					'width' => 'calc(16.66% - 16.66px)',
-				),
-				'.woocommerce.tablet-columns-5 ul.products li.product, .woocommerce-page.tablet-columns-5 ul.products li.product' => array(
-					'width' => '16.2%',
-					'width' => 'calc(20% - 16px)',
-				),
-				'.woocommerce.tablet-columns-4 ul.products li.product, .woocommerce-page.tablet-columns-4 ul.products li.product' => array(
-					'width' => '21.5%',
-					'width' => 'calc(25% - 15px)',
-				),
-				'.woocommerce.tablet-columns-3 ul.products li.product, .woocommerce-page.tablet-columns-3 ul.products li.product' => array(
-					'width' => '30.2%',
-					'width' => 'calc(33.33% - 14px)',
-				),
-				'.woocommerce.tablet-columns-2 ul.products li.product, .woocommerce-page.tablet-columns-2 ul.products li.product' => array(
-					'width' => '47.6%',
-					'width' => 'calc(50% - 10px)',
-				),
-				'.woocommerce.tablet-columns-1 ul.products li.product, .woocommerce-page.tablet-columns-1 ul.products li.product' => array(
-					'width' => '100%',
-				),
 				'.woocommerce.tablet-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.tablet-columns-2 ul.products li.product:nth-child(2n), .woocommerce.tablet-columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.tablet-columns-3 ul.products li.product:nth-child(3n), .woocommerce.tablet-columns-4 ul.products li.product:nth-child(4n), .woocommerce-page.tablet-columns-4 ul.products li.product:nth-child(4n), .woocommerce.tablet-columns-5 ul.products li.product:nth-child(5n), .woocommerce-page.tablet-columns-5 ul.products li.product:nth-child(5n), .woocommerce.tablet-columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.tablet-columns-6 ul.products li.product:nth-child(6n)' => array(
 					'margin-right' => '0',
 					'clear'        => 'right',
