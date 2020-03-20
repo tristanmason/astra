@@ -1,3 +1,6 @@
+
+
+var title_meta_customizer_value =  title_meta_customizer_value.includes("single-title-meta");
 jQuery(document).ready(function($) {
 	$( '#astra_settings_meta_box #site-content-layout' ).on( 'click', function( event ) {
 		// event.preventDefault();
@@ -17,4 +20,19 @@ jQuery(document).ready(function($) {
 			jQuery('body').removeClass( 'ast-two-container ast-page-builder-template ast-separate-container' );
 		}
 	});
+
+	var title_checkbox = jQuery('#site-post-title');
+	
+	//function to toggle the title div in gutenber customizer
+	var title_toggle = function (){
+		var title_block =  jQuery('.editor-post-title__block'  );
+		if( jQuery(this).prop("checked") == true ){	
+			title_block.css('opacity','0.2');
+		}
+		else if (  title_meta_customizer_value  ){
+			title_block.css('opacity','1.0');
+		}
+	}
+	title_checkbox.on('change', title_toggle ); 
 });
+

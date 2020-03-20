@@ -302,18 +302,15 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( is_rtl() ) {
 				$rtl = '-rtl';
 			}
-
+			// get the customizer value if the title is enabled or not.
 			$single_post_title = astra_get_option( 'blog-single-post-structure' );
 
 			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
 			$js_uri  = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
 
-			$js_uri = ASTRA_THEME_URI . 'inc/assets/js/astra-site-title-enable.js';
-
 			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 
-			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 			wp_localize_script(
 				'astra-block-editor-script',
 				'title_meta_customizer_value',
