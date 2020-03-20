@@ -963,10 +963,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'display'   => 'flex',
 					'flex-wrap' => 'wrap',
 				),
-				'.woocommerce-message a.button, .woocommerce-error a.button, .woocommerce-info a.button' => array(
-					'order'      => '1',
-					'margin-top' => '.5em',
-				),
 				'.woocommerce-cart table.cart td.actions .ast-return-to-shop' => array(
 					'display'    => 'block',
 					'text-align' => 'center',
@@ -1004,6 +1000,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+				),
+				'.woocommerce-message a.button, .woocommerce-error a.button, .woocommerce-info a.button' => array(
+					'order'      => '1',
+					'margin-top' => '.5em',
 				),
 				'.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)' => array(
 					'margin-right' => '20px',
