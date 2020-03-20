@@ -496,56 +496,90 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', '544' );
 
-			if ( 'page-builder' === $container_layout ) {
-				$page_builder_css = array(
-					'.editor-post-title__block, .editor-default-block-appender, .editor-block-list__block' => array(
-						'width'     => '100%',
-						'max-width' => '100%',
-					),
-					'.block-editor-block-list__layout' => array(
-						'padding-left'  => 0,
-						'padding-right' => 0,
-					),
-					'.editor-block-list__block-edit'   => array(
-						'padding-left'  => '20px',
-						'padding-right' => '20px',
-					),
-					'.editor-block-list__block-edit .editor-block-list__block-edit' => array(
-						'padding-left'  => '0',
-						'padding-right' => '0',
-					),
-				);
+			$page_builder_css = array(
+				'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .editor-block-list__block' => array(
+					'width'     => '100%',
+					'max-width' => '100%',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'padding-left'  => 0,
+					'padding-right' => 0,
+				),
+				'.ast-page-builder-template .editor-block-list__block-edit'   => array(
+					'padding-left'  => '20px',
+					'padding-right' => '20px',
+				),
+				'.ast-page-builder-template .editor-block-list__block-edit .editor-block-list__block-edit' => array(
+					'padding-left'  => '0',
+					'padding-right' => '0',
+				),
+			);
 
-				$css .= astra_parse_css( $page_builder_css );
-			}
+			$css .= astra_parse_css( $page_builder_css );
 
-			if ( 'page-builder' === $container_layout || 'plain-container' === $container_layout ) {
-				$aligned_full_content_css = array(
-					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
-					),
-					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"]' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
-					),
-				);
+			$aligned_full_content_css = array(
+				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-plain-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
+					'margin-left'  => '0',
+					'margin-right' => '0',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .ast-plain-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"]' => array(
+					'margin-left'  => '0',
+					'margin-right' => '0',
+				),
+			);
 
-				$css .= astra_parse_css( $aligned_full_content_css );
-			}
+			$css .= astra_parse_css( $aligned_full_content_css );
 
-			if ( 'page-builder' === $container_layout ) {
-				$full_width_streched_css = array(
-					'.block-editor-block-list__layout' => array(
-						'margin-left'  => '60px',
-						'margin-right' => '60px',
-					),
-				);
+			$full_width_streched_css = array(
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'margin-left'  => '60px',
+					'margin-right' => '60px',
+				),
+			);
 
-				$css .= astra_parse_css( $full_width_streched_css );
-			}
+			$css .= astra_parse_css( $full_width_streched_css );
 
-			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
+			$boxed_container = array(
+				'.ast-separate-container .editor-writing-flow, .ast-two-container .editor-writing-flow'       => array(
+					'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
+					'margin'           => '0 auto',
+					'background-color' => '#fff',
+				),
+				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor'         => array(
+					'background-color' => '#f5f5f5',
+				),
+				'.ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
+					'padding-top'    => 'calc( 5.34em - 19px)',
+					'padding-bottom' => '5.34em',
+					'padding-left'   => 'calc( 6.67em - 28px )',
+					'padding-right'  => 'calc( 6.67em - 28px )',
+				),
+				'.ast-separate-container .editor-block-list__layout, .ast-two-container .editor-block-list__layout' => array(
+					'padding-top' => '0',
+				),
+				'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title'         => array(
+					'padding-bottom' => '0',
+				),
+				'.ast-separate-container .editor-block-list__block, .ast-two-container .editor-block-list__block'  => array(
+					'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
+				),
+				'.ast-separate-container .editor-block-list__block[data-align=wide], .ast-two-container .editor-block-list__block[data-align=wide]' => array(
+					'margin-left'  => '-20px',
+					'margin-right' => '-20px',
+				),
+				'.ast-separate-container .editor-block-list__block[data-align=full], .ast-two-container .editor-block-list__block[data-align=full]' => array(
+					'margin-left'  => '-6.67em',
+					'margin-right' => '-6.67em',
+				),
+				'.ast-separate-container .editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-separate-container .editor-block-list__layout .editor-block-list__block[data-align="full"] > .editor-block-list__block-edit, .ast-two-container .editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-two-container .editor-block-list__layout .editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
+					'margin-left'  => '0',
+					'margin-right' => '0',
+				),
+			);
+
+			$css .= astra_parse_css( $boxed_container );
+
+			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) ) {
 				$boxed_container = array(
 					'.editor-writing-flow'       => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
