@@ -5483,9 +5483,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 @media (max-width: 768px) {
-  .ast-pagination {
-    text-align: center;
-  }
   .ast-pagination .prev.page-numbers {
     padding-right: .5em;
   }
