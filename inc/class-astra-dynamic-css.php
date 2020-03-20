@@ -1014,6 +1014,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
 					'padding' => '0 0 0 .5em',
 				),
+				'.ast-separate-container .ast-archive-description' => array(
+					'padding' => '1.5em 1em',
+				),
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
 				),

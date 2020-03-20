@@ -4927,12 +4927,6 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
-@media (max-width: 544px) {
-  .ast-separate-container .ast-archive-description {
-    padding: 1.5em 1em;
-  }
-}
-
 @media (min-width: 1201px) {
   .ast-separate-container .ast-author-box,
   .ast-separate-container .ast-archive-description {
