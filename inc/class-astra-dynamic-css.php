@@ -784,7 +784,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 
 					/* Parse CSS from array() */
-					$parse_css .= astra_parse_css( $ele_btn_default_tablet, '', '768' );
+					$parse_css .= astra_parse_css( $ele_btn_default_tablet, '', astra_get_tablet_breakpoint() );
 
 					$ele_btn_default_mobile = array(
 						'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button' => array(
@@ -796,7 +796,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 
 					/* Parse CSS from array() */
-					$parse_css .= astra_parse_css( $ele_btn_default_mobile, '', '544' );
+					$parse_css .= astra_parse_css( $ele_btn_default_mobile, '', astra_get_mobile_breakpoint() );
 				}
 
 				if ( 'color-typo' === self::elementor_default_color_font_setting() || 'color' === self::elementor_default_color_font_setting() ) {
