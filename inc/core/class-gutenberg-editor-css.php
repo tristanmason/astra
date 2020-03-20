@@ -448,6 +448,14 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-separate-container .edit-post-visual-editor, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor, .ast-separate-container #wpwrap #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'tablet' ),
 			);
 
+			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
+				$tablet_title_css = array(
+					'.editor-post-title__block' => array(
+						'opacity' => '0.1',
+					),
+				);
+				$tablet_css       = array_merge( $tablet_css, $tablet_title_css );
+			}
 			$css .= astra_parse_css( $tablet_css, '', '768' );
 
 			$mobile_css = array(
@@ -476,6 +484,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'.ast-separate-container .edit-post-visual-editor, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor, .ast-separate-container #wpwrap #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'mobile' ),
 			);
+
+			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
+				$mobile_title_css = array(
+					'.editor-post-title__block' => array(
+						'opacity' => '0.1',
+					),
+				);
+				$mobile_css       = array_merge( $mobile_css, $mobile_title_css );
+			}
 
 			$css .= astra_parse_css( $mobile_css, '', '544' );
 
