@@ -1049,7 +1049,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 				'.woocommerce ul.products a.button.loading::after, .woocommerce-page ul.products a.button.loading::after' => array(
 					'display'     => 'inline-block',
-					'margin-left' => '5em',
+					'margin-left' => '5px',
 					'position'    => 'initial',
 				),
 				'.woocommerce.mobile-columns-1 ul.products li.product:nth-child(n), .woocommerce-page.mobile-columns-1 ul.products li.product:nth-child(n)' => array(
