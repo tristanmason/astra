@@ -473,7 +473,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 
 			/* Parse CSS from array()*/
-			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint( '', 1 ) );
+			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint() );
 
 			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $edd_css_output ) );
 
