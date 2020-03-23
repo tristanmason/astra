@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					/**
 					 * Remove ast-article-single class in case of content-boxed and boxed layout.
 					 *
-					 * @since x.x.x
+					 * @since 2.3.3
 					 * @param array $array is a array of classes.
 					 * @return array
 					 */
