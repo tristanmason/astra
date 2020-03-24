@@ -287,7 +287,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'type'           => '',
 				'message'        => sprintf(
 					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
-					__( 'Glad to see you have updated the %1$1s! Please update the %2$2s to version %3$3s or higher.', 'astra' ),
+					__( 'Please update the %2$2s to version %3$3s or higher. Ignore if already updated.', 'astra' ),
 					$astra_theme_name,
 					$astra_addon_name,
 					ASTRA_EXT_MIN_VER
