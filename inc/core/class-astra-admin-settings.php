@@ -295,7 +295,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'priority'       => 1,
 				'type'           => 'warning',
 				'show_if'        => version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
-				'is_dismissible' => false,
 			);
 
 			Astra_Notices::add_notice( $notice_args );
