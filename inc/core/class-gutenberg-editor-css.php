@@ -555,14 +555,25 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				// reduce spacing to adjust the mobile view of the gutenberg editor.
 				$boxed_container_mobile = array(
 					'.editor-block-list__layout, .editor-post-title' => array(
-						'padding-top'    => 'calc( 1.34em - 19px)',
-						'padding-bottom' => '1.34em',
-						'padding-left'   => 'calc( 2.67em - 28px )',
-						'padding-right'  => 'calc( 2.67em - 28px )',
+						'padding-top'    => '1.5em',
+						'padding-bottom' => '1.5em',
+						'padding-left'   => '1.5em',
+						'padding-right'  => '1.5em',
+					),
+				);
+
+				$boxed_container_tablet = array(
+					'.editor-block-list__layout, .editor-post-title' => array(
+						'padding-top'    => 'calc( 5.34em - 19px)',
+						'padding-bottom' => '5.34em',
+						'padding-left'   => 'calc( 6.67em - 28px )',
+						'padding-right'  => 'calc( 6.67em - 28px )',
 					),
 				);
 
 				$css .= astra_parse_css( $boxed_container );
+
+				$css .= astra_parse_css( $boxed_container_tablet, '544', '768' );
 
 				$css .= astra_parse_css( $boxed_container_mobile, '', '544' );
 
