@@ -292,7 +292,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$astra_addon_name,
 					ASTRA_EXT_MIN_VER
 				),
-				'priority'       => 1,
+				'priority'       => 18,
 				'type'           => 'warning',
 				'show_if'        => version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
 			);
