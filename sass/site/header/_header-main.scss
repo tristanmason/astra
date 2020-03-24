@@ -188,10 +188,6 @@
 		position: relative;
 		.search-field {
 			width: 235px;
-
-			@media (max-width: $mx-col-sm) {
-				width: 170px;
-			}
 		}
 	}
 }
