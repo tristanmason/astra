@@ -569,6 +569,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-left'   => 'calc( 6.67em - 28px )',
 						'padding-right'  => 'calc( 6.67em - 28px )',
 					),
+					'.editor-block-list__layout' => array(
+						'padding-top' => '0',
+					),
+					'.editor-post-title'         => array(
+						'padding-bottom' => '0',
+					),
 				);
 
 				$css .= astra_parse_css( $boxed_container );
