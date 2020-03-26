@@ -58,14 +58,3 @@
 		}
 	}
 }
-
-.error404,
-.search-no-results{
-	&.ast-separate-container{
-		#primary{
-			@media (min-width: $col-md) {
-				margin-bottom: 4em;
-			}
-		}
-	}
-}
