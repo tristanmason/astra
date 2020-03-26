@@ -19,9 +19,6 @@
     display: inline-block;
     width: 100%;
     padding-top: 2em;
-    @media(max-width: $mx-col-md) {
-        padding-top: 1.5em;
-    }
     @media(min-width: $col-lg) {
         padding-left: 3.33333em;
         padding-right: 3.33333em;
@@ -78,8 +75,6 @@
         float: right;
         text-align: right;
         @media(max-width: $mx-col-md) {
-            display: inherit;
-            float: none;
             .page-navigation{
                 padding-right: 0;
             }
@@ -99,8 +94,6 @@
     }
     
     @media(max-width: $mx-col-md) {
-        text-align: center;
-
         .prev.page-numbers {
             padding-left: .5em;
         }

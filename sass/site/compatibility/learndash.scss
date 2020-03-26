@@ -188,14 +188,6 @@
 		font-size: 16px;
 		font-size: 1.06666rem;
 
-		@media(max-width: $mx-col-sm) {
-			width: 100%;
-
-			&.prev-link {
-				margin-bottom: 1em;
-			}
-		}
-
 	    &.next-link {
 			float: right;
 		}
@@ -557,14 +549,6 @@ body {
 		.profile_info {
 			margin-bottom: 1em;
 			position: relative;
-		}
-
-		.profile_edit_profile {
-			@media(min-width: $col-sm) {
-				position: absolute;
-				top: 15px;
-				right: 15px;
-			}
 		}
 
 		.course_progress,
@@ -1093,17 +1077,6 @@ body {
  #ld_course_info_mycourses_list{
 	.ld-course-info-my-courses {
 	    padding: 10px 0;
-		@media(max-width: $mx-col-sm) {
-			img{
-				display: block;
-			    margin-right: initial;
-			    max-width: 100%;
-			    margin: 10px 0;
-			}
-			.ld-entry-title{
-				margin: 0 0 20px;
-			}
-		}
 	}
  }
 
