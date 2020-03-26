@@ -390,8 +390,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function add_inline_scripts() {
 
-			$edd_css_output = '';
-
 			$max_tablet_edd_css = array(
 				'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
 					'margin-right' => '20px',
@@ -430,7 +428,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 
 			/* Parse CSS from array()*/
-			$edd_css_output .= astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			$edd_css_output = astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
 			$mobile_edd_css = array(
 				'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
