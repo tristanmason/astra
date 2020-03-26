@@ -634,24 +634,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				$boxed_container_tablet = array(
-					'.editor-block-list__layout, .editor-post-title' => array(
-						'padding-top'    => 'calc( 5.34em - 19px)',
-						'padding-bottom' => '5.34em',
-						'padding-left'   => 'calc( 6.67em - 28px )',
-						'padding-right'  => 'calc( 6.67em - 28px )',
-					),
-					'.editor-block-list__layout' => array(
-						'padding-top' => '0',
-					),
-					'.editor-post-title'         => array(
-						'padding-bottom' => '0',
-					),
-				);
-
 				$css .= astra_parse_css( $boxed_container );
-
-				$css .= astra_parse_css( $boxed_container_tablet, '544', '768' );
 
 				$css .= astra_parse_css( $boxed_container_mobile, '', '544' );
 
