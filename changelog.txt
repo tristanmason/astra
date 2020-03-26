@@ -1,3 +1,12 @@
+v2.4.0
+- New: Filter to change default breakpoint of tablet & mobile devices. ( Doc Link )
+- Improvement: Background color/image responsive param. ( Doc Link )
+- Improvement: Updated admin strings.
+- Improvement: Addon minimum version notice is now dismissible.
+- Fix: Global button Color and Background Color options not working with Gutenberg button.
+- Fix: Tablet colors not working when menu breakpoint increased above 768px.
+- Fix: W3C markup validation.
+
 v2.3.4
 - Fix: Lightning icon not appearing on astra options page.
 - Fix: Breadcrumb separator appearing as HTML entity for new users.
