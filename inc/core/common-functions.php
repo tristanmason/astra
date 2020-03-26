@@ -1223,10 +1223,10 @@ if ( ! function_exists( 'astra_color_responsive_css' ) ) {
 			$css .= $selector . '{' . $css_property . ':' . esc_attr( $setting['desktop'] ) . ';}';
 		}
 		if ( isset( $setting['tablet'] ) && ! empty( $setting['tablet'] ) ) {
-			$css .= '@media (max-width:768px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
+			$css .= '@media (max-width:' . astra_get_tablet_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
 		}
 		if ( isset( $setting['mobile'] ) && ! empty( $setting['mobile'] ) ) {
-			$css .= '@media (max-width:544px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
+			$css .= '@media (max-width:' . astra_get_mobile_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
 		}
 		return $css;
 	}
@@ -1397,4 +1397,55 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 	}
 
 	return $gen_bg_css;
+}
+
+/**
+ * Get the tablet breakpoint value.
+ *
+ * @param string $min min.
+ * @param string $max max.
+ *
+ * @since x.x.x
+ *
+ * @return number $breakpoint.
+ */
+function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
+
+	$update_breakpoint = astra_get_option( 'can-update-theme-tablet-breakpoint', true );
+
+	// Change default for new users.
+	$default = ( true === $update_breakpoint ) ? 921 : 768;
+
+	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default );
+
+	if ( '' !== $min ) {
+		$header_breakpoint = $header_breakpoint - $min;
+	} elseif ( '' !== $max ) {
+		$header_breakpoint = $header_breakpoint + $max;
+	}
+
+	return absint( $header_breakpoint );
+}
+
+/**
+ * Get the mobile breakpoint value.
+ *
+ * @param string $min min.
+ * @param string $max max.
+ *
+ * @since x.x.x
+ *
+ * @return number header_breakpoint.
+ */
+function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
+
+	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 );
+
+	if ( '' !== $min ) {
+		$header_breakpoint = $header_breakpoint - $min;
+	} elseif ( '' !== $max ) {
+		$header_breakpoint = $header_breakpoint + $max;
+	}
+
+	return absint( $header_breakpoint );
 }
