@@ -1405,7 +1405,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
  * @param string $min min.
  * @param string $max max.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return number $breakpoint.
  */
@@ -1433,7 +1433,7 @@ function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
  * @param string $min min.
  * @param string $max max.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return number header_breakpoint.
  */

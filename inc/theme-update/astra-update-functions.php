@@ -152,7 +152,7 @@ function astra_breadcrumb_separator_fix() {
 /**
  * Check if we need to change the default value for tablet breakpoint.
  *
- * @since x.x.x
+ * @since 2.4.0
  * @return void
  */
 function astra_update_theme_tablet_breakpoint() {
@@ -170,7 +170,7 @@ function astra_update_theme_tablet_breakpoint() {
 /**
  * Migrate option data from site layout background option to its desktop counterpart.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return void
  */
