@@ -84,8 +84,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @return String body classes to be added to <body> tag in admin page
 		 */
 		public function admin_body_class( $classes ) {
-			global $post;
-			$post_id = $post->ID;
+			$post_id = get_the_ID();
 
 			$meta_content_layout = get_post_meta( $post_id, 'site-content-layout', true );
 			if ( isset( $meta_content_layout ) && '' !== $meta_content_layout ) {
