@@ -86,7 +86,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public function admin_body_class( $classes ) {
 			$post_id = get_the_ID();
 
-			$meta_content_layout = get_post_meta( $post_id, 'site-content-layout', true );
+			if ( $post_id ) {
+				$meta_content_layout = get_post_meta( $post_id, 'site-content-layout', true );
+			}
+
 			if ( isset( $meta_content_layout ) && '' !== $meta_content_layout ) {
 				$content_layout = $meta_content_layout;
 			} else {
