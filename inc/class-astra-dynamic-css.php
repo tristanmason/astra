@@ -60,6 +60,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * - Variable Declaration
 			 */
+			$is_site_rtl        = is_rtl();
 			$site_content_width = astra_get_option( 'site-content-width', 1200 );
 			$header_logo_width  = astra_get_option( 'ast-header-responsive-logo-width' );
 
@@ -619,12 +620,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-page-builder-template #secondary' => array(
 					'margin-top' => '1.5em',
 				),
-				'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
-					'padding-right' => '20px',
-				),
-				'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
-					'padding-left' => '20px',
-				),
 				'.ast-right-sidebar #primary'           => array(
 					'padding-right' => 0,
 				),
@@ -661,8 +656,29 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '1.5em',
 				),
 			);
+
+			if ( $is_site_rtl ) {
+				$static_layout_lang_direction_css = array(
+					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+						'padding-left' => '20px',
+					),
+					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
+						'padding-right' => '20px',
+					),
+				);
+			} else {
+				$static_layout_lang_direction_css = array(
+					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+						'padding-right' => '20px',
+					),
+					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
+						'padding-left' => '20px',
+					),
+				);
+			}
+
 			/* Parse CSS from array() -> max-width: (breakpoint)px CSS */
-			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
+			$parse_css .= astra_parse_css( array_merge( $static_layout_css, $static_layout_lang_direction_css ), '', astra_get_tablet_breakpoint() );
 
 			$static_layout_css_min = array(
 				'.ast-right-sidebar #primary'   => array(
