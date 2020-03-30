@@ -109,14 +109,14 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 								</div>
 							</div>',
 						/* translators: %s product name */
-						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'bsf' ) . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( 'Know More.', 'bsf' ) ),
+						sprintf( __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'astra' ) . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( 'Know More.', 'astra' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
 								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
 							)
 						),
-						__( 'Allow', 'bsf' ),
+						__( 'Allow', 'astra' ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'no',
@@ -124,7 +124,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 							)
 						),
 						MONTH_IN_SECONDS,
-						__( 'No Thanks', 'bsf' )
+						__( 'No Thanks', 'astra' )
 					),
 					'show_if'                    => true,
 					'repeat-notice-after'        => false,
@@ -235,7 +235,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			add_settings_field(
 				'bsf-analytics-optin',       // Field ID.
-				__( 'Usage Tracking', 'bsf' ),       // Field title.
+				__( 'Usage Tracking', 'astra' ),       // Field title.
 				array( $this, 'render_settings_field_html' ), // Field callback function.
 				'general'                    // Settings page slug.
 			);
@@ -257,10 +257,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			?>
 			<label for="bsf-analytics-optin">
 				<input id="bsf-analytics-optin" type="checkbox" value="1" name="bsf_analytics_optin" <?php checked( get_option( 'bsf_analytics_optin', 'no' ), 'yes' ); ?>>
-				<?php esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'bsf' ); ?>
+				<?php esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'astra' ); ?>
 			</label>
 			<?php
-			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.', 'bsf' ) ) );
+			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.', 'astra' ) ) );
 		}
 
 		/**
