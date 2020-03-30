@@ -1389,8 +1389,8 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 	$bg_tab_img  = isset( $bg_obj_res['tablet']['background-image'] ) ? $bg_obj_res['tablet']['background-image'] : '';
 	$bg_desk_img = isset( $bg_obj_res['desktop']['background-image'] ) ? $bg_obj_res['desktop']['background-image'] : '';
 	$bg_color    = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : '';
-	$tablet_css  = ( $bg_obj_res['tablet']['background-image'] ) ? true : false;
-	$desktop_css = ( $bg_obj_res['desktop']['background-image'] ) ? true : false;
+	$tablet_css  = ( isset( $bg_obj_res['tablet']['background-image'] ) && $bg_obj_res['tablet']['background-image'] ) ? true : false;
+	$desktop_css = ( isset( $bg_obj_res['desktop']['background-image'] ) && $bg_obj_res['desktop']['background-image'] ) ? true : false;
 
 	if ( '' !== $bg_img && '' !== $bg_color ) {
 		$gen_bg_css = array(
