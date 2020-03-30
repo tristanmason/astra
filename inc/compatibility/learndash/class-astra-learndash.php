@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				);
 			}
 
-			/* Parse CSS from array()*/
+			/* Parse CSS from array() -> min-width: (mobile-breakpoint + 1) px */
 			$css_output .= astra_parse_css( $mobile_min_width_css, astra_get_mobile_breakpoint( '', 1 ) );
 
 			$mobile_typography = array(
@@ -211,6 +211,9 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'margin' => '0 0 20px',
 				),
 			);
+
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$css_output .= astra_parse_css( $mobile_typography, '', astra_get_mobile_breakpoint() );
 
 			if ( $is_site_rtl ) {
 				$mobile_typography_lang_direction_css = array(
@@ -232,8 +235,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				);
 			}
 
-			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( array_merge( $mobile_typography, $mobile_typography_lang_direction_css ), '', astra_get_mobile_breakpoint() );
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$css_output .= astra_parse_css( $mobile_typography_lang_direction_css, '', astra_get_mobile_breakpoint() );
 
 			$dynamic_css .= apply_filters( 'astra_theme_learndash_dynamic_css', $css_output );
 
