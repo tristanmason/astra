@@ -645,6 +645,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
+			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$static_layout_lang_direction_css = array(
 					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
@@ -689,8 +692,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
-			/* Parse CSS from array() -> max-width: (breakpoint)px CSS */
-			$parse_css .= astra_parse_css( array_merge( $static_layout_css, $static_layout_lang_direction_css ), '', astra_get_tablet_breakpoint() );
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
+			$parse_css .= astra_parse_css( $static_layout_lang_direction_css, '', astra_get_tablet_breakpoint() );
 
 			$static_layout_css_min = array(
 				'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary' => array(
@@ -716,6 +719,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-bottom' => '4em',
 				),
 			);
+
+			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
+			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
 
 			if ( $is_site_rtl ) {
 				$static_layout_min_lang_direction_css = array(
@@ -770,7 +776,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
-			$parse_css .= astra_parse_css( array_merge( $static_layout_css_min, $static_layout_min_lang_direction_css ), astra_get_tablet_breakpoint( '', '1' ) );
+			$parse_css .= astra_parse_css( $static_layout_min_lang_direction_css, astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
@@ -1078,6 +1084,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
+			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$global_button_mobile_lang_direction_css = array(
 					'.ast-comment-list .children' => array(
@@ -1099,7 +1108,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
-			$parse_css .= astra_parse_css( array_merge( $global_button_mobile, $global_button_mobile_lang_direction_css ), '', astra_get_mobile_breakpoint() );
+			$parse_css .= astra_parse_css( $global_button_mobile_lang_direction_css, '', astra_get_mobile_breakpoint() );
 
 			/**
 			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
@@ -1135,6 +1144,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$global_button_tablet_lang_direction_css = array(
 					'.ast-header-break-point .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
@@ -1161,7 +1172,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
-			$parse_css .= astra_parse_css( array_merge( $global_button_tablet, $global_button_tablet_lang_direction_css ), '', astra_get_tablet_breakpoint() );
+			$parse_css .= astra_parse_css( $global_button_tablet_lang_direction_css, '', astra_get_tablet_breakpoint() );
 
 			/**
 			 * Global button CSS -> max-width: (mobile-breakpoint) px.
