@@ -620,18 +620,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-page-builder-template #secondary' => array(
 					'margin-top' => '1.5em',
 				),
-				'.ast-right-sidebar #primary'           => array(
-					'padding-right' => 0,
-				),
-				'.ast-right-sidebar #secondary'         => array(
-					'padding-left' => 0,
-				),
-				'.ast-left-sidebar #primary'            => array(
-					'padding-left' => 0,
-				),
-				'.ast-left-sidebar #secondary'          => array(
-					'padding-right' => 0,
-				),
 				'#primary, #secondary'                  => array(
 					'padding' => '1.5em 0',
 					'margin'  => 0,
@@ -665,6 +653,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
 						'padding-right' => '20px',
 					),
+					'.ast-right-sidebar #primary'   => array(
+						'padding-left' => 0,
+					),
+					'.ast-right-sidebar #secondary' => array(
+						'padding-right' => 0,
+					),
+					'.ast-left-sidebar #primary'    => array(
+						'padding-right' => 0,
+					),
+					'.ast-left-sidebar #secondary'  => array(
+						'padding-left' => 0,
+					),
 				);
 			} else {
 				$static_layout_lang_direction_css = array(
@@ -674,6 +674,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
 						'padding-left' => '20px',
 					),
+					'.ast-right-sidebar #primary'   => array(
+						'padding-right' => 0,
+					),
+					'.ast-right-sidebar #secondary' => array(
+						'padding-left' => 0,
+					),
+					'.ast-left-sidebar #primary'    => array(
+						'padding-left' => 0,
+					),
+					'.ast-left-sidebar #secondary'  => array(
+						'padding-right' => 0,
+					),
 				);
 			}
 
@@ -681,20 +693,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( array_merge( $static_layout_css, $static_layout_lang_direction_css ), '', astra_get_tablet_breakpoint() );
 
 			$static_layout_css_min = array(
-				'.ast-right-sidebar #primary'   => array(
-					'border-right' => '1px solid #eee',
-				),
-				'.ast-right-sidebar #secondary' => array(
-					'border-left' => '1px solid #eee',
-					'margin-left' => '-1px',
-				),
-				'.ast-left-sidebar #primary'    => array(
-					'border-left' => '1px solid #eee',
-				),
-				'.ast-left-sidebar #secondary'  => array(
-					'border-right' => '1px solid #eee',
-					'margin-right' => '-1px',
-				),
 				'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary' => array(
 					'border' => 0,
 				),
@@ -703,31 +701,76 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-left'  => 'auto',
 					'margin-right' => 'auto',
 				),
-				'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
-					'padding-left'  => '30px',
-					'padding-right' => 0,
-				),
-				'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
-					'padding-right' => '30px',
-					'padding-left'  => 0,
-				),
 				'.ast-separate-container .ast-comment-list li .comment-respond' => array(
 					'padding-left'  => '2.66666em',
 					'padding-right' => '2.66666em',
 				),
-				'.ast-author-box'               => array(
+				'.ast-author-box' => array(
 					'-js-display' => 'flex',
 					'display'     => 'flex',
 				),
-				'.ast-author-bio'               => array(
+				'.ast-author-bio' => array(
 					'flex' => '1',
 				),
 				'.error404.ast-separate-container #primary, .search-no-results.ast-separate-container #primary' => array(
 					'margin-bottom' => '4em',
 				),
 			);
+
+			if ( $is_site_rtl ) {
+				$static_layout_min_lang_direction_css = array(
+					'.ast-right-sidebar #primary'   => array(
+						'border-left' => '1px solid #eee',
+					),
+					'.ast-right-sidebar #secondary' => array(
+						'border-right' => '1px solid #eee',
+						'margin-right' => '-1px',
+					),
+					'.ast-left-sidebar #primary'    => array(
+						'border-right' => '1px solid #eee',
+					),
+					'.ast-left-sidebar #secondary'  => array(
+						'border-left' => '1px solid #eee',
+						'margin-left' => '-1px',
+					),
+					'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
+						'padding-right' => '30px',
+						'padding-left'  => 0,
+					),
+					'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
+						'padding-left'  => '30px',
+						'padding-right' => 0,
+					),
+				);
+			} else {
+				$static_layout_min_lang_direction_css = array(
+					'.ast-right-sidebar #primary'   => array(
+						'border-right' => '1px solid #eee',
+					),
+					'.ast-right-sidebar #secondary' => array(
+						'border-left' => '1px solid #eee',
+						'margin-left' => '-1px',
+					),
+					'.ast-left-sidebar #primary'    => array(
+						'border-left' => '1px solid #eee',
+					),
+					'.ast-left-sidebar #secondary'  => array(
+						'border-right' => '1px solid #eee',
+						'margin-right' => '-1px',
+					),
+					'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
+						'padding-left'  => '30px',
+						'padding-right' => 0,
+					),
+					'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
+						'padding-right' => '30px',
+						'padding-left'  => 0,
+					),
+				);
+			}
+
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
-			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
+			$parse_css .= astra_parse_css( array_merge( $static_layout_css_min, $static_layout_min_lang_direction_css ), astra_get_tablet_breakpoint( '', '1' ) );
 
 			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
@@ -1017,18 +1060,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .comments-count-wrapper' => array(
 					'padding' => '1.5em 1em',
 				),
-				'.ast-comment-list .children'        => array(
-					'margin-left' => '0.66666em',
-				),
 				'.ast-separate-container .ast-comment-list li.depth-1' => array(
 					'padding'       => '1.5em 1em',
 					'margin-bottom' => '1.5em',
 				),
 				'.ast-separate-container .ast-comment-list .bypostauthor' => array(
 					'padding' => '.5em',
-				),
-				'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
-					'padding' => '0 0 0 .5em',
 				),
 				'.ast-separate-container .ast-archive-description' => array(
 					'padding' => '1.5em 1em',
@@ -1041,8 +1078,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			if ( $is_site_rtl ) {
+				$global_button_mobile_lang_direction_css = array(
+					'.ast-comment-list .children' => array(
+						'margin-right' => '0.66666em',
+					),
+					'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
+						'padding' => '0 .5em 0 0',
+					),
+				);
+			} else {
+				$global_button_mobile_lang_direction_css = array(
+					'.ast-comment-list .children' => array(
+						'margin-left' => '0.66666em',
+					),
+					'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
+						'padding' => '0 0 0 .5em',
+					),
+				);
+			}
+
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
-			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
+			$parse_css .= astra_parse_css( array_merge( $global_button_mobile, $global_button_mobile_lang_direction_css ), '', astra_get_mobile_breakpoint() );
 
 			/**
 			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
@@ -1061,15 +1118,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon' => array(
 					'margin' => '0',
 				),
-				'.ast-header-break-point .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
-					'right' => '0',
-				),
-				'.ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
-					'right' => '-1em',
-				),
-				'.ast-comment-avatar-wrap'                 => array(
-					'margin-right' => '0.5em',
-				),
 				'.ast-comment-avatar-wrap img'             => array(
 					'max-width' => '2.5em',
 				),
@@ -1087,7 +1135,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
+			if ( $is_site_rtl ) {
+				$global_button_tablet_lang_direction_css = array(
+					'.ast-header-break-point .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
+						'left' => '0',
+					),
+					'.ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
+						'left' => '-1em',
+					),
+					'.ast-comment-avatar-wrap' => array(
+						'margin-left' => '0.5em',
+					),
+				);
+			} else {
+				$global_button_tablet_lang_direction_css = array(
+					'.ast-header-break-point .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
+						'right' => '0',
+					),
+					'.ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form' => array(
+						'right' => '-1em',
+					),
+					'.ast-comment-avatar-wrap' => array(
+						'margin-right' => '0.5em',
+					),
+				);
+			}
+
+			$parse_css .= astra_parse_css( array_merge( $global_button_tablet, $global_button_tablet_lang_direction_css ), '', astra_get_tablet_breakpoint() );
 
 			/**
 			 * Global button CSS -> max-width: (mobile-breakpoint) px.
