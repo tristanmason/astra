@@ -870,6 +870,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 
+			$css_output .= astra_parse_css( $tablet_css_shop_page_grid, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$tablet_shop_page_grid_lang_direction_css = array(
 					'.woocommerce[class*="columns-"].columns-3 > ul.products li.product, .woocommerce[class*="columns-"].columns-4 > ul.products li.product, .woocommerce[class*="columns-"].columns-5 > ul.products li.product, .woocommerce[class*="columns-"].columns-6 > ul.products li.product' => array(
@@ -938,7 +940,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
-			$css_output .= astra_parse_css( array_merge( $tablet_css_shop_page_grid, $tablet_shop_page_grid_lang_direction_css ), astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			$css_output .= astra_parse_css( $tablet_shop_page_grid_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
 			/**
 			 * Global button CSS - Tablet = min-wdth: (tablet + 1)px
@@ -1104,6 +1106,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 
+			$css_output .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$global_button_mobile_lang_direction_css = array(
 					'.woocommerce[class*="columns-"].columns-3 > ul.products li.product, .woocommerce[class*="columns-"].columns-4 > ul.products li.product, .woocommerce[class*="columns-"].columns-5 > ul.products li.product, .woocommerce[class*="columns-"].columns-6 > ul.products li.product' => array(
@@ -1190,7 +1194,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
-			$css_output .= astra_parse_css( array_merge( $css_global_button_mobile, $global_button_mobile_lang_direction_css ), '', astra_get_mobile_breakpoint() );
+			$css_output .= astra_parse_css( $global_button_mobile_lang_direction_css, '', astra_get_mobile_breakpoint() );
 
 			if ( 'page-builder' !== astra_get_content_layout() ) {
 				/* Woocommerce Shop Archive width */
@@ -1229,6 +1233,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 
+			/* Parse CSS from array()*/
+			$css_output .= astra_parse_css( $woo_product_css, astra_get_tablet_breakpoint( '', 1 ) );
+
 			if ( $is_site_rtl ) {
 				$woo_product_lang_direction_css = array(
 					'.woocommerce.woocommerce-checkout form #customer_details.col2-set, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set' => array(
@@ -1260,7 +1267,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( array_merge( $woo_product_css, $woo_product_lang_direction_css ), astra_get_tablet_breakpoint( '', 1 ) );
+			$css_output .= astra_parse_css( $woo_product_lang_direction_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 
