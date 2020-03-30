@@ -418,6 +418,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				),
 			);
 
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
+			$edd_css_output = astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$max_tablet_edd_lang_direction_css = array(
 					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
@@ -448,8 +451,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				);
 			}
 
-			/* Parse CSS from array()*/
-			$edd_css_output = astra_parse_css( array_merge( $max_tablet_edd_css, $max_tablet_edd_lang_direction_css ), astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
+			$edd_css_output = astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
 			$mobile_edd_css = array(
 				'.mobile-columns-1 .ast-edd-archive-article' => array(
@@ -477,6 +480,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				),
 			);
 
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint() );
+
 			if ( $is_site_rtl ) {
 				$mobile_edd_lang_direction_css = array(
 					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
@@ -513,8 +519,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				);
 			}
 
-			/* Parse CSS from array()*/
-			$edd_css_output .= astra_parse_css( array_merge( $mobile_edd_css, $mobile_edd_lang_direction_css ), '', astra_get_mobile_breakpoint() );
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$edd_css_output .= astra_parse_css( $mobile_edd_lang_direction_css, '', astra_get_mobile_breakpoint() );
 
 			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $edd_css_output ) );
 
