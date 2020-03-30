@@ -143,6 +143,11 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public function enqueue_scripts() {
 			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), self::$version, true );
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
 			wp_localize_script(
 				'astra-notices',
 				'astraNotices',

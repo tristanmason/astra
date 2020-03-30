@@ -136,7 +136,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
-
 		}
 
 		/**
