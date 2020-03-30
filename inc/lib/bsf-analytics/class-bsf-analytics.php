@@ -2,6 +2,8 @@
 /**
  * BSF analytics class file.
  *
+ * @version 1.0.0
+ *
  * @package bsf-analytics
  */
 
@@ -270,8 +272,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		private function get_product_name() {
 
-			$base      = dirname( __FILE__ );
-			$theme_dir = get_template_directory();
+			$base      = wp_normalize_path( dirname( __FILE__ ) );
+			$theme_dir = wp_normalize_path( get_template_directory() );
 
 			if ( false !== strpos( $base, $theme_dir ) ) {
 				$theme = wp_get_theme( get_template() );
