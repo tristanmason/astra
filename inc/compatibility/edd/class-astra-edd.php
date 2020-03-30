@@ -390,11 +390,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function add_inline_scripts() {
 
+			$is_site_rtl = is_rtl();
+
 			$max_tablet_edd_css = array(
-				'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
-					'margin-right' => '20px',
-					'clear'        => 'none',
-				),
 				'.tablet-columns-1 .ast-edd-archive-article' => array(
 					'width' => '100%',
 				),
@@ -418,28 +416,44 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'width' => '12.7%',
 					'width' => 'calc(16.66% - 16.66px)',
 				),
-				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
-					'margin-right' => '0',
-					'clear'        => 'right',
-				),
-				'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
-					'clear' => 'left',
-				),
 			);
 
+			if ( $is_site_rtl ) {
+				$max_tablet_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-left' => '20px',
+						'clear'       => 'none',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
+						'margin-left' => '0',
+						'clear'       => 'left',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
+						'clear' => 'right',
+					),
+				);
+			} else {
+				$max_tablet_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-right' => '20px',
+						'clear'        => 'none',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
+						'margin-right' => '0',
+						'clear'        => 'right',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
+						'clear' => 'left',
+					),
+				);
+			}
+
 			/* Parse CSS from array()*/
-			$edd_css_output = astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			$edd_css_output = astra_parse_css( array_merge( $max_tablet_edd_css, $max_tablet_edd_lang_direction_css ), astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
 			$mobile_edd_css = array(
-				'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
-					'margin-right' => '20px',
-					'clear'        => 'none',
-				),
 				'.mobile-columns-1 .ast-edd-archive-article' => array(
 					'width' => '100%',
-				),
-				'.mobile-columns-1 .ast-edd-archive-article:nth-child(n)' => array(
-					'margin-right' => '0',
 				),
 				'.mobile-columns-3 .ast-edd-archive-article' => array(
 					'width' => '28.2%',
@@ -461,17 +475,46 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'width' => '46.1%',
 					'width' => 'calc(50% - 10px)',
 				),
-				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n), .mobile-columns-2 .ast-edd-archive-article:nth-child(2n), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
-					'margin-right' => '0',
-					'clear'        => 'right',
-				),
-				'.mobile-columns-2 .ast-edd-archive-article:nth-child(2n+1), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n+1), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n+1), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n+1), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
-					'clear' => 'left',
-				),
 			);
 
+			if ( $is_site_rtl ) {
+				$mobile_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-left' => '20px',
+						'clear'       => 'none',
+					),
+					'.mobile-columns-1 .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-left' => '0',
+					),
+					'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n), .mobile-columns-2 .ast-edd-archive-article:nth-child(2n), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
+						'margin-left' => '0',
+						'clear'       => 'left',
+					),
+					'.mobile-columns-2 .ast-edd-archive-article:nth-child(2n+1), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n+1), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n+1), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n+1), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
+						'clear' => 'right',
+					),
+				);
+			} else {
+				$mobile_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-right' => '20px',
+						'clear'        => 'none',
+					),
+					'.mobile-columns-1 .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-right' => '0',
+					),
+					'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n), .mobile-columns-2 .ast-edd-archive-article:nth-child(2n), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
+						'margin-right' => '0',
+						'clear'        => 'right',
+					),
+					'.mobile-columns-2 .ast-edd-archive-article:nth-child(2n+1), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n+1), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n+1), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n+1), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
+						'clear' => 'left',
+					),
+				);
+			}
+
 			/* Parse CSS from array()*/
-			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint() );
+			$edd_css_output .= astra_parse_css( array_merge( $mobile_edd_css, $mobile_edd_lang_direction_css ), '', astra_get_mobile_breakpoint() );
 
 			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $edd_css_output ) );
 
