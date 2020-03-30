@@ -592,8 +592,34 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
+
+			/*
+			* Fix the wide width issue in gutenberg
+			* check if the current user is existing user or new user.
+			* if new user load the CSS bty default if existing provide a filter
+			*/
+			if ( self::gtn_wide_full_comp() ) {
+
+				$gtn_full_wide_image_css = array(
+
+					'.ast-separate-container.ast-right-sidebar .entry-content .alignfull,
+					.ast-separate-container.ast-left-sidebar .entry-content .alignfull' => array(
+					'margin-left'  => '-6.67em',
+					'margin-right' => '-6.67em',
+					'max-width'    => 'unset',
+					),
+					'.ast-separate-container.ast-right-sidebar .entry-content .alignwide,
+					.ast-separate-container.ast-left-sidebar .entry-content .alignwide' => array(
+				'margin-left'  => '-20px',
+				'margin-right' => '-20px',
+				'max-width'    => 'unset',
+				),
+				);
+				$parse_css .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
+			}
 
 			$static_layout_css = array(
 				'#secondary.secondary'                  => array(
@@ -712,31 +738,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css_min, astra_get_tablet_breakpoint( '', '1' ) );
-
-			/*
-			* Fix the wide width issue in gutenberg
-			* check if the current user is existing user or new user.
-			* if new user load the CSS bty default if existing provide a filter
-			*/
-			if ( self::gtn_wide_full_comp() ) {
-
-				$gtn_full_wide_image_css = array(
-
-					'.ast-separate-container.ast-right-sidebar .entry-content .alignfull,
-					.ast-separate-container.ast-left-sidebar .entry-content .alignfull' => array(
-					'margin-left'  => '-6.67em',
-					'margin-right' => '-6.67em',
-					'max-width'    => 'unset',
-					),
-					'.ast-separate-container.ast-right-sidebar .entry-content .alignwide,
-					.ast-separate-container.ast-left-sidebar .entry-content .alignwide' => array(
-				'margin-left'  => '-20px',
-				'margin-right' => '-20px',
-				'max-width'    => 'unset',
-				),
-				);
-				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
-			}
 
 			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
@@ -1981,8 +1982,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function gtn_wide_full_comp() {
 			$astra_settings                            = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['gtn-full-wide-image-css'] = ( isset( $astra_settings['gtn-full-wide-image-css'] ) ) ? false : true;
-			return apply_filters( 'gtn_full_wide_image_css_comp', $astra_settings['gtn-full-wide-image-css'] );
+			$astra_settings =  isset( $astra_settings['gtn-full-wide-image-css'] ) ? false : true;
+			return apply_filters( 'gtn_full_wide_image_css_comp', $astra_settings );
 		}
 	}
 }
