@@ -25,6 +25,28 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		private $plugins;
 
 		/**
+		 * Instance of BSF_Analytics_Stats.
+		 *
+		 * Holds only the first object of class.
+		 *
+		 * @var object
+		 */
+		private static $_instance = null;
+
+		/**
+		 * Create only once instance of a class.
+		 *
+		 * @return object
+		 */
+		public static function instance() {
+			if ( null === self::$_instance ) {
+				self::$_instance = new self();
+			}
+
+			return self::$_instance;
+		}
+
+		/**
 		 * Get stats.
 		 *
 		 * @return array stats data.

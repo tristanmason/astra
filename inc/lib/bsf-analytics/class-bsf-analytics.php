@@ -56,11 +56,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Send analytics API call.
 		 */
 		public function send() {
-			$bsf_analytics_stats = new BSF_Analytics_Stats();
 			wp_remote_post(
 				$this->get_api_url() . 'wp-json/bsf-core/v1/analytics/',
 				array(
-					'body'     => $bsf_analytics_stats->get_stats(),
+					'body'     => BSF_Analytics_Stats::instance()->get_stats(),
 					'timeout'  => 5,
 					'blocking' => false,
 				)
