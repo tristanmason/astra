@@ -279,7 +279,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			if ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
-				
+
 				$message = sprintf(
 					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
 					__( 'Please update the %1$1s to version %2$2s or higher. Ignore if already updated.', 'astra' ),
@@ -299,12 +299,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 
 				$notice_args = array(
-					'id'                  => 'ast-minimum-addon-version-notice',
-					'type'                => 'warning',
-					'message'             => $message,
-					'show_if'             => true,
-					'repeat-notice-after' => false,
-					'priority'            => 18,
+					'id'                         => 'ast-minimum-addon-version-notice',
+					'type'                       => 'warning',
+					'message'                    => $message,
+					'show_if'                    => true,
+					'repeat-notice-after'        => false,
+					'priority'                   => 18,
 					'display-with-other-notices' => true,
 				);
 
@@ -491,6 +491,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+					'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
 				);
 
 				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
@@ -511,6 +512,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
 			}
 
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
 			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 			$localize = array(
@@ -523,6 +528,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+				'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
@@ -1432,6 +1438,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function required_plugin_activate() {
 
+			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
+			}
+
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 				wp_send_json_error(
 					array(
@@ -1474,6 +1486,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function required_plugin_deactivate() {
+
+			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
+			}
 
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 				wp_send_json_error(
