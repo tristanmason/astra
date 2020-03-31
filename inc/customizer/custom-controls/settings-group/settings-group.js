@@ -7,10 +7,10 @@
         var last_scroll_top = 0;
         var parentSection   = jQuery( '.wp-full-overlay-sidebar-content' );
         var browser = navigator.userAgent.toLowerCase();
-		if ( ! ( browser.indexOf( 'firefox' ) > -1 ) ) {
-			var parent_width_remove = 6;
-		} else {
-			var parent_width_remove = 16;
+        if ( ! ( browser.indexOf( 'firefox' ) > -1 ) ) {
+        var parent_width_remove = 6;
+        } else {
+        var parent_width_remove = 16;
         }
         jQuery('#customize-controls .wp-full-overlay-sidebar-content .control-section').on( 'scroll', function (event) {
             var $this = jQuery(this);
