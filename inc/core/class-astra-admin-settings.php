@@ -479,6 +479,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					}
 				</style>';
 
+				if ( ! current_user_can( 'manage_options' ) ) {
+					return;
+				}
+
 				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 				$localize = array(
