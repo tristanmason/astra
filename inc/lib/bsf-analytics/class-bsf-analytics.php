@@ -313,6 +313,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		}
 	}
 
-}
+	new BSF_Analytics();
 
-new BSF_Analytics();
+}
