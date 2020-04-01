@@ -31,7 +31,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 *
 		 * @var object
 		 */
-		private static $_instance = null;
+		private static $instance = null;
 
 		/**
 		 * Create only once instance of a class.
@@ -39,11 +39,11 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @return object
 		 */
 		public static function instance() {
-			if ( null === self::$_instance ) {
-				self::$_instance = new self();
+			if ( null === self::$instance ) {
+				self::$instance = new self();
 			}
 
-			return self::$_instance;
+			return self::$instance;
 		}
 
 		/**

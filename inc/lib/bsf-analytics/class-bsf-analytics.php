@@ -39,6 +39,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			add_action( 'admin_init', array( $this, 'register_usage_tracking_setting' ) );
 
+			add_action( 'update_option_bsf_analytics_optin', array( $this, 'handle_schedule_unschedule_event' ), 10, 3 );
+
 			$this->includes();
 			$this->schedule_event();
 		}
@@ -80,6 +82,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Display admin notice for usage tracking.
 		 */
 		public function option_notice() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
 
 			// Don't display the notice if the user has taken action on the notice.
 			if ( get_option( 'bsf_analytics_optin' ) || ! apply_filters( 'bsf_tracking_enabled', true ) ) {
@@ -190,7 +196,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function every_two_days_schedule( $schedules ) {
 			$schedules['every_two_days'] = array(
 				'interval' => 2 * DAY_IN_SECONDS,
-				'display'  => __( 'Every two days', 'textdomain' ),
+				'display'  => __( 'Every two days', 'astra' ),
 			);
 
 			return $schedules;
@@ -309,6 +315,25 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			return $time;
+		}
+
+		/**
+		 * Schedule/unschedule cron event on updation of option.
+		 *
+		 * @param string $old_value old value of option.
+		 * @param string $value value of option.
+		 * @param string $option Option name.
+		 */
+		public function handle_schedule_unschedule_event( $old_value, $value, $option ) {
+
+			// If action coming from general settings page.
+			if ( isset( $_POST['option_page'] ) && 'general' === $_POST['option_page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+				if ( 'no' === $value ) {
+					$this->unschedule_event();
+				} else {
+					$this->schedule_event();
+				}
+			}
 		}
 	}
 
