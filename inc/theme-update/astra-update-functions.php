@@ -206,7 +206,7 @@ function astra_responsive_base_background_option() {
 /**
  * Do not apply new wide/full image CSS for existing users.
  *
- * @since 2.2.0
+ * @since x.x.x
  *
  * @return void
  */

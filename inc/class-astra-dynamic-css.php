@@ -592,7 +592,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
@@ -618,7 +617,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'max-width'    => 'unset',
 				),
 				);
-				$parse_css .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
+				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
 			}
 
 			$static_layout_css = array(
@@ -1977,13 +1976,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * For existing users, do not load the wide/full width CSS by default.
 		 *
-		 * @since 2.3.3
+		 * @since x.x.x
 		 * @return boolean false if it is a existing user , true if not.
 		 */
 		public static function gtn_wide_full_comp() {
 			$astra_settings                            = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings =  isset( $astra_settings['gtn-full-wide-image-css'] ) ? false : true;
-			return apply_filters( 'gtn_full_wide_image_css_comp', $astra_settings );
+			$astra_settings['gtn-full-wide-image-css'] = isset( $astra_settings['gtn-full-wide-image-css'] ) ? false : true;
+			return apply_filters( 'gtn_full_wide_image_css_comp', $astra_settings['gtn-full-wide-image-css'] );
 		}
 	}
 }
