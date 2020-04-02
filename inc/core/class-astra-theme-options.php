@@ -258,6 +258,21 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'primary-submenu-b-color'             => '',
 					'primary-submenu-item-b-color'        => '',
 
+					// Primary header button typo options.
+					'primary-header-button-font-family'    => 'inherit',
+					'primary-header-button-font-weight'    => 'inherit',
+					'primary-header-button-font-size'      => array(
+						'desktop'      => '',
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+					'primary-header-button-text-transform' => '',
+					'primary-header-button-line-height'    => 1,
+					'primary-header-button-letter-spacing' => '',
+
 					'header-main-menu-label'              => '',
 					'header-main-menu-align'              => 'inline',
 					'header-main-submenu-container-animation' => 'fade',
