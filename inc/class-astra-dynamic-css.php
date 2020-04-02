@@ -1105,6 +1105,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output = array(
 					// Custom menu item button - Default.
 					'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-family'         => astra_get_font_family( $header_custom_btn_font_family ),
+						'font-weight'         => esc_attr( $header_custom_btn_font_weight ),
+						'font-size'           => astra_responsive_font( $header_custom_btn_font_size, 'desktop' ),
+						'line-height'         => esc_attr( $header_custom_btn_line_height ),
+						'text-transform'      => esc_attr( $header_custom_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $header_custom_btn_letter_spacing, 'px' ),
 						'color'               => esc_attr( $header_custom_button_text_color ),
 						'background-color'    => esc_attr( $header_custom_button_back_color ),
 						'padding-top'         => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'desktop' ),
@@ -1162,6 +1168,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Custom Menu Item Button */
 				$custom_button_css = array(
 					'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-size'      => astra_responsive_font( $header_custom_btn_font_size, 'tablet' ),
 						'padding-top'    => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'tablet' ),
 						'padding-bottom' => astra_responsive_spacing( $header_custom_button_spacing, 'bottom', 'tablet' ),
 						'padding-left'   => astra_responsive_spacing( $header_custom_button_spacing, 'left', 'tablet' ),
@@ -1185,6 +1192,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Custom Menu Item Button */
 				$custom_button = array(
 					'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-size'      => astra_responsive_font( $header_custom_btn_font_size, 'mobile' ),
 						'padding-top'    => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'mobile' ),
 						'padding-bottom' => astra_responsive_spacing( $header_custom_button_spacing, 'bottom', 'mobile' ),
 						'padding-left'   => astra_responsive_spacing( $header_custom_button_spacing, 'left', 'mobile' ),
