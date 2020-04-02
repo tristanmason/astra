@@ -201,3 +201,32 @@ function astra_responsive_base_background_option() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Migrate typography options data from default button to header button options.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_header_button_new_typography_options() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$font_size_defaults_array = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	$theme_options['primary-header-button-font-family'] = isset( $theme_options['font-family-button'] ) ? $theme_options['font-family-button'] : 'inherit';
+	$theme_options['primary-header-button-font-weight'] = isset( $theme_options['font-weight-button'] ) ? $theme_options['font-weight-button'] : 'inherit';
+	$theme_options['primary-header-button-font-size'] = isset( $theme_options['font-size-button'] ) ? $theme_options['font-size-button'] : $font_size_defaults_array;
+	$theme_options['primary-header-button-text-transform'] = isset( $theme_options['text-transform-button'] ) ? $theme_options['text-transform-button'] : '';
+	$theme_options['primary-header-button-line-height'] = isset( $theme_options['theme-btn-line-height'] ) ? $theme_options['theme-btn-line-height'] : 1;
+	$theme_options['primary-header-button-letter-spacing'] = isset( $theme_options['theme-btn-letter-spacing'] ) ? $theme_options['theme-btn-letter-spacing'] : '';
+
+	update_option( 'astra-settings', $theme_options );
+}
