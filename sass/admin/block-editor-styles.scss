@@ -50,7 +50,7 @@ html {
 }
 
 .edit-post-visual-editor p,
-.editor-block-list__block p,
+.block-editor-block-list__block p,
 .editor-default-block-appender textarea.editor-default-block-appender__content {
     font-family: $font-family;
     font-weight: inherit;
@@ -68,7 +68,7 @@ html {
 }
 
 .edit-post-visual-editor {
-    .editor-block-list__block {
+    .block-editor-block-list__block {
     	font-family: $font-family;
 
     	@media (min-width: 600px) {
@@ -99,11 +99,11 @@ html {
 
 .editor-post-title__block,
 .editor-default-block-appender,
-.editor-block-list__block {
+.block-editor-block-list__block {
     max-width: 1256px;
 }
 
-.editor-block-list__block[data-align=full] {
+.block-editor-block-list__block[data-align=full] {
     max-width: none;
 
     .editor-block-list__block-edit {
@@ -114,12 +114,12 @@ html {
     }
 }
 
-.editor-block-list__block[data-align=wide] {
+.block-editor-block-list__block[data-align=wide] {
     max-width: 1400px;
 }
 
-.editor-block-list__layout {
-    .editor-block-list__layout {
+.block-editor-block-list__layout {
+    .block-editor-block-list__layout {
         padding: 0;
     }
 }

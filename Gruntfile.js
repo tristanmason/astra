@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer = require('autoprefixer');
     var flexibility = require('postcss-flexibility');
-    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
+    var Astra_theme_Addons = ['background', 'border', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'typography'];
 
     const sass = require('node-sass');
 
@@ -468,7 +468,6 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/settings-group/settings-group.js',
                             'inc/customizer/custom-controls/slider/slider.js',
                             'inc/customizer/custom-controls/sortable/sortable.js',
-                            'inc/customizer/custom-controls/spacing/spacing.js',
                             'inc/customizer/custom-controls/typography/typography.js'
 
                         ],
@@ -533,8 +532,15 @@ module.exports = function (grunt) {
                     }
                 ]
             }
-        }
+        },
 
+        wp_readme_to_markdown: {
+			your_target: {
+				files: {
+					'README.md': 'readme.txt'
+				}
+			},
+		},
     }
     );
 
@@ -551,6 +557,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks("grunt-wp-readme-to-markdown")
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
@@ -589,9 +596,7 @@ module.exports = function (grunt) {
                     }
                 });
             }
-
         });
-
     });
 
     // Grunt release - Create installable package of the local files
@@ -609,6 +614,9 @@ module.exports = function (grunt) {
             grunt.task.run('replace');
         }
     });
+
+    // Generate Read me file
+    grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
