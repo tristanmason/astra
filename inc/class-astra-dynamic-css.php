@@ -228,6 +228,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 
+			/**
+			 * Custom Header Button Typography
+			 */
+			$header_custom_btn_font_family    = astra_get_option( 'primary-header-button-font-family' );
+			$header_custom_btn_font_weight    = astra_get_option( 'primary-header-button-font-weight' );
+			$header_custom_btn_font_size      = astra_get_option( 'primary-header-button-font-size' );
+			$header_custom_btn_text_transform = astra_get_option( 'primary-header-button-text-transform' );
+			$header_custom_btn_line_height    = astra_get_option( 'primary-header-button-line-height' );
+			$header_custom_btn_letter_spacing = astra_get_option( 'primary-header-button-letter-spacing' );
+
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
 
@@ -1117,6 +1127,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					// Custom menu item button - Transparent.
 					'.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-family'         => astra_get_font_family( $header_custom_btn_font_family ),
+						'font-weight'         => esc_attr( $header_custom_btn_font_weight ),
+						'font-size'           => astra_responsive_font( $header_custom_btn_font_size, 'desktop' ),
+						'line-height'         => esc_attr( $header_custom_btn_line_height ),
+						'text-transform'      => esc_attr( $header_custom_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $header_custom_btn_letter_spacing, 'px' ),
 						'color'               => esc_attr( $header_custom_trans_button_text_color ),
 						'background-color'    => esc_attr( $header_custom_trans_button_back_color ),
 						'padding-top'         => astra_responsive_spacing( $header_custom_trans_button_spacing, 'top', 'desktop' ),
@@ -1155,6 +1171,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$custom_trans_button_css = array(
 					'.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-size'      => astra_responsive_font( $header_custom_btn_font_size, 'tablet' ),
 						'padding-top'    => astra_responsive_spacing( $header_custom_trans_button_spacing, 'top', 'tablet' ),
 						'padding-bottom' => astra_responsive_spacing( $header_custom_trans_button_spacing, 'bottom', 'tablet' ),
 						'padding-left'   => astra_responsive_spacing( $header_custom_trans_button_spacing, 'left', 'tablet' ),
@@ -1177,6 +1194,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$custom_trans_button = array(
 					'.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-size'      => astra_responsive_font( $header_custom_btn_font_size, 'mobile' ),
 						'padding-top'    => astra_responsive_spacing( $header_custom_trans_button_spacing, 'top', 'mobile' ),
 						'padding-bottom' => astra_responsive_spacing( $header_custom_trans_button_spacing, 'bottom', 'mobile' ),
 						'padding-left'   => astra_responsive_spacing( $header_custom_trans_button_spacing, 'left', 'mobile' ),
