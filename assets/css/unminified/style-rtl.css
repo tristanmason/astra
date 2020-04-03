@@ -4365,20 +4365,6 @@ body .entry-content .wp-block-latest-posts li {
   margin-bottom: 2em;
 }
 
-@media (min-width: 769px) {
-  .ast-separate-container.ast-two-container #secondary .widget:last-child {
-    margin-bottom: 0;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-separate-container.ast-two-container #secondary .widget {
-    padding-right: 1em;
-    padding-left: 1em;
-    margin-bottom: 1.5em;
-  }
-}
-
 /*----------  Footer  ----------*/
 /* 2 - Small Footer */
 /**

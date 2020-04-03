@@ -704,6 +704,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'margin-left'  => 'auto',
 					'margin-right' => 'auto',
 				),
+				'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
+					'margin-bottom' => 0,
+				),
 				'.ast-separate-container .ast-comment-list li .comment-respond' => array(
 					'padding-left'  => '2.66666em',
 					'padding-right' => '2.66666em',
@@ -1062,6 +1065,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.ast-separate-container #secondary' => array(
 					'padding-top' => 0,
+				),
+				'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
+					'margin-bottom' => '1.5em',
+					'padding-left'  => '1em',
+					'padding-right' => '1em',
 				),
 				'.ast-separate-container .comments-count-wrapper' => array(
 					'padding' => '1.5em 1em',
