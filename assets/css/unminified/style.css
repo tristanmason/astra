@@ -5456,15 +5456,6 @@ input[type="color"]::-webkit-color-swatch {
   line-height: 1em;
 }
 
-@media (max-width: 768px) {
-  .ast-pagination .prev.page-numbers {
-    padding-left: .5em;
-  }
-  .ast-pagination .next.page-numbers {
-    padding-right: .5em;
-  }
-}
-
 @media (min-width: 769px) {
   .ast-pagination .prev_next {
     float: right;

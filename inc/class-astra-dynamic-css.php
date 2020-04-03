@@ -653,17 +653,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
 						'padding-right' => '20px',
 					),
-					'.ast-right-sidebar #primary'   => array(
+					'.ast-right-sidebar #primary'        => array(
 						'padding-left' => 0,
 					),
-					'.ast-right-sidebar #secondary' => array(
+					'.ast-right-sidebar #secondary'      => array(
 						'padding-right' => 0,
 					),
-					'.ast-left-sidebar #primary'    => array(
+					'.ast-left-sidebar #primary'         => array(
 						'padding-right' => 0,
 					),
-					'.ast-left-sidebar #secondary'  => array(
+					'.ast-left-sidebar #secondary'       => array(
 						'padding-left' => 0,
+					),
+					'.ast-pagination .prev.page-numbers' => array(
+						'padding-right' => '.5em',
+					),
+					'.ast-pagination .next.page-numbers' => array(
+						'padding-left' => '.5em',
 					),
 				);
 			} else {
@@ -674,17 +680,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
 						'padding-left' => '20px',
 					),
-					'.ast-right-sidebar #primary'   => array(
+					'.ast-right-sidebar #primary'        => array(
 						'padding-right' => 0,
 					),
-					'.ast-right-sidebar #secondary' => array(
+					'.ast-right-sidebar #secondary'      => array(
 						'padding-left' => 0,
 					),
-					'.ast-left-sidebar #primary'    => array(
+					'.ast-left-sidebar #primary'         => array(
 						'padding-left' => 0,
 					),
-					'.ast-left-sidebar #secondary'  => array(
+					'.ast-left-sidebar #secondary'       => array(
 						'padding-right' => 0,
+					),
+					'.ast-pagination .prev.page-numbers' => array(
+						'padding-left' => '.5em',
+					),
+					'.ast-pagination .next.page-numbers' => array(
+						'padding-right' => '.5em',
 					),
 				);
 			}
