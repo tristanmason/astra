@@ -640,9 +640,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'display' => 'inherit',
 					'float'   => 'none',
 				),
-				'.ast-separate-container.ast-two-container #secondary .widget, .ast-separate-container #secondary .widget' => array(
-					'margin-bottom' => '1.5em',
-				),
 			);
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
