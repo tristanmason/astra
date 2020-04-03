@@ -1066,7 +1066,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container #secondary' => array(
 					'padding-top' => 0,
 				),
-				'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
+				'.ast-separate-container.ast-two-container #secondary .widget' => array(
 					'margin-bottom' => '1.5em',
 					'padding-left'  => '1em',
 					'padding-right' => '1em',
