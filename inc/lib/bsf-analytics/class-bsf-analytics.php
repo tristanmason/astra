@@ -196,7 +196,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function every_two_days_schedule( $schedules ) {
 			$schedules['every_two_days'] = array(
 				'interval' => 2 * DAY_IN_SECONDS,
-				'display'  => __( 'Every two days', 'astra' ),
+				'display'  => __( 'Every two days', 'textdomain', 'astra' ),
 			);
 
 			return $schedules;

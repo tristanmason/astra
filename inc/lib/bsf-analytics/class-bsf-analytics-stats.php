@@ -86,6 +86,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 				'timezone'               => wp_timezone_string(),
 				'is_ssl'                 => is_ssl(),
 				'is_multisite'           => is_multisite(),
+				'network_url'            => network_site_url(),
 				'external_object_cache'  => (bool) wp_using_ext_object_cache(),
 				'wp_debug'               => WP_DEBUG,
 				'wp_debug_display'       => WP_DEBUG_DISPLAY,
