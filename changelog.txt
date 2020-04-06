@@ -1,6 +1,9 @@
 v2.4.0
 - New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
 
+v2.3.5
+- Fix: WordPress 5.4 compatibility with Gutenberg Editor.
+
 v2.3.4
 - Fix: Lightning icon not appearing on astra options page.
 - Fix: Breadcrumb separator appearing as HTML entity for new users.
