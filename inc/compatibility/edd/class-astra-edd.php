@@ -452,7 +452,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			}
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
-			$edd_css_output = astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			$edd_css_output .= astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
 			$mobile_edd_css = array(
 				'.mobile-columns-1 .ast-edd-archive-article' => array(
