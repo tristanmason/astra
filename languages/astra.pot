@@ -775,36 +775,36 @@ msgid "Easy Digital Downloads"
 msgstr ""
 
 #: inc/compatibility/edd/class-astra-edd.php:344
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1315
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1436
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/compatibility/edd/class-astra-edd.php:656
+#: inc/compatibility/edd/class-astra-edd.php:705
 #: inc/compatibility/edd/customizer/sections/layout/class-astra-edd-archive-layout-configs.php:74
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:91
 msgid "Add To Cart"
 msgstr ""
 
-#: inc/compatibility/edd/class-astra-edd.php:658
+#: inc/compatibility/edd/class-astra-edd.php:707
 msgid "View Details"
 msgstr ""
 
-#: inc/compatibility/edd/class-astra-edd.php:717
+#: inc/compatibility/edd/class-astra-edd.php:766
 msgid "Easy Digital Downloads Sidebar"
 msgstr ""
 
-#: inc/compatibility/edd/class-astra-edd.php:719
+#: inc/compatibility/edd/class-astra-edd.php:768
 #: inc/compatibility/woocommerce/class-astra-woocommerce.php:423
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/edd/class-astra-edd.php:731
+#: inc/compatibility/edd/class-astra-edd.php:780
 msgid "EDD Single Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/edd/class-astra-edd.php:733
+#: inc/compatibility/edd/class-astra-edd.php:782
 msgid "This sidebar will be used on EDD Single Product page."
 msgstr ""
 

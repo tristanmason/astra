@@ -1210,7 +1210,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
  * @param string $min min.
  * @param string $max max.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return number $breakpoint.
  */
@@ -1238,7 +1238,7 @@ function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
  * @param string $min min.
  * @param string $max max.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return number header_breakpoint.
  */
