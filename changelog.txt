@@ -6,7 +6,7 @@ v2.4.0
 - Improvement: Addon minimum version notice is now dismissible.
 - Fix: Global button Color and Background Color options not working with Gutenberg button.
 - Fix: W3C markup validation.
-- Fix: GiveWP two "Add-ons" submenu display issue for version 2.6.0 and greater.
+- Fix: GiveWP two 'Add-ons' submenu display issue for version 2.6.0 and greater.
 
 v2.3.5
 - Fix: WordPress 5.4 compatibility with Gutenberg Editor.
