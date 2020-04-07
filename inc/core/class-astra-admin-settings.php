@@ -280,7 +280,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			if ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
-				
+
 				$message = sprintf(
 					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
 					__( 'Please update the %1$1s to version %2$2s or higher. Ignore if already updated.', 'astra' ),
@@ -300,12 +300,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 
 				$notice_args = array(
-					'id'                  => 'ast-minimum-addon-version-notice',
-					'type'                => 'warning',
-					'message'             => $message,
-					'show_if'             => true,
-					'repeat-notice-after' => false,
-					'priority'            => 18,
+					'id'                         => 'ast-minimum-addon-version-notice',
+					'type'                       => 'warning',
+					'message'                    => $message,
+					'show_if'                    => true,
+					'repeat-notice-after'        => false,
+					'priority'                   => 18,
 					'display-with-other-notices' => true,
 				);
 
