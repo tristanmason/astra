@@ -5,7 +5,6 @@ v2.4.0
 - Improvement: Updated admin strings.
 - Improvement: Addon minimum version notice is now dismissible.
 - Fix: Global button Color and Background Color options not working with Gutenberg button.
-- Fix: Tablet colors not working when menu breakpoint increased above 768px.
 - Fix: W3C markup validation.
 - Fix: GiveWP two "Add-ons" submenu display issue for version 2.6.0 and greater.
 
