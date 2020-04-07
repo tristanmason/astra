@@ -633,7 +633,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header 
+		<header
 			<?php
 				echo astra_attr(
 					'header',
@@ -1879,18 +1879,10 @@ add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
  * This allows affiliates to change the link according to their needs.
  */
 function astra_givewp_upgrade_link() {
-	$menu_slug = 'edit.php?post_type=give_forms';
-
-	// Remove existing page.
-	remove_submenu_page( $menu_slug, 'give-addons' );
-
-	// Add affiliate link to GiveWP.com.
-	global $submenu;
-
-	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+	return 'https://givewp.com/ref/412';
 }
 
-add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
+add_action( 'give_addon_menu_item_url', 'astra_givewp_upgrade_link' );
 
 /**
  * Get instance of WP_Filesystem.

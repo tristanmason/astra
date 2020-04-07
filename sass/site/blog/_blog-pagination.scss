@@ -92,15 +92,6 @@
             line-height: 1em;
         }
     }
-    
-    @media(max-width: $mx-col-md) {
-        .prev.page-numbers {
-            padding-left: .5em;
-        }
-        .next.page-numbers {
-            padding-right: .5em;
-        }
-    }
 
     @media(min-width: $col-md) {
         .prev_next {
