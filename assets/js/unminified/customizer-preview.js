@@ -998,14 +998,12 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
 	astra_css( 'astra-settings[footer-adv-link-color]', 'color', '.footer-adv a' );
 	astra_css( 'astra-settings[footer-adv-link-h-color]', 'color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' );
-	wp.customize( 'astra-settings[footer-adv-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
-			
-			var dynamicStyle = ' .footer-adv-overlay { {{css}} }';
-			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
-		} );
-	} );
+
+	// Footer bar responive background.
+	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'mobile' );
+
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */

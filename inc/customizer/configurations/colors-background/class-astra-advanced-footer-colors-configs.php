@@ -135,15 +135,14 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				 * Option: Footer widget Background
 				 */
 				array(
-					'name'    => 'footer-adv-bg-obj',
+					'name'    => 'footer-adv-bg-obj-responsive',
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
 					'section' => 'section-footer-adv',
-					'control' => 'ast-background',
-					'default' => astra_get_option( 'footer-adv-bg-obj' ),
+					'control' => 'ast-responsive-background',
+					'default' => astra_get_option( 'footer-adv-bg-obj-responsive' ),
 					'label'   => __( 'Background', 'astra' ),
 				),
-
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

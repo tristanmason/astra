@@ -201,3 +201,38 @@ function astra_responsive_base_background_option() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Migrate Footer & Footer Widgets options data from previous background option to its desktop counterpart.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_responsive_footer_background_option() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( false === get_option( 'footer-adv-bg-obj-responsive', false ) && isset( $theme_options['footer-adv-bg-obj'] ) ) {
+
+		$theme_options['footer-adv-bg-obj-responsive']['desktop'] = $theme_options['footer-adv-bg-obj'];
+		$theme_options['footer-adv-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['footer-adv-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
