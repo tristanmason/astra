@@ -1919,7 +1919,7 @@ function remove_controls( $wp_customize ) {
 		$wp_customize = array_merge( $wp_customize, $layout );
 	}
 
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.1', '<=' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
 			array(
 				'name'    => ASTRA_THEME_SETTINGS . '[footer-adv-bg-obj]',

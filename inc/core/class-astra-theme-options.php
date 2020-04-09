@@ -130,7 +130,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'footer-color'                        => '',
 					'footer-link-color'                   => '',
 					'footer-link-h-color'                 => '',
-					// Footer Widgets.
 					'footer-adv-bg-obj-responsive'        => array(
 						'desktop' => array(
 							'background-color'      => '',
