@@ -152,7 +152,7 @@ function astra_breadcrumb_separator_fix() {
 /**
  * Check if we need to change the default value for tablet breakpoint.
  *
- * @since x.x.x
+ * @since 2.4.0
  * @return void
  */
 function astra_update_theme_tablet_breakpoint() {
@@ -170,7 +170,7 @@ function astra_update_theme_tablet_breakpoint() {
 /**
  * Migrate option data from site layout background option to its desktop counterpart.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return void
  */
@@ -178,7 +178,7 @@ function astra_responsive_base_background_option() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
+	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) && isset( $theme_options['site-layout-outside-bg-obj'] ) ) {
 
 		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
 		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
