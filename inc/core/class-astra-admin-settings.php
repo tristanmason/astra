@@ -1287,6 +1287,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'settings-link-text' => 'Settings',
 							'display'            => function_exists( 'register_block_type' ),
 						),
+					'leadin' =>
+						array(
+							'plugin-name'        => 'HubSpot',
+							'plugin-init'        => 'leadin/leadin.php',
+							'settings-link'      => admin_url( 'admin.php?page=leadin' ),
+							'settings-link-text' => 'Settings',
+						),
 				)
 			);
 
