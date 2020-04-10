@@ -64,14 +64,14 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				 * Option: Footer widget Background
 				 */
 				array(
-					'name'    => 'footer-adv-bg-obj-responsive',
-					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
-					'section' => 'section-footer-adv',
-					'type'    => 'sub-control',
-					'control' => 'ast-responsive-background',
-					'transport'  => 'postMessage',
-					'default' => astra_get_option( 'footer-adv-bg-obj-responsive' ),
-					'label'   => __( 'Background', 'astra' ),
+					'name'      => 'footer-adv-bg-obj-responsive',
+					'parent'    => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'section'   => 'section-footer-adv',
+					'type'      => 'sub-control',
+					'control'   => 'ast-responsive-background',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'footer-adv-bg-obj-responsive' ),
+					'label'     => __( 'Background', 'astra' ),
 				),
 
 				/**
