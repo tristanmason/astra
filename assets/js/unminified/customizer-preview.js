@@ -984,14 +984,11 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
 	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
 	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
-	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
 
-			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
-			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
-		} );
-	} );
+	// Footer Bar responive background.
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', ' .ast-small-footer > .ast-footer-overlay', 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', ' .ast-small-footer > .ast-footer-overlay', 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', ' .ast-small-footer > .ast-footer-overlay', 'mobile' );
 
 	// Footer Widgets.
 	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
@@ -999,7 +996,7 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-adv-link-color]', 'color', '.footer-adv a' );
 	astra_css( 'astra-settings[footer-adv-link-h-color]', 'color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' );
 
-	// Footer bar responive background.
+	// Footer Widget responive background.
 	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'desktop' );
 	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'tablet' );
 	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'mobile' );

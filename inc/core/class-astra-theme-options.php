@@ -118,18 +118,38 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'theme-color'                         => '#0274be',
 					'link-h-color'                        => '#3a3a3a',
 
-					// Footer Colors.
-					'footer-bg-obj'                       => array(
-						'background-color'      => '',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
+					// Footer Bar Background.
+					'footer-bg-obj-responsive'            => array(
+						'desktop' => array(
+							'background-color'      => '',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+						),
+						'tablet'  => array(
+							'background-color'      => '',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+						),
+						'mobile'  => array(
+							'background-color'      => '',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+						),
 					),
 					'footer-color'                        => '',
 					'footer-link-color'                   => '',
 					'footer-link-h-color'                 => '',
+
+					// Footer Widgets Background.
 					'footer-adv-bg-obj-responsive'        => array(
 						'desktop' => array(
 							'background-color'      => '',

@@ -172,7 +172,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$highlight_theme_color = astra_get_foreground_color( $theme_color );
 
 			// Footer Bar Colors.
-			$footer_bg_obj       = astra_get_option( 'footer-bg-obj' );
+			$footer_bg_obj       = astra_get_option( 'footer-bg-obj-responsive' );
 			$footer_color        = astra_get_option( 'footer-color' );
 			$footer_link_color   = astra_get_option( 'footer-link-color' );
 			$footer_link_h_color = astra_get_option( 'footer-link-h-color' );
@@ -470,7 +470,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-small-footer'                       => array(
 					'color' => esc_attr( $footer_color ),
 				),
-				'.ast-small-footer > .ast-footer-overlay' => astra_get_background_obj( $footer_bg_obj ),
+				'.ast-small-footer > .ast-footer-overlay' => astra_get_responsive_background_obj( $footer_bg_obj, 'desktop' ),
 
 				'.ast-small-footer a'                     => array(
 					'color' => esc_attr( $footer_link_color ),
@@ -597,7 +597,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css = astra_parse_css( $css_output );
 
 			$static_layout_css = array(
-				'#secondary.secondary'                  => array(
+				'#secondary.secondary'                    => array(
 					'padding-top' => 0,
 				),
 				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
@@ -617,10 +617,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-page-builder-template .entry-header #secondary' => array(
 					'margin-top' => '1.5em',
 				),
-				'.ast-page-builder-template #secondary' => array(
+				'.ast-page-builder-template #secondary'   => array(
 					'margin-top' => '1.5em',
 				),
-				'#primary, #secondary'                  => array(
+				'#primary, #secondary'                    => array(
 					'padding' => '1.5em 0',
 					'margin'  => 0,
 				),
@@ -629,19 +629,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'flex-direction' => 'column-reverse',
 					'width'          => '100%',
 				),
-				'.ast-author-box img.avatar'            => array(
+				'.ast-author-box img.avatar'              => array(
 					'margin' => '20px 0 0 0',
 				),
-				'.ast-pagination'                       => array(
+				'.ast-pagination'                         => array(
 					'padding-top' => '1.5em',
 					'text-align'  => 'center',
 				),
-				'.ast-pagination .next.page-numbers'    => array(
+				'.ast-pagination .next.page-numbers'      => array(
 					'display' => 'inherit',
 					'float'   => 'none',
 				),
 
-				'.footer-adv-overlay'                   => astra_get_responsive_background_obj( $footer_adv_bg_obj, 'tablet' ),
+				'.ast-small-footer > .ast-footer-overlay' => astra_get_responsive_background_obj( $footer_bg_obj, 'tablet' ),
+				'.footer-adv-overlay'                     => astra_get_responsive_background_obj( $footer_adv_bg_obj, 'tablet' ),
 			);
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
@@ -1102,6 +1103,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .comment-respond' => array(
 					'padding' => '1.5em 1em',
 				),
+				'.ast-small-footer > .ast-footer-overlay'  => astra_get_responsive_background_obj( $footer_bg_obj, 'mobile' ),
 				'.footer-adv-overlay'                      => astra_get_responsive_background_obj( $footer_adv_bg_obj, 'mobile' ),
 			);
 
