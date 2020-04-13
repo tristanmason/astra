@@ -377,7 +377,7 @@ class Astra_Breadcrumb_Trail {
 				esc_attr( $this->labels['aria_label'] ),
 				$this->args['before'],
 				$breadcrumb,
-				$this->args['after'],
+				$this->args['after']
 			);
 		}
 
