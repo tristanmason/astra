@@ -26,22 +26,6 @@
 		font-weight: 300;
 	}
 }
-@media (min-width: $col-md) {
-	.ast-author-box{
-		display: flex;
-	}
-	.ast-author-bio{
-		flex:1;
-	}
-}
-
-@media (max-width: $mx-col-md) {
-	.ast-author-box{
-		img.avatar {
-		    margin: 20px 0 0 0;
-		}
-	}
-}
 
 .ast-separate-container {
 	.ast-author-box,
@@ -61,11 +45,6 @@
 	@media (max-width: $mx-col-lg) {
 		.ast-archive-description{
 		    padding: 2.14em;
-		}
-	}
-	@media (max-width: $mx-col-sm) {
-		.ast-archive-description{
-		    padding: 1.5em 1em;
 		}
 	}
 }
