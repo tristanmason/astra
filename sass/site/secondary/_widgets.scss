@@ -207,16 +207,6 @@
 				background-color: $color-background-content;
 				padding: 2em;
 				margin-bottom: 2em;
-				@media (min-width: $col-md) {
-					&:last-child{
-						margin-bottom: 0;
-					}
-				}
-				@media (max-width: $mx-col-sm) {
-					padding-left: 1em;
-					padding-right: 1em;
-					margin-bottom: 1.5em;
-				}
 			}
 		}
 	}

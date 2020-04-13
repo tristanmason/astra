@@ -633,7 +633,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header
+		<header 
 			<?php
 				echo astra_attr(
 					'header',
@@ -1898,13 +1898,13 @@ function astra_filesystem() {
 /**
  * Remove Base Color > Background Color option from the customize array.
  *
- * @since 2.3.3
+ * @since 2.4.0
  * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
  * @return $wp_customize
  */
 function remove_controls( $wp_customize ) {
 
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.3.2', '<=' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
