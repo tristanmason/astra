@@ -1879,18 +1879,10 @@ add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
  * This allows affiliates to change the link according to their needs.
  */
 function astra_givewp_upgrade_link() {
-	$menu_slug = 'edit.php?post_type=give_forms';
-
-	// Remove existing page.
-	remove_submenu_page( $menu_slug, 'give-addons' );
-
-	// Add affiliate link to GiveWP.com.
-	global $submenu;
-
-	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+	return 'https://givewp.com/ref/412';
 }
 
-add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
+add_action( 'give_addon_menu_item_url', 'astra_givewp_upgrade_link' );
 
 /**
  * Get instance of WP_Filesystem.
@@ -1906,13 +1898,13 @@ function astra_filesystem() {
 /**
  * Remove Base Color > Background Color option from the customize array.
  *
- * @since 2.3.3
+ * @since 2.4.0
  * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
  * @return $wp_customize
  */
 function remove_controls( $wp_customize ) {
 
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.3.2', '<=' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
