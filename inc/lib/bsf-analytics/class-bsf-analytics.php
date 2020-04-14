@@ -77,7 +77,31 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function is_tracking_enabled() {
 			$is_enabled = get_site_option( 'bsf_analytics_optin' ) === 'yes' ? true : false;
+			$is_enabled = ! $this->is_white_label_enabled();
+
 			return apply_filters( 'bsf_tracking_enabled', $is_enabled );
+		}
+
+		/**
+		 * Check if WHITE label is enabled for BSF products.
+		 *
+		 * @return bool
+		 */
+		public function is_white_label_enabled() {
+
+			$options    = apply_filters( 'bsf_white_label_options', array() );
+			$is_enabled = false;
+
+			if ( is_array( $options ) ) {
+				foreach ( $options as $option ) {
+					if ( true === $option ) {
+						$is_enabled = true;
+						break;
+					}
+				}
+			}
+
+			return $is_enabled;
 		}
 
 		/**
@@ -89,8 +113,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				return;
 			}
 
-			// Don't display the notice if the user has taken action on the notice.
-			if ( get_site_option( 'bsf_analytics_optin' ) || ! apply_filters( 'bsf_tracking_enabled', true ) ) {
+			// Don't display the notice if tracking is disabled.
+			if ( ! $this->is_tracking_enabled() ) {
 				return;
 			}
 
@@ -236,7 +260,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function register_usage_tracking_setting() {
 
-			if ( ! apply_filters( 'bsf_tracking_enabled', true ) ) {
+			if ( ! apply_filters( 'bsf_tracking_enabled', true ) || $this->is_white_label_enabled() ) {
 				return;
 			}
 
