@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 2.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-04-10 03:55:27+00:00\n"
+"POT-Creation-Date: 2020-04-13 11:04:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2563,50 +2563,6 @@ msgstr ""
 
 #: inc/lib/batch-processing/class-wp-background-process.php:425
 msgid "Every %d Minutes"
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:103
-#. translators: %s product name
-msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to "
-"collect non-sensitive diagnostic data and usage information. "
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:106
-msgid "This will be applicable for all sites from the network."
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:128
-#. translators: %s usage doc link
-msgid " Know More."
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:135
-msgid "Allow"
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:143
-msgid "No Thanks"
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:205
-msgid "Every two days"
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:251
-msgid "Usage Tracking"
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:279
-msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data."
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:282
-msgid " This will be applicable for all sites from the network."
-msgstr ""
-
-#: inc/lib/bsf-analytics/class-bsf-analytics.php:287
-msgid "Learn More."
 msgstr ""
 
 #: inc/lib/notices/class-astra-notices.php:120
