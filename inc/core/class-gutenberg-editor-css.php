@@ -508,7 +508,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $mobile_css, '', '544' );
 
 			$page_builder_css = array(
-				'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .editor-block-list__block' => array(
+				'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .block-editor-block-list__block' => array(
 					'width'     => '100%',
 					'max-width' => '100%',
 				),
