@@ -784,7 +784,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .nav-fallback-text'              => array(
 					'float' => 'none',
 				),
-				'.ast-amp .site-header'                    => array(
+				'.ast-amp .main-header-bar'                => array(
 					'border-bottom-color' => '#eaeaea',
 					'border-bottom-style' => 'solid',
 				),
