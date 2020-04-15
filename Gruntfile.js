@@ -104,16 +104,6 @@ module.exports = function (grunt) {
                         dest: 'inc/customizer/custom-controls/assets/css/unminified',
                         ext: '-rtl.css'
                     },
-                    {
-                        expand: true,
-                        cwd: 'admin/bsf-analytics/assets/css/unminified',
-                        src: [
-                            '*.css',
-                            '!*-rtl.css',
-                        ],
-                        dest: 'admin/bsf-analytics/assets/css/unminified',
-                        ext: '-rtl.css'
-                    },
                 ]
             }
         },
@@ -288,14 +278,6 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/customizer-controls-rtl.css',
                         dest: 'assets/css/minified/customizer-controls.min-rtl.css',
-                    },
-                    {
-                        src: 'admin/bsf-analytics/assets/css/unminified/style.css',
-                        dest: 'admin/bsf-analytics/assets/css/minified/style.min.css',
-                    },
-                    {
-                        src: 'admin/bsf-analytics/assets/css/unminified/style-rtl.css',
-                        dest: 'admin/bsf-analytics/assets/css/minified/style.min-rtl.css',
                     },
                     {
                         src:[

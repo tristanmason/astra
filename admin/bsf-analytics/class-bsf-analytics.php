@@ -104,7 +104,31 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function is_tracking_enabled() {
 			$is_enabled = get_site_option( 'bsf_analytics_optin' ) === 'yes' ? true : false;
+			$is_enabled = ! $this->is_white_label_enabled();
+
 			return apply_filters( 'bsf_tracking_enabled', $is_enabled );
+		}
+
+		/**
+		 * Check if WHITE label is enabled for BSF products.
+		 *
+		 * @return bool
+		 */
+		public function is_white_label_enabled() {
+
+			$options    = apply_filters( 'bsf_white_label_options', array() );
+			$is_enabled = false;
+
+			if ( is_array( $options ) ) {
+				foreach ( $options as $option ) {
+					if ( true === $option ) {
+						$is_enabled = true;
+						break;
+					}
+				}
+			}
+
+			return $is_enabled;
 		}
 
 		/**
@@ -116,8 +140,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				return;
 			}
 
-			// Don't display the notice if the user has taken action on the notice.
-			if ( get_site_option( 'bsf_analytics_optin' ) || ! apply_filters( 'bsf_tracking_enabled', true ) ) {
+			// Don't display the notice if tracking is disabled.
+			if ( ! $this->is_tracking_enabled() ) {
 				return;
 			}
 
@@ -127,10 +151,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			/* translators: %s product name */
-			$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ' );
+			$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'astra' );
 
 			if ( is_multisite() ) {
-				$notice_string .= __( 'This will be applicable for all sites from the network.' );
+				$notice_string .= __( 'This will be applicable for all sites from the network.', 'astra' );
 			}
 
 			Astra_Notices::add_notice(
@@ -152,14 +176,14 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 								</div>
 							</div>',
 						/* translators: %s usage doc link */
-						sprintf( $notice_string . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( ' Know More.' ) ),
+						sprintf( $notice_string . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( ' Know More.', 'astra' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
 								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
 							)
 						),
-						__( 'Yes! Allow it' ),
+						__( 'Yes! Allow it', 'astra' ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'no',
@@ -167,7 +191,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 							)
 						),
 						MONTH_IN_SECONDS,
-						__( 'No Thanks' )
+						__( 'No Thanks', 'astra' )
 					),
 					'show_if'                    => true,
 					'repeat-notice-after'        => false,
@@ -229,7 +253,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function every_two_days_schedule( $schedules ) {
 			$schedules['every_two_days'] = array(
 				'interval' => 2 * DAY_IN_SECONDS,
-				'display'  => __( 'Every two days', 'textdomain' ),
+				'display'  => __( 'Every two days', 'astra' ),
 			);
 
 			return $schedules;
@@ -263,7 +287,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function register_usage_tracking_setting() {
 
-			if ( ! apply_filters( 'bsf_tracking_enabled', true ) ) {
+			if ( ! apply_filters( 'bsf_tracking_enabled', true ) || $this->is_white_label_enabled() ) {
 				return;
 			}
 
@@ -275,7 +299,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			add_settings_field(
 				'bsf-analytics-optin',       // Field ID.
-				__( 'Usage Tracking' ),       // Field title.
+				__( 'Usage Tracking', 'astra' ),       // Field title.
 				array( $this, 'render_settings_field_html' ), // Field callback function.
 				'general'                    // Settings page slug.
 			);
@@ -303,15 +327,15 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			<label for="bsf-analytics-optin">
 				<input id="bsf-analytics-optin" type="checkbox" value="1" name="bsf_analytics_optin" <?php checked( get_site_option( 'bsf_analytics_optin', 'no' ), 'yes' ); ?>>
 				<?php
-				esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.' );
+				esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'astra' );
 
 				if ( is_multisite() ) {
-					esc_html_e( ' This will be applicable for all sites from the network.' );
+					esc_html_e( ' This will be applicable for all sites from the network.', 'astra' );
 				}
 				?>
 			</label>
 			<?php
-			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.' ) ) );
+			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.', 'astra' ) ) );
 		}
 
 		/**
