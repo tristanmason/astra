@@ -104,7 +104,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function is_tracking_enabled() {
 			$is_enabled = get_site_option( 'bsf_analytics_optin' ) === 'yes' ? true : false;
-			$is_enabled = ! $this->is_white_label_enabled();
+			$is_enabled = $this->is_white_label_enabled() ? false : $is_enabled;
 
 			return apply_filters( 'bsf_tracking_enabled', $is_enabled );
 		}
@@ -141,7 +141,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			// Don't display the notice if tracking is disabled.
-			if ( ! $this->is_tracking_enabled() ) {
+			if ( false !== get_site_option( 'bsf_analytics_optin', false ) || $this->is_white_label_enabled() ) {
 				return;
 			}
 
