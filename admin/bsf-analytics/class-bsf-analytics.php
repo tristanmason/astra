@@ -123,7 +123,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			// Show tracker consent notice after 24 hours from installed time.
 			if ( strtotime( '+24 hours', $this->get_analytics_install_time() ) > time() ) {
-				// return;
+				return;
 			}
 
 			/* translators: %s product name */
