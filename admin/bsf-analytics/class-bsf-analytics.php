@@ -411,7 +411,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function schedule_unschedule_event() {
 
-			if ( ! apply_filters( 'bsf_tracking_enabled', true ) ) {
+			if ( true === $this->is_white_label_enabled() ) {
 				$this->unschedule_event();
 				return;
 			}
