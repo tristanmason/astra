@@ -57,10 +57,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		/**
 		 * BSF Analytics URL
 		 *
-		 * @param  string $append Append.
 		 * @return String URL of bsf-core directory.
 		 */
-		public function bsf_analytics_url( $append = '' ) {
+		public function bsf_analytics_url() {
 
 			$path       = wp_normalize_path( BSF_ANALYTICS_PATH );
 			$theme_dir  = wp_normalize_path( get_template_directory() );
@@ -69,8 +68,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			if ( strpos( $path, $theme_dir ) !== false ) {
 				return rtrim( get_template_directory_uri() . '/admin/bsf-analytics/', '/' ) . $append;
 			} elseif ( strpos( $path, $plugin_dir ) !== false ) {
-				return rtrim( plugin_dir_url( BSF_ANALYTICS_FILE ), '/' ) . $append;
-			} elseif ( strpos( $path, dirname( plugin_basename( BSF_ANALYTICS_FILE ) ) ) !== false ) {
 				return rtrim( plugin_dir_url( BSF_ANALYTICS_FILE ), '/' ) . $append;
 			}
 
