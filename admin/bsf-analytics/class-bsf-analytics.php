@@ -30,8 +30,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function __construct() {
 
+			define( 'BSF_ANALYTICS_FILE', __FILE__ );
 			define( 'BSF_ANALYTICS_VERSION', '1.0.0' );
-			define( 'BSF_ANALYTICS_URI', trailingslashit( esc_url( get_template_directory_uri() . '/admin/bsf-analytics/' ) ) );
+			define( 'BSF_ANALYTICS_PATH', dirname( __FILE__ ) );
+			define( 'BSF_ANALYTICS_URI', $this->bsf_analytics_url() );
 
 			add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
 			add_action( 'cron_schedules', array( $this, 'every_two_days_schedule' ) );
@@ -50,6 +52,29 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			add_action( 'add_option_bsf_analytics_optin', array( $this, 'add_analytics_option_callback' ), 10, 2 );
 
 			$this->includes();
+		}
+
+		/**
+		 * BSF Analytics URL
+		 *
+		 * @param  string $append Append.
+		 * @return String URL of bsf-core directory.
+		 */
+		public function bsf_analytics_url( $append = '' ) {
+
+			$path       = wp_normalize_path( BSF_ANALYTICS_PATH );
+			$theme_dir  = wp_normalize_path( get_template_directory() );
+			$plugin_dir = wp_normalize_path( WP_PLUGIN_DIR );
+
+			if ( strpos( $path, $theme_dir ) !== false ) {
+				return rtrim( get_template_directory_uri() . '/admin/bsf-analytics/', '/' ) . $append;
+			} elseif ( strpos( $path, $plugin_dir ) !== false ) {
+				return rtrim( plugin_dir_url( BSF_ANALYTICS_FILE ), '/' ) . $append;
+			} elseif ( strpos( $path, dirname( plugin_basename( BSF_ANALYTICS_FILE ) ) ) !== false ) {
+				return rtrim( plugin_dir_url( BSF_ANALYTICS_FILE ), '/' ) . $append;
+			}
+
+			return false;
 		}
 
 		/**
@@ -78,7 +103,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			$file_rtl = ( is_rtl() ) ? '-rtl' : '';
 			$css_ext  = ( SCRIPT_DEBUG ) ? '.css' : '.min.css';
 
-			$css_uri = BSF_ANALYTICS_URI . 'assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
+			$css_uri = BSF_ANALYTICS_URI . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
 
 			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, BSF_ANALYTICS_VERSION, 'all' );
 		}
@@ -140,7 +165,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				return;
 			}
 
-			// Don't display the notice if tracking is disabled.
+			// Don't display the notice if tracking is disabled or White Label is enabled for any of our plugins.
 			if ( false !== get_site_option( 'bsf_analytics_optin', false ) || $this->is_white_label_enabled() ) {
 				return;
 			}
