@@ -5,7 +5,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
 Tested up to: 5.4
 Requires PHP: 5.3
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 
 Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
@@ -56,12 +56,12 @@ There are multiple ways you can use a child theme with the Astra Theme, Use any 
 
 = Screenshot Licenses =
 
-Screenshot images are all licensed under CC0 Universal ( https://www.pexels.com/creative-commons-images/ )
-https://www.pexels.com/photo/woman-wearing-grey-skirt-and-round-brown-rattan-crossbody-bag-on-wooden-dock-near-body-of-water-1102225/
-https://www.pexels.com/photo/man-standing-on-hill-2146756/
-https://www.pexels.com/photo/woman-carrying-tote-bags-975250/
-https://www.pexels.com/photo/woman-wearing-yellow-polo-shirt-standing-in-front-of-teal-concrete-wall-720606/
-https://www.pexels.com/photo/photo-of-pine-trees-2929246/
+Screenshot images are all licensed under Creative Commons Zero (CC0) ( https://pxhere.com/en/license )
+https://pxhere.com/en/photo/100653
+https://pxhere.com/en/photo/759723
+https://pxhere.com/en/photo/1259448
+https://pxhere.com/en/photo/1456591
+https://pxhere.com/en/photo/1389199
 
 
 = Normalizing styles =
