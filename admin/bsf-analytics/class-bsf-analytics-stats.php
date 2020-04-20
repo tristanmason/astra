@@ -98,7 +98,6 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 				'active_plugins'         => $this->get_active_plugins(),
 
 				'active_theme'           => get_template(),
-				'active_theme_version'   => wp_get_theme( get_template() )->Version,
 				'active_stylesheet'      => get_stylesheet(),
 			);
 		}
