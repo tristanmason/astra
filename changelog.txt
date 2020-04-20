@@ -1,5 +1,12 @@
-v2.4.1
+v2.4.3
 - New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
+
+v2.4.2
+- Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
+- Fix: Theme check warnings.
+
+v2.4.1
+- Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
 
 v2.4.0
 - New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-update-breakpoints-tablet-mobile-in-astra/ )
