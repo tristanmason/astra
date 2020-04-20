@@ -58,12 +58,12 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * BSF Analytics URL
 		 *
 		 * @return String URL of bsf-core directory.
+		 * @since x.x.x
 		 */
 		public function bsf_analytics_url() {
 
-			$path       = wp_normalize_path( BSF_ANALYTICS_PATH );
-			$theme_dir  = wp_normalize_path( get_template_directory() );
-			$plugin_dir = wp_normalize_path( WP_PLUGIN_DIR );
+			$path      = wp_normalize_path( BSF_ANALYTICS_PATH );
+			$theme_dir = wp_normalize_path( get_template_directory() );
 
 			if ( strpos( $path, $theme_dir ) !== false ) {
 				return rtrim( get_template_directory_uri() . '/admin/bsf-analytics/', '/' );
