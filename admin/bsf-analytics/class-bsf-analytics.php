@@ -67,11 +67,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			if ( strpos( $path, $theme_dir ) !== false ) {
 				return rtrim( get_template_directory_uri() . '/admin/bsf-analytics/', '/' );
-			} elseif ( strpos( $path, $plugin_dir ) !== false ) {
+			} else {
 				return rtrim( plugin_dir_url( BSF_ANALYTICS_FILE ), '/' );
 			}
-
-			return false;
 		}
 
 		/**
