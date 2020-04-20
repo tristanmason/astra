@@ -27,7 +27,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Setup actions, load files.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function __construct() {
@@ -64,8 +64,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function bsf_analytics_url() {
 
-			$path       = wp_normalize_path( BSF_ANALYTICS_PATH );
-			$theme_dir  = wp_normalize_path( get_template_directory() );
+			$path      = wp_normalize_path( BSF_ANALYTICS_PATH );
+			$theme_dir = wp_normalize_path( get_template_directory() );
 
 			if ( strpos( $path, $theme_dir ) !== false ) {
 				return rtrim( get_template_directory_uri() . '/admin/bsf-analytics/', '/' );
@@ -108,7 +108,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Send analytics API call.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function send() {
@@ -160,7 +160,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Display admin notice for usage tracking.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function option_notice() {
@@ -232,7 +232,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Process usage tracking opt out.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function handle_optin_optout() {
@@ -264,7 +264,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Opt in to usage tracking.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		private function optin() {
@@ -273,7 +273,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Opt out to usage tracking.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		private function optout() {
@@ -297,7 +297,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Schedule usage tracking event.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		private function schedule_event() {
@@ -308,7 +308,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Unschedule usage tracking event.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		private function unschedule_event() {
@@ -317,7 +317,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Load analytics stat class.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		private function includes() {
@@ -326,7 +326,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Register usage tracking option in General settings page.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function register_usage_tracking_setting() {
@@ -366,7 +366,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Print settings field HTML.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function render_settings_field_html() {
@@ -459,7 +459,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Schedule or unschedule event based on analytics option value.
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		public function schedule_unschedule_event() {
