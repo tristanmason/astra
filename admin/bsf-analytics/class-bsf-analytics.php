@@ -27,6 +27,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Setup actions, load files.
+		 *
+		 * @since x.x.x
 		 */
 		public function __construct() {
 
@@ -76,6 +78,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Get API URL for sending analytics.
 		 *
 		 * @return string API URL.
+		 * @since x.x.x
 		 */
 		private function get_api_url() {
 			return defined( 'BSF_API_URL' ) ? BSF_API_URL : 'https://support.brainstormforce.com/';
@@ -105,6 +108,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Send analytics API call.
+		 *
+		 * @since x.x.x
 		 */
 		public function send() {
 			wp_remote_post(
@@ -121,6 +126,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Check if usage tracking is enabled.
 		 *
 		 * @return bool
+		 * @since x.x.x
 		 */
 		public function is_tracking_enabled() {
 			$is_enabled = get_site_option( 'bsf_analytics_optin' ) === 'yes' ? true : false;
@@ -133,6 +139,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Check if WHITE label is enabled for BSF products.
 		 *
 		 * @return bool
+		 * @since x.x.x
 		 */
 		public function is_white_label_enabled() {
 
@@ -153,6 +160,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Display admin notice for usage tracking.
+		 *
+		 * @since x.x.x
 		 */
 		public function option_notice() {
 
@@ -223,6 +232,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Process usage tracking opt out.
+		 *
+		 * @since x.x.x
 		 */
 		public function handle_optin_optout() {
 			if ( ! isset( $_GET['bsf_analytics_nonce'] ) ) {
@@ -253,6 +264,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Opt in to usage tracking.
+		 *
+		 * @since x.x.x
 		 */
 		private function optin() {
 			update_site_option( 'bsf_analytics_optin', 'yes' );
@@ -260,6 +273,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Opt out to usage tracking.
+		 *
+		 * @since x.x.x
 		 */
 		private function optout() {
 			update_site_option( 'bsf_analytics_optin', 'no' );
@@ -269,6 +284,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Add two days event schedule variables.
 		 *
 		 * @param array $schedules scheduled array data.
+		 * @since x.x.x
 		 */
 		public function every_two_days_schedule( $schedules ) {
 			$schedules['every_two_days'] = array(
@@ -281,6 +297,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Schedule usage tracking event.
+		 *
+		 * @since x.x.x
 		 */
 		private function schedule_event() {
 			if ( ! wp_next_scheduled( 'bsf_analytics_send' ) && $this->is_tracking_enabled() ) {
@@ -290,6 +308,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Unschedule usage tracking event.
+		 *
+		 * @since x.x.x
 		 */
 		private function unschedule_event() {
 			wp_clear_scheduled_hook( 'bsf_analytics_send' );
@@ -297,6 +317,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Load analytics stat class.
+		 *
+		 * @since x.x.x
 		 */
 		private function includes() {
 			require_once __DIR__ . '/class-bsf-analytics-stats.php';
@@ -304,6 +326,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Register usage tracking option in General settings page.
+		 *
+		 * @since x.x.x
 		 */
 		public function register_usage_tracking_setting() {
 
@@ -329,6 +353,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Sanitize Callback Function
 		 *
 		 * @param bool $input Option value.
+		 * @since x.x.x
 		 */
 		public function sanitize_option( $input ) {
 
@@ -341,6 +366,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Print settings field HTML.
+		 *
+		 * @since x.x.x
 		 */
 		public function render_settings_field_html() {
 			?>
@@ -362,6 +389,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Get current product name.
 		 *
 		 * @return string $plugin_data['Name] Name of plugin.
+		 * @since x.x.x
 		 */
 		private function get_product_name() {
 
@@ -392,6 +420,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Set analytics installed time in option.
 		 *
 		 * @return string $time analytics installed time.
+		 * @since x.x.x
 		 */
 		private function get_analytics_install_time() {
 
@@ -411,6 +440,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $old_value old value of option.
 		 * @param string $value value of option.
 		 * @param string $option Option name.
+		 * @since x.x.x
 		 */
 		public function update_analytics_option_callback( $old_value, $value, $option ) {
 			$this->add_option_to_network( $value );
@@ -421,6 +451,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param string $option Option name.
 		 * @param string $value value of option.
+		 * @since x.x.x
 		 */
 		public function add_analytics_option_callback( $option, $value ) {
 			$this->add_option_to_network( $value );
@@ -428,6 +459,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 		/**
 		 * Schedule or unschedule event based on analytics option value.
+		 *
+		 * @since x.x.x
 		 */
 		public function schedule_unschedule_event() {
 
@@ -449,6 +482,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Save analytics option to network.
 		 *
 		 * @param string $value value of option.
+		 * @since x.x.x
 		 */
 		public function add_option_to_network( $value ) {
 
