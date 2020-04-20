@@ -951,13 +951,16 @@ add_filter( 'page_menu_link_attributes', 'astra_page_menu_link_atts', 10, 5 );
  * @param WP_Post $item         Current menu item.
  * @param int     $args        An object of wp_nav_menu arguments.
  */
-function astra_menu_anchor_attributes( $atts, $item, $args ) {
-	$atts['class'] = 'menu-link';
+function astra_menu_anchor_attributes( $atts, $item, $args, $depth ) {
+
+	if ( 0 === $depth ) {
+		$atts['class'] = 'menu-link';
+	}
 
 	return $atts;
 }
 
-add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_attributes', 10, 3 );
+add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_attributes', 10, 4 );
 
 /**
  * Add wrapper to menu title.
