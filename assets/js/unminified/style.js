@@ -239,7 +239,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var event_index = this.getAttribute('data-index');
 
 		if ('undefined' === typeof __main_header_all[event_index]) {
-
 			return false;
 		}
 
@@ -319,6 +318,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				navigation_accessibility( container[count] );
 			}
 		}
+
+		/**
+		 * Mega Menu hover & focus conflict resolving func.
+		*/
+		AstraToggleMegaMenuLists();
 	});
 
 
@@ -566,6 +570,48 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		body.addEventListener( 'keydown', function() {
 			body.classList.remove( 'ast-mouse-clicked' );
 		} );
+	}
+
+	AstraFocusHoverCompatibility = function () {
+
+		var main_header_mega_menu_items = document.querySelectorAll('.main-header-bar-navigation #primary-menu li.astra-megamenu-li');
+
+		if ( main_header_mega_menu_items.length > 0 ) {
+
+			for ( var i = 0; i < main_header_mega_menu_items.length; i++ ) {
+
+				var current_menu_id = main_header_mega_menu_items[i].id;
+				var current_list_item = document.querySelector( '#' + current_menu_id );
+				if( current_list_item.classList.contains("focus") ) {
+					current_list_item.classList.remove("focus");
+				}
+
+				var mega_menu = document.querySelector( '#' + current_menu_id + ' .astra-megamenu' );
+				if( mega_menu.classList.contains("astra-megamenu-focus") ) {
+					mega_menu.classList.remove("astra-megamenu-focus");
+				}
+
+				var full_mega_menu_wrapper = document.querySelectorAll( '#' + current_menu_id + ' .astra-full-megamenu-wrapper' );
+				if( full_mega_menu_wrapper.length > 0 ) {
+					var full_mega_menu_wrapper_selector = document.querySelector( '#' + current_menu_id + ' .astra-full-megamenu-wrapper' );
+					if( full_mega_menu_wrapper_selector.classList.contains("astra-megamenu-wrapper-focus") ) {
+						full_mega_menu_wrapper_selector.classList.remove("astra-megamenu-wrapper-focus");
+					}
+				}
+			}
+		}
+	}
+
+	AstraToggleMegaMenuLists = function() {
+
+		var __main_header_mega_menu_items = document.querySelectorAll('.main-header-bar-navigation #primary-menu li.astra-megamenu-li');
+
+		// Add Eventlisteners for mega-menu list items.
+		if (__main_header_mega_menu_items.length > 0) {
+			for (var i = 0; i < __main_header_mega_menu_items.length; i++) {
+				__main_header_mega_menu_items[i].addEventListener('mouseover', AstraFocusHoverCompatibility, false);
+			};
+		}
 	}
 
 } )();
