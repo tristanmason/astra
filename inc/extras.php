@@ -1928,7 +1928,7 @@ add_filter( 'astra_customizer_configurations', 'remove_controls', 99 );
 /**
  * Pass theme specific stats to BSF analytics.
  *
- * @since x.x.x
+ * @since 2.4.3
  * @param array $default_stats Default stats array.
  * @return array $default_stats Default stats with Theme specific stats array.
  */
