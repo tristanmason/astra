@@ -4216,8 +4216,14 @@
     {
         "Inconsolata": {
             "variants": [
+                "200",
+                "300",
                 "regular",
-                "700"
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
             ],
             "category": "monospace"
         }
