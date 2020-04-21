@@ -353,6 +353,7 @@ module.exports = function (grunt) {
                     '!build/**',
                     '!css/sourcemap/**',
                     '!.git/**',
+                    '!.github/**',
                     '!bin/**',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
