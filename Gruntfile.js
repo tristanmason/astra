@@ -542,7 +542,15 @@ module.exports = function (grunt) {
 					'README.md': 'readme.txt'
 				}
 			},
-		},
+        },
+        
+        json2php: {
+            your_target: {
+				files: {
+					'inc/google-fonts.php': 'assets/fonts/google-fonts.json'
+				}
+            },
+        },
     }
     );
 
@@ -559,7 +567,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
-    grunt.loadNpmTasks("grunt-wp-readme-to-markdown")
+    grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
+    grunt.loadNpmTasks('grunt-json2php');
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
@@ -594,6 +603,7 @@ module.exports = function (grunt) {
 
                 fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
                     if (!err) {
+                        grunt.task.run('json2php');
                         console.log("Google Fonts Updated!");
                     }
                 });
