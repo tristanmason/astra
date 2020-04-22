@@ -20,7 +20,6 @@
 }
 
 // Add Default elementor styling to the product list when elementor prodct widget is used.
-.elementor-page {
 	.elementor-element{
 		.elementor-wc-products{
 			.woocommerce[class*='columns-']{
@@ -34,4 +33,20 @@
 			}
 		}
 	}
-}
+// Add Default elementor styling to the product list when elementor related prodct widget is used.
+
+.woocommerce {
+	div.product {
+		.elementor-element.elementor-products-grid {
+				.related.products {
+					ul.products {
+						li.product{
+							width: auto;
+							margin: 0;
+							float: none;
+						}
+					}
+				}
+			}
+		}
+	}
