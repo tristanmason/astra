@@ -588,6 +588,8 @@ module.exports = function (grunt) {
         var request = require('request');
         var fs = require('fs');
 
+        grunt.task.run('json2php');
+
         request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
 
             if (response && response.statusCode == 200) {
@@ -603,7 +605,6 @@ module.exports = function (grunt) {
 
                 fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
                     if (!err) {
-                        grunt.task.run('json2php');
                         console.log("Google Fonts Updated!");
                     }
                 });
