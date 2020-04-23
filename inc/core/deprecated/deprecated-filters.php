@@ -90,7 +90,7 @@ if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
  * Deprecating the Filter to change the Google Fonts JSON file path.
  *
  * @since x.x.x
- * @param string  $json_file File where google fonts json format added.
+ * @param string $json_file File where google fonts json format added.
  * @return array
  */
 function astra_deprecated_google_fonts_json_file( $json_file ) {
