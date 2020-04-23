@@ -86,3 +86,17 @@ if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 	}
 }
 
+/**
+ * Deprecating the Filter to change the Google Fonts JSON file path.
+ *
+ * @since x.x.x
+ * @param string  $json_file File where google fonts json format added.
+ * @return array
+ */
+function astra_deprecated_google_fonts_json_file( $json_file ) {
+
+	return astra_apply_filters_deprecated( 'astra_google_fonts_json_file', array( $json_file ), 'x.x.x', 'astra_google_fonts_php_file', 'For more information, please refer to this <a href="https://wpastra.com/docs">Doc</a>' );
+}
+
+// Deprecating astra_google_fonts_json_file filter.
+add_filter( 'astra_google_fonts_php_file', 'astra_deprecated_google_fonts_json_file', 10, 1 );

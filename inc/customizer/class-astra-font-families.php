@@ -129,15 +129,24 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_json_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_file      = apply_filters( 'astra_google_fonts_php_file', ASTRA_THEME_DIR . 'inc/google-fonts.php' );
 
-				if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+				if ( ! file_exists( $google_fonts_file ) ) {
 					return array();
 				}
 
-				$google_fonts_json = include( ASTRA_THEME_DIR . 'inc/google-fonts.php' );
+				if ( ( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) === $google_fonts_json_file ) {
+					$google_fonts_arr = include( $google_fonts_file );
+				} else {
+					if ( ! file_exists( $google_fonts_json_file ) ) {
+						return array();
+					}
+					$file_contents     = astra_filesystem()->get_contents( $google_fonts_json_file );
+					$google_fonts_arr = json_decode( $file_contents, 1 );
+				}
 
-				foreach ( $google_fonts_json as $key => $font ) {
+				foreach ( $google_fonts_arr as $key => $font ) {
 					$name = key( $font );
 					foreach ( $font[ $name ] as $font_key => $single_font ) {
 

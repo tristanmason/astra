@@ -373,6 +373,7 @@ module.exports = function (grunt) {
                     '!composer.lock',
                     '!package-lock.json',
                     '!phpcs.xml.dist',
+                    '!assets/fonts/google-fonts.json',
                 ],
                 dest: 'astra/'
             }
