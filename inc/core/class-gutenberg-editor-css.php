@@ -573,6 +573,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor'         => array(
 					'background-color' => '#f5f5f5',
 				),
+
+				'.ast-separate-container .editor-block-list__layout, .ast-two-container .editor-block-list__layout' => array(
+					'padding-top' => '0',
+				),
+
 				'.ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
 					'padding-top'    => 'calc( 5.34em - 19px)',
 					'padding-bottom' => '5.34em',
@@ -586,9 +591,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-left'   => 'calc( 6.67em - 28px )',
 					'padding-right'  => 'calc( 6.67em - 28px )',
 				),
-				'.ast-separate-container .editor-block-list__layout, .ast-two-container .editor-block-list__layout' => array(
-					'padding-top' => '0',
-				),
+
 				'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title'         => array(
 					'padding-bottom' => '0',
 				),

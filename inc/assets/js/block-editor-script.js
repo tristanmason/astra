@@ -1,38 +1,58 @@
-
-
 var title_meta_customizer_value =  title_meta_customizer_value.includes("single-title-meta");
-jQuery(document).ready(function($) {
-	$( '#astra_settings_meta_box #site-content-layout' ).on( 'click', function( event ) {
-		// event.preventDefault();
-		var content_Layout = jQuery( this ).val();
+
+var ready = (callback) => {
+	if (document.readyState != "loading") callback();
+	else document.addEventListener("DOMContentLoaded", callback);
+  }
+  
+  ready(() => { 
+	/* Do things after DOM has fully loaded */ 
+	document.querySelector("#astra_settings_meta_box #site-content-layout").addEventListener("click", (e) => { /* ... */ 
+		
+		var body_class = document.querySelector("body");
+
+		var content_Layout = document.getElementById('site-content-layout').value;
 
 		if ( 'content-boxed-container' == content_Layout ) {
-			jQuery('body').addClass( 'ast-separate-container' );
-			jQuery('body').removeClass( 'ast-two-container ast-page-builder-template ast-plain-container' );
+
+			body_class.classList.add("ast-separate-container");
+			body_class.classList.remove("ast-two-container" , "ast-page-builder-template" , "ast-plain-container");
+
 		} else if ( 'boxed-container' == content_Layout ) {
-			jQuery('body').addClass( 'ast-separate-container ast-two-container' );
-			jQuery('body').removeClass( 'ast-page-builder-template ast-plain-container' );
+
+			body_class.classList.add("ast-separate-container" , "ast-two-container");
+			body_class.classList.remove("ast-page-builder-template" , "ast-plain-container");
+
 		} else if ( 'page-builder' == content_Layout ) {
-			jQuery('body').addClass( 'ast-page-builder-template' );
-			jQuery('body').removeClass( 'ast-two-container ast-plain-container ast-separate-container' );
+
+			body_class.classList.add("ast-page-builder-template");
+			body_class.classList.remove("ast-two-container" , "ast-plain-container" , "ast-separate-container");
+
 		} else if ( 'plain-container' == content_Layout ) {
-			jQuery('body').addClass( 'ast-plain-container' );
-			jQuery('body').removeClass( 'ast-two-container ast-page-builder-template ast-separate-container' );
+
+			body_class.classList.add("ast-plain-container");
+			body_class.classList.remove("ast-two-container" , "ast-page-builder-template" , "ast-separate-container");
+
 		}
 	});
 
-	var title_checkbox = jQuery('#site-post-title');
+	var title_checkbox = document.getElementById('site-post-title');
+	var title_block = document.querySelector(".editor-post-title__block");
 	
-	//function to toggle the title div in gutenber customizer
-	var title_toggle = function (){
-		var title_block =  jQuery('.editor-post-title__block'  );
-		if( jQuery(this).prop("checked") == true ){	
-			title_block.css('opacity','0.2');
+	if( title_meta_customizer_value == false){
+		title_block.style.opacity = "0.2";
+	}
+
+	document.querySelector("#site-post-title").addEventListener("change", (e) => {
+				
+		if( title_checkbox.checked ){	
+
+			title_block.style.opacity = "0.2";
 		}
 		else if (  title_meta_customizer_value  ){
-			title_block.css('opacity','1.0');
+			
+			title_block.style.opacity = "1.0";
 		}
-	}
-	title_checkbox.on('change', title_toggle ); 
-});
+	});
 
+  });
