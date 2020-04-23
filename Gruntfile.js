@@ -545,6 +545,10 @@ module.exports = function (grunt) {
         },
         
         json2php: {
+            options: {
+                // Task-specific options go here.
+                compress: true,
+            },
             your_target: {
 				files: {
 					'inc/google-fonts.php': 'assets/fonts/google-fonts.json'
@@ -581,14 +585,11 @@ module.exports = function (grunt) {
 
     // min all
     grunt.registerTask('minify', ['style', 'concat', 'uglify:js', 'cssmin:css']);
-
-    // Update google Fonts
-    grunt.registerTask('google-fonts', function () {
+    
+    grunt.registerTask('download-google-fonts', function () {
         var done = this.async();
         var request = require('request');
         var fs = require('fs');
-
-        grunt.task.run('json2php');
 
         request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
 
@@ -606,10 +607,17 @@ module.exports = function (grunt) {
                 fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
                     if (!err) {
                         console.log("Google Fonts Updated!");
+                        done();
                     }
                 });
             }
         });
+    });
+
+    // Update google Fonts
+    grunt.registerTask('google-fonts', function () {
+        grunt.task.run('download-google-fonts');
+        grunt.task.run('json2php');
     });
 
     // Grunt release - Create installable package of the local files
