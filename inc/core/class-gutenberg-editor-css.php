@@ -573,7 +573,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor'         => array(
 					'background-color' => '#f5f5f5',
 				),
-				'.ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
+				'.ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
 					'padding-top'    => 'calc( 5.34em - 19px)',
 					'padding-bottom' => '5.34em',
 					'padding-left'   => 'calc( 6.67em - 28px )',
