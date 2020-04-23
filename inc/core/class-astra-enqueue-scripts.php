@@ -86,7 +86,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public function admin_body_class( $classes ) {
 
 			global $pagenow;
-			global $post;
 			$screen = get_current_screen();
 
 			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) ) {
