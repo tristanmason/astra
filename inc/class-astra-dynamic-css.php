@@ -601,7 +601,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			* check if the current user is existing user or new user.
 			* if new user load the CSS bty default if existing provide a filter
 			*/
-			if ( self::gtn_wide_full_comp() ) {
+			if ( self::gtn_img_wide_full_comp() ) {
 
 				$gtn_full_wide_image_css = array(
 
@@ -2092,12 +2092,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * For existing users, do not load the wide/full width CSS by default.
+		 * For existing users, do not load the wide/full width image CSS by default.
 		 *
 		 * @since x.x.x
-		 * @return boolean false if it is a existing user , true if not.
+		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function gtn_wide_full_comp() {
+		public static function gtn_img_wide_full_comp() {
 			$astra_settings                            = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['gtn-full-wide-image-css'] = isset( $astra_settings['gtn-full-wide-image-css'] ) ? false : true;
 			return apply_filters( 'gtn_full_wide_image_css_comp', $astra_settings['gtn-full-wide-image-css'] );

@@ -325,7 +325,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'opacity' => '0.2',
 					),
 				);
-				$desktop_css      = array_merge( $desktop_css, $destop_title_css );
+				$desktop_css     .= $destop_title_css;
 			}
 
 			$css .= astra_parse_css( $desktop_css );
@@ -578,13 +578,17 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-top' => '0',
 				),
 
-				'.ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
+				'.ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
 					'padding-top'    => 'calc( 5.34em - 19px)',
 					'padding-bottom' => '5.34em',
 					'padding-left'   => 'calc( 6.67em - 28px )',
 					'padding-right'  => 'calc( 6.67em - 28px )',
 				),
-
+				'.ast-separate-container .block-editor-block-list__layout' => array(
+					'padding-bottom' => '5.34em',
+					'padding-left'   => 'calc( 6.67em - 28px )',
+					'padding-right'  => 'calc( 6.67em - 28px )',
+				),
 				'.ast-separate-container .editor-post-title' => array(
 					'padding-top'    => 'calc( 5.34em - 19px)',
 					'padding-bottom' => '5.34em',
