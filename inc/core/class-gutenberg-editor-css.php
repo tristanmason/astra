@@ -505,7 +505,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				);
 			}
 
-			$css .= astra_parse_css( $mobile_css, '', '544' );
+			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
 			$page_builder_css = array(
 				'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .block-editor-block-list__block' => array(
@@ -668,7 +668,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$css .= astra_parse_css( $boxed_container );
 
-				$css .= astra_parse_css( $boxed_container_mobile, '', '544' );
+				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
 
 			}
 
