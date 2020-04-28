@@ -4,7 +4,6 @@ services:
   - docker
 
 language: php
-dist: precise
 
 cache:
   - $HOME/.composer/cache
