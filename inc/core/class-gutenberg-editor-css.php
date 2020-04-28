@@ -325,7 +325,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'opacity' => '0.2',
 					),
 				);
-				$desktop_css     .= $destop_title_css;
+				$desktop_css     .= astra_parse_css( $destop_title_css );
 			}
 
 			$css .= astra_parse_css( $desktop_css );
@@ -629,7 +629,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'background-color' => '#f5f5f5',
 					),
 					'.block-editor-block-list__layout, .editor-post-title' => array(
-						'padding-top'    => 'calc( 5.34em - 19px)',
+						git
+														'padding-top' => 'calc( 5.34em - 19px)',
 						'padding-bottom' => '5.34em',
 						'padding-left'   => 'calc( 6.67em - 28px )',
 						'padding-right'  => 'calc( 6.67em - 28px )',

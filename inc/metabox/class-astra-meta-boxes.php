@@ -165,12 +165,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 				if ( 'attachment' !== $type ) {
 					// add_meta_box(
-					// 	'astra_settings_meta_box',              // Id.
-					// 	$metabox_name,                          // Title.
-					// 	array( $this, 'markup_meta_box' ),      // Callback.
-					// 	$type,                                  // Post_type.
-					// 	'side',                                 // Context.
-					// 	'default'                               // Priority.
+					// 'astra_settings_meta_box',              // Id.
+					// $metabox_name,                          // Title.
+					// array( $this, 'markup_meta_box' ),      // Callback.
+					// $type,                                  // Post_type.
+					// 'side',                                 // Context.
+					// 'default'                               // Priority.
 					// );
 				}
 			}
