@@ -1456,10 +1456,10 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
  *
  * @since x.x.x
  *
- * @param string $icon Key for the SVG you want to load.
- * @param boolean load close markup for SVG.
+ * @param string  $icon Key for the SVG you want to load.
+ * @param boolean $replace load close markup for SVG.
  *
- * @return string SVG for passed key. 
+ * @return string SVG for passed key.
  */
 function astra_get_svg_icon( $icon, $replace = false ) {
 
