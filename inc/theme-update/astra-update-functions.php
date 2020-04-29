@@ -201,3 +201,21 @@ function astra_responsive_base_background_option() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Check if we need to change the default value for tablet breakpoint.
+ *
+ * @since 2.4.0
+ * @return void
+ */
+function astra_fonts_icon_svg_compatibility() {
+
+	$theme_options = get_option( 'astra-settings' );
+
+	if ( ! isset( $theme_options['can-update-astra-font-svg'] ) ) {
+		// Set a flag to check if we need to change the theme tablet breakpoint value.
+		$theme_options['can-update-astra-font-svg'] = false;
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
