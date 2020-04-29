@@ -1451,6 +1451,20 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 }
 
 /**
+ * Check if we need to load icons as SVG or fonts.
+ * Returns true if SVG false if font.
+ *
+ * @since x.x.x
+ *
+ * @return boolean should be svg or font.
+ */
+function is_astra_icons_svg() {
+	$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['can-update-astra-icons-svg'] = ( isset( $astra_settings['can-update-astra-icons-svg'] ) && false === $astra_settings['can-update-astra-icons-svg'] ) ? false : true;
+	return apply_filters( 'astra_is_icons_svg', $astra_settings['can-update-astra-icons-svg'] );
+}
+
+/**
  * Get SVG icons.
  * Returns the SVG icon you want to display.
  *
@@ -1462,6 +1476,10 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
  * @return string SVG for passed key.
  */
 function astra_get_svg_icon( $icon, $replace = false ) {
+
+	if ( false === is_astra_icons_svg() ) {
+		return;
+	}
 
 	$output = '';
 

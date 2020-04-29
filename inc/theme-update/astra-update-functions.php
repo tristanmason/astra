@@ -203,18 +203,18 @@ function astra_responsive_base_background_option() {
 }
 
 /**
- * Check if we need to change the default value for tablet breakpoint.
+ * Check if we need to load icons as font or SVG.
  *
- * @since 2.4.0
+ * @since x.x.x
  * @return void
  */
-function astra_fonts_icon_svg_compatibility() {
+function astra_icons_svg_compatibility() {
 
 	$theme_options = get_option( 'astra-settings' );
 
-	if ( ! isset( $theme_options['can-update-astra-font-svg'] ) ) {
+	if ( ! isset( $theme_options['can-update-astra-icons-svg'] ) ) {
 		// Set a flag to check if we need to change the theme tablet breakpoint value.
-		$theme_options['can-update-astra-font-svg'] = false;
+		$theme_options['can-update-astra-icons-svg'] = false;
 	}
 
 	update_option( 'astra-settings', $theme_options );

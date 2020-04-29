@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_update_theme_tablet_breakpoint',
 			),
 			'2.4.5' => array(
-				'astra_fonts_icon_svg_compatibility',
+				'astra_icons_svg_compatibility',
 			),
 		);
 
