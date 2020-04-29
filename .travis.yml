@@ -4,20 +4,13 @@ services:
   - docker
 
 language: php
-dist: precise
-
-notifications:
-  email:
-    on_success: never
-    on_failure: change
-  slack: bsf-bots:RDGCoMDDxnlCvnUfvhq8pQ36
 
 cache:
   - $HOME/.composer/cache
 
 matrix:
   include:
-    - php: 7.2
+    - php: 7.4snapshot
       env: WP_TRAVISCI=phpcs
 
 before_script:
