@@ -604,19 +604,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( self::gtn_img_wide_full_comp() ) {
 
 				$gtn_full_wide_image_css = array(
-
-					'.ast-separate-container.ast-right-sidebar .entry-content .alignfull,
-					.ast-separate-container.ast-left-sidebar .entry-content .alignfull' => array(
-					'margin-left'  => '-6.67em',
-					'margin-right' => '-6.67em',
-					'max-width'    => 'unset',
+					'.ast-separate-container.ast-right-sidebar .entry-content .alignfull, .ast-separate-container.ast-left-sidebar .entry-content .alignfull' => array(
+						'margin-left'  => '-6.67em',
+						'margin-right' => '-6.67em',
+						'max-width'    => 'unset',
 					),
-					'.ast-separate-container.ast-right-sidebar .entry-content .alignwide,
-					.ast-separate-container.ast-left-sidebar .entry-content .alignwide' => array(
-				'margin-left'  => '-20px',
-				'margin-right' => '-20px',
-				'max-width'    => 'unset',
-				),
+					'.ast-separate-container.ast-right-sidebar .entry-content .alignwide, .ast-separate-container.ast-left-sidebar .entry-content .alignwide' => array(
+						'margin-left'  => '-20px',
+						'margin-right' => '-20px',
+						'max-width'    => 'unset',
+					),
 				);
 				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
 			}
