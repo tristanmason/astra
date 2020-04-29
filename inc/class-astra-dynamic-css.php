@@ -340,7 +340,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-header .site-description'          => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'desktop' ),
 				),
-				'.entry-title, .entry-header .ast-related-post-title a'                            => array(
+				'.entry-title, .entry-header .ast-related-post-title a' => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),
 				),
 				'.comment-reply-title'                    => array(
@@ -1389,7 +1389,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-header .site-description' => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'tablet' ),
 				),
-				'.entry-title, .entry-header .ast-related-post-title a'                   => array(
+				'.entry-title, .entry-header .ast-related-post-title a' => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'tablet', 30 ),
 				),
 
@@ -1495,7 +1495,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-header .site-description' => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'mobile' ),
 				),
-				'.entry-title, .entry-header .ast-related-post-title a'                   => array(
+				'.entry-title, .entry-header .ast-related-post-title a' => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'mobile', 30 ),
 				),
 
