@@ -1600,5 +1600,5 @@ function astra_get_icons( $icon, $is_echo = false, $replace = false ) {
 		return apply_filters( 'astra_svg_icon', $output, $icon );
 	}
 
-	echo apply_filters( 'astra_svg_icon', $output, $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo apply_filters( 'astra_icons', $output, $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
