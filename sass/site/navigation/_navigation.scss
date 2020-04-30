@@ -70,11 +70,20 @@
 				text-decoration: inherit;
 			}
 		}
+		.icon-menu-bars svg:nth-child(2) {
+			display: none;
+		}
 		&.toggled{
 			.menu-toggle-icon {
 		    	&:before {
 			    	content: "\e5cd";
 				}
+			}
+			.icon-menu-bars svg:nth-child(1) {
+				display: none;
+			}
+			.icon-menu-bars svg:nth-child(2) {
+				display: block;
 			}
 		}
 		.mobile-menu-wrap{
