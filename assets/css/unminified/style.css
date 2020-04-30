@@ -2176,10 +2176,6 @@ body .ast-oembed-container * {
 }
 
 /*----------  Basic Layout  ----------*/
-.hidden {
-  display: none !important;
-}
-
 body {
   background-color: #ffffff;
 }
