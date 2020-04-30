@@ -37,12 +37,12 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 				 * Option: Cart upsells
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[enable-cart-upsells]',
+					'name'     => ASTRA_THEME_SETTINGS . '[enable-cart-cross-sells]',
 					'section'  => 'section-woo-shop-cart',
 					'type'     => 'control',
 					'control'  => 'checkbox',
-					'default'  => astra_get_option( 'enable-cart-upsells' ),
-					'title'    => __( 'Enable Upsells', 'astra' ),
+					'default'  => astra_get_option( 'enable-cart-cross-sells' ),
+					'title'    => __( 'Enable Cross-sells', 'astra' ),
 					'priority' => 10,
 				),
 			);

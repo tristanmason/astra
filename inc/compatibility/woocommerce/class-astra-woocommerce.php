@@ -145,7 +145,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function cart_page_upselles() {
 
-			$upselles_enabled = astra_get_option( 'enable-cart-upsells' );
+			$upselles_enabled = astra_get_option( 'enable-cart-cross-sells' );
 			if ( ! $upselles_enabled ) {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			}
@@ -273,7 +273,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-breadcrumb-disable'] = false;
 
 			/* Cart */
-			$defaults['enable-cart-upsells'] = true;
+			$defaults['enable-cart-cross-sells'] = true;
 
 			$defaults['shop-archive-width']     = 'default';
 			$defaults['shop-archive-max-width'] = 1200;
