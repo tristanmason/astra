@@ -450,7 +450,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 				'.ast-amp .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
 					'font-weight'     => 'bold',
-					'content'         => '"\01f78e"',
+					'content'         => '"\e900"',
 					'font-family'     => '"Astra"',
 					'text-decoration' => 'inherit',
 					'display'         => 'inline-block',
