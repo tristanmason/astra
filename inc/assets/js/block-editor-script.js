@@ -10,8 +10,7 @@ function onload_function() {
 	var astra_meta_box = document.querySelector( '#astra_settings_meta_box' );
 	if( astra_meta_box != null ){
 		
-
-			document.querySelector('#site-content-layout').onchange =function( event ) {
+			document.querySelector('#site-content-layout').addEventListener('change',function( event ) {
 			
 				var body_class = document.querySelector('body');
 		
@@ -38,7 +37,7 @@ function onload_function() {
 					body_class.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
 		
 				}
-			};
+			});
 
 		
 
@@ -46,7 +45,7 @@ function onload_function() {
 		var title_checkbox = document.getElementById('site-post-title');
 		var title_block = document.querySelector('.editor-post-title__block');
 		
-		title_checkbox.onchange =  function() {
+		title_checkbox.addEventListener('change',function() {
 					
 			if( title_checkbox.checked ){	
 
@@ -55,7 +54,7 @@ function onload_function() {
 			else {
 				title_block.style.opacity = '1.0';
 			}
-		};
+		});
 	}
 
   }
