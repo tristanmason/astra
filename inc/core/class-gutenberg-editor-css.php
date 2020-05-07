@@ -560,6 +560,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-left'  => '60px',
 					'margin-right' => '60px',
 				),
+				'.ast-page-builder-template  .block-editor-block-list__layout .block-editor-block-list__layout' => array(
+					'margin-left'  => '0px',
+					'margin-right' => '0px',
+				),
 			);
 
 			$css .= astra_parse_css( $full_width_streched_css );
@@ -588,6 +592,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-bottom' => '5.34em',
 					'padding-left'   => 'calc( 6.67em - 28px )',
 					'padding-right'  => 'calc( 6.67em - 28px )',
+				),
+
+				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__layout' => array(
+					'padding' => '0',
 				),
 				'.ast-separate-container .editor-post-title' => array(
 					'padding-top'    => 'calc( 5.34em - 19px)',
