@@ -280,7 +280,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'padding-left' => '30px',
 				),
 				'.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before' => array(
-					'content'         => '"\01f78e"',
+					'content'         => '"\e900"',
 					'font-family'     => '"Astra"',
 					'font-size'       => '0.65em',
 					'text-decoration' => 'inherit',
