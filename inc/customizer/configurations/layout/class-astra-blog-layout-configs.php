@@ -125,6 +125,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'choices'  => array(
 						'image'      => __( 'Featured Image', 'astra' ),
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
+						'content' => __( 'Content', 'astra' ),
 					),
 				),
 

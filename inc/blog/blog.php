@@ -183,6 +183,13 @@ if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) {
 						do_action( 'astra_blog_archive_title_meta_after' );
 						break;
 
+					// Blog Post Content.
+					case 'content':
+						do_action( 'astra_entry_content_before' );
+						astra_get_blog_post_content();
+						do_action( 'astra_entry_content_after' );
+						break;
+
 					// Single Post Featured Image.
 					case 'single-image':
 						do_action( 'astra_blog_single_featured_image_before' );
@@ -190,15 +197,56 @@ if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) {
 						do_action( 'astra_blog_single_featured_image_after' );
 						break;
 
-						// Single Post Title and Single Post Meta.
+					// Single Post Title and Single Post Meta.
 					case 'single-title-meta':
 						do_action( 'astra_blog_single_title_meta_before' );
 						astra_get_single_post_title_meta();
 						do_action( 'astra_blog_single_title_meta_after' );
 						break;
+
+					// Single Post Content.
+					case 'single-content':
+						do_action( 'astra_entry_content_before' );
+						astra_get_single_post_content();
+						do_action( 'astra_entry_content_after' );
+						break;
 				}
 			}
 		}
+	}
+}
+
+/**
+ * Blog Posts Content
+ */
+if ( ! function_exists( 'astra_get_blog_post_content' ) ) {
+
+	/**
+	 * Blog posts content
+	 *
+	 * @since  x.x.x
+	 */
+	function astra_get_blog_post_content() {
+		do_action( 'astra_blog_archive_content_before' );
+		astra_the_excerpt();
+		do_action( 'astra_blog_archive_content_after' );
+	}
+}
+
+/**
+ * Single Post Content
+ */
+if ( ! function_exists( 'astra_get_single_post_content' ) ) {
+
+	/**
+	 * Single post content
+	 *
+	 * @since  x.x.x
+	 */
+	function astra_get_single_post_content() {
+		do_action( 'astra_blog_single_content_before' );
+		the_content();
+		do_action( 'astra_blog_single_content_after' );
 	}
 }
 

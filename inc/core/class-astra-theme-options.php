@@ -90,6 +90,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-single-post-structure'          => array(
 						'single-image',
 						'single-title-meta',
+						'single-content',
 					),
 
 					'blog-single-width'                   => 'default',
@@ -103,6 +104,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-post-structure'                 => array(
 						'image',
 						'title-meta',
+						'content',
 					),
 					'blog-width'                          => 'default',
 					'blog-max-width'                      => 1200,

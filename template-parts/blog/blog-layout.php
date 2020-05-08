@@ -24,14 +24,8 @@
 						'class' => '',
 					)
 				);
-				?>
+			?>
 		>
-
-			<?php astra_entry_content_before(); ?>
-
-			<?php astra_the_excerpt(); ?>
-
-			<?php astra_entry_content_after(); ?>
 
 			<?php
 				wp_link_pages(
@@ -42,7 +36,7 @@
 						'link_after'  => '</span>',
 					)
 				);
-				?>
+			?>
 		</div><!-- .entry-content .clear -->
 	</div><!-- .post-content -->
 

@@ -201,3 +201,25 @@ function astra_responsive_base_background_option() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * For existing users, update Blog Posts & Single Posts structure by addition of new Content option.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_content_addition_in_blog_structure() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( isset( $theme_options['blog-post-structure'] ) && is_array( $theme_options['blog-post-structure'] ) && ! isset( $theme_options['blog-post-structure']['content'] ) ) {
+		array_push( $theme_options['blog-post-structure'], 'content' );
+	}
+
+	if ( isset( $theme_options['blog-single-post-structure'] ) && is_array( $theme_options['blog-single-post-structure'] ) && ! isset( $theme_options['blog-single-post-structure']['content'] ) ) {
+		array_push( $theme_options['blog-single-post-structure'], 'single-content' );
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}

@@ -28,19 +28,15 @@
 	<?php astra_single_header_after(); ?>
 
 	<div class="entry-content clear" 
-	<?php
-				echo astra_attr(
-					'article-entry-content-single-layout',
-					array(
-						'class' => '',
-					)
-				);
-				?>
+		<?php
+			echo astra_attr(
+				'article-entry-content-single-layout',
+				array(
+					'class' => '',
+				)
+			);
+		?>
 	>
-
-		<?php astra_entry_content_before(); ?>
-
-		<?php the_content(); ?>
 
 		<?php
 			astra_edit_post_link(
@@ -52,9 +48,7 @@
 				'<span class="edit-link">',
 				'</span>'
 			);
-			?>
-
-		<?php astra_entry_content_after(); ?>
+		?>
 
 		<?php
 			wp_link_pages(
@@ -65,6 +59,6 @@
 					'link_after'  => '</span>',
 				)
 			);
-			?>
+		?>
 	</div><!-- .entry-content .clear -->
 </div>

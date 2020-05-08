@@ -100,6 +100,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'choices'  => array(
 						'single-image'      => __( 'Featured Image', 'astra' ),
 						'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
+						'single-content'  => __( 'Content', 'astra' ),
 					),
 				),
 
