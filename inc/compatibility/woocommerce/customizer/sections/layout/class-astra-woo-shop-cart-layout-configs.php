@@ -35,6 +35,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 
 				/**
 				 * Option: Cart upsells
+				 *
+				 * Enable Cross-sells - in the code it is refrenced as upsells rather than cross-sells.
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[enable-cart-upsells]',
