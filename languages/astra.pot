@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 2.4.0\n"
+"Project-Id-Version: Astra 2.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-04-13 11:04:55+00:00\n"
+"POT-Creation-Date: 2020-04-21 06:48:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,49 +24,93 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
+#: admin/bsf-analytics/class-bsf-analytics.php:183
+#. translators: %s product name
+msgid ""
+"Want to help make <strong>%1s</strong> even more awesome? Allow us to "
+"collect non-sensitive diagnostic data and usage information. "
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:186
+msgid "This will be applicable for all sites from the network."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:208
+#. translators: %s usage doc link
+msgid " Know More."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:215
+msgid "Yes! Allow it"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:223
+msgid "No Thanks"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:292
+msgid "Every two days"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:346
+msgid "Usage Tracking"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:377
+msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:380
+msgid " This will be applicable for all sites from the network."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:385
+msgid "Learn More."
+msgstr ""
+
 #: comments.php:52 comments.php:75
 msgid "Comments Navigation"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:402
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:405
 msgid "Browse:"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:404
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:407
 #: inc/core/common-functions.php:841
 msgid "Home"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:405
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:408
 msgid "404 Not Found"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:406
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:409
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:113
 msgid "Archives"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:408
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:411
 #. Translators: %s is the search query.
 msgid "Search results for: %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:410
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:413
 #. Translators: %s is the page number.
 msgid "Page %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:412
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:415
 #. Translators: %s is the page number.
 msgid "Comment Page %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:414
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:417
 #. Translators: Minute archive title. %s is the minute time format.
 msgid "Minute %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:416
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:419
 #. Translators: Weekly archive title. %s is the week date format.
 msgid "Week %s"
 msgstr ""
@@ -2667,49 +2711,49 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:403
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:406
 msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:876
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:879
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:893
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:896
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:910
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:913
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:926
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:955
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:982
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1009
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1349
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:929
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:958
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:985
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1012
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1352
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:927
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:983
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1353
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:930
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:986
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1356
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:928
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1357
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:931
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1360
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:956
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:959
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""

@@ -1,5 +1,19 @@
+v2.4.3
+- New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
+- Fix: Updated Breadcrumb schema.
+- Fix: Customizer scrolling issue on Firefox.
+- Fix: Gutenberg editor Full Width layout background color not working for new post.
+- Fix: Gutenberg editor Headings color and typography not working.
+
+v2.4.2
+- Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
+- Fix: Theme check warnings.
+
+v2.4.1
+- Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
+
 v2.4.0
-- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-responsive-tab-breakpoints-in-astra/ )
+- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-update-breakpoints-tablet-mobile-in-astra/ )
 - Improvement: Background color/image responsive param. ( https://wpastra.com/docs/how-to-set-background-image-for-the-site/ )
 - Improvement: Updated admin Starter Templates plugin's informative strings.
 - Improvement: Addon minimum version notice is now dismissible.

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '2.4.0' );
+define( 'ASTRA_THEME_VERSION', '2.4.3' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -106,6 +106,9 @@ if ( is_admin() ) {
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-boxes.php';
 }
+
+// BSF Analytics library.
+require_once ASTRA_THEME_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
 
