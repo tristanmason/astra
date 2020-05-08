@@ -133,11 +133,14 @@ html {
     max-width: 1400px;
 }
 
-.block-editor-block-list__layout {
-    .block-editor-block-list__layout {
-        padding: 0;
-    }
+.edit-post-visual-editor{
+	.block-editor-block-list__layout {
+		.block-editor-block-list__layout {
+			padding: 0;
+		}
+	}
 }
+
 
 .editor-default-block-appender__content {
     margin-top: 32px;

@@ -530,17 +530,32 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( 'page-builder' === $container_layout ) {
 				$full_width_streched_css = array(
-					'.block-editor-block-list__layout' => array(
+					'.wp-block .block-editor-block-list__layout' => array(
 						'margin-left'  => '60px',
 						'margin-right' => '60px',
 					),
 					// WordPress 5.4 compatibility CSS.
-					'.wp-block .block-editor-block-list__layout' => array(
+					'.wp-block .block-editor-block-list__layout .block-editor-block-list__layout' => array(
 						'margin-left'  => '0px',
 						'margin-right' => '0px',
 					),
 				);
+
+				$css .= astra_parse_css( $full_width_streched_css );
 			}
+
+			$full_width_streched_css = array(
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'margin-left'  => '60px',
+					'margin-right' => '60px',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__layout' => array(
+					'margin-left'  => '0px',
+					'margin-right' => '0px',
+				),
+			);
+
+			$css .= astra_parse_css( $full_width_streched_css );
 
 			$aligned_full_content_css = array(
 				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-plain-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
@@ -554,15 +569,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			$css .= astra_parse_css( $aligned_full_content_css );
-
-			$full_width_streched_css = array(
-				'.ast-page-builder-template .block-editor-block-list__layout' => array(
-					'margin-left'  => '60px',
-					'margin-right' => '60px',
-				),
-			);
-
-			$css .= astra_parse_css( $full_width_streched_css );
 
 			$boxed_container = array(
 				'.ast-separate-container .block-editor-writing-flow, .ast-two-container .block-editor-writing-flow'       => array(
