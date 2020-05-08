@@ -16,28 +16,6 @@
 
 		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 
-		<div class="entry-content clear"
-			<?php
-				echo astra_attr(
-					'article-entry-content-blog-layout',
-					array(
-						'class' => '',
-					)
-				);
-			?>
-		>
-
-			<?php
-				wp_link_pages(
-					array(
-						'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-blog-page-links-before', false ) ),
-						'after'       => '</div>',
-						'link_before' => '<span class="page-link">',
-						'link_after'  => '</span>',
-					)
-				);
-			?>
-		</div><!-- .entry-content .clear -->
 	</div><!-- .post-content -->
 
 </div> <!-- .blog-layout-1 -->

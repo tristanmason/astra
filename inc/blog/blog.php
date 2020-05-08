@@ -206,13 +206,43 @@ if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) {
 
 					// Single Post Content.
 					case 'single-content':
-						do_action( 'astra_entry_content_before' );
+						do_action( 'astra_blog_single_content_before' );
 						astra_get_single_post_content();
-						do_action( 'astra_entry_content_after' );
+						do_action( 'astra_blog_single_content_after' );
 						break;
 				}
 			}
 		}
+	}
+}
+
+/**
+ * Single Post Header
+ */
+if ( ! function_exists( 'astra_get_single_post_header' ) ) {
+
+	/**
+	 * Single post content
+	 *
+	 * @since  x.x.x
+	 */
+	function astra_get_single_post_header() {
+
+		astra_single_header_before();
+
+		?>
+			<header class="entry-header <?php astra_entry_header_class(); ?>">
+
+			<?php astra_single_header_top(); ?>
+
+			<?php astra_blog_post_thumbnail_and_title_order(); ?>
+
+			<?php astra_single_header_bottom(); ?>
+
+			</header><!-- .entry-header -->
+		<?php
+
+		astra_single_header_after();
 	}
 }
 
@@ -227,9 +257,37 @@ if ( ! function_exists( 'astra_get_blog_post_content' ) ) {
 	 * @since  x.x.x
 	 */
 	function astra_get_blog_post_content() {
-		do_action( 'astra_blog_archive_content_before' );
-		astra_the_excerpt();
-		do_action( 'astra_blog_archive_content_after' );
+
+		?>
+			<div class="entry-content clear"
+				<?php
+					echo astra_attr(
+						'article-entry-content-blog-layout',
+						array(
+							'class' => '',
+						)
+					);
+				?>
+			>
+				<?php
+
+					do_action( 'astra_blog_archive_content_before' );
+					astra_the_excerpt();
+					do_action( 'astra_blog_archive_content_after' );
+
+					wp_link_pages(
+						array(
+							'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-blog-page-links-before', false ) ),
+							'after'       => '</div>',
+							'link_before' => '<span class="page-link">',
+							'link_after'  => '</span>',
+						)
+					);
+				?>
+
+			</div><!-- .entry-content .clear -->
+
+		<?php
 	}
 }
 
@@ -244,9 +302,50 @@ if ( ! function_exists( 'astra_get_single_post_content' ) ) {
 	 * @since  x.x.x
 	 */
 	function astra_get_single_post_content() {
-		do_action( 'astra_blog_single_content_before' );
-		the_content();
-		do_action( 'astra_blog_single_content_after' );
+
+		?>
+			<div class="entry-content clear" 
+				<?php
+					echo astra_attr(
+						'article-entry-content-single-layout',
+						array(
+							'class' => '',
+						)
+					);
+				?>
+			>
+				<?php
+
+					do_action( 'astra_entry_content_before' );					
+
+					the_content();
+
+					astra_edit_post_link(
+						sprintf(
+							/* translators: %s: Name of current post */
+							esc_html__( 'Edit %s', 'astra' ),
+							the_title( '<span class="screen-reader-text">"', '"</span>', false )
+						),
+						'<span class="edit-link">',
+						'</span>'
+					);
+
+					do_action( 'astra_entry_content_after' );
+
+				?>
+
+				<?php
+					wp_link_pages(
+						array(
+							'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
+							'after'       => '</div>',
+							'link_before' => '<span class="page-link">',
+							'link_after'  => '</span>',
+						)
+					);
+				?>
+			</div><!-- .entry-content .clear -->
+		<?php
 	}
 }
 
