@@ -217,7 +217,7 @@ function astra_content_addition_in_blog_structure() {
 		array_push( $theme_options['blog-post-structure'], 'content' );
 	}
 
-	if ( isset( $theme_options['blog-single-post-structure'] ) && is_array( $theme_options['blog-single-post-structure'] ) && ! isset( $theme_options['blog-single-post-structure']['content'] ) ) {
+	if ( isset( $theme_options['blog-single-post-structure'] ) && is_array( $theme_options['blog-single-post-structure'] ) && ! isset( $theme_options['blog-single-post-structure']['single-content'] ) ) {
 		array_push( $theme_options['blog-single-post-structure'], 'single-content' );
 	}
 
