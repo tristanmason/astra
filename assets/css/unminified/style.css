@@ -4154,6 +4154,14 @@ body .entry-content .wp-block-latest-posts li {
   margin-right: 0;
 }
 
+.wp-block-group.has-background {
+  padding: 20px;
+}
+
+.wp-block-group .wp-block-group__inner-container p {
+  margin-bottom: 0;
+}
+
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;

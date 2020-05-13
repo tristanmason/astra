@@ -186,3 +186,13 @@ body {
 		}
 	}
 }
+
+// fix group background color issue. 
+.wp-block-group{
+	&.has-background {
+		padding: 20px;
+	}
+	.wp-block-group__inner-container p{
+		margin-bottom: 0;
+	}
+}
