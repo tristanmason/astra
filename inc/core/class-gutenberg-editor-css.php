@@ -580,11 +580,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background-color' => '#f5f5f5',
 				),
 
-				'.ast-separate-container .editor-block-list__layout, .ast-two-container .editor-block-list__layout' => array(
+				'.ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-block-list__layout' => array(
 					'padding-top' => '0',
 				),
 
-				'.ast-two-container .editor-post-title, .ast-separate-container .editor-block-list__layout, .ast-two-container .editor-post-title' => array(
+				'.ast-two-container .editor-post-title, .ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-post-title' => array(
 					'padding-top'    => 'calc( 5.34em - 19px)',
 					'padding-bottom' => '5.34em',
 					'padding-left'   => 'calc( 6.67em - 28px )',
@@ -616,7 +616,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-left'  => '-6.67em',
 					'margin-right' => '-6.67em',
 				),
-				'.ast-separate-container .editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-separate-container .editor-block-list__layout .editor-block-list__block[data-align="full"] > .editor-block-list__block-edit, .ast-two-container .editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-two-container .editor-block-list__layout .editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
+				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .ast-separate-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
 					'margin-left'  => '0',
 					'margin-right' => '0',
 				),
