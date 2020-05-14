@@ -993,6 +993,7 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 		// Get rgb vars.
 		$hex = str_replace( '#', '', $hex );
 
+		// Return if non hex.
 		if ( ! ctype_xdigit( $hex ) ) {
 			return $hex;
 		}
