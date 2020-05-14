@@ -662,19 +662,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-right' => '0',
 					),
 				);
-				// reduce spacing to adjust the mobile view of the gutenberg editor.
-				$boxed_container_mobile = array(
-					'.editor-block-list__layout, .editor-post-title' => array(
-						'padding-top'    => '1.5em',
-						'padding-bottom' => '1.5em',
-						'padding-left'   => '1.5em',
-						'padding-right'  => '1.5em',
-					),
-				);
 
 				$css .= astra_parse_css( $boxed_container );
-
-				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
 
 			}
 

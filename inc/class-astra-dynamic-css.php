@@ -601,7 +601,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			* check if the current user is existing user or new user.
 			* if new user load the CSS bty default if existing provide a filter
 			*/
-			if ( self::gtn_img_wide_full_comp() ) {
+			if ( self::gtn_image_group_css_comp() ) {
 
 				$gtn_full_wide_image_css = array(
 					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-left-sidebar .entry-content wp-block-image.alignfull,.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,.ast-separate-container.ast-left-sidebar .entry-content wp-block-cover.alignfull' => array(
@@ -615,6 +615,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right' => '-20px',
 						'max-width'    => 'unset',
 						'width'        => 'unset',
+					),
+					'.wp-block-group .has-background' => array(
+						'padding' => '20px',
 					),
 				);
 				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
@@ -2096,10 +2099,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function gtn_img_wide_full_comp() {
+		public static function gtn_image_group_css_comp() {
 			$astra_settings                            = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['gtn-full-wide-image-css'] = isset( $astra_settings['gtn-full-wide-image-css'] ) ? false : true;
-			return apply_filters( 'gtn_full_wide_image_css_comp', $astra_settings['gtn-full-wide-image-css'] );
+			return apply_filters( 'gtn_image_group_css_comp', $astra_settings['gtn-full-wide-image-css'] );
 		}
 	}
 }
