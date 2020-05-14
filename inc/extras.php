@@ -1938,3 +1938,15 @@ function astra_add_theme_specific_stats( $default_stats ) {
 }
 
 add_filter( 'bsf_core_stats', 'astra_add_theme_specific_stats' );
+
+/**
+ * Added HubSpot Plugin affiliate code.
+ *
+ * @since x.x.x
+ * @return string Affiliate code.
+ */
+function get_hubspot_affiliate_code() {
+  return 'WsZfC';
+}
+
+add_filter( 'leadin_affiliate_code', 'get_hubspot_affiliate_code' );
