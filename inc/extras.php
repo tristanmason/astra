@@ -1945,8 +1945,8 @@ add_filter( 'bsf_core_stats', 'astra_add_theme_specific_stats' );
  * @since x.x.x
  * @return string Affiliate code.
  */
-function get_hubspot_affiliate_code() {
-  return 'WsZfC';
+function astra_get_hubspot_affiliate_code() {
+	return 'WsZfC';
 }
 
-add_filter( 'leadin_affiliate_code', 'get_hubspot_affiliate_code' );
+add_filter( 'leadin_affiliate_code', 'astra_get_hubspot_affiliate_code' );
