@@ -2176,7 +2176,7 @@ body .ast-oembed-container * {
 }
 
 /*----------  Basic Layout  ----------*/
-.hidden {
+.ast-hidden {
   display: none !important;
 }
 
@@ -3057,7 +3057,7 @@ body {
   float: none;
 }
 
-.ast-header-break-point .site-header {
+.ast-header-break-point .main-header-bar {
   border-bottom-color: #eaeaea;
   border-bottom-style: solid;
 }
@@ -5634,7 +5634,13 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
-.elementor-page .elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
+.elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
+  width: auto;
+  margin: 0;
+  float: none;
+}
+
+.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product {
   width: auto;
   margin: 0;
   float: none;
