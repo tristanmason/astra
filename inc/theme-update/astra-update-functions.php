@@ -210,7 +210,7 @@ function astra_responsive_base_background_option() {
  *
  * @return void
  */
-function astra_gtn_full_wide_image_css() {
+function astra_gtn_full_wide_image_group_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
