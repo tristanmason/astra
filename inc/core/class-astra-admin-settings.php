@@ -109,7 +109,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				// Let extensions hook into saving.
 				do_action( 'astra_admin_settings_scripts' );
 
-				self::save_settings();
+				if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.5.0', '<' ) ) {
+					self::save_settings();
+				}
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
@@ -136,6 +138,20 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
+		}
+
+		/**
+		 * Save All admin settings here
+		 */
+		public static function save_settings() {
+
+			// Only admins can save settings.
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
+			// Let extensions hook into saving.
+			do_action( 'astra_admin_settings_save' );
 		}
 
 		/**
@@ -380,20 +396,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( defined( 'ASTRA_SITES_VER' ) && version_compare( ASTRA_SITES_VER, '2.0.0', '>=' ) ) {
 				self::$starter_templates_slug = 'starter-templates';
 			}
-		}
-
-		/**
-		 * Save All admin settings here
-		 */
-		public static function save_settings() {
-
-			// Only admins can save settings.
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
-
-			// Let extensions hook into saving.
-			do_action( 'astra_admin_settings_save' );
 		}
 
 		/**
