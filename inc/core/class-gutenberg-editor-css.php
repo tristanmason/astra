@@ -624,6 +624,29 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $boxed_container );
 
+			$ast_gtn_mobile_css = array(
+				'.ast-separate-container .editor-post-title' => array(
+					'padding-top'   => 'calc( 2.34em - 19px)',
+					'padding-left'  => 'calc( 3.67em - 28px )',
+					'padding-right' => 'calc( 3.67em - 28px )',
+				),
+				'.ast-separate-container .block-editor-block-list__layout' => array(
+					'padding-bottom' => '2.34em',
+					'padding-left'   => 'calc( 3.67em - 28px )',
+					'padding-right'  => 'calc( 3.67em - 28px )',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'margin-left'  => '30px',
+					'margin-right' => '30px',
+				),
+				'.ast-plain-container .block-editor-block-list__layout' => array(
+					'padding-left'  => '30px',
+					'padding-right' => '30px',
+				),
+			);
+
+			$css .= astra_parse_css( $ast_gtn_mobile_css, '', astra_get_mobile_breakpoint() );
+
 			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) ) {
 				$boxed_container = array(
 					'.block-editor-writing-flow'       => array(

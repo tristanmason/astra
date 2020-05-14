@@ -104,7 +104,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$content_layout = astra_get_option( 'site-content-layout' );
 			}
 
-			$content_layout = astra_get_content_layout();
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
 			} elseif ( 'boxed-container' == $content_layout ) {
