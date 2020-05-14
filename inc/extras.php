@@ -1943,7 +1943,7 @@ add_filter( 'bsf_core_stats', 'astra_add_theme_specific_stats' );
  * HubSpot Plugin compatibility.
  *
  * @since x.x.x
- * @return string Comatibility string.
+ * @return string Compatibility string.
  */
 function astra_get_hubspot_comp_code() {
 	return 'WsZfC';
