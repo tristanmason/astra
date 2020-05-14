@@ -39,7 +39,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
 		}
 
-		// Test Commit.
+		// Return if non hex.
 		if ( ! ctype_xdigit( $hex ) ) {
 			return $hex;
 		}
