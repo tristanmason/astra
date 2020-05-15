@@ -104,6 +104,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-post-structure'                 => array(
 						'image',
 						'title-meta',
+						'blog-meta',
 						'content',
 					),
 					'blog-width'                          => 'default',

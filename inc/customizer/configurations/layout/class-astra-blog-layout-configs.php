@@ -124,7 +124,8 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'title'    => __( 'Post Structure', 'astra' ),
 					'choices'  => array(
 						'image'      => __( 'Featured Image', 'astra' ),
-						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
+						'title-meta' => __( 'Title', 'astra' ),
+						'blog-meta' => __( 'Blog Meta', 'astra' ),
 						'content' => __( 'Content', 'astra' ),
 					),
 				),
@@ -139,7 +140,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'section'  => 'section-blog',
 					'default'  => astra_get_option( 'blog-meta' ),
 					'priority' => 50,
-					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'blog-meta' ),
 					'title'    => __( 'Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),
