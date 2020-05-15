@@ -1266,6 +1266,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
+					'leadin'                        =>
+						array(
+							'plugin-name'        => 'HubSpot – CRM, Email Marketing & Analytics',
+							'plugin-init'        => 'leadin/leadin.php',
+							'settings-link'      => admin_url( 'admin.php?page=leadin' ),
+							'settings-link-text' => 'Settings',
+						),
+
 					'custom-fonts'                  =>
 					array(
 						'plugin-name'        => 'Custom Fonts',
