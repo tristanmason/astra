@@ -90,6 +90,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-single-post-structure'          => array(
 						'single-image',
 						'single-title-meta',
+						'single-meta-data',
 						'single-content',
 					),
 

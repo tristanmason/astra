@@ -224,8 +224,13 @@ function astra_content_addition_in_blog_structure() {
 	}
 
 	// For Single Post options.
-	if ( isset( $theme_options['blog-single-post-structure'] ) && is_array( $theme_options['blog-single-post-structure'] ) && ! in_array( 'single-content', $theme_options['blog-single-post-structure'] ) ) {
-		array_push( $theme_options['blog-single-post-structure'], 'single-content' );
+	if( isset( $theme_options['blog-single-post-structure'] ) && is_array( $theme_options['blog-single-post-structure'] ) ){
+		if ( in_array( 'single-title-meta', $theme_options['blog-single-post-structure'] ) && ! in_array( 'single-meta-data', $theme_options['blog-single-post-structure'] ) ) {
+			array_push( $theme_options['blog-single-post-structure'], 'single-meta-data' );
+		}
+		if ( ! in_array( 'single-content', $theme_options['blog-single-post-structure'] ) ) {
+			array_push( $theme_options['blog-single-post-structure'], 'single-content' );
+		}
 	}
 
 	update_option( 'astra-settings', $theme_options );
