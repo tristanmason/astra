@@ -628,6 +628,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'max-width'    => 'unset',
 					'width'        => 'unset',
 				),
+				'.ast-separate-container .block-editor-block-list__block[data-align="full"] .wp-block-cover' => array(
+					'margin-left'  => '-4.8em',
+					'margin-right' => '-4.81em',
+					'max-width'    => 'unset',
+					'width'        => 'unset',
+				),
 			);
 			$css                    .= astra_parse_css( $gtn_full_wide_image_css );
 
