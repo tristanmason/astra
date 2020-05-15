@@ -8,7 +8,7 @@ v2.4.4
 - Fix: UAE Nav Menu widget conflict with Mega Menu.
 - Fix: Submenu icon not appearing properly on AMP pages.
 - Fix: Transparent header bottom border is not working on mobile and tablet.
-- Fix: Prevent PHP warning for PHP 7.4.
+- Fix: Prevent PHP notice for PHP 7.4.
 
 v2.4.3
 - New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
