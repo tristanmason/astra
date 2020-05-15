@@ -212,19 +212,23 @@ function astra_responsive_base_background_option() {
 function astra_content_addition_in_blog_structure() {
 
 	$theme_options = get_option( 'astra-settings', array() );
+	$blog_archive_strcture = $theme_options['blog-post-structure'];
+	$single_post_strcture = $theme_options['blog-single-post-structure'];
 
 	// For Blog / Archive options.
-	if ( isset( $theme_options['blog-post-structure'] ) && ! isset( $theme_options['blog-post-structure']['content'] ) ) {
-		array_push( $theme_options['blog-post-structure'], 'content' );
-	}
-
-	if ( isset( $theme_options['blog-post-structure'] ) && isset( $theme_options['blog-post-structure']['title-meta'] ) && ! isset( $theme_options['blog-post-structure']['blog-meta'] ) ) {
-		array_push( $theme_options['blog-post-structure'], 'blog-meta' );
+	if( isset( $blog_archive_strcture ) && is_array( $blog_archive_strcture ) ) {
+		if ( ! in_array( 'content', $blog_archive_strcture ) ) {
+			array_push( $blog_archive_strcture, 'content' );
+		}
+	
+		if ( in_array( 'title-meta', $blog_archive_strcture ) && ! in_array( 'blog-meta', $blog_archive_strcture ) ) {
+			array_push( $blog_archive_strcture, 'blog-meta' );
+		}
 	}
 
 	// For Single Post options.
-	if ( isset( $theme_options['blog-single-post-structure'] ) && ! isset( $theme_options['blog-single-post-structure']['single-content'] ) ) {
-		array_push( $theme_options['blog-single-post-structure'], 'single-content' );
+	if ( isset( $single_post_strcture ) && is_array( $single_post_strcture ) && ! in_array( 'single-content', $single_post_strcture ) ) {
+		array_push( $single_post_strcture, 'single-content' );
 	}
 
 	update_option( 'astra-settings', $theme_options );
