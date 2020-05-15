@@ -209,7 +209,7 @@ function astra_responsive_base_background_option() {
  *
  * @return void
  */
-function astra_content_addition_in_blog_structure() {
+function astra_single_and_blog_extended_structure() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 

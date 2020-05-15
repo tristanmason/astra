@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_update_theme_tablet_breakpoint',
 			),
 			'2.5.0' => array(
-				'astra_content_addition_in_blog_structure',
+				'astra_single_and_blog_extended_structure',
 			),
 		);
 
