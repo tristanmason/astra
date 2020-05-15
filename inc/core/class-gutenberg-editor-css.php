@@ -480,33 +480,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
-			if ( 'page-builder' === $container_layout ) {
-				$page_builder_css = array(
-					'.editor-post-title__block, .editor-default-block-appender, .block-editor-block-list__block' => array(
-						'width'     => '100%',
-						'max-width' => '100%',
-					),
-					'.block-editor-block-list__layout' => array(
-						'padding-left'  => 0,
-						'padding-right' => 0,
-					),
-					'.editor-block-list__block-edit .editor-block-list__block-edit' => array(
-						'padding-left'  => '0',
-						'padding-right' => '0',
-					),
-					'.edit-post-visual-editor .block-editor-block-list__block' => array(
-						'padding-left'  => '20px',
-						'padding-right' => '20px',
-					),
-					'.edit-post-visual-editor .wp-block .block-editor-block-list__block' => array(
-						'padding-left'  => '0',
-						'padding-right' => '0',
-					),
-				);
-			}
-
-			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
-
 			$page_builder_css = array(
 				'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .block-editor-block-list__block' => array(
 					'width'     => '100%',
