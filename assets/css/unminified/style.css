@@ -4931,7 +4931,7 @@ input[type="color"]::-webkit-color-swatch {
   /*Page builder single post meta*/
 }
 
-.single .entry-header {
+.single .ast-single-post-order + .entry-meta {
   margin-bottom: 2em;
 }
 
@@ -4989,20 +4989,20 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /* 2 - Single Post Article Header */
-.single .entry-header .ast-single-post-order + .post-thumb img {
+.single .ast-article-single .ast-single-post-order + .post-thumb img {
   margin-top: 2em;
   margin-bottom: 0;
 }
 
-.single .entry-header.ast-no-title .post-thumb + .ast-single-post-order {
-  margin-top: 0;
-}
-
-.single .entry-header .post-thumb + .ast-single-post-order {
+.single .ast-article-single .entry-header + .ast-single-post-order {
   margin-top: 2em;
 }
 
-.single .entry-header .post-thumb img {
+.single .ast-article-single .entry-header.ast-no-title + .ast-single-post-order {
+  margin-top: 0;
+}
+
+.single .ast-article-single .post-thumb img {
   margin-top: 0;
   margin-bottom: 0;
 }

@@ -221,6 +221,26 @@ if ( ! function_exists( 'astra_get_blog_post_blog_meta' ) ) {
 }
 
 /**
+ * Single Post-Meta Generation
+ */
+if ( ! function_exists( 'astra_get_single_post_meta' ) ) {
+
+	/**
+	 * Single post Meta
+	 *
+	 * @since  x.x.x
+	 */
+	function astra_get_single_post_meta() {
+
+		do_action( 'astra_single_post_meta_before' );
+
+		astra_single_get_post_meta();
+
+		do_action( 'astra_single_post_meta_after' );
+	}
+}
+
+/**
  * Single Post Markup Generation
  */
 if ( ! function_exists( 'astra_render_single_post_markup' ) ) {
@@ -243,14 +263,21 @@ if ( ! function_exists( 'astra_render_single_post_markup' ) ) {
 					// Single Post Featured Image.
 					case 'single-image':
 						do_action( 'astra_blog_single_featured_image_before' );
-						astra_get_blog_post_thumbnail( 'single' );
+						astra_get_single_post_header();
 						do_action( 'astra_blog_single_featured_image_after' );
 						break;
 
-					// Single Post Title and Single Post Meta.
+					// Single Post Title.
 					case 'single-title-meta':
 						do_action( 'astra_blog_single_title_meta_before' );
-						astra_get_single_post_title_meta();
+						astra_get_single_post_title();
+						do_action( 'astra_blog_single_post_title_after' );
+						break;
+
+					// Single Post Meta.
+					case 'single-meta-data':
+						do_action( 'astra_blog_single_post_meta_before' );
+						astra_get_single_post_meta();
 						do_action( 'astra_blog_single_title_meta_after' );
 						break;
 
@@ -285,7 +312,7 @@ if ( ! function_exists( 'astra_get_single_post_header' ) ) {
 
 			<?php astra_single_header_top(); ?>
 
-			<?php astra_blog_post_thumbnail_and_title_order(); ?>
+			<?php astra_get_blog_post_thumbnail( 'single' ); ?>
 
 			<?php astra_single_header_bottom(); ?>
 
@@ -469,16 +496,16 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 }
 
 /**
- * Single Post Title & Meta Order
+ * Single Post Title
  */
-if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
+if ( ! function_exists( 'astra_get_single_post_title' ) ) {
 
 	/**
 	 * Blog post Thumbnail
 	 *
 	 * @since  1.0.8
 	 */
-	function astra_get_single_post_title_meta() {
+	function astra_get_single_post_title() {
 
 		// Single Post Title and Single Post Meta.
 		do_action( 'astra_single_post_order_before' );
@@ -500,12 +527,6 @@ if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
 			);
 
 			do_action( 'astra_single_post_title_after' );
-
-			do_action( 'astra_single_post_meta_before' );
-
-			astra_single_get_post_meta();
-
-			do_action( 'astra_single_post_meta_after' );
 
 			?>
 		</div>

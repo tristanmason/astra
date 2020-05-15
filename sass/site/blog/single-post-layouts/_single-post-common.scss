@@ -8,9 +8,13 @@
 
 .single {
 
-	.entry-header {
-		margin-bottom: 2em;
-	}
+	.ast-single-post-order {
+		+ {
+			.entry-meta {
+				margin-bottom: 2em;
+			}
+		}
+	}	
 
 	/* 1 - Single Post Navigation Styles */
 	.post-navigation {
@@ -72,25 +76,29 @@
 }
 /* 2 - Single Post Article Header */
 .single {
-	.entry-header {
+	.ast-article-single {
 		.ast-single-post-order {
-			+ .post-thumb {
-				img {
-					margin-top: 2em;
-					margin-bottom: 0;
+			+ {
+				.post-thumb {
+					img {
+						margin-top: 2em;
+						margin-bottom: 0;
+					}
 				}
 			}
 		}
-		&.ast-no-title{
-			.post-thumb {
-				+ .ast-single-post-order{
+		.entry-header {
+			+ {
+				.ast-single-post-order {
+					margin-top: 2em;
+				}
+			}
+		}
+		.entry-header.ast-no-title {
+			+ {
+				.ast-single-post-order {
 					margin-top: 0;
 				}
-			}
-		}
-		.post-thumb {
-			+ .ast-single-post-order{
-				margin-top: 2em;
 			}
 		}
 		.post-thumb {
@@ -99,9 +107,9 @@
 				margin-bottom: 0;
 			}
 		}
-
 	}
 }
+
 .page {
 	.has-post-thumbnail {
 		.post-thumb {
