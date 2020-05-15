@@ -214,8 +214,8 @@ function astra_gtn_full_wide_image_group_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['gtn-full-wide-image-css'] ) ) {
-		$theme_options['gtn-full-wide-image-css'] = false;
+	if ( ! isset( $theme_options['gtn-full-wide-image-grp-css'] ) ) {
+		$theme_options['gtn-full-wide-image-grp-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

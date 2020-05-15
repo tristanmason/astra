@@ -2101,8 +2101,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function gtn_image_group_css_comp() {
 			$astra_settings                            = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['gtn-full-wide-image-css'] = isset( $astra_settings['gtn-full-wide-image-css'] ) ? false : true;
-			return apply_filters( 'gtn_image_group_css_comp', $astra_settings['gtn-full-wide-image-css'] );
+			$astra_settings['gtn-full-wide-image-grp-css'] = isset( $astra_settings['gtn-full-wide-image-grp-css'] ) ? false : true;
+			return apply_filters( 'gtn_image_group_css_comp', $astra_settings['gtn-full-wide-image-grp-css'] );
 		}
 	}
 }
