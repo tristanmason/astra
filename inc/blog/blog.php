@@ -366,7 +366,7 @@ if ( ! function_exists( 'astra_get_single_post_content' ) ) {
 			>
 				<?php
 
-					do_action( 'astra_entry_content_before' );					
+					do_action( 'astra_entry_content_before' );
 
 					the_content();
 
