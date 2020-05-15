@@ -1,9 +1,9 @@
 
 window.addEventListener( 'load', function(e) {
-	onload_function();
+	astra_onload_function();
 });
   
-function onload_function() { 
+function astra_onload_function() { 
 	
 	/* Do things after DOM has fully loaded */ 
 	
