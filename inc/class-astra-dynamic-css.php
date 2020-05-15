@@ -604,7 +604,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( self::gtn_image_group_css_comp() ) {
 
 				$gtn_full_wide_image_css = array(
-					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-left-sidebar .entry-content wp-block-image.alignfull,.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,.ast-separate-container.ast-left-sidebar .entry-content wp-block-cover.alignfull' => array(
+					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull' => array(
 						'margin-left'  => '-6.67em',
 						'margin-right' => '-6.67em',
 						'max-width'    => 'unset',
