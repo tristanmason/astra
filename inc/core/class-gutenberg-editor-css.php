@@ -591,6 +591,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-right'  => 'calc( 6.67em - 28px )',
 				),
 				'.ast-separate-container .block-editor-block-list__layout' => array(
+					'padding-top'    => '0',
 					'padding-bottom' => '5.34em',
 					'padding-left'   => 'calc( 6.67em - 28px )',
 					'padding-right'  => 'calc( 6.67em - 28px )',
@@ -647,7 +648,18 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $ast_gtn_mobile_css, '', astra_get_mobile_breakpoint() );
 
+			$gtn_full_wide_image_css = array(
+				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] figure.wp-block-image' => array(
+					'margin-left'  => '-4.8em',
+					'margin-right' => '-4.81em',
+					'max-width'    => 'unset',
+					'width'        => 'unset',
+				),
+			);
+			$css                    .= astra_parse_css( $gtn_full_wide_image_css );
+
 			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) ) {
+
 				$boxed_container = array(
 					'.block-editor-writing-flow'       => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
