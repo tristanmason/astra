@@ -1942,7 +1942,7 @@ add_filter( 'bsf_core_stats', 'astra_add_theme_specific_stats' );
 /**
  * HubSpot Plugin compatibility.
  *
- * @since x.x.x
+ * @since 2.4.4
  * @return string Compatibility string.
  */
 function astra_get_hubspot_comp_code() {
