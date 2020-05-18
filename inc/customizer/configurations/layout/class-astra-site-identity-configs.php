@@ -33,17 +33,32 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Learn More about Mobile Header
+				 * Notice for Colors - Transparent header enabled on page.
 				 */
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[tranparent-header-notice-logo]',
+					'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice]',
 					'type'            => 'control',
 					'control'         => 'ast-description',
 					'section'         => 'title_tagline',
-					'priority'        => 2,
-					'title'           => '',
-					'help'            => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p>',
-					'settings'        => array(),
+					'priority'        => 1,
+					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
+					'help'            => $this->get_help_text_notice( 'transparent-header' ),
+				),
+
+				/**
+				* Option: Theme Button Style edit link
+				*/
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice-link]',
+					'default'   => astra_get_option( 'header-color-transparent-header-notice-link' ),
+					'type'      => 'control',
+					'control'   => 'ast-customizer-link',
+					'section'   => 'title_tagline',
+					'priority'  => 1,
+					'link_type' => 'section',
+					'linked'    => 'section-transparent-header',
+					'link_text' => __( 'Customize Transparent Header.', 'astra' ),
+					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
 				),
 
 				/**
@@ -263,6 +278,42 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 			return $configurations;
 
+		}
+
+		/**
+		 * Check if transparent header is enabled on the page being previewed.
+		 *
+		 * @since  x.x.x
+		 * @return boolean True - If Transparent Header is enabled, False if not.
+		 */
+		public function is_transparent_header_enabled() {
+			return Astra_Ext_Transparent_Header_Markup::get_instance()->is_transparent_header();
+		}
+
+		/**
+		 * Help notice message to be displayed when the page that is being previewed has header built using Custom Layout.
+		 *
+		 * @since  x.x.x
+		 * @param String $context Type of notice message to be returned.
+		 * @return String HTML Markup for the help notice.
+		 */
+		private function get_help_text_notice( $context ) {
+
+			switch ( $context ) {
+				case 'custom-header':
+					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>The header on the page you are previewing is built using Custom Layouts. Options given below will not work here.</p><p> <a href="' . $this->get_custom_layout_edit_link() . '" target="_blank">Click here</a> to modify the header on this page.<p></div>';
+					break;
+
+				case 'transparent-header':
+					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply.</p></div>';
+					break;
+
+				default:
+					$notice = '';
+					break;
+			}
+
+			return $notice;
 		}
 	}
 }
