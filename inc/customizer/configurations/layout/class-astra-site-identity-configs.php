@@ -49,15 +49,15 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				* Option: Theme Button Style edit link
 				*/
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice-link]',
-					'default'   => astra_get_option( 'header-color-transparent-header-notice-link' ),
-					'type'      => 'control',
-					'control'   => 'ast-customizer-link',
-					'section'   => 'title_tagline',
-					'priority'  => 1,
-					'link_type' => 'section',
-					'linked'    => 'section-transparent-header',
-					'link_text' => __( 'Customize Transparent Header.', 'astra' ),
+					'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice-link]',
+					'default'         => astra_get_option( 'header-color-transparent-header-notice-link' ),
+					'type'            => 'control',
+					'control'         => 'ast-customizer-link',
+					'section'         => 'title_tagline',
+					'priority'        => 1,
+					'link_type'       => 'section',
+					'linked'          => 'section-transparent-header',
+					'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
 					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
 				),
 
@@ -305,7 +305,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					break;
 
 				case 'transparent-header':
-					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply. Please click the link below to customize Transparent Header</p></div>';
+					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply. Please click the link below to customize Transparent Header.</p></div>';
 					break;
 
 				default:
