@@ -33,6 +33,20 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Learn More about Mobile Header
+				 */
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[tranparent-header-notice-logo]',
+					'type'            => 'control',
+					'control'         => 'ast-description',
+					'section'         => 'title_tagline',
+					'priority'        => 2,
+					'title'           => '',
+					'help'            => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p>',
+					'settings'        => array(),
+				),
+
+				/**
 				 * Option: Divider
 				 */
 				array(
