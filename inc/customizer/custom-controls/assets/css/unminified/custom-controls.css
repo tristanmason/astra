@@ -274,6 +274,11 @@ input[type="text"].select2-search__field {
   border-radius: 0;
 }
 
+.ast-customizer-notice {
+  margin: 0 -12px;
+  padding: 12px 12px;
+}
+
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
