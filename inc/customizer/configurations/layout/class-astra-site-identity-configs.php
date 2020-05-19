@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
-				* Option: Theme Button Style edit link
+				* Option: Transparent Header Section - Link.
 				*/
 				array(
 					'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice-link]',
