@@ -4109,7 +4109,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 @media (max-width: 782px) {
   .entry-content .wp-block-columns .wp-block-column {
     flex-basis: 100%;
-    margin-right: 0;
   }
   .entry-content .has-2-columns .wp-block-column:first-child {
     padding-left: 0;
