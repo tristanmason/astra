@@ -3,7 +3,6 @@ v2.4.4
 - Improvement: Hardened the security of theme.
 - Fix: Added ID attribute for WP Header and WP Footer schema.
 - Fix: Different image size on elementor product pages in mobile view. 
-- Fix: Updated strings in the Customizer.
 - Fix: Renamed .hidden CSS class to .ast-hidden to avoid conflict with other plugins.
 - Fix: UAE Nav Menu widget conflict with Mega Menu.
 - Fix: Submenu icon not appearing properly on AMP pages.
