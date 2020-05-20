@@ -41,6 +41,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'         => 'ast-description',
 					'section'         => 'title_tagline',
 					'priority'        => 1,
+					'required'        => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+						),
+					),
 					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
 					'help'            => $this->get_help_text_notice( 'transparent-header' ),
 				),
@@ -57,6 +62,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'        => 1,
 					'link_type'       => 'section',
 					'linked'          => 'section-transparent-header',
+					'required'        => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+						),
+					),
 					'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
 					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
 				),
@@ -287,7 +297,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 * @return boolean True - If Transparent Header is enabled, False if not.
 		 */
 		public function is_transparent_header_enabled() {
-			return Astra_Ext_Transparent_Header_Markup::get_instance()->is_transparent_header();
+			$status = Astra_Ext_Transparent_Header_Markup::get_instance()->is_transparent_header();
+			return ( true === $status ? true : false );
 		}
 
 		/**
