@@ -25,7 +25,7 @@ define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri(
  * Minimum Version requirement of the Astra Pro addon.
  * This constant will be used to display the notice asking user to update the Astra addon to latest version.
  */
-define( 'ASTRA_EXT_MIN_VER', '2.4.0' );
+define( 'ASTRA_EXT_MIN_VER', '2.5.0' );
 
 /**
  * Setup helper functions of Astra.
