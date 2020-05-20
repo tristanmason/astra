@@ -621,6 +621,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
+
+			} else {
+
+				$gtn_tablet_column_css = array(
+					'.entry-content .wp-block-columns .wp-block-column' => array(
+						'margin-left' => '0px',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $gtn_tablet_column_css, '', '782' );
 			}
 
 			$static_layout_css = array(
@@ -2096,7 +2106,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * For existing users, do not load the wide/full width image CSS by default.
 		 *
-		 * @since x.x.x
+		 * @since 2.4.4
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gtn_image_group_css_comp() {
