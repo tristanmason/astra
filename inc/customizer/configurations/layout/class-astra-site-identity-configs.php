@@ -310,20 +310,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 */
 		private function get_help_text_notice( $context ) {
 
-			switch ( $context ) {
-				case 'custom-header':
-					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>The header on the page you are previewing is built using Custom Layouts. Options given below will not work here.</p><p> <a href="' . $this->get_custom_layout_edit_link() . '" target="_blank">Click here</a> to modify the header on this page.<p></div>';
-					break;
-
-				case 'transparent-header':
-					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply. Please click the link below to customize Transparent Header.</p></div>';
-					break;
-
-				default:
-					$notice = '';
-					break;
+			$notice = '';
+			if ( 'transparent-header' === $context ) {
+				$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply. Please click the link below to customize Transparent Header.</p></div>';
 			}
-
 			return $notice;
 		}
 	}
