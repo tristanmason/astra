@@ -40,7 +40,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 
 		if ( strpos( $hex, 'rgba' ) !== false ) {
 			$hex = preg_replace( '/[^0-9,]/', '', $hex );
-			$hex = explode( ",", $hex );
+			$hex = explode( ',', $hex );
 			$hex = ( ( $hex[0] * 299 ) + ( $hex[1] * 587 ) + ( $hex[2] * 114 ) ) / 1000;
 
 			return 128 <= $hex ? '#000000' : '#ffffff';
