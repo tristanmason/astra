@@ -40,7 +40,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 		}
 
 		// Return if non hex.
-		if ( ! ctype_xdigit( $hex ) ) {
+		if ( ! ctype_xdigit( $hex ) && version_compare( PHP_VERSION, '7.4', '>=' ) ) {
 			return $hex;
 		}
 
@@ -994,7 +994,7 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 		$hex = str_replace( '#', '', $hex );
 
 		// Return if non hex.
-		if ( ! ctype_xdigit( $hex ) ) {
+		if ( ! ctype_xdigit( $hex ) && version_compare( PHP_VERSION, '7.4', '>=' ) ) {
 			return $hex;
 		}
 
