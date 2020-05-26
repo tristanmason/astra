@@ -39,11 +39,17 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 		}
 
 		if ( strpos( $hex, 'rgba' ) !== false ) {
-			$hex = preg_replace( '/[^0-9,]/', '', $hex );
-			$hex = explode( ',', $hex );
-			$hex = ( ( $hex[0] * 299 ) + ( $hex[1] * 587 ) + ( $hex[2] * 114 ) ) / 1000;
 
-			return 128 <= $hex ? '#000000' : '#ffffff';
+			$rgba = preg_replace( '/[^0-9,]/', '', $hex );
+			$rgba = explode( ',', $rgba );
+
+			$r_val = (int) $rgba[0];
+			$g_val = (int) $rgba[1];
+			$b_val = (int) $rgba[2];
+
+			$rgba = ( ( $r_val * 0.299 ) + ( $g_val * 0.587 ) + ( $b_val * 0.114 ) );
+
+			return 186 < $rgba ? '#000000' : '#ffffff';
 		}
 
 		// Return if non hex.
