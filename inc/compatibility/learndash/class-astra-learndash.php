@@ -80,6 +80,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			/**
 			 * - Variable Declaration
 			 */
+			$is_site_rtl  = is_rtl();
 			$link_color   = astra_get_option( 'link-color' );
 			$theme_color  = astra_get_option( 'theme-color' );
 			$text_color   = astra_get_option( 'text-color' );
@@ -175,14 +176,25 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			/* Parse CSS from array()*/
 			$css_output .= astra_parse_css( $tablet_typography, '', astra_get_tablet_breakpoint() );
 
-			$mobile_min_width_css = array(
-				'body #learndash_profile .profile_edit_profile' => array(
-					'position' => 'absolute',
-					'top'      => '15px',
-					'right'    => '15px',
-				),
-			);
-			/* Parse CSS from array()*/
+			if ( $is_site_rtl ) {
+				$mobile_min_width_css = array(
+					'body #learndash_profile .profile_edit_profile' => array(
+						'position' => 'absolute',
+						'top'      => '15px',
+						'left'     => '15px',
+					),
+				);
+			} else {
+				$mobile_min_width_css = array(
+					'body #learndash_profile .profile_edit_profile' => array(
+						'position' => 'absolute',
+						'top'      => '15px',
+						'right'    => '15px',
+					),
+				);
+			}
+
+			/* Parse CSS from array() -> min-width: (mobile-breakpoint + 1) px */
 			$css_output .= astra_parse_css( $mobile_min_width_css, astra_get_mobile_breakpoint( '', 1 ) );
 
 			$mobile_typography = array(
@@ -195,18 +207,36 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				'#learndash_next_prev_link a.prev-link' => array(
 					'margin-bottom' => '1em',
 				),
-				'#ld_course_info_mycourses_list .ld-course-info-my-courses img' => array(
-					'display'     => 'block',
-					'margin-left' => 'initial',
-					'max-width'   => '100%',
-					'margin'      => '10px 0',
-				),
 				'#ld_course_info_mycourses_list .ld-course-info-my-courses .ld-entry-title' => array(
 					'margin' => '0 0 20px',
 				),
 			);
-			/* Parse CSS from array()*/
+
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
 			$css_output .= astra_parse_css( $mobile_typography, '', astra_get_mobile_breakpoint() );
+
+			if ( $is_site_rtl ) {
+				$mobile_typography_lang_direction_css = array(
+					'#ld_course_info_mycourses_list .ld-course-info-my-courses img' => array(
+						'display'      => 'block',
+						'margin-right' => 'initial',
+						'max-width'    => '100%',
+						'margin'       => '10px 0',
+					),
+				);
+			} else {
+				$mobile_typography_lang_direction_css = array(
+					'#ld_course_info_mycourses_list .ld-course-info-my-courses img' => array(
+						'display'     => 'block',
+						'margin-left' => 'initial',
+						'max-width'   => '100%',
+						'margin'      => '10px 0',
+					),
+				);
+			}
+
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$css_output .= astra_parse_css( $mobile_typography_lang_direction_css, '', astra_get_mobile_breakpoint() );
 
 			$dynamic_css .= apply_filters( 'astra_theme_learndash_dynamic_css', $css_output );
 
