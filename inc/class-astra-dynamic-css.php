@@ -1258,14 +1258,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( 'custom-button' === $header_custom_button_style ) {
 				$css_output = array(
+
+					// Header button typography stylings.
+					'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+						'font-family'    => astra_get_font_family( $header_custom_btn_font_family ),
+						'font-weight'    => esc_attr( $header_custom_btn_font_weight ),
+						'font-size'      => astra_responsive_font( $header_custom_btn_font_size, 'desktop' ),
+						'line-height'    => esc_attr( $header_custom_btn_line_height ),
+						'text-transform' => esc_attr( $header_custom_btn_text_transform ),
+						'letter-spacing' => astra_get_css_value( $header_custom_btn_letter_spacing, 'px' ),
+					),
+
 					// Custom menu item button - Default.
 					'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
-						'font-family'         => astra_get_font_family( $header_custom_btn_font_family ),
-						'font-weight'         => esc_attr( $header_custom_btn_font_weight ),
-						'font-size'           => astra_responsive_font( $header_custom_btn_font_size, 'desktop' ),
-						'line-height'         => esc_attr( $header_custom_btn_line_height ),
-						'text-transform'      => esc_attr( $header_custom_btn_text_transform ),
-						'letter-spacing'      => astra_get_css_value( $header_custom_btn_letter_spacing, 'px' ),
 						'color'               => esc_attr( $header_custom_button_text_color ),
 						'background-color'    => esc_attr( $header_custom_button_back_color ),
 						'padding-top'         => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'desktop' ),
@@ -1288,12 +1293,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					// Custom menu item button - Transparent.
 					'.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
-						'font-family'         => astra_get_font_family( $header_custom_btn_font_family ),
-						'font-weight'         => esc_attr( $header_custom_btn_font_weight ),
-						'font-size'           => astra_responsive_font( $header_custom_btn_font_size, 'desktop' ),
-						'line-height'         => esc_attr( $header_custom_btn_line_height ),
-						'text-transform'      => esc_attr( $header_custom_btn_text_transform ),
-						'letter-spacing'      => astra_get_css_value( $header_custom_btn_letter_spacing, 'px' ),
 						'color'               => esc_attr( $header_custom_trans_button_text_color ),
 						'background-color'    => esc_attr( $header_custom_trans_button_back_color ),
 						'padding-top'         => astra_responsive_spacing( $header_custom_trans_button_spacing, 'top', 'desktop' ),
