@@ -1268,7 +1268,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'leadin'                        =>
 						array(
-							'plugin-name'        => 'HubSpot – CRM, Email Marketing & Analytics',
+							'plugin-name'        => 'HubSpot - CRM, Email Marketing & Analytics',
 							'plugin-init'        => 'leadin/leadin.php',
 							'settings-link'      => admin_url( 'admin.php?page=leadin' ),
 							'settings-link-text' => 'Settings',
