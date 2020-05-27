@@ -39,6 +39,11 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
 		}
 
+		// Return if non hex.
+		if ( ! ctype_xdigit( $hex ) ) {
+			return $hex;
+		}
+
 		// Get r, g & b codes from hex code.
 		$r   = hexdec( substr( $hex, 0, 2 ) );
 		$g   = hexdec( substr( $hex, 2, 2 ) );
@@ -988,6 +993,11 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 		// Get rgb vars.
 		$hex = str_replace( '#', '', $hex );
 
+		// Return if non hex.
+		if ( ! ctype_xdigit( $hex ) ) {
+			return $hex;
+		}
+
 		$shortcode_atts = array(
 			'r' => hexdec( substr( $hex, 0, 2 ) ),
 			'g' => hexdec( substr( $hex, 2, 2 ) ),
@@ -1204,6 +1214,57 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	}
 }
 
+/**
+ * Get the tablet breakpoint value.
+ *
+ * @param string $min min.
+ * @param string $max max.
+ *
+ * @since 2.4.0
+ *
+ * @return number $breakpoint.
+ */
+function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
+
+	$update_breakpoint = astra_get_option( 'can-update-theme-tablet-breakpoint', true );
+
+	// Change default for new users.
+	$default = ( true === $update_breakpoint ) ? 921 : 768;
+
+	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default );
+
+	if ( '' !== $min ) {
+		$header_breakpoint = $header_breakpoint - $min;
+	} elseif ( '' !== $max ) {
+		$header_breakpoint = $header_breakpoint + $max;
+	}
+
+	return absint( $header_breakpoint );
+}
+
+/**
+ * Get the mobile breakpoint value.
+ *
+ * @param string $min min.
+ * @param string $max max.
+ *
+ * @since 2.4.0
+ *
+ * @return number header_breakpoint.
+ */
+function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
+
+	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 );
+
+	if ( '' !== $min ) {
+		$header_breakpoint = $header_breakpoint - $min;
+	} elseif ( '' !== $max ) {
+		$header_breakpoint = $header_breakpoint + $max;
+	}
+
+	return absint( $header_breakpoint );
+}
+
 /*
  * Apply CSS for the element
  */
@@ -1338,8 +1399,8 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 	$bg_tab_img  = isset( $bg_obj_res['tablet']['background-image'] ) ? $bg_obj_res['tablet']['background-image'] : '';
 	$bg_desk_img = isset( $bg_obj_res['desktop']['background-image'] ) ? $bg_obj_res['desktop']['background-image'] : '';
 	$bg_color    = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : '';
-	$tablet_css  = ( $bg_obj_res['tablet']['background-image'] ) ? true : false;
-	$desktop_css = ( $bg_obj_res['desktop']['background-image'] ) ? true : false;
+	$tablet_css  = ( isset( $bg_obj_res['tablet']['background-image'] ) && $bg_obj_res['tablet']['background-image'] ) ? true : false;
+	$desktop_css = ( isset( $bg_obj_res['desktop']['background-image'] ) && $bg_obj_res['desktop']['background-image'] ) ? true : false;
 
 	if ( '' !== $bg_img && '' !== $bg_color ) {
 		$gen_bg_css = array(
@@ -1397,55 +1458,4 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 	}
 
 	return $gen_bg_css;
-}
-
-/**
- * Get the tablet breakpoint value.
- *
- * @param string $min min.
- * @param string $max max.
- *
- * @since x.x.x
- *
- * @return number $breakpoint.
- */
-function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
-
-	$update_breakpoint = astra_get_option( 'can-update-theme-tablet-breakpoint', true );
-
-	// Change default for new users.
-	$default = ( true === $update_breakpoint ) ? 921 : 768;
-
-	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default );
-
-	if ( '' !== $min ) {
-		$header_breakpoint = $header_breakpoint - $min;
-	} elseif ( '' !== $max ) {
-		$header_breakpoint = $header_breakpoint + $max;
-	}
-
-	return absint( $header_breakpoint );
-}
-
-/**
- * Get the mobile breakpoint value.
- *
- * @param string $min min.
- * @param string $max max.
- *
- * @since x.x.x
- *
- * @return number header_breakpoint.
- */
-function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
-
-	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 );
-
-	if ( '' !== $min ) {
-		$header_breakpoint = $header_breakpoint - $min;
-	} elseif ( '' !== $max ) {
-		$header_breakpoint = $header_breakpoint + $max;
-	}
-
-	return absint( $header_breakpoint );
 }

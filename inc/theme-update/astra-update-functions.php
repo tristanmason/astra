@@ -152,7 +152,7 @@ function astra_breadcrumb_separator_fix() {
 /**
  * Check if we need to change the default value for tablet breakpoint.
  *
- * @since x.x.x
+ * @since 2.4.0
  * @return void
  */
 function astra_update_theme_tablet_breakpoint() {
@@ -170,7 +170,7 @@ function astra_update_theme_tablet_breakpoint() {
 /**
  * Migrate option data from site layout background option to its desktop counterpart.
  *
- * @since x.x.x
+ * @since 2.4.0
  *
  * @return void
  */
@@ -178,7 +178,7 @@ function astra_responsive_base_background_option() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
+	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) && isset( $theme_options['site-layout-outside-bg-obj'] ) ) {
 
 		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
 		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
@@ -200,4 +200,22 @@ function astra_responsive_base_background_option() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
+}
+
+
+/**
+ * Do not apply new wide/full image CSS for existing users.
+ *
+ * @since 2.4.4
+ *
+ * @return void
+ */
+function astra_gtn_full_wide_image_group_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['gtn-full-wide-image-grp-css'] ) ) {
+		$theme_options['gtn-full-wide-image-grp-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
 }
