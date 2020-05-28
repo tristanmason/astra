@@ -60,8 +60,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'         => 'ast-customizer-link',
 					'section'         => 'title_tagline',
 					'priority'        => 1,
-					'link_type'       => 'section',
-					'linked'          => 'section-transparent-header',
+					'link_type'       => 'control',
+					'linked'          => 'transparent-header-logo',
 					'required'        => array(
 						'conditions' => array(
 							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		}
 
 		/**
-		 * Help notice message to be displayed when the page that is being previewed has header built using Custom Layout.
+		 * Help notice message to be displayed when the page that is being previewed has Logo set from Transparent Header.
 		 *
 		 * @since  x.x.x
 		 * @param String $context Type of notice message to be returned.
