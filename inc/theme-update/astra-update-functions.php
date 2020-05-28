@@ -213,7 +213,7 @@ function astra_icons_svg_compatibility() {
 	$theme_options = get_option( 'astra-settings' );
 
 	if ( ! isset( $theme_options['can-update-astra-icons-svg'] ) ) {
-		// Set a flag to check if we need to change the theme tablet breakpoint value.
+		// Set a flag to check if we need to add icons as SVG.
 		$theme_options['can-update-astra-icons-svg'] = false;
 	}
 
