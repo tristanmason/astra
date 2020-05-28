@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'         => 'title_tagline',
 					'priority'        => 1,
 					'link_type'       => 'control',
-					'linked'          => 'transparent-header-logo',
+					'linked'          => ASTRA_THEME_SETTINGS . '[transparent-header-logo]',
 					'required'        => array(
 						'conditions' => array(
 							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),

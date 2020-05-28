@@ -440,7 +440,7 @@ wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.ex
 					break;
 
 				case 'control':
-					wp.customize.control('astra-settings[' + linked + ']').focus();
+					wp.customize.control(linked).focus();
 					break;
 			
 				default:
