@@ -474,7 +474,7 @@ input[type="text"].select2-search__field {
 /* CSS for a Description as a Notice. */
 .ast-customizer-notice {
   margin: 0 -12px;
-  padding: 12px 12px;
+  padding: 12px;
 }
 
 /* CSS to show popups without scroll */
@@ -1669,7 +1669,7 @@ input[type="text"].select2-search__field {
 /* CSS for a Description as a Notice. */
 .ast-customizer-notice {
   margin: 0 -12px;
-  padding: 12px 12px;
+  padding: 12px;
 }
 
 /* CSS to show popups without scroll */

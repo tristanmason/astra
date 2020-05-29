@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Notice for Colors - Transparent header enabled on page.
 				 */
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice]',
+					'name'            => ASTRA_THEME_SETTINGS . '[header-transparent-header-logo-notice]',
 					'type'            => 'control',
 					'control'         => 'ast-description',
 					'section'         => 'title_tagline',
@@ -54,8 +54,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				* Option: Transparent Header Section - Link.
 				*/
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice-link]',
-					'default'         => astra_get_option( 'header-color-transparent-header-notice-link' ),
+					'name'            => ASTRA_THEME_SETTINGS . '[header-transparent-header-logo-notice-link]',
+					'default'         => astra_get_option( 'header-transparent-header-logo-notice-link' ),
 					'type'            => 'control',
 					'control'         => 'ast-customizer-link',
 					'section'         => 'title_tagline',
