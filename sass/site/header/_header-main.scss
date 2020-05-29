@@ -368,7 +368,8 @@ li.ast-masthead-custom-menu-items {
 				}
 			}
 			.ast-submenu-expanded {
-				>.ast-menu-toggle::before {
+				>.ast-menu-toggle::before,
+				.ast-menu-toggle .icon-arrow svg {
 				   transform: rotateX(180deg);
 				}
 			}

@@ -3573,7 +3573,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   transition: all .2s;
 }
 
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-submenu-expanded .ast-menu-toggle .icon-arrow svg {
   transform: rotateX(180deg);
 }
 
