@@ -1933,6 +1933,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
 			}
+			
+			if ( false === is_astra_icons_svg() ) {
+				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
+				// Also restore the padding to class `main-header-bar`.
+				$submenu_toggle = array(
+					// CSS to open submenu just below menu.
+					'.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
+						'font-weight'     => 'bold',
+						'content'         => '"\e900"',
+						'font-family'     => 'Astra',
+						'text-decoration' => 'inherit',
+						'display'         => 'inline-block',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_toggle );
+			}
 
 			$dynamic_css .= $parse_css;
 
