@@ -2719,6 +2719,10 @@ body {
   text-align: right;
 }
 
+.ast-icon svg {
+  fill: currentColor;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header
