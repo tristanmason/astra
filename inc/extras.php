@@ -1934,9 +1934,9 @@ add_filter( 'astra_customizer_configurations', 'remove_controls', 99 );
  */
 function astra_add_theme_specific_stats( $default_stats ) {
 	$default_stats['astra_theme'] = array(
-		'version' => ASTRA_THEME_VERSION,
+		'version'             => ASTRA_THEME_VERSION,
 		'breadcrumb-position' => astra_get_option( 'breadcrumb-position', false ),
-		'mobile-menu-style' => astra_get_option( 'mobile-menu-style', false ),
+		'mobile-menu-style'   => astra_get_option( 'mobile-menu-style', false ),
 	);
 	return $default_stats;
 }
