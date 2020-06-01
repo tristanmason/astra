@@ -398,6 +398,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 			<div class="ast-search-icon">
 				<a class="slide-search astra-search-icon" aria-label="Search icon link" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
+					<?php Astra_Icons::get_icons( 'search', true ); ?>
 				</a>
 			</div>
 			<?php astra_get_search_form(); ?>
