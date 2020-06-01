@@ -1934,7 +1934,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $submenu_below_header );
 			}
 			
-			if ( false === is_astra_icons_svg() ) {
+			if ( false === Astra_Icons::is_svg_icons() ) {
 				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
 				// Also restore the padding to class `main-header-bar`.
 				$submenu_toggle = array(

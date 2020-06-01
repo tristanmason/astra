@@ -33,6 +33,7 @@ define( 'ASTRA_EXT_MIN_VER', '2.5.0' );
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-theme-options.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-theme-strings.php';
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-icons.php';
 
 /**
  * Update theme
