@@ -1933,7 +1933,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
 			}
-			
+
 			if ( false === Astra_Icons::is_svg_icons() ) {
 				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
 				// Also restore the padding to class `main-header-bar`.
@@ -1948,13 +1948,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.widget_search .search-form:after' => array(
 						'font-family' => 'Astra',
-						'font-size' => '1.2em',
+						'font-size'   => '1.2em',
 						'font-weight' => 'normal',
-						'content' => '"\e8b6"',
-						'position' => 'absolute',
-						'top' => '50%',
-						'right' => '15px',
-						'transform' => 'translate(0, -50%)',
+						'content'     => '"\e8b6"',
+						'position'    => 'absolute',
+						'top'         => '50%',
+						'right'       => '15px',
+						'transform'   => 'translate(0, -50%)',
 					),
 				);
 

@@ -59,6 +59,20 @@
 		    position: relative;
 		}
 
+		i {
+			color: rgb(58, 58, 58);
+		}
+
+		button {
+			position: absolute;
+			top: 0;
+			right: 15px;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+			background: transparent;
+		}
+
 		input[type="submit"],
 		input[type="submit"]:hover,
 		input[type="submit"]:focus {

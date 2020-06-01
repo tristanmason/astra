@@ -4218,19 +4218,22 @@ body .entry-content .wp-block-latest-posts li {
   color: inherit;
 }
 
-.widget_search .search-form:after {
-  font-family: "Astra";
-  font-size: 1.2em;
-  font-weight: normal;
-  content: "\e8b6";
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translate(0, -50%);
-}
-
 .widget_search .search-form > label {
   position: relative;
+}
+
+.widget_search .search-form i {
+  color: #3a3a3a;
+}
+
+.widget_search .search-form button {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
 }
 
 .widget_search .search-form input[type="submit"],
