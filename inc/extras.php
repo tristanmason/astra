@@ -1930,7 +1930,7 @@ add_filter( 'astra_customizer_configurations', 'remove_controls', 99 );
  *
  * @since 2.4.3
  * @param array $default_stats Default stats array.
- * @return array $default_stats Default stats with Theme specific stats array.
+ * @return array $default_stats Default stats with Theme specific stats array. Test Comment.
  */
 function astra_add_theme_specific_stats( $default_stats ) {
 	$default_stats['astra_settings'] = array(
