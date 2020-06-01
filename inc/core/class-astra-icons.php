@@ -19,7 +19,7 @@ class Astra_Icons {
      * Constructor function that initializes required actions and hooks
      */
     public function __construct() {
-
+        
     }
 
     /**
@@ -166,3 +166,4 @@ class Astra_Icons {
         echo apply_filters( 'astra_icons', $output, $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 }
+new Astra_Icons();

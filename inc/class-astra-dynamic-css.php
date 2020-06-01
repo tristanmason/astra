@@ -1946,6 +1946,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-decoration' => 'inherit',
 						'display'         => 'inline-block',
 					),
+					'.widget_search .search-form:after' => array(
+						'font-family' => 'Astra',
+						'font-size' => '1.2em',
+						'font-weight' => 'normal',
+						'content' => '"\e8b6"',
+						'position' => 'absolute',
+						'top' => '50%',
+						'right' => '15px',
+						'transform' => 'translate(0, -50%)',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $submenu_toggle );
