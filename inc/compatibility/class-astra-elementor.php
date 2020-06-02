@@ -73,7 +73,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			?>
 				<style type="text/css" id="ast-elementor-compatibility-css">
 					.elementor-widget-heading .elementor-heading-title {
-						margin: 0
+						margin: 0;
 					}
 				</style>
 			<?php
