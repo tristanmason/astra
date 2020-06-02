@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			/**
 			 * Compatibility for Elementor Headings after Elementor-v2.9.9.
 			 *
-			 * @since  x.x.x
+			 * @since  2.4.5
 			 */
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 			add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
@@ -67,13 +67,13 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * That's why adding this CSS fix to headings by setting bottom-margin to 0.
 		 *
 		 * @return void
-		 * @since  x.x.x
+		 * @since  2.4.5
 		 */
 		public function enqueue_elementor_compatibility_styles() {
 			?>
 				<style type="text/css" id="ast-elementor-compatibility-css">
 					.elementor-widget-heading .elementor-heading-title {
-						margin: 0
+						margin: 0;
 					}
 				</style>
 			<?php
