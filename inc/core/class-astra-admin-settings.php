@@ -1497,7 +1497,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
-			if ( 'astra-pro-sites/astra-pro-sites.php' === $plugin_init || '/astra-sites/astra-sites.php' === $plugin_init ) {
+			if ( '/astra-pro-sites/astra-pro-sites.php' === $plugin_init || '/astra-sites/astra-sites.php' === $plugin_init ) {
 				self::get_starter_templates_slug();
 			}
 
