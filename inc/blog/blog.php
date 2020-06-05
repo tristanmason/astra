@@ -75,9 +75,9 @@ if ( ! function_exists( 'astra_blog_get_post_meta' ) ) {
 		$enable_meta       = apply_filters( 'astra_blog_post_meta_enabled', '__return_true' );
 		$post_meta         = astra_get_option( 'blog-meta' );
 		$current_post_type = get_post_type();
-		$post_type_check   = apply_filters( 'astra_blog_archive_post_type_meta', array( 'post' ) );
+		$post_type_array   = apply_filters( 'astra_blog_archive_post_type_meta', array( 'post' ) );
 
-		if ( in_array( $current_post_type, $post_type_check ) && is_array( $post_meta ) && $enable_meta ) {
+		if ( in_array( $current_post_type, $post_type_array ) && is_array( $post_meta ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 
