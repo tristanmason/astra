@@ -350,7 +350,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default'   => astra_get_option( 'primary-header-button-text-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Button Text', 'astra' ),
+					'title'     => __( 'Typography', 'astra' ),
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 20,

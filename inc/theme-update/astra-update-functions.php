@@ -238,12 +238,29 @@ function astra_header_button_new_typography_options() {
 		'mobile-unit'  => 'px',
 	);
 
-	$theme_options['primary-header-button-font-family']    = ( isset( $theme_options['font-family-button'] ) && ! isset( $theme_options['primary-header-button-font-family'] ) ) ? $theme_options['font-family-button'] : 'inherit';
-	$theme_options['primary-header-button-font-weight']    = ( isset( $theme_options['font-weight-button'] ) && ! isset( $theme_options['primary-header-button-font-weight'] ) ) ? $theme_options['font-weight-button'] : 'inherit';
-	$theme_options['primary-header-button-font-size']      = ( isset( $theme_options['font-size-button'] ) && ! isset( $theme_options['primary-header-button-font-size'] ) ) ? $theme_options['font-size-button'] : $font_size_defaults_array;
-	$theme_options['primary-header-button-text-transform'] = ( isset( $theme_options['text-transform-button'] ) && ! isset( $theme_options['primary-header-button-text-transform'] ) ) ? $theme_options['text-transform-button'] : '';
-	$theme_options['primary-header-button-line-height']    = ( isset( $theme_options['theme-btn-line-height'] ) && ! isset( $theme_options['primary-header-button-line-height'] ) ) ? $theme_options['theme-btn-line-height'] : 1;
-	$theme_options['primary-header-button-letter-spacing'] = ( isset( $theme_options['theme-btn-letter-spacing'] ) && ! isset( $theme_options['primary-header-button-letter-spacing'] ) ) ? $theme_options['theme-btn-letter-spacing'] : '';
+	if ( ( isset( $theme_options['font-family-button'] ) && $theme_options['font-family-button'] ) && ! isset( $theme_options['primary-header-button-font-family'] ) ) {
+		$theme_options['primary-header-button-font-family'] = $theme_options['font-family-button'];
+	}
+
+	if ( ( isset( $theme_options['font-weight-button'] ) && $theme_options['font-weight-button'] ) && ! isset( $theme_options['primary-header-button-font-weight'] ) ) {
+		$theme_options['primary-header-button-font-weight'] = $theme_options['font-weight-button'];
+	}
+
+	if ( ( isset( $theme_options['font-size-button'] ) && $theme_options['font-size-button'] ) && ! isset( $theme_options['primary-header-button-font-size'] ) ) {
+		$theme_options['primary-header-button-font-size'] = $theme_options['font-size-button'];
+	}
+
+	if ( ( isset( $theme_options['text-transform-button'] ) && $theme_options['text-transform-button'] ) && ! isset( $theme_options['primary-header-button-text-transform'] ) ) {
+		$theme_options['primary-header-button-text-transform'] = $theme_options['text-transform-button'];
+	}
+
+	if ( ( isset( $theme_options['theme-btn-line-height'] ) && $theme_options['theme-btn-line-height'] ) && ! isset( $theme_options['primary-header-button-line-height'] ) ) {
+		$theme_options['primary-header-button-line-height'] = $theme_options['theme-btn-line-height'];
+	}
+
+	if ( ( isset( $theme_options['theme-btn-letter-spacing'] ) && $theme_options['theme-btn-letter-spacing'] ) && ! isset( $theme_options['primary-header-button-letter-spacing'] ) ) {
+		$theme_options['primary-header-button-letter-spacing'] = $theme_options['theme-btn-letter-spacing'];
+	}
 
 	update_option( 'astra-settings', $theme_options );
 }
