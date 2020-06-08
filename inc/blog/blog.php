@@ -237,6 +237,8 @@ if ( ! function_exists( 'astra_get_single_post_meta' ) ) {
 		astra_single_get_post_meta();
 
 		do_action( 'astra_single_post_meta_after' );
+
+		astra_get_blog_layout_action( 'astra_single_header_bottom' );
 	}
 }
 
@@ -314,12 +316,12 @@ if ( ! function_exists( 'astra_get_single_post_header' ) ) {
 
 			<?php astra_get_blog_post_thumbnail( 'single' ); ?>
 
-			<?php astra_get_blog_layout_action( '', 'astra_single_header_bottom' ); ?>
+			<?php do_action( 'astra_single_post_header_bottom' ); ?>
 
 			</header><!-- .entry-header -->
 		<?php
 
-		astra_single_header_after();
+		do_action( 'astra_single_post_header_after' );
 	}
 }
 
@@ -380,7 +382,6 @@ if ( ! function_exists( 'astra_get_single_post_content' ) ) {
 	 */
 	function astra_get_single_post_content() {
 
-		astra_get_blog_layout_action( 'astra_single_header_bottom' );
 		astra_get_blog_layout_action( 'astra_single_header_after' );
 
 		?>
