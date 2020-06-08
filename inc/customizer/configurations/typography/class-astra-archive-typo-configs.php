@@ -62,6 +62,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
 					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Post Title', 'astra' ),
