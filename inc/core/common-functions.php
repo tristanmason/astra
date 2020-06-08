@@ -1466,3 +1466,21 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 
 	return $gen_bg_css;
 }
+
+/**
+ * Render old / new actions based on user status for Blog & Single Posts Layout. 
+ *
+ * @since x.x.x
+ */
+function astra_get_blog_layout_action( $old_action = '', $new_action = '' ) {
+
+	$old_user_with_blog_layout = astra_get_option( 'user-having-old-blog-single-layout-structure', false );
+
+	$is_user_old = apply_filters( 'astra_render_new_blog_layout_structure', $old_user_with_blog_layout );
+
+	if( $is_user_old && '' !== $old_action ) {
+		do_action( $old_action );
+	} elseif( '' !== $new_action ) {
+		do_action( $new_action );
+	}
+}

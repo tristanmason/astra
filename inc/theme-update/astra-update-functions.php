@@ -230,6 +230,11 @@ function astra_single_and_blog_extended_structure() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
+	if ( ! isset( $theme_options['user-having-old-blog-single-layout-structure'] ) ) {
+		// Set a flag to check if user is old - Easy to handle further do_actions on Blog & Single post pages.
+		$theme_options['user-having-old-blog-single-layout-structure'] = true;
+	}
+
 	// For Blog / Archive options.
 	if ( isset( $theme_options['blog-post-structure'] ) && is_array( $theme_options['blog-post-structure'] ) ) {
 		if ( in_array( 'title-meta', $theme_options['blog-post-structure'] ) && ! in_array( 'blog-meta', $theme_options['blog-post-structure'] ) ) {
