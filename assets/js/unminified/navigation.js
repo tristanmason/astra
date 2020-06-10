@@ -157,8 +157,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		for (var j = 0; j < parent_li_child.length; j++) {
 
 			parent_li_child[j].classList.remove('ast-submenu-expanded');
-			var parent_li_child_sub_menu = parent_li_child[j].querySelector('.sub-menu');
-			parent_li_child_sub_menu.style.display = 'none';
+			var parent_li_child_sub_menu = parent_li_child[j].querySelector('.sub-menu, .children');
+			if( null !== parent_li_child_sub_menu ) {
+				parent_li_child_sub_menu.style.display = 'none';
+			}
 		};
 
 		var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children');
