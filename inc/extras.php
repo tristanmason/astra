@@ -958,7 +958,8 @@ add_filter( 'page_menu_link_attributes', 'astra_page_menu_link_atts', 10, 5 );
  *     @type string $aria_current The aria-current attribute.
  * }
  * @param WP_Post $item         Current menu item.
- * @param int     $args        An object of wp_nav_menu arguments.
+ * @param int     $args         An object of wp_nav_menu arguments.
+ * @param int     $depth        Get the depth of current menu.
  */
 function astra_menu_anchor_attributes( $atts, $item, $args, $depth ) {
 
