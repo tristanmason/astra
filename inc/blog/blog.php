@@ -238,7 +238,7 @@ if ( ! function_exists( 'astra_get_single_post_meta' ) ) {
 
 		do_action( 'astra_single_post_meta_after' );
 
-		astra_get_blog_layout_action( 'astra_single_header_bottom' );
+		astra_do_backward_blog_layout_action( 'astra_single_header_bottom' );
 	}
 }
 
@@ -307,12 +307,10 @@ if ( ! function_exists( 'astra_get_single_post_header' ) ) {
 	 */
 	function astra_get_single_post_header() {
 
-		astra_single_header_before();
-
 		?>
 			<header class="entry-header <?php astra_entry_header_class(); ?>">
 
-			<?php astra_single_header_top(); ?>
+			<?php do_action( 'astra_single_post_header_top' ); ?>
 
 			<?php astra_get_blog_post_thumbnail( 'single' ); ?>
 
@@ -382,7 +380,7 @@ if ( ! function_exists( 'astra_get_single_post_content' ) ) {
 	 */
 	function astra_get_single_post_content() {
 
-		astra_get_blog_layout_action( 'astra_single_header_after' );
+		astra_do_backward_blog_layout_action( 'astra_single_header_after' );
 
 		?>
 			<div class="entry-content clear" 
@@ -513,6 +511,10 @@ if ( ! function_exists( 'astra_get_single_post_title' ) ) {
 
 		// Single Post Title and Single Post Meta.
 		do_action( 'astra_single_post_order_before' );
+
+		astra_do_backward_blog_layout_action( 'astra_single_header_before' );
+
+		astra_do_backward_blog_layout_action( 'astra_single_header_top' );
 
 		?>
 		<div class="ast-single-post-order">

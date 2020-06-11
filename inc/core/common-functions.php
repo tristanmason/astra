@@ -1472,9 +1472,9 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
  *
  * @since x.x.x
  */
-function astra_get_blog_layout_action( $old_action = '', $new_action = '' ) {
+function astra_do_backward_blog_layout_action( $old_action = '', $new_action = '' ) {
 
-	$old_user_with_blog_layout = astra_get_option( 'user-having-old-blog-single-layout-structure', false );
+	$old_user_with_blog_layout = astra_get_option( 'user-with-old-blog-structure', false );
 
 	$is_user_old = apply_filters( 'astra_render_new_blog_layout_structure', $old_user_with_blog_layout );
 
