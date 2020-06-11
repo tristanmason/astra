@@ -230,15 +230,15 @@ function astra_single_and_blog_extended_structure() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['user-with-old-blog-structure'] ) ) {
+	if ( ! isset( $theme_options['can-load-old-blog-structure'] ) ) {
 		// Set a flag to check if user is old - Easy to handle further do_actions on Blog & Single post pages.
-		$theme_options['user-with-old-blog-structure'] = true;
+		$theme_options['can-load-old-blog-structure'] = true;
 	}
 
 	// For Blog / Archive options.
 	if ( isset( $theme_options['blog-post-structure'] ) && is_array( $theme_options['blog-post-structure'] ) ) {
 		if ( in_array( 'title-meta', $theme_options['blog-post-structure'] ) && ! in_array( 'blog-meta', $theme_options['blog-post-structure'] ) ) {
-			$position_of_title_meta = array_search( 'title-meta', $theme_options['blog-post-structure'] );
+			$position_of_title_meta  = array_search( 'title-meta', $theme_options['blog-post-structure'] );
 			$insert_at_this_position = $position_of_title_meta + 1;
 			array_splice( $theme_options['blog-post-structure'], $insert_at_this_position, 0, 'blog-meta' );
 		}
@@ -250,7 +250,7 @@ function astra_single_and_blog_extended_structure() {
 	// For Single Post options.
 	if ( isset( $theme_options['blog-single-post-structure'] ) && is_array( $theme_options['blog-single-post-structure'] ) ) {
 		if ( in_array( 'single-title-meta', $theme_options['blog-single-post-structure'] ) && ! in_array( 'single-meta-data', $theme_options['blog-single-post-structure'] ) ) {
-			$position_of_title_meta = array_search( 'single-title-meta', $theme_options['blog-single-post-structure'] );
+			$position_of_title_meta  = array_search( 'single-title-meta', $theme_options['blog-single-post-structure'] );
 			$insert_at_this_position = $position_of_title_meta + 1;
 			array_splice( $theme_options['blog-single-post-structure'], $insert_at_this_position, 0, 'single-meta-data' );
 		}
