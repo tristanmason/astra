@@ -231,7 +231,7 @@ function astra_responsive_footer_background_option() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Footer Widgets Background option migration.
-	if ( ! $theme_options['footer-adv-bg-obj-responsive'] && isset( $theme_options['footer-adv-bg-obj'] ) ) {
+	if ( ! isset( $theme_options['footer-adv-bg-obj-responsive'] ) && isset( $theme_options['footer-adv-bg-obj'] ) ) {
 
 		$theme_options['footer-adv-bg-obj-responsive']['desktop'] = $theme_options['footer-adv-bg-obj'];
 		$theme_options['footer-adv-bg-obj-responsive']['tablet']  = array(
@@ -253,7 +253,7 @@ function astra_responsive_footer_background_option() {
 	}
 
 	// Footer Bar Background option migration.
-	if ( ! $theme_options['footer-bg-obj-responsive'] && isset( $theme_options['footer-bg-obj'] ) ) {
+	if ( ! isset( $theme_options['footer-bg-obj-responsive'] ) && isset( $theme_options['footer-bg-obj'] ) ) {
 
 		$theme_options['footer-bg-obj-responsive']['desktop'] = $theme_options['footer-bg-obj'];
 		$theme_options['footer-bg-obj-responsive']['tablet']  = array(
