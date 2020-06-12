@@ -314,9 +314,7 @@ if ( ! function_exists( 'astra_get_single_post_header' ) ) {
 
 			<?php astra_get_blog_post_thumbnail( 'single' ); ?>
 
-			<?php astra_do_backward_blog_layout_action( 'astra_single_header_bottom' ); ?>
-
-			<?php do_action( 'astra_single_post_header_bottom' ); ?>
+			<?php astra_do_backward_blog_layout_action( 'astra_single_header_bottom', 'astra_single_post_header_bottom' ); ?>
 
 			</header><!-- .entry-header -->
 		<?php

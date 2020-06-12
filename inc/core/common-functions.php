@@ -1470,6 +1470,9 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 /**
  * Render old / new actions based on user status for Blog & Single Posts Layout.
  *
+ * @param  string $old_action   Previous old action which runs in case of backward compatibility.
+ * @param  string $new_action   New replacable action.
+ *
  * @since x.x.x
  */
 function astra_do_backward_blog_layout_action( $old_action = '', $new_action = '' ) {
