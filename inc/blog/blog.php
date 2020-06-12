@@ -269,7 +269,7 @@ if ( ! function_exists( 'astra_render_single_post_markup' ) ) {
 
 					// Single Post Title.
 					case 'single-title-meta':
-						do_action( 'astra_blog_single_title_meta_before' );
+						astra_do_backward_blog_layout_action( 'astra_blog_single_title_meta_before', 'astra_blog_single_post_title_before' );
 						astra_get_single_post_title();
 						do_action( 'astra_blog_single_post_title_after' );
 						break;
@@ -278,7 +278,7 @@ if ( ! function_exists( 'astra_render_single_post_markup' ) ) {
 					case 'single-meta-data':
 						do_action( 'astra_blog_single_post_meta_before' );
 						astra_get_single_post_meta();
-						do_action( 'astra_blog_single_title_meta_after' );
+						astra_do_backward_blog_layout_action( 'astra_blog_single_title_meta_after', 'astra_blog_single_post_meta_after' );
 						break;
 
 					// Single Post Content.
