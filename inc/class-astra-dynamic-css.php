@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
 			// check the selection color incase of empty/no theme color.
-			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '#fff' : $highlight_theme_color;
+			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
 			$css_output = array(
 
