@@ -199,7 +199,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'transition'              => 'all .2s',
 				),
 
-				'.main-header-bar-navigation .menu-item-has-children > .menu-link .sub-arrow:after' => array(
+				'.main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
 					'content' => 'none',
 				),
 
