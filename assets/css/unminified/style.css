@@ -2473,7 +2473,7 @@ body {
   word-wrap: break-word;
 }
 
-.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link .sub-arrow:after {
+.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link:after {
   position: absolute;
   right: 1em;
   top: 50%;
@@ -3279,7 +3279,7 @@ body {
   line-height: 1.45;
 }
 
-.main-header-bar .main-header-bar-navigation .menu-item-has-children > .menu-link .sub-arrow:after {
+.main-header-bar .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
   content: "\e900";
   display: inline-block;
   font-family: 'Astra';
@@ -3459,11 +3459,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 1em 0;
 }
 
-.ast-header-break-point {
-  /* Styling Nav */
-  /* Main Header */
-}
-
 .ast-header-break-point .ast-mobile-header-stack .site-description {
   text-align: center;
 }
@@ -3514,7 +3509,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link .sub-arrow:after {
+.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
   display: none;
 }
 
@@ -3626,12 +3621,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo-link,
 .ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg {
   display: block;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside {
-  /*.ast-search-icon {
-			display: none;
-		}*/
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-menu-buttons {
