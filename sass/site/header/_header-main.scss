@@ -26,6 +26,10 @@
 	align-self: center;
 }
 
+.ast-no-menu-items .main-navigation {
+    display: none;
+}
+
 .ast-menu-toggle {
 	display: none;
 	background: transparent;
