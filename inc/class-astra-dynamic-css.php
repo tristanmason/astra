@@ -713,7 +713,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
-
+				
+				if ( is_singular() ) {
+					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
+					if ( 'disabled' === $display_header ) {
+						$gtn_margin_top = array(
+							'.ast-plain-container.ast-no-sidebar #primary' => array(
+								'margin-top' => '0',
+							),
+						);
+						$parse_css .= astra_parse_css( $gtn_margin_top );
+					}
+				}
 			}
 
 			$static_layout_css = array(
