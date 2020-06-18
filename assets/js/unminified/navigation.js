@@ -311,7 +311,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		/**
 		 * Navigation Keyboard Navigation.
 		 */
-		var container, button, menu, links, subMenus, i, len, count;
+		var container, count;
 
 		container = document.querySelectorAll( '.navigation-accessibility' );
 
