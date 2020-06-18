@@ -2222,7 +2222,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function gtn_group_cover_css_comp() {
 			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['gtn-full-wide-grp-cover-css'] = isset( $astra_settings['gtn-full-wide-grp-cover-css'] ) ? false : true;
-			return apply_filters( 'gtn_group_cover_css_comp', $astra_settings['gtn-full-wide-grp-cover-css'] );
+			return apply_filters( 'astra_gtn_group_cover_css_comp', $astra_settings['gtn-full-wide-grp-cover-css'] );
 		}
 	}
 }
