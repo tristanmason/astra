@@ -678,10 +678,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding-right' => '20px',
 					),
 					// Full Width / Contained - No Sidebar.
-					'.ast-plain-container.ast-no-sidebar .entry-content .wp-block-group.alignwide .wp-block-group__inner-container,
-					.ast-plain-container.ast-no-sidebar .entry-content .wp-block-group.alignfull .wp-block-group__inner-container,
-					.ast-plain-container.ast-no-sidebar .entry-content .wp-block-cover.alignwide .wp-block-cover__inner-container,
-					.ast-plain-container.ast-no-sidebar .entry-content .wp-block-cover.alignfull .wp-block-cover__inner-container' => array(
+					'.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-group__inner-container,
+					.ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-group__inner-container,
+					.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-cover__inner-container,
+					.ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-cover__inner-container' => array(
 						'max-width' => '1240px',
 						'margin-left' => 'auto',
 						'margin-right' => 'auto',
