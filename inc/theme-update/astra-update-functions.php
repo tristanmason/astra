@@ -202,7 +202,6 @@ function astra_responsive_base_background_option() {
 	update_option( 'astra-settings', $theme_options );
 }
 
-
 /**
  * Do not apply new wide/full image CSS for existing users.
  *
