@@ -647,72 +647,47 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$gtn_full_wide_image_css = array(
 					// With container - Sidebar/No Sidebar.
-					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignwide,
-					.ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignwide,
-					.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignwide,
-					.ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignwide,
-					.ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignwide,
-					.ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignwide' => array(
-						'margin-left' => '-20px',
-						'margin-right' => '-20px',
-						'padding-left' => '20px',
+					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignwide, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignwide, .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignwide, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignwide, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignwide, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignwide' => array(
+						'margin-left'   => '-20px',
+						'margin-right'  => '-20px',
+						'padding-left'  => '20px',
 						'padding-right' => '20px',
 					),
-					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignfull,
-					.ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignfull,
-					.ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignfull,
-					.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,
-					.ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull,
-					.ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignfull' => array(
-						'margin-left' => '-6.67em',
-						'margin-right' => '-6.67em',
-						'padding-left' => '6.67em',
+					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignfull, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignfull, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignfull, .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignfull' => array(
+						'margin-left'   => '-6.67em',
+						'margin-right'  => '-6.67em',
+						'padding-left'  => '6.67em',
 						'padding-right' => '6.67em',
 					),
 					// Without container - Sidebar/No Sidebar.
-					'.ast-plain-container.ast-right-sidebar .entry-content .wp-block-group.alignwide,
-					.ast-plain-container.ast-left-sidebar .entry-content .wp-block-group.alignwide,
-					.ast-plain-container.ast-right-sidebar .entry-content .wp-block-group.alignfull,
-					.ast-plain-container.ast-left-sidebar .entry-content .wp-block-group.alignfull' => array(
-						'padding-left' => '20px',
+					'.ast-plain-container.ast-right-sidebar .entry-content .wp-block-group.alignwide, .ast-plain-container.ast-left-sidebar .entry-content .wp-block-group.alignwide, .ast-plain-container.ast-right-sidebar .entry-content .wp-block-group.alignfull, .ast-plain-container.ast-left-sidebar .entry-content .wp-block-group.alignfull' => array(
+						'padding-left'  => '20px',
 						'padding-right' => '20px',
 					),
 					// Full Width / Contained - No Sidebar.
-					'.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-group__inner-container,
-					.ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-group__inner-container,
-					.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-cover__inner-container,
-					.ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-cover__inner-container' => array(
-						'max-width' => '1240px',
-						'margin-left' => 'auto',
-						'margin-right' => 'auto',
-						'padding-left' => '20px',
+					'.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-group__inner-container, .ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-group__inner-container, .ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-cover__inner-container, .ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-cover__inner-container' => array(
+						'max-width'     => '1240px',
+						'margin-left'   => 'auto',
+						'margin-right'  => 'auto',
+						'padding-left'  => '20px',
 						'padding-right' => '20px',
 					),
 					// Full Width / Stretched - No Sidebar.
-					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignwide,
-					.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignfull' => array(
-						'margin-left' => '0',
+					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignfull' => array(
+						'margin-left'  => '0',
 						'margin-right' => '0',
 					),
 					// Cover Image.
-					'.wp-block-cover-image.alignwide .wp-block-cover__inner-container,
-					.wp-block-cover.alignwide .wp-block-cover__inner-container,
-					.wp-block-cover-image.alignfull .wp-block-cover__inner-container,
-					.wp-block-cover.alignfull .wp-block-cover__inner-container' => array(
+					'.wp-block-cover-image.alignwide .wp-block-cover__inner-container, .wp-block-cover.alignwide .wp-block-cover__inner-container, .wp-block-cover-image.alignfull .wp-block-cover__inner-container, .wp-block-cover.alignfull .wp-block-cover__inner-container' => array(
 						'width' => '100%',
 					),
-					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-cover.alignwide,
-					.ast-page-builder-template.ast-left-sidebar .entry-content .wp-block-cover.alignwide,
-					.ast-page-builder-template.ast-right-sidebar .entry-content .wp-block-cover.alignwide,
-					.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-cover.alignfull,
-					.ast-page-builder-template.ast-left-sidebar .entry-content .wp-block-cover.alignfull,
-					.ast-page-builder-template.ast-right-sidebar .entry-content .wp-block-cover.alignful' => array(
+					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-cover.alignwide, .ast-page-builder-template.ast-left-sidebar .entry-content .wp-block-cover.alignwide, .ast-page-builder-template.ast-right-sidebar .entry-content .wp-block-cover.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-cover.alignfull, .ast-page-builder-template.ast-left-sidebar .entry-content .wp-block-cover.alignfull, .ast-page-builder-template.ast-right-sidebar .entry-content .wp-block-cover.alignful' => array(
 						'padding-right' => '0',
-						'padding-left' => '0',
+						'padding-left'  => '0',
 					),
 				);
-				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
-				
+				$parse_css .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
+
 				// Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
 				if ( is_singular() ) {
 					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
@@ -722,7 +697,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 								'margin-top' => '0',
 							),
 						);
-						$parse_css .= astra_parse_css( $gtn_margin_top );
+						$parse_css     .= astra_parse_css( $gtn_margin_top );
 					}
 				}
 			}
