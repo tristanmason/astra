@@ -645,7 +645,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( self::gtn_group_cover_css_comp() ) {
 
-				$gtn_full_wide_image_css = array(
+				$gtn_group_cover_css = array(
 					// With container - Sidebar/No Sidebar.
 					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-group.alignwide, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-group.alignwide, .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignwide, .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignwide, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignwide, .ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignwide' => array(
 						'margin-left'   => '-20px',
@@ -686,7 +686,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding-left'  => '0',
 					),
 				);
-				$parse_css .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
+				$parse_css .= astra_parse_css( $gtn_group_cover_css, '1200' );
 
 				// Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
 				if ( is_singular() ) {
