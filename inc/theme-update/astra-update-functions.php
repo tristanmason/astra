@@ -210,6 +210,7 @@ function astra_responsive_base_background_option() {
  * @return void
  */
 function astra_gtn_full_wide_image_group_css() {
+
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
@@ -227,10 +228,68 @@ function astra_gtn_full_wide_image_group_css() {
  * @return void
  */
 function astra_gtn_full_wide_group_cover_css() {
+
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['gtn-full-wide-grp-cover-css'] ) ) {
 		$theme_options['gtn-full-wide-grp-cover-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
+}
+
+/**
+ * Migrate Footer Bar & Footer Widgets options data from previous background option to its desktop counterpart.
+ * 
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_responsive_footer_background_option() {
+	
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Footer Widgets Background option migration.
+	if ( ! isset( $theme_options['footer-adv-bg-obj-responsive'] ) && isset( $theme_options['footer-adv-bg-obj'] ) ) {
+
+		$theme_options['footer-adv-bg-obj-responsive']['desktop'] = $theme_options['footer-adv-bg-obj'];
+		$theme_options['footer-adv-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['footer-adv-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	// Footer Bar Background option migration.
+	if ( ! isset( $theme_options['footer-bg-obj-responsive'] ) && isset( $theme_options['footer-bg-obj'] ) ) {
+
+		$theme_options['footer-bg-obj-responsive']['desktop'] = $theme_options['footer-bg-obj'];
+		$theme_options['footer-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['footer-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+	update_option( 'astra-settings', $theme_options );
 }
