@@ -239,13 +239,13 @@ function astra_gtn_full_wide_group_cover_css() {
 
 /**
  * Migrate Footer Bar & Footer Widgets options data from previous background option to its desktop counterpart.
- * 
+ *
  * @since x.x.x
  *
  * @return void
  */
 function astra_responsive_footer_background_option() {
-	
+
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Footer Widgets Background option migration.
