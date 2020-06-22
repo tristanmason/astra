@@ -298,6 +298,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
+			// check the selection color incase of empty/no theme color.
+			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
 			$css_output = array(
 
@@ -433,7 +435,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Global CSS.
 				'::selection'                             => array(
 					'background-color' => esc_attr( $theme_color ),
-					'color'            => esc_attr( $highlight_theme_color ),
+					'color'            => esc_attr( $selection_text_color ),
 				),
 
 				// Conditionally select selectors with annchors or withour anchors for text color.
