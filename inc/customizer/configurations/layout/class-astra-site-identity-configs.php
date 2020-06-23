@@ -293,7 +293,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		/**
 		 * Check if transparent header is enabled on the page being previewed.
 		 *
-		 * @since  x.x.x
+		 * @since  2.4.5
 		 * @return boolean True - If Transparent Header is enabled, False if not.
 		 */
 		public function is_transparent_header_enabled() {
@@ -304,7 +304,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		/**
 		 * Help notice message to be displayed when the page that is being previewed has Logo set from Transparent Header.
 		 *
-		 * @since  x.x.x
+		 * @since  2.4.5
 		 * @param String $context Type of notice message to be returned.
 		 * @return String HTML Markup for the help notice.
 		 */
@@ -312,7 +312,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			$notice = '';
 			if ( 'transparent-header' === $context ) {
-				$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>The Logo on this page is set from the Transparent Header. Please click the link below to customize Transparent Header Logo.</p></div>';
+				$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>The Logo on this page is set from the Transparent Header Section. Please click the link below to customize Transparent Header Logo.</p></div>';
 			}
 			return $notice;
 		}
