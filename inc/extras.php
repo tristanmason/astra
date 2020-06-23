@@ -1954,3 +1954,33 @@ function astra_get_hubspot_comp_code() {
 }
 
 add_filter( 'leadin_affiliate_code', 'astra_get_hubspot_comp_code' );
+
+
+/**
+ * Add dropdown icon if menu item has children.
+ *
+ * @since x.x.x
+ *
+ * @param string   $title The menu item title.
+ * @param WP_Post  $item All of our menu item data.
+ * @param stdClass $args All of our menu item args.
+ * @param int      $depth Depth of menu item.
+ * @return string The menu item.
+ */
+function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+	$role     = 'presentation';
+	$tabindex = ' tabindex="0"';
+
+	if ( isset( $args->container_class ) && 'main-header-bar-navigation' === $args->container_class ) {
+		foreach ( $item->classes as $value ) {
+			if ( 'menu-item-has-children' === $value ) {
+				$icon  = Astra_Icons::get_icons( 'arrow' );
+				$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex . '>' . $icon . '</span>';
+			}
+		}
+	}
+
+	return $title;
+}
+
+add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
