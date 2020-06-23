@@ -75,7 +75,6 @@
 
 		.page_item_has_children > a:after,
 		.menu-item-has-children > a:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
