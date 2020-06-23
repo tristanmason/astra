@@ -9,7 +9,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 1.0.0
  */
 
 /**
