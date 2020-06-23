@@ -294,7 +294,7 @@ function astra_responsive_footer_background_option() {
 	update_option( 'astra-settings', $theme_options );
 }
 
-/*
+/**
  * Check if we need to load icons as font or SVG.
  *
  * @since x.x.x
@@ -302,10 +302,10 @@ function astra_responsive_footer_background_option() {
  */
 function astra_icons_svg_compatibility() {
 
-   $theme_options = get_option( 'astra-settings' );
+	$theme_options = get_option( 'astra-settings' );
 
-   if ( ! isset( $theme_options['can-update-astra-icons-svg'] ) ) {
-	   // Set a flag to check if we need to add icons as SVG.
-	   $theme_options['can-update-astra-icons-svg'] = false;
-   }
+	if ( ! isset( $theme_options['can-update-astra-icons-svg'] ) ) {
+		// Set a flag to check if we need to add icons as SVG.
+		$theme_options['can-update-astra-icons-svg'] = false;
+	}
 }
