@@ -559,7 +559,7 @@ module.exports = function (grunt) {
                 // Task-specific options go here.
                 compress: true,
                 cover: function (phpArrayString, destFilePath) {
-                    return '<?php\n/**\n * Google fonts array file.\n *\n * @package     Astra\n * @author      Astra\n * @copyright   Copyright (c) 2020, Astra\n * @link        https://wpastra.com/\n * @since       Astra 2.4.4\n */\n\n/**\n * Returns google fonts array\n *\n * @since 2.4.4\n * @return array\n */\nfunction astra_google_fonts_array() {\nreturn ' + phpArrayString + ';\n}\n\n?>';
+                    return '<?php\n/**\n * Google fonts array file.\n *\n * @package     Astra\n * @author      Astra\n * @copyright   Copyright (c) 2020, Astra\n * @link        https://wpastra.com/\n * @since       Astra 2.5.0\n */\n\n/**\n * Returns google fonts array\n *\n * @since 2.5.0\n */\nreturn ' + phpArrayString + ';\n';
                 }
             },
             your_target: {
