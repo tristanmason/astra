@@ -2463,7 +2463,9 @@ body {
 }
 
 .main-header-menu .sub-menu li.page_item_has_children > a:after,
-.main-header-menu .sub-menu li.menu-item-has-children > a:after {
+.main-header-menu .sub-menu li.menu-item-has-children > a:after,
+.main-header-menu .sub-menu li.page_item_has_children > a .icon-arrow svg,
+.main-header-menu .sub-menu li.menu-item-has-children > a .icon-arrow svg {
   position: absolute;
   left: 1em;
   top: 50%;
