@@ -1606,7 +1606,6 @@ var HeadingComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(HeadingComponent, [{
     key: "render",
     value: function render() {
-      console.log('Working baba');
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Fragment, null, this.props.control.params.label && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
         className: "customize-control-caption"
       }, this.props.control.params.caption), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
@@ -1748,7 +1747,6 @@ var TextComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log('Working baba');
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "astra-control-field astra-text-control"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(TextControl, {

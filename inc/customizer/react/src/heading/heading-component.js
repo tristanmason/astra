@@ -9,7 +9,6 @@ class HeadingComponent extends Component {
 	}
 
 	render() {
-		console.log('Working baba');
 		return (
 			<Fragment>
 				{ this.props.control.params.label && (

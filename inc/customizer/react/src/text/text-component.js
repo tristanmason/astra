@@ -16,7 +16,6 @@ class TextComponent extends Component {
 	}
 
 	render() {
-		console.log('Working baba');
 		return (
 			<div className="astra-control-field astra-text-control">
 				<TextControl
