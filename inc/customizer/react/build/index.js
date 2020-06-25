@@ -1542,7 +1542,7 @@ __webpack_require__.r(__webpack_exports__);
 
 wp.customize.controlConstructor.astra_text_control = _text_control_js__WEBPACK_IMPORTED_MODULE_1__["TextControl"];
 window.addEventListener('load', function () {
-  console.log('EMINEM WORK');
+  console.log('Testing Console.');
 });
 
 /***/ }),
