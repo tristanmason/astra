@@ -66,11 +66,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * That's why adding this CSS fix to headings by setting bottom-margin to 0.
 		 *
 		 * @param  string $dynamic_css Astra Dynamic CSS.
-
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
-
 		 * @return string $dynamic_css Generated CSS.
-		 * 
+		 *
 		 * @since  x.x.x.
 		 */
 		public function enqueue_elementor_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
