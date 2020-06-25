@@ -35,7 +35,7 @@ class Astra_Control_Text extends WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['default']     = $this->default;
+		$this->json['default'] = $this->default;
 	}
 }
 $wp_customize->register_control_type( 'Astra_Control_Text' );
