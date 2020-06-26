@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			/**
 			 * Compatibility for Elementor Headings after Elementor-v2.9.9.
 			 *
-			 * @since  x.x.x.
+			 * @since  2.4.5
 			 */
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ), 10, 2 );
 		}
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string $dynamic_css Generated CSS.
 		 *
-		 * @since  x.x.x.
+		 * @since  2.4.5
 		 */
 		public function enqueue_elementor_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
