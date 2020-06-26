@@ -13,6 +13,7 @@
     "react-select": "^3.0.8",
     "react-sortablejs": "^2.0.9",
     "reactcss": "^1.2.3",
+    "react-html-parser": "^2.0.2",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
