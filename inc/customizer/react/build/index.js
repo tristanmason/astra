@@ -8575,15 +8575,31 @@ var DescriptionComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(DescriptionComponent, [{
     key: "render",
     value: function render() {
+      var htmlLabel = null;
+      var htmlHelp = null;
+      var htmlDescription = null;
+
+      if (this.props.control.params.label) {
+        htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+          className: "customize-control-title"
+        }, this.props.control.params.label);
+      }
+
+      if (this.props.control.params.help) {
+        htmlHelp = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+          className: "ast-description"
+        }, react_html_parser__WEBPACK_IMPORTED_MODULE_7___default()(this.props.control.params.help));
+      }
+
+      if (this.props.control.params.description) {
+        htmlDescription = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+          className: "description customize-control-description"
+        }, this.props.control.params.description);
+      }
+
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("label", {
         className: "customizer-text"
-      }, this.props.control.params.label && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "customize-control-title"
-      }, this.props.control.params.label), this.props.control.params.help && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "ast-description"
-      }, react_html_parser__WEBPACK_IMPORTED_MODULE_7___default()(this.props.control.params.help)), this.props.control.params.description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "description customize-control-description"
-      }, this.props.control.params.description)));
+      }, htmlLabel, htmlHelp, htmlDescription));
     }
   }]);
 
