@@ -1,14 +1,8 @@
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
-
-const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
+import { Component, Fragment } from '@wordpress/element';
 
 class DescriptionComponent extends Component {
-	constructor(props) {
-		super( props );
-	}
-
 	render() {
 		return (
 			<Fragment>

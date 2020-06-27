@@ -1,12 +1,11 @@
-/* global wp */
-import { BaseControl } from './base/control.js';
-import { HeadingControl } from './heading/control.js';
-import { HiddenControl } from './hidden/control.js';
-import { DescriptionControl } from './description/control.js';
+import { BaseControl } from './base/control';
+import { headingControl } from './heading/control';
+import { hiddenControl } from './hidden/control';
+import { descriptionControl } from './description/control';
 
-wp.customize.controlConstructor['ast-heading'] = HeadingControl;
-wp.customize.controlConstructor['ast-hidden'] = HiddenControl;
-wp.customize.controlConstructor['ast-description'] = DescriptionControl;
+wp.customize.controlConstructor['ast-heading'] = headingControl;
+wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
+wp.customize.controlConstructor['ast-description'] = descriptionControl;
 
 window.addEventListener( 'load', () => {
     console.log('Testing Console.');

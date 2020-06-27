@@ -1,17 +1,11 @@
 import PropTypes from 'prop-types';
-
-const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
+import { Component, Fragment } from '@wordpress/element';
 
 class HeadingComponent extends Component {
-	constructor(props) {
-		super( props );
-	}
-
 	render() {
 		return (
 			<Fragment>
-				{ this.props.control.params.label && (
+				{ this.props.control.params.caption && (
 					<span className="customize-control-caption">{ this.props.control.params.caption }</span>
 				) }
 				<div className="ast-heading-wrapper wp-ui-highlight">
