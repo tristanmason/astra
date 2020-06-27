@@ -3,19 +3,25 @@ import { Component, Fragment } from '@wordpress/element';
 
 class HeadingComponent extends Component {
 	render() {
+		let htmlCaption = null;
+		let htmlLabel = null;
+		let htmlDescription = null;
+		if ( this.props.control.params.caption ) {
+			htmlCaption = <span className="customize-control-caption">{ this.props.control.params.caption }</span>;
+		}
+		if ( this.props.control.params.label ) {
+			htmlLabel = <span className="customize-control-title wp-ui-text-highlight">{ this.props.control.params.label }</span>;
+		}
+		if ( this.props.control.params.description ) {
+			htmlDescription = <span className="description customize-control-description">{ this.props.control.params.description }</span>;
+		}
 		return (
 			<Fragment>
-				{ this.props.control.params.caption && (
-					<span className="customize-control-caption">{ this.props.control.params.caption }</span>
-				) }
+				{ htmlCaption }
 				<div className="ast-heading-wrapper wp-ui-highlight">
 					<label className="customizer-text">
-						{ this.props.control.params.label && (
-							<span className="customize-control-title wp-ui-text-highlight">{ this.props.control.params.label }</span>
-						) }
-						{ this.props.control.params.description && (
-							<span className="description customize-control-description">{ this.props.control.params.description }</span>
-						) }
+						{ htmlLabel }
+						{ htmlDescription }
 					</label>
 				</div>
 			</Fragment>

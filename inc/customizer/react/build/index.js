@@ -8674,17 +8674,33 @@ var HeadingComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(HeadingComponent, [{
     key: "render",
     value: function render() {
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, this.props.control.params.caption && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "customize-control-caption"
-      }, this.props.control.params.caption), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
+      var htmlCaption = null;
+      var htmlLabel = null;
+      var htmlDescription = null;
+
+      if (this.props.control.params.caption) {
+        htmlCaption = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+          className: "customize-control-caption"
+        }, this.props.control.params.caption);
+      }
+
+      if (this.props.control.params.label) {
+        htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+          className: "customize-control-title wp-ui-text-highlight"
+        }, this.props.control.params.label);
+      }
+
+      if (this.props.control.params.description) {
+        htmlDescription = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+          className: "description customize-control-description"
+        }, this.props.control.params.description);
+      }
+
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, htmlCaption, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "ast-heading-wrapper wp-ui-highlight"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("label", {
         className: "customizer-text"
-      }, this.props.control.params.label && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "customize-control-title wp-ui-text-highlight"
-      }, this.props.control.params.label), this.props.control.params.description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "description customize-control-description"
-      }, this.props.control.params.description))));
+      }, htmlLabel, htmlDescription)));
     }
   }]);
 
