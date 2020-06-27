@@ -8817,9 +8817,10 @@ var HiddenComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(HiddenComponent, [{
     key: "render",
     value: function render() {
+      var cssClass = "hidden-field-".concat(this.name);
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("input", {
         type: "hidden",
-        className: 'hidden-field-' + this.name,
+        className: cssClass,
         "data-name": this.name,
         value: this.state.value
       });
