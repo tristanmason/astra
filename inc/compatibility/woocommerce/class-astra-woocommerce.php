@@ -1247,6 +1247,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			* if new user load the CSS bty default if existing provide a filter
 			*/
 			if ( self::astra_gbl_btn_woo_comp() ) {
+
 				$woo_global_button_css = array(
 					'.woocommerce a.button , .woocommerce button.button.alt' => array(
 						'border' => '0',
