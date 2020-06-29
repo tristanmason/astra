@@ -8,12 +8,10 @@ class LinkComponent extends Component {
 	constructor(props) {
 		super( props );
 
+		let value = this.props.control.setting.get()
+
 		this.state = {
-			value : {
-				url : this.props.control.params.value.url,
-				new_tab : this.props.control.params.value.new_tab,
-				link_rel : this.props.control.params.value.link_rel
-			}
+			value
 		};
 		
 		this.onUrlChange = this.onUrlChange.bind(this);
@@ -27,7 +25,6 @@ class LinkComponent extends Component {
 		this.props.control.setting.set( this.state.value );
 	}
 	onCheckboxChange( value ) {
-		
 		
 		this.setState( { value : { url: this.state.value.url, new_tab: value, link_rel: this.state.value.link_rel} } )
 		

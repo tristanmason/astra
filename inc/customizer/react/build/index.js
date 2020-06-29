@@ -1850,12 +1850,11 @@ var LinkComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, LinkComponent);
 
     _this = _super.call(this, props);
+
+    var value = _this.props.control.setting.get();
+
     _this.state = {
-      value: {
-        url: _this.props.control.params.value.url,
-        new_tab: _this.props.control.params.value.new_tab,
-        link_rel: _this.props.control.params.value.link_rel
-      }
+      value: value
     };
     _this.onUrlChange = _this.onUrlChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.onCheckboxChange = _this.onCheckboxChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
