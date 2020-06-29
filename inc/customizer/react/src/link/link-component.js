@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 
 const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
-const { TextControl,CheckboxControl } = wp.components;
+const { TextControl, ToggleControl } = wp.components;
 
 class LinkComponent extends Component {
+
 	constructor(props) {
+		
 		super( props );
 
 		let value = this.props.control.setting.get()
@@ -72,11 +74,11 @@ class LinkComponent extends Component {
 					/>
 				</div>
 				<div className="customize-control-content ast-link-open-in-new-tab-wrapper">
-					<CheckboxControl
-						label={ __( 'Open in a New Tab' ) }
-						className="ast-link-open-in-new-tab"
+					<ToggleControl
+						label={  __( 'Open in a New Tab' ) }
 						checked={ new_tab }
-						onChange={ this.onCheckboxChange }
+						className="ast-link-open-in-new-tab"
+						onChange={ ( value ) => this.onCheckboxChange( value ) }
 					/>
 				</div>
 				<div className="customize-control-content">
