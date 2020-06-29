@@ -27,7 +27,7 @@ class LinkComponent extends Component {
 	onCheckboxChange( value ) {
 		
 		this.setState( { value : { url: this.state.value.url, new_tab: value, link_rel: this.state.value.link_rel} } )
-		
+
 		this.props.control.setting.set( this.state.value );
 	}
 	onRelChange ( value ) { 
@@ -44,6 +44,12 @@ class LinkComponent extends Component {
 			settings
 		} = this.props.control.params
 
+		const {
+			url,
+			new_tab,
+			link_rel
+		} = this.state.value
+
 		var name = settings.default;
 		name = name.replace( '[', '-' );
 		name = name.replace( ']', '' );
@@ -58,7 +64,7 @@ class LinkComponent extends Component {
 				) }
 				<div className="customize-control-content">
 					<TextControl
-						value={ this.state.value.url }
+						value={ url }
 						className= { 'ast-link-input' }
 						onChange={ (value) => {
 							this.onUrlChange( value );
@@ -69,7 +75,7 @@ class LinkComponent extends Component {
 					<CheckboxControl
 						label={ __( 'Open in a New Tab' ) }
 						className="ast-link-open-in-new-tab"
-						checked={ this.state.value.new_tab }
+						checked={ new_tab }
 						onChange={ this.onCheckboxChange }
 					/>
 				</div>
@@ -78,7 +84,7 @@ class LinkComponent extends Component {
 						<span className="customize-control-title">{ __( 'Button Link Rel' ) }</span>
 					</label>
 					<TextControl
-						value={ this.state.value.link_rel }
+						value={ link_rel }
 						className= { 'ast-link-relationship' }
 						onChange={ (value) => {
 							this.onRelChange( value );
