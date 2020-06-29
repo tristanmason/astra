@@ -1,13 +1,14 @@
+
 /* global wp */
-import { BaseControl } from './base/control.js';
-import { TextControl } from './text/control.js';
-import { HeadingControl } from './heading/control.js';
-import { HiddenControl } from './hidden/control.js';
+import { BaseControl } from './base/control';
+import { headingControl } from './heading/control';
+import { hiddenControl } from './hidden/control';
+import { descriptionControl } from './description/control';
 import { LinkControl } from './link/control.js';
 
-wp.customize.controlConstructor['astra_text_control'] = TextControl;
-wp.customize.controlConstructor['ast-heading'] = HeadingControl;
-wp.customize.controlConstructor['ast-hidden'] = HiddenControl;
+wp.customize.controlConstructor['ast-heading'] = headingControl;
+wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
+wp.customize.controlConstructor['ast-description'] = descriptionControl;
 wp.customize.controlConstructor['ast-link'] = LinkControl;
 
 window.addEventListener( 'load', () => {

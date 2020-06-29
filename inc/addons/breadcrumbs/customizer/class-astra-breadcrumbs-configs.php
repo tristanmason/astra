@@ -88,19 +88,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Astra Text React
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[text-try]',
-					'default'  => 'none',
-					'section'  => 'section-breadcrumb',
-					'label'    => __( 'Text Try', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'astra_text_control',
-					'priority' => 10,
-				),
-
-				/**
 				 * Option: Breadcrumb Source
 				 */
 				array(
@@ -122,7 +109,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				array(
 					'name'            => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
 					'type'            => 'control',
-					'control'         => 'astra_text_control',
+					'control'         => 'text',
 					'section'         => 'section-breadcrumb',
 					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
 					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
