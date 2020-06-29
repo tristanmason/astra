@@ -734,6 +734,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_shop_archive_width     = astra_get_option( 'shop-archive-width' );
 			$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
 
+			// global button border settings.
+			$global_custom_button_border_size = astra_get_option( 'theme-button-border-group-border-size' );
+			$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
+			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
+
 			$css_output = array(
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
@@ -1236,6 +1241,34 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Parse CSS from array()*/
 			$css_output .= astra_parse_css( $woo_product_css, astra_get_tablet_breakpoint( '', 1 ) );
 
+			/*
+			* global button settings not working for woocommerce button on shop and single page.
+			* check if the current user is existing user or new user.
+			* if new user load the CSS bty default if existing provide a filter
+			*/
+			if ( self::astra_gbl_btn_woo_comp() ) {
+				$woo_global_button_css = array(
+					'.woocommerce a.button , .woocommerce button.button.alt' => array(
+						'border' => '0',
+					),
+				);
+			} else {
+				$woo_global_button_css = array(
+					'.woocommerce a.button , .woocommerce button.button.alt' => array(
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
+						'border-color'        => $btn_border_color,
+						'box-sizing'          => 'border-box',
+					),
+					'.woocommerce a.button:hover , .woocommerce button.button.alt:hover' => array(
+						'border-color' => $btn_border_h_color,
+					),
+				);
+			}
+			$css_output .= astra_parse_css( $woo_global_button_css );
+
 			if ( $is_site_rtl ) {
 				$woo_product_lang_direction_css = array(
 					'.woocommerce.woocommerce-checkout form #customer_details.col2-set, .woocommerce-page.woocommerce-checkout form #customer_details.col2-set' => array(
@@ -1475,6 +1508,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$fragments['a.cart-container'] = ob_get_clean();
 
 			return $fragments;
+		}
+
+		/**
+		 * For existing users, do not load the wide/full width image CSS by default.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function astra_gbl_btn_woo_comp() {
+			$astra_settings                          = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['astra_gbl_btn_woo_css'] = isset( $astra_settings['astra_gbl_btn_woo_css'] ) ? false : true;
+			return apply_filters( 'astra_gbl_btn_woo_comp', $astra_settings['astra_gbl_btn_woo_css'] );
 		}
 
 	}

@@ -219,3 +219,20 @@ function astra_gtn_full_wide_image_group_css() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply the global border width and border color setting for the existng users.
+ *
+ * @since 2.5.0
+ *
+ * @return void
+ */
+function astra_global_button_woo_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['astra_gbl_btn_woo_css'] ) ) {
+		$theme_options['astra_gbl_btn_woo_css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
