@@ -1,27 +1,27 @@
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
-
-const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
+import { Component, Fragment } from '@wordpress/element';
 
 class DescriptionComponent extends Component {
-	constructor(props) {
-		super( props );
-	}
-
 	render() {
+		let htmlLabel = null;
+        let htmlHelp = null;
+		let htmlDescription = null;
+		if ( this.props.control.params.label ) {
+			htmlLabel = <span className="customize-control-title">{ this.props.control.params.label }</span>;
+		}
+		if ( this.props.control.params.help ) {
+			htmlHelp = <span className="ast-description">{ ReactHtmlParser (this.props.control.params.help) }</span>;
+		}
+		if ( this.props.control.params.description ) {
+			htmlDescription = <span className="description customize-control-description">{ this.props.control.params.description }</span>;
+		}
 		return (
 			<Fragment>
                 <label className="customizer-text">
-                    { this.props.control.params.label && (
-                        <span className="customize-control-title">{ this.props.control.params.label }</span>
-                    ) }
-                    { this.props.control.params.help && (
-                        <span className="ast-description">{ ReactHtmlParser (this.props.control.params.help) }</span>
-                    ) }
-                    { this.props.control.params.description && (
-                        <span className="description customize-control-description">{ this.props.control.params.description }</span>
-                    ) }
+                    { htmlLabel }
+                    { htmlHelp }
+                    { htmlDescription }
                 </label>
 			</Fragment>
 		);

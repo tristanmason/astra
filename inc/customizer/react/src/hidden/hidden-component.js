@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-
-const { __ } = wp.i18n;
-const { Component } = wp.element;
+import { Component } from '@wordpress/element';
 
 class HiddenComponent extends Component {
 	constructor(props) {
@@ -15,10 +13,11 @@ class HiddenComponent extends Component {
         this.name = this.name.replace( '[', '-' );
         this.name = this.name.replace( ']', '' );
 	}
-
+      
 	render() {
+            const cssClass = `hidden-field-${ this.name }`;
 		return (
-            <input type='hidden' className={ 'hidden-field-' + this.name } data-name={ this.name } value={ this.state.value }/>
+                  <input type='hidden' className={ cssClass } data-name={ this.name } value={ this.state.value }/>
 		);
     }
 
