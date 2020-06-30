@@ -3,7 +3,7 @@ import SwatchesControl from './swatches';
 import AstraColorPicker from './color-picker';
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { Button, Popover, Dashicon, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, } from '@wordpress/components';
+import { Button, Popover, Dashicon, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker } from '@wordpress/components';
 
 class ColorControl extends Component {
 	constructor(props) {
