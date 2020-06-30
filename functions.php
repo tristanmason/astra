@@ -107,8 +107,7 @@ if ( is_admin() ) {
 	require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-boxes.php';
 }
 
-// BSF Analytics library.
-require_once ASTRA_THEME_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
+require_once ASTRA_THEME_DIR . 'inc/class-bsf-analytics-loader-astra.php';
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
 
