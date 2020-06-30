@@ -22,10 +22,9 @@ class LinkComponent extends Component {
 	}
 	onUrlChange( value ) {
 
-		const obj = { 
+		const obj = {
+			...this.state.value, 
 			url: value,
-			new_tab: this.state.value.new_tab,
-			link_rel: this.state.value.link_rel
 		};
 		this.setState( { value : obj } )
 		this.props.control.setting.set( obj );
@@ -33,9 +32,8 @@ class LinkComponent extends Component {
 	onCheckboxChange() {
 		
 		const obj = { 
-			url: this.state.value.url,
+			...this.state.value,
 			new_tab: event.target.checked,
-			link_rel: this.state.value.link_rel
 		};
 		this.setState( { value : obj } )
 		this.props.control.setting.set( obj );
@@ -44,8 +42,7 @@ class LinkComponent extends Component {
 	onRelChange ( value ) { 
 
 		const obj = { 
-			url: this.state.value.url,
-			new_tab: this.state.value.new_tab,
+			...this.state.value,
 			link_rel: value
 		};
 		this.setState( { value : obj } )
