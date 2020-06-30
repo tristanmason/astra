@@ -1,4 +1,4 @@
-import ColorComponent from './color-component.js';
+import ColorComponent from './color-component';
 
 export const colorControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
