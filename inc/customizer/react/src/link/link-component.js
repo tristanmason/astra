@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
-const { TextControl, ToggleControl } = wp.components;
+const { TextControl } = wp.components;
 
 class LinkComponent extends Component {
 
@@ -30,11 +30,11 @@ class LinkComponent extends Component {
 		this.setState( { value : obj } )
 		this.props.control.setting.set( obj );
 	}
-	onCheckboxChange( value ) {
-
+	onCheckboxChange() {
+		
 		const obj = { 
 			url: this.state.value.url,
-			new_tab: value,
+			new_tab: event.target.checked,
 			link_rel: this.state.value.link_rel
 		};
 		this.setState( { value : obj } )
@@ -88,12 +88,8 @@ class LinkComponent extends Component {
 					/>
 				</div>
 				<div className="customize-control-content ast-link-open-in-new-tab-wrapper">
-					<ToggleControl
-						label={  __( 'Open in a New Tab' ) }
-						checked={ new_tab }
-						className="ast-link-open-in-new-tab"
-						onChange={ ( value ) => this.onCheckboxChange( value ) }
-					/>
+					<input type="checkbox" id="ast-link-open-in-new-tab" className="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" checked={ new_tab } onChange={ () => this.onCheckboxChange() } />
+					<label>{  __( 'Open in a New Tab' ) }</label>
 				</div>
 				<div className="customize-control-content">
 					<label>
