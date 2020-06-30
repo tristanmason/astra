@@ -1,0 +1,337 @@
+ /** Remove Button Color */
+
+.astra-control-field.astra-color-control {
+    display: flex;
+}
+
+.astra-control-field {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.astra-control-field.astra-color-control .customize-control-title {
+    flex-grow: 2;
+}
+.astra-control-field .customize-control-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1px;
+    line-height: 18px;
+}
+.customize-control-title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.75;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.astra-control-field button.components-button.astra-reset:disabled {
+    opacity: 0;
+}
+.astra-control-field button.components-button.astra-reset {
+    height: 18px;
+    padding: 0 5px;
+    margin-right: 0;
+    margin-left: -20px;
+    opacity: 0.5;
+}
+.components-button:disabled, .components-button[aria-disabled="true"] {
+    cursor: default;
+    opacity: 0.3;
+}
+.components-button {
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    background: none;
+    transition: box-shadow 0.1s linear;
+    height: 36px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 8px;
+    overflow: hidden;
+    border-radius: 3px;
+    color: #555d66;
+}
+
+.astra-control-field button.components-button.astra-reset svg {
+    width: 12px;
+    height: 12px;
+}
+svg.dashicon {
+    fill: currentColor;
+    outline: none;
+}
+.components-button svg {
+    fill: currentColor;
+    outline: none;
+}
+
+.astra-color-picker-wrap {
+    margin-left: 5px;
+}
+
+.components-button.astra-color-icon-indicate {
+    height: auto;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.1s ease;
+    border-radius: 50%;
+    padding: 0;
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.components-button {
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    background: none;
+    transition: box-shadow 0.1s linear;
+    height: 36px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 8px;
+    overflow: hidden;
+    border-radius: 3px;
+    color: #555d66;
+}
+
+.components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 0;
+}
+.component-color-indicator {
+    width: 25px;
+    height: 16px;
+    margin-left: 0.8rem;
+    border: 1px solid #dadada;
+    display: inline-block;
+}
+
+/** Color */
+
+.astra-popover-color .components-popover__content {
+    min-width: 240px;
+}
+.astra-popover-color .components-popover__content .components-focal-point-picker-wrapper {
+    box-sizing: border-box;
+}
+.astra-popover-color .components-popover__content .components-focal-point-picker_position-display-container input[type="number"].components-text-control__input {
+    min-height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    width: 50px;
+    font-weight: normal;
+}
+.astra-popover-color .components-popover__content .components-focal-point-picker_position-display-container .components-base-control {
+    flex: 1;
+    margin-bottom: 0;
+}
+.astra-popover-color .components-popover__content .components-focal-point-picker_position-display-container .components-base-control .components-base-control__label {
+    margin-bottom: 0;
+    margin-right: 0.2em;
+}
+.astra-popover-color .components-popover__content .components-focal-point-picker_position-display-container .components-base-control__field {
+    display: flex;
+    align-items: center;
+    font-size: 8px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+}
+.astra-popover-color .components-popover__content .components-focal-point-picker_position-display-container .components-base-control:last-child .components-base-control__field {
+    justify-content: flex-end;
+}
+.astra-popover-color .components-popover__content .actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.astra-popover-color .components-popover__content .actions .button {
+    flex: 1;
+    margin-top: 10px;
+}
+.astra-background-picker-wrap .astra-popover-color .components-popover__content {
+    min-width: 300px;
+    min-height: 340px;
+    max-height: 60vh;
+}
+.components-button.astra-color-icon-indicate {
+    height: auto;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.1s ease;
+    border-radius: 50%;
+    padding: 0;
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 0;
+}
+.components-button.astra-color-icon-indicate:hover {
+    transform: scale(1.1);
+}
+.components-button.astra-background-icon-indicate {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.1s ease;
+    border-radius: 50%;
+    padding: 0;
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    border: 1px solid #dadada;
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.components-button.astra-background-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin: 0;
+    display: block;
+    position: absolute;
+    border: 0;
+    top: 0;
+}
+.components-button.astra-background-icon-indicate > svg.dashicon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.components-button.astra-background-icon-indicate > svg.dashicon path {
+    transform: translate(1px, 1px);
+}
+.components-button.astra-background-icon-indicate img.astra-background-image-preview {
+    display: flex;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+}
+.components-button.astra-background-icon-indicate:hover {
+    box-shadow: none !important;
+}
+.astra-control-field.astra-color-control {
+    display: flex;
+}
+.astra-control-field.astra-color-control .customize-control-title {
+    flex-grow: 2;
+}
+.components-popover.astra-popover-color .components-popover__content {
+    padding: 15px 15px 0px;
+    box-sizing: initial;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
+}
+.components-popover.astra-popover-color .components-popover__content .sketch-picker {
+    padding: 0 0 5px !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+}
+.components-popover.astra-popover-color .components-popover__content .attachment-media-view {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.astra-swatches-wrap .astra-swatche-item-wrap:hover {
+    transform: scale(1.2) !important;
+}
+.astra-swatches-wrap .astra-swatche-item-wrap .astra-swatch-item {
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.astra-swatches-wrap .astra-swatche-item-wrap .astra-swatch-item .dashicon {
+    display: none;
+}
+.astra-swatches-wrap .astra-swatche-item-wrap .astra-swatch-item.swatch-active {
+    box-shadow: 0 0 0 8px inset !important;
+}
+.astra-swatches-wrap .astra-swatche-item-wrap .astra-swatch-item.swatch-active .dashicon {
+    display: block;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+}
+.astra-swatches-wrap .astra-swatche-item-wrap .astra-swatch-item.swatch-active .dashicon path {
+    transform: translate(1px, 1px);
+}
+.components-button.astra-color-icon-indicate > svg.dashicon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.components-button.astra-color-icon-indicate > svg.dashicon path {
+    transform: translate(1px, 1px);
+}
+.astra-color-picker-wrap {
+    margin-left: 5px;
+}
+@media (max-width: 1800px) {
+    .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+        width: 26px;
+        height: 26px;
+    }
+    .astra-palette-colors .astra-color-picker-wrap {
+        margin-left: 2px;
+    }
+    .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
+        padding: 0 2px;
+    }
+    .astra-typography-control .typography-button-wrap > button.components-button {
+        padding: 0 4px;
+    }
+}
+@media (max-width: 1400px) {
+    .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+        width: 22px;
+        height: 22px;
+    }
+}
+.astra-palette-colors .astra-color-picker-wrap:first-child {
+    margin-left: 0;
+}
