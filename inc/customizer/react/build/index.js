@@ -8850,6 +8850,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heading_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./heading/control */ "./src/heading/control.js");
 /* harmony import */ var _hidden_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hidden/control */ "./src/hidden/control.js");
 /* harmony import */ var _description_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./description/control */ "./src/description/control.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module './color/control.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
 
 
 
@@ -8857,6 +8859,7 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.controlConstructor['ast-heading'] = _heading_control__WEBPACK_IMPORTED_MODULE_1__["headingControl"];
 wp.customize.controlConstructor['ast-hidden'] = _hidden_control__WEBPACK_IMPORTED_MODULE_2__["hiddenControl"];
 wp.customize.controlConstructor['ast-description'] = _description_control__WEBPACK_IMPORTED_MODULE_3__["descriptionControl"];
+wp.customize.controlConstructor['ast-color'] = !(function webpackMissingModule() { var e = new Error("Cannot find module './color/control.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 window.addEventListener('load', function () {
   console.log('Testing Console.');
 });
