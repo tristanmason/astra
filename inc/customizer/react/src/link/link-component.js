@@ -7,7 +7,7 @@ const { TextControl, ToggleControl } = wp.components;
 class LinkComponent extends Component {
 
 	constructor(props) {
-		
+
 		super( props );
 
 		let value = this.props.control.setting.get()
@@ -21,22 +21,36 @@ class LinkComponent extends Component {
 		this.onRelChange = this.onRelChange.bind(this);
 	}
 	onUrlChange( value ) {
-		
-		this.setState( { value : { url: value, new_tab: this.state.value.new_tab, link_rel: this.state.value.link_rel} } )
-		
-		this.props.control.setting.set( this.state.value );
+
+		const obj = { 
+			url: value,
+			new_tab: this.state.value.new_tab,
+			link_rel: this.state.value.link_rel
+		};
+		this.setState( { value : obj } )
+		this.props.control.setting.set( obj );
 	}
 	onCheckboxChange( value ) {
-		
-		this.setState( { value : { url: this.state.value.url, new_tab: value, link_rel: this.state.value.link_rel} } )
 
-		this.props.control.setting.set( this.state.value );
+		const obj = { 
+			url: this.state.value.url,
+			new_tab: value,
+			link_rel: this.state.value.link_rel
+		};
+		this.setState( { value : obj } )
+		this.props.control.setting.set( obj );
+		
 	}
 	onRelChange ( value ) { 
-		
-		this.setState( { value : { url: this.state.value.url, new_tab: this.state.value.new_tab, link_rel: value } } )
 
-		this.props.control.setting.set( this.state.value );
+		const obj = { 
+			url: this.state.value.url,
+			new_tab: this.state.value.new_tab,
+			link_rel: value
+		};
+		this.setState( { value : obj } )
+		this.props.control.setting.set( obj );
+		
 	}
 	render() {
 
