@@ -51,7 +51,7 @@ class Astra_Control_Color extends WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['default'] = $this->default;
+		$this->json['default']     = $this->default;
 		$this->json['input_attrs'] = $this->input_attrs;
 	}
 }
