@@ -67,15 +67,18 @@ class LinkComponent extends Component {
 		name = name.replace( '[', '-' );
 		name = name.replace( ']', '' );
 		
+		let labelHtml = null;
+
+		if ( label ) {
+			labelHtml = <label><span className="customize-control-title">{ label }</span></label>
+		}
+
 		return (
 			
 			<Fragment>
 				
-				{ label && (
-					<label>
-						<span className="customize-control-title">{ label }</span>
-					</label>
-				) }
+				{ labelHtml }
+				
 				<div className="customize-control-content">
 					<TextControl
 						value={ url }
