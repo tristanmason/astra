@@ -13,46 +13,39 @@ class DividerComponent extends Component {
             description
         } = this.props.control.params
 
-        const separatorHtml = () => {
-            if( separator ){
-                return <hr />
-            }
-            return null;
-        };
+        let separatorHtml   = null;
+        let captionHtml     = null;
+        let labelHtml       = null;
+        let descriptionHtml = null;
 
-        const captionHtml = () => {
-            if( caption ){
-                return <span className="customize-control-caption">{ caption }</span>
-            }
-            return null;
-        };
+        if( separator ){
+            separatorHtml = <hr />;
+        }
 
-        const labelHtml = () => {
-            if( label ){
-                return <span className="customize-control-title">{ label }</span>
-            }
-            return null;
-        };
+        if( caption ){
+            captionHtml =  <span className="customize-control-caption">{ caption }</span>;
+        }
 
-        const descriptionHtml = () => {
-            if( description ){
-                return <span className="description customize-control-description">{ description }</span>
-            }
-            return null;
-        };
+        if( label ){
+            labelHtml = <span className="customize-control-title">{ label }</span>;
+        }
+
+        if( description ){
+            descriptionHtml = <span className="description customize-control-description">{ description }</span>;
+        }
 
 		return (
 			<Fragment>
 
-                {captionHtml()}
+                { captionHtml }
 
-                {separatorHtml()}
+                { separatorHtml }
 
                 <label className="customizer-text">
 
-                    {labelHtml()}
+                    { labelHtml }
 
-                    {descriptionHtml()}
+                    { descriptionHtml }
 
                 </label>
 
