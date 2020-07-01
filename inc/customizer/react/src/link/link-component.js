@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
-const { TextControl } = wp.components;
+import { __ } from '@wordpress/i18n';
+import { Component, Fragment } from '@wordpress/element';
+import { TextControl } from '@wordpress/components';
 
 class LinkComponent extends Component {
 
@@ -63,13 +63,14 @@ class LinkComponent extends Component {
 			link_rel
 		} = this.state.value
 
-		var name = settings.default;
+		let name = settings.default;
 		name = name.replace( '[', '-' );
 		name = name.replace( ']', '' );
 		
 		return (
 			
 			<Fragment>
+				
 				{ label && (
 					<label>
 						<span className="customize-control-title">{ label }</span>
