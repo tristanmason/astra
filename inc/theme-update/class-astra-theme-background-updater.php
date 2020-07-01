@@ -39,6 +39,19 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.3.0' => array(
 				'astra_header_button_new_options',
 			),
+			'2.3.3' => array(
+				'astra_elementor_default_color_typo_comp',
+			),
+			'2.3.4' => array(
+				'astra_breadcrumb_separator_fix',
+			),
+			'2.4.0' => array(
+				'astra_responsive_base_background_option',
+				'astra_update_theme_tablet_breakpoint',
+			),
+			'2.4.4' => array(
+				'astra_gtn_full_wide_image_group_css',
+			),
 			'2.5.0' => array(
 				'astra_single_page_active_menu_item_compatibility',
 			),

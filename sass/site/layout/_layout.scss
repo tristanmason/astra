@@ -1,5 +1,5 @@
 // class to hide elements
-.hidden {
+.ast-hidden {
 	display: none !important;
 }
 
@@ -25,12 +25,6 @@ body{
 	margin: 4em 0 2.5em;
 	word-break: break-word;
 	line-height: 2;
-
-	@media (max-width: $mx-col-md) {
-		&.secondary {
-			padding-top: 0;
-		}
-	}
 
 	li {
 		margin-bottom: 0.25em;
@@ -74,45 +68,6 @@ body{
 		.ast-article-single {
 		    margin: 0;
 		    padding: 3.34em 2.4em;
-		}
-	}
-	@media (max-width: $mx-col-md) {
-		.ast-article-post,
-		.ast-article-single {
-		    padding: 1.5em 2.14em;
-		}
-		#primary,
-		#secondary{
-			padding: 1.5em 0;
-		}
-		&.ast-right-sidebar{
-			#secondary{
-				padding-left: 1em;
-			}
-		}
-		&.ast-right-sidebar{
-			#secondary{
-				padding-right: 1em;
-			}
-		}
-		&.ast-two-container{
-			#secondary {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-	}
-	@media (max-width: $mx-col-sm) {
-		.ast-article-post,
-		.ast-article-single{
-		    padding: 1.5em 1em;
-		}
-		#content .ast-container{
-			padding-left: 0.54em;
-			padding-right: 0.54em;
-		}
-		#secondary{
-			padding-top: 0;
 		}
 	}
 }
@@ -159,35 +114,17 @@ body{
  		&.ast-no-title.ast-no-meta {
 			margin-bottom: 0;
 		}
-
-		@media (max-width: $mx-col-md) { 
-			margin-top: 1.5em;
-		}
-	}
-	
-	@media (max-width: $mx-col-md) {
-		#secondary {
-			margin-top: 1.5em;
-		}
 	}
 
 	&.ast-left-sidebar {
 		#secondary {
 			padding-left: ($grid-gutter-width / 2);
-
-			@media (max-width: $mx-col-md) {
-				padding-right: ($grid-gutter-width / 2);
-			}
 		}
 	}
 
 	&.ast-right-sidebar {
 		#secondary {
 			padding-right: ($grid-gutter-width / 2);
-
-			@media (max-width: $mx-col-md) {
-				padding-left: ($grid-gutter-width / 2);
-			}
 		}
 	}
 	&.single .post-navigation {
@@ -236,13 +173,13 @@ body{
 }
 
 @media (max-width: $mx-col-lg) {
-	.ast-separate-container{
-		&.ast-right-sidebar #primary,
-		&.ast-left-sidebar #primary,
-		#primary{
-			padding-left:0;
-			padding-right:0;
-		}
+	.ast-separate-container{	
+		&.ast-right-sidebar #primary,	
+		&.ast-left-sidebar #primary,	
+		#primary{	
+			padding-left:0;	
+			padding-right:0;	
+		}	
 	}
 	// Right Sidebar - Spacing Between Primary & Secondary
 	.ast-right-sidebar {
@@ -261,89 +198,6 @@ body{
 		}
 		#secondary {
 			padding-right: $space-between-primary-seconday;
-		}
-	}
-}
-@media (max-width: $mx-col-md) {
-	// Right Sidebar - Spacing Between Primary & Secondary
-	.ast-right-sidebar {
-		#primary {
-			padding-right: 0;
-		}
-		#secondary {
-			padding-left: 0;
-		}
-	}
-
-	// Left Sidebar - Spacing Between Primary & Secondary
-	.ast-left-sidebar {
-		#primary {
-			padding-left: 0;
-		}
-		#secondary {
-			padding-right: 0;
-		}
-	}
-	#primary,
-	#secondary {
-		padding: 1.5em 0;
-		margin: 0;
-	}
-
-	.ast-left-sidebar {
-		#content > .ast-container {
-			display: flex;
-			flex-direction: column-reverse;
-			width: 100%;
-		}
-	}
-}
-
-//plain layout content side border
-@media (min-width: $col-md) {
-	.ast-right-sidebar {
-		#primary {
-			border-right: 1px solid $color-border-content;
-		}
-		#secondary{
-			border-left: 1px solid $color-border-content;
-			margin-left: -1px;
-		}
-	}
-	.ast-left-sidebar {
-		#primary {
-			border-left: 1px solid $color-border-content;
-		}
-		#secondary{
-			border-right: 1px solid $color-border-content;
-			margin-right: -1px;
-		}
-	}
-	.ast-separate-container{
-		&.ast-right-sidebar,
-		&.ast-left-sidebar {
-			#primary {
-				border: 0;
-			}
-			#secondary{
-				border: 0;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-		&.ast-two-container{
-			&.ast-right-sidebar {
-				#secondary {
-					padding-left: $space-between-primary-seconday;
-					padding-right: 0;
-				}
-			}
-			&.ast-left-sidebar {
-				#secondary {
-					padding-right: $space-between-primary-seconday;
-					padding-left: 0;
-				}
-			}
 		}
 	}
 }

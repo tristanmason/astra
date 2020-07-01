@@ -31,7 +31,7 @@
 	wp.customize( 'astra-settings[transparent-header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
-			var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px } ';
+			var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
 
 			dynamicStyle += 'body.ast-theme-transparent-header.ast-desktop .main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
@@ -54,7 +54,7 @@
 			if ( color ) {
 
 				var dynamicStyle = ' body.ast-theme-transparent-header.ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
-					dynamicStyle += ' body.ast-theme-transparent-header.ast-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
+					dynamicStyle += ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-color: ' + color + '; } ';
 
 				astra_add_dynamic_css( 'transparent-header-main-sep-color', dynamicStyle );
 			}
@@ -73,7 +73,7 @@
 	// Primary Menu
 	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-menu-bg-color-responsive]', 'background-color', '.ast-theme-transparent-header .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point.ast-theme-transparent-header .main-header-bar-navigation #site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point.ast-theme-transparent-header .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation' );
 	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-menu-color-responsive]', 'color', '.ast-theme-transparent-header .main-header-menu, .ast-theme-transparent-header .main-header-menu .menu-link,.ast-theme-transparent-header .ast-masthead-custom-menu-items, .ast-theme-transparent-header .ast-masthead-custom-menu-items a,.ast-theme-transparent-header .main-header-menu .menu-item > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .menu-item > .ast-menu-toggle' );
-	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-menu-h-color-responsive]', 'color', '.ast-theme-transparent-header .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item:hover > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-theme-transparent-header .main-header-menu .focus > a, .ast-theme-transparent-header .main-header-menu .focus > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-item > .menu-link, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .menu-link, .ast-theme-transparent-header .main-header-menu .current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .ast-menu-toggle' );
+	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-menu-h-color-responsive]', 'color', '.ast-theme-transparent-header .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item:hover > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-theme-transparent-header .main-header-menu .focus > .menu-link, .ast-theme-transparent-header .main-header-menu .focus > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-item > .menu-link, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .menu-link, .ast-theme-transparent-header .main-header-menu .current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .ast-menu-toggle' );
 	// Primary SubMenu
 	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-submenu-bg-color-responsive]', 'background-color', '.ast-theme-transparent-header .main-header-menu .sub-menu, .ast-header-break-point.ast-theme-transparent-header .main-header-menu .sub-menu' );
 	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-submenu-color-responsive]', 'color', '.ast-theme-transparent-header .main-header-menu .sub-menu .menu-item .menu-link,.ast-theme-transparent-header .main-header-menu .sub-menu .menu-item > .ast-menu-toggle' );
