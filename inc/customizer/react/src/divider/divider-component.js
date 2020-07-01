@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types';
 
-const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
+import { Component, Fragment } from '@wordpress/element';
 
 class DividerComponent extends Component {
-	constructor(props) {
-		super( props );
-	}
 
 	render() {
 
@@ -17,7 +13,6 @@ class DividerComponent extends Component {
             description
         } = this.props.control.params
 
-        console.log(separator);
 		return (
 			<Fragment>
 
