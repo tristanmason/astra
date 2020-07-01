@@ -693,7 +693,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
 				if ( is_singular() ) {
 					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
-					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::get_instance()->is_transparent_header() ) ) {
+					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) ) {
 						$gtn_margin_top = array(
 							'.ast-plain-container.ast-no-sidebar #primary' => array(
 								'margin-top'    => '0',
