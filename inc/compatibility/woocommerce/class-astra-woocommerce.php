@@ -1514,8 +1514,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public static function astra_global_btn_woo_comp() {
 			$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['astra_global_btn_woo_css'] = isset( $astra_settings['astra_global_btn_woo_css'] ) ? false : true;
-			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['astra_global_btn_woo_css'] );
+			$astra_settings['astra-global-btn-woo-css'] = isset( $astra_settings['astra-global-btn-woo-css'] ) ? false : true;
+			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['astra-global-btn-woo-css'] );
 		}
 
 	}
