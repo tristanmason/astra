@@ -1250,12 +1250,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$woo_global_button_css = array(
 					'.woocommerce a.button , .woocommerce button.button.alt' => array(
+						'border'              => 'solid',
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
 						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
 						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
 						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
 						'border-color'        => $btn_border_color,
-						'box-sizing'          => 'border-box',
 					),
 					'.woocommerce a.button:hover , .woocommerce button.button.alt:hover' => array(
 						'border-color' => $btn_border_h_color,
