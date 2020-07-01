@@ -5,17 +5,15 @@ class SettingsGroupComponent extends Component {
 	render() {
 		let htmlLabel = null;
         let htmlHelp = null;
-        console.log('Image Dragons');
-        console.log(this.props.control.params.label);
+        const clickHandler = () => {
+            alert('working');
+        };
 		if ( this.props.control.params.label ) {
-			htmlLabel = <span className="customize-control-title">{ this.props.control.params.label }</span>;
+			htmlLabel = <span className="customize-control-title" onClick={clickHandler} >{ this.props.control.params.label }</span>;
 		}
 		if ( this.props.control.params.help ) {
 			htmlHelp = <span className="ast-description">{ this.props.control.params.help }</span>;
         }
-        const clickHandler = () => {
-            alert('working');
-        };
 		return (
             <Fragment>
                 <div className="ast-toggle-desc-wrap">

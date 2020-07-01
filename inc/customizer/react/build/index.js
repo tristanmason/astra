@@ -8945,12 +8945,15 @@ var SettingsGroupComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var htmlLabel = null;
       var htmlHelp = null;
-      console.log('Image Dragons');
-      console.log(this.props.control.params.label);
+
+      var clickHandler = function clickHandler() {
+        alert('working');
+      };
 
       if (this.props.control.params.label) {
         htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-          className: "customize-control-title"
+          className: "customize-control-title",
+          onClick: clickHandler
         }, this.props.control.params.label);
       }
 
@@ -8959,10 +8962,6 @@ var SettingsGroupComponent = /*#__PURE__*/function (_Component) {
           className: "ast-description"
         }, this.props.control.params.help);
       }
-
-      var clickHandler = function clickHandler() {
-        alert('working');
-      };
 
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "ast-toggle-desc-wrap"
