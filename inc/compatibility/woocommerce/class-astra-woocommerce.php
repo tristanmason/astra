@@ -1246,14 +1246,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			* check if the current user is existing user or new user.
 			* if new user load the CSS bty default if existing provide a filter
 			*/
-			if ( self::astra_gbl_btn_woo_comp() ) {
+			if ( self::astra_global_btn_woo_comp() ) {
 
-				$woo_global_button_css = array(
-					'.woocommerce a.button , .woocommerce button.button.alt' => array(
-						'border' => '0',
-					),
-				);
-			} else {
 				$woo_global_button_css = array(
 					'.woocommerce a.button , .woocommerce button.button.alt' => array(
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
@@ -1267,8 +1261,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'border-color' => $btn_border_h_color,
 					),
 				);
+
+				$css_output .= astra_parse_css( $woo_global_button_css );
 			}
-			$css_output .= astra_parse_css( $woo_global_button_css );
 
 			if ( $is_site_rtl ) {
 				$woo_product_lang_direction_css = array(
@@ -1517,10 +1512,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function astra_gbl_btn_woo_comp() {
-			$astra_settings                          = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['astra_gbl_btn_woo_css'] = isset( $astra_settings['astra_gbl_btn_woo_css'] ) ? false : true;
-			return apply_filters( 'astra_gbl_btn_woo_comp', $astra_settings['astra_gbl_btn_woo_css'] );
+		public static function astra_global_btn_woo_comp() {
+			$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['astra_global_btn_woo_css'] = isset( $astra_settings['astra_global_btn_woo_css'] ) ? false : true;
+			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['astra_global_btn_woo_css'] );
 		}
 
 	}
