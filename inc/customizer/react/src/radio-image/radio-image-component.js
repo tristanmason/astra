@@ -55,11 +55,11 @@ class RadioImageComponent extends Component {
 
 			return (
 				<>
-					<input { ...inputAttrs } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id } checked={ checked } onClick={ () => this.onLayoutChange( key ) } />
+					<input { ...inputAttrs } key={ key } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id } checked={ checked } onChange={ () => this.onLayoutChange( key ) } onClick={ () => this.onLayoutChange( key ) } />
 
-					<label htmlFor={ id } className="ast-radio-img-svg" >
-						<span dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
-						<span className="image-clickable" title={ choices_titles[ key ] } ></span>
+					<label htmlFor={ id } key={ key + id } className="ast-radio-img-svg" >
+						<span key={ key + id } dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
+						<span key={ key } className="image-clickable" title={ choices_titles[ key ] } ></span>
 					</label>
 				</>
 			);
