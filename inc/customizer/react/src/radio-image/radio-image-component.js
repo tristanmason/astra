@@ -16,8 +16,7 @@ class RadioImageComponent extends Component {
 		this.onLayoutChange = this.onLayoutChange.bind(this);
 	}
 
-	onLayoutChange( key ) {
-		console.log(key)
+	onLayoutChange() {
 		this.setState( { value : event.target.value } )
 		this.props.control.setting.set( event.target.value );
 	}
@@ -55,9 +54,9 @@ class RadioImageComponent extends Component {
 
 			return (
 				<>
-					<input { ...inputAttrs } key={ key } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id } checked={ checked } onChange={ () => this.onLayoutChange( key ) } onClick={ () => this.onLayoutChange( key ) } />
+					<input { ...inputAttrs } key={ key } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id + key } checked={ checked } onChange={ () => this.onLayoutChange( key ) } onClick={ () => this.onLayoutChange() } />
 
-					<label htmlFor={ id } key={ key + id } className="ast-radio-img-svg" >
+					<label htmlFor={ id + key } key={ key + id } className="ast-radio-img-svg" >
 						<span key={ key + id } dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
 						<span key={ key } className="image-clickable" title={ choices_titles[ key ] } ></span>
 					</label>
