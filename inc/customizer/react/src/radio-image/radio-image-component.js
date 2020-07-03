@@ -39,12 +39,12 @@ class RadioImageComponent extends Component {
 
 		if ( label ) {
 
-			htmlLabel = <span className="customize-control-title">{ label }</span>;
+			htmlLabel = <span key="label" className="customize-control-title">{ label }</span>;
 		}
 
 		if ( description ) {
 
-			htmlLabel = <span className="description customize-control-description">{ description }</span>;
+			htmlLabel = <span key="description" className="description customize-control-description">{ description }</span>;
 		}
 	
 		htmlRadio = Object.keys( choices ).map( ( key ) => {
@@ -65,10 +65,10 @@ class RadioImageComponent extends Component {
 
 		return (
 			<>
-				<label className="customizer-text">
+				<label key='customizer-text' className="customizer-text">
 					{ htmlLabel }
 				</label>
-				<div id={ `input_${ id }` } className="image" >
+				<div key={ `input_${ id }` } id={ `input_${ id }` } className="image" >
 					
 					{ htmlRadio }
 					
