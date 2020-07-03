@@ -98,8 +98,8 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		}
 
 		$this->json['link'] = $this->get_link();
-		
-		$this->json['id']   = $this->id;
+
+		$this->json['id'] = $this->id;
 
 		$this->json['inputAttrs'] = '';
 		$this->json['labelStyle'] = '';
