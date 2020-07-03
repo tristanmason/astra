@@ -223,7 +223,7 @@ function astra_gtn_full_wide_image_group_css() {
 /**
  * Do not apply the global border width and border color setting for the existng users.
  *
- * @since 2.5.0
+ * @since x.x.x
  *
  * @return void
  */
