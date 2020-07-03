@@ -30,6 +30,8 @@ class RadioImageComponent extends Component {
 			choices,
 			inputAttrs,
 			choices_titles,
+			link,
+			labelStyle
 		} = this.props.control.params
 
 		let htmlLabel = null;
@@ -44,7 +46,7 @@ class RadioImageComponent extends Component {
 
 			htmlLabel = <span className="description customize-control-description">{ description }</span>;
 		}
-		
+	
 		htmlRadio = Object.keys( choices ).map( ( key ) => {
 
 			let checked = ( this.state.value === key ) ? true : false;
@@ -53,7 +55,7 @@ class RadioImageComponent extends Component {
 				<>
 					<input { ...inputAttrs } key={ key } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id + key } checked={ checked } onChange={ () => this.onLayoutChange( key ) } onClick={ () => this.onLayoutChange() } />
 
-					<label htmlFor={ id + key } key={ key + id } className="ast-radio-img-svg" >
+					<label htmlFor={ id + key } { ...labelStyle } key={ key + id } className="ast-radio-img-svg" >
 						<span key={ key + id } dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
 						<span key={ key } className="image-clickable" title={ choices_titles[ key ] } ></span>
 					</label>
