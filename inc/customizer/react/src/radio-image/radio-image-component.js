@@ -29,10 +29,7 @@ class RadioImageComponent extends Component {
 			id,
 			choices,
 			inputAttrs,
-			link,
-			labelStyle,
 			choices_titles,
-			value
 		} = this.props.control.params
 
 		let htmlLabel = null;
