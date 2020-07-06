@@ -186,7 +186,7 @@ class ResponsiveColorComponent extends Component {
 						color={ ( undefined !== this.state.value.desktop && this.state.value.desktop ? this.state.value.desktop : '' ) }
 						usePalette={ true }
 						onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, 'desktop' ) }
-						// allowGradient={ this.controlParams.allowGradient }
+						allowGradient={ this.controlParams.allowGradient }
 					/>
 					</div>
 					<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet">
@@ -197,7 +197,7 @@ class ResponsiveColorComponent extends Component {
 						color={ ( undefined !== this.state.value.tablet && this.state.value.tablet ? this.state.value.tablet : '' ) }
 						usePalette={ true }
 						onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, 'tablet' ) }
-						// allowGradient={ this.controlParams.allowGradient }
+						allowGradient={ this.controlParams.allowGradient }
 					/>
 					</div>
 					<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile">
@@ -208,7 +208,7 @@ class ResponsiveColorComponent extends Component {
 						color={ ( undefined !== this.state.value.mobile && this.state.value.mobile ? this.state.value.mobile : '' ) }
 						usePalette={ true }
 						onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, 'mobile' ) }
-						// allowGradient={ this.controlParams.allowGradient }
+						allowGradient={ this.controlParams.allowGradient }
 					/>
 					</div>
 				</>
