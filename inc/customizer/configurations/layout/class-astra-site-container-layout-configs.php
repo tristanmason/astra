@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'section'    => 'section-container-layout',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Overlay Color Test', 'astra' ),
+					'title'      => __( 'Test Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
