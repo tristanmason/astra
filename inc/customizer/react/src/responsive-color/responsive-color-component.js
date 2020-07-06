@@ -12,17 +12,51 @@ class ResponsiveColorComponent extends Component {
 
 		let value = this.props.control.setting.get();
 
-		const palette = JSON.parse( '{"palette":[{"color":"#000000","slug":"palette1","name":"Palette Color 1"},{"color":"#ffffff","slug":"palette2","name":"Palette Color 2"},{"color":"#dd3333","slug":"palette3","name":"Palette Color 3"},{"color":"#dd9933","slug":"palette4","name":"Palette Color 4"},{"color":"#eeee22","slug":"palette5","name":"Palette Color 5"},{"color":"#81d742","slug":"palette6","name":"Palette Color 6"},{"color":"#1e73be","slug":"palette7","name":"Palette Color 7"},{"color":"#8224e3","slug":"palette8","name":"Palette Color 8"}],"active":"palette"}' );
+		this.defaultValue = this.props.control.params.default;
 
+		let defaultParams = {
+			colors: {
+				color: {
+					palette: true,
+				},
+			},
+			allowGradient: false,
+		};
+
+		this.controlParams = this.props.control.params.input_attrs ? {
+			...defaultParams,
+			...this.props.control.params.input_attrs,
+		} : defaultParams;
+
+		const palette = JSON.parse( '{"palette":[{"color":"#000000","slug":"palette1","name":"Palette Color 1"},{"color":"#ffffff","slug":"palette2","name":"Palette Color 2"},{"color":"#dd3333","slug":"palette3","name":"Palette Color 3"},{"color":"#dd9933","slug":"palette4","name":"Palette Color 4"},{"color":"#eeee22","slug":"palette5","name":"Palette Color 5"},{"color":"#81d742","slug":"palette6","name":"Palette Color 6"},{"color":"#1e73be","slug":"palette7","name":"Palette Color 7"},{"color":"#8224e3","slug":"palette8","name":"Palette Color 8"}],"active":"palette"}' );
+		console.log(this.props.control.params)
 		this.state = {
 			value: value,
 			colorPalette: palette,
 		};
 		
-    }
+	}
+	renderReset ( key ) {
+		return (
+			<span className="customize-control-title">
+				<Fragment>
+					<Button
+						className="reset astra-reset"
+						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+						onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							this.updateValues( value, key );
+						} }
+					>
+						<Dashicon icon='image-rotate' />
+					</Button>
+				</Fragment>
+			</span>
+		)
+	}
 	handleChangeComplete( color, isPalette, key ) {
 		let value;
-		console.log(isPalette);
+		
 		if ( isPalette ) {
 			switch (isPalette) {
 				case 'palette1':
@@ -75,7 +109,6 @@ class ResponsiveColorComponent extends Component {
 		} = this.props.control.params
 
 		let defaultVal = '#RRGGBB';
-		let defaultValueAttr = '';
 		let labelHtml = null;
 		let responsiveHtml = null;
 		let inputHtml = null;
@@ -144,10 +177,11 @@ class ResponsiveColorComponent extends Component {
 
 			inputHtml = (
 				<>
+					
 					<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active">
+					{ this.renderReset( 'desktop' ) }
 					<ColorControl
 						// key={ item }
-						className="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active"
 						presetColors={ this.state.colorPalette }
 						color={ ( undefined !== this.state.value.desktop && this.state.value.desktop ? this.state.value.desktop : '' ) }
 						usePalette={ true }
@@ -156,9 +190,9 @@ class ResponsiveColorComponent extends Component {
 					/>
 					</div>
 					<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet">
+					{ this.renderReset( 'tablet' ) }
 					<ColorControl
 						// key={ item }
-						className="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet"
 						presetColors={ this.state.colorPalette }
 						color={ ( undefined !== this.state.value.tablet && this.state.value.tablet ? this.state.value.tablet : '' ) }
 						usePalette={ true }
@@ -167,9 +201,9 @@ class ResponsiveColorComponent extends Component {
 					/>
 					</div>
 					<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile">
+					{ this.renderReset( 'mobile' ) }
 					<ColorControl
 						// key={ item }
-						className="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile"
 						presetColors={ this.state.colorPalette }
 						color={ ( undefined !== this.state.value.mobile && this.state.value.mobile ? this.state.value.mobile : '' ) }
 						usePalette={ true }
