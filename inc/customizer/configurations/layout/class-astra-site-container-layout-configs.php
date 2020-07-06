@@ -65,7 +65,21 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
 				),
-
+				///////////
+				array(
+					'name'       => 'transparentt-header-bg-color-responsive',
+					'default'    => $defaults['transparent-header-bg-color-responsive'],
+					'section'    => 'section-transparent-header',
+					'type'       => 'control',
+					'priority'   => 1,
+					'section'    => 'section-container-layout',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Overlay Color Test', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+				),
+				////////////////////////
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
 					'type'     => 'control',

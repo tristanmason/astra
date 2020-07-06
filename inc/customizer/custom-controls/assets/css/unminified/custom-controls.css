@@ -907,11 +907,11 @@ input[type="text"].select2-search__field {
   min-height: 30px;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .wp-picker-container.active {
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
   display: block;
 }
 
