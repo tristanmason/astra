@@ -2,6 +2,11 @@
   display: none;
 }
 
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
+  display: inline-block;
+  float: left;
+}
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
   display: block;
 }
