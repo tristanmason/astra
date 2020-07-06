@@ -321,10 +321,6 @@ svg.dashicon {
 }
 
 /** Color */
-
-.astra-popover-color .components-popover__content {
-    min-width: 240px;
-}
 .astra-popover-color .components-popover__content .components-focal-point-picker-wrapper {
     box-sizing: border-box;
 }
@@ -1443,6 +1439,11 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
+  display: inline-block;
+  float: left;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
