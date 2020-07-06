@@ -813,7 +813,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			foreach ( $system_fonts as $name => $variants ) {
 				?>
 
-				<	option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_html( $name ); ?></option>
+				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_html( $name ); ?></option>
 				<?php
 			}
 
