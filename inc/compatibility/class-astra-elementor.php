@@ -88,8 +88,6 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
 
 				$dynamic_css .= $parse_css;
-
-				return $dynamic_css;
 			}
 
 			return $dynamic_css;
