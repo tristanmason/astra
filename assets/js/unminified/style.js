@@ -571,50 +571,58 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	if( astra.active_menu_support ) {
 
+		var primary_header_menu_lists = document.querySelectorAll( '.main-navigation li' );
+
 		// Single page active menu support - Primary Header.
-		if( jQuery('.main-navigation li').length >= 1 ){
+		if( primary_header_menu_lists.length >= 1 ) {
 			var primary_header_href_data = [];
-			jQuery('.main-navigation .menu-item').each(function(i) {
-				var href = jQuery( this ).find( '.menu-link' ).attr( 'href' );
+			primary_header_menu_lists.forEach(function(i) {
+
+				var parent_li = i;
+				var href = parent_li.querySelector('a').getAttribute('href');
+
 				if( href.startsWith( '#' ) ) {
 					primary_header_href_data.push( href );
 				}
 			});
 		}
-		
-		function onMenuScroll() {
 
-			var scrollDistance = jQuery(window).scrollTop();
+		function AstraOnMenuScroll() {
+
+			var  scrollDistance = window.pageYOffset || document.body.scrollTop;
 
 			// Primary header one-page support.
-			if( jQuery('.main-navigation li').length >= 1 ){
+			if( primary_header_menu_lists.length >= 1 ) {
 				var primary_header_element;
 				primary_header_href_data.forEach( function( item ) {
-					var active_element_position = jQuery(item).offset().top;
+					var active_element_position = item.offsetHeight;
 					active_element_position = active_element_position - 40;
 					if( active_element_position - 40 <= scrollDistance ) {
 						primary_header_element = item;
 					}
 				});
 
-				jQuery('.main-navigation .menu-item').each(function(i) {
-					jQuery( this ).removeClass('current-menu-item');
-					if( jQuery( this ).find( '.menu-link' ).attr( 'href' ) == primary_header_element ) {
-						jQuery( this ).addClass( 'current-menu-item' );
+				primary_header_menu_lists.forEach(function(item) {
+
+					item.classList.remove('current-menu-item');
+					if( item.querySelector( '.menu-link' ).getAttribute( 'href' ) == primary_header_element ) {
+						item.classList.add( 'current-menu-item' );
 					}
 					if( undefined == primary_header_element ) {
-						var href = jQuery( this ).find( '.menu-link' ).attr( 'href' );
+
+						var href = item.querySelector('a').getAttribute('href');
+
 						if( ! href.startsWith('#') ) {
-							jQuery( this ).addClass( 'current-menu-item' );
+							item.classList.add( 'current-menu-item' );
 						}
 					}
 				});
 			}
 		}
-		
-		jQuery(window).scroll(function() {
-			onMenuScroll();
-		}).scroll();
+
+		window.addEventListener('scroll', function () {
+			AstraOnMenuScroll();
+		});
 	}	
 	
 } )();
