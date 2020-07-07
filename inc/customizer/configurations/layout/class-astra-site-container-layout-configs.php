@@ -65,6 +65,18 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
 				),
+				/**
+				 * Option: Single Page Content Layout
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layoutt]',
+					'type'     => 'control',
+					'default'  => astra_get_option( 'footer-adv-bg-obj-responsive' ),
+					'control'  => 'ast-responsive-background',
+					'section'  => 'section-container-layout',
+					'priority' => 40,
+					'title'    => __( 'Background', 'astra' ),
+				),
 
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
