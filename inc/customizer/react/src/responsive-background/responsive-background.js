@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component, Fragment } from '@wordpress/element';
-import { Button, Dashicon } from '@wordpress/components';
+import { Button, Dashicon, __experimentalGradientPicker, TabPanel } from '@wordpress/components';
 import ColorControl from '../common/color';
 
 class ResponsiveBackground extends Component {
@@ -28,7 +28,7 @@ class ResponsiveBackground extends Component {
 		} : defaultParams;
 
 		const palette = JSON.parse( '{"palette":[{"color":"#000000","slug":"palette1","name":"Palette Color 1"},{"color":"#ffffff","slug":"palette2","name":"Palette Color 2"},{"color":"#dd3333","slug":"palette3","name":"Palette Color 3"},{"color":"#dd9933","slug":"palette4","name":"Palette Color 4"},{"color":"#eeee22","slug":"palette5","name":"Palette Color 5"},{"color":"#81d742","slug":"palette6","name":"Palette Color 6"},{"color":"#1e73be","slug":"palette7","name":"Palette Color 7"},{"color":"#8224e3","slug":"palette8","name":"Palette Color 8"}],"active":"palette"}' );
-		console.log(this.props.control.setting.get())
+		
 		this.state = {
 			value: value,
 			colorPalette: palette,
@@ -44,7 +44,15 @@ class ResponsiveBackground extends Component {
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							this.updateValues( value, key );
+							let obj = {
+								...this.state.value, 
+							};
+							let deviceObj = {
+								...obj[key]
+							};
+							deviceObj = value
+							obj[key] = deviceObj
+							this.updateValues( obj );
 						} }
 					>
 						<Dashicon icon='image-rotate' />
@@ -53,17 +61,32 @@ class ResponsiveBackground extends Component {
 			</span>
 		)
 	}
+	saveBackgroundType ( value, key ) {
+
+		let obj = {
+			...this.state.value, 
+		};
+		let deviceObj = {
+			...obj[key]
+		};
+		deviceObj['background-type'] = value
+		obj[key] = deviceObj
+
+		this.updateValues( obj );
+	}
 	renderSettings ( key ) {
 		
 		return (
-			<ColorControl
-				// key={ item }
-				presetColors={ this.state.colorPalette }
-				color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] : '' ) }
-				usePalette={ true }
-				onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, key ) }
-				allowGradient={ this.controlParams.allowGradient }
-			/>
+			<>
+				<ColorControl
+					// key={ item }
+					presetColors={ this.state.colorPalette }
+					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] : undefined !== this.state.value[key]['gradient'] && this.state.value[key]['gradient'] ? this.state.value[key]['gradient'] : '' ) }
+					usePalette={ true }
+					onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, key ) }
+					allowGradient={ true }
+				/>
+			</>
 		)
 	}
 	handleChangeComplete( color, isPalette, key ) {
@@ -107,8 +130,40 @@ class ResponsiveBackground extends Component {
 			value = color.hex;
 		}
 		
-        this.updateValues( value, key );
-    }
+		let obj = {
+			...this.state.value, 
+		};
+		let deviceObj = {
+			...obj[key]
+		};
+		deviceObj['background-color'] = value
+		obj[key] = deviceObj
+
+        this.updateValues( obj );
+	}
+	onGradientChangeComplete( gradient, device ) {
+		let value = this.state.value;
+		if ( undefined === value[ device ] ) {
+			value[ device ] = {}
+		}
+		if ( undefined === value[ device ].gradient ) {
+			value[ device ].gradient = '';
+		}
+		if ( undefined === gradient ) {
+			value[ device ].gradient = '';
+		} else {
+			value[ device ].gradient = gradient;
+		}
+		let obj = {
+			...this.state.value, 
+		};
+		let deviceObj = {
+			...obj[device]
+		};
+		deviceObj['gradient'] = gradient
+		obj[key] = deviceObj
+		this.updateValues( obj );
+	}
     render() {
 		
 		const {
@@ -121,6 +176,9 @@ class ResponsiveBackground extends Component {
 		let labelHtml = null;
 		let responsiveHtml = null;
 		let inputHtml = null;
+		let desktop_color = '';
+		let tablet_color = '';
+		let mobile_color = '';
 
 		if ( defaultValue ) {
 
@@ -162,7 +220,7 @@ class ResponsiveBackground extends Component {
 				</li>
 			</ul>
 		)
-
+		
 		inputHtml = (
 			<>
 				<div className="background-wrapper">
@@ -196,17 +254,8 @@ class ResponsiveBackground extends Component {
 			</>
 		);
 	}
-	updateValues( value, key ) {
-
-		let obj = {
-			...this.state.value, 
-		};
-		let desktopObj = {
-			...obj[key]
-		};
-		desktopObj['background-color'] = value
-		obj[key] = desktopObj
-		
+	updateValues( obj ) {
+		// console.log(obj)
 		this.setState( { value : obj } )
 		this.props.control.setting.set( this.state.value );
 	}
