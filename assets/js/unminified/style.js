@@ -575,11 +575,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		// Single page active menu support - Primary Header.
 		if( primary_header_menu_lists.length >= 1 ) {
+
 			var primary_header_href_data = [];
+
 			primary_header_menu_lists.forEach(function(i) {
 
 				var parent_li = i;
-				var href = parent_li.querySelector('a').getAttribute('href');
+				var href = parent_li.querySelector('.menu-link').getAttribute('href');
 
 				if( href.startsWith( '#' ) ) {
 					primary_header_href_data.push( href );
@@ -593,24 +595,34 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			// Primary header one-page support.
 			if( primary_header_menu_lists.length >= 1 ) {
+
 				var primary_header_element;
+
 				primary_header_href_data.forEach( function( item ) {
-					var active_element_position = item.offsetHeight;
-					active_element_position = active_element_position - 40;
-					if( active_element_position - 40 <= scrollDistance ) {
-						primary_header_element = item;
+
+					if( document.querySelector(item) != null ) {
+
+						var active_element_position = document.querySelector(item).offsetTop;
+
+						active_element_position = active_element_position - 40;
+
+						if( active_element_position - 40 <= scrollDistance ) {
+							primary_header_element = item;
+						}
 					}
 				});
 
 				primary_header_menu_lists.forEach(function(item) {
 
 					item.classList.remove('current-menu-item');
+
 					if( item.querySelector( '.menu-link' ).getAttribute( 'href' ) == primary_header_element ) {
 						item.classList.add( 'current-menu-item' );
 					}
+
 					if( undefined == primary_header_element ) {
 
-						var href = item.querySelector('a').getAttribute('href');
+						var href = item.querySelector('.menu-link').getAttribute('href');
 
 						if( ! href.startsWith('#') ) {
 							item.classList.add( 'current-menu-item' );
@@ -621,8 +633,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		window.addEventListener('scroll', function () {
+			/**
+			 * One Page site - Active menu lick support.
+			 */
 			AstraOnMenuScroll();
 		});
-	}	
+	}
 	
 } )();
