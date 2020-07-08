@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { Component, Fragment } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
+import { MediaUpload } from '@wordpress/media-utils';
+
 
 import BackgroundColorControl from '../common/background-color';
 

@@ -32,5 +32,5 @@ export const responsiveBackgroundControl = wp.customize.astraControl.extend( {
 		});
 
 		jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-responsive-color.desktop' ).addClass( 'active' );
-	}
+	},
 } );

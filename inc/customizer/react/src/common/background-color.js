@@ -13,20 +13,22 @@ class BackgroundColorControl extends Component {
 		this.renderImageSettings = this.renderImageSettings.bind( this );
 		this.onRemoveImage = this.onRemoveImage.bind( this );
 		this.onSelectImage = this.onSelectImage.bind( this );
-		
+		this.open = this.open.bind( this );
+
+
 		this.state = {
 			isVisible: false,
 			refresh: false,
 			stateColor: this.props.color,
 			color: this.props.color,
 			media: this.props.media,
+			modalCanClose: true,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
 	}
 
 	render() {
 		const toggleVisible = () => {
-			
 			if ( this.state.refresh === true ) {
 				this.setState( { refresh: false } );
 			} else {
@@ -35,10 +37,17 @@ class BackgroundColorControl extends Component {
 			this.setState( { isVisible: true } );
 		};
 		const toggleClose = () => {
-			if ( this.state.isVisible === true ) {
-				this.setState( { isVisible: false } );
+			if ( this.state.modalCanClose ) {
+				if ( this.state.isVisible === true ) {
+					this.setState( { isVisible: false } );
+				}
+			} else {
+				if ( this.state.isVisible === false ) {
+					this.setState( { isVisible: true } );
+				}
 			}
 		};
+		
         const showingGradient = ( this.props.allowGradient && this.state.supportGradient ? true : false );
         
         let tabs = [
@@ -173,6 +182,10 @@ class BackgroundColorControl extends Component {
 		this.setState( { media: '' } );
 		this.props.onSelectImage( '' );
 	}
+	open( open ) {
+		this.setState( { modalCanClose: false } );
+		open()
+	}
 	renderImageSettings() {
 
 		return ( 
@@ -183,7 +196,7 @@ class BackgroundColorControl extends Component {
 					allowedTypes={ [ "image" ] }
 					value={ ( undefined !== this.state.media && this.state.media ? this.state.media :  '' ) }
 					render={ ( { open } ) => (
-						<Button isDefault onClick={ open }>
+						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
 							{ ! this.state.media ? "Select Background Image"  : "Replace image"  }
 						</Button>
 					) }
