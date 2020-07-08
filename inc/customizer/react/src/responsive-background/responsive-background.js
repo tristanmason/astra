@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { Component, Fragment } from '@wordpress/element';
-import { Button, Dashicon, __experimentalGradientPicker, TabPanel } from '@wordpress/components';
-import ColorControl from '../common/color';
+import { Button, Dashicon } from '@wordpress/components';
+
+import BackgroundColorControl from '../common/background-color';
 
 class ResponsiveBackground extends Component {
 	
@@ -12,26 +13,10 @@ class ResponsiveBackground extends Component {
 		let value = this.props.control.setting.get();
 
 		this.defaultValue = this.props.control.params.default;
-
-		let defaultParams = {
-			colors: {
-				color: {
-					palette: true,
-				},
-			},
-			allowGradient: false,
-		};
-
-		this.controlParams = this.props.control.params.input_attrs ? {
-			...defaultParams,
-			...this.props.control.params.input_attrs,
-		} : defaultParams;
-
-		const palette = JSON.parse( '{"palette":[{"color":"#000000","slug":"palette1","name":"Palette Color 1"},{"color":"#ffffff","slug":"palette2","name":"Palette Color 2"},{"color":"#dd3333","slug":"palette3","name":"Palette Color 3"},{"color":"#dd9933","slug":"palette4","name":"Palette Color 4"},{"color":"#eeee22","slug":"palette5","name":"Palette Color 5"},{"color":"#81d742","slug":"palette6","name":"Palette Color 6"},{"color":"#1e73be","slug":"palette7","name":"Palette Color 7"},{"color":"#8224e3","slug":"palette8","name":"Palette Color 8"}],"active":"palette"}' );
+		this.onSelectImage = this.onSelectImage.bind( this );
 		
 		this.state = {
 			value: value,
-			colorPalette: palette,
 		};
 
 	}
@@ -44,15 +29,8 @@ class ResponsiveBackground extends Component {
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							let obj = {
-								...this.state.value, 
-							};
-							let deviceObj = {
-								...obj[key]
-							};
-							deviceObj = value
-							obj[key] = deviceObj
-							this.updateValues( obj );
+							
+							this.updateValues( value );
 						} }
 					>
 						<Dashicon icon='image-rotate' />
@@ -61,68 +39,40 @@ class ResponsiveBackground extends Component {
 			</span>
 		)
 	}
-	saveBackgroundType ( value, key ) {
-
+	onSelectImage ( media, key ) {
+		// console.log(media)
 		let obj = {
 			...this.state.value, 
 		};
 		let deviceObj = {
 			...obj[key]
 		};
-		deviceObj['background-type'] = value
+		deviceObj['background-image'] = media.url
+		deviceObj['background-media'] = media
 		obj[key] = deviceObj
 
-		this.updateValues( obj );
+        this.updateValues( obj );
 	}
 	renderSettings ( key ) {
 		
 		return (
 			<>
-				<ColorControl
+				<BackgroundColorControl
 					// key={ item }
-					presetColors={ this.state.colorPalette }
-					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] : undefined !== this.state.value[key]['gradient'] && this.state.value[key]['gradient'] ? this.state.value[key]['gradient'] : '' ) }
-					usePalette={ true }
-					onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, key ) }
+					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] :  '' ) }
+					onChangeComplete={ ( color ) => this.handleChangeComplete( color, key ) }
+					media={ ( undefined !== this.state.value[key]['background-media'] && this.state.value[key]['background-media'] ? this.state.value[key]['background-media'] :  '' ) }
+					onSelectImage = { ( media ) => this.onSelectImage( media, key ) }
 					allowGradient={ true }
+					allowImage={ true }
 				/>
 			</>
 		)
 	}
-	handleChangeComplete( color, isPalette, key ) {
+	handleChangeComplete( color, key ) {
 		let value;
 
-		if ( isPalette ) {
-			switch (isPalette) {
-				case 'palette1':
-					isPalette = '#000000'
-					break;
-				case 'palette2':
-					isPalette = '#ffffff'
-					break;
-				case 'palette3':
-					isPalette = '#dd3333'
-					break;
-				case 'palette4':
-					isPalette = '#dd9933'
-					break;
-				case 'palette5':
-					isPalette = '#eeee22'
-					break;
-				case 'palette6':
-					isPalette = '#81d742'
-					break;
-				case 'palette7':
-					isPalette = '#1e73be'
-					break;
-				case 'palette8':
-					isPalette = '#8224e3'
-					break;
-				default:
-					break;
-			}
-			value = isPalette;
-		} else if ( typeof color === 'string' || color instanceof String ) {
+		if ( typeof color === 'string' || color instanceof String ) {
 			value = color;
 		} else if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
 			value = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
@@ -141,29 +91,7 @@ class ResponsiveBackground extends Component {
 
         this.updateValues( obj );
 	}
-	onGradientChangeComplete( gradient, device ) {
-		let value = this.state.value;
-		if ( undefined === value[ device ] ) {
-			value[ device ] = {}
-		}
-		if ( undefined === value[ device ].gradient ) {
-			value[ device ].gradient = '';
-		}
-		if ( undefined === gradient ) {
-			value[ device ].gradient = '';
-		} else {
-			value[ device ].gradient = gradient;
-		}
-		let obj = {
-			...this.state.value, 
-		};
-		let deviceObj = {
-			...obj[device]
-		};
-		deviceObj['gradient'] = gradient
-		obj[key] = deviceObj
-		this.updateValues( obj );
-	}
+	
     render() {
 		
 		const {
@@ -176,9 +104,6 @@ class ResponsiveBackground extends Component {
 		let labelHtml = null;
 		let responsiveHtml = null;
 		let inputHtml = null;
-		let desktop_color = '';
-		let tablet_color = '';
-		let mobile_color = '';
 
 		if ( defaultValue ) {
 
