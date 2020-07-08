@@ -584,6 +584,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-background',
+				array(
+					'callback'          => 'Astra_Control_Background',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'image',
 				array(
 					'callback'          => 'WP_Customize_Image_Control',
@@ -794,7 +802,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			?>
 
-			<option value="inherit"><?php esc_attr_e( 'Default System Font', 'astra' ); ?></option>
+			<option value="inherit"><?php esc_html_e( 'Default System Font', 'astra' ); ?></option>
 			<optgroup label="Other System Fonts">
 
 			<?php
@@ -805,7 +813,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			foreach ( $system_fonts as $name => $variants ) {
 				?>
 
-				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_attr( $name ); ?></option>
+				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_html( $name ); ?></option>
 				<?php
 			}
 
@@ -821,7 +829,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$category = astra_get_prop( $single_font, '1' );
 
 				?>
-				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_attr( $name ); ?></option>
+				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_html( $name ); ?></option>
 
 				<?php
 			}
