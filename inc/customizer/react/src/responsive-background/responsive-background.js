@@ -13,7 +13,7 @@ class ResponsiveBackground extends Component {
 		super( props );
 
 		let value = this.props.control.setting.get();
-
+console.log(value)
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
 		
@@ -55,6 +55,19 @@ class ResponsiveBackground extends Component {
 
         this.updateValues( obj );
 	}
+	onChangeImageOptions( key, value , device ) {
+
+		let obj = {
+			...this.state.value, 
+		};
+		let deviceObj = {
+			...obj[device]
+		};
+		deviceObj[key] = value
+		obj[device] = deviceObj
+
+        this.updateValues( obj );
+	}
 	renderSettings ( key ) {
 		
 		return (
@@ -64,7 +77,12 @@ class ResponsiveBackground extends Component {
 					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] :  '' ) }
 					onChangeComplete={ ( color ) => this.handleChangeComplete( color, key ) }
 					media={ ( undefined !== this.state.value[key]['background-media'] && this.state.value[key]['background-media'] ? this.state.value[key]['background-media'] :  '' ) }
+					backgroundAttachment = { ( undefined !== this.state.value[key]['background-attachment'] && this.state.value[key]['background-attachment'] ? this.state.value[key]['background-attachment'] :  '' ) }
+					backgroundPosition = { ( undefined !== this.state.value[key]['background-position'] && this.state.value[key]['background-position'] ? this.state.value[key]['background-position'] :  '' ) }
+					backgroundRepeat = { ( undefined !== this.state.value[key]['background-repeat'] && this.state.value[key]['background-repeat'] ? this.state.value[key]['background-repeat'] :  '' ) }
+					backgroundSize = { ( undefined !== this.state.value[key]['background-size'] && this.state.value[key]['background-size'] ? this.state.value[key]['background-size'] :  '' ) }
 					onSelectImage = { ( media ) => this.onSelectImage( media, key ) }
+					onChangeImageOptions = { ( mainKey, value ) => this.onSelectImage( mainKey, value, key ) }
 					allowGradient={ true }
 					allowImage={ true }
 				/>

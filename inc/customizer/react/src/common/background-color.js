@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker } from '@wordpress/components';
+import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 class BackgroundColorControl extends Component {
@@ -22,6 +22,10 @@ class BackgroundColorControl extends Component {
 			stateColor: this.props.color,
 			color: this.props.color,
 			media: this.props.media,
+			backgroundAttachment : this.props.backgroundAttachment,
+			backgroundPosition : this.props.backgroundPosition,
+			backgroundRepeat : this.props.backgroundRepeat,
+			backgroundSize : this.props.backgroundSize,
 			modalCanClose: true,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
@@ -186,10 +190,19 @@ class BackgroundColorControl extends Component {
 		this.setState( { modalCanClose: false } );
 		open()
 	}
+	onChangeImageOptions( tempKey, mainkey, value ) {
+		
+		this.setState( { [tempKey]: value } );
+		this.props.onChangeImageOptions( mainkey, value );
+	}
 	renderImageSettings() {
 
 		return ( 
 			<>
+				{ this.state.media &&
+
+					<img src={ this.state.media.url } width="200" height="200" />
+				}
 				<MediaUpload
 					title={ "Select Background Image"  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
@@ -203,9 +216,58 @@ class BackgroundColorControl extends Component {
 				/>
 				
 				{ this.state.media &&
-					( <Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
-						{  "Remove Image" }
-					</Button> )
+					<>
+						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
+							{  "Remove Image" }
+						</Button> 
+
+						<SelectControl
+						label={  "Image Position"  }
+						value={ this.state.backgroundPosition }
+						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
+						options={ [
+							{ value: "top-left", label:  "Top Left"  },
+							{ value: "top-center", label:  "Top Center"  },
+							{ value: "top-right", label:  "Top Right"  },
+							{ value: "center-left", label:  "Center Left"  },
+							{ value: "center-center", label:  "Center Center"  },
+							{ value: "center-right", label:  "Center Right"  },
+							{ value: "bottom-left", label:  "Bottom Left"  },
+							{ value: "bottom-center", label:  "Bottom Center"  },
+							{ value: "bottom-right", label:  "Bottom Right"  },
+						] }
+						/>
+						<SelectControl
+						label={ __( "Attachment" ) }
+						value={ this.state.backgroundAttachment }
+						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
+						options={ [
+							{ value: "fixed", label:  "Fixed"  },
+							{ value: "scroll", label:  "Scroll"  }
+						] }
+						/>
+						<SelectControl
+						label={ __( "Repeat" ) }
+						value={ this.state.backgroundRepeat }
+						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
+						options={ [
+							{ value: "no-repeat", label:  "No Repeat"  },
+							{ value: "repeat", label:  "Repeat"  },
+							{ value: "repeat-x", label:  "Repeat-x"  },
+							{ value: "repeat-y", label:  "Repeat-y"  }
+						] }
+						/>
+						<SelectControl
+						label={ __( "Size" ) }
+						value={ this.state.backgroundSize }
+						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
+						options={ [
+							{ value: "auto", label:  "Auto"  },
+							{ value: "cover", label:  "Cover"  },
+							{ value: "contain", label:  "Contain"  }
+						] }
+						/>
+					</>
 				} 
 			</>
 		)
