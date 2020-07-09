@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component, Fragment } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
-import { MediaUpload } from '@wordpress/media-utils';
-
-
 import BackgroundColorControl from '../common/background-color';
 
 class ResponsiveBackground extends Component {
@@ -13,7 +10,6 @@ class ResponsiveBackground extends Component {
 		super( props );
 
 		let value = this.props.control.setting.get();
-console.log(value)
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
 		
@@ -42,7 +38,7 @@ console.log(value)
 		)
 	}
 	onSelectImage ( media, key ) {
-		// console.log(media)
+
 		let obj = {
 			...this.state.value, 
 		};
@@ -63,10 +59,6 @@ console.log(value)
 		let deviceObj = {
 			...obj[device]
 		};
-		console.log(key)
-		console.log(value)
-
-		console.log(device)
 
 		deviceObj[mainKey] = value
 		obj[device] = deviceObj
@@ -78,7 +70,6 @@ console.log(value)
 		return (
 			<>
 				<BackgroundColorControl
-					// key={ item }
 					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] :  '' ) }
 					onChangeComplete={ ( color ) => this.handleChangeComplete( color, key ) }
 					media={ ( undefined !== this.state.value[key]['background-media'] && this.state.value[key]['background-media'] ? this.state.value[key]['background-media'] :  '' ) }
@@ -205,7 +196,6 @@ console.log(value)
 		);
 	}
 	updateValues( obj ) {
-		// console.log(obj)
 		this.setState( { value : obj } )
 		this.props.control.setting.set( obj );
 	}

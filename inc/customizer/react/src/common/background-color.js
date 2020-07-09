@@ -20,17 +20,22 @@ class BackgroundColorControl extends Component {
 			isVisible: false,
 			refresh: false,
 			color: this.props.color,
-			media: this.props.media,
-			backgroundAttachment : this.props.backgroundAttachment,
-			backgroundPosition : this.props.backgroundPosition,
-			backgroundRepeat : this.props.backgroundRepeat,
-			backgroundSize : this.props.backgroundSize,
 			modalCanClose: true,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
+
+		if ( this.props.allowImage ) {
+
+			this.state['media'] = this.props.media;
+			this.state['backgroundAttachment'] = this.props.backgroundAttachment;
+			this.state['backgroundPosition'] = this.props.backgroundPosition;
+			this.state['backgroundRepeat'] = this.props.backgroundRepeat;
+			this.state['backgroundSize'] = this.props.backgroundSize;
+		}
 	}
 
 	render() {
+
 		const toggleVisible = () => {
 			if ( this.state.refresh === true ) {
 				this.setState( { refresh: false } );
@@ -39,16 +44,13 @@ class BackgroundColorControl extends Component {
 			}
 			this.setState( { isVisible: true } );
 		};
+
 		const toggleClose = () => {
 			if ( this.state.modalCanClose ) {
 				if ( this.state.isVisible === true ) {
 					this.setState( { isVisible: false } );
 				}
-			} else {
-				if ( this.state.isVisible === false ) {
-					this.setState( { isVisible: true } );
-				}
-			}
+			} 
 		};
 		
         const showingGradient = ( this.props.allowGradient && this.state.supportGradient ? true : false );
@@ -63,6 +65,7 @@ class BackgroundColorControl extends Component {
         ];
 
         if ( showingGradient ) {
+
             let gradientTab = {
                 name: 'gradient',
                 title: __( 'Gradient', 'astra-blocks' ),
@@ -70,7 +73,8 @@ class BackgroundColorControl extends Component {
             };
 
             tabs.push( gradientTab )
-        }
+		}
+		
         if ( this.props.allowImage ) {
 
             let imageTab = {
@@ -88,56 +92,80 @@ class BackgroundColorControl extends Component {
                 <Fragment>
                     { this.state.isVisible && (
                         <Popover position="top left" className="astra-popover-color" onClose={ toggleClose }>
-                            <TabPanel className="astra-popover-tabs astra-background-tabs"
-                                activeClass="active-tab"
-                                initialTabName={ ( this.state.color && this.state.color.includes( 'gradient' ) ? 'gradient' : 'color' ) }
-                                tabs={ tabs }>
-                                {
-                                    ( tab ) => {
-                                        let tabout;
-                                        
-                                        if ( tab.name ) {
-                                            if ( 'gradient' === tab.name ) {
-                                                tabout = (
-                                                    <Fragment>
-                                                        <__experimentalGradientPicker
-                                                            value={ this.state.color && this.state.color.includes( 'gradient' ) ? this.state.color : '' }
-                                                            onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
-                                                        />
-                                                    </Fragment>
-                                                );
-                                            }  if ( 'image' === tab.name ) {
-												tabout = (
-													this.renderImageSettings()
-												);
-                                            } else if ( 'color' === tab.name ){
-                                                tabout = (
-                                                    <Fragment>
-                                                        { this.state.refresh && (
-                                                            <Fragment>
-                                                                <ColorPicker
-                                                                    color={ this.state.color }
-                                                                    onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-                                                                />
-                                                            </Fragment>
-                                                        ) }
-                                                        { ! this.state.refresh &&  (
-                                                            <Fragment>
-                                                                <ColorPicker
-                                                                    color={ this.state.color }
-                                                                    onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-                                                                />
-                                                                
-                                                            </Fragment>
-                                                        ) }
-                                                    </Fragment>
-                                                );
-                                            }
-                                        }
-                                        return <div>{ tabout }</div>;
-                                    }
-                                }
-                            </TabPanel>
+							{ 1 < tabs.length && 
+								<TabPanel className="astra-popover-tabs astra-background-tabs"
+									activeClass="active-tab"
+									initialTabName={ ( this.state.color && this.state.color.includes( 'gradient' ) ? 'gradient' : 'color' ) }
+									tabs={ tabs }>
+									{
+										( tab ) => {
+											let tabout;
+											
+											if ( tab.name ) {
+												if ( 'gradient' === tab.name ) {
+													tabout = (
+														<Fragment>
+															<__experimentalGradientPicker
+																value={ this.state.color && this.state.color.includes( 'gradient' ) ? this.state.color : '' }
+																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
+															/>
+														</Fragment>
+													);
+												}  if ( 'image' === tab.name ) {
+													tabout = (
+														this.renderImageSettings()
+													);
+												} else if ( 'color' === tab.name ){
+													tabout = (
+														<Fragment>
+															{ this.state.refresh && (
+																<Fragment>
+																	<ColorPicker
+																		color={ this.state.color }
+																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+																	/>
+																</Fragment>
+															) }
+															{ ! this.state.refresh &&  (
+																<Fragment>
+																	<ColorPicker
+																		color={ this.state.color }
+																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+																	/>
+																	
+																</Fragment>
+															) }
+														</Fragment>
+													);
+												}
+											}
+											return <div>{ tabout }</div>;
+										}
+									}
+								</TabPanel>
+							}
+							{ 1 === tabs.length &&
+							
+								<Fragment>
+									{ this.state.refresh && (
+										<Fragment>
+											<ColorPicker
+												color={ this.state.color }
+												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+											/>
+										</Fragment>
+									) }
+									{ ! this.state.refresh &&  (
+										<Fragment>
+											<ColorPicker
+												color={ this.state.color }
+												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+											/>
+											
+										</Fragment>
+									) }
+								</Fragment>
+							}
                         </Popover>
                     ) }
                 </Fragment>
@@ -155,6 +183,7 @@ class BackgroundColorControl extends Component {
 	}
 
 	onChangeGradientComplete( gradient ) {
+
 		let newColor;
 		if ( undefined === gradient ) {
 			newColor = '';
@@ -164,9 +193,9 @@ class BackgroundColorControl extends Component {
 		this.setState( { color: newColor } );
 		this.props.onChangeComplete( newColor );
 	}
+
 	onChangeComplete( color ) {
-		console.log(color)
-		
+
 		let newColor;
 		if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
 			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
@@ -176,27 +205,32 @@ class BackgroundColorControl extends Component {
 		this.setState( { color: newColor } );
 		this.props.onChangeComplete( color );
 	}
+
 	onSelectImage( media ) {
 
+		this.setState( { modalCanClose: true } );
 		this.setState( { media: media } );
 		this.props.onSelectImage( media );
 	}
+
 	onRemoveImage() {
+
+		this.setState( { modalCanClose: true } );
 		this.setState( { media: '' } );
 		this.props.onSelectImage( '' );
 	}
+
 	open( open ) {
 		this.setState( { modalCanClose: false } );
 		open()
 	}
+
 	onChangeImageOptions( tempKey, mainkey, value ) {
 		
 		this.setState( { [tempKey]: value } );
-		console.log(mainkey)
-		console.log(value)
-
 		this.props.onChangeImageOptions( mainkey, value );
 	}
+
 	renderImageSettings() {
 
 		return ( 
