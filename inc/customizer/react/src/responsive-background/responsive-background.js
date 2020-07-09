@@ -17,6 +17,46 @@ class ResponsiveBackground extends Component {
 			value: value,
 		};
 
+		let devices = [ 'desktop', 'mobile', 'tablet' ];
+
+		for( let device of devices ) {
+
+			this.updateBackgroundType( device );
+		}
+	}
+
+	updateBackgroundType( device ) {
+
+		let obj = {
+			...this.state.value, 
+		};
+
+		if ( undefined === this.state.value[ device ]['background-type']  || '' === this.state.value[ device ]['background-type'] ) {
+
+			let deviceObj = {
+				...obj[ device ]
+			};
+
+			if ( undefined !== this.state.value[ device ]['background-color'] ) {
+
+				deviceObj['background-type'] = 'color';
+				obj[ device ] = deviceObj
+				this.updateValues( obj );
+
+				if ( this.state.value[ device ]['background-color'].includes('gradient') ) {
+					
+					deviceObj['background-type'] = 'gradient';
+					obj[ device ] = deviceObj
+					this.updateValues( obj );
+				}
+			}
+			if ( undefined !== this.state.value[ device ]['background-image'] ) {
+				
+				deviceObj['background-type'] = 'image';
+				obj[ device ] = deviceObj
+				this.updateValues( obj );
+			}
+		}
 	}
 	renderReset ( key ) {
 		return (
@@ -37,7 +77,7 @@ class ResponsiveBackground extends Component {
 			</span>
 		)
 	}
-	onSelectImage ( media, key ) {
+	onSelectImage ( media, key, backgroundType ) {
 
 		let obj = {
 			...this.state.value, 
@@ -47,11 +87,12 @@ class ResponsiveBackground extends Component {
 		};
 		deviceObj['background-image'] = media.url
 		deviceObj['background-media'] = media
+		deviceObj['background-type'] = backgroundType
 		obj[key] = deviceObj
 
         this.updateValues( obj );
 	}
-	onChangeImageOptions( mainKey, value, device ) {
+	onChangeImageOptions( mainKey, value, device, backgroundType ) {
 
 		let obj = {
 			...this.state.value, 
@@ -61,6 +102,7 @@ class ResponsiveBackground extends Component {
 		};
 
 		deviceObj[mainKey] = value
+		deviceObj['background-type'] = backgroundType
 		obj[device] = deviceObj
 
         this.updateValues( obj );
@@ -71,21 +113,22 @@ class ResponsiveBackground extends Component {
 			<>
 				<BackgroundColorControl
 					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] :  '' ) }
-					onChangeComplete={ ( color ) => this.handleChangeComplete( color, key ) }
+					onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key, backgroundType ) }
 					media={ ( undefined !== this.state.value[key]['background-media'] && this.state.value[key]['background-media'] ? this.state.value[key]['background-media'] :  '' ) }
 					backgroundAttachment = { ( undefined !== this.state.value[key]['background-attachment'] && this.state.value[key]['background-attachment'] ? this.state.value[key]['background-attachment'] :  '' ) }
 					backgroundPosition = { ( undefined !== this.state.value[key]['background-position'] && this.state.value[key]['background-position'] ? this.state.value[key]['background-position'] :  '' ) }
 					backgroundRepeat = { ( undefined !== this.state.value[key]['background-repeat'] && this.state.value[key]['background-repeat'] ? this.state.value[key]['background-repeat'] :  '' ) }
 					backgroundSize = { ( undefined !== this.state.value[key]['background-size'] && this.state.value[key]['background-size'] ? this.state.value[key]['background-size'] :  '' ) }
-					onSelectImage = { ( media ) => this.onSelectImage( media, key ) }
-					onChangeImageOptions = { ( mainKey, value ) => this.onChangeImageOptions( mainKey, value, key ) }
+					onSelectImage = { ( media, backgroundType ) => this.onSelectImage( media, key, backgroundType ) }
+					onChangeImageOptions = { ( mainKey, value, backgroundType ) => this.onChangeImageOptions( mainKey, value, key, backgroundType ) }
+					backgroundType = { ( undefined !== this.state.value[key]['background-type'] && this.state.value[key]['background-type'] ? this.state.value[key]['background-type'] :  'color' ) }
 					allowGradient={ true }
 					allowImage={ true }
 				/>
 			</>
 		)
 	}
-	handleChangeComplete( color, key ) {
+	handleChangeComplete( color, key, backgroundType ) {
 		let value;
 
 		if ( typeof color === 'string' || color instanceof String ) {
@@ -103,6 +146,7 @@ class ResponsiveBackground extends Component {
 			...obj[key]
 		};
 		deviceObj['background-color'] = value
+		deviceObj['background-type'] = backgroundType
 		obj[key] = deviceObj
 
         this.updateValues( obj );

@@ -21,6 +21,7 @@ class BackgroundColorControl extends Component {
 			refresh: false,
 			color: this.props.color,
 			modalCanClose: true,
+			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
 
@@ -95,7 +96,7 @@ class BackgroundColorControl extends Component {
 							{ 1 < tabs.length && 
 								<TabPanel className="astra-popover-tabs astra-background-tabs"
 									activeClass="active-tab"
-									initialTabName={ 'color' }
+									initialTabName={ this.state.backgroundType }
 									tabs={ tabs }>
 									{
 										( tab ) => {
@@ -172,10 +173,15 @@ class BackgroundColorControl extends Component {
 
 				<div className="color-button-wrap">
 					<Button className={ 'astra-color-icon-indicate' } onClick={ () => { this.state.isVisible ? toggleClose() : toggleVisible() } }>
-						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
-						{ this.state.isPalette && (
-							<Dashicon icon="admin-site" />
-						) }
+						{ ( 'color' === this.state.backgroundType || 'gradient' === this.state.backgroundType ) &&
+						 <ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
+						}
+						{ 'image' === this.state.backgroundType &&
+							<>
+								<ColorIndicator className="astra-advanced-color-indicate" colorValue='#ffffff' />
+								<Dashicon icon="admin-site" />
+							</>
+						}
 					</Button>
 				</div>
 			</div>
@@ -191,7 +197,8 @@ class BackgroundColorControl extends Component {
 			newColor = gradient;
 		}
 		this.setState( { color: newColor } );
-		this.props.onChangeComplete( newColor );
+		this.setState( { backgroundType: 'gradient' } );
+		this.props.onChangeComplete( newColor, 'gradient' );
 	}
 
 	onChangeComplete( color ) {
@@ -203,14 +210,16 @@ class BackgroundColorControl extends Component {
 			newColor = color.hex;
 		}
 		this.setState( { color: newColor } );
-		this.props.onChangeComplete( color );
+		this.setState( { backgroundType: 'color' } );
+		this.props.onChangeComplete( color, 'color' );
 	}
 
 	onSelectImage( media ) {
 
 		this.setState( { modalCanClose: true } );
 		this.setState( { media: media } );
-		this.props.onSelectImage( media );
+		this.setState( { backgroundType: 'image' } );
+		this.props.onSelectImage( media, 'image' );
 	}
 
 	onRemoveImage() {
@@ -228,7 +237,8 @@ class BackgroundColorControl extends Component {
 	onChangeImageOptions( tempKey, mainkey, value ) {
 		
 		this.setState( { [tempKey]: value } );
-		this.props.onChangeImageOptions( mainkey, value );
+		this.setState( { backgroundType: 'image' } );
+		this.props.onChangeImageOptions( mainkey, value, 'image' );
 	}
 
 	renderImageSettings() {
