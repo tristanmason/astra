@@ -27,6 +27,7 @@ class BackgroundColorControl extends Component {
 
 		if ( this.props.allowImage ) {
 
+			this.state['backgroundImage'] = this.props.backgroundImage;
 			this.state['media'] = this.props.media;
 			this.state['backgroundAttachment'] = this.props.backgroundAttachment;
 			this.state['backgroundPosition'] = this.props.backgroundPosition;
@@ -242,12 +243,12 @@ class BackgroundColorControl extends Component {
 	}
 
 	renderImageSettings() {
-
+		
 		return ( 
 			<>
-				{ this.state.media.url &&
+				{ ( this.state.media.url || this.state.backgroundImage ) &&
 
-					<img src={ this.state.media.url } width="200" height="200" />
+					<img src={ ( this.state.media.url ) ? this.state.media.url : this.state.backgroundImage } width="200" height="200" />
 				}
 				<MediaUpload
 					title={ "Select Background Image"  }
@@ -256,12 +257,12 @@ class BackgroundColorControl extends Component {
 					value={ ( undefined !== this.state.media && this.state.media ? this.state.media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ! this.state.media ? "Select Background Image"  : "Replace image"  }
+							{ ( ! this.state.media && ! this.state.backgroundImage ) ? "Select Background Image"  : "Replace image"  }
 						</Button>
 					) }
 				/>
 				
-				{ this.state.media &&
+				{ ( this.state.media || this.state.backgroundImage ) &&
 					<>
 						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
 							{  "Remove Image" }

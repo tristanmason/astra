@@ -115,6 +115,7 @@ class ResponsiveBackground extends Component {
 					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] :  '' ) }
 					onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key, backgroundType ) }
 					media={ ( undefined !== this.state.value[key]['background-media'] && this.state.value[key]['background-media'] ? this.state.value[key]['background-media'] :  '' ) }
+					backgroundImage = { ( undefined !== this.state.value[key]['background-image'] && this.state.value[key]['background-image'] ? this.state.value[key]['background-image'] :  '' ) }
 					backgroundAttachment = { ( undefined !== this.state.value[key]['background-attachment'] && this.state.value[key]['background-attachment'] ? this.state.value[key]['background-attachment'] :  '' ) }
 					backgroundPosition = { ( undefined !== this.state.value[key]['background-position'] && this.state.value[key]['background-position'] ? this.state.value[key]['background-position'] :  '' ) }
 					backgroundRepeat = { ( undefined !== this.state.value[key]['background-repeat'] && this.state.value[key]['background-repeat'] ? this.state.value[key]['background-repeat'] :  '' ) }
