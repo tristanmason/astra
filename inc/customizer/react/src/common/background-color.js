@@ -95,7 +95,7 @@ class BackgroundColorControl extends Component {
 							{ 1 < tabs.length && 
 								<TabPanel className="astra-popover-tabs astra-background-tabs"
 									activeClass="active-tab"
-									initialTabName={ ( this.state.color && this.state.color.includes( 'gradient' ) ? 'gradient' : 'color' ) }
+									initialTabName={ 'color' }
 									tabs={ tabs }>
 									{
 										( tab ) => {
@@ -145,7 +145,7 @@ class BackgroundColorControl extends Component {
 								</TabPanel>
 							}
 							{ 1 === tabs.length &&
-							
+
 								<Fragment>
 									{ this.state.refresh && (
 										<Fragment>
