@@ -55,7 +55,7 @@ console.log(value)
 
         this.updateValues( obj );
 	}
-	onChangeImageOptions( key, value , device ) {
+	onChangeImageOptions( mainKey, value, device ) {
 
 		let obj = {
 			...this.state.value, 
@@ -63,7 +63,12 @@ console.log(value)
 		let deviceObj = {
 			...obj[device]
 		};
-		deviceObj[key] = value
+		console.log(key)
+		console.log(value)
+
+		console.log(device)
+
+		deviceObj[mainKey] = value
 		obj[device] = deviceObj
 
         this.updateValues( obj );
@@ -82,7 +87,7 @@ console.log(value)
 					backgroundRepeat = { ( undefined !== this.state.value[key]['background-repeat'] && this.state.value[key]['background-repeat'] ? this.state.value[key]['background-repeat'] :  '' ) }
 					backgroundSize = { ( undefined !== this.state.value[key]['background-size'] && this.state.value[key]['background-size'] ? this.state.value[key]['background-size'] :  '' ) }
 					onSelectImage = { ( media ) => this.onSelectImage( media, key ) }
-					onChangeImageOptions = { ( mainKey, value ) => this.onSelectImage( mainKey, value, key ) }
+					onChangeImageOptions = { ( mainKey, value ) => this.onChangeImageOptions( mainKey, value, key ) }
 					allowGradient={ true }
 					allowImage={ true }
 				/>
@@ -202,7 +207,7 @@ console.log(value)
 	updateValues( obj ) {
 		// console.log(obj)
 		this.setState( { value : obj } )
-		this.props.control.setting.set( this.state.value );
+		this.props.control.setting.set( obj );
 	}
 }
 

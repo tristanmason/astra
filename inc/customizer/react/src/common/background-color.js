@@ -19,7 +19,6 @@ class BackgroundColorControl extends Component {
 		this.state = {
 			isVisible: false,
 			refresh: false,
-			stateColor: this.props.color,
 			color: this.props.color,
 			media: this.props.media,
 			backgroundAttachment : this.props.backgroundAttachment,
@@ -193,13 +192,16 @@ class BackgroundColorControl extends Component {
 	onChangeImageOptions( tempKey, mainkey, value ) {
 		
 		this.setState( { [tempKey]: value } );
+		console.log(mainkey)
+		console.log(value)
+
 		this.props.onChangeImageOptions( mainkey, value );
 	}
 	renderImageSettings() {
 
 		return ( 
 			<>
-				{ this.state.media &&
+				{ this.state.media.url &&
 
 					<img src={ this.state.media.url } width="200" height="200" />
 				}
