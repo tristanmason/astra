@@ -61,20 +61,6 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Footer widget Background
-				 */
-				array(
-					'name'      => 'footer-adv-bg-obj-responsive',
-					'parent'    => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
-					'section'   => 'section-footer-adv',
-					'type'      => 'sub-control',
-					'control'   => 'ast-responsive-background',
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'footer-adv-bg-obj-responsive' ),
-					'label'     => __( 'Background', 'astra' ),
-				),
-
-				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
@@ -143,6 +129,19 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'control' => 'ast-color',
 					'title'   => __( 'Link Color', 'astra' ),
 					'default' => '',
+				),
+
+				/**
+				 * Option: Footer widget Background
+				 */
+				array(
+					'name'    => 'footer-adv-bg-obj',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'section' => 'section-footer-adv',
+					'control' => 'ast-background',
+					'default' => astra_get_option( 'footer-adv-bg-obj' ),
+					'label'   => __( 'Background', 'astra' ),
 				),
 			);
 
