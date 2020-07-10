@@ -502,6 +502,8 @@ svg.dashicon {
 }
 .astra-color-picker-wrap {
     margin-right: 5px;
+    display: inline-block;
+    float: left;
 }
 @media (max-width: 1800px) {
     .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
@@ -851,10 +853,6 @@ svg.dashicon {
 }
 
 /** Color */
-
-.astra-popover-color .components-popover__content {
-    min-width: 240px;
-}
 .astra-popover-color .components-popover__content .components-focal-point-picker-wrapper {
     box-sizing: border-box;
 }
@@ -1036,6 +1034,8 @@ svg.dashicon {
 }
 .astra-color-picker-wrap {
     margin-right: 5px;
+    display: inline-block;
+    float: left;
 }
 @media (max-width: 1800px) {
     .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {

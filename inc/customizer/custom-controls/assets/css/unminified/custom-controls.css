@@ -502,6 +502,8 @@ svg.dashicon {
 }
 .astra-color-picker-wrap {
     margin-left: 5px;
+    display: inline-block;
+    float: right;
 }
 @media (max-width: 1800px) {
     .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
