@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
-import { Button, Dashicon } from '@wordpress/components';;
+import { Button, Dashicon } from '@wordpress/components';
 import BackgroundColorControl from '../common/background-color';
 
 class ColorComponent extends Component {
@@ -12,7 +12,6 @@ class ColorComponent extends Component {
 		this.updateValues = this.updateValues.bind( this );
 		this.renderReset = this.renderReset.bind( this );
 
-		
 		let value = this.props.control.setting.get();
 		
 		this.defaultValue = this.props.control.params.default;
@@ -30,8 +29,7 @@ class ColorComponent extends Component {
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							this.setState( { value : value } )
-							this.props.control.setting.set( value );
+							this.updateValues( value )
 						} }
 					>
 						<Dashicon icon='image-rotate' />
