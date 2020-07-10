@@ -17,8 +17,8 @@ class Background extends Component {
 		this.state = {
 			value: value,
 		};
-		console.log(this.state.value)
-		// this.updateBackgroundType();
+		
+		this.updateBackgroundType();
 	}
 
 	updateBackgroundType() {
@@ -191,7 +191,6 @@ class Background extends Component {
 	}
 	updateValues( obj ) {
 		this.setState( { value : obj } )
-		console.log(this.state.value)
 		this.props.control.setting.set( obj );
 	}
 }
