@@ -72,7 +72,7 @@ class Background extends Component {
 		let obj = {
 			...this.state.value, 
 		};
-		obj['background-media'] = media
+		obj['background-media'] = media.id
 		obj['background-image'] = media.url
 		
 		obj['background-type'] = backgroundType
