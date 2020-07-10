@@ -7,7 +7,7 @@ import PickerFields from './color-picker-fields'
 export const AstraColorPicker = ({ rgb, hex, hsv, hsl, onChange, renderers }) => {
   const styles = {
 	picker: {
-		width: 200,
+		width: 300,
 		position: 'relative',
 		marginBottom: 10,
 	},
@@ -32,7 +32,7 @@ export const AstraColorPicker = ({ rgb, hex, hsv, hsl, onChange, renderers }) =>
 		paddingLeft: 10,
 	},
 	body: {
-		padding: '10px 10px',
+		padding: '10px 0',
 	},
 	controls: {
 		display: 'flex',

@@ -23,8 +23,8 @@ export const SwatchesControl = ( { colors, isPalette, onClick = () => {}, circle
 			const key = `${c.color}${c.slug || ''}`
 			return (
 				<div key={ key } style={ {
-					width: 20,
-					height: 20,
+					width: circleSize,
+					height: circleSize,
 					marginBottom: 0,
 					transform: 'scale(1)',
 					transition: '100ms transform ease',
