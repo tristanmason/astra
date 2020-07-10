@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 class BackgroundColorControl extends Component {
 
-	constructor(props) {
+	constructor( props ) {
+		
 		super( props );
 		this.onChangeComplete = this.onChangeComplete.bind( this );
 		this.onChangeGradientComplete = this.onChangeGradientComplete.bind( this );
@@ -105,7 +106,7 @@ class BackgroundColorControl extends Component {
 		return (
 			<div className="astra-color-picker-wrap">
 				
-                <Fragment>
+                <>
                     { isVisible && (
                         <Popover position="top left" className="astra-popover-color" onClose={ toggleClose }>
 							{ 1 < tabs.length && 
@@ -120,12 +121,12 @@ class BackgroundColorControl extends Component {
 											if ( tab.name ) {
 												if ( 'gradient' === tab.name ) {
 													tabout = (
-														<Fragment>
+														<>
 															<__experimentalGradientPicker
 																value={ color && color.includes( 'gradient' ) ? color : '' }
 																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 															/>
-														</Fragment>
+														</>
 													);
 												}  if ( 'image' === tab.name ) {
 													tabout = (
@@ -133,25 +134,25 @@ class BackgroundColorControl extends Component {
 													);
 												} else if ( 'color' === tab.name ){
 													tabout = (
-														<Fragment>
+														<>
 															{ refresh && (
-																<Fragment>
+																<>
 																	<ColorPicker
 																		color={ color }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
-																</Fragment>
+																</>
 															) }
 															{ ! refresh &&  (
-																<Fragment>
+																<>
 																	<ColorPicker
 																		color={ color }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																	
-																</Fragment>
+																</>
 															) }
-														</Fragment>
+														</>
 													);
 												}
 											}
@@ -162,29 +163,29 @@ class BackgroundColorControl extends Component {
 							}
 							{ 1 === tabs.length &&
 
-								<Fragment>
+								<>
 									{ refresh && (
-										<Fragment>
+										<>
 											<ColorPicker
 												color={ color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
-										</Fragment>
+										</>
 									) }
 									{ ! refresh &&  (
-										<Fragment>
+										<>
 											<ColorPicker
 												color={ color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 											
-										</Fragment>
+										</>
 									) }
-								</Fragment>
+								</>
 							}
                         </Popover>
                     ) }
-                </Fragment>
+                </>
 
 				<div className="color-button-wrap">
 					<Button className={ 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
