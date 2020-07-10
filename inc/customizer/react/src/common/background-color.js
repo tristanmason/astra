@@ -38,8 +38,22 @@ class BackgroundColorControl extends Component {
 
 	render() {
 
+		const {
+			refresh,
+			modalCanClose,
+			isVisible,
+			supportGradient,
+			backgroundType,
+			color
+		} = this.state
+
+		const {
+			allowGradient,
+			allowImage
+		} = this.props
+
 		const toggleVisible = () => {
-			if ( this.state.refresh === true ) {
+			if ( refresh === true ) {
 				this.setState( { refresh: false } );
 			} else {
 				this.setState( { refresh: true } );
@@ -48,14 +62,14 @@ class BackgroundColorControl extends Component {
 		};
 
 		const toggleClose = () => {
-			if ( this.state.modalCanClose ) {
-				if ( this.state.isVisible === true ) {
+			if ( modalCanClose ) {
+				if ( isVisible === true ) {
 					this.setState( { isVisible: false } );
 				}
 			} 
 		};
 		
-        const showingGradient = ( this.props.allowGradient && this.state.supportGradient ? true : false );
+        const showingGradient = ( allowGradient && supportGradient ? true : false );
         
         let tabs = [
             {
@@ -77,7 +91,7 @@ class BackgroundColorControl extends Component {
             tabs.push( gradientTab )
 		}
 		
-        if ( this.props.allowImage ) {
+        if ( allowImage ) {
 
             let imageTab = {
                 name: 'image',
@@ -92,12 +106,12 @@ class BackgroundColorControl extends Component {
 			<div className="astra-color-picker-wrap">
 				
                 <Fragment>
-                    { this.state.isVisible && (
+                    { isVisible && (
                         <Popover position="top left" className="astra-popover-color" onClose={ toggleClose }>
 							{ 1 < tabs.length && 
 								<TabPanel className="astra-popover-tabs astra-background-tabs"
 									activeClass="active-tab"
-									initialTabName={ this.state.backgroundType }
+									initialTabName={ backgroundType }
 									tabs={ tabs }>
 									{
 										( tab ) => {
@@ -108,7 +122,7 @@ class BackgroundColorControl extends Component {
 													tabout = (
 														<Fragment>
 															<__experimentalGradientPicker
-																value={ this.state.color && this.state.color.includes( 'gradient' ) ? this.state.color : '' }
+																value={ color && color.includes( 'gradient' ) ? color : '' }
 																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 															/>
 														</Fragment>
@@ -120,18 +134,18 @@ class BackgroundColorControl extends Component {
 												} else if ( 'color' === tab.name ){
 													tabout = (
 														<Fragment>
-															{ this.state.refresh && (
+															{ refresh && (
 																<Fragment>
 																	<ColorPicker
-																		color={ this.state.color }
+																		color={ color }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																</Fragment>
 															) }
-															{ ! this.state.refresh &&  (
+															{ ! refresh &&  (
 																<Fragment>
 																	<ColorPicker
-																		color={ this.state.color }
+																		color={ color }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																	
@@ -149,18 +163,18 @@ class BackgroundColorControl extends Component {
 							{ 1 === tabs.length &&
 
 								<Fragment>
-									{ this.state.refresh && (
+									{ refresh && (
 										<Fragment>
 											<ColorPicker
-												color={ this.state.color }
+												color={ color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</Fragment>
 									) }
-									{ ! this.state.refresh &&  (
+									{ ! refresh &&  (
 										<Fragment>
 											<ColorPicker
-												color={ this.state.color }
+												color={ color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 											
@@ -173,11 +187,11 @@ class BackgroundColorControl extends Component {
                 </Fragment>
 
 				<div className="color-button-wrap">
-					<Button className={ 'astra-color-icon-indicate' } onClick={ () => { this.state.isVisible ? toggleClose() : toggleVisible() } }>
-						{ ( 'color' === this.state.backgroundType || 'gradient' === this.state.backgroundType ) &&
+					<Button className={ 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
+						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&
 						 <ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
 						}
-						{ 'image' === this.state.backgroundType &&
+						{ 'image' === backgroundType &&
 							<>
 								<ColorIndicator className="astra-advanced-color-indicate" colorValue='#ffffff' />
 								<Dashicon icon="admin-site" />
@@ -244,25 +258,34 @@ class BackgroundColorControl extends Component {
 
 	renderImageSettings() {
 		
+		const {
+			media,
+			backgroundImage,
+			backgroundPosition,
+			backgroundAttachment,
+			backgroundRepeat,
+			backgroundSize
+		} = this.state
+
 		return ( 
 			<>
-				{ ( this.state.media.url || this.state.backgroundImage ) &&
+				{ ( media.url || backgroundImage ) &&
 
-					<img src={ ( this.state.media.url ) ? this.state.media.url : this.state.backgroundImage } width="200" height="200" />
+					<img src={ ( media.url ) ? media.url : backgroundImage } width="200" height="200" />
 				}
 				<MediaUpload
 					title={ "Select Background Image"  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
 					allowedTypes={ [ "image" ] }
-					value={ ( undefined !== this.state.media && this.state.media ? this.state.media :  '' ) }
+					value={ ( undefined !== media && media ? media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ( ! this.state.media && ! this.state.backgroundImage ) ? "Select Background Image"  : "Replace image"  }
+							{ ( ! media && ! backgroundImage ) ? "Select Background Image"  : "Replace image"  }
 						</Button>
 					) }
 				/>
 				
-				{ ( this.state.media || this.state.backgroundImage ) &&
+				{ ( media || backgroundImage ) &&
 					<>
 						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
 							{  "Remove Image" }
@@ -270,7 +293,7 @@ class BackgroundColorControl extends Component {
 
 						<SelectControl
 						label={  "Image Position"  }
-						value={ this.state.backgroundPosition }
+						value={ backgroundPosition }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
 						options={ [
 							{ value: "top-left", label:  "Top Left"  },
@@ -286,7 +309,7 @@ class BackgroundColorControl extends Component {
 						/>
 						<SelectControl
 						label={ __( "Attachment" ) }
-						value={ this.state.backgroundAttachment }
+						value={ backgroundAttachment }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
 						options={ [
 							{ value: "fixed", label:  "Fixed"  },
@@ -295,7 +318,7 @@ class BackgroundColorControl extends Component {
 						/>
 						<SelectControl
 						label={ __( "Repeat" ) }
-						value={ this.state.backgroundRepeat }
+						value={ backgroundRepeat }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
 						options={ [
 							{ value: "no-repeat", label:  "No Repeat"  },
@@ -306,7 +329,7 @@ class BackgroundColorControl extends Component {
 						/>
 						<SelectControl
 						label={ __( "Size" ) }
-						value={ this.state.backgroundSize }
+						value={ backgroundSize }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
 						options={ [
 							{ value: "auto", label:  "Auto"  },
