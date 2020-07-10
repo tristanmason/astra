@@ -332,13 +332,6 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 })(jQuery);
 
 ( function( $ ) {
-	jQuery(window).on("load", function() {
-		jQuery('html').addClass('responsive-background-color-ready');
-	});
-	
-})(jQuery);
-
-( function( $ ) {
 
 	/**
 	 * File slider.js
