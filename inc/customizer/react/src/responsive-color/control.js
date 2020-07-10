@@ -12,6 +12,18 @@ export const responsiveColorControl = wp.customize.astraControl.extend( {
 
 		'use strict';
 
+		jQuery('html').addClass('responsive-background-color-ready');
+
+		let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
+
+		jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha' ).removeClass( 'active' );
+
+		jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.' + device ).addClass( 'active' );
+
+		jQuery( '.customize-control-ast-responsive-color .ast-responsive-btns li' ).removeClass( 'active' );
+
+		jQuery( '.customize-control-ast-responsive-color .ast-responsive-btns li.' + device ).addClass( 'active' );
+
 		jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
 			var device = jQuery(this).attr('data-device');
@@ -33,8 +45,6 @@ export const responsiveColorControl = wp.customize.astraControl.extend( {
 
 			jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
 		});
-
-		jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-responsive-color.desktop' ).addClass( 'active' );
 	},
 
 } );

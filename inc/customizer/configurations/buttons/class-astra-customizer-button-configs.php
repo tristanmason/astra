@@ -47,6 +47,18 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'priority' => 17,
 					'settings' => array(),
 				),
+				array(
+					'name'       => 'breadcrumbb-bg-color',
+					'type'       => 'control',
+					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
+					'section'    => 'section-buttons',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Color Resp', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 5,
+				),
 				/**
 				 * Group: Theme Button Colors Group
 				 */
