@@ -47,6 +47,15 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'priority' => 17,
 					'settings' => array(),
 				),
+				array(
+					'control'  => 'ast-background',
+					'name'     => 'sidebar-bg-objjjj',
+					'type'     => 'control',
+					'priority' => 7,
+					'section'  => 'section-buttons',
+					'default'  => astra_get_option( 'sidebar-bgg-objjjj' ),
+					'label'    => __( 'Background test', 'astra-addon' ),
+				),
 				/**
 				 * Group: Theme Button Colors Group
 				 */
