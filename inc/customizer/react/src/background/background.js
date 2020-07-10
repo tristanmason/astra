@@ -48,7 +48,7 @@ class Background extends Component {
 			}
 		}
 	}
-	renderReset ( key ) {
+	renderReset () {
 		return (
 			<span className="customize-control-title">
 				<>
@@ -84,7 +84,7 @@ class Background extends Component {
 		let obj = {
 			...this.state.value, 
 		};
-
+		
 		obj[mainKey] = value
 		obj['background-type'] = backgroundType
 
@@ -143,7 +143,6 @@ class Background extends Component {
 
 		let defaultVal = '#RRGGBB';
 		let labelHtml = null;
-		let responsiveHtml = null;
 		let inputHtml = null;
 
 		if ( defaultValue ) {
@@ -192,6 +191,7 @@ class Background extends Component {
 	}
 	updateValues( obj ) {
 		this.setState( { value : obj } )
+		console.log(this.state.value)
 		this.props.control.setting.set( obj );
 	}
 }
