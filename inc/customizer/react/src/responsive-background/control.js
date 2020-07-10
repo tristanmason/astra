@@ -9,6 +9,8 @@ export const responsiveBackgroundControl = wp.customize.astraControl.extend( {
 
 		'use strict';
 
+		jQuery('html').addClass('responsive-background-img-ready');
+		
 		let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
 
 		jQuery( '.customize-control-ast-responsive-background .customize-control-content .background-container' ).removeClass( 'active' );

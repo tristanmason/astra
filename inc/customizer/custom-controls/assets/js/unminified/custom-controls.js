@@ -445,9 +445,6 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 	});
 })(jQuery);
 
-jQuery(window).on("load", function() {
-	jQuery('html').addClass('responsive-background-img-ready');
-});
 ( function( $ ) {
 
 	/**
