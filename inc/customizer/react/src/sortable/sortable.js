@@ -33,7 +33,7 @@ class SortableComponent extends Component {
 			if ( choices[ choiceID ] ) { 
 				
 				var html = ( 
-					<li { ...inputAttrs } className='ast-sortable-item' data-value={ choiceID } >
+					<li { ...inputAttrs } key={ choiceID } className='ast-sortable-item' data-value={ choiceID } >
 						<i className='dashicons dashicons-menu'></i>
 						<i className="dashicons dashicons-visibility visibility"></i>
 						{ choices[ choiceID ] }
@@ -49,7 +49,7 @@ class SortableComponent extends Component {
 			if ( Array.isArray( value ) && -1 === value.indexOf( choiceID ) ) { 
 				
 				var html = ( 
-					<li { ...inputAttrs } className='ast-sortable-item invisible' data-value={ choiceID }>
+					<li { ...inputAttrs } key={ choiceID } className='ast-sortable-item invisible' data-value={ choiceID }>
 						<i className='dashicons dashicons-menu'></i>
 						<i className="dashicons dashicons-visibility visibility"></i>
 						{ choices[ choiceID ] }
