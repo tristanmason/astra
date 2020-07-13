@@ -616,6 +616,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'background-position'   => 'center center',
 					'background-size'       => 'auto',
 					'background-attachment' => 'scroll',
+					'background-media'      => '',
+					'background-type'       => '',
 				),
 				'tablet'  => array(
 					'background-color'      => '',
@@ -624,6 +626,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'background-position'   => 'center center',
 					'background-size'       => 'auto',
 					'background-attachment' => 'scroll',
+					'background-media'      => '',
+					'background-type'       => '',
 				),
 				'mobile'  => array(
 					'background-color'      => '',
@@ -632,6 +636,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'background-position'   => 'center center',
 					'background-size'       => 'auto',
 					'background-attachment' => 'scroll',
+					'background-media'      => '',
+					'background-type'       => '',
 				),
 			);
 

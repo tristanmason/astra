@@ -86,7 +86,7 @@ class ResponsiveBackground extends Component {
 			...obj[key]
 		};
 		deviceObj['background-image'] = media.url
-		deviceObj['background-media'] = media
+		deviceObj['background-media'] = media.id
 		deviceObj['background-type'] = backgroundType
 		obj[key] = deviceObj
 
