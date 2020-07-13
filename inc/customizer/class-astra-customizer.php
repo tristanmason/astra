@@ -499,7 +499,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-radio-image',
 				array(
 					'callback'          => 'Astra_Control_Radio_Image',
-					// 'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				)
 			);
 
