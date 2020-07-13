@@ -9115,7 +9115,6 @@ var RadioImageComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, RadioImageComponent);
 
     _this = _super.call(this, props);
-    console.log('Working Baba');
 
     var value = _this.props.control.setting.get();
 
