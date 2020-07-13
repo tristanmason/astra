@@ -59,7 +59,7 @@ class RadioImageComponent extends Component {
 					</label>
 				</Fragment>
 			);
-		})
+		});
 
 		return (
 			<Fragment>
