@@ -129,7 +129,14 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_json_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				/**
+				 * Deprecating the Filter to change the Google Fonts JSON file path.
+				 *
+				 * @since x.x.x
+				 * @param string $json_file File where google fonts json format added.
+				 * @return array
+				 */
+				$google_fonts_json_file = astra_apply_filters_deprecated( 'astra_google_fonts_json_file', array( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json', '' ), '2.5.0', false, '`astra_google_fonts_php_file`. Please check this doc for more information - ' );
 				$google_fonts_file      = apply_filters( 'astra_google_fonts_php_file', ASTRA_THEME_DIR . 'inc/google-fonts.php' );
 
 				if ( ! file_exists( $google_fonts_file ) ) {
