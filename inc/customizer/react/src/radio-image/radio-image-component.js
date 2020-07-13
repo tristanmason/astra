@@ -17,7 +17,6 @@ class RadioImageComponent extends Component {
 
 	onLayoutChange() {
 		this.setState( { value : event.target.value } );
-		console.log(typeof event.target.value);
 		this.props.control.setting.set( event.target.value );
 	}
 
