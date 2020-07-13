@@ -9021,8 +9021,8 @@ __webpack_require__.r(__webpack_exports__);
 
 wp.customize.controlConstructor['ast-heading'] = _heading_control__WEBPACK_IMPORTED_MODULE_1__["headingControl"];
 wp.customize.controlConstructor['ast-hidden'] = _hidden_control__WEBPACK_IMPORTED_MODULE_2__["hiddenControl"];
-wp.customize.controlConstructor['ast-description'] = _description_control__WEBPACK_IMPORTED_MODULE_3__["descriptionControl"]; // wp.customize.controlConstructor['ast-radio-image'] = radioImageControl;
-
+wp.customize.controlConstructor['ast-description'] = _description_control__WEBPACK_IMPORTED_MODULE_3__["descriptionControl"];
+wp.customize.controlConstructor['ast-radio-image'] = _radio_image_control__WEBPACK_IMPORTED_MODULE_4__["radioImageControl"];
 window.addEventListener('load', function () {
   console.log('Testing Console.');
 });
@@ -9115,10 +9115,10 @@ var RadioImageComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, RadioImageComponent);
 
     _this = _super.call(this, props);
+    console.log('Working Baba');
 
     var value = _this.props.control.setting.get();
 
-    console.log(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_2___default()(value));
     _this.state = {
       value: value
     };

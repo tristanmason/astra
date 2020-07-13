@@ -7,7 +7,7 @@ import { radioImageControl } from './radio-image/control';
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
 wp.customize.controlConstructor['ast-description'] = descriptionControl;
-// wp.customize.controlConstructor['ast-radio-image'] = radioImageControl;
+wp.customize.controlConstructor['ast-radio-image'] = radioImageControl;
 
 window.addEventListener( 'load', () => {
     console.log('Testing Console.');

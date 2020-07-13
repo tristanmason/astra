@@ -6,9 +6,9 @@ class RadioImageComponent extends Component {
 	constructor(props) {
 
 		super( props );
-
+		console.log('Working Baba');
 		let value = this.props.control.setting.get()
-		console.log(typeof value);
+
 		this.state = {
 			value
 		};
