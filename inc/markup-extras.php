@@ -9,7 +9,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -881,7 +881,7 @@ add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
  * As we are replacing tag based selector assets to class selector, adding 'menu-link' selector to all anchors inside menu items.
  * Ex. .main-header-menu a => .main-header-menu .menu-link
  *
- * @since x.x.x
+ * @since 2.5.0
  * @param array $atts   An array of all parameters assigned to menu anchors.
  */
 function astra_menu_anchor_class_for_nav_menus( $atts ) {
@@ -896,7 +896,7 @@ add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' 
  *
  * As we are replacing tag based selector to class selector, adding 'menu-link' selector to all anchors inside menu items.
  *
- * @since x.x.x
+ * @since 2.5.0
  * @param array $atts   An array of all parameters assigned to menu anchors.
  */
 function astra_menu_anchor_class_for_page_menus( $atts ) {
