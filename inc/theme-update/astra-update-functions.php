@@ -248,8 +248,8 @@ function astra_global_button_woo_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['astra-global-btn-woo-css'] ) ) {
-		$theme_options['astra-global-btn-woo-css'] = false;
+	if ( ! isset( $theme_options['global-btn-woo-css'] ) ) {
+		$theme_options['global-btn-woo-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

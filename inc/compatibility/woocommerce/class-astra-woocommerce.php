@@ -1472,7 +1472,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						if ( apply_filters( 'astra_woo_default_header_cart_icon', true ) ) {
 							?>
 							<div class="ast-cart-menu-wrap">
-								<span class="count"> 
+								<span class="count">
 									<?php
 									if ( apply_filters( 'astra_woo_header_cart_total', true ) && null != WC()->cart ) {
 										echo WC()->cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1514,8 +1514,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public static function astra_global_btn_woo_comp() {
 			$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['astra-global-btn-woo-css'] = isset( $astra_settings['astra-global-btn-woo-css'] ) ? false : true;
-			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['astra-global-btn-woo-css'] );
+			$astra_settings['global-btn-woo-css'] = isset( $astra_settings['global-btn-woo-css'] ) ? false : true;
+			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['global-btn-woo-css'] );
 		}
 
 	}
