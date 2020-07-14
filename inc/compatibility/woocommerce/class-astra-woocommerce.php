@@ -1513,7 +1513,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function astra_global_btn_woo_comp() {
-			$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['global-btn-woo-css'] = isset( $astra_settings['global-btn-woo-css'] ) ? false : true;
 			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['global-btn-woo-css'] );
 		}
