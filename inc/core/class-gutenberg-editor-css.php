@@ -483,7 +483,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
-			if ( self::astra_global_btn_woo_comp() ) {
+			if ( Astra_Woocommerce::astra_global_btn_woo_comp() ) {
 
 				$woo_global_button_css = array(
 					'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
@@ -702,19 +702,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			return $css;
-		}
-
-
-		/**
-		 * For existing users, do not load the wide/full width image CSS by default.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user , true if not.
-		 */
-		public static function astra_global_btn_woo_comp() {
-			$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['global-btn-woo-css'] = isset( $astra_settings['global-btn-woo-css'] ) ? false : true;
-			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['global-btn-woo-css'] );
 		}
 
 	}
