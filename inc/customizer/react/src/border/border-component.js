@@ -14,20 +14,63 @@ class BorderComponent extends Component {
 		};
 
 		this.onBorderChange = this.onBorderChange.bind(this);
+		this.onConnectedClick = this.onConnectedClick.bind(this);
+		this.onDisconnectedClick = this.onDisconnectedClick.bind(this);
 	}
 
 	onBorderChange ( key ) {
 		
+		const {
+			choices,
+		} = this.props.control.params
+
 		let updateState = {
 			...this.state.value
 		}
 
-		updateState[ key ] = event.target.value;
+		if ( ! event.target.classList.contains( 'connected' ) ) {
+
+			updateState[ key ] = event.target.value;
+
+		} else {
+
+			for ( let choiceID in choices ) {
+				updateState[ choiceID ] = event.target.value;
+			}
+		}
 
 		this.setState( { value : updateState } )
 		this.props.control.setting.set( updateState );
-	}
 
+	}
+	onConnectedClick () {
+
+		let parent = event.target.parentElement.parentElement;
+
+		let inputs = parent.querySelectorAll( '.ast-border-input' );
+
+		for ( let i = 0; i < inputs.length; i++ ) {
+
+			inputs[i].classList.remove( 'connected' );
+			inputs[i].setAttribute( 'data-element-connect', '' )
+		}
+		event.target.parentElement.classList.remove( 'disconnected' );	
+	}
+	onDisconnectedClick () {
+
+		let elements = event.target.dataset.elementConnect;
+
+		let parent = event.target.parentElement.parentElement;
+
+		let inputs = parent.querySelectorAll( '.ast-border-input' );
+
+		for ( let i = 0; i < inputs.length; i++ ) {
+
+			inputs[i].classList.add( 'connected' );
+			inputs[i].setAttribute( 'data-element-connect', elements )
+		}
+		event.target.parentElement.classList.add( 'disconnected' );		
+	}
 	render() {
 
 		const {
@@ -57,8 +100,8 @@ class BorderComponent extends Component {
 		if ( linked_choices ) {
 			htmlLinkedChoices = (
 				<li key={ id } className="ast-border-input-item-link">
-					<span className="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" data-element-connect={ id } title={ itemLinkDesc }></span>
-					<span className="dashicons dashicons-editor-unlink ast-border-disconnected" data-element-connect={ id } title={ itemLinkDesc }></span>
+					<span className="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" onClick = { () => { this.onConnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
+					<span className="dashicons dashicons-editor-unlink ast-border-disconnected" onClick = { () => { this.onDisconnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
 				</li>
 			);
 		}
