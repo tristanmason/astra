@@ -21,6 +21,7 @@ class ResponsiveSpacingComponent extends Component {
 		this.onConnectedClick = this.onConnectedClick.bind(this);
 		this.onDisconnectedClick = this.onDisconnectedClick.bind(this);
 	}
+
 	onConnectedClick () {
 
 		let parent = event.target.parentElement.parentElement;
@@ -34,6 +35,7 @@ class ResponsiveSpacingComponent extends Component {
 		}
 		event.target.parentElement.classList.remove( 'disconnected' );	
 	}
+
 	onDisconnectedClick () {
 
 		let elements = event.target.dataset.elementConnect;
@@ -89,7 +91,7 @@ class ResponsiveSpacingComponent extends Component {
 	renderResponsiveInput( device ) {
 		
 		return(
-			<input type='hidden' onChange = { () => this.onUnitChange( device, '' ) } className={ `ast-spacing-unit-input ast-spacing-${ device }-unit` } data-device={ `${ device }` } value={ this.state.value[ `${ device }-unit` ] }></input>
+			<input key={ device } type='hidden' onChange = { () => this.onUnitChange( device, '' ) } className={ `ast-spacing-unit-input ast-spacing-${ device }-unit` } data-device={ `${ device }` } value={ this.state.value[ `${ device }-unit` ] }></input>
 		);
 	}
 
@@ -111,9 +113,9 @@ class ResponsiveSpacingComponent extends Component {
 		if ( linked_choices ) {
 
 			linkHtml = (
-				<li className="ast-spacing-input-item-link">
-					<span className="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" onClick = { () => { this.onConnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
-					<span className="dashicons dashicons-editor-unlink ast-spacing-disconnected" onClick = { () => { this.onDisconnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
+				<li key={ 'connect-disconnect' + device } className="ast-spacing-input-item-link">
+					<span key={ 'connect' + device } className="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" onClick = { () => { this.onConnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
+					<span key={ 'disconnect' + device } className="dashicons dashicons-editor-unlink ast-spacing-disconnected" onClick = { () => { this.onDisconnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
 				</li>
 			);
 		}
@@ -121,7 +123,7 @@ class ResponsiveSpacingComponent extends Component {
 		htmlChoices = Object.keys( choices ).map( ( choiceID ) => {
 
 			var html = ( 
-				<li { ...inputAttrs } className='ast-spacing-input-item'>
+				<li key={ choiceID } { ...inputAttrs } className='ast-spacing-input-item'>
 					<input type='number' className={ `ast-spacing-input ast-spacing-${ device }` } data-id={ choiceID } value={ this.state.value[ device ][ choiceID ] } onChange = { () => this.onSpacingChange( device, choiceID ) } />
 					<span className="ast-spacing-title">{ choices[ choiceID ] }</span>
 				</li>
@@ -139,7 +141,7 @@ class ResponsiveSpacingComponent extends Component {
 			}
 
 			var html = ( 
-				<li className={ `single-unit ${ unitClass }` } onClick = { () => this.onUnitChange( device, unitKey ) } data-unit={ unitKey } >
+				<li key={ unitKey } className={ `single-unit ${ unitClass }` } onClick = { () => this.onUnitChange( device, unitKey ) } data-unit={ unitKey } >
 					<span className="unit-text">{ unitKey }</span>
 				</li>
 			);
@@ -148,10 +150,10 @@ class ResponsiveSpacingComponent extends Component {
 		} );
 
 		return (
-			<ul className={ `ast-spacing-wrapper ${ device } ${ active }` }>
+			<ul key={ device } className={ `ast-spacing-wrapper ${ device } ${ active }` }>
 				{ linkHtml }
 				{ htmlChoices }
-				<ul className={ `ast-spacing-responsive-units ast-spacing-${ device }-responsive-units` }>
+				<ul key={ 'responsive-units' } className={ `ast-spacing-responsive-units ast-spacing-${ device }-responsive-units` }>
 					{ respHtml }
 				</ul>
 			</ul>
@@ -193,18 +195,18 @@ class ResponsiveSpacingComponent extends Component {
 					{ this.renderResponsiveInput( 'tablet' ) }
 					{ this.renderResponsiveInput( 'mobile' ) }
 				</div>
-				<ul className="ast-spacing-responsive-btns">
-					<li className="desktop active">
+				<ul key={ 'ast-spacing-responsive-btns' } className="ast-spacing-responsive-btns">
+					<li key={ 'desktop' } className="desktop active">
 						<button type="button" className="preview-desktop active" data-device="desktop">
 							<i className="dashicons dashicons-desktop"></i>
 						</button>
 					</li>
-					<li className="tablet">
+					<li key={ 'tablet' } className="tablet">
 						<button type="button" className="preview-tablet" data-device="tablet">
 							<i className="dashicons dashicons-tablet"></i>
 						</button>
 					</li>
-					<li className="mobile">
+					<li key={ 'mobile' } className="mobile">
 						<button type="button" className="preview-mobile" data-device="mobile">
 							<i className="dashicons dashicons-smartphone"></i>
 						</button>
@@ -213,7 +215,7 @@ class ResponsiveSpacingComponent extends Component {
 			</>
 		);
 		return (
-			<label className='ast-spacing-responsive'>
+			<label key={ 'ast-spacing-responsive' } className='ast-spacing-responsive'>
 				{ htmlLabel }
 				{ htmlDescription }
 				<div className="ast-spacing-responsive-outer-wrapper">
