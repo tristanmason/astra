@@ -7,10 +7,10 @@ class CustomizerLinkComponent extends Component {
 
 		super( props );
 
-		this.onClick = this.onClick.bind(this);
+		this.onLinkClick = this.onLinkClick.bind(this);
 	}
 
-	onClick() {
+	onLinkClick() {
 
 		let linked = event.target.parentElement.dataset.customizerLinked;
 		let linkType = event.target.parentElement.dataset.astCustomizerLinkType;
@@ -44,7 +44,7 @@ class CustomizerLinkComponent extends Component {
 		if ( linked && link_text ) {
 
 			linkHtml = (
-				<a href="#" onClick= { () => { this.onClick() } } className="customizer-link" data-customizer-linked={ linked } data-ast-customizer-link-type={ link_type } dangerouslySetInnerHTML={ { __html: link_text } } >
+				<a href="#" onClick= { () => { this.onLinkClick() } } className="customizer-link" data-customizer-linked={ linked } data-ast-customizer-link-type={ link_type } dangerouslySetInnerHTML={ { __html: link_text } } >
 				</a>
 			); 
 			
