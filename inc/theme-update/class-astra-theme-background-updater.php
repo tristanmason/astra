@@ -53,6 +53,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_gtn_full_wide_image_group_css',
 			),
 			'2.5.0' => array(
+				'astra_global_button_woo_css',
 				'astra_gtn_full_wide_group_cover_css',
 			),
 		);

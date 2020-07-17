@@ -813,7 +813,6 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-
 				'before'         => '<ul class="' . esc_attr( implode( ' ', $primary_menu_classes ) ) . '">',
 				'after'          => '</ul>',
 				'walker'         => new Astra_Walker_Page(),
@@ -873,6 +872,39 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 }
 
 add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
+
+/**
+ * Add CSS classes for all menu links inside WP Nav menu items.
+ *
+ * Right now, if Addon is active we add 'menu-link' class through walker_nav_menu_start_el, but if only theme is being used no clas is assigned to anchors.
+ *
+ * As we are replacing tag based selector assets to class selector, adding 'menu-link' selector to all anchors inside menu items.
+ * Ex. .main-header-menu a => .main-header-menu .menu-link
+ *
+ * @since x.x.x
+ * @param array $atts   An array of all parameters assigned to menu anchors.
+ */
+function astra_menu_anchor_class_for_nav_menus( $atts ) {
+	$atts['class'] = 'menu-link';
+	return $atts;
+}
+
+add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' );
+
+/**
+ * Add CSS classes for all menu links inside WP Page Menu items.
+ *
+ * As we are replacing tag based selector to class selector, adding 'menu-link' selector to all anchors inside menu items.
+ *
+ * @since x.x.x
+ * @param array $atts   An array of all parameters assigned to menu anchors.
+ */
+function astra_menu_anchor_class_for_page_menus( $atts ) {
+	$atts['class'] = 'menu-link';
+	return $atts;
+}
+
+add_filter( 'page_menu_link_attributes', 'astra_menu_anchor_class_for_page_menus' );
 
 /**
  * Add CSS classes from wp_nav_menu the wp_page_menu()'s menu items.

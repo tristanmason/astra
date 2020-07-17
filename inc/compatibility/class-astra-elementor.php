@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 *
 			 * @since  2.4.5
 			 */
-			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ), 10, 2 );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 		}
 
 		/**
@@ -88,9 +88,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
 
 				$dynamic_css .= $parse_css;
-
-				return $dynamic_css;
 			}
+
+			return $dynamic_css;
 		}
 
 		/**
