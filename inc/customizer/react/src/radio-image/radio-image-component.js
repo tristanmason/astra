@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import { Component } from '@wordpress/element';
+import { Component, Fragment } from '@wordpress/element';
 
 class RadioImageComponent extends Component {
 
 	constructor(props) {
 
 		super( props );
-
 		let value = this.props.control.setting.get()
 
 		this.state = {
@@ -17,7 +16,7 @@ class RadioImageComponent extends Component {
 	}
 
 	onLayoutChange() {
-		this.setState( { value : event.target.value } )
+		this.setState( { value : event.target.value } );
 		this.props.control.setting.set( event.target.value );
 	}
 
@@ -39,41 +38,40 @@ class RadioImageComponent extends Component {
 
 		if ( label ) {
 
-			htmlLabel = <span key="label" className="customize-control-title">{ label }</span>;
+			htmlLabel = <span className="customize-control-title">{ label }</span>;
 		}
 
 		if ( description ) {
 
-			htmlLabel = <span key="description" className="description customize-control-description">{ description }</span>;
+			htmlLabel = <span className="description customize-control-description">{ description }</span>;
 		}
-	
-		htmlRadio = Object.keys( choices ).map( ( key ) => {
+
+		htmlRadio = Object.entries( choices ).map( ( [ key, value ] ) => {
 
 			let checked = ( this.state.value === key ) ? true : false;
-
 			return (
-				<>
-					<input { ...inputAttrs } key={ key } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id + key } checked={ checked } onChange={ () => this.onLayoutChange( key ) } onClick={ () => this.onLayoutChange() } />
+				<Fragment key={key}>
+					<input { ...inputAttrs } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id + key } checked={ checked } onChange={ () => this.onLayoutChange( key ) } />
 
-					<label htmlFor={ id + key } { ...labelStyle } key={ key + id } className="ast-radio-img-svg" >
-						<span key={ key + id } dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
-						<span key={ key } className="image-clickable" title={ choices_titles[ key ] } ></span>
+					<label htmlFor={ id + key } { ...labelStyle } className="ast-radio-img-svg" >
+						<span dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
+						<span className="image-clickable" title={ choices_titles[ key ] } ></span>
 					</label>
-				</>
+				</Fragment>
 			);
-		})
+		});
 
 		return (
-			<>
-				<label key='customizer-text' className="customizer-text">
+			<Fragment>
+				<label className="customizer-text">
 					{ htmlLabel }
 				</label>
-				<div key={ `input_${ id }` } id={ `input_${ id }` } className="image" >
-					
+				<div id={ `input_${ id }` } className="image" >
+
 					{ htmlRadio }
-					
+
 				</div>
-			</>
+			</Fragment>
 		);
 	}
 }
