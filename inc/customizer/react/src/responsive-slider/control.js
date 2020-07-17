@@ -40,5 +40,5 @@ export const responsiveSliderControl = wp.customize.astraControl.extend( {
 
 			jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
 		});
-	},
+	}
 } );
