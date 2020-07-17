@@ -40,11 +40,9 @@ class ResponsiveComponent extends Component {
 		this.updateValues( updateState );
 	}
 
-	renderInputHtml( device, active='' ) {
+	renderInputHtml( device, active='', resp=true ) {
 
 		const {
-			inputAttrs,
-			name,
 			units,
 		} = this.props.control.params
 
@@ -57,15 +55,26 @@ class ResponsiveComponent extends Component {
 		let optionsHtml = Object.keys( units ).map( ( key ) => {
 
 			var html = ( 
-				<option value={ key } >{ units[ key ] }</option>
+				<option key={ key } value={ key } >{ units[ key ] }</option>
 			);
 			return html;
 		} );
 
+		if ( false === resp ) {
+
+			return (
+				<>
+					<input key={ device + 'input' } data-id={ device } className={ `ast-responsive-input ast-non-reponsive ${ device } ${ active }` } type="number" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+					<select key={ device + 'select' } value={ this.state.value[`${ device }-unit`] } className={ `ast-responsive-select ${ device }` } data-id={ `${ device }-unit` } disabled={ disabled } onChange={ () => { this.onSelectChange( device ) } } >
+						{ optionsHtml }
+					</select>
+				</>
+			);
+		}
 		return (
 			<>
-				<input  data-id={ device } className={ `ast-responsive-input ${ device } ${ active }` } type="number" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
-				<select value={ this.state.value[`${ device }-unit`] } className={ `ast-responsive-select ${ device }` } data-id={ `${ device }-unit` } disabled={ disabled } onChange={ () => { this.onSelectChange( device ) } } >
+				<input  key={ device + 'input' } data-id={ device } className={ `ast-responsive-input ${ device } ${ active }` } type="number" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+				<select key={ device + 'select' } value={ this.state.value[`${ device }-unit`] } className={ `ast-responsive-select ${ device }` } data-id={ `${ device }-unit` } disabled={ disabled } onChange={ () => { this.onSelectChange( device ) } } >
 					{ optionsHtml }
 				</select>
 			</>
@@ -93,18 +102,18 @@ class ResponsiveComponent extends Component {
 			if ( responsive ) {
 
 				responsiveHtml = (
-					<ul className="ast-responsive-btns">
-						<li className="desktop active">
+					<ul key={ 'ast-resp-ul' } className="ast-responsive-btns">
+						<li key={ 'desktop' } className="desktop active">
 							<button type="button" className="preview-desktop" data-device="desktop">
 								<i className="dashicons dashicons-desktop"></i>
 							</button>
 						</li>
-						<li className="tablet">
+						<li key={ 'tablet' } className="tablet">
 							<button type="button" className="preview-tablet" data-device="tablet">
 								<i className="dashicons dashicons-tablet"></i>
 							</button>
 						</li>
-						<li className="mobile">
+						<li key={ 'mobile' } className="mobile">
 							<button type="button" className="preview-mobile" data-device="mobile">
 								<i className="dashicons dashicons-smartphone"></i>
 							</button>
@@ -129,9 +138,15 @@ class ResponsiveComponent extends Component {
 					{ this.renderInputHtml( 'mobile' ) }
 				</>
 			);
+		} else {
+			inputHtml = (
+				<>
+					{ this.renderInputHtml( 'desktop', 'active', false ) }
+				</>
+			);
 		}
 		return (
-			<label className="customizer-text" >
+			<label key={ 'customizer-text' } className="customizer-text" >
 				{ labelHtml } 
 				{ responsiveHtml }
 				{ descriptionHtml }
