@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 class ResponsiveSpacingComponent extends Component {
 
@@ -105,7 +106,7 @@ class ResponsiveSpacingComponent extends Component {
 			unit_choices
 		} = this.props.control.params
 
-		let itemLinkDesc = 'Link Values Together';
+		let itemLinkDesc = __( 'Link Values Together', 'astra' );
 		let linkHtml = null;
 		let htmlChoices = null;
 		let respHtml = null;
