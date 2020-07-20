@@ -4585,6 +4585,10 @@ textarea {
   width: 100%;
 }
 
+input[type="search"]:focus {
+  outline: thin dotted;
+}
+
 /* 2 - Field - Range */
 /* Range */
 input[type=range] {
