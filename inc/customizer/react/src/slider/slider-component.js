@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 class SliderComponent extends Component {
 
@@ -30,7 +31,7 @@ class SliderComponent extends Component {
 		let labelHtml = null;
 		let descriptionHtml = null;
 		let suffixHtml = null;
-		let reset = "Back to default";
+		let reset = __( "Back to default", 'astra' );
 
 		if ( label ) {
 
