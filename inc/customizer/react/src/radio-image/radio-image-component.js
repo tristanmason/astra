@@ -35,6 +35,7 @@ class RadioImageComponent extends Component {
 
 		let htmlLabel = null;
 		let htmlRadio;
+		var inp_array = [];
 
 		if ( label ) {
 
@@ -46,12 +47,28 @@ class RadioImageComponent extends Component {
 			htmlLabel = <span className="description customize-control-description">{ description }</span>;
 		}
 
+		let splited_values = inputAttrs.split( " " );
+		splited_values.map( (item, i ) => {
+			let item_values = item.split( "=" )
+			if ( undefined !== item_values[1] ) {
+				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+			}
+		});
+
+		splited_values = link.split( " " );
+		splited_values.map( (item, i ) => {
+			let item_values = item.split( "=" )
+			if ( undefined !== item_values[1] ) {
+				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+			}
+		});
+
 		htmlRadio = Object.entries( choices ).map( ( [ key, value ] ) => {
 
 			let checked = ( this.state.value === key ) ? true : false;
 			return (
 				<Fragment key={key}>
-					<input { ...inputAttrs } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id + key } checked={ checked } onChange={ () => this.onLayoutChange( key ) } />
+					<input { ...inp_array } className="image-select" type="radio" value={ key } name={ `_customize-radio-${ id }` } id={ id + key } checked={ checked } onChange={ () => this.onLayoutChange( key ) } />
 
 					<label htmlFor={ id + key } { ...labelStyle } className="ast-radio-img-svg" >
 						<span dangerouslySetInnerHTML={{ __html: choices[ key ] }} />
