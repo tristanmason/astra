@@ -2368,10 +2368,10 @@ body {
  * 1 - Primary Menus
  * 2 - Secondary Menus
  * 3 - Header Top Menus
- * 
+ *
  * Contents
  * 1 - Toggle Button
- * 
+ *
 */
 /**
  * @import
@@ -2643,6 +2643,10 @@ body {
 
 .ast-button-wrap .menu-toggle .mobile-menu-wrap {
   display: inline-block;
+}
+
+.ast-button-wrap .menu-toggle:focus {
+  outline: thin dotted;
 }
 
 .main-header-bar-navigation {
