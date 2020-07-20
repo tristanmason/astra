@@ -27,7 +27,8 @@
 
 .main-header-menu {
 
-	.menu-link {
+	.menu-link,
+	a {
 		text-decoration: none;
 		padding: 0 1em;
 		display: inline-block;
@@ -202,11 +203,8 @@
 			padding-left: 60px;
 		}
 	}
-	.ast-header-custom-item {
-		background-color: $color-background-nav-mobile;
-	}
-
-	.main-header-menu{
+	.ast-header-custom-item,
+	.main-header-menu {
 		background-color: $color-background-nav-mobile;
 	}
 

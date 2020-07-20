@@ -2406,7 +2406,8 @@ body {
   position: relative;
 }
 
-.main-header-menu .menu-link {
+.main-header-menu .menu-link,
+.main-header-menu a {
   text-decoration: none;
   padding: 0 1em;
   display: inline-block;
@@ -2551,10 +2552,7 @@ body {
   padding-left: 60px;
 }
 
-.ast-header-break-point .ast-header-custom-item {
-  background-color: #f9f9f9;
-}
-
+.ast-header-break-point .ast-header-custom-item,
 .ast-header-break-point .main-header-menu {
   background-color: #f9f9f9;
 }
