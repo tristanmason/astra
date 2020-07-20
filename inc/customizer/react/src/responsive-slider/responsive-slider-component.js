@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 class ResponsiveSliderComponent extends Component {
 
@@ -64,7 +65,7 @@ class ResponsiveSliderComponent extends Component {
 			label,
 		} = this.props.control.params
 
-		const reset = 'Back to default';
+		const reset = __( 'Back to default', 'astra' );
 		let labelHtml = null;
 		let responsiveHtml = null;
 		let descriptionHtml = null;
