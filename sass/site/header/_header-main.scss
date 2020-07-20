@@ -43,6 +43,9 @@
 		border-color: inherit;
 		color: inherit;
 	}
+	&:focus {
+		outline: thin dotted;
+	}
 }
 
 .socil-font {
@@ -71,7 +74,7 @@
 		&:empty {
 		    padding: 0;
 		}
-		
+
 		.sub-menu {
 			line-height: 1.45;
 		}
@@ -135,7 +138,7 @@
 }
 
 .ast-search-menu-icon {
-	
+
 	&.slide-search .search-form {
 		backface-visibility: visible;
 		visibility: hidden;
@@ -234,7 +237,7 @@ li.ast-masthead-custom-menu-items {
 			text-align: right;
 		}
 	}
-	
+
 	.ast-masthead-custom-menu-items {
 		flex: 1;
 	}
@@ -244,12 +247,12 @@ li.ast-masthead-custom-menu-items {
 			text-align: center;
 		}
 	}
-	
+
 	&.header-main-layout-3 {
 		.ast-masthead-custom-menu-items {
 			text-align: left;
 		}
-	}	
+	}
 }
 
 
@@ -424,7 +427,7 @@ li.ast-masthead-custom-menu-items {
 		.widget {
 			margin-bottom: 1em;
 			li{
-				width: auto;       
+				width: auto;
 			}
 			&:last-child{
 				margin-bottom: 0;
@@ -450,7 +453,7 @@ li.ast-masthead-custom-menu-items {
 			display: inline-block;
 		}
 	}
-	
+
 	&.ast-mobile-inherit-site-logo{
 		.ast-has-mobile-header-logo{
 			.custom-logo-link,
@@ -502,7 +505,7 @@ li.ast-masthead-custom-menu-items {
 			&.header-main-layout-3{
 				.ast-site-identity{
 					width: auto;
-				}	
+				}
 			}
 			&.header-main-layout-2{
 				.site-branding{
@@ -514,7 +517,7 @@ li.ast-masthead-custom-menu-items {
 }
 
 @media (max-width: $mx-col-sm) {
-	
+
 	.ast-header-break-point{
 		.ast-mobile-header-stack{
 			.ast-mobile-menu-buttons{
@@ -525,7 +528,7 @@ li.ast-masthead-custom-menu-items {
 			.ast-mobile-menu-buttons{
 				justify-content: center;
 			}
-			
+
 			.main-header-bar-wrap .site-branding{
 				flex: 1 1 auto;
 			}
@@ -559,7 +562,7 @@ li.ast-masthead-custom-menu-items {
 						padding-top: 0.8em;
 					}
 				}
-			}	
+			}
 		}
 	}
 }
@@ -789,7 +792,7 @@ li.ast-masthead-custom-menu-items {
 	.ast-search-menu-icon {
 		.customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type {
 			.customize-partial-edit-shortcut-button {
-				left: -25px;			
+				left: -25px;
 				top: -10px;
 			}
 		}
@@ -823,7 +826,7 @@ li.ast-masthead-custom-menu-items {
 		.customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
-				left: -25px;			
+				left: -25px;
 			}
 		}
 	}
@@ -850,7 +853,7 @@ li.ast-masthead-custom-menu-items {
 		.customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
-				left: -25px;			
+				left: -25px;
 			}
 		}
 	}
@@ -882,7 +885,7 @@ li.ast-masthead-custom-menu-items {
 		.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
-				left: -25px;			
+				left: -25px;
 			}
 		}
 	}

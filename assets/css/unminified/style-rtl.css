@@ -3256,6 +3256,10 @@ body {
   color: inherit;
 }
 
+.ast-menu-toggle:focus {
+  outline: thin dotted;
+}
+
 .socil-font {
   float: right;
   margin-left: 10px;
