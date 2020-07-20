@@ -31,6 +31,7 @@ class SliderComponent extends Component {
 		let labelHtml = null;
 		let descriptionHtml = null;
 		let suffixHtml = null;
+		var inp_array = [];
 		let reset = __( "Back to default", 'astra' );
 
 		if ( label ) {
@@ -46,15 +47,41 @@ class SliderComponent extends Component {
 
 			suffixHtml = <span className="ast-range-unit">{ suffix }</span>
 		}
+		
+		let splited_values = inputAttrs.split( " " );
+
+		splited_values.map( (item, i ) => {
+
+			let item_values = item.split( "=" )
+
+			if ( undefined !== item_values[1] ) {
+
+				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+			}
+			
+		});
+		
+		splited_values = link.split( " " )
+
+		splited_values.map(( item, i ) => {
+
+			let item_values = item.split( "=" )
+
+			if ( undefined !== item_values[1] ) {
+				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+			}
+			
+		});
 
 		return (
 			<label>
 				{ labelHtml }
 				{ descriptionHtml }
+
 				<div className="wrapper">
-					<input  type="range" value={ this.state.value } data-reset_value={ this.props.control.params.default } onChange = { () => this.updateValues( event.target.value ) } />
+					<input  { ...inp_array } type="range" value={ this.state.value } data-reset_value={ this.props.control.params.default } onChange = { () => this.updateValues( event.target.value ) } />
 					<div className="astra_range_value">
-						<input type="number" data-name={ name } className="value ast-range-value-input" value={ this.state.value }  onChange = { () => this.updateValues( event.target.value ) } />
+						<input { ...inp_array } type="number" data-name={ name } className="value ast-range-value-input" value={ this.state.value }  onChange = { () => this.updateValues( event.target.value ) } />
 						{ suffixHtml }
 					</div>
 					<div className="ast-slider-reset" onClick = { () => { this.updateValues( this.props.control.params.default ) } } >
