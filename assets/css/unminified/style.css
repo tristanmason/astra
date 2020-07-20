@@ -1604,8 +1604,6 @@ a:hover {
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -1970,6 +1968,7 @@ input[type="submit"]:focus {
   top: 7px;
   width: auto;
   z-index: 100000;
+  outline: thin dotted;
 }
 
 .logged-in .site .skip-link {
