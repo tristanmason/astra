@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 class BorderComponent extends Component {
 
@@ -87,7 +88,7 @@ class BorderComponent extends Component {
 		let htmlDescription = null;
 		let htmlLinkedChoices = null;
 		let htmlChoices = null;
-		let itemLinkDesc = 'Link Values Together';
+		let itemLinkDesc = __( 'Link Values Together', 'astra' );
 
 		if ( label ) {
 			htmlLabel = <span className="customize-control-title wp-ui-text-highlight">{ label }</span>;
