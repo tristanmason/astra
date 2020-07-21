@@ -1604,8 +1604,6 @@ a:hover {
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -1970,6 +1968,7 @@ input[type="submit"]:focus {
   top: 7px;
   width: auto;
   z-index: 100000;
+  outline: thin dotted;
 }
 
 .logged-in .site .skip-link {
@@ -2369,10 +2368,10 @@ body {
  * 1 - Primary Menus
  * 2 - Secondary Menus
  * 3 - Header Top Menus
- * 
+ *
  * Contents
  * 1 - Toggle Button
- * 
+ *
 */
 /**
  * @import
@@ -2642,6 +2641,10 @@ body {
 
 .ast-button-wrap .menu-toggle .mobile-menu-wrap {
   display: inline-block;
+}
+
+.ast-button-wrap .menu-toggle:focus {
+  outline: thin dotted;
 }
 
 .main-header-bar-navigation {
@@ -3249,6 +3252,10 @@ body {
   background: transparent;
   border-color: inherit;
   color: inherit;
+}
+
+.ast-menu-toggle:focus {
+  outline: thin dotted;
 }
 
 .socil-font {
@@ -4582,6 +4589,10 @@ input[type="button"]:focus {
 
 textarea {
   width: 100%;
+}
+
+input[type="search"]:focus {
+  outline: thin dotted;
 }
 
 /* 2 - Field - Range */
