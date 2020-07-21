@@ -65,6 +65,11 @@ var astraToggleClass = function ( el, className ) {
 	}
 };
 
+var toggleClass = function ( el, className ) {
+	console.warn( 'toggleClass() function has been deprecated since version 2.5.0 or above of Astra Theme and will be removed in the future. Use astraToggleClass() instead.' );
+	astraToggleClass( el, className );
+};
+
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
 (function () {
 
