@@ -1792,6 +1792,12 @@ return array(
 		),
 	),
 	array(
+		'Epilogue' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
+			'category' => 'sans-serif',
+		),
+	),
+	array(
 		'Erica One' => array(
 			'variants' => array( 'regular' ),
 			'category' => 'display',
@@ -2263,6 +2269,12 @@ return array(
 		'Grenze' => array(
 			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ),
 			'category' => 'serif',
+		),
+	),
+	array(
+		'Grenze Gotisch' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ),
+			'category' => 'display',
 		),
 	),
 	array(
@@ -3790,6 +3802,12 @@ return array(
 		),
 	),
 	array(
+		'Mulish' => array(
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
+			'category' => 'sans-serif',
+		),
+	),
+	array(
 		'MuseoModerno' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ),
 			'category' => 'display',
@@ -4834,6 +4852,12 @@ return array(
 		),
 	),
 	array(
+		'Rowdies' => array(
+			'variants' => array( '300', 'regular', '700' ),
+			'category' => 'display',
+		),
+	),
+	array(
 		'Rozha One' => array(
 			'variants' => array( 'regular' ),
 			'category' => 'serif',
@@ -5278,6 +5302,12 @@ return array(
 		),
 	),
 	array(
+		'Sora' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800' ),
+			'category' => 'sans-serif',
+		),
+	),
+	array(
 		'Sorts Mill Goudy' => array(
 			'variants' => array( 'regular', 'italic' ),
 			'category' => 'serif',
@@ -5297,7 +5327,7 @@ return array(
 	),
 	array(
 		'Source Serif Pro' => array(
-			'variants' => array( 'regular', '600', '700' ),
+			'variants' => array( '200', '200italic', '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic', '900', '900italic' ),
 			'category' => 'serif',
 		),
 	),
@@ -5754,6 +5784,12 @@ return array(
 	array(
 		'Varela Round' => array(
 			'variants' => array( 'regular' ),
+			'category' => 'sans-serif',
+		),
+	),
+	array(
+		'Varta' => array(
+			'variants' => array( '300', 'regular', '500', '600', '700' ),
 			'category' => 'sans-serif',
 		),
 	),

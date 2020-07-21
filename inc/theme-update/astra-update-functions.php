@@ -223,7 +223,7 @@ function astra_gtn_full_wide_image_group_css() {
 /**
  * Do not apply new wide/full Group and Cover block CSS for existing users.
  *
- * @since x.x.x
+ * @since 2.5.0
  *
  * @return void
  */
@@ -240,7 +240,7 @@ function astra_gtn_full_wide_group_cover_css() {
 /**
  * Do not apply the global border width and border color setting for the existng users.
  *
- * @since x.x.x
+ * @since 2.5.0
  *
  * @return void
  */

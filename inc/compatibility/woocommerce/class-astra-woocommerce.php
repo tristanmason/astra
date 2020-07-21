@@ -1509,7 +1509,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * For existing users, do not load the wide/full width image CSS by default.
 		 *
-		 * @since x.x.x
+		 * @since 2.5.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function astra_global_btn_woo_comp() {

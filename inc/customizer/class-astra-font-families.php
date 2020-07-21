@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 				/**
 				 * Deprecating the Filter to change the Google Fonts JSON file path.
 				 *
-				 * @since x.x.x
+				 * @since 2.5.0
 				 * @param string $json_file File where google fonts json format added.
 				 * @return array
 				 */
