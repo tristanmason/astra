@@ -14,7 +14,7 @@
  * @param  {String} selector Selector to match against [optional].
  * @return {Array}           The parent elements.
  */
-var getParents = function ( elem, selector ) {
+var astraGetParents = function ( elem, selector ) {
 
 	// Element.matches() polyfill.
 	if ( ! Element.prototype.matches) {
@@ -51,6 +51,18 @@ var getParents = function ( elem, selector ) {
 };
 
 /**
+ * Deprecated: Get all of an element's parent elements up the DOM tree
+ *
+ * @param  {Node}   elem     The element.
+ * @param  {String} selector Selector to match against [optional].
+ * @return {Array}           The parent elements.
+ */
+var getParents = function ( elem, selector ) {
+	console.warn( 'getParents() function has been deprecated since version 2.5.0 or above of Astra Theme and will be removed in the future. Use astraGetParents() instead.' );
+	astraGetParents( elem, selector );
+}
+
+/**
  * Toggle Class funtion
  *
  * @param  {Node}   elem     The element.
@@ -66,7 +78,7 @@ var astraToggleClass = function ( el, className ) {
 };
 
 /**
- * Deprecated Toggle Class funtion
+ * Deprecated: Toggle Class funtion
  *
  * @param  {Node}   elem     The element.
  * @param  {String} selector Selector to match against [optional].
@@ -388,7 +400,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
 		if ( typeof event.target.classList !==  'undefined' ) {
-			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
+			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && astraGetParents( event.target, '.ast-search-menu-icon' ).length === 0 && astraGetParents( event.target, '.ast-search-icon' ).length === 0  ) {
+				console.log('Working');
 				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 
 				for (var i = 0; i < dropdownSearchWrap.length; i++) {
