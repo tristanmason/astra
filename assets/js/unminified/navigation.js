@@ -65,6 +65,13 @@ var astraToggleClass = function ( el, className ) {
 	}
 };
 
+/**
+ * Deprecated Toggle Class funtion
+ *
+ * @param  {Node}   elem     The element.
+ * @param  {String} selector Selector to match against [optional].
+ * @return {Array}           The parent elements.
+ */
 var toggleClass = function ( el, className ) {
 	console.warn( 'toggleClass() function has been deprecated since version 2.5.0 or above of Astra Theme and will be removed in the future. Use astraToggleClass() instead.' );
 	astraToggleClass( el, className );
