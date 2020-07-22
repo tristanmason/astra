@@ -331,8 +331,8 @@ add_filter( 'ninja_forms_affiliate_id', 'astra_filter_ninja_forms_comp_id' );
  *
  * @return String updated upgrade link.
  */
-function astra_wpforms_upgrade_link() {
-	return 'https://shareasale.com/r.cfm?b=834775&u=1115254&m=64312&urllink=&afftrack=';
+function astra_wpforms_upgrade_link( $url ) {
+	return 'https://shareasale.com/r.cfm?b=834775&u=1115254&m=64312&urllink=&afftrack=' . rawurlencode( $url );
 }
 
 add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
