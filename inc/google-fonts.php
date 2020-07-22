@@ -2363,7 +2363,7 @@ return array(
 	),
 	array(
 		'Harmattan' => array(
-			'variants' => array( 'regular' ),
+			'variants' => array( 'regular', '700' ),
 			'category' => 'sans-serif',
 		),
 	),
@@ -3796,12 +3796,6 @@ return array(
 		),
 	),
 	array(
-		'Muli' => array(
-			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
-			'category' => 'sans-serif',
-		),
-	),
-	array(
 		'Mulish' => array(
 			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
 			'category' => 'sans-serif',
@@ -4643,7 +4637,7 @@ return array(
 	),
 	array(
 		'Raleway' => array(
-			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ),
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
 			'category' => 'sans-serif',
 		),
 	),
@@ -4723,6 +4717,12 @@ return array(
 		'Red Hat Text' => array(
 			'variants' => array( 'regular', 'italic', '500', '500italic', '700', '700italic' ),
 			'category' => 'sans-serif',
+		),
+	),
+	array(
+		'Red Rose' => array(
+			'variants' => array( '300', 'regular', '700' ),
+			'category' => 'display',
 		),
 	),
 	array(
@@ -5177,7 +5177,7 @@ return array(
 	),
 	array(
 		'Signika' => array(
-			'variants' => array( '300', 'regular', '600', '700' ),
+			'variants' => array( '300', 'regular', '500', '600', '700' ),
 			'category' => 'sans-serif',
 		),
 	),
