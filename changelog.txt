@@ -1,6 +1,5 @@
 v2.5.0
 - New: Typography options for Header Button.
-- Improvement: Filter to disable Image Processing. ( https://wpastra.com/docs/blog-featured-image-size-issues/ )
 - Improvement: Filters to support CPT for Blog Meta & Single Blog Meta. ( https://wpastra.com/docs/add-blog-meta-support-cpts )
 - Improvement: Deprecated 'astra_google_fonts_json_file' filter. Use 'astra_google_fonts_php_file' instead. ( https://wpastra.com/docs/deprecated-google-fonts-filter/ )
 - Improvement: Gutenberg above and below space compatibility with Full Width / Contained layout. ( https://wpastra.com/docs/support-for-gutenberg-cover-and-group-blocks/ )
@@ -9,7 +8,6 @@ v2.5.0
 - Improvement: Hardened security of the SelectWoo library.
 - Improvement: Theme check new standards.
 - Improvement: Global Button options support with WooCommerce buttons.
-- Improvement: Filter to disable Image Processing.
 - Fix: PHP warning on some specific servers when the Elementor plugin is activated.
 - Fix: Text highlight color issue when color is set to blank.
 
