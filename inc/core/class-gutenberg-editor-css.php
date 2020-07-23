@@ -483,10 +483,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
-			if ( Astra_Woocommerce::astra_global_btn_woo_comp() ) {
+			if ( is_callable( 'Astra_Woocommerce::astra_global_btn_woo_comp' ) && Astra_Woocommerce::astra_global_btn_woo_comp() ) {
 
 				$woo_global_button_css = array(
-					'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
+					'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
 						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
 						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
