@@ -483,7 +483,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
-			if ( is_callable( 'Astra_Woocommerce::astra_global_btn_woo_comp' ) && Astra_Woocommerce::astra_global_btn_woo_comp() ) {
+			if ( class_exists( 'Astra_Woocommerce' ) && Astra_Woocommerce::astra_global_btn_woo_comp() ) {
 
 				$woo_global_button_css = array(
 					'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
