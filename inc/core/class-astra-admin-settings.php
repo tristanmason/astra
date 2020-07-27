@@ -484,7 +484,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				if ( in_array( $post_type, (array) $post_types ) ) {
 
-					add_action( 'admin_enqueue_scripts', __CLASS__ . '::astra_settings_metabox_css' );
 					echo '<style class="astra-meta-box-style">
 						.block-editor-page #side-sortables #astra_settings_meta_box select { min-width: 84%; padding: 3px 24px 3px 8px; height: 20px; }
 						.block-editor-page #normal-sortables #astra_settings_meta_box select { min-width: 200px; }
@@ -1650,30 +1649,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 2.6.0
 		 */
 		public static function admin_submenu_css() {
-			?>
-			<style class="astra-menu-appearance-style">
-					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra-"]:before,
-					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
-					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
-					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
-					#menu-appearance a[href^="edit.php?post_type=bsf-sidebar"]:before {
-						content: "\21B3";
-						margin-right: 0.5em;
-						opacity: 0.5;
-					}
-				</style>
-				<?php
-		}
-
-
-		/**
-		 * Add custom CSS for admin area sub menu icons.
-		 *
-		 * @since 2.6.0
-		 */
-		public static function astra_settings_metabox_css() {
-			wp_die();
 			?>
 			<style class="astra-menu-appearance-style">
 					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
