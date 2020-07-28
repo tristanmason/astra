@@ -1,73 +1,48 @@
 import PropTypes from 'prop-types';
-
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
-import ColorControl from '../common/color';
+import BackgroundColorControl from '../common/background-color';
 
 class ColorComponent extends Component {
-    constructor(props) {
+
+    constructor( props ) {
+
 		super( props );
 		this.handleChangeComplete = this.handleChangeComplete.bind( this );
 		this.updateValues = this.updateValues.bind( this );
-		
+		this.renderReset = this.renderReset.bind( this );
+
 		let value = this.props.control.setting.get();
 		
 		this.defaultValue = this.props.control.params.default;
 
-		let defaultParams = {
-			colors: {
-				color: {
-					palette: true,
-				},
-			},
-			allowGradient: false,
-		};
-		this.controlParams = this.props.control.params.input_attrs ? {
-			...defaultParams,
-			...this.props.control.params.input_attrs,
-		} : defaultParams;
-		
-		const palette = JSON.parse( '{"palette":[{"color":"#000000","slug":"palette1","name":"Palette Color 1"},{"color":"#ffffff","slug":"palette2","name":"Palette Color 2"},{"color":"#dd3333","slug":"palette3","name":"Palette Color 3"},{"color":"#dd9933","slug":"palette4","name":"Palette Color 4"},{"color":"#eeee22","slug":"palette5","name":"Palette Color 5"},{"color":"#81d742","slug":"palette6","name":"Palette Color 6"},{"color":"#1e73be","slug":"palette7","name":"Palette Color 7"},{"color":"#8224e3","slug":"palette8","name":"Palette Color 8"}],"active":"palette"}' );
-
 		this.state = {
 			value: value,
-			colorPalette: palette,
 		};
-    }
-    handleChangeComplete( color, isPalette, item ) {
+	}
+	renderReset () {
+		return (
+			<span className="customize-control-title">
+				<>
+					<Button
+						className="reset astra-reset"
+						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+						onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							this.updateValues( value )
+						} }
+					>
+						<Dashicon icon='image-rotate' />
+					</Button>
+				</>
+			</span>
+		)
+	}
+    handleChangeComplete( color ) {
+		
 		let value;
-		console.log(isPalette);
-		if ( isPalette ) {
-			switch (isPalette) {
-				case 'palette1':
-					isPalette = '#000000'
-					break;
-				case 'palette2':
-					isPalette = '#ffffff'
-					break;
-				case 'palette3':
-					isPalette = '#dd3333'
-					break;
-				case 'palette4':
-					isPalette = '#dd9933'
-					break;
-				case 'palette5':
-					isPalette = '#eeee22'
-					break;
-				case 'palette6':
-					isPalette = '#81d742'
-					break;
-				case 'palette7':
-					isPalette = '#1e73be'
-					break;
-				case 'palette8':
-					isPalette = '#8224e3'
-					break;
-				default:
-					break;
-			}
-			value = isPalette;
-		} else if ( typeof color === 'string' || color instanceof String ) {
+		
+		if ( typeof color === 'string' || color instanceof String ) {
 			value = color;
 		} else if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
 			value = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
@@ -78,40 +53,36 @@ class ColorComponent extends Component {
     }
 
     render() {
-        let label = null;
-        if ( this.props.control.params.label ) {
-            label = this.props.control.params.label;
-        }
+
+		let labelHtml = null;
+		
+		const {
+			label
+		} = this.props.control.params
+        
+		if ( label ) { 
+
+			labelHtml = <span className="customize-control-title">{ label }</span>
+		} 
 		return (
-				<div className="astra-control-field astra-color-control">
-					<span className="customize-control-title">
-						<Fragment>
-							<Button
-								className="reset astra-reset"
-								disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-								onClick={ () => {
-									let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-									this.updateValues( value );
-								} }
-							>
-								<Dashicon icon='image-rotate' />
-							</Button>
-							{ label }
-						</Fragment>
-					</span>
-					{ Object.keys( this.controlParams.colors ).map( ( item ) => {
-						return (
-							<ColorControl
-								key={ item }
-								presetColors={ this.state.colorPalette }
-								color={ ( undefined !== this.state.value && this.state.value ? this.state.value : '' ) }
-								usePalette={ true }
-								onChangeComplete={ ( color, isPalette ) => this.handleChangeComplete( color, isPalette, item ) }
-								allowGradient={ this.controlParams.allowGradient }
-							/>
-						)
-					} ) }
+			<>
+				<label>
+					{ labelHtml }
+				</label>
+				<div className="ast-color-picker-alpha color-picker-hex">
+					
+					{ this. renderReset() }
+					
+					<BackgroundColorControl
+						color={ ( undefined !== this.state.value && this.state.value ? this.state.value :  '' ) }
+						onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color ) }
+						backgroundType = { 'color' }
+						allowGradient={ false }
+						allowImage={ false }
+					/>
+
 				</div>
+			</>
 		);
     }
     
