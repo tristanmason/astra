@@ -39,15 +39,13 @@ class ResponsiveColorComponent extends Component {
 	renderSettings ( key ) {
 		
 		return (
-			<>
-				<BackgroundColorControl
-					color={ ( undefined !== this.state.value[key] && this.state.value[key] ? this.state.value[key] :  '' ) }
-					onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
-					backgroundType = { 'color' }
-					allowGradient={ false }
-					allowImage={ false }
-				/>
-			</>
+			<BackgroundColorControl
+				color={ ( undefined !== this.state.value[key] && this.state.value[key] ? this.state.value[key] :  '' ) }
+				onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
+				backgroundType = { 'color' }
+				allowGradient={ false }
+				allowImage={ false }
+			/>
 		)
 	}
 	handleChangeComplete( color, key ) {
