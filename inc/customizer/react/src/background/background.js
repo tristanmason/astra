@@ -125,8 +125,8 @@ class Background extends Component {
 			...this.state.value, 
 		};
 
-		obj['background-color'] = value
-		obj['background-type'] = backgroundType
+		obj['background-color'] = value;
+		obj['background-type'] = backgroundType;
 
         this.updateValues( obj );
 	}
@@ -165,14 +165,12 @@ class Background extends Component {
 		}
 
 		inputHtml = (
-			<>
-				<div className="background-wrapper">
-					<div className="background-container">
-					{ this.renderReset() }
-					{ this.renderSettings() }
-					</div>
+			<div className="background-wrapper">
+				<div className="background-container">
+				{ this.renderReset() }
+				{ this.renderSettings() }
 				</div>
-			</>
+			</div>
 		)
 		
 		return (
