@@ -7913,6 +7913,20 @@
         }
     },
     {
+        "Recursive": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Red Hat Display": {
             "variants": [
                 "regular",
