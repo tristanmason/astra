@@ -59,26 +59,4 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 		$this->json['linked']    = $this->linked;
 		$this->json['link_type'] = $this->link_type;
 	}
-
-	/**
-	 * An Underscore (JS) template for this control's content (but not its container).
-	 *
-	 * Class variables for this control class are available in the `data` JS object;
-	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-	 *
-	 * @see WP_Customize_Control::print_template()
-	 *
-	 * @access protected
-	 */
-	protected function content_template() {
-		?>
-
-		<# if ( data.linked && data.link_text ) { #>
-			<a href="#" class="customizer-link" data-customizer-linked="{{{ data.linked }}}" data-ast-customizer-link-type="{{{ data.link_type }}}">
-				{{{ data.link_text }}}
-			</a>
-		<# } #>
-
-		<?php
-	}
 }
