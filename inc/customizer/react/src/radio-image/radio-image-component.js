@@ -34,6 +34,7 @@ class RadioImageComponent extends Component {
 		} = this.props.control.params
 
 		let htmlLabel = null;
+		let htmlDescription = null;
 		let htmlRadio;
 		var inp_array = [];
 
@@ -44,7 +45,7 @@ class RadioImageComponent extends Component {
 
 		if ( description ) {
 
-			htmlLabel = <span className="description customize-control-description">{ description }</span>;
+			htmlDescription = <span className="description customize-control-description">{ description }</span>;
 		}
 
 		let splited_values = inputAttrs.split( " " );
@@ -82,6 +83,7 @@ class RadioImageComponent extends Component {
 			<Fragment>
 				<label className="customizer-text">
 					{ htmlLabel }
+					{ htmlDescription }
 				</label>
 				<div id={ `input_${ id }` } className="image" >
 
