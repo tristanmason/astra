@@ -32,7 +32,7 @@ class SliderComponent extends Component {
 		let descriptionHtml = null;
 		let suffixHtml = null;
 		var inp_array = [];
-		let reset = __( "Back to default", 'astra' );
+		let reset = __( 'Back to default', 'astra' );
 
 		if ( label ) {
 
