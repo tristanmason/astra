@@ -22,19 +22,17 @@ class ResponsiveColorComponent extends Component {
 	renderReset ( key ) {
 		return (
 			<span className="customize-control-title">
-				<>
-					<Button
-						className="reset astra-reset"
-						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
-							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							this.setState( { value : value } )
-							this.props.control.setting.set( value );
-						} }
-					>
-						<Dashicon icon='image-rotate' />
-					</Button>
-				</>
+				<Button
+					className="reset astra-reset"
+					disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+					onClick={ () => {
+						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+						this.setState( { value : value } )
+						this.props.control.setting.set( value );
+					} }
+				>
+					<Dashicon icon='image-rotate' />
+				</Button>
 			</span>
 		)
 	}
