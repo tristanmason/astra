@@ -174,7 +174,7 @@ class ResponsiveSpacingComponent extends Component {
 		let responsiveHtml = null;
 
 		if ( label ) {
-			htmlLabel = <span className="customize-control-title wp-ui-text-highlight">{ label }</span>;
+			htmlLabel = <span className="customize-control-title">{ label }</span>;
 		}
 
 		if ( description ) {
