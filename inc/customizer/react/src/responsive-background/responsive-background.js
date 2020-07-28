@@ -208,22 +208,20 @@ class ResponsiveBackground extends Component {
 		)
 		
 		inputHtml = (
-			<>
-				<div className="background-wrapper">
-					<div className="background-container desktop active">
-					{ this.renderReset( 'desktop' ) }
-					{ this.renderSettings( 'desktop' ) }
-					</div>
-					<div className="background-container tablet">
-					{ this.renderReset( 'tablet' ) }
-					{ this.renderSettings( 'tablet' ) }
-					</div>
-					<div className="background-container mobile">
-					{ this.renderReset( 'mobile' ) }
-					{ this.renderSettings( 'mobile' ) }
-					</div>
+			<div className="background-wrapper">
+				<div className="background-container desktop active">
+				{ this.renderReset( 'desktop' ) }
+				{ this.renderSettings( 'desktop' ) }
 				</div>
-			</>
+				<div className="background-container tablet">
+				{ this.renderReset( 'tablet' ) }
+				{ this.renderSettings( 'tablet' ) }
+				</div>
+				<div className="background-container mobile">
+				{ this.renderReset( 'mobile' ) }
+				{ this.renderSettings( 'mobile' ) }
+				</div>
+			</div>	
 		)
 		
 		return (

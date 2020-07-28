@@ -228,11 +228,28 @@ function astra_gtn_full_wide_image_group_css() {
  * @return void
  */
 function astra_gtn_full_wide_group_cover_css() {
-
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['gtn-full-wide-grp-cover-css'] ) ) {
 		$theme_options['gtn-full-wide-grp-cover-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+
+/**
+ * Do not apply the global border width and border color setting for the existng users.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_global_button_woo_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['global-btn-woo-css'] ) ) {
+		$theme_options['global-btn-woo-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
