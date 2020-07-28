@@ -51,19 +51,17 @@ class Background extends Component {
 	renderReset () {
 		return (
 			<span className="customize-control-title">
-				<>
-					<Button
-						className="reset astra-reset"
-						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
-							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							
-							this.updateValues( value );
-						} }
-					>
-						<Dashicon icon='image-rotate' />
-					</Button>
-				</>
+				<Button
+					className="reset astra-reset"
+					disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+					onClick={ () => {
+						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+						
+						this.updateValues( value );
+					} }
+				>
+					<Dashicon icon='image-rotate' />
+				</Button>
 			</span>
 		)
 	}
