@@ -2,6 +2,11 @@ import { BaseControl } from './base/control';
 import { headingControl } from './heading/control';
 import { hiddenControl } from './hidden/control';
 import { descriptionControl } from './description/control';
+import { colorControl } from './color/control.js';
+import { responsiveColorControl } from './responsive-color/control'
+import { responsiveBackgroundControl } from './responsive-background/control';
+import { backgroundControl } from './background/control';
+
 import { sortableControl } from './sortable/control';
 import { borderControl } from './border/control';
 import { customizerLinkControl } from './customizer-link/control';
@@ -14,6 +19,10 @@ import { responsiveSpacingControl }  from './responsive-spacing/control';
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
 wp.customize.controlConstructor['ast-description'] = descriptionControl;
+wp.customize.controlConstructor['ast-color'] = colorControl;
+wp.customize.controlConstructor['ast-responsive-color'] = responsiveColorControl;
+wp.customize.controlConstructor['ast-responsive-background'] = responsiveBackgroundControl;
+wp.customize.controlConstructor['ast-background'] = backgroundControl;
 wp.customize.controlConstructor['ast-sortable'] = sortableControl;
 wp.customize.controlConstructor['ast-border'] = borderControl;
 wp.customize.controlConstructor['ast-customizer-link'] = customizerLinkControl;

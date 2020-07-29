@@ -1,6 +1,10 @@
 .customize-control-ast-responsive-color {
-  .customize-control-content .wp-picker-container {
+  .customize-control-content .ast-color-picker-alpha {
     display: none;
+    .astra-color-picker-wrap{
+      display: inline-block;
+      float: right;
+    }
     &.active {
       display: block;
     }

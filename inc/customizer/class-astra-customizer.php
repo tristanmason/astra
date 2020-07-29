@@ -725,9 +725,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-			wp_enqueue_style( 'wp-color-picker' );
-			wp_enqueue_script( 'astra-color-alpha' );
-
+			wp_enqueue_style( 'wp-components' );
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
 
@@ -792,12 +790,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Enqueue Customizer script.
 			$editor_dependencies = array(
-				'jquery',
 				'customize-controls',
 				'wp-i18n',
 				'wp-components',
-				'wp-edit-post',
 				'wp-element',
+				'wp-media-utils',
+				'wp-block-editor',
 			);
 			wp_enqueue_script( 'astra-react-customizer-controls', ASTRA_THEME_URI . 'inc/customizer/react/build/index.js', $editor_dependencies, ASTRA_THEME_VERSION, true );
 		}
