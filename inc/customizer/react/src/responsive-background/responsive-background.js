@@ -163,6 +163,7 @@ class ResponsiveBackground extends Component {
 
 		let defaultVal = '#RRGGBB';
 		let labelHtml = null;
+		let descriptionHtml = null;
 		let responsiveHtml = null;
 		let inputHtml = null;
 
@@ -184,7 +185,7 @@ class ResponsiveBackground extends Component {
 
 		if ( description ) { 
 
-			labelHtml = <span className="description customize-control-description">{ description }</span>
+			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
 
 		responsiveHtml = (
@@ -228,6 +229,7 @@ class ResponsiveBackground extends Component {
 			<>
 				<label>
 					{ labelHtml }
+					{ descriptionHtml }
 				</label>
 
 				{ responsiveHtml }
