@@ -640,7 +640,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'background-type'       => '',
 				),
 			);
-			
+
 			// Merge responsive background object and default object into $out_bg_obj array.
 			$out_bg_obj = wp_parse_args( $bg_obj, $defaults );
 
