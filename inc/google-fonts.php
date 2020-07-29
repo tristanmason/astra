@@ -4708,6 +4708,12 @@ return array(
 		),
 	),
 	array(
+		'Recursive' => array(
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '900' ),
+			'category' => 'sans-serif',
+		),
+	),
+	array(
 		'Red Hat Display' => array(
 			'variants' => array( 'regular', 'italic', '500', '500italic', '700', '700italic', '900', '900italic' ),
 			'category' => 'sans-serif',
