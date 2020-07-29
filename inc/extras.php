@@ -430,17 +430,3 @@ function astra_get_hubspot_comp_code() {
 }
 
 add_filter( 'leadin_affiliate_code', 'astra_get_hubspot_comp_code' );
-
-/**
- * Google Analytics Dashboard plugin Affiliate compatibility.
- *
- * @since x.x.x
- * @param int $shareasale_id Having affiliate ID.
- * @return int Affiliate ID.
- */
-function astra_get_google_analytics_dashboard( $shareasale_id ) {
-	$shareasale_id = 1234;
-	return $shareasale_id;
-}
-
-add_filter( 'monsterinsights_shareasale_id', 'astra_get_google_analytics_dashboard' );

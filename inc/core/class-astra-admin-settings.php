@@ -1509,6 +1509,15 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				self::get_starter_templates_slug();
 			}
 
+			/**
+			 * Google Analytics Dashboard plugin Affiliate compatibility.
+			 *
+			 * @since x.x.x
+			 */
+			if ( '/google-analytics-for-wordpress/googleanalytics.php' === $plugin_init ) {
+				update_option( 'monsterinsights_shareasale_id', 1234 );
+			}
+
 			if ( is_wp_error( $activate ) ) {
 				wp_send_json_error(
 					array(
