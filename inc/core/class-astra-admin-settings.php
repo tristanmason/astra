@@ -471,8 +471,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$js_handle[] = 'customize-base';
 			}
 
-			wp_register_script( 'astra-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
-
 			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
 				$post_types = get_post_types( array( 'public' => true ) );
 				$screen     = get_current_screen();
