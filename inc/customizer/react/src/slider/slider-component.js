@@ -47,31 +47,37 @@ class SliderComponent extends Component {
 
 			suffixHtml = <span className="ast-range-unit">{ suffix }</span>
 		}
-		
-		let splited_values = inputAttrs.split( " " );
 
-		splited_values.map( (item, i ) => {
+		if ( undefined !== inputAttrs ) {
 
-			let item_values = item.split( "=" )
+			let splited_values = inputAttrs.split( " " );
 
-			if ( undefined !== item_values[1] ) {
+			splited_values.map( (item, i ) => {
 
-				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-			}
-			
-		});
-		
-		splited_values = link.split( " " )
+				let item_values = item.split( "=" )
 
-		splited_values.map(( item, i ) => {
+				if ( undefined !== item_values[1] ) {
 
-			let item_values = item.split( "=" )
+					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+				
+			});
+		}
 
-			if ( undefined !== item_values[1] ) {
-				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-			}
-			
-		});
+		if ( undefined !== link ) {
+
+			let splited_values = link.split( " " )
+
+			splited_values.map(( item, i ) => {
+
+				let item_values = item.split( "=" )
+
+				if ( undefined !== item_values[1] ) {
+					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+				
+			});
+		}
 
 		return (
 			<label>

@@ -4,6 +4,10 @@ import ResponsiveComponent from '../responsive/responsive-component';
 import ResponsiveSliderComponent from '../responsive-slider/responsive-slider-component';
 import ResponsiveSpacingComponent from '../responsive-spacing/responsive-spacing-component';
 import SliderComponent from '../slider/slider-component';
+import Background from '../background/background';
+import ResponsiveBackground from '../responsive-background/responsive-background';
+import ColorComponent from '../color/color-component';
+import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -180,7 +184,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			ast_field_wrap.html( fields_html );
 
-			control.renderReactControl( fields );
+			control.renderReactControl( fields, control );
 
 			jQuery( "#" + clean_param_name + "-tabs" ).tabs();
 
@@ -200,16 +204,12 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			ast_field_wrap.html(fields_html);
 
-			control.renderReactControl( fields );
+			control.renderReactControl( fields, control );
 		}
 
 		_.each( control_types, function( control_type, index ) {
 
 			switch( control_type.key ) {
-
-				case "ast-responsive-color":
-					control.initResponsiveColor( ast_field_wrap, control_elem, control_type.name );
-				break;  
 
 				case "ast-font": 
 
@@ -265,157 +265,13 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 						control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
 					});
 					
-				break;  
-
-				case "ast-responsive": 
-
-					control.initResponsiveTrigger( ast_field_wrap, control_elem ); 
-
-					control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
-		
-						name = jQuery(this).parents( '.customize-control' ).attr( 'id' );
-						name = name.replace( 'customize-control-', '' );
-
-						// Update value on change.
-						control.updateResonsiveValue( jQuery(this), name );
-					});
-
-				break;
-
-				case "ast-select":
-
-					control.container.on( 'change', '.ast-select-input', function() {
-
-						var value = jQuery( this ).val();
-
-						name = jQuery(this).parents( '.customize-control' ).attr( 'id' );
-						name = name.replace( 'customize-control-', '' );  
-
-						control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
-					});
-
-				break;
-
-				case "ast-slider": 
-				
-					control.container.on('input change', 'input[type=range]', function () {
-						var value = jQuery(this).attr('value'),
-							input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
-
-						input_number.val(value);
-
-						name = jQuery(this).parents( '.customize-control' ).attr( 'id' );
-						name = name.replace( 'customize-control-', '' );
-
-						control.container.trigger('ast_settings_changed', [control, input_number, value, name]);
-					});
-
-					// Handle the reset button.
-					control.container.on( 'click', '.ast-slider-reset', function () {
-
-						var wrapper = jQuery(this).closest('.wrapper'),
-							input_range = wrapper.find('input[type=range]'),
-							input_number = wrapper.find('.astra_range_value .value'),
-							default_value = input_range.data('reset_value');
-
-						input_range.val(default_value);
-						input_number.val(default_value);
-
-						name = jQuery(this).parents( '.customize-control' ).attr( 'id' );
-						name = name.replace( 'customize-control-', '' );
-
-						control.container.trigger('ast_settings_changed', [control, input_number, default_value, name]);
-					});
-
-					// Save changes.
-					control.container.find( '.customize-control-ast-slider' ).on('input change', 'input[type=number]', function () {
-
-						var value = jQuery(this).val();
-						jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
-
-						name = jQuery(this).parents( '.customize-control' ).attr( 'id' );
-						name = name.replace( 'customize-control-', '' );
-
-						control.container.trigger('ast_settings_changed', [control, jQuery(this), value, name]);
-					});
-
-				break;
-
-				case "ast-responsive-background":
-
-					control.initAstResonsiveBgControl( control_elem, control_type, control_type.name );
-
-				break;
-
-				case "ast-background":
-
-					control.initAstBgControl( control_elem, control_type, control_type.name );
-
-				break;
-
-				case "ast-border":
-
-					control.initAstBorderControl( control_elem, control_type, control_type.name );
-
-				break;
+				break; 
 			}
 
 		});
 
 		wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
 		
-	},
-
-	initAstBorderControl: function( control_elem, control_type, name ) {
-
-		var control = this,
-			value            = control.setting._value,
-			control_name     = control_type.name;
-		
-		// Save the value.
-		this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
-
-			// Update value on change.
-			control.saveBorderValue( 'border', jQuery( this ).val(), jQuery( this ), name );
-
-		});
-
-		// Connected button
-		jQuery( '.ast-border-connected' ).on( 'click', function() {
-
-			// Remove connected class
-			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-			
-			// Remove class
-			jQuery(this).parent( '.ast-border-input-item-link' ).removeClass( 'disconnected' );
-
-		} );
-
-		// Disconnected button
-		jQuery( '.ast-border-disconnected' ).on( 'click', function() {
-
-			// Set up variables
-			var elements    = jQuery(this).data( 'element-connect' );
-			
-			// Add connected class
-			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
-
-			// Add class
-			jQuery(this).parent( '.ast-border-input-item-link' ).addClass( 'disconnected' );
-
-		} );
-
-		// Values connected inputs
-		jQuery( '.ast-border-input-item' ).on( 'input', '.connected', function() {
-
-			var dataElement       = jQuery(this).attr( 'data-element-connect' ),
-				currentFieldValue = jQuery( this ).val();
-
-			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
-				jQuery(this).val( currentFieldValue ).change();
-			} );
-
-		} );
 	},
 
 	generateFieldHtml: function ( fields_data, field_values ) {    
@@ -484,13 +340,14 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		var weightOptions       = '';
 		var inheritWeightObject = [ 'inherit' ];
 		var counter = 0;
-		var weightObject        = $.merge( inheritWeightObject, weightObject );
+		var weightObject        = jQuery.merge( inheritWeightObject, weightObject );
 		var weightValue         = element.val() || '400';
+		var selected = '';
 		astraTypo[ 'inherit' ] = currentWeightTitle;
 
 		for ( ; counter < weightObject.length; counter++ ) {
 
-			if ( 0 === counter && -1 === $.inArray( weightValue, weightObject ) ) {
+			if ( 0 === counter && -1 === jQuery.inArray( weightValue, weightObject ) ) {
 				weightValue = weightObject[ 0 ];
 				selected 	= ' selected="selected"';
 			} else {
@@ -504,169 +361,12 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		element.html( weightOptions );
 	},
 
-	initResponsiveTrigger: function( wrap, control_elem ) {
-
-		wrap.find('.ast-responsive-btns button').on('click', function (event) {
-
-			var device = jQuery(this).attr('data-device');
-			if ('desktop' == device) {
-				device = 'tablet';
-			} else if ('tablet' == device) {
-				device = 'mobile';
-			} else {
-				device = 'desktop';
-			}
-
-			jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
-		});
-
-	},
-
-	initResponsiveColor: function( wrap, control_elem, name ) {
-
-		var control = this;
-		var picker = wrap.find( '.ast-responsive-color' );
-
-		picker.wpColorPicker({
-
-			change: function(event, ui) {
-
-				if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha) {
-					if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
-
-						var option_name = jQuery(this).data('name');
-						var stored = {
-							'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-							'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-							'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
-						};
-
-						var element = event.target;
-						var device = jQuery( this ).data( 'id' );
-						var newValue = {
-							'desktop' : stored['desktop'],
-							'tablet'  : stored['tablet'],
-							'mobile'  : stored['mobile'],
-						};
-						if ( 'desktop' === device ) {
-							newValue['desktop'] = ui.color.toString();
-						}
-						if ( 'tablet' === device ) {
-							newValue['tablet'] = ui.color.toString();
-						}
-						if ( 'mobile' === device ) {
-							newValue['mobile'] = ui.color.toString();
-						}
-
-						jQuery(element).val( ui.color.toString() );
-
-						name = jQuery(element).parents('.customize-control').attr('id');
-						name = name.replace( 'customize-control-', '' );
-
-						control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue, name ] );
-					}
-				}
-			},
-
-				/**
-			 * @param {Event} event - standard jQuery event, produced by "Clear"
-			 * button.
-			 */
-			clear: function (event) {
-				var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
-					device = jQuery( this ).closest('.wp-picker-input-wrap').find('.wp-color-picker').data( 'id' );
-
-				var option_name = jQuery( element ).attr('data-name');
-				var stored = {
-					'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-					'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-					'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
-				};
-
-				var newValue = {
-					'desktop' : stored['desktop'],
-					'tablet'  : stored['tablet'],
-					'mobile'  : stored['mobile'],
-				};
-
-				wp.customize.previewer.refresh();
-
-				if ( element ) {
-					if ( 'desktop' === device ) {
-						newValue['desktop'] = '';
-					}
-					if ( 'tablet' === device ) {
-						newValue['tablet'] = '';
-					}
-					if ( 'mobile' === device ) {
-						newValue['mobile'] = '';
-					}
-
-					jQuery(element).val( '' );
-					control.container.trigger( 'ast_settings_changed', [ control, jQuery(element), newValue, name ] );
-				}
-
-				name = jQuery(element).parents('.customize-control').attr('id');
-				name = name.replace( 'customize-control-', '' );
-			}
-		});
-
-		wrap.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
-
-			var device = jQuery(this).attr('data-device');
-			if( 'desktop' == device ) {
-				device = 'tablet';
-			} else if( 'tablet' == device ) {
-				device = 'mobile';
-			} else {
-				device = 'desktop';
-			}
-
-			jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-		});
-
-		// Set desktop colorpicker active.
-		wrap.find( '.ast-responsive-color.desktop' ).parents( '.wp-picker-container' ).addClass( 'active' );
-	},
-
 	onOptionChange:function ( e, control, element, value, name ) {
 
 		var control_id  = jQuery( '.hidden-field-astra-settings-' + name );
 		control_id.val( value );
 		sub_control = wp.customize.control( "astra-settings[" + name + "]" );
 		sub_control.setting.set( value );
-	},
-
-	/**
-	 * Updates the responsive param value.
-	 */
-	updateResonsiveValue: function( element, name ) {
-
-		'use strict';
-
-		var control = this,
-		newValue = {};
-
-		// Set the spacing container.
-		control.responsiveContainer = element.closest( '.ast-responsive-wrapper' );
-
-		control.responsiveContainer.find( 'input.ast-responsive-input' ).each( function() {
-			var responsive_input = jQuery( this ),
-			item = responsive_input.data( 'id' ),
-			item_value = responsive_input.val();
-
-			newValue[item] = item_value;
-		});
-
-		control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
-			var responsive_input = jQuery( this ),
-			item = responsive_input.data( 'id' ),
-			item_value = responsive_input.val();
-
-			newValue[item] = item_value;
-		});
-
-		control.container.trigger( 'ast_settings_changed', [ control, element, newValue, name ] );
 	},
 
 	isJsonString: function( str ) {
@@ -677,455 +377,31 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			return false;
 		}
 		return true;
-	},   
+	},
+	getFinalControlObject: function ( attr, controlObject ) {
 
-	initAstResonsiveBgControl: function( control, control_atts, name ) {
-
-		var value            = control_atts.value;
-		var picker           = control.container.find('.ast-responsive-bg-color-control');
-		var control_name     = control_atts.name;
-		var controlContainer = control.container.find( "#customize-control-" + control_name );
-
-		// Hide unnecessary controls if the value doesn't have an image.
-		if (_.isUndefined(value['desktop']['background-image']) || '' === value['desktop']['background-image']) {   
-			controlContainer.find('.background-wrapper > .background-container.desktop > .background-repeat').hide();
-			controlContainer.find('.background-wrapper > .background-container.desktop > .background-position').hide();
-			controlContainer.find('.background-wrapper > .background-container.desktop > .background-size').hide();
-			controlContainer.find('.background-wrapper > .background-container.desktop > .background-attachment').hide();
+		if ( undefined !== attr.choices ) {
+			controlObject.params['choices'] = attr.choices;
 		}
-		if (_.isUndefined(value['tablet']['background-image']) || '' === value['tablet']['background-image']) {
-			controlContainer.find('.background-wrapper > .background-container.tablet > .background-repeat').hide();
-			controlContainer.find('.background-wrapper > .background-container.tablet > .background-position').hide();
-			controlContainer.find('.background-wrapper > .background-container.tablet > .background-size').hide();
-			controlContainer.find('.background-wrapper > .background-container.tablet > .background-attachment').hide();
+		if ( undefined !== attr.inputAttrs ) {
+			controlObject.params['inputAttrs'] = attr.inputAttrs;
 		}
-		if (_.isUndefined(value['mobile']['background-image']) || '' === value['mobile']['background-image']) {
-			controlContainer.find('.background-wrapper > .background-container.mobile > .background-repeat').hide();
-			controlContainer.find('.background-wrapper > .background-container.mobile > .background-position').hide();
-			controlContainer.find('.background-wrapper > .background-container.mobile > .background-size').hide();
-			controlContainer.find('.background-wrapper > .background-container.mobile > .background-attachment').hide();
+		if ( undefined !== attr.link ) {
+			controlObject.params['link'] = attr.link;
+		}
+		if ( undefined !== attr.units ) {
+			controlObject.params['units'] = attr.units;
 		}
 
-		// Color.
-		picker.wpColorPicker({
-			change: function (event, ui) {
-
-				if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha ) {
-					var device = jQuery(this).data('id');
-					control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this), name );
-				}
-			},
-
-			/**
-			 * @param {Event} event - standard jQuery event, produced by "Clear"
-			 * button.
-			 */
-			clear: function (event) {
-				var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
-					responsive_input = jQuery(this),
-					screen = responsive_input.closest('.wp-picker-input-wrap').find('.wp-color-picker').data('id');
-
-				if ( element ) {
-					control.saveValue( screen, 'background-color', '', jQuery( element ), name );
-				}
-				wp.customize.previewer.refresh();
-			}
-		});
-
-		// Background-Repeat.
-		controlContainer.on('change', '.background-repeat select', function () {
-			var responsive_input = jQuery(this),
-				screen = responsive_input.data('id'),
-				item_value = responsive_input.val();
-
-			control.saveValue( screen, 'background-repeat', item_value, jQuery(this), name );
-		});
-
-		// Background-Size.
-		controlContainer.on('change click', '.background-size input', function () {
-			var responsive_input = jQuery(this),
-				screen = responsive_input.data('id'),
-				item_value = responsive_input.val();
-
-			jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
-			jQuery( this ).attr( 'checked', 'checked' );
-
-			control.saveValue( screen, 'background-size', item_value, responsive_input, name );
-		});
-
-		// Background-Position.
-		controlContainer.on( 'change', '.background-position select', function () {
-			var responsive_input = jQuery(this),
-				screen = responsive_input.data('id'),
-				item_value = responsive_input.val();
-			control.saveValue( screen, 'background-position', item_value, responsive_input, name );
-		});
-
-		// Background-Attachment.
-		controlContainer.on('change click', '.background-attachment input', function () {
-			var responsive_input = jQuery(this),
-				screen = responsive_input.data('id'),
-				item_value = responsive_input.val();
-
-			jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
-			jQuery( this ).attr( 'checked', 'checked' );
-
-			control.saveValue( screen, 'background-attachment', item_value, responsive_input, name );
-		});
-
-		// Background-Image.
-		controlContainer.on('click', '.background-image-upload-button, .thumbnail-image img', function (e) {
-			var responsive_input = jQuery(this),
-				screen = responsive_input.data('id');
-				name = responsive_input.data('name');
-
-			var image = wp.media({ multiple: false }).open().on('select', function () {
-
-				// This will return the selected image from the Media Uploader, the result is an object.
-				var uploadedImage = image.state().get('selection').first(),
-					previewImage = uploadedImage.toJSON().sizes.full.url,
-					imageUrl,
-					imageID,
-					imageWidth,
-					imageHeight,
-					preview,
-					removeButton;
-
-				if (!_.isUndefined(uploadedImage.toJSON().sizes.medium)) {
-					previewImage = uploadedImage.toJSON().sizes.medium.url;
-				} else if (!_.isUndefined(uploadedImage.toJSON().sizes.thumbnail)) {
-					previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
-				}
-
-				imageUrl = uploadedImage.toJSON().sizes.full.url;
-				imageID = uploadedImage.toJSON().id;
-				imageWidth = uploadedImage.toJSON().width;
-				imageHeight = uploadedImage.toJSON().height;
-
-				// Show extra controls if the value has an image.
-				if ( '' !== imageUrl ) {
-					controlContainer.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
-				}
-
-				control.saveValue( screen, 'background-image', imageUrl, responsive_input, name );
-				preview = controlContainer.find( '.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail' );
-				removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
-
-				if ( preview.length ) {
-					preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" data-id="'+screen+'" data-name="'+name+'"/>');
-				}
-				if ( removeButton.length ) {
-					removeButton.show();
-				}
-			});
-
-			e.preventDefault();
-		});
-
-		controlContainer.on('click', '.background-image-upload-remove-button', function (e) {
-
-			var preview,
-				removeButton,
-				responsive_input = jQuery(this),
-				screen = responsive_input.data('id');
-
-			control.saveValue( screen, 'background-image', '', jQuery(this), name );
-
-			preview = controlContainer.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
-			removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
-
-			// Hide unnecessary controls.
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').hide();
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-position').hide();
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-size').hide();
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').hide();
-
-			controlContainer.find('.background-container.' + screen + ' .more-settings').attr('data-direction', 'down');
-			controlContainer.find('.background-container.' + screen + ' .more-settings').find('.message').html(astraCustomizerControlBackground.moreSettings);
-			controlContainer.find('.background-container.' + screen + ' .more-settings').find('.icon').html('↓');
-
-			if (preview.length) {
-				preview.removeClass().addClass('placeholder').html(astraCustomizerControlBackground.placeholder);
-			}
-			if (removeButton.length) {
-				removeButton.hide();
-			}
-
-			wp.customize.previewer.refresh();
-			e.preventDefault();
-		});
-
-		controlContainer.on('click', '.more-settings', function (e) {
-
-			var responsive_input = jQuery(this),
-				screen = responsive_input.data('id');
-			// Hide unnecessary controls.
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').toggle();
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-position').toggle();
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-size').toggle();
-			controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').toggle();
-
-			if ('down' === jQuery(this).attr('data-direction')) {
-				jQuery(this).attr('data-direction', 'up');
-				jQuery(this).find('.message').html(astraCustomizerControlBackground.lessSettings)
-				jQuery(this).find('.icon').html('↑');
-			} else {
-				jQuery(this).attr('data-direction', 'down');
-				jQuery(this).find('.message').html(astraCustomizerControlBackground.moreSettings)
-				jQuery(this).find('.icon').html('↓');
-			}
-		});
-
-
-		controlContainer.find('.ast-responsive-btns button').on('click', function (event) {
-
-			var device = jQuery(this).attr('data-device');
-			if ('desktop' == device) {
-				device = 'tablet';
-			} else if ('tablet' == device) {
-				device = 'mobile';
-			} else {
-				device = 'desktop';
-			}
-
-			jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
-		});
-
-		jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
-
-			var device = jQuery(this).attr('data-device');
-
-			jQuery('.customize-control-ast-responsive-background .background-container, .customize-control .ast-responsive-btns > li').removeClass('active');
-			jQuery('.customize-control-ast-responsive-background .background-container.' + device + ', .customize-control .ast-responsive-btns > li.' + device).addClass('active');
-		});
+		return controlObject;
 	},
-
-	initAstBgControl: function( control, control_atts, name ) {
-
-		var value            = control.setting._value,
-			control_name     = control_atts.name,
-			picker           = control.container.find( '.ast-color-control' ),
-			controlContainer = control.container.find( "#customize-control-" + control_name );
-
-		// Hide unnecessary controls if the value doesn't have an image.
-		if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
-			controlContainer.find( '.background-wrapper > .background-repeat' ).hide();
-			controlContainer.find( '.background-wrapper > .background-position' ).hide();
-			controlContainer.find( '.background-wrapper > .background-size' ).hide();
-			controlContainer.find( '.background-wrapper > .background-attachment' ).hide();
-		}
-
-		// Color.
-		picker.wpColorPicker({
-			change: function() {
-				if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
-					var $this = jQuery(this);
-					setTimeout( function() {
-						control.saveBgValue( 'background-color', picker.val(), $this, name );
-					}, 100 );
-				}
-			},
-
-			/**
-			 * @param {Event} event - standard jQuery event, produced by "Clear"
-			 * button.
-			 */
-			clear: function (event)
-			{
-				var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-
-				if (element) {
-					control.saveBgValue( 'background-color', '', jQuery(element), name );
-				}
-				wp.customize.previewer.refresh();
-			}
-		});
-
-		// Background-Repeat.
-		controlContainer.on( 'change', '.background-repeat select', function() {
-			control.saveBgValue( 'background-repeat', jQuery( this ).val(), jQuery( this ), name );
-		});
-
-		// Background-Size.
-		controlContainer.on( 'change click', '.background-size input', function() {
-			jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
-			jQuery( this ).attr( 'checked', 'checked' );
-			control.saveBgValue( 'background-size', jQuery( this ).val(), jQuery( this ), name );
-		});
-
-		// Background-Position.
-		controlContainer.on( 'change', '.background-position select', function() {
-			control.saveBgValue( 'background-position', jQuery( this ).val(), jQuery( this ), name );
-		});
-
-		// Background-Attachment.
-		controlContainer.on( 'change click', '.background-attachment input', function() {
-			jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
-			jQuery( this ).attr( 'checked', 'checked' );
-			control.saveBgValue( 'background-attachment', jQuery( this ).val(), jQuery( this ), name );
-		});
-
-		// Background-Image.
-		controlContainer.on( 'click', '.background-image-upload-button, .thumbnail-image img', function( e ) {
-			var upload_img_btn = jQuery(this);
-			var image = wp.media({ multiple: false }).open().on( 'select', function() {
-
-				// This will return the selected image from the Media Uploader, the result is an object.
-				var uploadedImage = image.state().get( 'selection' ).first(),
-					previewImage   = uploadedImage.toJSON().sizes.full.url,
-					imageUrl,
-					imageID,
-					imageWidth,
-					imageHeight,
-					preview,
-					removeButton;
-
-				if ( ! _.isUndefined( uploadedImage.toJSON().sizes.medium ) ) {
-					previewImage = uploadedImage.toJSON().sizes.medium.url;
-				} else if ( ! _.isUndefined( uploadedImage.toJSON().sizes.thumbnail ) ) {
-					previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
-				}
-
-				imageUrl    = uploadedImage.toJSON().sizes.full.url;
-				imageID     = uploadedImage.toJSON().id;
-				imageWidth  = uploadedImage.toJSON().width;
-				imageHeight = uploadedImage.toJSON().height;
-
-				// Show extra controls if the value has an image.
-				if ( '' !== imageUrl ) {
-					controlContainer.find( '.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment' ).show();
-				}
-
-				control.saveBgValue( 'background-image', imageUrl, upload_img_btn, name );
-				preview      = controlContainer.find( '.placeholder, .thumbnail' );
-				removeButton = controlContainer.find( '.background-image-upload-remove-button' );
-
-				if ( preview.length ) {
-					preview.removeClass().addClass( 'thumbnail thumbnail-image' ).html( '<img src="' + previewImage + '" alt="" />' );
-				}
-				if ( removeButton.length ) {
-					removeButton.show();
-				}
-			});
-
-			e.preventDefault();
-		});
-
-		controlContainer.on( 'click', '.background-image-upload-remove-button', function( e ) {
-
-			var preview,
-				removeButton;
-
-			e.preventDefault();
-
-			control.saveBgValue( 'background-image', '', jQuery( this ) );
-
-			preview      = controlContainer.find( '.placeholder, .thumbnail' );
-			removeButton = controlContainer.find( '.background-image-upload-remove-button' );
-
-			// Hide unnecessary controls.
-			controlContainer.find( '.background-wrapper > .background-repeat' ).hide();
-			controlContainer.find( '.background-wrapper > .background-position' ).hide();
-			controlContainer.find( '.background-wrapper > .background-size' ).hide();
-			controlContainer.find( '.background-wrapper > .background-attachment' ).hide();
-			
-			controlContainer.find( '.more-settings' ).attr('data-direction', 'down');
-			controlContainer.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
-			controlContainer.find( '.more-settings' ).find('.icon').html( '↓' );
-
-			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
-			}
-			if ( removeButton.length ) {
-				removeButton.hide();
-			}
-		});
-
-		controlContainer.on( 'click', '.more-settings', function( e ) {
-			// Hide unnecessary controls.
-			controlContainer.find( '.background-wrapper > .background-repeat' ).toggle();
-			controlContainer.find( '.background-wrapper > .background-position' ).toggle();
-			controlContainer.find( '.background-wrapper > .background-size' ).toggle();
-			controlContainer.find( '.background-wrapper > .background-attachment' ).toggle();
-
-			if( 'down' === jQuery(this).attr( 'data-direction' ) )
-			{
-				jQuery(this).attr('data-direction', 'up');
-				jQuery(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
-				jQuery(this).find('.icon').html( '↑' );
-			} else {
-				jQuery(this).attr('data-direction', 'down');
-				jQuery(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
-				jQuery(this).find('.icon').html( '↓' );
-			}
-		});
-	},
-
-	saveValue: function ( screen, property, value, element, name ) {
-
-		var control = this,
-			input = jQuery('#customize-control-' + control.id.replace('[', '-').replace(']', '') + ' .responsive-background-hidden-value'); 
-
-		var val = JSON.parse( input.val() );
-		val[screen][property] = value;
-
-		jQuery(input).attr( 'value', JSON.stringify(val) ).trigger( 'change' );
-
-		name = jQuery(element).parents('.customize-control').attr('id');
-		name = name.replace( 'customize-control-', '' );
-		control.container.trigger( 'ast_settings_changed', [control, element, val, name ] );
-	},
-
-	/**
-	 * Saves the value.
-	 */
-	saveBgValue: function( property, value, element, name ) {
-
-		var control = this,
-			input   = jQuery( '#customize-control-' + control.id.replace( '[', '-' ).replace( ']', '' ) + ' .background-hidden-value' );
-
-		var val = JSON.parse( input.val() );
-
-		val[ property ] = value;
-
-		jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );
-
-		name = jQuery(element).parents('.customize-control').attr('id');
-		name = name.replace( 'customize-control-', '' );
-		control.container.trigger( 'ast_settings_changed', [control, element, val, name ] );
-	},
-
-	/**
-	 * Saves the value.
-	 */
-	saveBorderValue: function( property, value, element, name ) {
-
-		var control = this,
-			newValue = {
-				'top'   : '',
-				'right' : '',
-				'bottom' : '',
-				'left'   : '',
-			};
-
-
-		control.container.find( 'input.ast-border-desktop' ).each( function() {
-			var spacing_input = jQuery( this ),
-				item          = spacing_input.data( 'id' );
-
-			item_value = spacing_input.val();
-			newValue[ item ] = item_value;
-			
-			spacing_input.attr( 'value', item_value );
-
-		});
-
-		
-		control.container.trigger( 'ast_settings_changed', [control, element, newValue, name ] );
-	},
-	renderReactControl: function( fields ) {
+	renderReactControl: function( fields, control ) {
 
 		const reactControls = {
+			'ast-background' : Background,
+			'ast-responsive-background' : ResponsiveBackground,
+			'ast-responsive-color' : ResponsiveColorComponent,
+			'ast-color' : ColorComponent,
 			'ast-border' : BorderComponent,
 			'ast-responsive' : ResponsiveComponent,
 			'ast-responsive-slider' : ResponsiveSliderComponent,
@@ -1144,7 +420,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 						control_clean_name = control_clean_name.replace(']', '');
 						var selector = '#customize-control-' + control_clean_name;
 						var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
-
+						controlObject = control.getFinalControlObject( attr, controlObject );
 						const ComponetName = reactControls[ attr.control ];
 						
 						ReactDOM.render(
@@ -1159,14 +435,15 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			_.each(fields, function (attr, index) {
 				
-				if ( 'ast-font' !== attr.control ) {
-					console.log(attr);
+				if ( 'ast-font' !== attr.control && 'ast-select' !== attr.control ) {
+					
 					var control_clean_name = attr.name.replace('[', '-');
 					control_clean_name = control_clean_name.replace(']', '');
 					var selector = '#customize-control-' + control_clean_name;
 					var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
+					controlObject = control.getFinalControlObject( attr, controlObject );
 					const ComponetName = reactControls[ attr.control ];
-					console.log(controlObject);
+					
 					ReactDOM.render(
 						<ComponetName control={controlObject} customizer={ wp.customize }/>,
 						jQuery( selector )[0]

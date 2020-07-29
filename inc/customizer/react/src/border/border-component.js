@@ -107,7 +107,7 @@ class BorderComponent extends Component {
 			);
 		}
 
-		if ( choices ) {
+		
 			
 			htmlChoices = Object.keys( choices ).map( ( choiceID ) => {
 
@@ -123,7 +123,7 @@ class BorderComponent extends Component {
 
 				return html;
 			} );
-		}
+		
 
 		return (
 			<>
