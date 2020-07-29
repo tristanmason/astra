@@ -141,6 +141,7 @@ class Background extends Component {
 
 		let defaultVal = '#RRGGBB';
 		let labelHtml = null;
+		let descriptionHtml = null;
 		let inputHtml = null;
 
 		if ( defaultValue ) {
@@ -161,7 +162,7 @@ class Background extends Component {
 
 		if ( description ) { 
 
-			labelHtml = <span className="description customize-control-description">{ description }</span>
+			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
 
 		inputHtml = (
@@ -177,6 +178,7 @@ class Background extends Component {
 			<>
 				<label>
 					{ labelHtml }
+					{ descriptionHtml }
 				</label>
 
 				<div className="customize-control-content">
