@@ -428,6 +428,8 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
 			var control = attr.control;
+			var template_id = "customize-control-" + control + "-content";
+            var template = wp.template(template_id);
 			var value = new_value || attr.default;
 			attr.value = value;
 			var dataAtts = '';
@@ -463,6 +465,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			control_clean_name = control_clean_name.replace(']', '');
 
 			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
+			fields_html += template(attr);
 			fields_html += '</li>';
 
 		});
@@ -1136,18 +1139,19 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			_.each( fields.tabs, function ( fields_data, key ) {
 
 				_.each(fields_data, function (attr, index) {
-					
-					var control_clean_name = attr.name.replace('[', '-');
-					control_clean_name = control_clean_name.replace(']', '');
-					var selector = '#customize-control-' + control_clean_name;
-					var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
+					if ( 'ast-font' !== attr.control ) {
+						var control_clean_name = attr.name.replace('[', '-');
+						control_clean_name = control_clean_name.replace(']', '');
+						var selector = '#customize-control-' + control_clean_name;
+						var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
 
-					const ComponetName = reactControls[ attr.control ];
-					
-					ReactDOM.render(
-						<ComponetName control={controlObject} customizer={ wp.customize }/>,
-						jQuery( selector )[0]
-					);
+						const ComponetName = reactControls[ attr.control ];
+						
+						ReactDOM.render(
+							<ComponetName control={controlObject} customizer={ wp.customize }/>,
+							jQuery( selector )[0]
+						);
+					}
 				});
 				
 			});
@@ -1155,17 +1159,19 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			_.each(fields, function (attr, index) {
 				
-				var control_clean_name = attr.name.replace('[', '-');
-				control_clean_name = control_clean_name.replace(']', '');
-				var selector = '#customize-control-' + control_clean_name;
-				var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
-				console.log(controlObject)
-				const ComponetName = reactControls[ attr.control ];
-				
-				ReactDOM.render(
-					<ComponetName control={controlObject} customizer={ wp.customize }/>,
-					jQuery( selector )[0]
-				);
+				if ( 'ast-font' !== attr.control ) {
+					console.log(attr);
+					var control_clean_name = attr.name.replace('[', '-');
+					control_clean_name = control_clean_name.replace(']', '');
+					var selector = '#customize-control-' + control_clean_name;
+					var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
+					const ComponetName = reactControls[ attr.control ];
+					console.log(controlObject);
+					ReactDOM.render(
+						<ComponetName control={controlObject} customizer={ wp.customize }/>,
+						jQuery( selector )[0]
+					);
+				}
 			});
 		}
 	}
