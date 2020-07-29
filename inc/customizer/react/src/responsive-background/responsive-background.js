@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
 import BackgroundColorControl from '../common/background-color';
 
@@ -61,7 +61,7 @@ class ResponsiveBackground extends Component {
 	renderReset ( key ) {
 		return (
 			<span className="customize-control-title">
-				<Fragment>
+				<>
 					<Button
 						className="reset astra-reset"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
@@ -73,7 +73,7 @@ class ResponsiveBackground extends Component {
 					>
 						<Dashicon icon='image-rotate' />
 					</Button>
-				</Fragment>
+				</>
 			</span>
 		)
 	}

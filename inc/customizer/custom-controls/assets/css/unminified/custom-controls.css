@@ -321,10 +321,6 @@ svg.dashicon {
 }
 
 /** Color */
-
-.astra-popover-color .components-popover__content {
-    min-width: 240px;
-}
 .astra-popover-color .components-popover__content .components-focal-point-picker-wrapper {
     box-sizing: border-box;
 }
@@ -909,11 +905,16 @@ input[type="text"].select2-search__field {
   min-height: 30px;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .wp-picker-container.active {
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
+  display: inline-block;
+  float: right;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
   display: block;
 }
 

@@ -125,10 +125,6 @@ svg.dashicon {
 }
 
 /** Color */
-
-.astra-popover-color .components-popover__content {
-    min-width: 240px;
-}
 .astra-popover-color .components-popover__content .components-focal-point-picker-wrapper {
     box-sizing: border-box;
 }
