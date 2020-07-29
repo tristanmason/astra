@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
 class SelectComponent extends Component {
 
@@ -38,7 +37,7 @@ class SelectComponent extends Component {
 		let optionsHtml = Object.entries( choices ).map( ( key, label ) => {
 
 			var html = ( 
-				<option value={ key }>{ label }</option>
+				<option key={key} value={ key }>{ label }</option>
 			);
 			return html;
 		} );

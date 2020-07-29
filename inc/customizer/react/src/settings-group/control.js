@@ -8,6 +8,7 @@ import Background from '../background/background';
 import ResponsiveBackground from '../responsive-background/responsive-background';
 import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
+import SelectComponent from '../select/select-component';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -365,7 +366,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 		var control_id  = jQuery( '.hidden-field-astra-settings-' + name );
 		control_id.val( value );
-		sub_control = wp.customize.control( "astra-settings[" + name + "]" );
+		let sub_control = wp.customize.control( "astra-settings[" + name + "]" );
 		sub_control.setting.set( value );
 	},
 
@@ -407,7 +408,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-slider' : ResponsiveSliderComponent,
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
-
+			'ast-select' : SelectComponent,
 		};
 		
 		if( 'undefined' != typeof fields.tabs ) {
@@ -435,7 +436,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			_.each(fields, function (attr, index) {
 				
-				if ( 'ast-font' !== attr.control && 'ast-select' !== attr.control ) {
+				if ( 'ast-font' !== attr.control ) {
 					
 					var control_clean_name = attr.name.replace('[', '-');
 					control_clean_name = control_clean_name.replace(']', '');
