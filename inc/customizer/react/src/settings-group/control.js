@@ -381,17 +381,23 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 	},
 	getFinalControlObject: function ( attr, controlObject ) {
 
-		if ( undefined !== attr.choices ) {
+		if ( undefined !== attr.choices && undefined === controlObject.params['choices'] ) {
 			controlObject.params['choices'] = attr.choices;
 		}
-		if ( undefined !== attr.inputAttrs ) {
+		if ( undefined !== attr.inputAttrs && undefined === controlObject.params['inputAttrs'] ) {
 			controlObject.params['inputAttrs'] = attr.inputAttrs;
 		}
-		if ( undefined !== attr.link ) {
+		if ( undefined !== attr.link && undefined === controlObject.params['link'] ) {
 			controlObject.params['link'] = attr.link;
 		}
-		if ( undefined !== attr.units ) {
+		if ( undefined !== attr.units && undefined === controlObject.params['units'] ) {
 			controlObject.params['units'] = attr.units;
+		}
+		if ( undefined !== attr.linked_choices && undefined === controlObject.params['linked_choices'] ) {
+			controlObject.params['linked_choices'] = attr.linked_choices;
+		}
+		if ( undefined !== attr.title && ( undefined === controlObject.params['label'] || '' === controlObject.params['label'] ) ) {
+			controlObject.params['label'] = attr.title;
 		}
 
 		return controlObject;
