@@ -384,7 +384,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
 		private function get_dependency_arr() {
-			return self::$dependency_arr;
+			return apply_filters( 'astra_customizer_required_dependency', self::$dependency_arr );
 		}
 
 		/**
