@@ -75,7 +75,7 @@ class BackgroundColorControl extends Component {
         let tabs = [
             {
                 name: 'color',
-                title: __( 'Color', 'astra-blocks' ),
+                title: __( 'Color', 'astra' ),
                 className: 'astra-color-background',
             },
             
@@ -85,7 +85,7 @@ class BackgroundColorControl extends Component {
 
             let gradientTab = {
                 name: 'gradient',
-                title: __( 'Gradient', 'astra-blocks' ),
+                title: __( 'Gradient', 'astra' ),
                 className: 'astra-image-background',
             };
 
@@ -96,7 +96,7 @@ class BackgroundColorControl extends Component {
 
             let imageTab = {
                 name: 'image',
-                title: __( 'Image', 'astra-blocks' ),
+                title: __( 'Image', 'astra' ),
                 className: 'astra-image-background',
             };
 

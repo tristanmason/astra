@@ -73,12 +73,12 @@ class ColorControl extends Component {
 									tabs={ [
 										{
 											name: 'color',
-											title: __( 'Color', 'astra-blocks' ),
+											title: __( 'Color', 'astra' ),
 											className: 'astra-color-background',
 										},
 										{
 											name: 'gradient',
-											title: __( 'Gradient', 'astra-blocks' ),
+											title: __( 'Gradient', 'astra' ),
 											className: 'astra-gradient-background',
 										}
 									] }>
