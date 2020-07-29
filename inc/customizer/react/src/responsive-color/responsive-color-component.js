@@ -72,6 +72,7 @@ class ResponsiveColorComponent extends Component {
 
 		let defaultVal = '#RRGGBB';
 		let labelHtml = null;
+		let descriptionHtml = null;
 		let responsiveHtml = null;
 		let inputHtml = null;
 
@@ -93,7 +94,7 @@ class ResponsiveColorComponent extends Component {
 
 		if ( description ) { 
 
-			labelHtml = <span className="description customize-control-description">{ description }</span>
+			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
 
 		if ( responsive ) {
@@ -141,6 +142,7 @@ class ResponsiveColorComponent extends Component {
 			<>
 				<label>
 					{ labelHtml }
+					{ descriptionHtml }
 				</label>
 
 				{ responsiveHtml }
