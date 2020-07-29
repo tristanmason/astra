@@ -1,101 +1,194 @@
 ( function( $ ) {
-	/**
-	 * File spacing.js
-	 *
-	 * Handles the spacing
-	 *
-	 * @package Astra
-	 */
+	jQuery(window).on("load", function() {
+		jQuery('html').addClass('background-colorpicker-ready');
+	});
 
-	wp.customize.controlConstructor['ast-border'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend({
 
+		// When we're finished loading continue processing
 		ready: function() {
 
 			'use strict';
 
+			var control = this;
+
+			// Init the control.
+			control.initAstBgControl();
+		},
+
+		initAstBgControl: function() {
+
 			var control = this,
-			value;
-			
+				value   = control.setting._value,
+				picker  = control.container.find( '.ast-color-control' );
 
-			// Set the spacing container.
-			// this.container = control.container.find( 'ul.ast-border-wrapper' ).first();
+			// Hide controls by default and show only when More Settings clicked.
+			control.container.find( '.background-wrapper > .background-repeat' ).hide();
+			control.container.find( '.background-wrapper > .background-position' ).hide();
+			control.container.find( '.background-wrapper > .background-size' ).hide();
+			control.container.find( '.background-wrapper > .background-attachment' ).hide();
+			// Hide More Settings control only when image is not selected.
+			if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
+				control.container.find( '.more-settings' ).hide();
+			}
 
-			// Save the value.
-			this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
+			// Color.
+			picker.wpColorPicker({
+				change: function() {
+					if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
+						setTimeout( function() {
+							control.saveValue( 'background-color', picker.val() );
+						}, 100 );
+					}
+				},
 
-				value = jQuery( this ).val();
+				/**
+				 * @param {Event} event - standard jQuery event, produced by "Clear"
+				 * button.
+				 */
+				clear: function (event)
+				{
+					var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
 
-				// Update value on change.
-				control.updateValue();
+					if (element) {
+						control.saveValue( 'background-color', '' );
+					}
+				}
+			});
+
+			// Background-Repeat.
+			control.container.on( 'change', '.background-repeat select', function() {
+				control.saveValue( 'background-repeat', jQuery( this ).val() );
+			});
+
+			// Background-Size.
+			control.container.on( 'change click', '.background-size input', function() {
+				jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+				jQuery( this ).attr( 'checked', 'checked' );
+				control.saveValue( 'background-size', jQuery( this ).val() );
+			});
+
+			// Background-Position.
+			control.container.on( 'change', '.background-position select', function() {
+				control.saveValue( 'background-position', jQuery( this ).val() );
+			});
+
+			// Background-Attachment.
+			control.container.on( 'change click', '.background-attachment input', function() {
+				jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+				jQuery( this ).attr( 'checked', 'checked' );
+				control.saveValue( 'background-attachment', jQuery( this ).val() );
+			});
+
+			// Background-Image.
+			control.container.on( 'click', '.background-image-upload-button, .thumbnail-image img', function( e ) {
+				var image = wp.media({ multiple: false }).open().on( 'select', function() {
+
+					// This will return the selected image from the Media Uploader, the result is an object.
+					var uploadedImage = image.state().get( 'selection' ).first(),
+						previewImage   = uploadedImage.toJSON().sizes.full.url,
+						imageUrl,
+						imageID,
+						imageWidth,
+						imageHeight,
+						preview,
+						removeButton;
+
+					if ( ! _.isUndefined( uploadedImage.toJSON().sizes.medium ) ) {
+						previewImage = uploadedImage.toJSON().sizes.medium.url;
+					} else if ( ! _.isUndefined( uploadedImage.toJSON().sizes.thumbnail ) ) {
+						previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
+					}
+
+					imageUrl    = uploadedImage.toJSON().sizes.full.url;
+					imageID     = uploadedImage.toJSON().id;
+					imageWidth  = uploadedImage.toJSON().width;
+					imageHeight = uploadedImage.toJSON().height;
+
+					// Show extra controls if the value has an image.
+					if ( '' !== imageUrl ) {
+						control.container.find( '.more-settings' ).show();
+					}
+
+					control.saveValue( 'background-image', imageUrl );
+					preview      = control.container.find( '.placeholder, .thumbnail' );
+					removeButton = control.container.find( '.background-image-upload-remove-button' );
+
+					if ( preview.length ) {
+						preview.removeClass().addClass( 'thumbnail thumbnail-image' ).html( '<img src="' + previewImage + '" alt="" />' );
+					}
+					if ( removeButton.length ) {
+						removeButton.show();
+					}
+				});
+
+				e.preventDefault();
+			});
+
+			control.container.on( 'click', '.background-image-upload-remove-button', function( e ) {
+
+				var preview,
+					removeButton;
+
+				e.preventDefault();
+
+				control.saveValue( 'background-image', '' );
+
+				preview      = control.container.find( '.placeholder, .thumbnail' );
+				removeButton = control.container.find( '.background-image-upload-remove-button' );
+
+				// Hide unnecessary controls.
+				control.container.find( '.background-wrapper > .background-repeat' ).hide();
+				control.container.find( '.background-wrapper > .background-position' ).hide();
+				control.container.find( '.background-wrapper > .background-size' ).hide();
+				control.container.find( '.background-wrapper > .background-attachment' ).hide();
+				
+				control.container.find( '.more-settings' ).attr('data-direction', 'down');
+				control.container.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+				control.container.find( '.more-settings' ).find('.icon').html( '↓' );
+
+				if ( preview.length ) {
+					preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+				}
+				if ( removeButton.length ) {
+					removeButton.hide();
+				}
+			});
+
+			control.container.on( 'click', '.more-settings', function( e ) {
+				// Hide unnecessary controls.
+				control.container.find( '.background-wrapper > .background-repeat' ).toggle();
+				control.container.find( '.background-wrapper > .background-position' ).toggle();
+				control.container.find( '.background-wrapper > .background-size' ).toggle();
+				control.container.find( '.background-wrapper > .background-attachment' ).toggle();
+
+				if( 'down' === $(this).attr( 'data-direction' ) )
+				{
+					$(this).attr('data-direction', 'up');
+					$(this).find('.message').html( astraCustomizerControlBackground.lessSettings );
+					$(this).find('.icon').html( '↑' );
+				} else {
+					$(this).attr('data-direction', 'down');
+					$(this).find('.message').html( astraCustomizerControlBackground.moreSettings );
+					$(this).find('.icon').html( '↓' );
+				}
 			});
 		},
 
 		/**
-		 * Updates the spacing values
+		 * Saves the value.
 		 */
-		updateValue: function() {
-
-			'use strict';
+		saveValue: function( property, value ) {
 
 			var control = this,
-				newValue = {
-					'top' 	: '',
-					'right' : '',
-					'bottom' : '',
-					'left'	 : '',
-				};
+				input   = jQuery( '#customize-control-' + control.id.replace( '[', '-' ).replace( ']', '' ) + ' .background-hidden-value' ),
+				val     = control.setting._value;
 
-			control.container.find( 'input.ast-border-desktop' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
+			val[ property ] = value;
 
-				newValue[item] = item_value;
-			});
-
-			control.setting.set( newValue );
-		},
-
-	});
-
-	jQuery( document ).ready( function( ) {
-
-		// Connected button
-		jQuery( '.ast-border-connected' ).on( 'click', function() {
-
-			// Remove connected class
-			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-			
-			// Remove class
-			jQuery(this).parent( '.ast-border-input-item-link' ).removeClass( 'disconnected' );
-
-		} );
-
-		// Disconnected button
-		jQuery( '.ast-border-disconnected' ).on( 'click', function() {
-
-			// Set up variables
-			var elements 	= jQuery(this).data( 'element-connect' );
-			
-			// Add connected class
-			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
-
-			// Add class
-			jQuery(this).parent( '.ast-border-input-item-link' ).addClass( 'disconnected' );
-
-		} );
-
-		// Values connected inputs
-		jQuery( '.ast-border-input-item' ).on( 'input', '.connected', function() {
-
-			var dataElement 	  = jQuery(this).attr( 'data-element-connect' ),
-				currentFieldValue = jQuery( this ).val();
-
-			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
-				jQuery(this).val( currentFieldValue ).change();
-			} );
-
-		} );
+			jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );
+			control.setting.set( val );
+		}
 	});
 })(jQuery);
 
@@ -216,179 +309,6 @@
                 control.setting.set( data );
 			});
 		},
-	});
-})(jQuery);
-
-/**
- * File spacing.js
- *
- * Handles the spacing
- *
- * @package Astra
- */
-
-wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.extend({
-
-	ready: function () {
-		'use strict';
-
-		// Add event listener for click action.
-		this.container.on('click', '.customizer-link', function (e) {
-			e.preventDefault();
-
-			var section;
-			var linked = this.getAttribute('data-customizer-linked');
-			var linkType = this.getAttribute('data-ast-customizer-link-type');
-			switch (linkType) {
-				case 'section':
-					section = wp.customize.section(linked);
-					section.expand();
-					break;
-
-				case 'control':
-					wp.customize.control(linked).focus();
-					break;
-			
-				default:
-					break;
-			}
-		});
-	},
-
-});
-
-/**
- * File radio-image.js
- *
- * Handles toggling the radio images button
- *
- * @package Astra
- */
-
-wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend({
-
-	ready: function() {
-
-		'use strict';
-
-		var control = this;
-
-		// Change the value.
-		this.container.on( 'click', 'input', function() {
-			control.setting.set( jQuery( this ).val() );
-		});
-
-	}
-
-});
-
-( function( $ ) {
-	/**
-	 * File responsive.js
-	 *
-	 * Handles the responsive
-	 *
-	 * @package Astra
-	 */
-
-	wp.customize.controlConstructor['ast-responsive'] = wp.customize.Control.extend({
-
-		// When we're finished loading continue processing.
-		ready: function() {
-
-			'use strict';
-
-			var control = this,
-			value;
-
-			control.astResponsiveInit();
-			
-			/**
-			 * Save on change / keyup / paste
-			 */
-			this.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
-
-				value = jQuery( this ).val();
-
-				// Update value on change.
-				control.updateValue();
-			});
-
-			/**
-			 * Refresh preview frame on blur
-			 */
-			this.container.on( 'blur', 'input', function() {
-
-				value = jQuery( this ).val() || '';
-
-				if ( value == '' ) {
-					wp.customize.previewer.refresh();
-				}
-
-			});
-
-			jQuery( '.customize-control-ast-responsive .input-wrapper input.' + 'desktop' + ', .customize-control .ast-responsive-btns > li.' + 'desktop' ).addClass( 'active' );
-
-		},
-
-		/**
-		 * Updates the sorting list
-		 */
-		updateValue: function() {
-
-			'use strict';
-
-			var control = this,
-			newValue = {};
-
-			// Set the spacing container.
-			control.responsiveContainer = control.container.find( '.ast-responsive-wrapper' ).first();
-
-			control.responsiveContainer.find( 'input.ast-responsive-input' ).each( function() {
-				var responsive_input = jQuery( this ),
-				item = responsive_input.data( 'id' ),
-				item_value = responsive_input.val();
-
-				newValue[item] = item_value;
-
-			});
-
-			control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
-				var responsive_input = jQuery( this ),
-				item = responsive_input.data( 'id' ),
-				item_value = responsive_input.val();
-
-				newValue[item] = item_value;
-			});
-
-			control.setting.set( newValue );
-		},
-
-		astResponsiveInit : function() {
-			
-			'use strict';
-			this.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
-
-				var device = jQuery(this).attr('data-device');
-				if( 'desktop' == device ) {
-					device = 'tablet';
-				} else if( 'tablet' == device ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
-
-				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-			});
-		},
-	});
-
-	jQuery(' .wp-full-overlay-footer .devices button ').on('click', function() {
-
-		var device = jQuery(this).attr('data-device');
-
-		jQuery( '.customize-control-ast-responsive .input-wrapper input, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-ast-responsive .input-wrapper input.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
 	});
 })(jQuery);
 
@@ -759,347 +679,6 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 		jQuery( '.customize-control-ast-responsive-background .background-container, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
 		jQuery( '.customize-control-ast-responsive-background .background-container.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
 	});
-( function( $ ) {
-
-	/**
-	 * File slider.js
-	 *
-	 * Handles Slider control
-	 *
-	 * @package Astra
-	 */
-
-	wp.customize.controlConstructor['ast-responsive-slider'] = wp.customize.Control.extend({
-
-		ready: function() {
-
-			'use strict';
-
-			var control = this,
-				value,
-				thisInput,
-				inputDefault,
-				changeAction;
-
-			control.astResponsiveInit();
-
-			// Update the text value.
-			this.container.on( 'input change', 'input[type=range]', function() {
-				var value 		 = jQuery( this ).val(),
-					input_number = jQuery( this ).closest( '.input-field-wrapper' ).find( '.ast-responsive-range-value-input' );
-				
-				input_number.val( value );
-				input_number.trigger( 'change' );
-			});
-
-			// Handle the reset button.
-			this.container.on('click', '.ast-responsive-slider-reset', function() {
-				
-				var wrapper 		= jQuery( this ).parent().find('.input-field-wrapper.active'),
-					input_range   	= wrapper.find( 'input[type=range]' ),
-					input_number 	= wrapper.find( '.ast-responsive-range-value-input' ),
-					default_value	= input_range.data( 'reset_value' );
-
-				input_range.val( default_value );
-				input_number.val( default_value );
-				input_number.trigger( 'change' );
-			});
-
-			// Save changes.
-			this.container.on( 'input change', 'input[type=number]', function() {
-				var value = jQuery( this ).val();
-				jQuery( this ).closest( '.input-field-wrapper' ).find( 'input[type=range]' ).val( value );
-				
-				control.updateValue();
-			});
-		},
-
-		/**
-		 * Updates the sorting list
-		 */
-		updateValue: function() {
-
-			'use strict';
-
-			var control = this,
-			newValue = {};
-
-			// Set the spacing container.
-			control.responsiveContainer = control.container.find( '.wrapper' ).first();
-
-			control.responsiveContainer.find( '.ast-responsive-range-value-input' ).each( function() {
-				var responsive_input = jQuery( this ),
-				item = responsive_input.data( 'id' ),
-				item_value = responsive_input.val();
-
-				newValue[item] = item_value;
-
-			});
-
-			control.setting.set( newValue );
-		},
-
-		astResponsiveInit : function() {
-			
-			this.container.on( 'click', '.ast-responsive-slider-btns button', function( event ) {
-
-				event.preventDefault();
-				var device = jQuery(this).attr('data-device');
-				if( 'desktop' == device ) {
-					device = 'tablet';
-				} else if( 'tablet' == device ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
-
-				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-			});
-		},
-	});
-
-	jQuery(' .wp-full-overlay-footer .devices button ').on('click', function() {
-
-		var device = jQuery(this).attr('data-device');
-
-		jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper, .customize-control .ast-responsive-slider-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
-	});
-	
-})(jQuery);
-
-( function( $ ) {
-	/**
-	 * File spacing.js
-	 *
-	 * Handles the spacing
-	 *
-	 * @package Astra
-	 */
-
-	wp.customize.controlConstructor['ast-responsive-spacing'] = wp.customize.Control.extend({
-
-		ready: function() {
-
-			'use strict';
-
-			var control = this,
-		    value;
-		    
-		    control.astResponsiveInit();
-
-			// Set the spacing container.
-			// this.container = control.container.find( 'ul.ast-spacing-wrapper' ).first();
-
-			// Save the value.
-			this.container.on( 'change keyup paste', 'input.ast-spacing-input', function() {
-
-				value = jQuery( this ).val();
-
-				// Update value on change.
-				control.updateValue();
-			});
-		},
-
-		/**
-		 * Updates the spacing values
-		 */
-		updateValue: function() {
-
-			'use strict';
-
-			var control = this,
-				newValue = {
-					'desktop' 		: {},
-					'tablet'  		: {},
-					'mobile'  		: {},
-					'desktop-unit'	: 'px',
-					'tablet-unit'	: 'px',
-					'mobile-unit'	: 'px',
-				};
-
-			control.container.find( 'input.ast-spacing-desktop' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
-
-				newValue['desktop'][item] = item_value;
-			});
-
-			control.container.find( 'input.ast-spacing-tablet' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
-
-				newValue['tablet'][item] = item_value;
-			});
-
-			control.container.find( 'input.ast-spacing-mobile' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
-
-				newValue['mobile'][item] = item_value;
-			});
-
-			control.container.find('.ast-spacing-unit-wrapper .ast-spacing-unit-input').each( function() {
-				var spacing_unit 	= jQuery( this ),
-					device 			= spacing_unit.attr('data-device'),
-					device_val 		= spacing_unit.val(),
-					name 			= device + '-unit';
-					
-				newValue[ name ] = device_val;
-			});
-
-			control.setting.set( newValue );
-		},
-
-		/**
-		 * Set the responsive devices fields
-		 */
-		astResponsiveInit : function() {
-			
-			'use strict';
-
-			var control = this;
-			
-			control.container.find( '.ast-spacing-responsive-btns button' ).on( 'click', function( event ) {
-
-				var device = jQuery(this).attr('data-device');
-				if( 'desktop' == device ) {
-					device = 'tablet';
-				} else if( 'tablet' == device ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
-
-				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-			});
-
-			// Unit click
-			control.container.on( 'click', '.ast-spacing-responsive-units .single-unit', function() {
-				
-				var $this 		= jQuery(this);
-
-				if ( $this.hasClass('active') ) {
-					return false;
-				}
-
-				var	unit_value 	= $this.attr('data-unit'),
-					device 		= jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-				
-				$this.siblings().removeClass('active');
-				$this.addClass('active');
-
-				control.container.find('.ast-spacing-unit-wrapper .ast-spacing-' + device + '-unit').val( unit_value );
-
-				// Update value on change.
-				control.updateValue();
-			});
-		},
-	});
-
-	jQuery( document ).ready( function( ) {
-
-		// Connected button
-		jQuery( '.ast-spacing-connected' ).on( 'click', function() {
-
-			// Remove connected class
-			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-			
-			// Remove class
-			jQuery(this).parent( '.ast-spacing-input-item-link' ).removeClass( 'disconnected' );
-
-		} );
-
-		// Disconnected button
-		jQuery( '.ast-spacing-disconnected' ).on( 'click', function() {
-
-			// Set up variables
-			var elements 	= jQuery(this).data( 'element-connect' );
-			
-			// Add connected class
-			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
-
-			// Add class
-			jQuery(this).parent( '.ast-spacing-input-item-link' ).addClass( 'disconnected' );
-
-		} );
-
-		// Values connected inputs
-		jQuery( '.ast-spacing-input-item' ).on( 'input', '.connected', function() {
-
-			var dataElement 	  = jQuery(this).attr( 'data-element-connect' ),
-				currentFieldValue = jQuery( this ).val();
-
-			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
-				jQuery(this).val( currentFieldValue ).change();
-			} );
-
-		} );
-	});
-
-	jQuery('.wp-full-overlay-footer .devices button ').on('click', function() {
-
-		var device = jQuery(this).attr('data-device');
-		jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper, .customize-control .ast-spacing-responsive-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper.' + device + ', .customize-control .ast-spacing-responsive-btns > li.' + device ).addClass( 'active' );
-	});
-})(jQuery);
-
-( function( $ ) {
-	/**
-	 * File slider.js
-	 *
-	 * Handles Slider control
-	 *
-	 * @package Astra
-	 */
-
-	wp.customize.controlConstructor['ast-slider'] = wp.customize.Control.extend({
-
-		ready: function() {
-
-			'use strict';
-
-			var control = this,
-				value,
-				thisInput,
-				inputDefault,
-				changeAction;
-
-			// Update the text value.
-			jQuery( 'input[type=range]' ).on( 'input change', function() {
-				var value 		 = jQuery( this ).attr( 'value' ),
-					input_number = jQuery( this ).closest( '.wrapper' ).find( '.astra_range_value .value' );
-
-				input_number.val( value );
-				input_number.change();
-			});
-
-			// Handle the reset button.
-			jQuery( '.ast-slider-reset' ).click( function() {
-				var wrapper 		= jQuery( this ).closest( '.wrapper' ),
-					input_range   	= wrapper.find( 'input[type=range]' ),
-					input_number 	= wrapper.find( '.astra_range_value .value' ),
-					default_value	= input_range.data( 'reset_value' );
-
-				input_range.val( default_value );
-				input_number.val( default_value );
-				input_number.change();
-			});
-
-			// Save changes.
-			this.container.on( 'input change', 'input[type=number]', function() {
-				var value = jQuery( this ).val();
-				jQuery( this ).closest( '.wrapper' ).find( 'input[type=range]' ).val( value );
-				control.setting.set( value );
-			});
-		}
-	});
-})(jQuery);
-
 ( function( $ ) {
 	/**
 	 * File sortable.js
