@@ -6,7 +6,7 @@ export const responsiveBackgroundControl = wp.customize.astraControl.extend( {
 	ReactDOM.render( <ResponsiveBackground control={ control } />, control.container[0] );
 	},
 	ready: function() {
-
+		console.log('clhereek')
 		'use strict';
 
 		jQuery('html').addClass('responsive-background-img-ready');
@@ -28,7 +28,7 @@ export const responsiveBackgroundControl = wp.customize.astraControl.extend( {
 			jQuery( '.customize-control-ast-responsive-background .customize-control-content .background-container' ).removeClass( 'active' );
 			jQuery( '.customize-control-ast-responsive-background .customize-control-content .background-container.' + device ).addClass( 'active' );
 		});
-
+		
 		this.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
 
 			var device = jQuery(this).attr('data-device');

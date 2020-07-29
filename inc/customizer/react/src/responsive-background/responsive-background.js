@@ -16,6 +16,8 @@ class ResponsiveBackground extends Component {
 		this.state = {
 			value: value,
 		};
+	}
+	componentDidMount() {
 
 		let devices = [ 'desktop', 'mobile', 'tablet' ];
 
@@ -24,7 +26,6 @@ class ResponsiveBackground extends Component {
 			this.updateBackgroundType( device );
 		}
 	}
-
 	updateBackgroundType( device ) {
 
 		let obj = {

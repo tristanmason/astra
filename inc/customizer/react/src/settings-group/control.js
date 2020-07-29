@@ -396,10 +396,13 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		if ( undefined !== attr.linked_choices && undefined === controlObject.params['linked_choices'] ) {
 			controlObject.params['linked_choices'] = attr.linked_choices;
 		}
-		if ( undefined !== attr.title && ( undefined === controlObject.params['label'] || '' === controlObject.params['label'] ) ) {
+		if ( undefined !== attr.title && ( undefined === controlObject.params['label'] || '' === controlObject.params['label'] || null === controlObject.params['label'] ) ) {
 			controlObject.params['label'] = attr.title;
 		}
-
+		if ( undefined !== attr.responsive && ( undefined === controlObject.params['responsive'] || '' === controlObject.params['responsive'] || null === controlObject.params['responsive'] ) ) {
+			controlObject.params['responsive'] = attr.responsive;
+		}
+		
 		return controlObject;
 	},
 	renderReactControl: function( fields, control ) {
