@@ -224,7 +224,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 					getResponsiveJs( control )
 					break;
 				case "ast-responsive-slider":
-					getResponsiveSliderJs, getResponsiveSpacingJs( control )
+					getResponsiveSliderJs( control )
 					break;
 				case "ast-responsive-spacing":
 					getResponsiveSpacingJs( control )
