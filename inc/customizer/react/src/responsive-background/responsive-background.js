@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
 import BackgroundColorControl from '../common/background-color';
+import { __ } from '@wordpress/i18n';
 
 class ResponsiveBackground extends Component {
 	
@@ -179,10 +180,12 @@ class ResponsiveBackground extends Component {
 			defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
 		}
 
-		if ( label ) { 
+		if ( label && '' !== label && undefined !== label ) { 
 
 			labelHtml = <span className="customize-control-title">{ label }</span>
-		} 
+		} else {
+			labelHtml = <span className="customize-control-title">{ __( 'Background', 'astra' ) }</span>
+		}
 
 		if ( description ) { 
 
