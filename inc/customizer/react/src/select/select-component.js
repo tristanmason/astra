@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
 class SelectComponent extends Component {
 
@@ -35,10 +34,10 @@ class SelectComponent extends Component {
 			htmlLabel = <span className="customize-control-title">{ label }</span>;
 		}
 
-		let optionsHtml = Object.entries( choices ).map( ( key, label ) => {
+		let optionsHtml = Object.entries( choices ).map( ( key ) => {
 
 			var html = ( 
-				<option value={ key }>{ label }</option>
+				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
 			);
 			return html;
 		} );

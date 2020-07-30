@@ -155,10 +155,12 @@ class Background extends Component {
 			defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
 		}
 
-		if ( label ) { 
+		if ( label && '' !== label && undefined !== label ) { 
 
 			labelHtml = <span className="customize-control-title">{ label }</span>
-		} 
+		} else {
+			labelHtml = <span className="customize-control-title">{ __( 'Background', 'astra' ) }</span>
+		}
 
 		if ( description ) { 
 

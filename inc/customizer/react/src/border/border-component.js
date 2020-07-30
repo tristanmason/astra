@@ -107,20 +107,23 @@ class BorderComponent extends Component {
 			);
 		}
 
-		htmlChoices = Object.keys( choices ).map( ( choiceID ) => {
+		
+			
+			htmlChoices = Object.keys( choices ).map( ( choiceID ) => {
 
-			if ( choices[ choiceID ] ) { 
+				if ( choices[ choiceID ] ) { 
 
-				var html = ( 
-					<li { ...inputAttrs } key={ choiceID } className='ast-border-input-item'>
-						<input type='number' className='ast-border-input ast-border-desktop' data-id= { choiceID } data-name={ name } onChange = { () => this.onBorderChange( choiceID ) } value={ this.state.value[ choiceID ] }/>
-						<span className="ast-border-title">{ choices[ choiceID ] }</span>
-					</li>
-				);
-			}
+					var html = ( 
+						<li { ...inputAttrs } key={ choiceID } className='ast-border-input-item'>
+							<input type='number' className='ast-border-input ast-border-desktop' data-id= { choiceID } data-name={ name } onChange = { () => this.onBorderChange( choiceID ) } value={ this.state.value[ choiceID ] }/>
+							<span className="ast-border-title">{ choices[ choiceID ] }</span>
+						</li>
+					);
+				}
 
-			return html;
-		} );
+				return html;
+			} );
+		
 
 		return (
 			<>

@@ -8,7 +8,11 @@ class ResponsiveSpacingComponent extends Component {
 
 		super( props );
 
-		let value = this.props.control.setting.get()
+		var value = this.props.control.setting.get()
+
+		if ( undefined === value || '' === value ) {
+			value = this.props.control.params.value;
+		}
 
 		this.state = {
 			value
