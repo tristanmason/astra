@@ -1,3 +1,6 @@
+v2.5.1
+- Fix: CSS not working on Menu with third-party plugins having filter 'nav_menu_link_attributes' of lower priority.
+
 v2.5.0
 - New: Typography options for Header Button.
 - Improvement: Filters to support CPT for Blog Meta & Single Blog Meta. ( https://wpastra.com/docs/add-blog-meta-support-cpts )
