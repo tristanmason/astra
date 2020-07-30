@@ -886,7 +886,7 @@ add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
  */
 function astra_menu_anchor_class_for_nav_menus( $atts ) {
 
-	if ( isset( $atts['class'] ) && strlen( $atts['class'] ) ) {
+	if ( ! empty( $atts['class'] ) ) {
 		$atts['class'] = $atts['class'] . ' menu-link';
 	} else {
 		$atts['class'] = 'menu-link';
@@ -907,7 +907,7 @@ add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' 
  */
 function astra_menu_anchor_class_for_page_menus( $atts ) {
 
-	if ( isset( $atts['class'] ) && strlen( $atts['class'] ) ) {
+	if ( ! empty( $atts['class'] ) ) {
 		$atts['class'] = $atts['class'] . ' menu-link';
 	} else {
 		$atts['class'] = 'menu-link';
