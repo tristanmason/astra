@@ -827,7 +827,7 @@ return array(
 	),
 	array(
 		'Bitter' => array(
-			'variants' => array( 'regular', 'italic', '700' ),
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
 			'category' => 'serif',
 		),
 	),
@@ -4367,7 +4367,7 @@ return array(
 	),
 	array(
 		'Petrona' => array(
-			'variants' => array( 'regular' ),
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ),
 			'category' => 'serif',
 		),
 	),

@@ -885,7 +885,13 @@ add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
  * @param array $atts   An array of all parameters assigned to menu anchors.
  */
 function astra_menu_anchor_class_for_nav_menus( $atts ) {
-	$atts['class'] = 'menu-link';
+
+	if ( ! empty( $atts['class'] ) ) {
+		$atts['class'] = $atts['class'] . ' menu-link';
+	} else {
+		$atts['class'] = 'menu-link';
+	}
+
 	return $atts;
 }
 
@@ -900,7 +906,13 @@ add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' 
  * @param array $atts   An array of all parameters assigned to menu anchors.
  */
 function astra_menu_anchor_class_for_page_menus( $atts ) {
-	$atts['class'] = 'menu-link';
+
+	if ( ! empty( $atts['class'] ) ) {
+		$atts['class'] = $atts['class'] . ' menu-link';
+	} else {
+		$atts['class'] = 'menu-link';
+	}
+
 	return $atts;
 }
 
