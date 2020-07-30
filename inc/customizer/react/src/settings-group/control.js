@@ -10,6 +10,8 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
 
+import { getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs } from '../common/responsive-helper';
+
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
 		let control = this;
@@ -212,6 +214,21 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			switch( control_type.key ) {
 
+				case "ast-responsive-background":
+					getResponsiveBgJs( control )
+					break;
+				case "ast-responsive-color":
+					getResponsiveColorJs( control )
+					break;
+				case "ast-responsive":
+					getResponsiveJs( control )
+					break;
+				case "ast-responsive-slider":
+					getResponsiveSliderJs, getResponsiveSpacingJs( control )
+					break;
+				case "ast-responsive-spacing":
+					getResponsiveSpacingJs( control )
+					break;
 				case "ast-font": 
 
 					var googleFontsString = astra.customizer.settings.google_fonts;
@@ -274,7 +291,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
 		
 	},
-
+	getJS: function( control ) {
+		
+	},
 	generateFieldHtml: function ( fields_data, field_values ) {    
 
 		var fields_html = '';
