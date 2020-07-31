@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 2.5.0\n"
+"Project-Id-Version: Astra 2.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-07-07 07:20:14+00:00\n"
+"POT-Creation-Date: 2020-07-30 07:10:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,36 +35,36 @@ msgstr ""
 msgid "This will be applicable for all sites from the network."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:208
+#: admin/bsf-analytics/class-bsf-analytics.php:210
 #. translators: %s usage doc link
 msgid " Know More."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:215
+#: admin/bsf-analytics/class-bsf-analytics.php:217
 msgid "Yes! Allow it"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:223
+#: admin/bsf-analytics/class-bsf-analytics.php:225
 msgid "No Thanks"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:292
+#: admin/bsf-analytics/class-bsf-analytics.php:294
 msgid "Every two days"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:346
+#: admin/bsf-analytics/class-bsf-analytics.php:348
 msgid "Usage Tracking"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:377
+#: admin/bsf-analytics/class-bsf-analytics.php:380
 msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:380
+#: admin/bsf-analytics/class-bsf-analytics.php:383
 msgid " This will be applicable for all sites from the network."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:385
+#: admin/bsf-analytics/class-bsf-analytics.php:388
 msgid "Learn More."
 msgstr ""
 
@@ -831,7 +831,7 @@ msgid "Easy Digital Downloads"
 msgstr ""
 
 #: inc/compatibility/edd/class-astra-edd.php:344
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1436
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1465
 msgid "View your shopping cart"
 msgstr ""
 
@@ -2619,19 +2619,19 @@ msgstr ""
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/markup-extras.php:828 inc/markup-extras.php:864
+#: inc/markup-extras.php:827 inc/markup-extras.php:863
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/markup-extras.php:1219
+#: inc/markup-extras.php:1263
 msgid "Add Widget"
 msgstr ""
 
-#: inc/markup-extras.php:1256
+#: inc/markup-extras.php:1300
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
-#: inc/markup-extras.php:1523
+#: inc/markup-extras.php:1567
 msgid "Astra Pro"
 msgstr ""
 
