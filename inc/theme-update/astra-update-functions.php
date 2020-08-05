@@ -253,3 +253,27 @@ function astra_global_button_woo_css() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Migrate Footer Widget param to array.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_footer_widget_bg() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] )  ) {
+		$theme_options['footer-adv-bg-obj'] = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		update_option( 'astra-settings', $theme_options );
+	}
+}
