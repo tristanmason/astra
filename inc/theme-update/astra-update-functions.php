@@ -264,8 +264,8 @@ function astra_global_button_woo_css() {
 function astra_footer_widget_bg() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	// Set flag to not load button specific CSS.
-	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] )  ) {
+	// Check if Footer Backgound array is already set or not. If not then set it as array.
+	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] ) ) {
 		$theme_options['footer-adv-bg-obj'] = array(
 			'background-color'      => '',
 			'background-image'      => '',
