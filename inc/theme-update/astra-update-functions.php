@@ -266,6 +266,7 @@ function astra_footer_widget_bg() {
 
 	// Check if Footer Backgound array is already set or not. If not then set it as array.
 	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] ) ) {
+		error_log( 'Astra: Migrating Footer BG option to array.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 		$theme_options['footer-adv-bg-obj'] = array(
 			'background-color'      => '',
 			'background-image'      => '',
