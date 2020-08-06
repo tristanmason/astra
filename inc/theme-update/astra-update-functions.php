@@ -253,3 +253,28 @@ function astra_global_button_woo_css() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Migrate Footer Widget param to array.
+ *
+ * @since 2.5.2
+ *
+ * @return void
+ */
+function astra_footer_widget_bg() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Check if Footer Backgound array is already set or not. If not then set it as array.
+	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] ) ) {
+		error_log( 'Astra: Migrating Footer BG option to array.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		$theme_options['footer-adv-bg-obj'] = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		update_option( 'astra-settings', $theme_options );
+	}
+}
