@@ -1512,7 +1512,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			/**
 			 * Google Analytics Dashboard plugin Affiliate compatibility.
 			 *
-			 * @since x.x.x
+			 * @since 2.5.2
 			 */
 			if ( 'google-analytics-for-wordpress/googleanalytics.php' === $plugin_init ) {
 				update_option( 'monsterinsights_shareasale_id', 1504 );

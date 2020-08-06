@@ -257,7 +257,7 @@ function astra_global_button_woo_css() {
 /**
  * Migrate Footer Widget param to array.
  *
- * @since x.x.x
+ * @since 2.5.2
  *
  * @return void
  */
