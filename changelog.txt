@@ -1,5 +1,5 @@
 v2.5.2
-- Fix: Footer Widgets background color option not working for new users.
+- Fix: Footer Widgets background color option not working for new users in v2.5.0.
 
 v2.5.1
 - Fix: CSS not working on Menu with third-party plugins having filter 'nav_menu_link_attributes' of lower priority.
