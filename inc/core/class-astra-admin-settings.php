@@ -1515,7 +1515,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			 * @since x.x.x
 			 */
 			if ( '/google-analytics-for-wordpress/googleanalytics.php' === $plugin_init ) {
-				update_option( 'monsterinsights_shareasale_id', 1234 );
+				update_option( 'monsterinsights_shareasale_id', 1504 );
 			}
 
 			if ( is_wp_error( $activate ) ) {
