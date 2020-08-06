@@ -617,6 +617,20 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			$css .= astra_parse_css( $boxed_container );
+			// fix the extra padding applied for the block patterns in the editor view.
+			if ( get_bloginfo( 'version' ) === '5.5-RC2-48740' ) {
+
+				$latest_editor_css = array(
+					'.ast-separate-container .block-editor-inserter__panel-content .block-editor-block-list__layout' => array(
+						'padding-top'    => '0px',
+						'padding-bottom' => '0px',
+						'padding-left'   => '0px',
+						'padding-right'  => '0px',
+
+					),
+				);
+				$css .= astra_parse_css( $latest_editor_css );
+			}
 
 			$ast_gtn_mobile_css = array(
 				'.ast-separate-container .editor-post-title' => array(
