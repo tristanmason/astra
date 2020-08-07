@@ -628,6 +628,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-right'  => '0px',
 
 					),
+					'.ast-page-builder-template .block-editor-block-list__layout' => array(
+						'margin-left'  => '0px',
+						'margin-right' => '0px',
+					),
 				);
 				$css .= astra_parse_css( $latest_editor_css );
 			}
