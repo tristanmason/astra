@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'type'                       => '',
 						'message'                    => sprintf(
 							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 								<div class="notice-content">
 									<div class="notice-heading">
 										%2$s
@@ -248,7 +248,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 							<div class="notice-content">
 								<h2 class="notice-heading">
 									%2$s
@@ -1507,15 +1507,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if ( '/astra-pro-sites/astra-pro-sites.php' === $plugin_init || '/astra-sites/astra-sites.php' === $plugin_init ) {
 				self::get_starter_templates_slug();
-			}
-
-			/**
-			 * Google Analytics Dashboard plugin Affiliate compatibility.
-			 *
-			 * @since 2.5.2
-			 */
-			if ( 'google-analytics-for-wordpress/googleanalytics.php' === $plugin_init ) {
-				update_option( 'monsterinsights_shareasale_id', 1504 );
 			}
 
 			if ( is_wp_error( $activate ) ) {

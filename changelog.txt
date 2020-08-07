@@ -1,3 +1,6 @@
+v2.5.3
+- Fix: Footer Widgets background color option not working for new users.
+
 v2.5.2
 - Fix: Footer Widgets background color option not working for new users.
 
