@@ -325,7 +325,7 @@ if ( ! function_exists( 'astra_wp_version_compare' ) ) :
 	 */
 	function astra_wp_version_compare( $version, $compare ) {
 
-		$version_result = version_compare( get_bloginfo( 'version' ), $version, $compare ) ? true : false;
+		$version_result = version_compare( get_bloginfo( 'version' ), $version, $compare );
 
 		return $version_result;
 	}
