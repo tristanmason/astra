@@ -56,6 +56,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_global_button_woo_css',
 				'astra_gtn_full_wide_group_cover_css',
 			),
+			'2.5.2' => array(
+				'astra_footer_widget_bg',
+			),
 		);
 
 		/**
