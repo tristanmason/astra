@@ -319,13 +319,13 @@ if ( ! function_exists( 'astra_wp_version_compare' ) ) :
 	 * Check the WordPress version.
 	 *
 	 * @since  2.5.3
-	 * @param string $version_compare   WordPress version to compare with the current version.
-	 *
+	 * @param string $version   WordPress version to compare with the current version.
+	 * @param string $compare   Comparison value i.e > or < etc.
 	 * @return bool            True if $version_compare is greater than or equal to current WordPress version.
 	 */
-	function astra_wp_version_compare( $version_compare ) {
+	function astra_wp_version_compare( $version, $compare ) {
 
-		$version_result = version_compare( get_bloginfo( 'version' ), $version_compare, '>=' ) ? true : false;
+		$version_result = version_compare( get_bloginfo( 'version' ), $version, $compare ) ? true : false;
 
 		return $version_result;
 	}

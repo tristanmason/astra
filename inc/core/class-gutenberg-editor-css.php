@@ -618,7 +618,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $boxed_container );
 			// WP 5.5 compatibility fix the extra padding applied for the block patterns in the editor view.
-			if ( astra_wp_version_compare( '5.4.99' ) ) {
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				$latest_editor_css = array(
 					'.ast-separate-container .block-editor-inserter__panel-content .block-editor-block-list__layout' => array(
