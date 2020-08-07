@@ -734,6 +734,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Localize wp-color-picker & wpColorPickerL10n.
 			 *
 			 * This is only needed in WordPress version >= 5.5 because wpColorPickerL10n has been removed.
+			 *
 			 * @see https://github.com/WordPress/WordPress/commit/7e7b70cd1ae5772229abb769d0823411112c748b
 			 *
 			 * This is should be removed once the issue is fixed from wp-color-picker-alpha repo.
@@ -752,7 +753,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						'defaultAriaLabel' => __( 'Select default color' ),
 						'pick'             => __( 'Select Color' ),
 						'defaultLabel'     => __( 'Color value' ),
-				) );
+					)
+				);
 			}
 
 			wp_enqueue_script( 'thickbox' );
