@@ -313,6 +313,25 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
 }
 
+if ( ! function_exists( 'astra_wp_version_compare' ) ) :
+
+	/**
+	 * Check the WordPress version.
+	 *
+	 * @since  2.5.3
+	 * @param string $version_compare   WordPress version to compare with the current version.
+	 *
+	 * @return bool            True if $version_compare is greater than or equal to current WordPress version.
+	 */
+	function astra_wp_version_compare( $version_compare ) {
+
+		$version_result = version_compare( get_bloginfo( 'version' ), $version_compare, '>=' ) ? true : false;
+
+		return $version_result;
+	}
+
+endif;
+
 /**
  * Ninja Forms compatibility id.
  *
