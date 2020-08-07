@@ -101,15 +101,16 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Switch default core markup for search form, comment form, and comments.
 			// to output valid HTML5.
+			// Added the a new value in html 5 array 'navigation-widgets' as this was introduce in WP5.5 for better accesibility.
 			add_theme_support(
 				'html5',
 				array(
+					'navigation-widgets',
 					'search-form',
 					'gallery',
 					'caption',
 					'style',
 					'script',
-					'navigation-widgets',
 				)
 			);
 
