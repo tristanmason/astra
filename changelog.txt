@@ -1,3 +1,6 @@
+v2.5.3
+- Fix: Removed third-party plugins related links.
+
 v2.5.2
 - Fix: Footer Widgets background color option not working for new users.
 
