@@ -109,6 +109,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					'caption',
 					'style',
 					'script',
+					'navigation-widgets',
 				)
 			);
 
