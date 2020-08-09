@@ -104,7 +104,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$requested_page = isset( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			if ( strpos( $requested_page, self::$plugin_slug ) !== false ) { 
+			if ( strpos( $requested_page, self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 

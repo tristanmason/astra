@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-markup.php';
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumb-trail.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			
+
 			// Third Party plugins in the breadcrumb options.
 			add_filter( 'astra_breadcrumb_source_list', array( $this, 'astra_breadcrumb_source_list_items' ) );
 
