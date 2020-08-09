@@ -5,14 +5,14 @@
  * @package Astra
  */
 
-namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound 
+namespace Elementor; // phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) || ! class_exists( 'ElementorPro\Modules\ThemeBuilder\Module' ) ) {
 	return;
 }
 
-namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport; // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport; // phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound, PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
 
 // @codingStandardsIgnoreStart PHPCompatibility.Keywords.NewKeywords.t_useFound
 use Elementor\TemplateLibrary\Source_Local;
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			// IS Single?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 			if ( $did_location ) {
-				
+
 				// @codingStandardsIgnoreStart PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
 				remove_action( 'astra_page_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_page' ) );
 				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_post' ) );

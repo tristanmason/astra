@@ -211,7 +211,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		public static function check_numberic_values( $value ) {
 			return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
-		} 
+		}
 
 		/**
 		 * Sanitize Responsive Slider
