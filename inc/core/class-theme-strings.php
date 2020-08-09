@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -100,7 +100,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 		 * Print or return
 		 */
 		if ( $echo ) {
-			echo $output;
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $output;
 		}

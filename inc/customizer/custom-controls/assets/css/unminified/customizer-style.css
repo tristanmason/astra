@@ -1,17 +1,21 @@
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
   background-color: #f1f1f1;
 }
 
 .accordion-section-content::-webkit-scrollbar-thumb, .wp-full-overlay-sidebar-content::-webkit-scrollbar-thumb {
-  border-radius: 0;
+  border-radius: 10px;
   background-color: #d8d8d8;
 }
 
 .accordion-section-content::-webkit-scrollbar-track, .wp-full-overlay-sidebar-content::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.3);
-  width: 20px;
+  width: 6px;
+}
+
+.wp-full-overlay-sidebar:after {
+  display: none;
 }
 
 #customize-theme-controls .control-section-ast-section-separator {
@@ -56,6 +60,22 @@
 .ast-fields-wrap .customize-control .ast-control-tooltip {
   right: 15px;
   top: 6px;
+}
+
+/* Select2 WP 5.3 compatibility */
+.customize-control .select2-search input[type="text"].select2-search__field {
+  min-height: 17px;
+}
+
+input[type="text"].select2-search__field {
+  line-height: 1;
+  border-radius: 0;
+}
+
+/* CSS for a Description as a Notice. */
+.ast-customizer-notice {
+  margin: 0 -12px;
+  padding: 12px;
 }
 
 /* CSS to show popups without scroll */

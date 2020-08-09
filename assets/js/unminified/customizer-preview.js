@@ -430,6 +430,160 @@ function astra_generate_outside_font_family_css( control, selector ) {
 	});
 }
 
+/*
+* Generate Font Weight CSS
+*/
+function astra_generate_font_weight_css( font_control, control, css_property, selector ) {
+	wp.customize( control, function( value ) {
+		value.bind( function( new_value ) {
+
+			control = control.replace( '[', '-' );
+			control = control.replace( ']', '' );
+
+			if ( new_value ) {
+
+				/**
+				 *	If ( unit == 'url' ) then = url('{VALUE}')
+				 *	If ( unit == 'px' ) then = {VALUE}px
+				 *	If ( unit == 'em' ) then = {VALUE}em
+				 *	If ( unit == 'rem' ) then = {VALUE}rem.
+				 */
+				if ( 'undefined' != typeof unit) {
+
+					if ( 'url' === unit ) {
+						new_value = 'url(' + new_value + ')';
+					} else {
+						new_value = new_value + unit;
+					}
+				}
+
+				fontName = wp.customize._value[font_control]._value;
+				fontName = fontName.split(',');
+				fontName = fontName[0].replace( /'/g, '' );
+
+				// Remove old.
+				jQuery( 'style#' + control + '-' + css_property ).remove();
+
+				if ( fontName in astraCustomizer.googleFonts ) {
+					// Remove old.
+
+					jQuery('#' + font_control).remove();
+					link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+				}
+
+				// Concat and append new <style>.
+				jQuery( 'head' ).append(
+					'<style id="' + control + '-' + css_property + '">'
+					+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
+					+ '</style>'
+					+ link
+				);
+
+			} else {
+				// Remove old.
+				jQuery( 'style#' + control ).remove();
+			}
+
+		} );
+	});
+}
+
+/**
+ * Apply CSS for the element
+ */
+function astra_apply_responsive_background_css( control, selector, device, singleColorSelector, addon ) {
+	wp.customize( control, function( value ) {
+		value.bind( function( bg_obj ) {
+
+			addon = addon || '';
+			singleColorSelector = singleColorSelector || '';
+
+			addon = ( addon ) ? addon : 'header';
+
+			control = control.replace( '[', '-' );
+			control = control.replace( ']', '' );
+
+			if( '' === bg_obj[device] || undefined === bg_obj[device] ){
+				return;
+			}
+		
+			var gen_bg_css 	= '';
+			var bg_img		= bg_obj[device]['background-image'];
+			var bg_tab_img	= bg_obj['tablet']['background-image'];
+			var bg_desk_img	= bg_obj['desktop']['background-image'];
+			var bg_color	= bg_obj[device]['background-color'];
+			var tablet_css  = ( bg_obj['tablet']['background-image'] ) ? true : false;
+			var desktop_css = ( bg_obj['desktop']['background-image'] ) ? true : false;
+
+			if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color ) {
+				gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+			} else if ( '' !== bg_img ) {
+				gen_bg_css = 'background-image: url(' + bg_img + ');';
+			} else if ( '' !== bg_color ) {
+				if( 'mobile' === device ) {
+					if( true == desktop_css && true == tablet_css ) {
+						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
+					} else if( true == desktop_css ) {
+						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+					} else if( true == tablet_css ) {
+						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
+					} else {
+						gen_bg_css = 'background-color: ' + bg_color + ';';
+						gen_bg_css += 'background-image: none;';
+					}
+				} else if( 'tablet' === device ) {
+					if( true == desktop_css ) {
+						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+					} else {
+						gen_bg_css = 'background-color: ' + bg_color + ';';
+						gen_bg_css += 'background-image: none;';
+					}
+				} else {
+					gen_bg_css = 'background-color: ' + bg_color + ';';
+					gen_bg_css += 'background-image: none;';
+				}
+
+				if( ! selector.includes( singleColorSelector ) ) {
+					selector += ', ' + singleColorSelector;
+				}
+			}
+
+
+			if ( '' != bg_img ) {
+				gen_bg_css += 'background-repeat: ' + bg_obj[device]['background-repeat'] + ';';
+				gen_bg_css += 'background-position: ' + bg_obj[device]['background-position'] + ';';
+				gen_bg_css += 'background-size: ' + bg_obj[device]['background-size'] + ';';
+				gen_bg_css += 'background-attachment: ' + bg_obj[device]['background-attachment'] + ';';
+			}
+
+			// Remove old.
+			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
+
+			
+			if ( 'desktop' == device ) {	
+				var dynamicStyle = '<style id="' + control + '-' + device + '-' + addon + '">'
+					+ selector + '	{ ' + gen_bg_css + ' }'
+				+ '</style>'
+			}
+			if ( 'tablet' == device ) {
+				var dynamicStyle = '<style id="' + control + '-' + device + '-' + addon + '">'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + gen_bg_css + ' } }'
+				+ '</style>'
+			}
+			if ( 'mobile' == device ) {
+				var dynamicStyle = '<style id="' + control + '-' + device + '-' + addon + '">'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + gen_bg_css + ' } }'
+				+ '</style>'
+			}
+
+			// Concat and append new <style>.
+			jQuery( 'head' ).append(
+				dynamicStyle
+			);
+		});
+	});    
+}
+
 function getChangedKey( value, other ) {
 
 	value = isJsonString(value) ? JSON.parse(value) : value;
@@ -550,14 +704,9 @@ function isJsonString( str ) {
 	/*
 	 * Layout Body Background
 	 */
-	wp.customize( 'astra-settings[site-layout-outside-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
-
-			var dynamicStyle = 'body,.ast-separate-container { {{css}} }';
-			
-			astra_background_obj_css( wp.customize, bg_obj, 'site-layout-outside-bg-obj', dynamicStyle );
-		} );
-	} );
+	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'mobile' );
 
 	/*
 	 * Blog Custom Width
@@ -638,7 +787,7 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[header-main-sep]', function( setting ) {
 		setting.bind( function( border ) {
 
-			var dynamicStyle = 'body.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px }';
+			var dynamicStyle = 'body.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px }';
 
 			dynamicStyle += '.ast-desktop .main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
@@ -700,43 +849,12 @@ function isJsonString( str ) {
 	} );
 
 	/**
-	 * Button Vertical Padding
-	 */
-	wp.customize( 'astra-settings[theme-button-border-group]', function( setting ) {
-		setting.bind( function( padding ) {
-
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
-			
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
-			}
-			astra_add_dynamic_css( 'button-v-padding', dynamicStyle );
-
-		} );
-	} );
-
-	/**
-	 * Button Horizontal Padding
-	 */
-	wp.customize( 'astra-settings[theme-button-border-group]', function( setting ) {
-		setting.bind( function( padding ) {
-
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
-			}
-			astra_add_dynamic_css( 'button-h-padding', dynamicStyle );
-
-		} );
-	} );
-
-	/**
 	 * Header Bottom Border width
 	 */
 	wp.customize( 'astra-settings[header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
-			var dynamicStyle = ' body.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px } ';
+			var dynamicStyle = ' body.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
 
 			dynamicStyle += '.ast-desktop .main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
@@ -759,7 +877,7 @@ function isJsonString( str ) {
 			if ( color ) {
 
 				var dynamicStyle = ' .ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
-					dynamicStyle += ' body.ast-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
+					dynamicStyle += ' body.ast-header-break-point .main-header-bar { border-bottom-color: ' + color + '; } ';
 
 				astra_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
 			}
@@ -829,6 +947,26 @@ function isJsonString( str ) {
 
 		} );
 	} );
+
+	if ( astraCustomizer.page_builder_button_style_css ) {
+		if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
+			if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'typo' == astraCustomizer.elementor_default_color_font_setting ) {
+				astra_css('astra-settings[headings-line-height]', 'line-height', '.elementor-widget-heading h1.elementor-heading-title, .elementor-widget-heading h2.elementor-heading-title, .elementor-widget-heading h3.elementor-heading-title, .elementor-widget-heading h4.elementor-heading-title, .elementor-widget-heading h5.elementor-heading-title, .elementor-widget-heading h6.elementor-heading-title');
+			}
+			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+		} else {
+			if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'typo' == astraCustomizer.elementor_default_color_font_setting ) {
+				astra_css('astra-settings[headings-line-height]', 'line-height', '.elementor-widget-heading h1.elementor-heading-title, .elementor-widget-heading h2.elementor-heading-title, .elementor-widget-heading h3.elementor-heading-title, .elementor-widget-heading h4.elementor-heading-title, .elementor-widget-heading h5.elementor-heading-title, .elementor-widget-heading h6.elementor-heading-title');
+			}
+			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+		}
+	} else {
+		if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
+			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+		} else {
+			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+		}
+	}
 	
 	// Check if anchors should be loaded in the CSS for headings.
 	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
@@ -846,11 +984,11 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
 	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
 	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
+
+	// Footer Bar background.
 	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
-
 			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
-			
 			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
 		} );
 	} );
@@ -860,14 +998,15 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
 	astra_css( 'astra-settings[footer-adv-link-color]', 'color', '.footer-adv a' );
 	astra_css( 'astra-settings[footer-adv-link-h-color]', 'color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' );
+
+	// Footer Widget background.
 	wp.customize( 'astra-settings[footer-adv-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
-			
 			var dynamicStyle = ' .footer-adv-overlay { {{css}} }';
-			
 			astra_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
 		} );
 	} );
+
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */
@@ -916,7 +1055,7 @@ function isJsonString( str ) {
 
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -926,14 +1065,14 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
 					dynamicStyle += '@media (min-width: 769px){';
-					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu, .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
 					dynamicStyle += '}';
@@ -954,7 +1093,7 @@ function isJsonString( str ) {
 			if ( '' != color ) {
 				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -964,14 +1103,14 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
 					dynamicStyle += '@media (min-width: 769px){';
-					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu, .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
 					dynamicStyle += '}';
@@ -997,7 +1136,7 @@ function isJsonString( str ) {
 
 					var dynamicStyle = '';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:' + color + ';';
@@ -1021,7 +1160,7 @@ function isJsonString( str ) {
 			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
 
 			if( true === border  ) {
-				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:'        + color + ';';
@@ -1044,6 +1183,77 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[header-main-rt-section-button-border-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
 	astra_css( 'astra-settings[header-main-rt-section-button-border-h-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
 	astra_responsive_spacing( 'astra-settings[header-main-rt-section-button-padding]','.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'padding', ['top', 'right', 'bottom', 'left' ] );
+
+	// Header custom button - Typography preview stylings.
+	astra_generate_outside_font_family_css( 'astra-settings[primary-header-button-font-family]', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+
+	astra_responsive_font_size( 'astra-settings[primary-header-button-font-size]', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+
+	astra_css( 'astra-settings[primary-header-button-font-weight]', 'font-weight', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+
+	astra_css( 'astra-settings[primary-header-button-line-height]', 'line-height', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+
+	astra_css( 'astra-settings[primary-header-button-text-transform]', 'text-transform', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+
+	astra_css( 'astra-settings[primary-header-button-letter-spacing]', 'letter-spacing', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button, .ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'px' );
+
+	/**
+	 * Custom Button border
+	 */
+	wp.customize( 'astra-settings[header-main-rt-section-button-border-size]', function( value ) {
+		value.bind( function( border ) {
+			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+				var dynamicStyle = '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-top-width:'  + border.top + 'px;';
+					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'header-main-rt-section-button-border-size', dynamicStyle );
+			}
+		} );
+	} );
+
+	var ele_border_radius_selector = '';
+	var ele_border_width_selector  = '';
+	var ele_padding_selector       = '';
+
+	if ( astraCustomizer.page_builder_button_style_css ) {
+		if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'color' == astraCustomizer.elementor_default_color_font_setting || 'font' == astraCustomizer.elementor_default_color_font_setting ) {
+			ele_border_radius_selector = ', .elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button';
+			ele_border_width_selector = ', .elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
+			ele_padding_selector = ', .elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button';
+		}
+	}
+
+	astra_css( 'astra-settings[button-radius]', 'border-radius', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' + ele_border_radius_selector, 'px' );
+
+	/**
+	 * Button border
+	 */
+	wp.customize( 'astra-settings[theme-button-border-group-border-size]', function( value ) {
+		value.bind( function( border ) {
+			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+				var dynamicStyle = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector;
+					dynamicStyle += '{';
+					dynamicStyle += 'border-top-width:'  + border.top + 'px;';
+					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+			}
+		} );
+	} );
+
+	astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector, 'padding', [ 'top', 'bottom' ] );
+	
+	astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector, 'padding', [ 'left', 'right' ] );
 
 	/**
 	 * Button border
@@ -1100,67 +1310,70 @@ function isJsonString( str ) {
 	// Site Tagline - Text Transform
 	astra_css( 'astra-settings[text-transform-site-tagline]', 'text-transform', '.site-header .site-description' );
 
-	// Theme Button - Text Color
-	astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+	if ( astraCustomizer.page_builder_button_style_css ) {
 
-	// Theme Button - Background Color
-	astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+		var btn_color_ele = '';
+		var btn_bg_color_ele = '';
+		var btn_h_color_ele = '';
+		var btn_bg_h_color_ele = '';
+		var btn_border_color_ele = '';
+		var btn_border_h_color_ele = '';
 
-	// Theme Button - Border Color
-	astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+		if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'color' == astraCustomizer.elementor_default_color_font_setting ) {
+			// Theme Button - Text Color
+			btn_color_ele = ',.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 
-	// Theme Button - Text Hover Color
-	astra_css( 'astra-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+			// Theme Button - Background Color
+			btn_bg_color_ele = ',.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 
-	// Theme Button - Background Hover Color
-	astra_css( 'astra-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+			// Theme Button - Text Hover Color
+			btn_h_color_ele = ',.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus';
 
-	// Theme Button - Border Hover Color
-	astra_css( 'astra-settings[button-bg-h-color]', 'border-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+			// Theme Button - Background Hover Color
+			btn_bg_h_color_ele = ',.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus';
 
-	/**
-	 * Button Border Radius
-	 */
-	wp.customize( 'astra-settings[button-radius]', function( setting ) {
-		setting.bind( function( border ) {
+			// Theme Button - Border Color
+			btn_border_color_ele = ', .elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			}
-			astra_add_dynamic_css( 'button-radius', dynamicStyle );
+			// Theme Button - Border Hover Color
+			btn_border_h_color_ele = ',.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus';
+		}
 
-		} );
-	} );
+		// Theme Button - Text Color
+		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_color_ele );
 
-	/**
-	 * Button Vertical Padding
-	 */
-	wp.customize( 'astra-settings[button-v-padding]', function( setting ) {
-		setting.bind( function( padding ) {
+		// Theme Button - Background Color
+		astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_bg_color_ele );
 
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
-			
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
-			}
-			astra_add_dynamic_css( 'button-v-padding', dynamicStyle );
+		// Theme Button - Text Hover Color
+		astra_css( 'astra-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_h_color_ele );
 
-		} );
-	} );
+		// Theme Button - Background Hover Color
+		astra_css( 'astra-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_bg_h_color_ele );
 
-	/**
-	 * Button Horizontal Padding
-	 */
-	wp.customize( 'astra-settings[button-h-padding]', function( setting ) {
-		setting.bind( function( padding ) {
+		astra_css( 'astra-settings[theme-button-border-group-border-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_border_color_ele );
 
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
-			}
-			astra_add_dynamic_css( 'button-h-padding', dynamicStyle );
+		// Theme Button - Border Hover Color
+		astra_css( 'astra-settings[theme-button-border-group-border-h-color]', 'border-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_border_h_color_ele );
 
-		} );
-	} )
+	} else {
+		// Theme Button - Text Color
+		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+
+		// Theme Button - Background Color
+		astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+
+		// Theme Button - Border Color
+		astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+
+		// Theme Button - Text Hover Color
+		astra_css( 'astra-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+
+		// Theme Button - Background Hover Color
+		astra_css( 'astra-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+
+		astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'top', 'bottom' ] );
+		astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'left', 'right' ] );
+	}
+
 } )( jQuery );

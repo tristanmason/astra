@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -61,7 +61,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			} else {
 				add_action( 'wp', __CLASS__ . '::init', 5 );
 			}
-
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
@@ -70,19 +69,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		static public function init() {
+		public static function init() {
 
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
+			// If there is no saved version in the database then return.
 			if ( false === $saved_version ) {
-
-				$saved_version = ASTRA_THEME_VERSION;
-
-				// Update auto saved version number.
-				astra_update_option( 'theme-auto-version', ASTRA_THEME_VERSION );
+				return;
 			}
 
 			// If equals then return.
@@ -198,39 +194,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.6.1-alpha.3', '<' ) ) {
 				self::v_1_6_1();
 			}
-
 			if ( version_compare( $saved_version, '2.0.0', '<' ) ) {
 				self::v_2_0_0();
 			}
-
-			// Not have stored?
-			if ( empty( $saved_version ) ) {
-
-				// Get old version.
-				$theme_version = get_option( '_astra_auto_version', ASTRA_THEME_VERSION );
-
-				// Remove option.
-				delete_option( '_astra_auto_version' );
-
-			} else {
-
-				// Get latest version.
-				$theme_version = ASTRA_THEME_VERSION;
-			}
-
-			// Update auto saved version number.
-			astra_update_option( 'theme-auto-version', $theme_version );
-
-			// Update variables.
-			Astra_Theme_Options::refresh();
-
-			do_action( 'astra_update_after' );
 		}
 
 		/**
 		 * Footer Widgets compatibilty for astra pro.
 		 */
-		static public function astra_pro_compatibility() {
+		public static function astra_pro_compatibility() {
 
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
 				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
@@ -242,7 +214,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.0.4
 		 */
-		static public function v_1_0_4() {
+		public static function v_1_0_4() {
 
 			$options = array(
 				'font-size-body',
@@ -325,7 +297,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.0.5
 		 */
-		static public function v_1_0_5() {
+		public static function v_1_0_5() {
 
 			$astra_old_options = get_option( 'ast-settings', array() );
 			$astra_new_options = get_option( ASTRA_THEME_SETTINGS, array() );
@@ -345,7 +317,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.0.8
 		 */
-		static public function v_1_0_8() {
+		public static function v_1_0_8() {
 
 			$options = array(
 				'body-line-height',
@@ -398,7 +370,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.0.12
 		 */
-		static public function v_1_0_12() {
+		public static function v_1_0_12() {
 
 			$options = array(
 				'site-content-layout'         => 'plain-container',
@@ -424,7 +396,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @since 1.0.14
 		 * @return void
 		 */
-		static public function v_1_0_14() {
+		public static function v_1_0_14() {
 
 			$options = array(
 				'footer-sml-divider'          => '4',
@@ -446,7 +418,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 
 			update_option( '_astra_pb_compatibility_offset', 1 );
-			update_option( '_astra_pb_compatibility_time', date( 'Y-m-d H:i:s' ) );
+			update_option( '_astra_pb_compatibility_time', gmdate( 'Y-m-d H:i:s' ) );
 		}
 
 		/**
@@ -456,7 +428,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @since  1.0.28
 		 * @return void
 		 */
-		static public function v_1_0_28() {
+		public static function v_1_0_28() {
 
 			$query = array(
 				'post_type'      => 'fl-theme-layout',
@@ -491,7 +463,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.1.0-beta.3
 		 */
-		static public function v_1_1_0_beta_3() {
+		public static function v_1_1_0_beta_3() {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
@@ -518,7 +490,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.1.0-beta.3
 		 */
-		static public function v_1_1_0_beta_4() {
+		public static function v_1_1_0_beta_4() {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
@@ -552,7 +524,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.2.2
 		 */
-		static public function v_1_2_2() {
+		public static function v_1_2_2() {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
@@ -582,7 +554,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function v_1_2_4() {
+		public static function v_1_2_4() {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
@@ -600,7 +572,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.2.7
 		 */
-		static public function v_1_2_7() {
+		public static function v_1_2_7() {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 			$google_fonts  = Astra_Font_Families::get_google_fonts();
@@ -625,7 +597,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.3.0
 		 */
-		static public function v_1_3_0() {
+		public static function v_1_3_0() {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$astra_options['header-bg-obj'] = array(
@@ -685,9 +657,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				case 'ast-full-width-layout':
 				case 'ast-fluid-width-layout':
 				default:
-								$astra_options['site-layout-outside-bg-obj'] = array(
-									'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
-								);
+						$astra_options['site-layout-outside-bg-obj'] = array(
+							'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
+						);
 					break;
 			}
 
@@ -700,7 +672,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.4.0-beta.3
 		 */
-		static public function v_1_4_0_beta_3() {
+		public static function v_1_4_0_beta_3() {
 
 			$theme_options     = get_option( 'astra-settings' );
 			$mobile_logo_width = astra_get_option( 'mobile-header-logo-width' );
@@ -723,7 +695,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.4.0-beta.4
 		 */
-		static public function v_1_4_0_beta_4() {
+		public static function v_1_4_0_beta_4() {
 
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 			$theme_options      = get_option( 'astra-settings' );
@@ -740,7 +712,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.4.0-beta.5
 		 */
-		static public function v_1_4_0_beta_5() {
+		public static function v_1_4_0_beta_5() {
 
 			// Set default toggle button style.
 			$theme_options = get_option( 'astra-settings' );
@@ -761,7 +733,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.4.3-aplha.1
 		 */
-		static public function v_1_4_3_alpha_1() {
+		public static function v_1_4_3_alpha_1() {
 
 			$mobile_header_logo = astra_get_option( 'ast-header-retina-logo' );
 			$theme_options      = get_option( 'astra-settings' );
@@ -1006,7 +978,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public static function v_2_0_0() {
 			update_site_option( 'bsf_force_check_extensions', true );
 		}
-
 	}
 }
 

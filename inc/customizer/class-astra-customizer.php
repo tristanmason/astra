@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -67,7 +67,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @var array
 		 */
-		private static $_dependency_arr = array();
+		private static $dependency_arr = array();
+
 
 		/**
 		 * Initiator
@@ -100,6 +101,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+			add_action( 'wp_head', array( $this, 'preview_styles' ) );
 		}
 
 		/**
@@ -161,7 +163,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 2.0.0
 		 * @return bool.
 		 */
-		function starts_with( $string, $start_string ) {
+		public function starts_with( $string, $start_string ) {
 			$len = strlen( $start_string );
 			return ( substr( $string, 0, $len ) === $start_string );
 		}
@@ -250,6 +252,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private function register_sub_control_setting( $control_config, $wp_customize ) {
 
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
+
+			if ( isset( $wp_customize->get_control( $sub_control_name )->id ) ) {
+				return;
+			}
 
 			$parent = astra_get_prop( $control_config, 'parent' );
 			$tab    = astra_get_prop( $control_config, 'tab' );
@@ -368,7 +374,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		private function update_dependency_arr( $key, $dependency ) {
-			self::$_dependency_arr[ $key ] = $dependency;
+			self::$dependency_arr[ $key ] = $dependency;
 		}
 
 		/**
@@ -378,7 +384,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
 		private function get_dependency_arr() {
-			return self::$_dependency_arr;
+			return self::$dependency_arr;
 		}
 
 		/**
@@ -442,7 +448,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$output .= Astra_Fonts_Data::js();
 			$output .= '</script>';
 
-			echo $output;
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		/**
@@ -451,7 +457,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register_panel( $wp_customize ) {
+		public function customize_register_panel( $wp_customize ) {
 
 			/**
 			 * Register Extended Panel
@@ -554,6 +560,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-link',
+				array(
+					'callback'          => 'Astra_Control_Link',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'ast-color',
 				array(
 					'callback'          => 'Astra_Control_Color',
@@ -615,6 +629,18 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			/**
+			 * Add Controls
+			 */
+
+			Astra_Customizer_Control_Base::add_control(
+				'ast-responsive-background',
+				array(
+					'callback'         => 'Astra_Control_Responsive_Background',
+					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_background' ),
+				)
+			);
+
 			Astra_Customizer_Control_Base::add_control(
 				'ast-customizer-link',
 				array(
@@ -652,7 +678,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Override Defaults
@@ -667,7 +693,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function astra_pro_upgrade_configurations( $wp_customize ) {
+		public function astra_pro_upgrade_configurations( $wp_customize ) {
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
@@ -681,7 +707,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function controls_scripts() {
+		public function controls_scripts() {
 
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -699,6 +725,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
+			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'astra-color-alpha' );
 
 			wp_enqueue_script( 'thickbox' );
@@ -769,13 +796,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @return string
 		 */
-		function generate_font_dropdown() {
+		public function generate_font_dropdown() {
 
 			ob_start();
 
 			?>
 
-			<option value="inherit"><?php _e( 'Default System Font', 'astra' ); ?></option>
+			<option value="inherit"><?php esc_html_e( 'Default System Font', 'astra' ); ?></option>
 			<optgroup label="Other System Fonts">
 
 			<?php
@@ -786,7 +813,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			foreach ( $system_fonts as $name => $variants ) {
 				?>
 
-				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_attr( $name ); ?></option>
+				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_html( $name ); ?></option>
 				<?php
 			}
 
@@ -802,7 +829,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$category = astra_get_prop( $single_font, '1' );
 
 				?>
-				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_attr( $name ); ?></option>
+				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_html( $name ); ?></option>
 
 				<?php
 			}
@@ -816,7 +843,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function preview_init() {
+		public function preview_init() {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
@@ -833,9 +860,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
 
 			$localize_array = array(
-				'headerBreakpoint'            => astra_header_break_point(),
-				'includeAnchorsInHeadindsCss' => Astra_Dynamic_CSS::anchors_in_css_selectors_heading(),
-				'googleFonts'                 => Astra_Font_Families::get_google_fonts(),
+				'headerBreakpoint'                     => astra_header_break_point(),
+				'includeAnchorsInHeadindsCss'          => Astra_Dynamic_CSS::anchors_in_css_selectors_heading(),
+				'googleFonts'                          => Astra_Font_Families::get_google_fonts(),
+				'page_builder_button_style_css'        => Astra_Dynamic_CSS::page_builder_button_style_css(),
+				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
@@ -848,7 +877,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function customize_save() {
+		public function customize_save() {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
@@ -859,13 +888,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
 
 				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				self::generate_logo_by_width( $custom_logo_id );
 				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 
 			} else {
 				// Regenerate the logo without custom image sizes.
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
-				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				self::generate_logo_by_width( $custom_logo_id );
 			}
 
 			do_action( 'astra_customizer_save' );
@@ -924,6 +953,73 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						}
 					}
 				}
+			}
+		}
+
+		/**
+		 * Customizer Preview icon CSS
+		 *
+		 * @since 1.0.0
+		 * @return void
+		 */
+		public function preview_styles() {
+			if ( is_customize_preview() ) {
+				echo '<style class="astra-custom-shortcut-edit-icons">
+					.customize-partial-edit-shortcut-astra-settings-footer-adv {
+						position: relative;
+					    top: -1em;
+					    left: -1.8em;
+					}
+					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
+						top: -0.5em;
+					}
+					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut,
+					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut {
+						position: absolute;
+					    left: 47%;
+					}
+					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .customize-partial-edit-shortcut,
+					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .customize-partial-edit-shortcut {
+						position: absolute;
+					    left: 42%;
+					}
+					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+						position: absolute;
+					    left: 1em;
+					}
+					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+						left: 83.5%;
+					}
+					.ast-small-footer-section-1.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+						position: absolute;
+					    left: 1em;
+					}
+					.ast-small-footer-section-2.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+						position: absolute;
+					    left: 44.5%;
+					}
+					.ast-small-footer .ast-container .ast-small-footer-section-1 .footer-primary-navigation > .customize-partial-edit-shortcut,
+					.ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation > .customize-partial-edit-shortcut{
+						display: none;
+					}
+					.ast-small-footer .customize-partial-edit-shortcut-astra-settings-footer-sml-layout {
+						    position: absolute;
+						    top: 3%;
+						    left: 10%;
+					}
+					.customize-partial-edit-shortcut button:hover {
+						border-color: #fff;
+					}
+					.ast-main-header-bar-alignment .main-header-bar-navigation .customize-partial-edit-shortcut-button {
+						display: none;
+					}
+				</style>';
+				echo '<style class="astra-theme-custom-shortcut-edit-icons">
+					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
+					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+					    z-index: 6;
+					}
+				</style>';
 			}
 		}
 	}

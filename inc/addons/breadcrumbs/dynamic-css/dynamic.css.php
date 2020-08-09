@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Breadcrumbs
  */
-add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_breadcrumb_section_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,6 +24,8 @@ add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
  * @since 1.7.0
  */
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
 
 	$dynamic_css .= astra_parse_css(
 		array(
@@ -46,7 +48,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			),
 			'.trail-items li::after'              => array(
 				'padding' => '0 0.3em',
-				'content' => '"»"',
+				'content' => '"\00bb"',
 			),
 			'.trail-items li:last-of-type::after' => array(
 				'display' => 'none',
@@ -56,11 +58,8 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		''
 	);
 
-	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
-
 	if ( 'none' === $breadcrumb_position ) {
-		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
-		return;
+		return $dynamic_css;
 	}
 
 	/**
@@ -100,12 +99,19 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css                     = '';
 	$breadcrumbs_default_css = array();
-	$wpseo_option            = get_option( 'wpseo_internallinks' );
+	$breadcrumb_enable       = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
+	$wpseo_option            = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
+	if ( ! is_array( $wpseo_option ) ) {
+		unset( $wpseo_option );
+		$wpseo_option = array(
+			'breadcrumbs-enable' => $breadcrumb_enable,
+		);
+	}
 
 	$css .= astra_parse_css(
 		array(
 			'.trail-items li::after' => array(
-				'content' => '"' . astra_get_option( 'breadcrumb-separator', '»' ) . '"',
+				'content' => '"' . astra_get_option( 'breadcrumb-separator', '\00bb' ) . '"',
 			),
 		),
 		'',
@@ -115,7 +121,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	/**
 	 * Breadcrumb Colors & Typography
 	 */
-	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
+	if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 
 		/* Yoast SEO Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(
@@ -468,8 +474,8 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	);
 
 	$css .= astra_parse_css( $breadcrumbs_desktop );
-	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );
-	$css .= astra_parse_css( $breadcrumbs_mobile, '', '544' );
+	$css .= astra_parse_css( $breadcrumbs_tablet, '', astra_get_tablet_breakpoint() );
+	$css .= astra_parse_css( $breadcrumbs_mobile, '', astra_get_mobile_breakpoint() );
 	$css .= astra_parse_css( $breadcrumbs_default_css );
 
 	/* Breadcrumb default CSS */
@@ -529,5 +535,5 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$dynamic_css .= $css;
 
-	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+	return $dynamic_css;
 }

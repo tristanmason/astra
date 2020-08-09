@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -24,6 +24,7 @@ $wp_customize->get_section( 'title_tagline' )->priority = 5;
 $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+$wp_customize->get_setting( 'custom_logo' )->transport      = 'refresh';
 
 /**
  * Override Controls
@@ -40,7 +41,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.main-header-bar .site-title a,  .ast-small-footer-wrap .ast-footer-site-title',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Partials', '_render_partial_site_title' ),
+			'render_callback'     => array( 'Astra_Customizer_Partials', 'render_partial_site_title' ),
 		)
 	);
 }
@@ -51,7 +52,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.main-header-bar .site-description',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Partials', '_render_partial_site_tagline' ),
+			'render_callback'     => array( 'Astra_Customizer_Partials', 'render_partial_site_tagline' ),
 		)
 	);
 }

@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -31,6 +31,45 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
+
+				/**
+				 * Notice for Colors - Transparent header enabled on page.
+				 */
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[header-transparent-header-logo-notice]',
+					'type'            => 'control',
+					'control'         => 'ast-description',
+					'section'         => 'title_tagline',
+					'priority'        => 1,
+					'required'        => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+						),
+					),
+					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
+					'help'            => $this->get_help_text_notice( 'transparent-header' ),
+				),
+
+				/**
+				* Option: Transparent Header Section - Link.
+				*/
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[header-transparent-header-logo-notice-link]',
+					'default'         => astra_get_option( 'header-transparent-header-logo-notice-link' ),
+					'type'            => 'control',
+					'control'         => 'ast-customizer-link',
+					'section'         => 'title_tagline',
+					'priority'        => 1,
+					'link_type'       => 'control',
+					'linked'          => ASTRA_THEME_SETTINGS . '[transparent-header-logo]',
+					'required'        => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+						),
+					),
+					'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
+					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
+				),
 
 				/**
 				 * Option: Divider
@@ -140,25 +179,37 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Display Title
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
-					'type'     => 'control',
-					'control'  => 'checkbox',
-					'default'  => astra_get_option( 'display-site-title' ),
-					'section'  => 'title_tagline',
-					'title'    => __( 'Display Site Title', 'astra' ),
-					'priority' => 7,
+					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title]',
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'default'   => astra_get_option( 'display-site-title' ),
+					'section'   => 'title_tagline',
+					'title'     => __( 'Display Site Title', 'astra' ),
+					'priority'  => 7,
+					'transport' => 'postMessage',
+					'partial'   => array(
+						'selector'            => '.main-header-bar .site-branding .ast-site-title-wrap',
+						'container_inclusive' => false,
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_site_title_tagline' ),
+					),
 				),
 
 				/**
 				 * Option: Display Tagline
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-					'type'    => 'control',
-					'control' => 'checkbox',
-					'default' => astra_get_option( 'display-site-tagline' ),
-					'section' => 'title_tagline',
-					'title'   => __( 'Display Site Tagline', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'display-site-tagline' ),
+					'section'   => 'title_tagline',
+					'title'     => __( 'Display Site Tagline', 'astra' ),
+					'partial'   => array(
+						'selector'            => '.main-header-bar .site-branding .ast-site-title-wrap',
+						'container_inclusive' => false,
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_site_title_tagline' ),
+					),
 				),
 
 				array(
@@ -238,11 +289,38 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			return $configurations;
 
 		}
+
+		/**
+		 * Check if transparent header is enabled on the page being previewed.
+		 *
+		 * @since  2.4.5
+		 * @return boolean True - If Transparent Header is enabled, False if not.
+		 */
+		public function is_transparent_header_enabled() {
+			$status = Astra_Ext_Transparent_Header_Markup::is_transparent_header();
+			return ( true === $status ? true : false );
+		}
+
+		/**
+		 * Help notice message to be displayed when the page that is being previewed has Logo set from Transparent Header.
+		 *
+		 * @since  2.4.5
+		 * @param String $context Type of notice message to be returned.
+		 * @return String HTML Markup for the help notice.
+		 */
+		private function get_help_text_notice( $context ) {
+
+			$notice = '';
+			if ( 'transparent-header' === $context ) {
+				$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>The Logo on this page is set from the Transparent Header Section. Please click the link below to customize Transparent Header Logo.</p></div>';
+			}
+			return $notice;
+		}
 	}
 }
 
 
-new Astra_Site_Identity_Configs;
+new Astra_Site_Identity_Configs();
 
 
 

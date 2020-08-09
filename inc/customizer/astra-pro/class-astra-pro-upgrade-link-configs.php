@@ -4,7 +4,7 @@
  *
  * @package   Astra
  * @author    Astra
- * @copyright Copyright (c) 2019, Astra
+ * @copyright Copyright (c) 2020, Astra
  * @link      https://wpastra.com/
  * @since     Astra 1.0.10
  */
@@ -43,5 +43,5 @@ if ( ! class_exists( 'Astra_Pro_Upgrade_Link_Configs' ) ) {
 	}
 }
 
-new Astra_Pro_Upgrade_Link_Configs;
+new Astra_Pro_Upgrade_Link_Configs();
 

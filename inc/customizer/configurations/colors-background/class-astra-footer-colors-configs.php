@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       1.4.3
  */
@@ -80,16 +80,16 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				 * Option: Footer Background
 				 */
 				array(
-					'name'     => 'footer-bg-obj',
-					'type'     => 'sub-control',
-					'priority' => 7,
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
-					'section'  => 'section-footer-small',
-					'control'  => 'ast-background',
-					'default'  => astra_get_option( 'footer-bg-obj' ),
-					'label'    => __( 'Background', 'astra' ),
+					'name'      => 'footer-bg-obj',
+					'type'      => 'sub-control',
+					'priority'  => 7,
+					'parent'    => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
+					'section'   => 'section-footer-small',
+					'transport' => 'postMessage',
+					'control'   => 'ast-background',
+					'default'   => astra_get_option( 'footer-bg-obj' ),
+					'label'     => __( 'Background', 'astra' ),
 				),
-
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -99,6 +99,6 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 	}
 }
 
-new Astra_Footer_Colors_Configs;
+new Astra_Footer_Colors_Configs();
 
 

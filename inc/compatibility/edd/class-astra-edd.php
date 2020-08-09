@@ -65,7 +65,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_styles' ) );
+			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_scripts' ) );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'add_inline_styles' ) );
 
 			add_action( 'wp', array( $this, 'edd_initialization' ) );
 			add_action( 'init', array( $this, 'edd_set_defaults_initialization' ) );
@@ -84,7 +85,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return void
 		 */
-		function edd_set_defaults_initialization() {
+		public function edd_set_defaults_initialization() {
 
 			$astra_theme_options = get_option( 'astra-settings' );
 			$edd_settings        = get_option( 'edd_settings' );
@@ -106,7 +107,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return array $args single products navigation arguments.
 		 */
-		function edd_single_post_navigation( $args ) {
+		public function edd_single_post_navigation( $args ) {
 			$is_edd_single_product_page        = astra_is_edd_single_product_page();
 			$disable_single_product_navigation = astra_get_option( 'disable-edd-single-product-nav' );
 			if ( $is_edd_single_product_page && ! $disable_single_product_navigation ) {
@@ -144,7 +145,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return void
 		 */
-		function edd_initialization() {
+		public function edd_initialization() {
 			$is_edd_archive_page        = astra_is_edd_archive_page();
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
 
@@ -174,7 +175,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return void
 		 */
-		function astra_edd_templat_part_wrap_open() {
+		public function astra_edd_templat_part_wrap_open() {
 			?>
 				<div class="ast-edd-container">
 			<?php
@@ -183,7 +184,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Add end of wrapper for edd archive pages
 		 */
-		function astra_edd_templat_part_wrap_close() {
+		public function astra_edd_templat_part_wrap_close() {
 			?>
 				</div> <!-- .ast-edd-container -->
 			<?php
@@ -192,7 +193,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Edd Single Product template
 		 */
-		function edd_single_template() {
+		public function edd_single_template() {
 
 			astra_entry_before();
 			?>
@@ -219,7 +220,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return Array header options array.
 		 * @since 1.5.5
 		 */
-		function header_section_elements( $options ) {
+		public function header_section_elements( $options ) {
 
 			$options['edd'] = __( 'Easy Digital Downloads', 'astra' );
 
@@ -231,7 +232,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return void
 		 */
-		function edd_content_loop() {
+		public function edd_content_loop() {
 			?>
 			<div <?php post_class(); ?>>
 				<?php
@@ -253,7 +254,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return array
 		 * @since  1.5.5
 		 */
-		function render_post_class( $classes ) {
+		public function render_post_class( $classes ) {
 			$post_class = array( 'ast-edd-archive-article' );
 			$result     = array_intersect( $classes, $post_class );
 
@@ -289,7 +290,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @since 1.5.5
 		 */
-		function astra_header_cart( $output, $section, $section_type ) {
+		public function astra_header_cart( $output, $section, $section_type ) {
 
 			if ( 'edd' === $section_type && apply_filters( 'astra_edd_header_cart_icon', true ) ) {
 
@@ -305,7 +306,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @since 1.5.5
 		 * @return html
 		 */
-		function edd_mini_cart_markup() {
+		public function edd_mini_cart_markup() {
 			$class = '';
 			if ( edd_is_checkout() ) {
 				$class = 'current-menu-item';
@@ -338,7 +339,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return void
 		 * @since  1.5.5
 		 */
-		function astra_get_edd_cart() {
+		public function astra_get_edd_cart() {
 
 			$view_shopping_cart = apply_filters( 'astra_edd_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 			$edd_cart_link      = apply_filters( 'astra_edd_cart_link', edd_get_checkout_uri() );
@@ -377,7 +378,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return array List of updated assets.
 		 * @since 1.5.5
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			$assets['css']['astra-edd'] = 'compatibility/edd';
 			return $assets;
 		}
@@ -387,11 +388,182 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @since 1.5.5
 		 */
-		function add_inline_styles() {
+		public function add_inline_scripts() {
+
+			$is_site_rtl = is_rtl();
+
+			$max_tablet_edd_css = array(
+				'.tablet-columns-1 .ast-edd-archive-article' => array(
+					'width' => '100%',
+				),
+				'.tablet-columns-2 .ast-edd-archive-article' => array(
+					'width' => '47.6%',
+					'width' => 'calc(50% - 10px)',
+				),
+				'.tablet-columns-3 .ast-edd-archive-article, .edd_downloads_list[class*="edd_download_columns_"] .edd_download' => array(
+					'width' => '30.2%',
+					'width' => 'calc(33.33% - 14px)',
+				),
+				'.tablet-columns-4 .ast-edd-archive-article' => array(
+					'width' => '21.5%',
+					'width' => 'calc(25% - 15px)',
+				),
+				'.tablet-columns-5 .ast-edd-archive-article' => array(
+					'width' => '16.2%',
+					'width' => 'calc(20% - 16px)',
+				),
+				'.tablet-columns-6 .ast-edd-archive-article' => array(
+					'width' => '12.7%',
+					'width' => 'calc(16.66% - 16.66px)',
+				),
+			);
+
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
+			$edd_css_output = astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+
+			if ( $is_site_rtl ) {
+				$max_tablet_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-left' => '20px',
+						'clear'       => 'none',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
+						'margin-left' => '0',
+						'clear'       => 'left',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
+						'clear' => 'right',
+					),
+				);
+			} else {
+				$max_tablet_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-right' => '20px',
+						'clear'        => 'none',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n)' => array(
+						'margin-right' => '0',
+						'clear'        => 'right',
+					),
+					'.tablet-columns-2 .ast-edd-archive-article:nth-child(2n+1), .tablet-columns-3 .ast-edd-archive-article:nth-child(3n+1), .tablet-columns-4 .ast-edd-archive-article:nth-child(4n+1), .tablet-columns-5 .ast-edd-archive-article:nth-child(5n+1), .tablet-columns-6 .ast-edd-archive-article:nth-child(6n+1), .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(3n+1)' => array(
+						'clear' => 'left',
+					),
+				);
+			}
+
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
+			$edd_css_output .= astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+
+			$mobile_edd_css = array(
+				'.mobile-columns-1 .ast-edd-archive-article' => array(
+					'width' => '100%',
+				),
+				'.mobile-columns-3 .ast-edd-archive-article' => array(
+					'width' => '28.2%',
+					'width' => 'calc(33.33% - 14px)',
+				),
+				'.mobile-columns-4 .ast-edd-archive-article' => array(
+					'width' => '19%',
+					'width' => 'calc(25% - 15px)',
+				),
+				'.mobile-columns-5 .ast-edd-archive-article' => array(
+					'width' => '13%',
+					'width' => 'calc(20% - 16px)',
+				),
+				'.mobile-columns-6 .ast-edd-archive-article' => array(
+					'width' => '10.2%',
+					'width' => 'calc(16.66% - 16.66px)',
+				),
+				'.edd_downloads_list[class*="edd_download_columns_"] .edd_download, .edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n+1), .mobile-columns-2 .ast-edd-archive-article' => array(
+					'width' => '46.1%',
+					'width' => 'calc(50% - 10px)',
+				),
+			);
+
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint() );
+
+			if ( $is_site_rtl ) {
+				$mobile_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-left' => '20px',
+						'clear'       => 'none',
+					),
+					'.mobile-columns-1 .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-left' => '0',
+					),
+					'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n), .mobile-columns-2 .ast-edd-archive-article:nth-child(2n), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
+						'margin-left' => '0',
+						'clear'       => 'left',
+					),
+					'.mobile-columns-2 .ast-edd-archive-article:nth-child(2n+1), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n+1), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n+1), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n+1), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
+						'clear' => 'right',
+					),
+				);
+			} else {
+				$mobile_edd_lang_direction_css = array(
+					'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-right' => '20px',
+						'clear'        => 'none',
+					),
+					'.mobile-columns-1 .ast-edd-archive-article:nth-child(n)' => array(
+						'margin-right' => '0',
+					),
+					'.edd_downloads_list[class*="edd_download_columns_"] .edd_download:nth-child(2n), .mobile-columns-2 .ast-edd-archive-article:nth-child(2n), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n)' => array(
+						'margin-right' => '0',
+						'clear'        => 'right',
+					),
+					'.mobile-columns-2 .ast-edd-archive-article:nth-child(2n+1), .mobile-columns-3 .ast-edd-archive-article:nth-child(3n+1), .mobile-columns-4 .ast-edd-archive-article:nth-child(4n+1), .mobile-columns-5 .ast-edd-archive-article:nth-child(5n+1), .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1)' => array(
+						'clear' => 'left',
+					),
+				);
+			}
+
+			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
+			$edd_css_output .= astra_parse_css( $mobile_edd_lang_direction_css, '', astra_get_mobile_breakpoint() );
+
+			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $edd_css_output ) );
+
+			// Inline js for EDD Cart updates.
+			wp_add_inline_script(
+				'edd-ajax',
+				"jQuery( document ).ready( function($) {
+					/**
+					 * Astra - Easy Digital Downloads Cart Quantity & Total Amount
+					 */
+					var cartQuantity = jQuery('.ast-edd-site-header-cart-wrap .count'),
+						iconQuantity = jQuery('.ast-edd-site-header-cart-wrap .astra-icon'),
+						cartTotalAmount = jQuery('.ast-edd-site-header-cart-wrap .ast-edd-header-cart-total');
+
+					jQuery('body').on('edd_cart_item_added', function( event, response ) {
+						cartQuantity.html( response.cart_quantity );
+						iconQuantity.attr('data-cart-total', response.cart_quantity );
+						cartTotalAmount.html( response.total );
+					});
+
+					jQuery('body').on('edd_cart_item_removed', function( event, response ) {
+						cartQuantity.html( response.cart_quantity );
+						iconQuantity.attr('data-cart-total', response.cart_quantity );
+						cartTotalAmount.html( response.total );
+					});
+				});"
+			);
+		}
+
+		/**
+		 * Dynamic CSS
+		 *
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @since 1.5.5
+		 * @return string $dynamic_css
+		 */
+		public function add_inline_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 * - Variable Declaration
 			 */
+
 			$site_content_width    = astra_get_option( 'site-content-width', 1200 );
 			$edd_archive_width     = astra_get_option( 'edd-archive-width' );
 			$edd_archive_max_width = astra_get_option( 'edd-archive-max-width' );
@@ -414,9 +586,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$btn_bg_color   = astra_get_option( 'button-bg-color', $theme_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', $link_h_color );
 
-			$btn_border_radius      = astra_get_option( 'button-radius' );
-			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
-			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
+			$btn_border_radius = astra_get_option( 'button-radius' );
 
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
 
@@ -483,7 +653,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						'max-width' => astra_get_css_value( $edd_archive_max_width, 'px' ),
 					),
 				);
-				$css_output .= astra_parse_css( $site_width, '769' );
+				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
 			else :
 				// Easy Digital DOwnloads shop archive default width.
@@ -494,35 +664,12 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				);
 
 				/* Parse CSS from array()*/
-				$css_output .= astra_parse_css( $site_width, '769' );
+				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 			endif;
 
-			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $css_output ) );
-			// Inline js for EDD Cart updates.
-			wp_add_inline_script(
-				'edd-ajax',
-				"jQuery( document ).ready( function($) {
-					/**
-					 * Astra - Easy Digital Downloads Cart Quantity & Total Amount
-					 */
-					var cartQuantity = jQuery('.ast-edd-site-header-cart-wrap .count'),
-						iconQuantity = jQuery('.ast-edd-site-header-cart-wrap .astra-icon'),
-						cartTotalAmount = jQuery('.ast-edd-site-header-cart-wrap .ast-edd-header-cart-total');
+			$dynamic_css .= apply_filters( 'astra_theme_edd_dynamic_css', $css_output );
 
-					jQuery('body').on('edd_cart_item_added', function( event, response ) {
-						cartQuantity.html( response.cart_quantity );
-						iconQuantity.attr('data-cart-total', response.cart_quantity );
-						cartTotalAmount.html( response.total );
-					});
-
-					jQuery('body').on('edd_cart_item_removed', function( event, response ) {
-						cartQuantity.html( response.cart_quantity );
-						iconQuantity.attr('data-cart-total', response.cart_quantity );
-						cartTotalAmount.html( response.total );
-					});
-				});"
-			);
-
+			return $dynamic_css;
 		}
 
 		/**
@@ -531,7 +678,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
-		function theme_defaults( $defaults ) {
+		public function theme_defaults( $defaults ) {
 
 			// Container.
 			$defaults['edd-content-layout'] = 'plain-container';
@@ -574,7 +721,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return array.
 		 */
-		function edd_products_item_class( $classes = '' ) {
+		public function edd_products_item_class( $classes = '' ) {
 
 			$is_edd_archive_page = astra_is_edd_archive_page();
 
@@ -597,7 +744,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return array.
 		 */
-		function edd_single_product_class( $classes ) {
+		public function edd_single_product_class( $classes ) {
 
 			$is_edd_archive_page = astra_is_edd_archive_page();
 
@@ -611,7 +758,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Store widgets init.
 		 */
-		function store_widgets_init() {
+		public function store_widgets_init() {
 			register_sidebar(
 				apply_filters(
 					'astra_edd_sidebar_init',
@@ -649,7 +796,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return String $sidebar Sidebar.
 		 */
-		function replace_store_sidebar( $sidebar ) {
+		public function replace_store_sidebar( $sidebar ) {
 
 			$is_edd_page                = astra_is_edd_page();
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
@@ -670,7 +817,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return String $sidebar_layout Layout type.
 		 */
-		function store_sidebar_layout( $sidebar_layout ) {
+		public function store_sidebar_layout( $sidebar_layout ) {
 
 			$is_edd_page                = astra_is_edd_page();
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
@@ -716,7 +863,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return String $layout Layout type.
 		 */
-		function store_content_layout( $layout ) {
+		public function store_content_layout( $layout ) {
 
 			$is_edd_page         = astra_is_edd_page();
 			$is_edd_single_page  = astra_is_edd_single_page();
@@ -754,7 +901,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @since 1.5.5
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Register Sections & Panels

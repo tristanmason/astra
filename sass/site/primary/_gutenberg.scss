@@ -77,7 +77,8 @@
 }
 
 // Removing margin from wp block gallery element.
-.wp-block-gallery {
+.wp-block-gallery,
+.blocks-gallery-grid {
     margin: 0;
 }
 
@@ -106,7 +107,6 @@
 		.wp-block-columns .wp-block-column {
 			-ms-flex-preferred-size: 100%;
 			flex-basis: 100%;
-			margin-left: 0;
 		}
 		.has-2-columns .wp-block-column:first-child {
 			padding-right: 0;
@@ -173,4 +173,16 @@ body {
     border-top: 4px solid #555d66;
     border-bottom: 4px solid #555d66;
     color: #40464d;
+}
+
+// Fix margin issue with Full Width Stretched Layout.
+.ast-page-builder-template {
+	&.ast-no-sidebar {
+		.entry-content {
+			.alignwide {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
 }

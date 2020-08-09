@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * @param array $classes Body Class Array.
 		 * @return array
 		 */
-		function add_body_class( $classes ) {
+		public function add_body_class( $classes ) {
 
 			$inherit_desk_logo              = astra_get_option( 'different-transparent-logo', false );
 			$transparent_header_logo        = astra_get_option( 'transparent-header-logo', true );
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		function transparent_header_logo() {
+		public function transparent_header_logo() {
 
 			$inherit_desk_logo       = astra_get_option( 'different-transparent-logo', false );
 			$transparent_header_logo = astra_get_option( 'transparent-header-logo' );
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 *
 		 * @return string html markup of logo.
 		 */
-		function transparent_custom_logo( $html, $blog_id ) {
+		public function transparent_custom_logo( $html, $blog_id ) {
 
 			$trans_logo                 = astra_get_option( 'transparent-header-logo' );
 			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
@@ -241,7 +241,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 *
 		 * @return array Image attr.
 		 */
-		function replace_trans_header_attr( $attr, $attachment, $size ) {
+		public function replace_trans_header_attr( $attr, $attachment, $size ) {
 
 			$trans_logo     = astra_get_option( 'transparent-header-logo' );
 			$custom_logo_id = attachment_url_to_postid( $trans_logo );
@@ -260,9 +260,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				$file_extension = $file_type['ext'];
 
 				if ( 'svg' == $file_extension ) {
-					$attr['width']  = '100%';
-					$attr['height'] = '100%';
-					$attr['class']  = 'astra-logo-svg';
+					$attr['class'] = 'astra-logo-svg';
 				}
 
 				$diff_retina_logo = astra_get_option( 'different-transparent-retina-logo' );
@@ -297,7 +295,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * @param array $meta_option Page Meta.
 		 * @return array
 		 */
-		function add_options( $meta_option ) {
+		public function add_options( $meta_option ) {
 
 			$meta_option['theme-transparent-header-meta'] = array(
 				'sanitize' => 'FILTER_DEFAULT',
@@ -314,7 +312,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * @param array $meta Page Meta.
 		 * @since 1.0.0
 		 */
-		function add_options_markup( $meta ) {
+		public function add_options_markup( $meta ) {
 
 			/**
 			 * Get options
@@ -342,7 +340,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		/**
 		 * Add Styles Callback
 		 */
-		function customizer_save() {
+		public function customizer_save() {
 
 			/* Generate Transparent Header Logo */
 			$trans_logo = astra_get_option( 'transparent-header-logo' );
@@ -364,7 +362,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 *
 		 * @return array
 		 */
-		function transparent_logo_image_sizes( $sizes, $metadata ) {
+		public function transparent_logo_image_sizes( $sizes, $metadata ) {
 
 			$logo_width = astra_get_option( 'transparent-header-logo-width' );
 

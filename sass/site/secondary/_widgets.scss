@@ -10,7 +10,7 @@
 	&:last-child {
 		margin-bottom: 0;
 	}
-	
+
 	select {
 		max-width: 100%;
 	}
@@ -95,7 +95,7 @@
 	.search-field,
 	.search-field:focus {
 	    width: 100%;
-	    padding: 16px 45px 16px 15px;
+		padding: 16px 45px 16px 15px;
 	}
 }
 
@@ -135,7 +135,7 @@
 		    font-size: 14px;
 		    margin-right: 4px;
 		    line-height: 1.5;
-		    @include ast-transition();    
+		    @include ast-transition();
 		}
 	}
 }
@@ -207,16 +207,6 @@
 				background-color: $color-background-content;
 				padding: 2em;
 				margin-bottom: 2em;
-				@media (min-width: $col-md) {
-					&:last-child{
-						margin-bottom: 0;
-					}
-				}
-				@media (max-width: $mx-col-sm) {
-					padding-left: 1em;
-					padding-right: 1em;
-					margin-bottom: 1.5em;
-				}
 			}
 		}
 	}

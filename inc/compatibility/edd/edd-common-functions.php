@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.5.5
  */
@@ -274,7 +274,7 @@ if ( ! function_exists( 'astra_edd_archive_product_add_to_cart' ) ) {
 	 * @return void
 	 */
 	function astra_edd_archive_product_add_to_cart() {
-		echo astra_edd_cart_button_markup();
+		echo astra_edd_cart_button_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	add_action( 'astra_edd_archive_add_to_cart', 'astra_edd_archive_product_add_to_cart' );
@@ -288,7 +288,7 @@ if ( ! function_exists( 'astra_edd_archive_product_category' ) ) {
 	 * @return void
 	 */
 	function astra_edd_archive_product_category() {
-		echo astra_edd_terms_list( 'download_category' );
+		echo astra_edd_terms_list( 'download_category' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	add_action( 'astra_edd_archive_category', 'astra_edd_archive_product_category' );

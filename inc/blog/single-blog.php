@@ -85,11 +85,13 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 	 */
 	function astra_single_get_post_meta( $echo = true ) {
 
-		$enable_meta = apply_filters( 'astra_single_post_meta_enabled', '__return_true' );
-		$post_meta   = astra_get_option( 'blog-single-meta' );
+		$enable_meta       = apply_filters( 'astra_single_post_meta_enabled', '__return_true' );
+		$post_meta         = astra_get_option( 'blog-single-meta' );
+		$current_post_type = get_post_type();
+		$post_type_array   = apply_filters( 'astra_single_post_type_meta', array( 'post' ) );
 
 		$output = '';
-		if ( is_array( $post_meta ) && ( 'post' == get_post_type() || 'attachment' == get_post_type() ) && $enable_meta ) {
+		if ( is_array( $post_meta ) && ( in_array( $current_post_type, $post_type_array ) || 'attachment' == $current_post_type ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 			if ( ! empty( $output_str ) ) {
@@ -97,7 +99,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 			}
 		}
 		if ( $echo ) {
-			echo $output;
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $output;
 		}
@@ -163,13 +165,15 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 										( $comment->user_id === $post->post_author ) ? '<span class="ast-highlight-text ast-cmt-post-author"></span>' : ''
 									);
 
+								if ( apply_filters( 'astra_single_post_comment_time_enabled', true ) ) {
 									printf(
 										'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
-										get_comment_time( 'c' ),
+										esc_attr( get_comment_time( 'c' ) ),
 										/* translators: 1: date, 2: time */
-										sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() )
+										esc_html( sprintf( __( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() ) )
 									);
+								}
 
 								?>
 

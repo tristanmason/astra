@@ -1,10 +1,11 @@
-/**
- * File spacing.js
- *
- * Handles the spacing
- *
- * @package Astra
- */
+( function( $ ) {
+	/**
+	 * File spacing.js
+	 *
+	 * Handles the spacing
+	 *
+	 * @package Astra
+	 */
 
 	wp.customize.controlConstructor['ast-border'] = wp.customize.Control.extend({
 
@@ -13,8 +14,8 @@
 			'use strict';
 
 			var control = this,
-		    value;
-		    
+			value;
+			
 
 			// Set the spacing container.
 			// this.container = control.container.find( 'ul.ast-border-wrapper' ).first();
@@ -96,3 +97,4 @@
 
 		} );
 	});
+})(jQuery);
