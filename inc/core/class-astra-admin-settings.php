@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'type'                       => '',
 						'message'                    => sprintf(
 							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 								<div class="notice-content">
 									<div class="notice-heading">
 										%2$s
@@ -248,7 +248,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 							<div class="notice-content">
 								<h2 class="notice-heading">
 									%2$s
@@ -1253,14 +1253,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$recommended_plugins = apply_filters(
 				'astra_recommended_plugins',
 				array(
-					'astra-import-export'            =>
+					'astra-import-export'           =>
 						array(
 							'plugin-name'        => 'Import / Export Customizer Settings',
 							'plugin-init'        => 'astra-import-export/astra-import-export.php',
 							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
-					'reset-astra-customizer'         =>
+					'reset-astra-customizer'        =>
 						array(
 							'plugin-name'        => 'Astra Customizer Reset',
 							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
@@ -1268,7 +1268,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'settings-link-text' => 'Settings',
 						),
 
-					'customizer-search'              =>
+					'customizer-search'             =>
 					array(
 						'plugin-name'        => 'Customizer Search',
 						'plugin-init'        => 'customizer-search/customizer-search.php',
@@ -1276,7 +1276,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'astra-bulk-edit'                =>
+					'astra-bulk-edit'               =>
 					array(
 						'plugin-name'        => 'Astra Bulk Edit',
 						'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
@@ -1284,7 +1284,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'astra-widgets'                  =>
+					'astra-widgets'                 =>
 					array(
 						'plugin-name'        => 'Astra Widgets',
 						'plugin-init'        => 'astra-widgets/astra-widgets.php',
@@ -1292,23 +1292,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'leadin'                         =>
-					array(
-						'plugin-name'        => 'HubSpot - CRM, Email Marketing & Analytics',
-						'plugin-init'        => 'leadin/leadin.php',
-						'settings-link'      => admin_url( 'admin.php?page=leadin' ),
-						'settings-link-text' => 'Settings',
-					),
-
-					'google-analytics-for-wordpress' =>
-					array(
-						'plugin-name'        => 'Google Analytics Dashboard',
-						'plugin-init'        => 'google-analytics-for-wordpress/googleanalytics.php',
-						'settings-link'      => admin_url( 'admin.php?page=monsterinsights_reports' ),
-						'settings-link-text' => 'Settings',
-					),
-
-					'custom-fonts'                   =>
+					'custom-fonts'                  =>
 					array(
 						'plugin-name'        => 'Custom Fonts',
 						'plugin-init'        => 'custom-fonts/custom-fonts.php',
@@ -1316,7 +1300,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'custom-typekit-fonts'           =>
+					'custom-typekit-fonts'          =>
 						array(
 							'plugin-name'        => 'Custom Typekit Fonts',
 							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
@@ -1324,7 +1308,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'settings-link-text' => 'Settings',
 						),
 
-					'sidebar-manager'                =>
+					'sidebar-manager'               =>
 					array(
 						'plugin-name'        => 'Sidebar Manager',
 						'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
@@ -1332,7 +1316,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'ultimate-addons-for-gutenberg'  =>
+					'ultimate-addons-for-gutenberg' =>
 						array(
 							'plugin-name'        => 'Ultimate Addons for Gutenberg',
 							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
@@ -1507,15 +1491,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if ( '/astra-pro-sites/astra-pro-sites.php' === $plugin_init || '/astra-sites/astra-sites.php' === $plugin_init ) {
 				self::get_starter_templates_slug();
-			}
-
-			/**
-			 * Google Analytics Dashboard plugin Affiliate compatibility.
-			 *
-			 * @since 2.5.2
-			 */
-			if ( 'google-analytics-for-wordpress/googleanalytics.php' === $plugin_init ) {
-				update_option( 'monsterinsights_shareasale_id', 1504 );
 			}
 
 			if ( is_wp_error( $activate ) ) {
