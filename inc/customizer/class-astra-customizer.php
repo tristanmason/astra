@@ -747,12 +747,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'wp-color-picker',
 					'wpColorPickerL10n',
 					array(
-						'clear'            => __( 'Clear' ),
-						'clearAriaLabel'   => __( 'Clear color' ),
-						'defaultString'    => __( 'Default' ),
-						'defaultAriaLabel' => __( 'Select default color' ),
-						'pick'             => __( 'Select Color' ),
-						'defaultLabel'     => __( 'Color value' ),
+						'clear'            => __( 'Clear', 'astra' ),
+						'clearAriaLabel'   => __( 'Clear color', 'astra' ),
+						'defaultString'    => __( 'Default', 'astra' ),
+						'defaultAriaLabel' => __( 'Select default color', 'astra' ),
+						'pick'             => __( 'Select Color', 'astra' ),
+						'defaultLabel'     => __( 'Color value', 'astra' ),
 					)
 				);
 			}
