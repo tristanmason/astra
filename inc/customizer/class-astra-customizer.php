@@ -740,7 +740,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * This is should be removed once the issue is fixed from wp-color-picker-alpha repo.
 			 * @see https://github.com/kallookoo/wp-color-picker-alpha/issues/35
 			 *
-			 * @since x.x.x
+			 * @since 2.5.3
 			 */
 			if ( version_compare( $wp_version, '5.4.99', '>=' ) ) {
 				wp_localize_script(
