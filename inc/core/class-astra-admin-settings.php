@@ -192,7 +192,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'type'                       => '',
 						'message'                    => sprintf(
 							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 								<div class="notice-content">
 									<div class="notice-heading">
 										%2$s
@@ -252,7 +252,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 							<div class="notice-content">
 								<h2 class="notice-heading">
 									%2$s
@@ -1284,14 +1284,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link'      => admin_url( 'widgets.php' ),
 						'settings-link-text' => 'Settings',
 					),
-
-					'leadin'                        =>
-						array(
-							'plugin-name'        => 'HubSpot - CRM, Email Marketing & Analytics',
-							'plugin-init'        => 'leadin/leadin.php',
-							'settings-link'      => admin_url( 'admin.php?page=leadin' ),
-							'settings-link-text' => 'Settings',
-						),
 
 					'custom-fonts'                  =>
 					array(
