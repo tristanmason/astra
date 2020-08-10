@@ -1638,7 +1638,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Add custom CSS for admin area sub menu icons.
 		 *
-		 * @since 2.6.0
+		 * @since x.x.x
 		 */
 		public static function admin_submenu_css() {
 			?>
