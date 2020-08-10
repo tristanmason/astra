@@ -331,7 +331,7 @@ function astra_filesystem() {
  * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
  * @return $wp_customize
  */
-function remove_controls( $wp_customize ) {
+function astra_remove_controls( $wp_customize ) {
 
 	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
@@ -351,4 +351,4 @@ function remove_controls( $wp_customize ) {
 	return $wp_customize;
 }
 
-add_filter( 'astra_customizer_configurations', 'remove_controls', 99 );
+add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
