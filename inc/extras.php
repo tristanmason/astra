@@ -331,7 +331,7 @@ function astra_filesystem() {
  * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
  * @return $wp_customize
  */
-function remove_controls( $wp_customize ) {
+function astra_remove_controls( $wp_customize ) {
 
 	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
@@ -351,22 +351,4 @@ function remove_controls( $wp_customize ) {
 	return $wp_customize;
 }
 
-add_filter( 'astra_customizer_configurations', 'remove_controls', 99 );
-
-/**
- * Pass theme specific stats to BSF analytics.
- *
- * @since 2.4.3
- * @param array $default_stats Default stats array.
- * @return array $default_stats Default stats with Theme specific stats array.
- */
-function astra_add_theme_specific_stats( $default_stats ) {
-	$default_stats['astra_settings'] = array(
-		'version'             => ASTRA_THEME_VERSION,
-		'breadcrumb-position' => astra_get_option( 'breadcrumb-position', false ),
-		'mobile-menu-style'   => astra_get_option( 'mobile-menu-style', false ),
-	);
-	return $default_stats;
-}
-
-add_filter( 'bsf_core_stats', 'astra_add_theme_specific_stats' );
+add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );

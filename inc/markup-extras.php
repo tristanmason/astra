@@ -397,7 +397,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 		?>
 		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" role="search" tabindex="-1">
 			<div class="ast-search-icon">
-				<a class="slide-search astra-search-icon" aria-label="Search icon link" href="#">
+				<a class="slide-search astra-search-icon" aria-label="<?php esc_attr_e( 'Search icon link', 'astra' ); ?>" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 				</a>
 			</div>
@@ -634,7 +634,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header 
+		<header
 			<?php
 				echo astra_attr(
 					'header',

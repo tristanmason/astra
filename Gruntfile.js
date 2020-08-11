@@ -374,15 +374,6 @@ module.exports = function (grunt) {
                     '!package-lock.json',
                     '!phpcs.xml.dist',
                     '!assets/fonts/google-fonts.json',
-                    '!admin/bsf-analytics/.git/**',
-                    '!admin/bsf-analytics/bin/**',
-                    '!admin/bsf-analytics/.gitignore',
-                    '!admin/bsf-analytics/composer.json',
-                    '!admin/bsf-analytics/composer.lock',
-                    '!admin/bsf-analytics/Gruntfile.js',
-                    '!admin/bsf-analytics/package.json',
-                    '!admin/bsf-analytics/package-lock.json',
-                    '!admin/bsf-analytics/phpcs.xml.dist',
                 ],
                 dest: 'astra/'
             }
@@ -553,7 +544,7 @@ module.exports = function (grunt) {
 				}
 			},
         },
-        
+
         json2php: {
             options: {
                 // Task-specific options go here.
@@ -598,7 +589,7 @@ module.exports = function (grunt) {
 
     // min all
     grunt.registerTask('minify', ['style', 'concat', 'uglify:js', 'cssmin:css']);
-    
+
     grunt.registerTask('download-google-fonts', function () {
         var done = this.async();
         var request = require('request');
