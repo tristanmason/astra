@@ -588,6 +588,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			$css .= astra_parse_css( $boxed_container );
+
+			// Manage the extra padding applied in the block inster preview of blocks.
+			$block_inserter_css = array(
+				'.ast-separate-container .block-editor-inserter__preview .block-editor-block-list__layout' => array(
+					'padding-top'    => '0px',
+					'padding-bottom' => '0px',
+					'padding-left'   => '0px',
+					'padding-right'  => '0px',
+				),
+			);
+
+			$css .= astra_parse_css( $block_inserter_css );
+
 			// WP 5.5 compatibility fix the extra padding applied for the block patterns in the editor view.
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
