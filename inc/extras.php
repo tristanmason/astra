@@ -331,7 +331,7 @@ function astra_filesystem() {
  * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
  * @return $wp_customize
  */
-function ast_remove_controls( $wp_customize ) {
+function astra_remove_controls( $wp_customize ) {
 
 	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
@@ -351,7 +351,7 @@ function ast_remove_controls( $wp_customize ) {
 	return $wp_customize;
 }
 
-add_filter( 'astra_customizer_configurations', 'ast_remove_controls', 99 );
+add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 
 /**
  * Pass theme specific stats to BSF analytics.
