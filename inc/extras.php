@@ -313,6 +313,19 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
 }
 
+	/**
+	 * Check the WordPress version.
+	 *
+	 * @since  x.x.x
+	 * @param string $version   WordPress version to compare with the current version.
+	 * @param string $compare   Comparison value i.e > or < etc.
+	 * @return bool            True/False based on the  $version and $compare value.
+	 */
+function astra_wp_version_compare( $version, $compare ) {
+
+	return version_compare( get_bloginfo( 'version' ), $version, $compare );
+}
+
 /**
  * Get instance of WP_Filesystem.
  *

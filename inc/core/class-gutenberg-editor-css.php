@@ -521,35 +521,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $page_builder_css );
 
-			if ( 'page-builder' === $container_layout ) {
-				$full_width_streched_css = array(
-					'.wp-block .block-editor-block-list__layout' => array(
-						'margin-left'  => '60px',
-						'margin-right' => '60px',
-					),
-					// WordPress 5.4 compatibility CSS.
-					'.wp-block .block-editor-block-list__layout .block-editor-block-list__layout' => array(
-						'margin-left'  => '0px',
-						'margin-right' => '0px',
-					),
-				);
-
-				$css .= astra_parse_css( $full_width_streched_css );
-			}
-
-			$full_width_streched_css = array(
-				'.ast-page-builder-template .block-editor-block-list__layout' => array(
-					'margin-left'  => '60px',
-					'margin-right' => '60px',
-				),
-				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__layout' => array(
-					'margin-left'  => '0px',
-					'margin-right' => '0px',
-				),
-			);
-
-			$css .= astra_parse_css( $full_width_streched_css );
-
 			$aligned_full_content_css = array(
 				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-plain-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
 					'margin-left'  => '0',
@@ -617,6 +588,60 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			$css .= astra_parse_css( $boxed_container );
+
+			// Manage the extra padding applied in the block inster preview of blocks.
+			$block_inserter_css = array(
+				'.ast-separate-container .block-editor-inserter__preview .block-editor-block-list__layout' => array(
+					'padding-top'    => '0px',
+					'padding-bottom' => '0px',
+					'padding-left'   => '0px',
+					'padding-right'  => '0px',
+				),
+			);
+
+			$css .= astra_parse_css( $block_inserter_css );
+
+			// WP 5.5 compatibility fix the extra padding applied for the block patterns in the editor view.
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
+
+				$block_pattern_css = array(
+					'.ast-separate-container .block-editor-inserter__panel-content .block-editor-block-list__layout' => array(
+						'padding-top'    => '0px',
+						'padding-bottom' => '0px',
+						'padding-left'   => '0px',
+						'padding-right'  => '0px',
+
+					),
+					'.block-editor-inserter__panel-content .block-editor-block-list__layout' => array(
+						'margin-left'  => '60px',
+						'margin-right' => '60px',
+					),
+					'.block-editor-inserter__panel-content .block-editor-block-list__layout .block-editor-block-list__layout' => array(
+						'margin-left'  => '0px',
+						'margin-right' => '0px',
+					),
+
+					'.ast-page-builder-template .block-editor-inserter__panel-content .block-editor-block-list__layout' => array(
+						'margin-left'  => '0px',
+						'margin-right' => '0px',
+					),
+				);
+
+				$css .= astra_parse_css( $block_pattern_css );
+			} else {
+				$full_width_streched_css = array(
+					'.ast-page-builder-template .block-editor-block-list__layout' => array(
+						'margin-left'  => '60px',
+						'margin-right' => '60px',
+					),
+					'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__layout' => array(
+						'margin-left'  => '0px',
+						'margin-right' => '0px',
+					),
+				);
+				$css                    .= astra_parse_css( $full_width_streched_css );
+
+			}
 
 			$ast_gtn_mobile_css = array(
 				'.ast-separate-container .editor-post-title' => array(
