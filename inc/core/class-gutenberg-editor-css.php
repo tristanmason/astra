@@ -604,7 +604,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			// WP 5.5 compatibility fix the extra padding applied for the block patterns in the editor view.
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
-				$latest_editor_css = array(
+				$block_pattern_css = array(
 					'.ast-separate-container .block-editor-inserter__panel-content .block-editor-block-list__layout' => array(
 						'padding-top'    => '0px',
 						'padding-bottom' => '0px',
@@ -627,7 +627,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				$css .= astra_parse_css( $latest_editor_css );
+				$css .= astra_parse_css( $block_pattern_css );
 			} else {
 				$full_width_streched_css = array(
 					'.ast-page-builder-template .block-editor-block-list__layout' => array(
