@@ -741,6 +741,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * @since 2.5.3
 			 */
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
+				// Localizing variables.
 				wp_localize_script(
 					'wp-color-picker',
 					'wpColorPickerL10n',
