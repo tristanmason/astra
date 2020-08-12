@@ -1,3 +1,8 @@
+v2.5.3
+- Fix: Code improvements as per WordPress theme review guidelines.
+- Fix: Removed third-party recommended plugins from options page.
+- Fix: RGB color not working in Customizer for WordPress 5.5.
+
 v2.5.2
 - Fix: Footer Widgets background color option not working for new users.
 
