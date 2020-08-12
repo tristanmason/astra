@@ -709,8 +709,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function controls_scripts() {
 
-			global $wp_version;
-
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
 			$dir        = 'minified';
@@ -742,7 +740,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 *
 			 * @since 2.5.3
 			 */
-			if ( version_compare( $wp_version, '5.4.99', '>=' ) ) {
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 				wp_localize_script(
 					'wp-color-picker',
 					'wpColorPickerL10n',
