@@ -503,7 +503,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				$page_builder_css = array(
-					'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .block-editor-block-list__block' => array(
+					'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender' => array(
 						'width'     => '100%',
 						'max-width' => '100%',
 					),
