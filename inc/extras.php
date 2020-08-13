@@ -198,7 +198,7 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 endif;
 
 /**
- * Replace heade logo.
+ * Replace header logo.
  */
 if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 
