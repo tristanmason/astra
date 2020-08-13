@@ -316,7 +316,7 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 	/**
 	 * Check the WordPress version.
 	 *
-	 * @since  x.x.x
+	 * @since  2.5.4
 	 * @param string $version   WordPress version to compare with the current version.
 	 * @param string $compare   Comparison value i.e > or < etc.
 	 * @return bool            True/False based on the  $version and $compare value.

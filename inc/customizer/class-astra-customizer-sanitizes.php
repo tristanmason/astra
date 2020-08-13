@@ -209,7 +209,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 * @param  int|string $value Value of variable.
 		 * @return string|int Return empty if $value is not integer.
 		 * 
-		 * @since x.x.x
+		 * @since 2.5.4
 		 */
 		public static function check_numberic_values( $value ) {
 			return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
