@@ -374,6 +374,12 @@ module.exports = function (grunt) {
                     '!package-lock.json',
                     '!phpcs.xml.dist',
                     '!assets/fonts/google-fonts.json',
+                    '!inc/customizer/extend-custom-controls/package.json',
+                    '!inc/customizer/extend-custom-controls/package-lock.json',
+                    '!inc/customizer/extend-custom-controls/src/**',
+                    '!inc/customizer/extend-custom-controls/node_modules/**',
+                    '!inc/customizer/extend-custom-controls/build/index.asset.php',
+                    '!inc/customizer/extend-custom-controls/build/index.js.map',
                 ],
                 dest: 'astra/'
             }
