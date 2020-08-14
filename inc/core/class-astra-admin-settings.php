@@ -102,7 +102,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
-			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ! is_customize_preview() ) {
+				add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_submenu_css' );
+			}
+
+			$requested_page = isset( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+			if ( strpos( $requested_page, self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
@@ -188,7 +194,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'type'                       => '',
 						'message'                    => sprintf(
 							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 								<div class="notice-content">
 									<div class="notice-heading">
 										%2$s
@@ -248,7 +254,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
 							<div class="notice-content">
 								<h2 class="notice-heading">
 									%2$s
@@ -477,6 +483,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$post_type  = $screen->id;
 
 				if ( in_array( $post_type, (array) $post_types ) ) {
+
 					echo '<style class="astra-meta-box-style">
 						.block-editor-page #side-sortables #astra_settings_meta_box select { min-width: 84%; padding: 3px 24px 3px 8px; height: 20px; }
 						.block-editor-page #normal-sortables #astra_settings_meta_box select { min-width: 200px; }
@@ -492,18 +499,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			/* Add CSS for the Submenu for BSF plugins added in Appearance Menu */
 
 			if ( ! is_customize_preview() ) {
-				echo '<style class="astra-menu-appearance-style">
-					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra-"]:before,
-					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
-					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
-					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
-					#menu-appearance a[href^="edit.php?post_type=bsf-sidebar"]:before {
-					    content: "\21B3";
-					    margin-right: 0.5em;
-					    opacity: 0.5;
-					}
-				</style>';
 
 				if ( ! current_user_can( 'manage_options' ) ) {
 					return;
@@ -625,7 +620,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function menu_callback() {
 
-			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$current_slug = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : self::$current_slug; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
@@ -664,7 +659,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		public static function general_page() {
-			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
+			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 		/**
@@ -1290,14 +1285,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'leadin'                        =>
-						array(
-							'plugin-name'        => 'HubSpot - CRM, Email Marketing & Analytics',
-							'plugin-init'        => 'leadin/leadin.php',
-							'settings-link'      => admin_url( 'admin.php?page=leadin' ),
-							'settings-link-text' => 'Settings',
-						),
-
 					'custom-fonts'                  =>
 					array(
 						'plugin-name'        => 'Custom Fonts',
@@ -1482,7 +1469,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
 			}
 
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field( wp_unslash( $_POST['init'] ) ) ) {
 				wp_send_json_error(
 					array(
 						'success' => false,
@@ -1491,7 +1478,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : '';
+			$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
@@ -1531,7 +1518,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
 			}
 
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field( wp_unslash( $_POST['init'] ) ) ) {
 				wp_send_json_error(
 					array(
 						'success' => false,
@@ -1540,7 +1527,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : '';
+			$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
 
 			$deactivate = deactivate_plugins( $plugin_init, '', false );
 
@@ -1646,6 +1633,28 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 				<?php
 			}
+		}
+
+		/**
+		 * Add custom CSS for admin area sub menu icons.
+		 *
+		 * @since 2.5.4
+		 */
+		public static function admin_submenu_css() {
+			?>
+			<style class="astra-menu-appearance-style">
+					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
+					#menu-appearance a[href^="themes.php?page=astra-"]:before,
+					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
+					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
+					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
+					#menu-appearance a[href^="edit.php?post_type=bsf-sidebar"]:before {
+						content: "\21B3";
+						margin-right: 0.5em;
+						opacity: 0.5;
+					}
+				</style>
+				<?php
 		}
 	}
 

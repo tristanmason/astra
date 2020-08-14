@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php';
+			require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			add_filter( 'woocommerce_enqueue_styles', array( $this, 'woo_filter_style' ) );
 
@@ -1372,6 +1372,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function customize_register( $wp_customize ) {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
 			 * Register Sections & Panels
 			 */
@@ -1385,6 +1386,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-single-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-cart-layout-configs.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 		}
 
@@ -1509,7 +1511,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * For existing users, do not load the wide/full width image CSS by default.
 		 *
-		 * @since x.x.x
+		 * @since 2.5.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function astra_global_btn_woo_comp() {
