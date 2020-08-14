@@ -56,7 +56,44 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$js_uri      = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir_name . '/';
 
 			wp_enqueue_style( 'custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'jquery-ui-tabs', 'jquery-ui-sortable' ), ASTRA_THEME_VERSION, true );
+
+			if ( SCRIPT_DEBUG ) {
+				// Enqueue Customizer script.
+				$custom_controls_deps = array(
+					'jquery',
+					'customize-base',
+					'jquery-ui-tabs',
+					'jquery-ui-sortable',
+				);
+			} else {
+				// Enqueue Customizer script.
+				$custom_controls_deps = array(
+					'jquery',
+					'customize-base',
+					'jquery-ui-tabs',
+					'jquery-ui-sortable',
+					'wp-i18n',
+					'wp-components',
+					'wp-element',
+					'wp-media-utils',
+					'wp-block-editor',
+				);
+			}
+
+			wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', $custom_controls_deps, ASTRA_THEME_VERSION, true );
+
+			if ( SCRIPT_DEBUG ) {
+				// Extended React.JS custom controls dependencies.
+				$react_custom_controls_deps = array(
+					'custom-control-script',
+					'wp-i18n',
+					'wp-components',
+					'wp-element',
+					'wp-media-utils',
+					'wp-block-editor',
+				);
+				wp_enqueue_script( 'astra-react-customizer-controls', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/index.js', $react_custom_controls_deps, ASTRA_THEME_VERSION, true );
+			}
 
 			wp_localize_script(
 				'custom-control-script',
