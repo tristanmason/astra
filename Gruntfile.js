@@ -460,7 +460,6 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/background/background.js',
                             'inc/customizer/custom-controls/border/border.js',
                             'inc/customizer/custom-controls/color/color.js',
-                            'inc/customizer/custom-controls/link/link.js',
                             'inc/customizer/custom-controls/customizer-link/customizer-link.js',
                             'inc/customizer/custom-controls/responsive/responsive.js',
                             'inc/customizer/custom-controls/responsive-color/responsive-color.js',
