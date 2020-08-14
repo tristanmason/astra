@@ -1,4 +1,4 @@
-import DescriptionComponent from './description-component.js';
+import DescriptionComponent from './description-component';
 
 export const descriptionControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {

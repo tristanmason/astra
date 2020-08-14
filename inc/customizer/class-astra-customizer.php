@@ -730,37 +730,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-			wp_enqueue_style( 'wp-color-picker' );
-			wp_enqueue_script( 'astra-color-alpha' );
-
-			/**
-			 * Localize wp-color-picker & wpColorPickerL10n.
-			 *
-			 * This is only needed in WordPress version >= 5.5 because wpColorPickerL10n has been removed.
-			 *
-			 * @see https://github.com/WordPress/WordPress/commit/7e7b70cd1ae5772229abb769d0823411112c748b
-			 *
-			 * This is should be removed once the issue is fixed from wp-color-picker-alpha repo.
-			 * @see https://github.com/kallookoo/wp-color-picker-alpha/issues/35
-			 *
-			 * @since 2.5.3
-			 */
-			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
-				// Localizing variables.
-				wp_localize_script(
-					'wp-color-picker',
-					'wpColorPickerL10n',
-					array(
-						'clear'            => __( 'Clear', 'astra' ),
-						'clearAriaLabel'   => __( 'Clear color', 'astra' ),
-						'defaultString'    => __( 'Default', 'astra' ),
-						'defaultAriaLabel' => __( 'Select default color', 'astra' ),
-						'pick'             => __( 'Select Color', 'astra' ),
-						'defaultLabel'     => __( 'Color value', 'astra' ),
-					)
-				);
-			}
-
+			wp_enqueue_style( 'wp-components' );
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
 
@@ -825,12 +795,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Enqueue Customizer script.
 			$editor_dependencies = array(
-				'jquery',
 				'customize-controls',
 				'wp-i18n',
 				'wp-components',
-				'wp-edit-post',
 				'wp-element',
+				'wp-media-utils',
+				'wp-block-editor',
 			);
 			wp_enqueue_script( 'astra-react-customizer-controls', ASTRA_THEME_URI . 'inc/customizer/react/build/index.js', $editor_dependencies, ASTRA_THEME_VERSION, true );
 		}
