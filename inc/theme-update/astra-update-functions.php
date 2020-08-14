@@ -347,7 +347,7 @@ function astra_bg_responsive_control_migration() {
 					$theme_options[$option_name]['mobile']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['mobile']['background-image'] );
 				}
 			}
-
+			error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
