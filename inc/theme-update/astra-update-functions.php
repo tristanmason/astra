@@ -287,18 +287,7 @@ function astra_footer_widget_bg() {
  * @return void
  */
 function astra_bg_responsive_control_migration() {
-	// site-layout-outside-bg-obj-responsive
-	// content-bg-obj-responsive
-	// primary-header-background-group
-	// primary-menu-bg-obj-responsive
-	// above-header-bg-obj-responsive
-	// above-header-menu-bg-obj-responsive
-	// below-header-bg-obj-responsive
-	// below-header-menu-bg-obj-responsive
 
-	// footer-adv-bg-obj
-	// footer-bg-obj
-	// sidebar-bg-obj
 	$db_options = array(
 		'site-layout-outside-bg-obj-responsive',
 		'content-bg-obj-responsive',
