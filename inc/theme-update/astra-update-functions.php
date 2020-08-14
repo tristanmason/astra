@@ -314,7 +314,7 @@ function astra_bg_responsive_control_migration() {
 
 	foreach ( $db_options as $option_name ) {
 
-		if ( ! ( isset( $theme_options[$option_name]['desktop']['background-color']['background-type'] ) && isset( $theme_options[$option_name]['desktop']['background-color']['background-media'] ) && isset( $theme_options[$option_name] ) ) ) {
+		if ( ! ( isset( $theme_options[$option_name]['desktop']['background-color']['background-type'] ) && isset( $theme_options[$option_name]['desktop']['background-color']['background-media'] ) ) && isset( $theme_options[$option_name] ) ) {
 
 			if ( ! empty( $theme_options[$option_name]['desktop']['background-image'] ) ) {
 				$theme_options[$option_name]['desktop']['background-type'] = 'image';
