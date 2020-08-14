@@ -985,10 +985,13 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
 	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
 
-	// Footer Bar responive background.
-	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', ' .ast-small-footer > .ast-footer-overlay', 'desktop' );
-	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', ' .ast-small-footer > .ast-footer-overlay', 'tablet' );
-	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', ' .ast-small-footer > .ast-footer-overlay', 'mobile' );
+	// Footer Bar background.
+	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
+			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
+			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
+		} );
+	} );
 
 	// Footer Widgets.
 	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
@@ -996,10 +999,13 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[footer-adv-link-color]', 'color', '.footer-adv a' );
 	astra_css( 'astra-settings[footer-adv-link-h-color]', 'color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' );
 
-	// Footer Widget responive background.
-	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'desktop' );
-	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'tablet' );
-	astra_apply_responsive_background_css( 'astra-settings[footer-adv-bg-obj-responsive]', ' .footer-adv-overlay', 'mobile' );
+	// Footer Widget background.
+	wp.customize( 'astra-settings[footer-adv-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
+			var dynamicStyle = ' .footer-adv-overlay { {{css}} }';
+			astra_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
+		} );
+	} );
 
 	/*
 	 * Woocommerce Shop Archive Custom Width
@@ -1049,7 +1055,7 @@ function isJsonString( str ) {
 
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -1059,14 +1065,14 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
 					dynamicStyle += '@media (min-width: 769px){';
-					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu, .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
 					dynamicStyle += '}';
@@ -1087,7 +1093,7 @@ function isJsonString( str ) {
 			if ( '' != color ) {
 				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -1097,14 +1103,14 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
 					dynamicStyle += '@media (min-width: 769px){';
-					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu, .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu';
 					dynamicStyle += '{';
 					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
 					dynamicStyle += '}';
@@ -1130,7 +1136,7 @@ function isJsonString( str ) {
 
 					var dynamicStyle = '';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:' + color + ';';
@@ -1154,7 +1160,7 @@ function isJsonString( str ) {
 			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
 
 			if( true === border  ) {
-				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:'        + color + ';';

@@ -5,8 +5,8 @@
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 	</rule>
-	<config name="testVersion" value="5.3-"/>
 
+	<rule ref="WPThemeReview" />
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
