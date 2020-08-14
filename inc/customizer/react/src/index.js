@@ -1,4 +1,3 @@
-
 import { BaseControl } from './base/control';
 import { headingControl } from './heading/control';
 import { hiddenControl } from './hidden/control';
