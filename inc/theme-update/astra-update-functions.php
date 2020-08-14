@@ -348,6 +348,7 @@ function astra_bg_responsive_control_migration() {
 				}
 			}
 			error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
+			error_log( error_log( print_r($theme_options[$option_name], TRUE) ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
