@@ -278,3 +278,77 @@ function astra_footer_widget_bg() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Migrate Background Responsive options to new array.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_bg_responsive_control_migration() {
+	// site-layout-outside-bg-obj-responsive
+	// content-bg-obj-responsive
+	// primary-header-background-group
+	// primary-menu-bg-obj-responsive
+	// above-header-bg-obj-responsive
+	// above-header-menu-bg-obj-responsive
+	// below-header-bg-obj-responsive
+	// below-header-menu-bg-obj-responsive
+
+	// footer-adv-bg-obj
+	// footer-bg-obj
+	// sidebar-bg-obj
+	$db_options = array(
+		'site-layout-outside-bg-obj-responsive',
+		'content-bg-obj-responsive',
+		'primary-header-background-group',
+		'primary-menu-bg-obj-responsive',
+		'above-header-bg-obj-responsive',
+		'above-header-menu-bg-obj-responsive',
+		'below-header-bg-obj-responsive',
+		'below-header-menu-bg-obj-responsive',
+	);
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	foreach ( $db_options as $option_name ) {
+
+		if ( ! ( isset( $theme_options[$option_name]['desktop']['background-color']['background-type'] ) && isset( $theme_options[$option_name]['desktop']['background-color']['background-media'] ) ) ) {
+			if ( isset( $theme_options[$option_name]['desktop']['background-color'] ) ) {
+				// If hex value.
+				if ( ctype_xdigit( $theme_options[$option_name]['desktop']['background-color'] ) ) {
+					$theme_options[$option_name]['desktop']['background-type'] = '';
+				}
+				if ( ! empty( $theme_options[$option_name]['desktop']['background-image'] ) ) {
+					$theme_options[$option_name]['desktop']['background-type'] = 'image';
+					$theme_options[$option_name]['desktop']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['desktop']['background-image'] );
+				}
+			}
+
+			if ( isset( $theme_options[$option_name]['tablet']['background-color'] ) ) {
+				// If hex value.
+				if ( ctype_xdigit( $theme_options[$option_name]['tablet']['background-color'] ) ) {
+					$theme_options[$option_name]['tablet']['background-type'] = '';
+				}
+				if ( ! empty( $theme_options[$option_name]['tablet']['background-image'] ) ) {
+					$theme_options[$option_name]['tablet']['background-type'] = 'image';
+					$theme_options[$option_name]['tablet']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['tablet']['background-image'] );
+				}
+			}
+
+			if ( isset( $theme_options[$option_name]['mobile']['background-color'] ) ) {
+				// If hex value.
+				if ( ctype_xdigit( $theme_options[$option_name]['mobile']['background-color'] ) ) {
+					$theme_options[$option_name]['mobile']['background-type'] = '';
+				}
+				if ( ! empty( $theme_options[$option_name]['mobile']['background-image'] ) ) {
+					$theme_options[$option_name]['mobile']['background-type'] = 'image';
+					$theme_options[$option_name]['mobile']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['mobile']['background-image'] );
+				}
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+	}
+}
