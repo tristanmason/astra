@@ -315,41 +315,36 @@ function astra_bg_responsive_control_migration() {
 	foreach ( $db_options as $option_name ) {
 
 		if ( ! ( isset( $theme_options[$option_name]['desktop']['background-color']['background-type'] ) && isset( $theme_options[$option_name]['desktop']['background-color']['background-media'] ) ) ) {
-			if ( isset( $theme_options[$option_name]['desktop']['background-color'] ) ) {
-				// If hex value.
-				if ( ctype_xdigit( $theme_options[$option_name]['desktop']['background-color'] ) ) {
-					$theme_options[$option_name]['desktop']['background-type'] = '';
-				}
-				if ( ! empty( $theme_options[$option_name]['desktop']['background-image'] ) ) {
-					$theme_options[$option_name]['desktop']['background-type'] = 'image';
-					$theme_options[$option_name]['desktop']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['desktop']['background-image'] );
-				}
+
+			if ( ! empty( $theme_options[$option_name]['desktop']['background-image'] ) ) {
+				$theme_options[$option_name]['desktop']['background-type'] = 'image';
+				$theme_options[$option_name]['desktop']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['desktop']['background-image'] );
+			} else {
+				$theme_options[$option_name]['desktop']['background-type'] = '';
+				$theme_options[$option_name]['desktop']['background-media'] = '';
 			}
 
-			if ( isset( $theme_options[$option_name]['tablet']['background-color'] ) ) {
-				// If hex value.
-				if ( ctype_xdigit( $theme_options[$option_name]['tablet']['background-color'] ) ) {
-					$theme_options[$option_name]['tablet']['background-type'] = '';
-				}
-				if ( ! empty( $theme_options[$option_name]['tablet']['background-image'] ) ) {
-					$theme_options[$option_name]['tablet']['background-type'] = 'image';
-					$theme_options[$option_name]['tablet']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['tablet']['background-image'] );
-				}
+			if ( ! empty( $theme_options[$option_name]['tablet']['background-image'] ) ) {
+				$theme_options[$option_name]['tablet']['background-type'] = 'image';
+				$theme_options[$option_name]['tablet']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['tablet']['background-image'] );
+			} else {
+				$theme_options[$option_name]['tablet']['background-type'] = '';
+				$theme_options[$option_name]['tablet']['background-media'] = '';
 			}
 
-			if ( isset( $theme_options[$option_name]['mobile']['background-color'] ) ) {
-				// If hex value.
-				if ( ctype_xdigit( $theme_options[$option_name]['mobile']['background-color'] ) ) {
-					$theme_options[$option_name]['mobile']['background-type'] = '';
-				}
-				if ( ! empty( $theme_options[$option_name]['mobile']['background-image'] ) ) {
-					$theme_options[$option_name]['mobile']['background-type'] = 'image';
-					$theme_options[$option_name]['mobile']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['mobile']['background-image'] );
-				}
+			if ( ! empty( $theme_options[$option_name]['mobile']['background-image'] ) ) {
+				$theme_options[$option_name]['mobile']['background-type'] = 'image';
+				$theme_options[$option_name]['mobile']['background-media'] = attachment_url_to_postid( $theme_options[$option_name]['mobile']['background-image'] );
+			} else {
+				$theme_options[$option_name]['mobile']['background-type'] = '';
+				$theme_options[$option_name]['mobile']['background-media'] = '';
 			}
-			error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
-			error_log( error_log( print_r($theme_options[$option_name], TRUE) ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
-			update_option( 'astra-settings', $theme_options );
+
+			if ( isset( $theme_options[$option_name] ) ) {
+				error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
+				error_log( error_log( print_r($theme_options[$option_name], TRUE) ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.
+				update_option( 'astra-settings', $theme_options );
+			}
 		}
 	}
 }
