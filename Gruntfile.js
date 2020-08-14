@@ -454,13 +454,18 @@ module.exports = function (grunt) {
                             '!inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
-                    },
-                    {
+					},
+					{
                         src: [
                             'inc/customizer/custom-controls/link/link.js',
                             'inc/customizer/custom-controls/typography/typography.js',
+                        ],
+                        dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
+                    },
+                    {
+                        src: [
+                            'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
                             'inc/customizer/extend-custom-controls/build/index.js'
-
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                     },
