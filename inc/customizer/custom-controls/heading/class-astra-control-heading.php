@@ -46,5 +46,12 @@ class Astra_Control_Heading extends WP_Customize_Control {
 		$this->json['caption']     = $this->caption;
 		$this->json['description'] = $this->description;
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }
 
