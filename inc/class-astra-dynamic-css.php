@@ -2252,7 +2252,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function gtn_group_column_media_block_css_comp() {
 			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-group-column-media-block-css'] = isset( $astra_settings['guntenberg-group-column-media-block-css'] ) ? false : true;
-			return apply_filters( 'astra_gb_group_column_media_text_block_comp_css', $astra_settings['guntenberg-group-column-media-block-css'] );
+			return apply_filters( 'astra_gb_group_column_media_text_block_css_compatibility', $astra_settings['guntenberg-group-column-media-block-css'] );
 		}
 	}
 }
