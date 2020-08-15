@@ -88,6 +88,31 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Button Text Transform - Tweak
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-test-res-select]',
+					'transport' => 'postMessage',
+					'default'   => array(
+						'desktop' => 'none',
+						'tablet'  => 'capitalize',
+						'mobile'  => 'lowercase',
+					),
+					'title'     => __( 'Text Transform', 'astra' ),
+					'type'      => 'control',
+					'section'  => 'section-breadcrumb',
+					'control'   => 'ast-responsive-select',
+					'priority'  => 3,
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Eminem', 'astra' ),
+						'uppercase'  => __( 'Dre', 'astra' ),
+						'lowercase'  => __( 'Ice Cube', 'astra' ),
+					),
+				),
+
+				/**
 				 * Option: Breadcrumb Source
 				 */
 				array(

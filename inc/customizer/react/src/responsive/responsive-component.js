@@ -49,12 +49,12 @@ class ResponsiveComponent extends Component {
 		var disabled = false;
 
 		if ( 1 === units.length ) {
-			disabled = true; 
+			disabled = true;
 		}
 
 		let optionsHtml = Object.keys( units ).map( ( key ) => {
 
-			var html = ( 
+			var html = (
 				<option key={ key } value={ key } >{ units[ key ] }</option>
 			);
 			return html;
@@ -79,7 +79,7 @@ class ResponsiveComponent extends Component {
 				</select>
 			</>
 		);
-		
+
 	}
 	render() {
 
@@ -120,7 +120,7 @@ class ResponsiveComponent extends Component {
 						</li>
 					</ul>
 				);
-	
+
 			}
 		}
 
@@ -147,7 +147,7 @@ class ResponsiveComponent extends Component {
 		}
 		return (
 			<label key={ 'customizer-text' } className="customizer-text" >
-				{ labelHtml } 
+				{ labelHtml }
 				{ responsiveHtml }
 				{ descriptionHtml }
 

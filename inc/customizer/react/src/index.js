@@ -18,6 +18,7 @@ import { sliderControl } from './slider/control';
 import { radioImageControl } from './radio-image/control';
 import { responsiveSpacingControl }  from './responsive-spacing/control';
 import { selectControl } from './select/control';
+import { responsiveSelectControl } from './responsive-select/control';
 
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
@@ -38,6 +39,7 @@ wp.customize.controlConstructor['ast-slider'] = sliderControl;
 wp.customize.controlConstructor['ast-radio-image'] = radioImageControl;
 wp.customize.controlConstructor['ast-responsive-spacing'] = responsiveSpacingControl;
 wp.customize.controlConstructor['ast-select'] = selectControl;
+wp.customize.controlConstructor['ast-responsive-select'] = responsiveSelectControl;
 
 window.addEventListener( 'load', () => {
     console.log('Testing Console.');

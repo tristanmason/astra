@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Color control (alpha).
  */
-class Astra_Control_Select extends WP_Customize_Control {
+class Astra_Control_Responsive_Select extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -27,7 +27,7 @@ class Astra_Control_Select extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-select';
+	public $type = 'ast-responsive-select';
 
 	/**
 	 * The control type.
