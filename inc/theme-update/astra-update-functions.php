@@ -278,3 +278,19 @@ function astra_footer_widget_bg() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply new Group, Column and Media & Text block CSS for existing users.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_gb_group_column_media_text_block_comp_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['guntenberg-group-column-media-block-css'] ) ) {
+		$theme_options['guntenberg-group-column-media-block-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

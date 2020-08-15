@@ -705,6 +705,48 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
+			if ( self::gtn_group_column_media_block_css_comp() ) {
+
+				$gtn_column_block_css = array(
+					'.wp-block-columns' => array(
+						'margin-bottom'  => 'unset',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $gtn_column_block_css );
+
+				$gtn_group_block_css = array(
+					'.wp-block-group' => array(
+						'padding-top'   => '4em',
+						'padding-bottom'  => '4em',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $gtn_group_block_css, '1200' );
+
+				$gtn_tablet_group_block_css = array(
+					'.wp-block-columns .wp-block-group' => array(
+						'padding'   => '2em',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $gtn_tablet_group_block_css, astra_get_tablet_breakpoint() );
+
+				$gtn_mobile_group_block_css = array(
+					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
+						'width'   => 'unset',
+					),
+					'.wp-block-group, .wp-block-cover' => array(
+						'padding'   => '2em',
+					),
+					'.wp-block-media-text .wp-block-media-text__content' => array(
+						'padding'   => '3em 2em',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $gtn_mobile_group_block_css, '', astra_get_mobile_breakpoint() );
+			}
+
 			$static_layout_css = array(
 				'#secondary.secondary'                  => array(
 					'padding-top' => 0,
@@ -2199,6 +2241,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['gtn-full-wide-grp-cover-css'] = isset( $astra_settings['gtn-full-wide-grp-cover-css'] ) ? false : true;
 			return apply_filters( 'astra_gtn_group_cover_css_comp', $astra_settings['gtn-full-wide-grp-cover-css'] );
+		}
+
+		/**
+		 * Do not apply new Group, Column and Media & Text block CSS for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function gtn_group_column_media_block_css_comp() {
+			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['guntenberg-group-column-media-block-css'] = isset( $astra_settings['guntenberg-group-column-media-block-css'] ) ? false : true;
+			return apply_filters( 'astra_gb_group_column_media_text_block_comp_css', $astra_settings['guntenberg-group-column-media-block-css'] );
 		}
 	}
 }
