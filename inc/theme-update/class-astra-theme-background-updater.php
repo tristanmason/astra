@@ -60,6 +60,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_footer_widget_bg',
 			),
 			'2.6.0' => array(
+				'astra_bg_control_migration',
 				'astra_bg_responsive_control_migration',
 			),
 		);
