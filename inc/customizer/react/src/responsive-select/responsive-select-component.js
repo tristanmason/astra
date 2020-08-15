@@ -29,6 +29,12 @@ class ResponsiveSelectComponent extends Component {
 			choices
 		} = this.props.control.params
 
+		let htmlLabel = null;
+
+		if ( label ) {
+			htmlLabel = <span className="customize-control-title">{ label }</span>;
+		}
+
 		const responsiveHtml = (
 			<ul key={ 'ast-resp-ul' } className="ast-responsive-btns">
 				<li key={ 'desktop' } className="desktop active">
@@ -49,12 +55,37 @@ class ResponsiveSelectComponent extends Component {
 			</ul>
 		);
 
+		let optionsHtml = Object.entries( choices ).map( ( key ) => {
+
+			var html = (
+				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
+			);
+			return html;
+		} );
+
 		return (
 			<Fragment>
+				{ htmlLabel }
 				{ responsiveHtml }
-				<SelectComponent control={ this.props.control } />
-				<SelectComponent control={ this.props.control } />
-				<SelectComponent control={ this.props.control } />
+				<div className="customize-control-content">
+					<div className="ast-responsive-select-wrapper">
+						<div className="ast-responsive-select-container desktop active">
+							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.desktop } value={ this.state.value.desktop } onChange={ () => { this.onSelectChange() } } >
+								{ optionsHtml }
+							</select>
+						</div>
+						<div className="ast-responsive-select-container tablet">
+							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.tablet } value={ this.state.value.tablet } onChange={ () => { this.onSelectChange() } } >
+								{ optionsHtml }
+							</select>
+						</div>
+						<div className="ast-responsive-select-container mobile">
+							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.mobile } value={ this.state.value.mobile } onChange={ () => { this.onSelectChange() } } >
+								{ optionsHtml }
+							</select>
+						</div>
+					</div>
+				</div>
 			</Fragment>
 		);
 	}

@@ -11703,14 +11703,16 @@ var responsiveSelectControl = wp.customize.astraControl.extend({
     'use strict';
 
     var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-    jQuery('.customize-control-ast-responsive-select .input-wrapper input').removeClass('active');
-    jQuery('.customize-control-ast-responsive-select .input-wrapper input.' + device).addClass('active');
+    jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container').removeClass('active');
+    jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container.' + device).addClass('active');
     jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li').removeClass('active');
     jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li.' + device).addClass('active');
     jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
       var device = jQuery(this).attr('data-device');
-      jQuery('.customize-control-ast-responsive-select .input-wrapper input, .customize-control .ast-responsive-btns > li').removeClass('active');
-      jQuery('.customize-control-ast-responsive-select .input-wrapper input.' + device + ', .customize-control .ast-responsive-btns > li.' + device).addClass('active');
+      jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container').removeClass('active');
+      jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container.' + device).addClass('active');
+      jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li').removeClass('active');
+      jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li.' + device).addClass('active');
     });
     this.container.find('.ast-responsive-btns button').on('click', function (event) {
       var device = jQuery(this).attr('data-device');
@@ -11801,10 +11803,20 @@ var ResponsiveSelectComponent = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props$control$p = this.props.control.params,
           label = _this$props$control$p.label,
           name = _this$props$control$p.name,
           choices = _this$props$control$p.choices;
+      var htmlLabel = null;
+
+      if (label) {
+        htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", {
+          className: "customize-control-title"
+        }, label);
+      }
+
       var responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
         key: 'ast-resp-ul',
         className: "ast-responsive-btns"
@@ -11836,13 +11848,48 @@ var ResponsiveSelectComponent = /*#__PURE__*/function (_Component) {
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
         className: "dashicons dashicons-smartphone"
       }))));
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_select_select_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        control: this.props.control
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_select_select_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        control: this.props.control
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_select_select_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        control: this.props.control
-      }));
+      var optionsHtml = Object.entries(choices).map(function (key) {
+        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("option", {
+          key: key[0],
+          value: key[0]
+        }, key[1]);
+        return html;
+      });
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, htmlLabel, responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+        className: "customize-control-content"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+        className: "ast-responsive-select-wrapper"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+        className: "ast-responsive-select-container desktop active"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("select", {
+        className: "ast-select-input",
+        "data-name": name,
+        "data-value": this.state.value.desktop,
+        value: this.state.value.desktop,
+        onChange: function onChange() {
+          _this2.onSelectChange();
+        }
+      }, optionsHtml)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+        className: "ast-responsive-select-container tablet"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("select", {
+        className: "ast-select-input",
+        "data-name": name,
+        "data-value": this.state.value.tablet,
+        value: this.state.value.tablet,
+        onChange: function onChange() {
+          _this2.onSelectChange();
+        }
+      }, optionsHtml)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+        className: "ast-responsive-select-container mobile"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("select", {
+        className: "ast-select-input",
+        "data-name": name,
+        "data-value": this.state.value.mobile,
+        value: this.state.value.mobile,
+        onChange: function onChange() {
+          _this2.onSelectChange();
+        }
+      }, optionsHtml)))));
     }
   }, {
     key: "updateValues",
