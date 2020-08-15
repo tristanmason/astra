@@ -69,7 +69,7 @@ class ResponsiveSelectComponent extends Component {
 				{ responsiveHtml }
 				<div className="customize-control-content">
 					<div className="ast-responsive-select-wrapper">
-						<div className="ast-responsive-select-container desktop active">
+						<div className="ast-responsive-select-container desktop">
 							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.desktop } value={ this.state.value.desktop } onChange={ () => { this.onSelectChange() } } >
 								{ optionsHtml }
 							</select>

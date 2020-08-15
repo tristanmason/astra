@@ -21,26 +21,26 @@ export const responsiveSelectControl = wp.customize.astraControl.extend( {
 
 		jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-			var device = jQuery(this).attr('data-device');
+			let currentDevice = jQuery(this).attr('data-device');
 
 			jQuery( '.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container' ).removeClass( 'active' );
-			jQuery( '.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container.' + device ).addClass( 'active' );
+			jQuery( '.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container.' + currentDevice ).addClass( 'active' );
 			jQuery( '.customize-control-ast-responsive-select .ast-responsive-btns li' ).removeClass( 'active' );
-			jQuery( '.customize-control-ast-responsive-select .ast-responsive-btns li.' + device ).addClass( 'active' );
+			jQuery( '.customize-control-ast-responsive-select .ast-responsive-btns li.' + currentDevice ).addClass( 'active' );
 		});
 
 		this.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
 
-			var device = jQuery(this).attr('data-device');
-			if( 'desktop' == device ) {
-				device = 'tablet';
-			} else if( 'tablet' == device ) {
-				device = 'mobile';
+			let respBtnDevice = jQuery(this).attr('data-device');
+			if( 'desktop' == respBtnDevice ) {
+				respBtnDevice = 'tablet';
+			} else if( 'tablet' == respBtnDevice ) {
+				respBtnDevice = 'mobile';
 			} else {
-				device = 'desktop';
+				respBtnDevice = 'desktop';
 			}
 
-			jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
+			jQuery( '.wp-full-overlay-footer .devices button[data-device="' + respBtnDevice + '"]' ).trigger( 'click' );
 		});
 	},
 } );

@@ -11708,24 +11708,24 @@ var responsiveSelectControl = wp.customize.astraControl.extend({
     jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li').removeClass('active');
     jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li.' + device).addClass('active');
     jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
-      var device = jQuery(this).attr('data-device');
+      var currentDevice = jQuery(this).attr('data-device');
       jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container').removeClass('active');
-      jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container.' + device).addClass('active');
+      jQuery('.customize-control-ast-responsive-select .customize-control-content .ast-responsive-select-container.' + currentDevice).addClass('active');
       jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li').removeClass('active');
-      jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li.' + device).addClass('active');
+      jQuery('.customize-control-ast-responsive-select .ast-responsive-btns li.' + currentDevice).addClass('active');
     });
     this.container.find('.ast-responsive-btns button').on('click', function (event) {
-      var device = jQuery(this).attr('data-device');
+      var respBtnDevice = jQuery(this).attr('data-device');
 
-      if ('desktop' == device) {
-        device = 'tablet';
-      } else if ('tablet' == device) {
-        device = 'mobile';
+      if ('desktop' == respBtnDevice) {
+        respBtnDevice = 'tablet';
+      } else if ('tablet' == respBtnDevice) {
+        respBtnDevice = 'mobile';
       } else {
-        device = 'desktop';
+        respBtnDevice = 'desktop';
       }
 
-      jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
+      jQuery('.wp-full-overlay-footer .devices button[data-device="' + respBtnDevice + '"]').trigger('click');
     });
   }
 });
@@ -11860,7 +11860,7 @@ var ResponsiveSelectComponent = /*#__PURE__*/function (_Component) {
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "ast-responsive-select-wrapper"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
-        className: "ast-responsive-select-container desktop active"
+        className: "ast-responsive-select-container desktop"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("select", {
         className: "ast-select-input",
         "data-name": name,
