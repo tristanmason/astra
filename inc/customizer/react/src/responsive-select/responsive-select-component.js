@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { Component, Fragment } from '@wordpress/element';
-import SelectComponent from '../select/select-component';
+import { Component } from '@wordpress/element';
 
 class ResponsiveSelectComponent extends Component {
 
@@ -8,26 +7,48 @@ class ResponsiveSelectComponent extends Component {
 
 		super( props );
 
-		let value = this.props.control.setting.get()
+		let value = this.props.control.setting.get();
 
 		this.state = {
 			value
 		};
 
 		this.onSelectChange = this.onSelectChange.bind(this);
+		this.renderInputHtml = this.renderInputHtml.bind(this);
 	}
 
-	onSelectChange() {
-		this.updateValues( event.target.value )
+	onSelectChange( device ) {
+		let updateState = {
+			...this.state.value
+		}
+		updateState[ device ]  = event.target.value;
+		this.updateValues( updateState );
+	}
+
+	renderInputHtml( device, active='' ) {
+
+		const choices = this.props.control.params.choices;
+
+		let optionsHtml = Object.entries( choices ).map( ( key ) => {
+
+			var html = (
+				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
+			);
+			return html;
+		} );
+
+		return (
+			<div className={ `ast-responsive-select-container ${device} ${active}`}>
+				<select className="ast-select-input" data-value={ this.state.value[ device ] } value={ this.state.value[ device ] } onChange={ () => { this.onSelectChange( device ) } } >
+					{ optionsHtml }
+				</select>
+			</div>
+		);
 	}
 
 	render() {
 
-		const {
-			label,
-			name,
-			choices
-		} = this.props.control.params
+		const label = this.props.control.params.label;
 
 		let htmlLabel = null;
 
@@ -55,38 +76,24 @@ class ResponsiveSelectComponent extends Component {
 			</ul>
 		);
 
-		let optionsHtml = Object.entries( choices ).map( ( key ) => {
-
-			var html = (
-				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
-			);
-			return html;
-		} );
+		let inputHtml = (
+			<>
+				{ this.renderInputHtml( 'desktop', 'active' ) }
+				{ this.renderInputHtml( 'tablet' ) }
+				{ this.renderInputHtml( 'mobile' ) }
+			</>
+		);
 
 		return (
-			<Fragment>
+			<>
 				{ htmlLabel }
 				{ responsiveHtml }
 				<div className="customize-control-content">
 					<div className="ast-responsive-select-wrapper">
-						<div className="ast-responsive-select-container desktop">
-							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.desktop } value={ this.state.value.desktop } onChange={ () => { this.onSelectChange() } } >
-								{ optionsHtml }
-							</select>
-						</div>
-						<div className="ast-responsive-select-container tablet">
-							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.tablet } value={ this.state.value.tablet } onChange={ () => { this.onSelectChange() } } >
-								{ optionsHtml }
-							</select>
-						</div>
-						<div className="ast-responsive-select-container mobile">
-							<select className="ast-select-input" data-name={ name } data-value={ this.state.value.mobile } value={ this.state.value.mobile } onChange={ () => { this.onSelectChange() } } >
-								{ optionsHtml }
-							</select>
-						</div>
+						{ inputHtml }
 					</div>
 				</div>
-			</Fragment>
+			</>
 		);
 	}
 
