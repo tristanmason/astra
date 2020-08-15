@@ -52,4 +52,11 @@ class Astra_Control_Select extends WP_Customize_Control {
 		$this->json['value'] = $this->value();
 		$this->json['label'] = esc_html( $this->label );
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }

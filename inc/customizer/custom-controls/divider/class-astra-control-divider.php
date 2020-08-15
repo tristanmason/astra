@@ -56,4 +56,11 @@ class Astra_Control_Divider extends WP_Customize_Control {
 		$this->json['separator']   = $this->separator;
 	}
 
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
+
 }

@@ -84,4 +84,11 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 		}
 
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }
