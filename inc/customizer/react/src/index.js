@@ -2,6 +2,8 @@ import { BaseControl } from './base/control';
 import { headingControl } from './heading/control';
 import { hiddenControl } from './hidden/control';
 import { descriptionControl } from './description/control';
+import { linkControl } from './link/control.js';
+import { dividerControl } from './divider/control';
 import { settingsGroupControl } from './settings-group/control';
 import { colorControl } from './color/control.js';
 import { responsiveColorControl } from './responsive-color/control'
@@ -22,6 +24,8 @@ import { astFontVariantControl } from './ast-font-variant/control';
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
 wp.customize.controlConstructor['ast-description'] = descriptionControl;
+wp.customize.controlConstructor['ast-link'] = linkControl;
+wp.customize.controlConstructor['ast-divider'] = dividerControl;
 wp.customize.controlConstructor['ast-settings-group'] = settingsGroupControl;
 wp.customize.controlConstructor['ast-color'] = colorControl;
 wp.customize.controlConstructor['ast-responsive-color'] = responsiveColorControl;

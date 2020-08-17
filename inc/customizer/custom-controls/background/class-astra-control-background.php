@@ -55,5 +55,12 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
 		}
+
+		/**
+		 * Render the control's content.
+		 *
+		 * @see WP_Customize_Control::render_content()
+		 */
+		protected function render_content() {}
 	}
 endif;
