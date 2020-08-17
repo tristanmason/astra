@@ -326,7 +326,7 @@ function astra_bg_responsive_control_migration() {
 	$db_options = array(
 		'site-layout-outside-bg-obj-responsive',
 		'content-bg-obj-responsive',
-		'primary-header-background-group',
+		'header-bg-obj-responsive',
 		'primary-menu-bg-obj-responsive',
 		'above-header-bg-obj-responsive',
 		'above-header-menu-bg-obj-responsive',
