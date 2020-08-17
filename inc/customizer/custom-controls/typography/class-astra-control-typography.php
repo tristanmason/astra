@@ -314,6 +314,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->json['connect']     = $this->connect;
 		$this->json['variant']     = $this->variant;
 		$this->json['link']		   = $this->get_link();
+		$this->json['ast_all_font_weight'] = $this->ast_all_font_weight;
 	}
 
 	/**
@@ -337,13 +338,13 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		</label>
 		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
-		data-value="{{data.value}}"
+		data-value="{{data.value}}" 
 
 		<# if ( data.connect ) { #>
 			data-connected-control={{ data.connect }}
 		<# } #>
 		<# if ( data.variant ) { #>
-			data-connected-variant="{{data.variant}}";
+			data-connected-variant="{{data.variant}}"; 
 		<# } #>
 
 		>
