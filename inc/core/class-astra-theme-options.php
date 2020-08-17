@@ -295,6 +295,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 							'background-position'   => 'center center',
 							'background-size'       => 'auto',
 							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
 						),
 						'tablet'  => array(
 							'background-color'      => '',
@@ -303,6 +305,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 							'background-position'   => 'center center',
 							'background-size'       => 'auto',
 							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
 						),
 						'mobile'  => array(
 							'background-color'      => '',
@@ -311,6 +315,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 							'background-position'   => 'center center',
 							'background-size'       => 'auto',
 							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
 						),
 					),
 					// Container.
