@@ -14,7 +14,7 @@ class ResponsiveSelectComponent extends Component {
 		};
 
 		this.onSelectChange = this.onSelectChange.bind(this);
-		this.renderInputHtml = this.renderInputHtml.bind(this);
+		this.renderSelectHtml = this.renderSelectHtml.bind(this);
 	}
 
 	onSelectChange( device ) {
@@ -25,7 +25,7 @@ class ResponsiveSelectComponent extends Component {
 		this.updateValues( updateState );
 	}
 
-	renderInputHtml( device, active='' ) {
+	renderSelectHtml( device, active='' ) {
 
 		const choices = this.props.control.params.choices;
 
@@ -76,11 +76,11 @@ class ResponsiveSelectComponent extends Component {
 			</ul>
 		);
 
-		let inputHtml = (
+		let selectHtml = (
 			<>
-				{ this.renderInputHtml( 'desktop', 'active' ) }
-				{ this.renderInputHtml( 'tablet' ) }
-				{ this.renderInputHtml( 'mobile' ) }
+				{ this.renderSelectHtml( 'desktop', 'active' ) }
+				{ this.renderSelectHtml( 'tablet' ) }
+				{ this.renderSelectHtml( 'mobile' ) }
 			</>
 		);
 
@@ -90,7 +90,7 @@ class ResponsiveSelectComponent extends Component {
 				{ responsiveHtml }
 				<div className="customize-control-content">
 					<div className="ast-responsive-select-wrapper">
-						{ inputHtml }
+						{ selectHtml }
 					</div>
 				</div>
 			</>
