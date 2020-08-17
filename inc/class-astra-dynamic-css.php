@@ -708,7 +708,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( self::gtn_group_column_media_block_css_comp() ) {
 
 				$gtn_column_block_css = array(
-					'.wp-block-columns' => array(
+					'.entry-content .wp-block-columns' => array(
 						'margin-bottom'  => 'unset',
 					),
 				);
@@ -733,7 +733,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $gtn_tablet_group_block_css, astra_get_tablet_breakpoint() );
 
 				$gtn_mobile_group_block_css = array(
-					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
+					'.entry-content .wp-block-cover-image .wp-block-cover__inner-container, .entry-content .wp-block-cover .wp-block-cover__inner-container' => array(
 						'width'   => 'unset',
 					),
 					'.wp-block-group, .wp-block-cover' => array(
