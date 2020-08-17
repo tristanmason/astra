@@ -1,14 +1,14 @@
 <?php
 /**
- * Customizer Control: select.
+ * Customizer Control: Responsive Select.
  *
- * Creates a select control.
+ * Creates a responsive select control.
  *
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       1.0.0
+ * @since       x.x.x
  */
 
 // Exit if accessed directly.
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Color control (alpha).
+ * Responsive Select control.
  */
 class Astra_Control_Responsive_Select extends WP_Customize_Control {
 
@@ -30,7 +30,7 @@ class Astra_Control_Responsive_Select extends WP_Customize_Control {
 	public $type = 'ast-responsive-select';
 
 	/**
-	 * The control type.
+	 * The control suffix.
 	 *
 	 * @access public
 	 * @var string
