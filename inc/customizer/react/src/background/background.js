@@ -2,31 +2,32 @@ import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
 import BackgroundColorControl from '../common/background-color';
+import { __ } from '@wordpress/i18n';
 
 class Background extends Component {
-	
+
 	constructor(props) {
 
 		super( props );
 
 		let value = this.props.control.setting.get();
-		
+
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
-		
+
 		this.state = {
 			value: value,
 		};
-		
+
 		this.updateBackgroundType();
 	}
 
 	updateBackgroundType() {
 
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
-		
+
 		if ( undefined === this.state.value['background-type']  || '' === this.state.value['background-type'] ) {
 
 			if ( undefined !== this.state.value['background-color'] ) {
@@ -35,14 +36,14 @@ class Background extends Component {
 				this.updateValues( obj );
 
 				if ( this.state.value['background-color'].includes('gradient') ) {
-					
+
 					obj['background-type'] = 'gradient';
 
 					this.updateValues( obj );
 				}
 			}
 			if ( undefined !== this.state.value['background-image'] ) {
-				
+
 				obj['background-type'] = 'image';
 				this.updateValues( obj );
 			}
@@ -56,7 +57,7 @@ class Background extends Component {
 					disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 					onClick={ () => {
 						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-						
+
 						this.updateValues( value );
 					} }
 				>
@@ -68,11 +69,11 @@ class Background extends Component {
 	onSelectImage ( media, backgroundType ) {
 
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 		obj['background-media'] = media.id
 		obj['background-image'] = media.url
-		
+
 		obj['background-type'] = backgroundType
 
         this.updateValues( obj );
@@ -80,16 +81,16 @@ class Background extends Component {
 	onChangeImageOptions( mainKey, value, backgroundType ) {
 
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
-		
+
 		obj[mainKey] = value
 		obj['background-type'] = backgroundType
 
         this.updateValues( obj );
 	}
 	renderSettings () {
-		
+
 		return (
 			<>
 				<BackgroundColorControl
@@ -120,9 +121,9 @@ class Background extends Component {
 		} else {
 			value = color.hex;
 		}
-		
+
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 
 		obj['background-color'] = value;
@@ -130,9 +131,9 @@ class Background extends Component {
 
         this.updateValues( obj );
 	}
-	
+
     render() {
-		
+
 		const {
 			defaultValue,
 			label,
@@ -155,14 +156,14 @@ class Background extends Component {
 			defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
 		}
 
-		if ( label && '' !== label && undefined !== label ) { 
+		if ( label && '' !== label && undefined !== label ) {
 
 			labelHtml = <span className="customize-control-title">{ label }</span>
 		} else {
 			labelHtml = <span className="customize-control-title">{ __( 'Background', 'astra' ) }</span>
 		}
 
-		if ( description ) { 
+		if ( description ) {
 
 			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
@@ -175,7 +176,7 @@ class Background extends Component {
 				</div>
 			</div>
 		)
-		
+
 		return (
 			<>
 				<label>
