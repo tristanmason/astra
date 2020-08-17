@@ -374,6 +374,12 @@ module.exports = function (grunt) {
                     '!package-lock.json',
                     '!phpcs.xml.dist',
                     '!assets/fonts/google-fonts.json',
+                    '!inc/customizer/extend-custom-controls/package.json',
+                    '!inc/customizer/extend-custom-controls/package-lock.json',
+                    '!inc/customizer/extend-custom-controls/src/**',
+                    '!inc/customizer/extend-custom-controls/node_modules/**',
+                    '!inc/customizer/extend-custom-controls/build/index.asset.php',
+                    '!inc/customizer/extend-custom-controls/build/index.js.map',
                 ],
                 dest: 'astra/'
             }
@@ -454,23 +460,18 @@ module.exports = function (grunt) {
                             '!inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+					},
+					{
+                        src: [
+                            'inc/customizer/custom-controls/link/link.js',
+                            'inc/customizer/custom-controls/typography/typography.js',
+                        ],
+                        dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
                     },
                     {
                         src: [
-                            'inc/customizer/custom-controls/background/background.js',
-                            'inc/customizer/custom-controls/border/border.js',
-                            'inc/customizer/custom-controls/color/color.js',
-                            'inc/customizer/custom-controls/customizer-link/customizer-link.js',
-                            'inc/customizer/custom-controls/responsive/responsive.js',
-                            'inc/customizer/custom-controls/responsive-color/responsive-color.js',
-                            'inc/customizer/custom-controls/responsive-background/responsive-background.js',
-                            'inc/customizer/custom-controls/responsive-slider/responsive-slider.js',
-                            'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js',
-                            'inc/customizer/custom-controls/settings-group/settings-group.js',
-                            'inc/customizer/custom-controls/slider/slider.js',
-                            'inc/customizer/custom-controls/sortable/sortable.js',
-                            'inc/customizer/custom-controls/typography/typography.js'
-
+                            'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
+                            'inc/customizer/extend-custom-controls/build/index.js'
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                     },
