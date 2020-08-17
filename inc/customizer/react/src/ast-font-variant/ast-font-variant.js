@@ -43,6 +43,7 @@ console.log( value );
 		let selectHtml = null;
 		let inp_array = [];
 		let inherit = __( 'Inherit', 'astra' );
+		let options_array = [];
 
 		if ( label ) {
 
@@ -69,7 +70,11 @@ console.log( value );
 			});
 		}
 
-		let optionsHtml = Object.values( value ).map( ( key ) => {
+		if ( this.state.value && '' !== this.state.value ) {
+			options_array = this.state.value.split( ',' )
+		}
+
+		let optionsHtml = Object.values( options_array ).map( ( key ) => {
 
 			var html = ( 
 				<option key={ key } value={ key }>{ key }</option>
@@ -81,7 +86,7 @@ console.log( value );
 
 		if ( connect ) {
 			
-			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-value = { this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } }  data-name = { name } data-inherit = { inherit  } multiple >
+			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-value = { this.state.value }  data-name = { name } data-inherit = { inherit  } multiple >
 				{ optionsHtml }
 				{ inputHtml }
 			</select>
@@ -89,7 +94,7 @@ console.log( value );
 
 		if ( variant ) {
 			
-			selectHtml = <select { ...inp_array } data-connected-variant = { variant } data-value = { this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } }  data-name = { name } data-inherit = { inherit } multiple >
+			selectHtml = <select { ...inp_array } data-connected-variant = { variant } data-value = { this.state.value }  data-name = { name } data-inherit = { inherit } multiple >
 				{ optionsHtml }
 				{ inputHtml }
 			</select>
@@ -97,7 +102,7 @@ console.log( value );
 
 		if ( connect && variant ) {
 			
-			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-connected-variant = { variant } data-value = { this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } }  data-name = { name } data-inherit = { inherit  } multiple >
+			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-connected-variant = { variant } data-value = { this.state.value }  data-name = { name } data-inherit = { inherit  } multiple >
 				{ optionsHtml }
 				{ inputHtml }
 			</select>
