@@ -668,6 +668,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			Astra_Customizer_Control_Base::add_control(
+				'ast-responsive-select',
+				array(
+					'callback'          => 'Astra_Control_Responsive_Select',
+					'sanitize_callback' => '',
+				)
+			);
+
 			/**
 			 * Helper files
 			 */

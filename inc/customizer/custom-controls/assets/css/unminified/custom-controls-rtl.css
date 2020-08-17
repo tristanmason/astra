@@ -1450,6 +1450,14 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
+.ast-responsive-select-container {
+  display: none;
+}
+
+.ast-responsive-select-container.active {
+  display: block;
+}
+
 .customize-control-ast-responsive-slider .wrapper {
   position: relative;
   height: 100%;
@@ -2750,6 +2758,14 @@ input[type="text"].select2-search__field {
   align-items: flex-start;
   flex: 0 1;
   width: 100%;
+}
+
+.ast-responsive-select-container {
+  display: none;
+}
+
+.ast-responsive-select-container.active {
+  display: block;
 }
 
 .customize-control-ast-responsive-slider .wrapper {

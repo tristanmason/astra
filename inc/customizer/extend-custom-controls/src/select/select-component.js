@@ -21,7 +21,7 @@ class SelectComponent extends Component {
 	}
 
 	render() {
-		
+
 		const {
 			label,
 			name,
@@ -36,7 +36,7 @@ class SelectComponent extends Component {
 
 		let optionsHtml = Object.entries( choices ).map( ( key ) => {
 
-			var html = ( 
+			var html = (
 				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
 			);
 			return html;

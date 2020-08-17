@@ -77,6 +77,13 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 			}
 			$this->json['inputAttrs'] = maybe_serialize( $this->input_attrs() );
 		}
+
+		/**
+		 * Render the control's content.
+		 *
+		 * @see WP_Customize_Control::render_content()
+		 */
+		protected function render_content() {}
 	}
 
 endif;

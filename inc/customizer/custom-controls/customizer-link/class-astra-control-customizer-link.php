@@ -59,4 +59,11 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 		$this->json['linked']    = $this->linked;
 		$this->json['link_type'] = $this->link_type;
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }

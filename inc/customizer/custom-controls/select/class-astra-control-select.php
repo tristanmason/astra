@@ -49,7 +49,15 @@ class Astra_Control_Select extends WP_Customize_Control {
 		if ( isset( $this->default ) ) {
 			$this->json['default'] = $this->default;
 		}
-		$this->json['value'] = $this->value();
-		$this->json['label'] = esc_html( $this->label );
+		$this->json['value']   = $this->value();
+		$this->json['label']   = esc_html( $this->label );
+		$this->json['choices'] = $this->choices;
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }

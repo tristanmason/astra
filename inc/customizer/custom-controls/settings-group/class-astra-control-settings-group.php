@@ -100,6 +100,13 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 
 			$this->json['ast_fields'] = $config;
 		}
+
+		/**
+		 * Render the control's content.
+		 *
+		 * @see WP_Customize_Control::render_content()
+		 */
+		protected function render_content() {}
 	}
 
 endif;

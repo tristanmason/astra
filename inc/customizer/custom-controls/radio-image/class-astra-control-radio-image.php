@@ -57,7 +57,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 */
 	public static function astra_add_radio_img_svg_css() {
 		?>
-		<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo self::$higlight_color; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> !important; stroke: <?php echo self::$higlight_color; ?> !important }</style> 
+		<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo self::$higlight_color; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> !important; stroke: <?php echo self::$higlight_color; ?> !important }</style>
 		<?php
 	}
 
@@ -112,4 +112,11 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		}
 
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }
