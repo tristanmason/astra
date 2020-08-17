@@ -37,7 +37,7 @@ wp.customize.controlConstructor['ast-radio-image'] = radioImageControl;
 wp.customize.controlConstructor['ast-responsive-spacing'] = responsiveSpacingControl;
 wp.customize.controlConstructor['ast-select'] = selectControl;
 wp.customize.controlConstructor['ast-font-family'] = astFontFamilyControl;
-// wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
+wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
 
 window.addEventListener( 'load', () => {
     console.log('Testing Console.');

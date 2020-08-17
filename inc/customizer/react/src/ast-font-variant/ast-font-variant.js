@@ -10,26 +10,38 @@ class FontVariantComponent extends Component {
 		
 		let value = this.props.control.setting.get();
 		
+		if ( undefined === value || '' === value ) {
+			value = [];
+		}
+
 		this.state = {
 			value: value,
 		};
+
+		this.onSelectChange = this.onSelectChange.bind(this);
+	}
+
+	onSelectChange() {
+		this.updateValues( event.target.value )
 	}
 
 	render() {
-
 		const {
 			description,
 			label,
 			connect,
 			variant,
 			name,
-			link
+			link,
+			value
 		} = this.props.control.params
+console.log(this.state.value );
+console.log( value );
 
 		let labelHtml = null;
 		let descriptionHtml = null;
 		let selectHtml = null;
-		let inp_array = [ 'multiple' ];
+		let inp_array = [];
 		let inherit = __( 'Inherit', 'astra' );
 
 		if ( label ) {
@@ -57,19 +69,38 @@ class FontVariantComponent extends Component {
 			});
 		}
 
+		let optionsHtml = Object.values( value ).map( ( key ) => {
+
+			var html = ( 
+				<option key={ key } value={ key }>{ key }</option>
+			);
+			return html;
+		} );
+
+		let inputHtml = <input className="ast-font-variant-hidden-value" type="hidden" value={ this.state.value } onChange={ () => { this.onSelectChange() } } />;
+
 		if ( connect ) {
 			
-			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-value = { this.state.value } data-name = { name } data-inherit = { inherit  }></select>
+			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-value = { this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } }  data-name = { name } data-inherit = { inherit  } multiple >
+				{ optionsHtml }
+				{ inputHtml }
+			</select>
 		}
 
 		if ( variant ) {
 			
-			selectHtml = <select { ...inp_array } data-connected-variant = { variant } data-value = { this.state.value } data-name = { name } data-inherit = { inherit }></select>
+			selectHtml = <select { ...inp_array } data-connected-variant = { variant } data-value = { this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } }  data-name = { name } data-inherit = { inherit } multiple >
+				{ optionsHtml }
+				{ inputHtml }
+			</select>
 		}
 
 		if ( connect && variant ) {
 			
-			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-connected-variant = { variant } data-value = { this.state.value } data-name = { name } data-inherit = { inherit  }></select>
+			selectHtml = <select { ...inp_array } data-connected-control = { connect } data-connected-variant = { variant } data-value = { this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } }  data-name = { name } data-inherit = { inherit  } multiple >
+				{ optionsHtml }
+				{ inputHtml }
+			</select>
 		}
 
 		return (
@@ -82,6 +113,11 @@ class FontVariantComponent extends Component {
 				{ selectHtml }
 			</>
 		);
+	}
+
+	updateValues( updateState ) {
+		this.setState( { value : updateState } )
+		this.props.control.setting.set( updateState );
 	}
 }
 
