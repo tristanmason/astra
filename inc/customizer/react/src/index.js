@@ -21,6 +21,7 @@ import { selectControl } from './select/control';
 import { astFontFamilyControl } from './ast-font-family/control';
 import { astFontVariantControl } from './ast-font-variant/control';
 import { astFontWeightControl } from './ast-font-weight/control';
+import { responsiveSelectControl } from './responsive-select/control';
 
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
@@ -44,7 +45,4 @@ wp.customize.controlConstructor['ast-select'] = selectControl;
 wp.customize.controlConstructor['ast-font-family'] = astFontFamilyControl;
 wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
 wp.customize.controlConstructor['ast-font-weight'] = astFontWeightControl;
-
-window.addEventListener( 'load', () => {
-    console.log('Testing Console.');
-} );
+wp.customize.controlConstructor['ast-responsive-select'] = responsiveSelectControl;
