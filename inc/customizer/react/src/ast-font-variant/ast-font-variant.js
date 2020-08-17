@@ -35,8 +35,6 @@ class FontVariantComponent extends Component {
 			link,
 			value
 		} = this.props.control.params
-console.log(this.state.value );
-console.log( value );
 
 		let labelHtml = null;
 		let descriptionHtml = null;
@@ -116,6 +114,8 @@ console.log( value );
 				</label>
 
 				{ selectHtml }
+
+				<span className="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>
 			</>
 		);
 	}
