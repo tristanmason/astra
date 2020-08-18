@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.8.6",
     "grunt": "^1.2.1",
     "grunt-bumpup": "^0.6.3",
     "grunt-concat-css": "^0.3.2",
@@ -31,7 +31,7 @@
     "grunt-wp-readme-to-markdown": "^2.0.1",
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "postcss-flexibility": "^2.0.0"
   },
   "dependencies": {
