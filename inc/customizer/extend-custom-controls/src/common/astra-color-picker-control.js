@@ -4,7 +4,7 @@ import { Component } from '@wordpress/element';
 import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
-class BackgroundColorControl extends Component {
+class AstraColorPickerControl extends Component {
 
 	constructor( props ) {
 		
@@ -346,7 +346,7 @@ class BackgroundColorControl extends Component {
 
 }
 
-BackgroundColorControl.propTypes = {
+AstraColorPickerControl.propTypes = {
 	color: PropTypes.string,
 	usePalette: PropTypes.bool,
 	palette: PropTypes.string,
@@ -356,4 +356,4 @@ BackgroundColorControl.propTypes = {
 	customizer: PropTypes.object
 };
 
-export default BackgroundColorControl;
+export default AstraColorPickerControl;
