@@ -68,7 +68,7 @@ class FontVariantComponent extends Component {
 			});
 		}
 
-		if ( this.state.value && '' !== this.state.value ) {
+		if ( this.state.value && '' !== this.state.value && 0 < this.state.value.length ) {
 			options_array = this.state.value.split( ',' )
 		}
 
