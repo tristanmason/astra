@@ -1411,7 +1411,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 
 	$desktop_bg_type = ( isset( $bg_obj['background-type'] ) && $bg_obj['background-type'] ) ? $bg_obj['background-type'] : '';
 
-	if ( 'gradient' == $desktop_bg_type) {
+	if ( 'gradient' == $desktop_bg_type ) {
 		$gen_bg_css = array(
 			'background' => $bg_color,
 		);
