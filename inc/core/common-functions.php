@@ -1409,40 +1409,48 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 	$tablet_css  = ( isset( $bg_obj_res['tablet']['background-image'] ) && $bg_obj_res['tablet']['background-image'] ) ? true : false;
 	$desktop_css = ( isset( $bg_obj_res['desktop']['background-image'] ) && $bg_obj_res['desktop']['background-image'] ) ? true : false;
 
-	if ( '' !== $bg_img && '' !== $bg_color ) {
+	$desktop_bg_type = ( isset( $bg_obj['background-type'] ) && $bg_obj['background-type'] ) ? $bg_obj['background-type'] : '';
+
+	if ( 'gradient' == $desktop_bg_type) {
 		$gen_bg_css = array(
-			'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_url( $bg_img ) . ')',
+			'background' => $bg_color,
 		);
-	} elseif ( '' !== $bg_img ) {
-		$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
-	} elseif ( '' !== $bg_color ) {
-		if ( 'mobile' === $device ) {
-			if ( true == $desktop_css && true == $tablet_css ) {
-				$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_tab_img ) . ')' );
-			} elseif ( true == $desktop_css ) {
-				$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_desk_img ) . ')' );
-			} elseif ( true == $tablet_css ) {
-				$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_tab_img ) . ')' );
-			} else {
-				$gen_bg_css = array(
-					'background-color' => esc_attr( $bg_color ),
-					'background-image' => 'none',
-				);
-			}
-		} elseif ( 'tablet' === $device ) {
-			if ( true == $desktop_css ) {
-				$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_desk_img ) . ')' );
-			} else {
-				$gen_bg_css = array(
-					'background-color' => esc_attr( $bg_color ),
-					'background-image' => 'none',
-				);
-			}
-		} else {
+	} else {
+		if ( '' !== $bg_img && '' !== $bg_color ) {
 			$gen_bg_css = array(
-				'background-color' => esc_attr( $bg_color ),
-				'background-image' => 'none',
+				'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_url( $bg_img ) . ')',
 			);
+		} elseif ( '' !== $bg_img ) {
+			$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
+		} elseif ( '' !== $bg_color ) {
+			if ( 'mobile' === $device ) {
+				if ( true == $desktop_css && true == $tablet_css ) {
+					$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_tab_img ) . ')' );
+				} elseif ( true == $desktop_css ) {
+					$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_desk_img ) . ')' );
+				} elseif ( true == $tablet_css ) {
+					$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_tab_img ) . ')' );
+				} else {
+					$gen_bg_css = array(
+						'background-color' => esc_attr( $bg_color ),
+						'background-image' => 'none',
+					);
+				}
+			} elseif ( 'tablet' === $device ) {
+				if ( true == $desktop_css ) {
+					$gen_bg_css = array( 'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_attr( $bg_desk_img ) . ')' );
+				} else {
+					$gen_bg_css = array(
+						'background-color' => esc_attr( $bg_color ),
+						'background-image' => 'none',
+					);
+				}
+			} else {
+				$gen_bg_css = array(
+					'background-color' => esc_attr( $bg_color ),
+					'background-image' => 'none',
+				);
+			}
 		}
 	}
 
