@@ -116,6 +116,11 @@ class FontVariantComponent extends Component {
 				{ selectHtml }
 
 				<span className="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>
+				<select className="test">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<input className="ast-testettste" type="hidden"></input>
+				</select>
 			</>
 		);
 	}

@@ -78,7 +78,7 @@ class SliderComponent extends Component {
 				
 			});
 		}
-
+console.log(inputAttrs)
 		return (
 			<label>
 				{ labelHtml }

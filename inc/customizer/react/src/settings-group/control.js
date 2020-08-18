@@ -320,7 +320,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			// Input attributes
 			_.each( attr.input_attrs, function ( value, name ) {
-				input_attrs += name + " ='" + value + "'";
+				input_attrs += name + '="' + value + '" ';
 			});
 
 			attr.dataAttrs = dataAtts;
