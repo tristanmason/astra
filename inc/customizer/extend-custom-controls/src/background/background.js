@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
-import BackgroundColorControl from '../common/background-color';
+import AstraColorPickerControl from '../common/astra-color-picker-control';
 import { __ } from '@wordpress/i18n';
 
 class Background extends Component {
@@ -93,7 +93,7 @@ class Background extends Component {
 
 		return (
 			<>
-				<BackgroundColorControl
+				<AstraColorPickerControl
 					color={ ( undefined !== this.state.value['background-color'] && this.state.value['background-color'] ? this.state.value['background-color'] :  '' ) }
 					onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, backgroundType ) }
 					media={ ( undefined !== this.state.value['background-media'] && this.state.value['background-media'] ? this.state.value['background-media'] :  '' ) }
