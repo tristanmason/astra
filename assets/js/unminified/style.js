@@ -638,7 +638,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 					item.classList.remove('current-menu-item');
 
-					if( item.querySelector( '.menu-link' ).getAttribute( 'href' ) == primary_header_element ) {
+					if( item.querySelector( '.menu-link' ).getAttribute( 'href' ) === primary_header_element ) {
 						item.classList.add( 'current-menu-item' );
 					}
 
