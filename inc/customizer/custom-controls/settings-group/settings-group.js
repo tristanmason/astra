@@ -140,15 +140,21 @@
                 fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">'; 
                 fields_html += '<ul class="ast-group-list">'; 
                 var counter = 0;
+                var tabs_counter = 0;
 
-                _.each( fields.tabs, function ( value, key ) {
-
+                _.each( fields.tabs, function ( value , key ) {
                     var li_class = '';
                     if( 0 == counter ) {
                         li_class = "active";
+                        tab_key = 'normal';
+                    }
+                    else if( 1 == counter ){
+                        tab_key = 'hover';
+                    }else{
+                        tab_key = 'active';
                     }
 
-                    fields_html += '<li class="'+ li_class + '"><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+                    fields_html += '<li class="'+ li_class + '"><a href="#tab-' + tab_key + '"><span>' + key +  '</span></a></li>';
                     counter++;
                 });
 
@@ -157,8 +163,17 @@
                 fields_html += '<div class="ast-tab-content" >';
 
                 _.each( fields.tabs, function ( fields_data, key ) {
+                    if( 0 == tabs_counter ) {
+                        li_class = 'active';
+                        tab_key = 'normal';
+                    }
+                    else if( 1 == tabs_counter ){
+                        tab_key = 'hover';
+                    }else{
+                        tab_key = 'active';
+                    }
 
-                    fields_html += '<div id="tab-'+ key +'" class="tab">';
+                    fields_html += '<div id="tab-'+ tab_key +'" class="tab">';
 
                     var result = control.generateFieldHtml( fields_data, field_values );
 
@@ -173,6 +188,7 @@
                     });
 
                     fields_html += '</div>';
+                    tabs_counter++;
                 });
 
                 fields_html += '</div></div>';
