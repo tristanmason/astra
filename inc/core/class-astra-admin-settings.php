@@ -103,6 +103,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
 			if ( ! is_customize_preview() ) {
+				// add css on the admin init action to resolve the error in the PWA service worker js.
 				add_action( 'admin_head', __CLASS__ . '::admin_submenu_css' );
 			}
 
