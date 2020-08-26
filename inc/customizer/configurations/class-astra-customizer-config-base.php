@@ -57,7 +57,8 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			// Return if white labeled.
 			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-				if ( ! empty( Astra_Ext_White_Label_Markup::$branding['astra']['name'] ) ) {
+				$branding_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'name', false );
+				if ( ! empty( $branding_name ) ) {
 					return '';
 				}
 			}
