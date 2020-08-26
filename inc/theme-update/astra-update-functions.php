@@ -278,3 +278,23 @@ function astra_footer_widget_bg() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Compatibility for following WooCommerce options with the Firefox browser.
+ * 
+ * 1. Product Search widget
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_woocommerce_firefox_compatibility() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load Firfox browser compatibility specific CSS.
+	if ( ! isset( $theme_options['woo-firefox-compatibility'] ) ) {
+		$theme_options['woo-firefox-compatibility'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
