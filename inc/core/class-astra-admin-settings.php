@@ -178,7 +178,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function register_notices() {
 
 			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-				if ( ! empty( Astra_Ext_White_Label_Markup::$branding['astra']['name'] ) ) {
+				if ( astra_is_white_labelled() ) {
 					return;
 				}
 			}
