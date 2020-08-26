@@ -228,4 +228,4 @@ if ( ! class_exists( 'Astra_Existing_Header_Configs' ) ) {
 	}
 }
 
-new Astra_Header_Layout_Configs();
+new Astra_Existing_Header_Configs();
