@@ -1543,7 +1543,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * For existing users, do not load the wide/full width image CSS by default.
 		 *
-		 * @since 2.5.0
+		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function astra_woo_firefox_compat() {
