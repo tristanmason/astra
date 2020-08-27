@@ -119,62 +119,26 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'link-h-color'                         => '#3a3a3a',
 
 					// Footer Bar Background.
-					'footer-bg-obj-responsive'             => array(
-						'desktop' => array(
-							'background-color'      => '',
-							'background-image'      => '',
-							'background-repeat'     => 'repeat',
-							'background-position'   => 'center center',
-							'background-size'       => 'auto',
-							'background-attachment' => 'scroll',
-						),
-						'tablet'  => array(
-							'background-color'      => '',
-							'background-image'      => '',
-							'background-repeat'     => 'repeat',
-							'background-position'   => 'center center',
-							'background-size'       => 'auto',
-							'background-attachment' => 'scroll',
-						),
-						'mobile'  => array(
-							'background-color'      => '',
-							'background-image'      => '',
-							'background-repeat'     => 'repeat',
-							'background-position'   => 'center center',
-							'background-size'       => 'auto',
-							'background-attachment' => 'scroll',
-						),
+					'footer-bg-obj'                        => array(
+						'background-color'      => '',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
 					),
 					'footer-color'                         => '',
 					'footer-link-color'                    => '',
 					'footer-link-h-color'                  => '',
 
 					// Footer Widgets Background.
-					'footer-adv-bg-obj-responsive'         => array(
-						'desktop' => array(
-							'background-color'      => '',
-							'background-image'      => '',
-							'background-repeat'     => 'repeat',
-							'background-position'   => 'center center',
-							'background-size'       => 'auto',
-							'background-attachment' => 'scroll',
-						),
-						'tablet'  => array(
-							'background-color'      => '',
-							'background-image'      => '',
-							'background-repeat'     => 'repeat',
-							'background-position'   => 'center center',
-							'background-size'       => 'auto',
-							'background-attachment' => 'scroll',
-						),
-						'mobile'  => array(
-							'background-color'      => '',
-							'background-image'      => '',
-							'background-repeat'     => 'repeat',
-							'background-position'   => 'center center',
-							'background-size'       => 'auto',
-							'background-attachment' => 'scroll',
-						),
+					'footer-adv-bg-obj'                    => array(
+						'background-color'      => '',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
 					),
 					'footer-adv-text-color'                => '',
 					'footer-adv-link-color'                => '',
