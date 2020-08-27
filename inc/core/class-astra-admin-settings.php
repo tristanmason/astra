@@ -177,10 +177,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function register_notices() {
 
-			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-				if ( astra_is_white_labelled() ) {
-					return;
-				}
+			if ( astra_is_white_labelled() ) {
+				return;
 			}
 
 			if ( false === get_option( 'astra-theme-old-setup' ) ) {
