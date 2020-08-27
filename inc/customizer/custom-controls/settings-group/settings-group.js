@@ -142,13 +142,13 @@
                 var counter = 0;
                 var tabs_counter = 0;
 
-                _.each( fields.tabs, function ( value , key ) {
+                _.each( fields.tabs, function ( value, key ) {
                     var li_class = '';
-                    if( 0 == counter ) {
+                    if( 0 === counter ) {
                         li_class = "active";
                         tab_key = 'normal';
                     }
-                    else if( 1 == counter ){
+                    else if( 1 === counter ){
                         tab_key = 'hover';
                     }else{
                         tab_key = 'active';
@@ -163,11 +163,11 @@
                 fields_html += '<div class="ast-tab-content" >';
 
                 _.each( fields.tabs, function ( fields_data, key ) {
-                    if( 0 == tabs_counter ) {
+                    if( 0 === tabs_counter ) {
                         li_class = 'active';
                         tab_key = 'normal';
                     }
-                    else if( 1 == tabs_counter ){
+                    else if( 1 === tabs_counter ){
                         tab_key = 'hover';
                     }else{
                         tab_key = 'active';
