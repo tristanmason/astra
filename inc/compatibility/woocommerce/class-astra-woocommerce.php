@@ -1241,26 +1241,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Parse CSS from array()*/
 			$css_output .= astra_parse_css( $woo_product_css, astra_get_tablet_breakpoint( '', 1 ) );
 
-			/**
-			 * Firefox browser compatibility for WooCommerce.
-			 * 
-			 * 1. Product Search widget button misalign issue.
-			 * 
-			 * @since x.x.x
-			 */
-			if ( self::astra_woo_firefox_compat() ) {
-
-				$woo_firefox_compat_css = '
-					@supports (-moz-appearance:none) {
-						.sidebar-main .widget_product_search .search-field {
-							width: 60%
-						}
-					}
-				';
-
-				$css_output .= $woo_firefox_compat_css;
-			}
-
 			/*
 			* global button settings not working for woocommerce button on shop and single page.
 			* check if the current user is existing user or new user.
@@ -1538,18 +1518,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['global-btn-woo-css'] = isset( $astra_settings['global-btn-woo-css'] ) ? false : true;
 			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['global-btn-woo-css'] );
-		}
-
-		/**
-		 * For existing users, do not load the wide/full width image CSS by default.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user , true if not.
-		 */
-		public static function astra_woo_firefox_compat() {
-			$astra_settings                              = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['woo-firefox-compatibility'] = isset( $astra_settings['woo-firefox-compatibility'] ) ? false : true;
-			return apply_filters( 'astra_woo_firefox_compatibility', $astra_settings['woo-firefox-compatibility'] );
 		}
 	}
 
