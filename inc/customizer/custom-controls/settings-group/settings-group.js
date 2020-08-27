@@ -144,14 +144,17 @@
 
                 _.each( fields.tabs, function ( value, key ) {
                     var li_class = '';
-                    if( 0 === counter ) {
-                        li_class = "active";
-                        tab_key = 'normal';
-                    }
-                    else if( 1 === counter ){
-                        tab_key = 'hover';
-                    }else{
-                        tab_key = 'active';
+
+                    switch(counter) {
+                        case 0:
+                            li_class = "active";
+                            tab_key = 'normal';
+                          break;
+                        case 1:
+                            tab_key = 'hover';
+                          break;
+                        default:
+                            tab_key = 'active';
                     }
 
                     fields_html += '<li class="'+ li_class + '"><a href="#tab-' + tab_key + '"><span>' + key +  '</span></a></li>';
@@ -163,14 +166,16 @@
                 fields_html += '<div class="ast-tab-content" >';
 
                 _.each( fields.tabs, function ( fields_data, key ) {
-                    if( 0 === tabs_counter ) {
-                        li_class = 'active';
-                        tab_key = 'normal';
-                    }
-                    else if( 1 === tabs_counter ){
-                        tab_key = 'hover';
-                    }else{
-                        tab_key = 'active';
+                    switch(tabs_counter) {
+                        case 0:
+                            li_class = "active";
+                            tab_key = 'normal';
+                          break;
+                        case 1:
+                            tab_key = 'hover';
+                          break;
+                        default:
+                            tab_key = 'active';
                     }
 
                     fields_html += '<div id="tab-'+ tab_key +'" class="tab">';
