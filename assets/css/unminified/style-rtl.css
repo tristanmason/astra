@@ -2569,6 +2569,10 @@ body {
   border: 0;
 }
 
+.ast-header-break-point .dropdown-menu-toggle {
+  display: none;
+}
+
 /**
  * Contents
  */
