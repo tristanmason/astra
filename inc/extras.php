@@ -380,13 +380,16 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
 	$tabindex = ' tabindex="0"';
+	$icon  = Astra_Icons::get_icons( 'arrow' );
 	if ( isset( $args->container_class ) && 'main-header-bar-navigation' === $args->container_class ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value ) {
-				$icon  = Astra_Icons::get_icons( 'arrow' );
 				$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex . '>' . $icon . '</span>';
 			}
 		}
+	}
+	if ( 0 < $depth ) {
+		$title = $icon . $title;
 	}
 	return $title;
 }

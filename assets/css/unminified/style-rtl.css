@@ -2506,6 +2506,15 @@ body {
   border-color: #eaeaea;
 }
 
+.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type {
+  margin-left: 20px;
+}
+
+.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg {
+  right: 20px;
+  top: 20px;
+}
+
 .ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-link {
   padding: 0 20px;
   display: inline-block;

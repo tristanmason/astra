@@ -156,6 +156,15 @@
 					border-bottom-width: 1px;
 					border-style: solid;
 					border-color: #eaeaea;
+					.icon-arrow {
+						&:first-of-type {
+							margin-right: 20px;
+							svg {
+								left: 20px;
+								top: 20px;
+							}
+						}
+					}
 				}
 			}
 			.button-custom-menu-item {
