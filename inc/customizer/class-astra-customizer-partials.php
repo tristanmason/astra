@@ -137,7 +137,6 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 			return do_shortcode( $output );
 		}
 
-
 		/**
 		 * Render Partial text for the mobile toggle menu
 		 *
