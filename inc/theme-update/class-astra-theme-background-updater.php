@@ -52,6 +52,13 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.4.4' => array(
 				'astra_gtn_full_wide_image_group_css',
 			),
+			'2.5.0' => array(
+				'astra_global_button_woo_css',
+				'astra_gtn_full_wide_group_cover_css',
+			),
+			'2.5.2' => array(
+				'astra_footer_widget_bg',
+			),
 		);
 
 		/**
@@ -67,9 +74,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-wp-background-process-astra-theme.php';
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-wp-background-process-astra-theme.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			self::$background_updater = new WP_Background_Process_Astra_Theme();
 

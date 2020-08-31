@@ -202,7 +202,6 @@ function astra_responsive_base_background_option() {
 	update_option( 'astra-settings', $theme_options );
 }
 
-
 /**
  * Do not apply new wide/full image CSS for existing users.
  *
@@ -211,11 +210,71 @@ function astra_responsive_base_background_option() {
  * @return void
  */
 function astra_gtn_full_wide_image_group_css() {
+
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
 	if ( ! isset( $theme_options['gtn-full-wide-image-grp-css'] ) ) {
 		$theme_options['gtn-full-wide-image-grp-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Do not apply new wide/full Group and Cover block CSS for existing users.
+ *
+ * @since 2.5.0
+ *
+ * @return void
+ */
+function astra_gtn_full_wide_group_cover_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['gtn-full-wide-grp-cover-css'] ) ) {
+		$theme_options['gtn-full-wide-grp-cover-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+
+/**
+ * Do not apply the global border width and border color setting for the existng users.
+ *
+ * @since 2.5.0
+ *
+ * @return void
+ */
+function astra_global_button_woo_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['global-btn-woo-css'] ) ) {
+		$theme_options['global-btn-woo-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Migrate Footer Widget param to array.
+ *
+ * @since 2.5.2
+ *
+ * @return void
+ */
+function astra_footer_widget_bg() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Check if Footer Backgound array is already set or not. If not then set it as array.
+	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] ) ) {
+		error_log( 'Astra: Migrating Footer BG option to array.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		$theme_options['footer-adv-bg-obj'] = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
 		update_option( 'astra-settings', $theme_options );
 	}
 }

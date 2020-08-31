@@ -1403,9 +1403,24 @@
     {
         "Bitter": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
                 "italic",
-                "700"
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -2951,6 +2966,31 @@
         }
     },
     {
+        "Epilogue": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Erica One": {
             "variants": [
                 "regular"
@@ -3757,6 +3797,22 @@
         }
     },
     {
+        "Grenze Gotisch": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Griffy": {
             "variants": [
                 "regular"
@@ -3880,7 +3936,8 @@
     {
         "Harmattan": {
             "variants": [
-                "regular"
+                "regular",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -3897,9 +3954,11 @@
         "Heebo": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
                 "800",
                 "900"
@@ -6305,7 +6364,7 @@
         }
     },
     {
-        "Muli": {
+        "Mulish": {
             "variants": [
                 "200",
                 "300",
@@ -6325,6 +6384,22 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "MuseoModerno": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -7264,7 +7339,24 @@
     {
         "Petrona": {
             "variants": [
-                "regular"
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -7735,22 +7827,22 @@
         "Raleway": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -7853,6 +7945,20 @@
         }
     },
     {
+        "Recursive": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Red Hat Display": {
             "variants": [
                 "regular",
@@ -7878,6 +7984,16 @@
                 "700italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Red Rose": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
         }
     },
     {
@@ -7988,14 +8104,18 @@
         "Roboto Mono": {
             "variants": [
                 "100",
-                "100italic",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "monospace"
@@ -8098,6 +8218,16 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Rowdies": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
         }
     },
     {
@@ -8615,6 +8745,7 @@
             "variants": [
                 "300",
                 "regular",
+                "500",
                 "600",
                 "700"
             ],
@@ -8795,6 +8926,21 @@
         }
     },
     {
+        "Sora": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Sorts Mill Goudy": {
             "variants": [
                 "regular",
@@ -8846,9 +8992,18 @@
     {
         "Source Serif Pro": {
             "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
                 "regular",
+                "italic",
                 "600",
-                "700"
+                "600italic",
+                "700",
+                "700italic",
+                "900",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -9609,6 +9764,18 @@
         "Varela Round": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Varta": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
