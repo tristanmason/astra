@@ -1230,6 +1230,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_available_plugins() {
 
+			// Return if white labeled.
 			if ( astra_is_white_labelled() ) {
 				return;
 			}
