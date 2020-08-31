@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 				/**
 				 * Deprecating the Filter to change the Google Fonts JSON file path.
 				 *
-				 * @since x.x.x
+				 * @since 2.5.0
 				 * @param string $json_file File where google fonts json format added.
 				 * @return array
 				 */
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 				}
 
 				if ( ( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) === $google_fonts_json_file ) {
-					$google_fonts_arr = include $google_fonts_file;
+					$google_fonts_arr = include $google_fonts_file;// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 				} else {
 					if ( ! file_exists( $google_fonts_json_file ) ) {
 						return array();

@@ -9,7 +9,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -397,7 +397,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 		?>
 		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" role="search" tabindex="-1">
 			<div class="ast-search-icon">
-				<a class="slide-search astra-search-icon" aria-label="Search icon link" href="#">
+				<a class="slide-search astra-search-icon" aria-label="<?php esc_attr_e( 'Search icon link', 'astra' ); ?>" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 				</a>
 			</div>
@@ -634,7 +634,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header 
+		<header
 			<?php
 				echo astra_attr(
 					'header',
@@ -881,11 +881,17 @@ add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
  * As we are replacing tag based selector assets to class selector, adding 'menu-link' selector to all anchors inside menu items.
  * Ex. .main-header-menu a => .main-header-menu .menu-link
  *
- * @since x.x.x
+ * @since 2.5.0
  * @param array $atts   An array of all parameters assigned to menu anchors.
  */
 function astra_menu_anchor_class_for_nav_menus( $atts ) {
-	$atts['class'] = 'menu-link';
+
+	if ( ! empty( $atts['class'] ) ) {
+		$atts['class'] = $atts['class'] . ' menu-link';
+	} else {
+		$atts['class'] = 'menu-link';
+	}
+
 	return $atts;
 }
 
@@ -896,11 +902,17 @@ add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' 
  *
  * As we are replacing tag based selector to class selector, adding 'menu-link' selector to all anchors inside menu items.
  *
- * @since x.x.x
+ * @since 2.5.0
  * @param array $atts   An array of all parameters assigned to menu anchors.
  */
 function astra_menu_anchor_class_for_page_menus( $atts ) {
-	$atts['class'] = 'menu-link';
+
+	if ( ! empty( $atts['class'] ) ) {
+		$atts['class'] = $atts['class'] . ' menu-link';
+	} else {
+		$atts['class'] = 'menu-link';
+	}
+
 	return $atts;
 }
 
