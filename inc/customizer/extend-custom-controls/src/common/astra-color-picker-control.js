@@ -275,13 +275,13 @@ class AstraColorPickerControl extends Component {
 					<img src={ ( media.url ) ? media.url : backgroundImage } width="200" height="200" />
 				}
 				<MediaUpload
-					title={ "Select Background Image"  }
+					title={ __( "Select Background Image", 'astra' )  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
 					allowedTypes={ [ "image" ] }
 					value={ ( undefined !== media && media ? media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ( ! media && ! backgroundImage ) ? "Select Background Image"  : "Replace image"  }
+							{ ( ! media && ! backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
 						</Button>
 					) }
 				/>
@@ -297,45 +297,45 @@ class AstraColorPickerControl extends Component {
 						value={ backgroundPosition }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
 						options={ [
-							{ value: "top left", label:  "Top Left"  },
-							{ value: "top center", label:  "Top Center"  },
-							{ value: "top right", label:  "Top Right"  },
-							{ value: "center left", label:  "Center Left"  },
-							{ value: "center center", label:  "Center Center"  },
-							{ value: "center right", label:  "Center Right"  },
-							{ value: "bottom left", label:  "Bottom Left"  },
-							{ value: "bottom center", label:  "Bottom Center"  },
-							{ value: "bottom right", label:  "Bottom Right"  },
+							{ value: "left top", label:  __( "Left Top", 'astra'  )  },
+							{ value: "left center", label:  __( "Left Center", 'astra'  )  },
+							{ value: "left bottom", label:  __( "Left Bottom", 'astra'  )  },
+							{ value: "right top", label:  __( "Right Top", 'astra'  )  },
+							{ value: "right center", label:  __( "Right Center", 'astra'  )  },
+							{ value: "right bottom", label:  __( "Right Bottom", 'astra'  )  },
+							{ value: "center top", label:  __( "Center Top", 'astra'  )  },
+							{ value: "center center", label:  __( "Center Center", 'astra'  )  },
+							{ value: "center bottom", label:  __( "Center Bottom", 'astra'  )  },
 						] }
 						/>
 						<SelectControl
-						label={ __( "Attachment" ) }
+						label={ __( "Attachment", 'astra' ) }
 						value={ backgroundAttachment }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
 						options={ [
-							{ value: "fixed", label:  "Fixed"  },
-							{ value: "scroll", label:  "Scroll"  }
+							{ value: "fixed", label:  __( "Fixed", 'astra' )  },
+							{ value: "scroll", label:  __( "Scroll", 'astra' )  }
 						] }
 						/>
 						<SelectControl
-						label={ __( "Repeat" ) }
+						label={ __( "Repeat", 'astra' ) }
 						value={ backgroundRepeat }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
 						options={ [
-							{ value: "no-repeat", label:  "No Repeat"  },
-							{ value: "repeat", label:  "Repeat"  },
-							{ value: "repeat-x", label:  "Repeat-x"  },
-							{ value: "repeat-y", label:  "Repeat-y"  }
+							{ value: "no-repeat", label:  __( "No Repeat", 'astra' )  },
+							{ value: "repeat", label:  __( "Repeat All", 'astra' )  },
+							{ value: "repeat-x", label:  __( "Repeat Horizontally", 'astra' )  },
+							{ value: "repeat-y", label:  __( "Repeat Vertically", 'astra' )  }
 						] }
 						/>
 						<SelectControl
-						label={ __( "Size" ) }
+						label={ __( "Size", 'astra' ) }
 						value={ backgroundSize }
 						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
 						options={ [
-							{ value: "auto", label:  "Auto"  },
-							{ value: "cover", label:  "Cover"  },
-							{ value: "contain", label:  "Contain"  }
+							{ value: "auto", label:  __( "Auto", 'astra' )  },
+							{ value: "cover", label:  __( "Cover", 'astra' )  },
+							{ value: "contain", label:  __( "Contain", 'astra' )  }
 						] }
 						/>
 					</>
