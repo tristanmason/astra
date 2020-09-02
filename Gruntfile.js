@@ -465,6 +465,7 @@ module.exports = function (grunt) {
                         src: [
                             'inc/customizer/custom-controls/link/link.js',
                             'inc/customizer/custom-controls/typography/typography.js',
+                            'inc/customizer/custom-controls/typography/selectWoo.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
                     },
