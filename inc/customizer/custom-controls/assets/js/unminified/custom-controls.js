@@ -1391,7 +1391,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
                     switch(counter) {
                         case 0:
-                            li_class = "active";
+                            li_class = 'active';
                             tab_key = 'normal';
                           break;
                         case 1:
@@ -1412,7 +1412,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 _.each( fields.tabs, function ( fields_data, key ) {
                     switch(tabs_counter) {
                         case 0:
-                            li_class = "active";
+                            li_class = 'active';
                             tab_key = 'normal';
                           break;
                         case 1:
