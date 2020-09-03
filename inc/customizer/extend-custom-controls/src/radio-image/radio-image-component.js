@@ -37,6 +37,7 @@ class RadioImageComponent extends Component {
 		let htmlDescription = null;
 		let htmlRadio;
 		var inp_array = [];
+		var splited_values = [];
 
 		if ( label ) {
 
@@ -48,13 +49,16 @@ class RadioImageComponent extends Component {
 			htmlDescription = <span className="description customize-control-description">{ description }</span>;
 		}
 
-		let splited_values = inputAttrs.split( " " );
-		splited_values.map( (item, i ) => {
-			let item_values = item.split( "=" )
-			if ( undefined !== item_values[1] ) {
-				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-			}
-		});
+		if ( inputAttrs && undefined !== inputAttrs ) {
+
+			splited_values = inputAttrs.split( " " );
+			splited_values.map( (item, i ) => {
+				let item_values = item.split( "=" )
+				if ( undefined !== item_values[1] ) {
+					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+			});
+		}
 
 		splited_values = link.split( " " );
 		splited_values.map( (item, i ) => {
