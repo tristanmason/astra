@@ -59,14 +59,16 @@ class RadioImageComponent extends Component {
 				}
 			});
 		}
-
-		splited_values = link.split( " " );
-		splited_values.map( (item, i ) => {
-			let item_values = item.split( "=" )
-			if ( undefined !== item_values[1] ) {
-				inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-			}
-		});
+		if ( link && undefined !== link ) {
+			
+			splited_values = link.split( " " );
+			splited_values.map( (item, i ) => {
+				let item_values = item.split( "=" )
+				if ( undefined !== item_values[1] ) {
+					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+			});
+		}
 
 		htmlRadio = Object.entries( choices ).map( ( [ key, value ] ) => {
 

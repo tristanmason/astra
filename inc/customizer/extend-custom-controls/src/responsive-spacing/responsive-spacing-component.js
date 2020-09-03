@@ -137,22 +137,25 @@ class ResponsiveSpacingComponent extends Component {
 			return html;
 		} );
 
-		respHtml = Object.values( unit_choices ).map( ( unitKey ) => {
+		if ( unit_choices && undefined !== unit_choices ) {
+			
+			respHtml = Object.values( unit_choices ).map( ( unitKey ) => {
 
-			var unitClass = '';
+				var unitClass = '';
 
-			if ( this.state.value[ `${ device }-unit` ] === unitKey ) { 
-				unitClass = 'active';
-			}
+				if ( this.state.value[ `${ device }-unit` ] === unitKey ) { 
+					unitClass = 'active';
+				}
 
-			var html = ( 
-				<li key={ unitKey } className={ `single-unit ${ unitClass }` } onClick = { () => this.onUnitChange( device, unitKey ) } data-unit={ unitKey } >
-					<span className="unit-text">{ unitKey }</span>
-				</li>
-			);
+				var html = ( 
+					<li key={ unitKey } className={ `single-unit ${ unitClass }` } onClick = { () => this.onUnitChange( device, unitKey ) } data-unit={ unitKey } >
+						<span className="unit-text">{ unitKey }</span>
+					</li>
+				);
 
-			return html;
-		} );
+				return html;
+			} );
+		}
 
 		return (
 			<ul key={ device } className={ `ast-spacing-wrapper ${ device } ${ active }` }>
