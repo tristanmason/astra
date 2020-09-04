@@ -176,7 +176,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.4.0
 		 */
 		public static function register_notices() {
-
+			// Return if white labeled.
 			if ( astra_is_white_labelled() ) {
 				return;
 			}
