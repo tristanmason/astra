@@ -1458,11 +1458,6 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-slider .wrapper {
-  position: relative;
-  height: 100%;
-}
-
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2766,6 +2761,10 @@ input[type="text"].select2-search__field {
 
 .ast-responsive-select-container.active {
   display: block;
+}
+
+.customize-control-ast-responsive-slider .wrapper {
+  position: relative;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {

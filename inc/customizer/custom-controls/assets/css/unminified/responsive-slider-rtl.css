@@ -1,3 +1,7 @@
+.customize-control-ast-responsive-slider .wrapper {
+  position: relative;
+}
+
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
