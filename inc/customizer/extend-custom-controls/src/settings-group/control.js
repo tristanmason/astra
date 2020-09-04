@@ -363,6 +363,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		var weightObject        = jQuery.merge( inheritWeightObject, weightObject );
 		var weightValue         = element.val() || '400';
 		var selected = '';
+
 		astraTypo[ 'inherit' ] = currentWeightTitle;
 
 		for ( ; counter < weightObject.length; counter++ ) {
