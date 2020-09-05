@@ -95,8 +95,6 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 				);
 
 				wp_enqueue_script( 'custom-control-react-script', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/index.js', $custom_controls_react_deps, ASTRA_THEME_VERSION, true );
-
-				wp_enqueue_style( 'custom-control-react-style', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/' . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
 			}
 		}
 
