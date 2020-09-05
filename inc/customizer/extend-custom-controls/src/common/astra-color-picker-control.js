@@ -288,7 +288,7 @@ class AstraColorPickerControl extends Component {
 				
 				{ ( media || backgroundImage ) &&
 					<>
-						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
+						<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
 							{  "Remove Image" }
 						</Button> 
 
