@@ -263,7 +263,14 @@
 	.components-popover.astra-popover-color {
 		.components-popover__content {
 			min-width: 320px;
-			min-height: 385px;
+			min-height: 325px;
 		}
 	}
+  .background-wrapper {
+    .components-popover.astra-popover-color {
+      .components-popover__content {
+        min-height: 385px;
+      }
+    }
+  }
 }

@@ -2257,7 +2257,7 @@ input[type="text"].select2-search__field {
   color: #ffffff;
 }
 
-.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
 
@@ -3672,6 +3672,10 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .components-popover.astra-popover-color .components-popover__content {
   min-width: 320px;
+  min-height: 325px;
+}
+
+.ast-field-settings-modal .background-wrapper .components-popover.astra-popover-color .components-popover__content {
   min-height: 385px;
 }
 

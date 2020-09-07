@@ -281,5 +281,9 @@
 
 .ast-field-settings-modal .components-popover.astra-popover-color .components-popover__content {
   min-width: 320px;
+  min-height: 325px;
+}
+
+.ast-field-settings-modal .background-wrapper .components-popover.astra-popover-color .components-popover__content {
   min-height: 385px;
 }
