@@ -1437,6 +1437,122 @@ input[type="text"].select2-search__field {
   min-height: 30px;
 }
 
+/**
+ * BG Media Button.
+ */
+/**
+* Gradient field
+*/
+.components-color-picker__inputs-toggle-wrapper .components-color-picker__inputs-toggle {
+  vertical-align: middle;
+  height: 32px;
+}
+
+.astra-popover-tabs .components-button.upload-button.button-add-media {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: #555d66;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+}
+
+.astra-popover-tabs .components-button.upload-button.button-add-media:hover {
+  color: #555d66;
+  box-sizing: border-box;
+  box-shadow: unset;
+  border-color: #0185ba;
+}
+
+.astra-popover-tabs .components-button.ast-bg-img-remove {
+  color: #0071a1;
+  border: 1px solid #0071a1;
+  background: #f3f5f6;
+  vertical-align: top;
+  margin: 15px 0;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 2.15384615;
+  min-height: 30px;
+  padding: 0 10px;
+}
+
+.astra-popover-tabs button.components-button.ast-bg-img-remove:hover {
+  box-shadow: none;
+  background: #f1f1f1;
+  border-color: #016087;
+  color: #016087;
+}
+
+.astra-popover-tabs button.components-button.ast-bg-img-remove:focus {
+  box-shadow: none;
+  background: #f1f1f1;
+  border-color: #016087;
+  color: #016087;
+}
+
+.astra-popover-tabs button.components-button.ast-bg-img-remove:active {
+  box-shadow: none;
+  background: #f1f1f1;
+  border-color: #016087;
+  color: #016087;
+}
+
+.astra-popover-tabs [ID*="-gradient-view"] {
+  padding: 15px;
+}
+
+.astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
+  flex: unset;
+  box-shadow: unset;
+  min-height: 30px;
+}
+
+.astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
+  box-shadow: unset;
+}
+
+.astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:active {
+  box-shadow: unset;
+}
+
+.astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:focus {
+  box-shadow: unset;
+}
+
+.astra-popover-color .components-circular-option-picker {
+  position: relative;
+}
+
+.astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+
+.astra-popover-color .components-custom-gradient-picker__gradient-bar {
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.astra-popover-color .components-custom-gradient-picker__type-picker .components-base-control__label {
+  display: block;
+}
+
+.components-custom-gradient-picker .components-base-control__label {
+  padding-top: 10px;
+  font-size: 12px;
+  display: block;
+  letter-spacing: 0.1px;
+  line-height: 18px;
+}
+
+[ID*="-gradient-view"] .components-toolbar.components-custom-gradient-picker__toolbar .components-button.has-icon {
+  padding: 0;
+}
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
@@ -2079,6 +2195,77 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control {
   margin-top: 10px;
+}
+
+/**
+ * Popover Tab Structure.
+ */
+.astra-popover-tabs {
+  position: relative;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs {
+  display: flex;
+  padding: 15px;
+  border: none;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item {
+  color: #555d66;
+  font-size: 13px;
+  font-weight: 400;
+  height: 35px;
+  transition: unset;
+  padding: 2px 4px;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item:active {
+  box-shadow: unset;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item:focus {
+  box-shadow: unset;
+}
+
+.astra-popover-tabs [ID*="-image-view"] {
+  padding: 15px;
+  border: none;
+}
+
+.astra-popover-tabs .components-button {
+  align-items: center;
+  flex: 1 1 auto;
+  justify-content: center;
+  margin: 0 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  transition: background-color 140ms linear;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs-item:first-child {
+  border-radius: 0px 3px 3px 0px;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs-item:not(:first-child) {
+  border-right-width: 0;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs-item.active-tab {
+  background-color: #0185BA;
+  color: #ffffff;
+}
+
+.components-popover.astra-popover-color .components-popover__content {
+  min-width: 310px;
+  max-height: 60vh;
+  padding: 0;
+}
+
+.ast-field-settings-modal .components-popover.astra-popover-color .components-popover__content {
+  min-width: 320px;
+  min-height: 385px;
 }
 
 .customize-control-ast-slider .wrapper {
@@ -3467,6 +3654,10 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs .components-tab-panel__tabs-item.active-tab {
   background-color: #0185BA;
   color: #ffffff;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+  color: #fff;
 }
 
 .components-popover.astra-popover-color .components-popover__content {
