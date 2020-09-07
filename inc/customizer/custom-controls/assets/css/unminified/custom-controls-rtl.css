@@ -2257,6 +2257,10 @@ input[type="text"].select2-search__field {
   color: #ffffff;
 }
 
+.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+  color: #fff;
+}
+
 .components-popover.astra-popover-color .components-popover__content {
   min-width: 310px;
   max-height: 60vh;
@@ -3656,7 +3660,7 @@ input[type="text"].select2-search__field {
   color: #ffffff;
 }
 
-.astra-popover-tabs .components-tab-panel__tabs .components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
 

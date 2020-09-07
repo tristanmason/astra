@@ -248,7 +248,7 @@
 		background-color: #0185BA;
 		color: #ffffff;
   }
-  .components-tab-panel__tabs .components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+  .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
     color: #fff;
   }
 }
