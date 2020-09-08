@@ -42,11 +42,19 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		'use strict';
 
 		var control = this,
+		choices = control.params.choices,
 		newValue = [];
-
+		
 		this.sortableContainer.find( 'li' ).each( function() {
 			if ( ! jQuery( this ).is( '.invisible' ) ) {
 				newValue.push( jQuery( this ).data( 'value' ) );
+			}
+		});
+		
+		jQuery.each( newValue, function( index, value ){
+			
+			if ( ! choices.hasOwnProperty( value ) ) {
+				newValue.splice( newValue.indexOf( value ), 1 );
 			}
 		});
 
