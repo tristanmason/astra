@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $menu_page_title
 		 */
-		public static $menu_page_title = 'Astra Theme';
+		public static $menu_page_title;
 
 		/**
 		 * Page title
