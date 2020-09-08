@@ -260,6 +260,10 @@
   border-radius: 3px 0px 0px 3px;
 }
 
+.astra-popover-tabs .components-tab-panel__tabs-item:last-child {
+  border-radius: 0px 3px 3px 0px;
+}
+
 .astra-popover-tabs .components-tab-panel__tabs-item:not(:first-child) {
   border-left-width: 0;
 }

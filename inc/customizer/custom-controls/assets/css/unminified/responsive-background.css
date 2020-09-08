@@ -164,7 +164,6 @@
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
   flex: unset;
   box-shadow: unset;
-  min-height: 30px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
@@ -181,11 +180,16 @@
 
 .astra-popover-color .components-circular-option-picker {
   position: relative;
+  margin-top: 0;
 }
 
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 10px;
   justify-content: flex-start;
+}
+
+.astra-popover-color .components-custom-gradient-picker {
+  margin-top: 0;
 }
 
 .astra-popover-color .components-custom-gradient-picker__gradient-bar {
@@ -207,4 +211,10 @@
 
 [ID*="-gradient-view"] .components-toolbar.components-custom-gradient-picker__toolbar .components-button.has-icon {
   padding: 0;
+  min-width: 30px;
+  height: 30px;
+}
+
+.media-position-setting.hide-settings {
+  display: none;
 }

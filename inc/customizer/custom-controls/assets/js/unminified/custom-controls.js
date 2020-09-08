@@ -10367,6 +10367,31 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
       this.props.onChangeImageOptions(mainkey, value, 'image');
     }
   }, {
+    key: "toggleMoreSettings",
+    value: function toggleMoreSettings() {
+      var parent = event.target.parentElement.parentElement;
+      var trigger = parent.querySelector('.more-settings');
+      var wrapper = parent.querySelector('.media-position-setting');
+      var dataDirection = trigger.dataset.direction;
+      var dataId = trigger.dataset.id;
+
+      if ('down' === dataDirection) {
+        trigger.setAttribute('data-direction', 'up');
+        parent.querySelector('.message').innerHTML = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])("Less Settings");
+        parent.querySelector('.icon').innerHTML = '↑';
+      } else {
+        trigger.setAttribute('data-direction', 'down');
+        parent.querySelector('.message').innerHTML = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])("More Settings");
+        parent.querySelector('.icon').innerHTML = '↓';
+      }
+
+      if (wrapper.classList.contains('hide-settings')) {
+        wrapper.classList.remove('hide-settings');
+      } else {
+        wrapper.classList.add('hide-settings');
+      }
+    }
+  }, {
     key: "renderImageSettings",
     value: function renderImageSettings() {
       var _this3 = this;
@@ -10404,8 +10429,20 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         onClick: this.onRemoveImage,
         isLink: true,
         isDestructive: true
-      }, "Remove Image"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["SelectControl"], {
-        label: "Image Position",
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])("Remove Image")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("a", {
+        href: "#",
+        className: "more-settings",
+        onClick: this.toggleMoreSettings,
+        "data-direction": "down",
+        "data-id": "desktop"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", {
+        className: "message"
+      }, " ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])("More Settings"), " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", {
+        className: "icon"
+      }, " \u2193 ")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
+        className: "media-position-setting hide-settings"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])("Image Position"),
         value: backgroundPosition,
         onChange: function onChange(value) {
           return _this3.onChangeImageOptions('backgroundPosition', 'background-position', value);
@@ -10486,7 +10523,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
           value: "contain",
           label: "Contain"
         }]
-      })));
+      }))));
     }
   }]);
 

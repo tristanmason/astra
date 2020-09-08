@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
+import { Popover, Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 class AstraColorPickerControl extends Component {
@@ -257,6 +257,32 @@ class AstraColorPickerControl extends Component {
 		this.props.onChangeImageOptions( mainkey, value, 'image' );
 	}
 
+	toggleMoreSettings() {
+
+		let parent = event.target.parentElement.parentElement;
+		let trigger = parent.querySelector( '.more-settings' );
+		let wrapper = parent.querySelector( '.media-position-setting' );
+
+		var dataDirection = trigger.dataset.direction;
+		let dataId = trigger.dataset.id;
+
+		if( 'down' === dataDirection ) {
+			trigger.setAttribute( 'data-direction', 'up' );
+			parent.querySelector('.message').innerHTML = __( "Less Settings" );
+			parent.querySelector('.icon').innerHTML = '↑';
+		} else {
+			trigger.setAttribute( 'data-direction', 'down' );
+			parent.querySelector('.message').innerHTML = __( "More Settings" );
+			parent.querySelector('.icon').innerHTML = '↓';
+		}
+
+		if ( wrapper.classList.contains( 'hide-settings' ) ) {
+			wrapper.classList.remove( 'hide-settings' );
+		} else {
+			wrapper.classList.add( 'hide-settings' );
+		}
+	}
+
 	renderImageSettings() {
 		
 		const {
@@ -285,59 +311,66 @@ class AstraColorPickerControl extends Component {
 						</Button>
 					) }
 				/>
-				
+
 				{ ( media || backgroundImage ) &&
 					<>
 						<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
-							{  "Remove Image" }
-						</Button> 
+							{ __( "Remove Image" ) }
+						</Button>
 
-						<SelectControl
-						label={  "Image Position"  }
-						value={ backgroundPosition }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
-						options={ [
-							{ value: "top-left", label:  "Top Left"  },
-							{ value: "top-center", label:  "Top Center"  },
-							{ value: "top-right", label:  "Top Right"  },
-							{ value: "center-left", label:  "Center Left"  },
-							{ value: "center-center", label:  "Center Center"  },
-							{ value: "center-right", label:  "Center Right"  },
-							{ value: "bottom-left", label:  "Bottom Left"  },
-							{ value: "bottom-center", label:  "Bottom Center"  },
-							{ value: "bottom-right", label:  "Bottom Right"  },
-						] }
-						/>
-						<SelectControl
-						label={ __( "Attachment" ) }
-						value={ backgroundAttachment }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
-						options={ [
-							{ value: "fixed", label:  "Fixed"  },
-							{ value: "scroll", label:  "Scroll"  }
-						] }
-						/>
-						<SelectControl
-						label={ __( "Repeat" ) }
-						value={ backgroundRepeat }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
-						options={ [
-							{ value: "no-repeat", label:  "No Repeat"  },
-							{ value: "repeat", label:  "Repeat"  },
-							{ value: "repeat-x", label:  "Repeat-x"  },
-							{ value: "repeat-y", label:  "Repeat-y"  }
-						] }
-						/>
-						<SelectControl
-						label={ __( "Size" ) }
-						value={ backgroundSize }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
-						options={ [
-							{ value: "auto", label:  "Auto"  },
-							{ value: "cover", label:  "Cover"  },
-							{ value: "contain", label:  "Contain"  }
-						] }
-						/>
+						<a href="#" className="more-settings" onClick={ this.toggleMoreSettings } data-direction="down" data-id="desktop">
+							<span className="message"> { __( "More Settings" ) } </span>
+							<span className="icon"> ↓ </span>
+						</a>
+
+						<div className="media-position-setting hide-settings">
+							<SelectControl
+							label={ __( "Image Position" ) }
+							value={ backgroundPosition }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
+							options={ [
+								{ value: "top-left", label:  "Top Left"  },
+								{ value: "top-center", label:  "Top Center"  },
+								{ value: "top-right", label:  "Top Right"  },
+								{ value: "center-left", label:  "Center Left"  },
+								{ value: "center-center", label:  "Center Center"  },
+								{ value: "center-right", label:  "Center Right"  },
+								{ value: "bottom-left", label:  "Bottom Left"  },
+								{ value: "bottom-center", label:  "Bottom Center"  },
+								{ value: "bottom-right", label:  "Bottom Right"  },
+							] }
+							/>
+							<SelectControl
+							label={ __( "Attachment" ) }
+							value={ backgroundAttachment }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
+							options={ [
+								{ value: "fixed", label:  "Fixed"  },
+								{ value: "scroll", label:  "Scroll"  }
+							] }
+							/>
+							<SelectControl
+							label={ __( "Repeat" ) }
+							value={ backgroundRepeat }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
+							options={ [
+								{ value: "no-repeat", label:  "No Repeat"  },
+								{ value: "repeat", label:  "Repeat"  },
+								{ value: "repeat-x", label:  "Repeat-x"  },
+								{ value: "repeat-y", label:  "Repeat-y"  }
+							] }
+							/>
+							<SelectControl
+							label={ __( "Size" ) }
+							value={ backgroundSize }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
+							options={ [
+								{ value: "auto", label:  "Auto"  },
+								{ value: "cover", label:  "Cover"  },
+								{ value: "contain", label:  "Contain"  }
+							] }
+							/>
+						</div>
 					</>
 				} 
 			</>

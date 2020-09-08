@@ -976,7 +976,6 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
   flex: unset;
   box-shadow: unset;
-  min-height: 30px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
@@ -993,11 +992,16 @@ input[type="text"].select2-search__field {
 
 .astra-popover-color .components-circular-option-picker {
   position: relative;
+  margin-top: 0;
 }
 
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 10px;
   justify-content: flex-start;
+}
+
+.astra-popover-color .components-custom-gradient-picker {
+  margin-top: 0;
 }
 
 .astra-popover-color .components-custom-gradient-picker__gradient-bar {
@@ -1019,6 +1023,12 @@ input[type="text"].select2-search__field {
 
 [ID*="-gradient-view"] .components-toolbar.components-custom-gradient-picker__toolbar .components-button.has-icon {
   padding: 0;
+  min-width: 30px;
+  height: 30px;
+}
+
+.media-position-setting.hide-settings {
+  display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
@@ -1714,6 +1724,10 @@ input[type="text"].select2-search__field {
 
 .astra-popover-tabs .components-tab-panel__tabs-item:first-child {
   border-radius: 3px 0px 0px 3px;
+}
+
+.astra-popover-tabs .components-tab-panel__tabs-item:last-child {
+  border-radius: 0px 3px 3px 0px;
 }
 
 .astra-popover-tabs .components-tab-panel__tabs-item:not(:first-child) {

@@ -239,6 +239,9 @@
 	.components-tab-panel__tabs-item {
 		&:first-child {
 			border-radius: 3px 0px 0px 3px;
+    }
+    &:last-child {
+			border-radius: 0px 3px 3px 0px;
 		}
 		&:not(:first-child) {
 			border-left-width: 0;
