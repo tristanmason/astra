@@ -74,8 +74,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-astra-wp-async-request.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-astra-wp-background-process.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-wp-background-process-astra-theme.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			self::$background_updater = new WP_Background_Process_Astra_Theme();

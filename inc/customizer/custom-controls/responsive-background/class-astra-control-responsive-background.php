@@ -152,12 +152,12 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 											<div class="placeholder" ><?php esc_html_e( 'No Image Selected', 'astra' ); ?></div>
 										<# } #>
 										<div class="actions">
-											<button data-name="{{ data.name }}" class="button background-image-upload-remove-button<# if ( ! data.value['desktop']['background-image'] ) { #> hidden <# } #>" data-id='desktop' ><?php esc_html_e( 'Remove', 'astra' ); ?></button>
-											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button"  data-id='desktop' ><?php esc_html_e( 'Select Image', 'astra' ); ?></button>
+											<button data-name="{{ data.name }}" class="button background-image-upload-remove-button<# if ( ! data.value['desktop']['background-image'] ) { #> hidden <# } #>" data-id='desktop' ><?php esc_attr_e( 'Remove', 'astra' ); ?></button>
+											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button"  data-id='desktop' ><?php esc_attr_e( 'Select Image', 'astra' ); ?></button>
 											<# if ( data.value['desktop']['background-image'] ) { #>
-												<a href="#" class="more-settings" data-direction="up" data-id='desktop' ><span class="message"><?php esc_html_e( 'Less Settings', 'astra' ); ?></span> <span class="icon">&uarr;</span></a>
+												<a href="<?php echo esc_url( '#' ); ?>" class="more-settings" data-direction="up" data-id='desktop' ><span class="message"><?php esc_html_e( 'Less Settings', 'astra' ); ?></span> <span class="icon">&uarr;</span></a>
 											<# } else { #>
-												<a href="#" class="more-settings" data-direction="down" data-id='desktop' ><span class="message"><?php esc_html_e( 'More Settings', 'astra' ); ?></span> <span class="icon">&darr;</span></a>
+												<a href="<?php echo esc_url( '#' ); ?>" class="more-settings" data-direction="down" data-id='desktop' ><span class="message"><?php esc_html_e( 'More Settings', 'astra' ); ?></span> <span class="icon">&darr;</span></a>
 											<# } #>
 										</div>
 									</div>
@@ -239,12 +239,12 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 											<div class="placeholder"><?php esc_html_e( 'No Image Selected', 'astra' ); ?></div>
 										<# } #>
 										<div class="actions">
-											<button data-name="{{ data.name }}" data-id="tablet" class="button background-image-upload-remove-button<# if ( ! data.value['tablet']['background-image'] ) { #> hidden <# } #>" data-id='tablet' ><?php esc_html_e( 'Remove', 'astra' ); ?></button>
-											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button" data-id='tablet' ><?php esc_html_e( 'Select Image', 'astra' ); ?></button>
+											<button data-name="{{ data.name }}" data-id="tablet" class="button background-image-upload-remove-button<# if ( ! data.value['tablet']['background-image'] ) { #> hidden <# } #>" data-id='tablet' ><?php esc_attr_e( 'Remove', 'astra' ); ?></button>
+											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button" data-id='tablet' ><?php esc_attr_e( 'Select Image', 'astra' ); ?></button>
 											<# if ( data.value['tablet']['background-image'] ) { #>
-												<a href="#" class="more-settings" data-direction="up" data-id='tablet'><span class="message"><?php esc_html_e( 'Less Settings', 'astra' ); ?></span> <span class="icon">&uarr;</span></a>
+												<a href="<?php echo esc_url( '#' ); ?>" class="more-settings" data-direction="up" data-id='tablet'><span class="message"><?php esc_html_e( 'Less Settings', 'astra' ); ?></span> <span class="icon">&uarr;</span></a>
 											<# } else { #>
-												<a href="#" class="more-settings" data-direction="down" data-id='tablet'><span class="message"><?php esc_html_e( 'More Settings', 'astra' ); ?></span> <span class="icon">&darr;</span></a>
+												<a href="<?php echo esc_url( '#' ); ?>" class="more-settings" data-direction="down" data-id='tablet'><span class="message"><?php esc_html_e( 'More Settings', 'astra' ); ?></span> <span class="icon">&darr;</span></a>
 											<# } #>
 										</div>
 									</div>
@@ -326,12 +326,12 @@ if ( ! class_exists( 'Astra_Control_Responsive_Background' ) && class_exists( 'W
 											<div class="placeholder"><?php esc_html_e( 'No Image Selected', 'astra' ); ?></div>
 										<# } #>
 										<div class="actions">
-											<button data-name="{{ data.name }}" data-id="mobile" class="button background-image-upload-remove-button<# if ( ! data.value['mobile']['background-image'] ) { #> hidden <# } #>" data-id='mobile' ><?php esc_html_e( 'Remove', 'astra' ); ?></button>
-											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button" data-id='mobile' ><?php esc_html_e( 'Select Image', 'astra' ); ?></button>
+											<button data-name="{{ data.name }}" data-id="mobile" class="button background-image-upload-remove-button<# if ( ! data.value['mobile']['background-image'] ) { #> hidden <# } #>" data-id='mobile' ><?php esc_attr_e( 'Remove', 'astra' ); ?></button>
+											<button type="button" data-name="{{ data.name }}" class="button background-image-upload-button" data-id='mobile' ><?php esc_attr_e( 'Select Image', 'astra' ); ?></button>
 											<# if ( data.value['mobile']['background-image'] ) { #>
-												<a href="#" class="more-settings" data-direction="up" data-id='mobile'><span class="message"><?php esc_html_e( 'Less Settings', 'astra' ); ?></span> <span class="icon">&uarr;</span></a>
+												<a href="<?php echo esc_url( '#' ); ?>" class="more-settings" data-direction="up" data-id='mobile'><span class="message"><?php esc_html_e( 'Less Settings', 'astra' ); ?></span> <span class="icon">&uarr;</span></a>
 											<# } else { #>
-												<a href="#" class="more-settings" data-direction="down" data-id='mobile'><span class="message"><?php esc_html_e( 'More Settings', 'astra' ); ?></span> <span class="icon">&darr;</span></a>
+												<a href="<?php echo esc_url( '#' ); ?>" class="more-settings" data-direction="down" data-id='mobile'><span class="message"><?php esc_html_e( 'More Settings', 'astra' ); ?></span> <span class="icon">&darr;</span></a>
 											<# } #>
 										</div>
 									</div>
