@@ -50,8 +50,8 @@ export const sortableControl = wp.customize.astraControl.extend( {
 				newValue.push( jQuery( this ).data( 'value' ) );
 			}
 		});
-		
-		jQuery.each( newValue, function( index, value ){
+
+		jQuery.each( newValue, function( index, value ) {
 			
 			if ( ! choices.hasOwnProperty( value ) ) {
 				newValue.splice( newValue.indexOf( value ), 1 );

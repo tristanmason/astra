@@ -16,7 +16,13 @@ class RadioImageComponent extends Component {
 	}
 
 	onLayoutChange() {
+		
+		if ( ! this.props.control.params.choices.hasOwnProperty( event.target.value ) ) {
+			event.target.value = this.props.control.params.default;
+		}
+
 		this.setState( { value : event.target.value } );
+
 		this.props.control.setting.set( event.target.value );
 	}
 
