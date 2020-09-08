@@ -104,23 +104,36 @@ class SliderComponent extends Component {
 
 		if ( inputAttrs && undefined !== inputAttrs && '' !== inputAttrs ) {
 
-			if( undefined !== inputAttrs['max'] && '' !== inputAttrs['max'] && updateState > inputAttrs['max'] ) {
+			let splited_values = inputAttrs.split( " " );
+			let input_attrs = [];
+			splited_values.map( (item, i ) => {
 
-				updateState = inputAttrs['max']
-			}
+				let item_values = item.split( "=" )
 
-			if( undefined !== inputAttrs['min'] && '' !== inputAttrs['min'] && updateState < inputAttrs['min'] ) {
+				if ( undefined !== item_values[1] ) {
+
+					input_attrs[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
 				
-				updateState = inputAttrs['min']
+			});
+
+			if( undefined !== input_attrs['max'] && '' !== input_attrs['max'] && updateState > input_attrs['max'] ) {
+
+				updateState = input_attrs['max']
 			}
 
-			if( undefined !== inputAttrs['step'] && '' !== inputAttrs['step'] ) {
+			if( undefined !== input_attrs['min'] && '' !== input_attrs['min'] && updateState < input_attrs['min'] ) {
+				
+				updateState = input_attrs['min']
+			}
 
-				temp = updateState / inputAttrs['step'];
+			if( undefined !== input_attrs['step'] && '' !== input_attrs['step'] ) {
+
+				let temp = updateState / input_attrs['step'];
 
 				temp = Math.round( temp );
 
-				updateState = temp * inputAttrs['step']
+				updateState = temp * input_attrs['step']
 			}
 		}
 
