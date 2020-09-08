@@ -1250,14 +1250,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				array(
 					'astra-import-export'           =>
 						array(
-							'plugin-name'        => 'Import / Export Customizer Settings',
+							'plugin-name'        => __( 'Import / Export Customizer Settings', 'astra' ),
 							'plugin-init'        => 'astra-import-export/astra-import-export.php',
 							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
 					'reset-astra-customizer'        =>
 						array(
-							'plugin-name'        => 'Astra Customizer Reset',
+							'plugin-name'        => __( 'Astra Customizer Reset', 'astra' ),
 							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
 							'settings-link'      => admin_url( 'customize.php' ),
 							'settings-link-text' => 'Settings',
@@ -1265,7 +1265,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'customizer-search'             =>
 					array(
-						'plugin-name'        => 'Customizer Search',
+						'plugin-name'        => __( 'Customizer Search', 'astra' ),
 						'plugin-init'        => 'customizer-search/customizer-search.php',
 						'settings-link'      => admin_url( 'customize.php' ),
 						'settings-link-text' => 'Settings',
@@ -1273,7 +1273,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'astra-bulk-edit'               =>
 					array(
-						'plugin-name'        => 'Astra Bulk Edit',
+						'plugin-name'        => __( 'Astra Bulk Edit', 'astra' ),
 						'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
 						'settings-link'      => '',
 						'settings-link-text' => 'Settings',
@@ -1281,7 +1281,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'astra-widgets'                 =>
 					array(
-						'plugin-name'        => 'Astra Widgets',
+						'plugin-name'        => __( 'Astra Widgets', 'astra' ),
 						'plugin-init'        => 'astra-widgets/astra-widgets.php',
 						'settings-link'      => admin_url( 'widgets.php' ),
 						'settings-link-text' => 'Settings',
@@ -1289,7 +1289,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'custom-fonts'                  =>
 					array(
-						'plugin-name'        => 'Custom Fonts',
+						'plugin-name'        => __( 'Custom Fonts', 'astra' ),
 						'plugin-init'        => 'custom-fonts/custom-fonts.php',
 						'settings-link'      => admin_url( 'edit-tags.php?taxonomy=bsf_custom_fonts' ),
 						'settings-link-text' => 'Settings',
@@ -1297,7 +1297,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'custom-typekit-fonts'          =>
 						array(
-							'plugin-name'        => 'Custom Typekit Fonts',
+							'plugin-name'        => __( 'Custom Typekit Fonts', 'astra' ),
 							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
 							'settings-link'      => admin_url( 'themes.php?page=custom-typekit-fonts' ),
 							'settings-link-text' => 'Settings',
@@ -1305,7 +1305,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'sidebar-manager'               =>
 					array(
-						'plugin-name'        => 'Sidebar Manager',
+						'plugin-name'        => __( 'Sidebar Manager', 'astra' ),
 						'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
 						'settings-link'      => admin_url( 'edit.php?post_type=bsf-sidebar' ),
 						'settings-link-text' => 'Settings',
@@ -1313,7 +1313,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'ultimate-addons-for-gutenberg' =>
 						array(
-							'plugin-name'        => 'Ultimate Addons for Gutenberg',
+							'plugin-name'        => __( 'Ultimate Addons for Gutenberg', 'astra' ),
 							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
 							'settings-link'      => admin_url( 'options-general.php?page=uag' ),
 							'settings-link-text' => 'Settings',
