@@ -1,15 +1,16 @@
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
+import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 class AstraColorPickerControl extends Component {
 
 	constructor( props ) {
-		
+
 		super( props );
 		this.onChangeComplete = this.onChangeComplete.bind( this );
+		this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind( this );
 		this.onChangeGradientComplete = this.onChangeGradientComplete.bind( this );
 		this.renderImageSettings = this.renderImageSettings.bind( this );
 		this.onRemoveImage = this.onRemoveImage.bind( this );
@@ -67,18 +68,18 @@ class AstraColorPickerControl extends Component {
 				if ( isVisible === true ) {
 					this.setState( { isVisible: false } );
 				}
-			} 
+			}
 		};
-		
+
         const showingGradient = ( allowGradient && supportGradient ? true : false );
-        
+
         let tabs = [
             {
                 name: 'color',
                 title: __( 'Color', 'astra' ),
                 className: 'astra-color-background',
             },
-            
+
         ];
 
         if ( showingGradient ) {
@@ -91,7 +92,7 @@ class AstraColorPickerControl extends Component {
 
             tabs.push( gradientTab )
 		}
-		
+
         if ( allowImage ) {
 
             let imageTab = {
@@ -101,15 +102,28 @@ class AstraColorPickerControl extends Component {
             };
 
             tabs.push( imageTab )
-        }
+		}
+
+		let finalpaletteColors = [];
+		let count = 0;
+
+		const defaultColorPalette = [...astColorPalette.colors];
+
+		defaultColorPalette.forEach( singleColor => {
+			let paletteColors = {};
+			Object.assign( paletteColors, { name: count + '_' + singleColor } );
+			Object.assign( paletteColors, { color: singleColor } );
+			finalpaletteColors.push(paletteColors);
+			count ++;
+		});
 
 		return (
 			<div className="astra-color-picker-wrap">
-				
+
                 <>
                     { isVisible && (
                         <Popover position="top left" className="astra-popover-color" onClose={ toggleClose }>
-							{ 1 < tabs.length && 
+							{ 1 < tabs.length &&
 								<TabPanel className="astra-popover-tabs astra-background-tabs"
 									activeClass="active-tab"
 									initialTabName={ backgroundType }
@@ -117,7 +131,7 @@ class AstraColorPickerControl extends Component {
 									{
 										( tab ) => {
 											let tabout;
-											
+
 											if ( tab.name ) {
 												if ( 'gradient' === tab.name ) {
 													tabout = (
@@ -149,7 +163,7 @@ class AstraColorPickerControl extends Component {
 																		color={ color }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
-																	
+
 																</>
 															) }
 														</>
@@ -167,7 +181,7 @@ class AstraColorPickerControl extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ color }
+												color={ this.state.color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
@@ -175,14 +189,22 @@ class AstraColorPickerControl extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ color }
+												color={ this.state.color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
-											
+
 										</>
 									) }
 								</>
 							}
+							<ColorPalette
+								colors={ finalpaletteColors }
+								value={ color }
+								clearable={ false }
+								disableCustomColors={ true }
+								className="ast-color-palette"
+								onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+							/>
                         </Popover>
                     ) }
                 </>
@@ -230,6 +252,19 @@ class AstraColorPickerControl extends Component {
 		this.props.onChangeComplete( color, 'color' );
 	}
 
+	onPaletteChangeComplete( color ) {
+
+		let newColor;
+		if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
+			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
+		} else {
+			newColor = color.hex;
+		}
+		this.setState( { color: newColor } );
+		this.setState( { backgroundType: 'color' } );
+		this.props.onChangeComplete( color, 'color' );
+	}
+
 	onSelectImage( media ) {
 
 		this.setState( { modalCanClose: true } );
@@ -251,14 +286,14 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onChangeImageOptions( tempKey, mainkey, value ) {
-		
+
 		this.setState( { [tempKey]: value } );
 		this.setState( { backgroundType: 'image' } );
 		this.props.onChangeImageOptions( mainkey, value, 'image' );
 	}
 
 	renderImageSettings() {
-		
+
 		const {
 			media,
 			backgroundImage,
@@ -268,7 +303,7 @@ class AstraColorPickerControl extends Component {
 			backgroundSize
 		} = this.state
 
-		return ( 
+		return (
 			<>
 				{ ( media.url || backgroundImage ) &&
 
@@ -285,12 +320,12 @@ class AstraColorPickerControl extends Component {
 						</Button>
 					) }
 				/>
-				
+
 				{ ( media || backgroundImage ) &&
 					<>
 						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
 							{  "Remove Image" }
-						</Button> 
+						</Button>
 
 						<SelectControl
 						label={  "Image Position"  }
@@ -339,7 +374,7 @@ class AstraColorPickerControl extends Component {
 						] }
 						/>
 					</>
-				} 
+				}
 			</>
 		)
 	}
@@ -352,6 +387,7 @@ AstraColorPickerControl.propTypes = {
 	palette: PropTypes.string,
 	presetColors: PropTypes.object,
 	onChangeComplete: PropTypes.func,
+	onPaletteChangeComplete: PropTypes.func,
 	onChange: PropTypes.func,
 	customizer: PropTypes.object
 };
