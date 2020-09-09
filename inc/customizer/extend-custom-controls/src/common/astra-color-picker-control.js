@@ -166,6 +166,14 @@ class AstraColorPickerControl extends Component {
 
 																</>
 															) }
+															<ColorPalette
+																colors={ finalpaletteColors }
+																value={ color }
+																clearable={ false }
+																disableCustomColors={ true }
+																className="ast-color-palette"
+																onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+															/>
 														</>
 													);
 												}
@@ -195,16 +203,17 @@ class AstraColorPickerControl extends Component {
 
 										</>
 									) }
+
+									<ColorPalette
+										colors={ finalpaletteColors }
+										value={ color }
+										clearable={ false }
+										disableCustomColors={ true }
+										className="ast-color-palette"
+										onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+									/>
 								</>
 							}
-							<ColorPalette
-								colors={ finalpaletteColors }
-								value={ color }
-								clearable={ false }
-								disableCustomColors={ true }
-								className="ast-color-palette"
-								onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-							/>
                         </Popover>
                     ) }
                 </>
