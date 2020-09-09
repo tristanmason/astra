@@ -42,7 +42,7 @@ class Astra_Control_Heading extends WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['label']       = esc_html( $this->label );
+		$this->json['label']       = $this->label;
 		$this->json['caption']     = $this->caption;
 		$this->json['description'] = $this->description;
 	}
