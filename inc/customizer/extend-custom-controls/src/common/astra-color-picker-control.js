@@ -181,7 +181,7 @@ class AstraColorPickerControl extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ this.state.color }
+												color={ color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
@@ -189,7 +189,7 @@ class AstraColorPickerControl extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ this.state.color }
+												color={ color }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 
@@ -253,15 +253,7 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onPaletteChangeComplete( color ) {
-
-		let newColor;
-		if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
-			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
-		} else {
-			newColor = color.hex;
-		}
-		this.setState( { color: newColor } );
-		this.setState( { backgroundType: 'color' } );
+		this.setState( { color: color } );
 		this.props.onChangeComplete( color, 'color' );
 	}
 

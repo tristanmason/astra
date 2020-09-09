@@ -10060,12 +10060,12 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", null, tabout);
       }), 1 === tabs.length && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["ColorPicker"], {
-        color: this.state.color,
+        color: color,
         onChangeComplete: function onChangeComplete(color) {
           return _this2.onChangeComplete(color);
         }
       })), !refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["ColorPicker"], {
-        color: this.state.color,
+        color: color,
         onChangeComplete: function onChangeComplete(color) {
           return _this2.onChangeComplete(color);
         }
@@ -10136,19 +10136,8 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
   }, {
     key: "onPaletteChangeComplete",
     value: function onPaletteChangeComplete(color) {
-      var newColor;
-
-      if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-        newColor = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
-      } else {
-        newColor = color.hex;
-      }
-
       this.setState({
-        color: newColor
-      });
-      this.setState({
-        backgroundType: 'color'
+        color: color
       });
       this.props.onChangeComplete(color, 'color');
     }
