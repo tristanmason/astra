@@ -254,6 +254,11 @@ class AstraColorPickerControl extends Component {
 
 	onPaletteChangeComplete( color ) {
 		this.setState( { color: color } );
+		if ( this.state.refresh === true ) {
+			this.setState( { refresh: false } );
+		} else {
+			this.setState( { refresh: true } );
+		}
 		this.props.onChangeComplete( color, 'color' );
 	}
 

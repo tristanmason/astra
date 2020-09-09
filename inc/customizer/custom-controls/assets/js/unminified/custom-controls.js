@@ -10196,6 +10196,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.onChangeComplete = _this.onChangeComplete.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
+    _this.onPaletteChangeComplete = _this.onPaletteChangeComplete.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.onChangeGradientComplete = _this.onChangeGradientComplete.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.renderImageSettings = _this.renderImageSettings.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.onRemoveImage = _this.onRemoveImage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
@@ -10362,7 +10363,10 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         value: color,
         clearable: false,
         disableCustomColors: true,
-        className: "ast-color-palette"
+        className: "ast-color-palette",
+        onChange: function onChange(color) {
+          return _this2.onPaletteChangeComplete(color);
+        }
       }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "color-button-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Button"], {
@@ -10416,6 +10420,25 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
       this.setState({
         backgroundType: 'color'
       });
+      this.props.onChangeComplete(color, 'color');
+    }
+  }, {
+    key: "onPaletteChangeComplete",
+    value: function onPaletteChangeComplete(color) {
+      this.setState({
+        color: color
+      });
+
+      if (this.state.refresh === true) {
+        this.setState({
+          refresh: false
+        });
+      } else {
+        this.setState({
+          refresh: true
+        });
+      }
+
       this.props.onChangeComplete(color, 'color');
     }
   }, {
@@ -10594,6 +10617,7 @@ AstraColorPickerControl.propTypes = {
   palette: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.string,
   presetColors: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object,
   onChangeComplete: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func,
+  onPaletteChangeComplete: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func,
   onChange: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func,
   customizer: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object
 };

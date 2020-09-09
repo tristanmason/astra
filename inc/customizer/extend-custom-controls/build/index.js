@@ -10139,6 +10139,17 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
       this.setState({
         color: color
       });
+
+      if (this.state.refresh === true) {
+        this.setState({
+          refresh: false
+        });
+      } else {
+        this.setState({
+          refresh: true
+        });
+      }
+
       this.props.onChangeComplete(color, 'color');
     }
   }, {
