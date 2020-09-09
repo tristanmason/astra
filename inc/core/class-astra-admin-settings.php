@@ -1184,9 +1184,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
-			<!-- Notice for Older version of Astra Addon -->
-			<?php self::min_addon_version_message(); ?>
-
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					<?php do_action( 'astra_addon_bulk_action' ); ?>
@@ -1549,41 +1546,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				)
 			);
 
-		}
-
-		/**
-		 * Check compatible theme version.
-		 *
-		 * @since 1.2.4
-		 */
-		public static function min_addon_version_message() {
-
-			$astra_global_options = get_option( 'astra-settings' );
-
-			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
-
-				if ( version_compare( $astra_global_options['astra-addon-auto-version'], '1.2.1' ) < 0 ) {
-
-					// If addon is not updated & White Label for Addon is added then show the white labelewd pro name.
-					$astra_addon_name        = astra_get_addon_name();
-					$update_astra_addon_link = astra_get_pro_url( 'https://wpastra.com/?p=25258', 'astra-dashboard', 'update-to-astra-pro', 'welcome-page' );
-					if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-						$plugin_data = Astra_Ext_White_Label_Markup::$branding;
-						if ( ! empty( $plugin_data['astra-pro']['name'] ) ) {
-							$update_astra_addon_link = '';
-						}
-					}
-
-					$class   = 'ast-notice ast-notice-error';
-					$message = sprintf(
-						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
-						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ),
-						( ! empty( $update_astra_addon_link ) ) ? '<a href=' . esc_url( $update_astra_addon_link ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>' : $astra_addon_name
-					);
-
-					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
-				}
-			}
 		}
 
 		/**
