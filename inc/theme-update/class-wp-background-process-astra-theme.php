@@ -6,14 +6,14 @@
  * @since 2.1.3
  */
 
-if ( class_exists( 'WP_Background_Process' ) ) :
+if ( class_exists( 'Astra_WP_Background_Process' ) ) :
 
 	/**
 	 * Database Background Process
 	 *
 	 * @since 2.1.3
 	 */
-	class WP_Background_Process_Astra_Theme extends WP_Background_Process {
+	class WP_Background_Process_Astra_Theme extends Astra_WP_Background_Process {
 
 		/**
 		 * Database Process
