@@ -183,54 +183,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 			}
 
-			if ( false === get_option( 'astra-theme-old-setup' ) ) {
-				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
-				update_option( 'astra-theme-old-setup', true );
-			} elseif ( false === get_transient( 'astra-theme-first-rating' ) && current_user_can( 'install_plugins' ) ) {
-				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-				Astra_Notices::add_notice(
-					array(
-						'id'                         => 'astra-theme-rating',
-						'type'                       => '',
-						'message'                    => sprintf(
-							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
-								<div class="notice-content">
-									<div class="notice-heading">
-										%2$s
-									</div>
-									%3$s<br />
-									<div class="astra-review-notice-container">
-										<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
-										%5$s
-										</a>
-									<span class="dashicons dashicons-calendar"></span>
-										<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
-										%7$s
-										</a>
-									<span class="dashicons dashicons-smiley"></span>
-										<a href="#" class="astra-notice-close astra-review-notice">
-										%8$s
-										</a>
-									</div>
-								</div>',
-							$image_path,
-							__( 'Hello! Seems like you have used Astra theme to build this website &mdash; Thanks a ton!', 'astra' ),
-							__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.', 'astra' ),
-							'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post',
-							__( 'Ok, you deserve it', 'astra' ),
-							MONTH_IN_SECONDS,
-							__( 'Nope, maybe later', 'astra' ),
-							__( 'I already did', 'astra' )
-						),
-						'repeat-notice-after'        => MONTH_IN_SECONDS,
-						'priority'                   => 10,
-						'display-with-other-notices' => false,
-						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
-					)
-				);
-			}
-
 			// Force Astra welcome notice on theme activation.
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
