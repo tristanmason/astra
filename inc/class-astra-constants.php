@@ -42,6 +42,20 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 				'value'   => 'design',
 			),
 		);
+
+		/**
+		 * Config Mobile device context.
+		 *
+		 * @var string[][]
+		 */
+		public static $mobile_device = array(
+			array(
+				'setting'  => 'ast_selected_device',
+				'operator' => 'in',
+				'value'    => array( 'tablet', 'mobile' ),
+			),
+		);
+
 	}
 
 endif;
