@@ -33,6 +33,18 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Blog / Archive Tabs.
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[builder-single-post-tabs]',
+					'section'     => 'section-blog-single',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				),
+
+				/**
 				 * Option: Single Post Content Width
 				 */
 				array(

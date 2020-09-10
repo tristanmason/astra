@@ -45,6 +45,18 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Blog / Archive Tabs.
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[builder-blog-archive-tabs]',
+					'section'     => 'section-blog',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				),
+
+				/**
 				 * Option: Blog Content Width
 				 */
 				array(
