@@ -1013,6 +1013,7 @@ svg.dashicon {
     transition: unset;
 }
 .ast-field-settings-modal .customize-control-title .astra-reset {
+    top: 30px;
     left: 40px;
 }
 .customize-control-title .astra-reset svg {
