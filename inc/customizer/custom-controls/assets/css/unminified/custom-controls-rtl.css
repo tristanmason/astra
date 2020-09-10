@@ -529,6 +529,9 @@ svg.dashicon {
 .astra-palette-colors .astra-color-picker-wrap:first-child {
     margin-right: 0;
 }
+.ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 6px;
+}
 
 #customize-controls .customize-control-notifications-container {
   margin: 0;
@@ -1061,6 +1064,9 @@ svg.dashicon {
 .astra-palette-colors .astra-color-picker-wrap:first-child {
     margin-right: 0;
 }
+.ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 6px;
+}
 
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
@@ -1557,6 +1563,10 @@ input[type="text"].select2-search__field {
   padding: 0;
   min-width: 30px;
   height: 30px;
+}
+
+.media-position-setting.hide-settings {
+  display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {

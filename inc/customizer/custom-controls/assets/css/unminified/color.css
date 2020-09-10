@@ -333,3 +333,6 @@ svg.dashicon {
 .astra-palette-colors .astra-color-picker-wrap:first-child {
     margin-left: 0;
 }
+.ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-right: 6px;
+}
