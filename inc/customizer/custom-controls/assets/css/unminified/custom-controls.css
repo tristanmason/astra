@@ -1003,6 +1003,7 @@ input[type="text"].select2-search__field {
   flex: unset;
   box-shadow: unset;
   width: auto;
+  padding: 0 5px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
@@ -1034,6 +1035,12 @@ input[type="text"].select2-search__field {
 .astra-popover-color .ast-color-palette {
   width: auto;
   padding: 16px 0px 0px 20px;
+}
+
+.astra-popover-color .ast-color-palette .components-circular-option-picker__option {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
 }
 
 .astra-popover-color .components-custom-gradient-picker {
@@ -1774,6 +1781,7 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs .components-tab-panel__tabs-item.active-tab {
   background-color: #0185BA;
   color: #ffffff;
+  border-radius: 0;
 }
 
 .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {

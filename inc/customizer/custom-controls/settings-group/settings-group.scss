@@ -249,7 +249,8 @@
 	}
 	.components-tab-panel__tabs-item.active-tab {
 		background-color: #0185BA;
-		color: #ffffff;
+    color: #ffffff;
+    border-radius: 0;
   }
   .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
     color: #fff;
