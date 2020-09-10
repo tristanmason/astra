@@ -13,11 +13,7 @@ if ( class_exists( 'Astra_WP_Background_Process' ) ) :
 	 *
 	 * @since 2.1.3
 	 */
-<<<<<<< HEAD:inc/theme-update/class-astra-theme-wp-background-process.php
 	class Astra_Theme_WP_Background_Process extends WP_Background_Process {
-=======
-	class WP_Background_Process_Astra_Theme extends Astra_WP_Background_Process {
->>>>>>> abe1ab417773da8e749dbb1bccece8dcf98871d7:inc/theme-update/class-wp-background-process-astra-theme.php
 
 		/**
 		 * Database Process
