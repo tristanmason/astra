@@ -28,6 +28,11 @@ define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri(
 define( 'ASTRA_EXT_MIN_VER', '2.6.0' );
 
 /**
+ * Prepare Astra Constants.
+ */
+require_once ASTRA_THEME_DIR . 'inc/class-astra-constants.php';
+
+/**
  * Setup helper functions of Astra.
  */
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-theme-options.php';
