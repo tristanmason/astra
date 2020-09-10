@@ -84,3 +84,11 @@ Distributed under the terms of the GNU GPL v2.
 Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
 IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (https://creativecommons.org/licenses/by/4.0/ or https://www.gnu.org/licenses/gpl.html)
 Source: https://keyamoon.com/
+
+### Breadcrumb Trail ###
+
+Astra default breadcrumb is based on Breadcrumb Trail by Justin Tadlock. (https://github.com/justintadlock/breadcrumb-trail)
+Breadcrumb Trail is distributed under the terms of the GNU GPL v2 or later.
+
+Underscores
+https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
