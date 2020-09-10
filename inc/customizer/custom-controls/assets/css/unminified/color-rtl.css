@@ -85,7 +85,7 @@ svg.dashicon {
     position: relative;
     transform: scale(1);
     transition: transform 0.1s ease;
-    border-radius: 50%;
+    border-radius: 4px;
     padding: 0;
     background-image: linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, transparent 75%, #ddd 0), linear-gradient(45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
@@ -113,7 +113,7 @@ svg.dashicon {
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: 4px;
     margin: 0;
 }
 .component-color-indicator {
@@ -168,22 +168,9 @@ svg.dashicon {
     min-height: 340px;
     max-height: 60vh;
 }
-.components-button.astra-color-icon-indicate {
-    height: auto;
-    position: relative;
-    transform: scale(1);
-    transition: transform 0.1s ease;
-    border-radius: 50%;
-    padding: 0;
-    background-image: linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, transparent 75%, #ddd 0), linear-gradient(45deg, transparent 75%, #ddd 0);
-    background-size: 10px 10px;
-    background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
-}
-.components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    margin: 0;
+.color-button-wrap {
+	display: inline;
+    float: left;
 }
 .components-button.astra-color-icon-indicate:hover {
     transform: scale(1.1);
@@ -205,7 +192,7 @@ svg.dashicon {
 .components-button.astra-background-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 4px;
     margin: 0;
     display: block;
     position: absolute;
@@ -327,10 +314,21 @@ svg.dashicon {
 .components-button.astra-color-icon-indicate > svg.dashicon path {
     transform: translate(-1px, 1px);
 }
-.astra-color-picker-wrap {
-    margin-right: 5px;
-    display: inline-block;
-    float: left;
+.astra-popover-color {
+    margin-right: 2px;
+	margin-top: 5px;
+	background-color: #ffffff;
+	border: 1px solid #a29090;
+	border-radius: 8px;
+}
+.components-color-picker__saturation-black {
+	border-radius: 8px 8px 0 0;
+}
+.components-color-picker__saturation-color {
+	border-radius: 7px;
+}
+.components-color-picker__saturation-white {
+	border-radius: 7px;
 }
 @media (max-width: 1800px) {
     .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {

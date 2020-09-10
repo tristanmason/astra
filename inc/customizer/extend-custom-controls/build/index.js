@@ -10017,10 +10017,24 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         finalpaletteColors.push(paletteColors);
         count++;
       });
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+        className: "color-button-wrap"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+        className: 'astra-color-icon-indicate',
+        onClick: function onClick() {
+          isVisible ? toggleClose() : toggleVisible();
+        }
+      }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["ColorIndicator"], {
+        className: "astra-advanced-color-indicate",
+        colorValue: this.props.color
+      }), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["ColorIndicator"], {
+        className: "astra-advanced-color-indicate",
+        colorValue: "#ffffff"
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Dashicon"], {
+        icon: "admin-site"
+      })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "astra-color-picker-wrap"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Popover"], {
-        position: "top left",
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "astra-popover-color",
         onClose: toggleClose
       }, 1 < tabs.length && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["TabPanel"], {
@@ -10087,22 +10101,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         onChange: function onChange(color) {
           return _this2.onPaletteChangeComplete(color);
         }
-      })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "color-button-wrap"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Button"], {
-        className: 'astra-color-icon-indicate',
-        onClick: function onClick() {
-          isVisible ? toggleClose() : toggleVisible();
-        }
-      }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["ColorIndicator"], {
-        className: "astra-advanced-color-indicate",
-        colorValue: this.props.color
-      }), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["ColorIndicator"], {
-        className: "astra-advanced-color-indicate",
-        colorValue: "#ffffff"
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Dashicon"], {
-        icon: "admin-site"
-      })))));
+      }))))));
     }
   }, {
     key: "onChangeGradientComplete",
