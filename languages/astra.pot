@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 2.5.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-08-13 11:11:09+00:00\n"
+"POT-Creation-Date: 2020-09-08 11:41:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1511,6 +1511,42 @@ msgstr ""
 #: inc/core/class-astra-admin-settings.php:1243
 #. translators: %1s Astra Theme
 msgid "Extend %1s with free plugins!"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1253
+msgid "Import / Export Customizer Settings"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1260
+msgid "Astra Customizer Reset"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1268
+msgid "Customizer Search"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1276
+msgid "Astra Bulk Edit"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1284
+msgid "Astra Widgets"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1292
+msgid "Custom Fonts"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1300
+msgid "Custom Typekit Fonts"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1308
+msgid "Sidebar Manager"
+msgstr ""
+
+#: inc/core/class-astra-admin-settings.php:1316
+msgid "Ultimate Addons for Gutenberg"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:1471
