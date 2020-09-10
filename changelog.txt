@@ -1,5 +1,5 @@
 v2.5.5
-- Fix: Code improvements as per WordPress theme review coding standards.
+- Fix: Improvements as per WordPress coding standards.
 
 v2.5.4
 - Fix: Code improvements as per WordPress theme review coding standards.
