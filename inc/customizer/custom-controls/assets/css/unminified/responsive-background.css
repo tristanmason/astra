@@ -194,6 +194,7 @@
 }
 
 .astra-popover-color .ast-color-palette {
+  width: auto;
   padding: 16px 0px 0px 20px;
 }
 

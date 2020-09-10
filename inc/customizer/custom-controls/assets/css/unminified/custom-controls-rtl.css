@@ -450,7 +450,10 @@ svg.dashicon {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 .customize-control-ast-color.customize-control {
-    margin-top: 15px;
+    margin-top: 20px;
+}
+.customize-control-ast-color.customize-control > * {
+    display: inline;
 }
 .customize-control-ast-color .customize-control-title .astra-reset {
     position: absolute;
@@ -458,7 +461,8 @@ svg.dashicon {
     left: 30px;
     transition: unset;
 }
-.ast-field-settings-modal .customize-control-title .astra-reset {
+.ast-field-settings-modal .customize-control-title .astra-reset, .background-wrapper .customize-control-title .astra-reset {
+    position: absolute;
     top: 30px;
     left: 40px;
 }
@@ -1004,7 +1008,10 @@ svg.dashicon {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 .customize-control-ast-color.customize-control {
-    margin-top: 15px;
+    margin-top: 20px;
+}
+.customize-control-ast-color.customize-control > * {
+    display: inline;
 }
 .customize-control-ast-color .customize-control-title .astra-reset {
     position: absolute;
@@ -1013,6 +1020,7 @@ svg.dashicon {
     transition: unset;
 }
 .ast-field-settings-modal .customize-control-title .astra-reset {
+    position: absolute;
     top: 30px;
     left: 40px;
 }
@@ -1582,6 +1590,7 @@ input[type="text"].select2-search__field {
 }
 
 .astra-popover-color .ast-color-palette {
+  width: auto;
   padding: 16px 20px 0px 0px;
 }
 
@@ -3015,6 +3024,7 @@ input[type="text"].select2-search__field {
 }
 
 .astra-popover-color .ast-color-palette {
+  width: auto;
   padding: 16px 20px 0px 0px;
 }
 
