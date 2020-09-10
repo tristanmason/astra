@@ -64,8 +64,8 @@
   margin-top: 12px;
   display: inline-block;
   padding: 5px 0 5px 0;
-  float: right;
   cursor: pointer;
+  float: right;
 }
 
 .customize-control-ast-responsive-background .more-settings:focus {
