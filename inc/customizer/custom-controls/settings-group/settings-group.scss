@@ -213,7 +213,8 @@
 			height: 35px;
 			transition: unset;
 			padding: 2px 4px;
-			text-decoration: none;
+      text-decoration: none;
+      border-radius: 0;
 			border: 1px solid rgba(0, 0, 0, 0.1);
 			&:active {
 				box-shadow: unset;
@@ -250,7 +251,6 @@
 	.components-tab-panel__tabs-item.active-tab {
 		background-color: #0185BA;
     color: #ffffff;
-    border-radius: 0;
   }
   .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
     color: #fff;
