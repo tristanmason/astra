@@ -449,13 +449,20 @@ svg.dashicon {
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-span.customize-control-title .astra-reset {
+.customize-control-ast-color.customize-control {
+    margin-top: 15px;
+}
+.customize-control-ast-color .customize-control-title .astra-reset {
     position: absolute;
-    top: -5px;
-    left: 10px;
+    top: -2px;
+    left: 30px;
     transition: unset;
 }
-span.customize-control-title .astra-reset svg {
+.ast-field-settings-modal .customize-control-title .astra-reset {
+    top: 30px;
+    left: 40px;
+}
+.customize-control-title .astra-reset svg {
     width: 14px;
     height: 14px;
 }
@@ -996,13 +1003,19 @@ svg.dashicon {
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-span.customize-control-title .astra-reset {
+.customize-control-ast-color.customize-control {
+    margin-top: 15px;
+}
+.customize-control-ast-color .customize-control-title .astra-reset {
     position: absolute;
-    top: -5px;
-    left: -5px;
+    top: -2px;
+    left: 30px;
     transition: unset;
 }
-span.customize-control-title .astra-reset svg {
+.ast-field-settings-modal .customize-control-title .astra-reset {
+    left: 40px;
+}
+.customize-control-title .astra-reset svg {
     width: 14px;
     height: 14px;
 }
@@ -1962,7 +1975,6 @@ input[type="text"].select2-search__field {
   border: none;
   opacity: .75;
   outline: none;
-  margin-left: 30px;
 }
 
 .ast-responsive-btns button[type="button"] > i {

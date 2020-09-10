@@ -253,13 +253,20 @@ svg.dashicon {
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-span.customize-control-title .astra-reset {
+.customize-control-ast-color.customize-control {
+    margin-top: 15px;
+}
+.customize-control-ast-color .customize-control-title .astra-reset {
     position: absolute;
-    top: -5px;
-    right: 10px;
+    top: -2px;
+    right: 30px;
     transition: unset;
 }
-span.customize-control-title .astra-reset svg {
+.ast-field-settings-modal .customize-control-title .astra-reset {
+    top: 30px;
+    right: 40px;
+}
+.customize-control-title .astra-reset svg {
     width: 14px;
     height: 14px;
 }
