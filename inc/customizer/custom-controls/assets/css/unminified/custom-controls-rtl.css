@@ -444,8 +444,20 @@ svg.dashicon {
     padding: 15px 15px 0px;
     box-sizing: initial;
     background: #fff;
+    border: unset;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+span.customize-control-title .astra-reset {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    transition: unset;
+}
+span.customize-control-title .astra-reset svg {
+    width: 14px;
+    height: 14px;
 }
 .components-popover.astra-popover-color .components-popover__content .sketch-picker {
     padding: 0 0 5px !important;
@@ -979,8 +991,20 @@ svg.dashicon {
     padding: 15px 15px 0px;
     box-sizing: initial;
     background: #fff;
+    border: unset;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+span.customize-control-title .astra-reset {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    transition: unset;
+}
+span.customize-control-title .astra-reset svg {
+    width: 14px;
+    height: 14px;
 }
 .components-popover.astra-popover-color .components-popover__content .sketch-picker {
     padding: 0 0 5px !important;
@@ -1514,6 +1538,7 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
   flex: unset;
   box-shadow: unset;
+  width: auto;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
@@ -1536,6 +1561,14 @@ input[type="text"].select2-search__field {
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 10px;
   justify-content: flex-start;
+}
+
+.astra-popover-color [ID*="-color-view"] .components-circular-option-picker {
+  width: auto;
+}
+
+.astra-popover-color .ast-color-palette {
+  padding: 16px 20px 0px 0px;
 }
 
 .astra-popover-color .components-custom-gradient-picker {
@@ -1576,6 +1609,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   display: inline-block;
   float: left;
+  margin-bottom: 10px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
@@ -1928,6 +1962,7 @@ input[type="text"].select2-search__field {
   border: none;
   opacity: .75;
   outline: none;
+  margin-left: 30px;
 }
 
 .ast-responsive-btns button[type="button"] > i {
@@ -2285,6 +2320,8 @@ input[type="text"].select2-search__field {
   min-width: 310px;
   max-height: 60vh;
   padding: 0;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
 .ast-field-settings-modal .components-popover.astra-popover-color .components-popover__content {
@@ -2935,6 +2972,7 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
   flex: unset;
   box-shadow: unset;
+  width: auto;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
@@ -2957,6 +2995,14 @@ input[type="text"].select2-search__field {
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 10px;
   justify-content: flex-start;
+}
+
+.astra-popover-color [ID*="-color-view"] .components-circular-option-picker {
+  width: auto;
+}
+
+.astra-popover-color .ast-color-palette {
+  padding: 16px 20px 0px 0px;
 }
 
 .astra-popover-color .components-custom-gradient-picker {
@@ -2997,6 +3043,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   display: inline-block;
   float: left;
+  margin-bottom: 10px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
@@ -3706,6 +3753,8 @@ input[type="text"].select2-search__field {
   min-width: 310px;
   max-height: 60vh;
   padding: 0;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
 .ast-field-settings-modal .components-popover.astra-popover-color .components-popover__content {

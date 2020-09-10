@@ -164,6 +164,7 @@
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
   flex: unset;
   box-shadow: unset;
+  width: auto;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:hover {
@@ -186,6 +187,14 @@
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 10px;
   justify-content: flex-start;
+}
+
+.astra-popover-color [ID*="-color-view"] .components-circular-option-picker {
+  width: auto;
+}
+
+.astra-popover-color .ast-color-palette {
+  padding: 16px 0px 0px 20px;
 }
 
 .astra-popover-color .components-custom-gradient-picker {

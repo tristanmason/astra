@@ -156,6 +156,7 @@
 		.components-circular-option-picker__clear {
 			flex: unset;
 			box-shadow: unset;
+			width: auto;
 			&:hover {
 				box-shadow: unset;
 			}
@@ -176,6 +177,12 @@
 			margin-top: 10px;
 			justify-content: flex-start;
 		}
+	}
+	[ID*="-color-view"] .components-circular-option-picker {
+		width: auto;
+	}
+	.ast-color-palette {
+		padding: 16px 0px 0px 20px;
 	}
 	.components-custom-gradient-picker {
 		margin-top: 0;
