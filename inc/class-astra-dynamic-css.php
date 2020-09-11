@@ -733,6 +733,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding' => '1.5em 0',
 					'margin'  => 0,
 				),
+				'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary' => array(
+					'padding' => 0,
+				),
 				'.ast-left-sidebar #content > .ast-container' => array(
 					'display'        => 'flex',
 					'flex-direction' => 'column-reverse',
