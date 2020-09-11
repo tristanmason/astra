@@ -66,5 +66,3 @@ wp.customize.controlConstructor['ast-header-type-button'] = HeaderTypeButtonCont
 wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
 
 import { Base } from './customizer';
-
-alert("reached");
