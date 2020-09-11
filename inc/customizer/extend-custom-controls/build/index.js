@@ -9835,6 +9835,18 @@ var colorControl = wp.customize.astraControl.extend({
       control: control,
       customizer: wp.customize
     }), control.container[0]);
+  },
+  ready: function ready() {
+    'use strict';
+
+    var control = this;
+    jQuery(document).mouseup(function (e) {
+      var container = jQuery(control.container); // If the target of the click isn't the container nor a descendant of the container.
+
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        container.find('.components-button.astra-color-icon-indicate.open').click();
+      }
+    });
   }
 });
 
@@ -10020,7 +10032,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "color-button-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Button"], {
-        className: 'astra-color-icon-indicate',
+        className: isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate',
         onClick: function onClick() {
           isVisible ? toggleClose() : toggleVisible();
         }
@@ -11950,9 +11962,9 @@ var ResponsiveBackground = /*#__PURE__*/function (_Component) {
       }, this.renderReset('tablet'), this.renderSettings('tablet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "background-container mobile"
       }, this.renderReset('mobile'), this.renderSettings('mobile')));
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("label", null, labelHtml, descriptionHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "customize-control-content"
-      }, inputHtml));
+      }, responsiveHtml, inputHtml));
     }
   }, {
     key: "updateValues",
