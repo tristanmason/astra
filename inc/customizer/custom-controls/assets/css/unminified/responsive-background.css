@@ -227,9 +227,7 @@
 }
 
 [ID*="-gradient-view"] .components-toolbar.components-custom-gradient-picker__toolbar .components-button.has-icon {
-  padding: 0;
-  min-width: 30px;
-  height: 30px;
+  border: none;
 }
 
 .media-position-setting.hide-settings {
