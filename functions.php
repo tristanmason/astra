@@ -120,6 +120,7 @@ require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php'
  * Customizer additions.
  */
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
+require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-loader.php';
 
 
 /**

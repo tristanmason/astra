@@ -1,0 +1,80 @@
+/**
+ * Customizer Header-n-Footer section edit highligheting CSS.
+ *
+ * With new design improvements.
+ */
+
+.site-header-focus-item, .site-footer-focus-item {
+    outline: 1px solid transparent;
+    position: relative;
+    transition: outline 0.15s ease;
+    outline-offset: -1px;
+}
+
+.site-header-focus-item .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
+    opacity: 0;
+    transition: all 0.3s;
+    top: 5px;
+    left: 35px;
+}
+
+/**
+ * Customizer edit icon custom positioning.
+ */
+.ast-below-header .ast-header-button-2 .customize-partial-edit-shortcut-button, .ast-below-header .ast-header-button-1 .customize-partial-edit-shortcut-button {
+    top: -10px;
+}
+
+.ast-builder-layout-element.site-header-focus-item[data-section="title_tagline"] .customize-partial-edit-shortcut {
+    top: 25px;
+}
+.ast-below-header .ast-header-button-2 .customize-partial-edit-shortcut-button, .ast-below-header .ast-header-button-1 .customize-partial-edit-shortcut-button {
+    top: -10px;
+}
+.site-header-focus-item[data-section="section-header-mobile-trigger"] .customize-partial-edit-shortcut {
+    top: -10px;
+    left: 0px;
+}
+
+.site-primary-header-wrap.site-header-focus-item:hover, .site-above-header-wrap.site-header-focus-item:hover, .site-below-header-wrap.site-header-focus-item:hover,
+.site-primary-footer-wrap.site-footer-focus-item:hover, .site-above-footer-wrap.site-footer-focus-item:hover, .site-below-footer-wrap.site-footer-focus-item:hover {
+    outline: 1px solid #0073aa;
+}
+
+.site-header-focus-item:hover > * > .customize-partial-edit-shortcut, .site-footer-focus-item:hover > * > .customize-partial-edit-shortcut, .site-header-focus-item:hover > .customize-partial-edit-shortcut {
+    opacity: 1;
+}
+
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav, .customize-partial-edit-shortcut-custom_logo {
+    display: none;
+}
+
+.customize-partial-edit-shortcut.row-editor-shortcut > button {
+    background: transparent !important;
+    box-shadow: unset;
+    border: unset;
+}
+
+span.ahfb-customizer-row-shortcut {
+    color: #ffffff;
+    background: #0073aa;
+    position: absolute;
+    left: -3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5px;
+    font-size: 10px;
+    padding: 0 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    height: 28px;
+    font-weight: 600;
+    line-height: 14px;
+    width: max-content;
+    border-radius: 0 0 2px 0;
+}
+
+.site-below-header-wrap.site-header-focus-item span.ahfb-customizer-row-shortcut {
+    top: -15px;
+}
