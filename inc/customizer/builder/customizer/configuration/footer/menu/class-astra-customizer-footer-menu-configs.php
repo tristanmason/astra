@@ -33,7 +33,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults              = Astra_Theme_Options::defaults();
+			$defaults = Astra_Theme_Options::defaults();
 
 			$_section = 'section-footer-menu';
 

@@ -324,7 +324,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function desktop_header() {
 
-            get_template_part('template-parts/header/builder/desktop-builder-layout');
+			get_template_part( 'template-parts/header/builder/desktop-builder-layout' );
 
 		}
 
@@ -334,7 +334,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function above_header() {
 
 			set_query_var( 'row', 'above' );
-            get_template_part( 'template-parts/header/builder/header', 'row' );
+			get_template_part( 'template-parts/header/builder/header', 'row' );
 
 		}
 
@@ -349,8 +349,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 			if ( 'disabled' !== $display_header ) {
 
-                set_query_var( 'row', 'primary' );
-                get_template_part( 'template-parts/header/builder/header', 'row' );
+				set_query_var( 'row', 'primary' );
+				get_template_part( 'template-parts/header/builder/header', 'row' );
 
 			}
 		}
@@ -360,8 +360,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function below_header() {
 
-            set_query_var( 'row', 'below' );
-            get_template_part( 'template-parts/header/builder/header', 'row' );
+			set_query_var( 'row', 'below' );
+			get_template_part( 'template-parts/header/builder/header', 'row' );
 		}
 
 		/**
@@ -379,7 +379,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function mobile_header() {
 
-            get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
+			get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
 
 		}
 
@@ -388,8 +388,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function mobile_above_header() {
 
-            set_query_var( 'row', 'above' );
-            get_template_part( 'template-parts/header/builder/mobile-header', 'row' );
+			set_query_var( 'row', 'above' );
+			get_template_part( 'template-parts/header/builder/mobile-header', 'row' );
 
 		}
 
@@ -398,8 +398,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function mobile_primary_header() {
 
-            set_query_var( 'row', 'primary' );
-            get_template_part( 'template-parts/header/builder/mobile-header', 'row' );
+			set_query_var( 'row', 'primary' );
+			get_template_part( 'template-parts/header/builder/mobile-header', 'row' );
 		}
 
 
@@ -408,8 +408,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function mobile_below_header() {
 
-            set_query_var( 'row', 'below' );
-            get_template_part( 'template-parts/header/builder/mobile-header', 'row' );
+			set_query_var( 'row', 'below' );
+			get_template_part( 'template-parts/header/builder/mobile-header', 'row' );
 		}
 		/**
 		 *  Call Mobile Popup UI.

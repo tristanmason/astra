@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_BUILDER_FOOTER_COPYRIGHT_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/footer/copyright' );
-define( 'ASTRA_BUILDER_FOOTER_COPYRIGHT_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/footer/copyright' );
+define( 'ASTRA_BUILDER_FOOTER_COPYRIGHT_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/footer/copyright' );
 
 if ( ! class_exists( 'Astra_Footer_Copyright_Component' ) ) {
 

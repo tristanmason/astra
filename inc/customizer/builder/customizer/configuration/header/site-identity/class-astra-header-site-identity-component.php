@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_HEADER_SITE_IDENTITY_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/site-identity' );
-define( 'ASTRA_HEADER_SITE_IDENTITY_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/site-identity' );
+define( 'ASTRA_HEADER_SITE_IDENTITY_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/site-identity' );
 
 if ( ! class_exists( 'Astra_Header_Site_Identity_Component' ) ) {
 

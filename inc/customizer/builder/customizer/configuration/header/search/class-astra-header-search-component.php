@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_HEADER_SEARCH_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/search' );
-define( 'ASTRA_HEADER_SEARCH_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/search' );
+define( 'ASTRA_HEADER_SEARCH_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/search' );
 
 if ( ! class_exists( 'Astra_Header_Search_Component' ) ) {
 

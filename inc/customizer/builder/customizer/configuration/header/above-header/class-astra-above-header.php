@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_ABOVE_HEADER_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/above-header' );
-define( 'ASTRA_ABOVE_HEADER_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/above-header' );
+define( 'ASTRA_ABOVE_HEADER_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/above-header' );
 
 /**
  * Above Header Initial Setup

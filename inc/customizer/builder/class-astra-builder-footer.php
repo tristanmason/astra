@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 
 			if ( 'disabled' !== $display_footer ) {
 
-			    get_template_part('template-parts/footer/builder/desktop-builder-layout');
+				get_template_part( 'template-parts/footer/builder/desktop-builder-layout' );
 			}
 		}
 
@@ -91,8 +91,8 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function above_footer() {
 
-            set_query_var( 'row', 'above' );
-            get_template_part( 'template-parts/footer/builder/footer', 'row' );
+			set_query_var( 'row', 'above' );
+			get_template_part( 'template-parts/footer/builder/footer', 'row' );
 
 		}
 
@@ -101,8 +101,8 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function primary_footer() {
 
-            set_query_var( 'row', 'primary' );
-            get_template_part( 'template-parts/footer/builder/footer', 'row' );
+			set_query_var( 'row', 'primary' );
+			get_template_part( 'template-parts/footer/builder/footer', 'row' );
 
 		}
 
@@ -111,8 +111,8 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function below_footer() {
 
-            set_query_var( 'row', 'below' );
-            get_template_part( 'template-parts/footer/builder/footer', 'row' );
+			set_query_var( 'row', 'below' );
+			get_template_part( 'template-parts/footer/builder/footer', 'row' );
 
 		}
 

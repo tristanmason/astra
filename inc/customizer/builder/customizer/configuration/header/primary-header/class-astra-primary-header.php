@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_PRIMARY_HEADER_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/primary-header' );
-define( 'ASTRA_PRIMARY_HEADER_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/primary-header' );
+define( 'ASTRA_PRIMARY_HEADER_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/primary-header' );
 
 if ( ! class_exists( 'Astra_Primary_Header' ) ) {
 

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_MOBILE_TRIGGER_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/mobile-trigger' );
-define( 'ASTRA_MOBILE_TRIGGER_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/mobile-trigger' );
+define( 'ASTRA_MOBILE_TRIGGER_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/mobile-trigger' );
 
 /**
  * Mobile Trigger Initial Setup

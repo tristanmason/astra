@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 define( 'ASTRA_HEADER_BUTTON_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/button' );
-define( 'ASTRA_HEADER_BUTTON_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/button' );
+define( 'ASTRA_HEADER_BUTTON_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/button' );
 
 if ( ! class_exists( 'Astra_Header_Button_Component' ) ) {
 

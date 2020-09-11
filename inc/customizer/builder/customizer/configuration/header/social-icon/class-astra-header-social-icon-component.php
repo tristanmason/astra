@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_HEADER_SOCIAL_ICON_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/social-icon' );
-define( 'ASTRA_HEADER_SOCIAL_ICON_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/social-icon' );
+define( 'ASTRA_HEADER_SOCIAL_ICON_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/social-icon' );
 
 if ( ! class_exists( 'Astra_Header_Social_Icon_Component' ) ) {
 

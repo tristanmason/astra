@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_OFF_CANVAS_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/off-canvas' );
-define( 'ASTRA_OFF_CANVAS_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/off-canvas' );
+define( 'ASTRA_OFF_CANVAS_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/off-canvas' );
 
 /**
  * Off Canvas Initial Setup

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_HEADER_STICKY_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/sticky' );
-define( 'ASTRA_HEADER_STICKY_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/sticky' );
+define( 'ASTRA_HEADER_STICKY_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/sticky' );
 
 if ( ! class_exists( 'Astra_Sticky_Header_Component' ) ) {
 

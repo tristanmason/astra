@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_HEADER_MENU_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/menu' );
-define( 'ASTRA_HEADER_MENU_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/menu' );
+define( 'ASTRA_HEADER_MENU_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/menu' );
 
 
 

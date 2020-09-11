@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_BELOW_HEADER_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header/below-header' );
-define( 'ASTRA_BELOW_HEADER_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/header/below-header' );
+define( 'ASTRA_BELOW_HEADER_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/header/below-header' );
 
 /**
  * Below Header Initial Setup

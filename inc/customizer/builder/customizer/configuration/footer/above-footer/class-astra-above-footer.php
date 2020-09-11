@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/footer/above-footer' );
-define( 'ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_URI', ASTRA_THEME_URI . 'inc/builder/customizer/configuration/footer/above-footer' );
+define( 'ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/footer/above-footer' );
 
 if ( ! class_exists( 'Astra_Above_Footer' ) ) {
 

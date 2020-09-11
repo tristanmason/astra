@@ -698,7 +698,7 @@ final class Astra_Builder_Controller {
 		// Base Dynamic CSS.
 		wp_enqueue_script(
 			'ahfb-base-customizer-preview',
-			ASTRA_THEME_URI . 'inc/builder/customizer/configuration/base/assets/js/customizer-preview.js',
+			ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/base/assets/js/customizer-preview.js',
 			array( 'customize-preview' ),
 			ASTRA_THEME_VERSION,
 			true
@@ -850,27 +850,10 @@ final class Astra_Builder_Controller {
 	 * @since x.x.x
 	 */
 	public function enqueue_customizer_scripts() {
-		// Builder JS dependencies.
-		$script_dependencies = array(
-			'jquery',
-			'customize-controls',
-			'wp-i18n',
-			'wp-components',
-			'wp-edit-post',
-			'wp-element',
-		);
-		// Enqueue Builder JS.
-		wp_enqueue_script(
-			'ahfb-builder-controls',
-			ASTRA_THEME_URI . 'inc/assets/js/builder.js',
-			$script_dependencies,
-			ASTRA_THEME_VERSION,
-			true
-		);
 
 		// Localize variables for Builder JS.
 		wp_localize_script(
-			'ahfb-builder-controls',
+			'custom-control-react-script',
 			'AstraBuilderCustomizerData',
 			array(
 				'contexts'    => self::ast_get_contexts(),
