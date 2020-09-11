@@ -11,15 +11,15 @@ class CustomizerLinkComponent extends Component {
 	}
 
 	onLinkClick() {
-
-		let linked = event.target.parentElement.dataset.customizerLinked;
-		let linkType = event.target.parentElement.dataset.astCustomizerLinkType;
+		
+		let linked = event.target.dataset.customizerLinked;
+		let linkType = event.target.dataset.astCustomizerLinkType;
 
 		switch ( linkType ) {
 
 			case 'section':
-				section = wp.customize.section( linked );
-				section.expand();
+				wp.customize.section( linked ).expand();
+				
 				break;
 
 			case 'control':
