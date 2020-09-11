@@ -22,6 +22,16 @@ import { astFontFamilyControl } from './ast-font-family/control';
 import { astFontWeightControl } from './ast-font-weight/control';
 import { responsiveSelectControl } from './responsive-select/control';
 
+import { BuilderHeaderControl } from './builder-layout/builder-header-control.js'
+import { BuilderControl } from './builder-layout/control.js';
+import { SocialControl } from './social-icons/control.js';
+import { EditorControl } from './html-editor/control.js';
+import { IconSetControl } from './icon-set/control.js';
+import { DraggableControl } from './draggable/control.js';
+import { SwitchControl } from './switch/control.js';
+import { HeaderTypeButtonControl } from './header-type-button/control';
+import { RowLayoutControl } from './row-layout/control.js';
+
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
 wp.customize.controlConstructor['ast-description'] = descriptionControl;
@@ -44,3 +54,17 @@ wp.customize.controlConstructor['ast-select'] = selectControl;
 wp.customize.controlConstructor['ast-font-family'] = astFontFamilyControl;
 wp.customize.controlConstructor['ast-font-weight'] = astFontWeightControl;
 wp.customize.controlConstructor['ast-responsive-select'] = responsiveSelectControl;
+
+wp.customize.controlConstructor['ast-builder-header-control'] = BuilderHeaderControl;
+wp.customize.controlConstructor['ast-builder'] = BuilderControl;
+wp.customize.controlConstructor['ast-social-icons'] = SocialControl;
+wp.customize.controlConstructor['ast-html-editor'] = EditorControl;
+wp.customize.controlConstructor['ast-icon-set'] = IconSetControl;
+wp.customize.controlConstructor['ast-draggable-items'] = DraggableControl;
+wp.customize.controlConstructor['ast-switch-toggle'] = SwitchControl;
+wp.customize.controlConstructor['ast-header-type-button'] = HeaderTypeButtonControl;
+wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
+
+import { Base } from './customizer';
+
+alert("reached");
