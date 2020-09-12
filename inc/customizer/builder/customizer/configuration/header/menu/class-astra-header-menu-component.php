@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Header_Menu_Component' ) ) {
 			$submenu_class = apply_filters( 'secondary_submenu_border_class', ' submenu-with-border' );
 
 			// Menu Animation.
-			$menu_animation = astra_get_option( 'hs-menu' . $index . '-submenu-container-animation' );
+			$menu_animation = astra_get_option( 'header-menu' . $index . '-submenu-container-animation' );
 			if ( ! empty( $menu_animation ) ) {
 				$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 			}
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Header_Menu_Component' ) ) {
 
 			// Secondary Menu.
 			$menu_args = array(
-				'menu_id'         => 'ast-hs-menu-' . $index,
+				'menu_id'         => 'ast-hf-menu-' . $index,
 				'menu_class'      => esc_attr( implode( ' ', $menu_classes ) ),
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Header_Menu_Component' ) ) {
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
 				'theme_location' => $theme_location,
-				'menu_id'        => 'ast-hs-menu-' . $index,
+				'menu_id'        => 'ast-hf-menu-' . $index,
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
 				'before'         => '<ul class="' . esc_attr( implode( ' ', $menu_classes ) ) . '">',

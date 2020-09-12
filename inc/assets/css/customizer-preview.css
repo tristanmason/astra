@@ -4,7 +4,7 @@
  * With new design improvements.
  */
 
-.site-header-focus-item, .site-footer-focus-item {
+ .site-header-focus-item, .site-footer-focus-item {
     outline: 1px solid transparent;
     position: relative;
     transition: outline 0.15s ease;

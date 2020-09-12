@@ -33,7 +33,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	$hb_header_height = astra_get_option( 'hb-header-height' );
 
 	$common_css_output = array(
-		'.ast-primary-header-bar' => array(
+		'.ast-primary-header-bar, .ast-mobile-header-wrap .ast-builder-grid-row-container-inner' => array(
 			'min-height'  => astra_get_css_value( $hb_header_height, 'px' ),
 			'line-height' => astra_get_css_value( $hb_header_height, 'px' ),
 		),
@@ -126,7 +126,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$selector = '.site-primary-header-wrap[data-section="ast_header_primary"]';
 
-	$parent_selector = '.ast-desktop .ast-primary-header-bar, .ast-header-break-point .ast-primary-header-bar';
+	$parent_selector = '.ast-desktop .ast-primary-header-bar.main-header-bar, .ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar';
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
 

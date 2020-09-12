@@ -104,9 +104,6 @@ class Astra_Social_Component_Dynamic_CSS {
 				// Icon Size.
 				'width'         => astra_get_css_value( $icon_size, 'px' ),
 				'height'        => astra_get_css_value( $icon_size, 'px' ),
-
-				// Icon Radius.
-				'border-radius' => astra_get_css_value( $icon_radius, 'px' ),
 			),
 			$selector . ' .ast-social-icon-image-wrap' => array(
 
