@@ -102,8 +102,8 @@ class Astra_Social_Component_Dynamic_CSS {
 			$selector . ' .ast-builder-social-element .ahfb-svg-icon' => array(
 
 				// Icon Size.
-				'width'         => astra_get_css_value( $icon_size, 'px' ),
-				'height'        => astra_get_css_value( $icon_size, 'px' ),
+				'width'  => astra_get_css_value( $icon_size, 'px' ),
+				'height' => astra_get_css_value( $icon_size, 'px' ),
 			),
 			$selector . ' .ast-social-icon-image-wrap' => array(
 
