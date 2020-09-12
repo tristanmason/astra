@@ -418,6 +418,11 @@ final class Astra_Builder_Controller {
 		} else {
 			self::$group_configs[ $parent ][] = $config;
 		}
+
+		$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+
+		$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+
 		$new_config = array(
 			'name'              => $sub_control_name,
 			'datastore_type'    => 'option',
@@ -425,11 +430,7 @@ final class Astra_Builder_Controller {
 			'control'           => 'ast-hidden',
 			'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
 			'default'           => astra_get_prop( $config, 'default' ),
-			'sanitize_callback' => astra_get_prop(
-				$config,
-				'sanitize_callback',
-				Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) )
-			),
+			'sanitize_callback' => $sanitize_callback,
 		);
 
 		$wp_customize->add_setting(
@@ -465,13 +466,18 @@ final class Astra_Builder_Controller {
 		// Remove type from configuration.
 		unset( $config['type'] );
 
+		$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+
+		$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+
+		
 		$wp_customize->add_setting(
 			astra_get_prop( $config, 'name' ),
 			array(
 				'default'           => astra_get_prop( $config, 'default' ),
 				'type'              => astra_get_prop( $config, 'datastore_type' ),
 				'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
-				'sanitize_callback' => ( 'ast-settings-group' === $config['control'] ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+				'sanitize_callback' => $sanitize_callback,
 			)
 		);
 
@@ -747,7 +753,7 @@ final class Astra_Builder_Controller {
 		require_once $header_config_path . '/site-identity/class-astra-header-site-identity-component.php';
 		require_once $header_config_path . '/off-canvas/class-astra-off-canvas.php';
 		require_once $header_config_path . '/primary-header/class-astra-primary-header.php';
-		require_once $header_config_path . '/button/class-astra-header-button-component.php';
+		// require_once $header_config_path . '/button/class-astra-header-button-component.php';
 		require_once $header_config_path . '/menu/class-astra-header-menu-component.php';
 		require_once $header_config_path . '/html/class-astra-header-html-component.php';
 		require_once $header_config_path . '/search/class-astra-header-search-component.php';
