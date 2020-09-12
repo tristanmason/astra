@@ -450,7 +450,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
 
-		if( 'header-desktop-items' === $option ){
+		if ( 'header-desktop-items' === $option ) {
 			$x = 10;
 		}
 
