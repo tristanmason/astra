@@ -752,7 +752,7 @@ final class Astra_Builder_Controller {
 		require_once $header_config_path . '/site-identity/class-astra-header-site-identity-component.php';
 		require_once $header_config_path . '/off-canvas/class-astra-off-canvas.php';
 		require_once $header_config_path . '/primary-header/class-astra-primary-header.php';
-		// require_once $header_config_path . '/button/class-astra-header-button-component.php';
+		require_once $header_config_path . '/button/class-astra-header-button-component.php';
 		require_once $header_config_path . '/menu/class-astra-header-menu-component.php';
 		require_once $header_config_path . '/html/class-astra-header-html-component.php';
 		require_once $header_config_path . '/search/class-astra-header-search-component.php';
@@ -810,7 +810,7 @@ final class Astra_Builder_Controller {
 		require_once $header_config_path . '/widget/class-astra-customizer-header-widget-configs.php';
 		require_once $header_config_path . '/transparent/class-astra-customizer-transparent-header-builder-configs.php';
 	}
-	
+
 	/**
 	 * Prepare context.
 	 *

@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ASTRA_BUILDER_FOOTER_WIDGET_DIR', ASTRA_BUILDER_DIR . '/includes/customizer/configuration/footer/widget' );
-define( 'ASTRA_BUILDER_FOOTER_WIDGET_URI', ASTRA_BUILDER_URL . '/includes/customizer/configuration/footer/widget' );
+define( 'ASTRA_BUILDER_FOOTER_WIDGET_DIR', ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/footer/widget' );
+define( 'ASTRA_BUILDER_FOOTER_WIDGET_URI', ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/footer/widget' );
 
 if ( ! class_exists( 'Astra_Footer_Widget_Component' ) ) {
 
