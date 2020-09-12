@@ -42,12 +42,6 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$css_output_desktop = array(
 
 		$selector                                => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
-		$selector . ' .footer-widget-area-inner' => array(
-			'color' => astra_get_option( 'hba-footer-widget-color' ),
-		),
-		$selector . ' .widget-title'             => array(
-			'color' => astra_get_option( 'hba-footer-widget-title-color' ),
-		),
 	);
 
 	$css_output_desktop[ $selector ]['min-height'] = astra_get_css_value( $footer_height, 'px' );

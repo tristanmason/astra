@@ -213,62 +213,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 				),
-
-				// Option: Above Footer - Widget Color.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-widget-heading]',
-					'section'  => $_section,
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 72,
-					'title'    => __( 'Widget Colors', 'astra-builder' ),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				/**
-				 * Option: Above Footer - Widget Color.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-widget-color]',
-					'default'   => astra_get_option( 'hb-footer-widget-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 76,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Content Color', 'astra-builder' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				/**
-				 * Option: Above Footer - Widget Title Color.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-widget-title-color]',
-					'default'   => astra_get_option( 'hb-footer-widget-title-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 74,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Title Color', 'astra-builder' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );

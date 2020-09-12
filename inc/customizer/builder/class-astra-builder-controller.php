@@ -93,7 +93,6 @@ final class Astra_Builder_Controller {
 
 		add_action( 'customize_register', array( $this, 'builder_configs' ), 2 );
 		add_action( 'customize_register', array( $this, 'header_configs' ), 2 );
-		add_action( 'customize_register', array( $this, 'footer_configs' ), 2 );
 		add_action( 'customize_register', array( $this, 'update_default_wp_configs' ) );
 		add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
@@ -782,6 +781,7 @@ final class Astra_Builder_Controller {
 		require_once $footer_config_path . '/social-icon/class-astra-footer-social-icons-component.php';
 		require_once $footer_config_path . '/above-footer/class-astra-above-footer.php';
 		require_once $footer_config_path . '/primary-footer/class-astra-primary-footer.php';
+		require_once $footer_config_path . '/widget/class-astra-footer-widget-component.php';
 	}
 
 	/**
@@ -810,20 +810,7 @@ final class Astra_Builder_Controller {
 		require_once $header_config_path . '/widget/class-astra-customizer-header-widget-configs.php';
 		require_once $header_config_path . '/transparent/class-astra-customizer-transparent-header-builder-configs.php';
 	}
-
-
-	/**
-	 * Register controls for Footer Components.
-	 *
-	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-	 * @since x.x.x
-	 */
-	public function footer_configs( $wp_customize ) {
-		$footer_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/footer';
-
-		require_once $footer_config_path . '/widget/class-astra-customizer-footer-widget-configs.php';
-	}
-
+	
 	/**
 	 * Prepare context.
 	 *

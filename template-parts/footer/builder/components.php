@@ -39,7 +39,7 @@ switch ( $type ) {
 
 	case 'widget-2':
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-1">
+		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-2">
 			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'footer-widget-2' );
@@ -51,7 +51,7 @@ switch ( $type ) {
 
 	case 'widget-3':
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-1">
+		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-3">
 			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'footer-widget-3' );
@@ -63,7 +63,7 @@ switch ( $type ) {
 
 	case 'widget-4':
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-1">
+		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-4">
 			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'footer-widget-4' );
