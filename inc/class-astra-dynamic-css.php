@@ -723,42 +723,42 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $trans_header_responsive_top_space_css_fix, '', astra_get_tablet_breakpoint() );
 
 				$desktop_screen_gb_css = array(
-					'figure.size-full' => array(
-						'margin'  => '2rem 0',
+					'figure.size-full'                   => array(
+						'margin' => '2rem 0',
 					),
-					'.wp-block-gallery' => array(
-						'margin-bottom'  => '1.6em',
+					'.wp-block-gallery'                  => array(
+						'margin-bottom' => '1.6em',
 					),
 					'.wp-block-group__inner-container:last-child, .wp-block-table table, .wpforms-container' => array(
-						'margin-bottom'  => '0',
+						'margin-bottom' => '0',
 					),
-					'.blocks-gallery-grid' => array(
-						'width'  => '100%',
+					'.blocks-gallery-grid'               => array(
+						'width' => '100%',
 					),
 					'.wp-block-navigation-link__content' => array(
-						'padding'  => '5px 0',
+						'padding' => '5px 0',
 					),
 					'.wp-block-group .wp-block-group .has-text-align-center, .wp-block-group .wp-block-column .has-text-align-center' => array(
-						'max-width'  => '100%',
+						'max-width' => '100%',
 					),
 				);
 
 				$parse_css .= astra_parse_css( $desktop_screen_gb_css );
 
 				$middle_screen_min_gb_css = array(
-					'.wp-block-group' => array(
-						'padding'   => '5em 0',
+					'.wp-block-group'        => array(
+						'padding' => '5em 0',
 					),
 					'.has-text-align-center' => array(
-						'max-width'   => '55%',
-						'margin'   => '0 auto',
+						'max-width' => '55%',
+						'margin'    => '0 auto',
 					),
 					'.wp-block-cover .wp-block-group, .wp-block-group .wp-block-group' => array(
-						'padding'   => '2em',
+						'padding' => '2em',
 					),
 					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container, .wp-block-group.alignnone, .wp-block-group.aligncenter, .wp-block-group.alignleft, .wp-block-group.alignright, .wp-block-group.alignwide, .wp-block-columns.alignwide' => array(
-						'max-width'   => '1200px',
-						'margin'   => '0 auto',
+						'max-width' => '1200px',
+						'margin'    => '0 auto',
 					),
 				);
 
@@ -766,18 +766,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
 
 				$middle_screen_max_gb_css = array(
-					'.wp-block-group' => array(
-						'padding'   => '3em',
+					'.wp-block-group'                     => array(
+						'padding' => '3em',
 					),
-					'.wp-block-group .wp-block-group' => array(
-						'padding'   => '1.5em',
+					'.wp-block-group .wp-block-group'     => array(
+						'padding' => '1.5em',
 					),
 					'.wp-block-columns, .wp-block-column' => array(
-						'margin'   => '1rem 0',
+						'margin' => '1rem 0',
 					),
-					'.has-text-align-center' => array(
-						'max-width'   => '75%',
-						'margin'   => '0 auto',
+					'.has-text-align-center'              => array(
+						'max-width' => '75%',
+						'margin'    => '0 auto',
 					),
 				);
 
@@ -786,20 +786,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$mobile_screen_max_gb_css = array(
 					'.wp-block-group' => array(
-						'padding'   => '3em 2em',
+						'padding' => '3em 2em',
 					),
 					'.wp-block-media-text .wp-block-media-text__content' => array(
-						'padding'   => '1em 0',
+						'padding' => '1em 0',
 					),
 					'.wp-block-cover, .wp-block-cover-image' => array(
-						'padding'   => '2em 0',
+						'padding' => '2em 0',
 					),
 					'.wp-block-media-text__media img, .wp-block-media-text__media video' => array(
-						'width'   => 'unset',
-						'max-width'   => '100%',
+						'width'     => 'unset',
+						'max-width' => '100%',
 					),
 					'.wp-block-media-text.has-background .wp-block-media-text__content' => array(
-						'padding'   => '1em',
+						'padding' => '1em',
 					),
 				);
 
@@ -2310,7 +2310,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gtn_group_column_media_block_css_comp() {
-			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-group-column-media-block-css'] = isset( $astra_settings['guntenberg-group-column-media-block-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-group-column-media-block-css'] );
 		}
