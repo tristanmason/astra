@@ -10,7 +10,7 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
 
-import { getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs,  astGetColor } from '../common/responsive-helper';
+import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor } from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -215,26 +215,22 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			switch( control_type.key ) {
 
 				case "ast-color":
-					// console.log("customize-control-" + control_type.name);
-					// var control_clean_name = attr.name.replace('[', '-');
-					// control_clea n_name = control_clean_name.replace(']', '');
-					// var selector = '#customize-control-' + control_clean_name;
-					astGetColor( "#customize-control-" + control_type.name )
+					astraGetColor( "#customize-control-" + control_type.name )
 					break;
 				case "ast-responsive-background":
-					getResponsiveBgJs( control )
+					astraGetResponsiveBgJs( control )
 					break;
 				case "ast-responsive-color":
-					getResponsiveColorJs( control )
+					astraGetResponsiveColorJs( control )
 					break;
 				case "ast-responsive":
-					getResponsiveJs( control )
+					astraGetResponsiveJs( control )
 					break;
 				case "ast-responsive-slider":
-					getResponsiveSliderJs( control )
+					astraGetResponsiveSliderJs( control )
 					break;
 				case "ast-responsive-spacing":
-					getResponsiveSpacingJs( control )
+					astraGetResponsiveSpacingJs( control )
 					break;
 				case "ast-font":
 

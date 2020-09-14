@@ -1,5 +1,5 @@
 import ResponsiveColorComponent from './responsive-color-component';
-import { getResponsiveColorJs } from '../common/responsive-helper';
+import { astraGetResponsiveColorJs } from '../common/responsive-helper';
 
 export const responsiveColorControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -11,7 +11,7 @@ export const responsiveColorControl = wp.customize.astraControl.extend( {
 	},
 	ready: function() {
 
-		getResponsiveColorJs( this );
+		astraGetResponsiveColorJs( this );
 	},
 
 } );

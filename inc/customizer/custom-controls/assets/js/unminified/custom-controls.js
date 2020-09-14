@@ -10124,6 +10124,18 @@ var colorControl = wp.customize.astraControl.extend({
       control: control,
       customizer: wp.customize
     }), control.container[0]);
+  },
+  ready: function ready() {
+    'use strict';
+
+    var control = this;
+    jQuery(document).mouseup(function (e) {
+      var container = jQuery(control.container); // If the target of the click isn't the container nor a descendant of the container.
+
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        container.find('.components-button.astra-color-icon-indicate.open').click();
+      }
+    });
   }
 });
 
@@ -10309,7 +10321,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "color-button-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Button"], {
-        className: 'astra-color-icon-indicate',
+        className: isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate',
         onClick: function onClick() {
           isVisible ? toggleClose() : toggleVisible();
         }
@@ -10674,17 +10686,29 @@ AstraColorPickerControl.propTypes = {
 /*!*****************************************!*\
   !*** ./src/common/responsive-helper.js ***!
   \*****************************************/
-/*! exports provided: getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs */
+/*! exports provided: astraGetColor, astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveBgJs", function() { return getResponsiveBgJs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveColorJs", function() { return getResponsiveColorJs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveJs", function() { return getResponsiveJs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveSliderJs", function() { return getResponsiveSliderJs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveSpacingJs", function() { return getResponsiveSpacingJs; });
-function getResponsiveBgJs(control) {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetColor", function() { return astraGetColor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveBgJs", function() { return astraGetResponsiveBgJs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveColorJs", function() { return astraGetResponsiveColorJs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveJs", function() { return astraGetResponsiveJs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveSliderJs", function() { return astraGetResponsiveSliderJs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveSpacingJs", function() { return astraGetResponsiveSpacingJs; });
+function astraGetColor(control) {
+  'use strict';
+
+  jQuery(document).mouseup(function (e) {
+    var container = jQuery(control); // If the target of the click isn't the container nor a descendant of the container.
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      container.find('.components-button.astra-color-icon-indicate.open').click();
+    }
+  });
+}
+function astraGetResponsiveBgJs(control) {
   'use strict';
 
   jQuery('html').addClass('responsive-background-img-ready');
@@ -10714,7 +10738,7 @@ function getResponsiveBgJs(control) {
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
 }
-function getResponsiveColorJs(control) {
+function astraGetResponsiveColorJs(control) {
   'use strict';
 
   jQuery('html').addClass('responsive-background-color-ready');
@@ -10744,7 +10768,7 @@ function getResponsiveColorJs(control) {
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
 }
-function getResponsiveJs(control) {
+function astraGetResponsiveJs(control) {
   'use strict';
 
   var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
@@ -10771,7 +10795,7 @@ function getResponsiveJs(control) {
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
 }
-function getResponsiveSliderJs(control) {
+function astraGetResponsiveSliderJs(control) {
   'use strict';
 
   var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
@@ -10798,7 +10822,7 @@ function getResponsiveSliderJs(control) {
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
 }
-function getResponsiveSpacingJs(control) {
+function astraGetResponsiveSpacingJs(control) {
   'use strict';
 
   var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
@@ -11951,7 +11975,15 @@ var responsiveBackgroundControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["getResponsiveBgJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["astraGetResponsiveBgJs"])(this);
+    var control = this;
+    jQuery(document).mouseup(function (e) {
+      var container = jQuery(control.container); // If the target of the click isn't the container nor a descendant of the container.
+
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        container.find('.components-button.astra-color-icon-indicate.open').click();
+      }
+    });
   }
 });
 
@@ -12239,9 +12271,9 @@ var ResponsiveBackground = /*#__PURE__*/function (_Component) {
       }, this.renderReset('tablet'), this.renderSettings('tablet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "background-container mobile"
       }, this.renderReset('mobile'), this.renderSettings('mobile')));
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("label", null, labelHtml, descriptionHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "customize-control-content"
-      }, inputHtml));
+      }, responsiveHtml, inputHtml));
     }
   }, {
     key: "updateValues",
@@ -12289,7 +12321,7 @@ var responsiveColorControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["getResponsiveColorJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["astraGetResponsiveColorJs"])(this);
   }
 });
 
@@ -12771,7 +12803,7 @@ var responsiveSliderControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["getResponsiveSliderJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["astraGetResponsiveSliderJs"])(this);
   }
 });
 
@@ -13019,7 +13051,7 @@ var responsiveSpacingControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["getResponsiveSpacingJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["astraGetResponsiveSpacingJs"])(this);
   }
 });
 
@@ -13380,7 +13412,7 @@ var responsiveControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["getResponsiveJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["astraGetResponsiveJs"])(this);
   }
 });
 
@@ -13993,24 +14025,28 @@ var settingsGroupControl = wp.customize.astraControl.extend({
 
     _.each(control_types, function (control_type, index) {
       switch (control_type.key) {
+        case "ast-color":
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astraGetColor"])("#customize-control-" + control_type.name);
+          break;
+
         case "ast-responsive-background":
-          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["getResponsiveBgJs"])(control);
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astraGetResponsiveBgJs"])(control);
           break;
 
         case "ast-responsive-color":
-          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["getResponsiveColorJs"])(control);
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astraGetResponsiveColorJs"])(control);
           break;
 
         case "ast-responsive":
-          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["getResponsiveJs"])(control);
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astraGetResponsiveJs"])(control);
           break;
 
         case "ast-responsive-slider":
-          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["getResponsiveSliderJs"])(control);
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astraGetResponsiveSliderJs"])(control);
           break;
 
         case "ast-responsive-spacing":
-          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["getResponsiveSpacingJs"])(control);
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astraGetResponsiveSpacingJs"])(control);
           break;
 
         case "ast-font":

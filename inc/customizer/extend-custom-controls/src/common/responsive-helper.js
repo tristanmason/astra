@@ -1,6 +1,5 @@
 export function astraGetColor( control ) {
 	'use strict';
-	console.log(control);
 	jQuery(document).mouseup(function(e){
 		var container = jQuery(control);
 		// If the target of the click isn't the container nor a descendant of the container.
@@ -9,7 +8,7 @@ export function astraGetColor( control ) {
 		}
 	});
 }
-export function getResponsiveBgJs( control ) {
+export function astraGetResponsiveBgJs( control ) {
     'use strict';
 
     jQuery('html').addClass('responsive-background-img-ready');
@@ -48,7 +47,7 @@ export function getResponsiveBgJs( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
-export function getResponsiveColorJs( control ) {
+export function astraGetResponsiveColorJs( control ) {
     'use strict';
 
     jQuery('html').addClass('responsive-background-color-ready');
@@ -87,7 +86,7 @@ export function getResponsiveColorJs( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
-export function getResponsiveJs ( control ) {
+export function astraGetResponsiveJs ( control ) {
     'use strict';
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
@@ -123,7 +122,7 @@ export function getResponsiveJs ( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
-export function getResponsiveSliderJs ( control ) {
+export function astraGetResponsiveSliderJs ( control ) {
     'use strict';
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
@@ -158,7 +157,7 @@ export function getResponsiveSliderJs ( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
-export function getResponsiveSpacingJs ( control ) {
+export function astraGetResponsiveSpacingJs ( control ) {
     'use strict';
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
