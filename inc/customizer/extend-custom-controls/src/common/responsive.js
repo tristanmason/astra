@@ -58,7 +58,7 @@ class ResponsiveControl extends Component {
 																		'' ) + device}
 																onClick={() => {
 																	let event = new CustomEvent(
-																			'astraChangedRepsonsivePreview', {
+																			'AstraChangedRepsonsivePreview', {
 																				'detail': device
 																			} );
 																	document.dispatchEvent( event );
@@ -82,7 +82,7 @@ class ResponsiveControl extends Component {
 																'' ) + device}
 														onClick={() => {
 															let event = new CustomEvent(
-																	'astraChangedRepsonsivePreview', {
+																	'AstraChangedRepsonsivePreview', {
 																		'detail': device
 																	} );
 															document.dispatchEvent( event );
@@ -112,7 +112,7 @@ class ResponsiveControl extends Component {
 
 	linkResponsiveButtons() {
 		let self = this;
-		document.addEventListener( 'astraChangedRepsonsivePreview', function(e) {
+		document.addEventListener( 'AstraChangedRepsonsivePreview', function(e) {
 			self.changeViewType( e.detail );
 		} );
 	}
