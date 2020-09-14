@@ -8,19 +8,19 @@
   background-color: #ffffff;
   text-align: center;
   border: 1px solid #a29090;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-black {
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color {
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-white {
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {

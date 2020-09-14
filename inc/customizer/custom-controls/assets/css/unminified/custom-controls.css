@@ -272,10 +272,6 @@ svg.dashicon {
     outline: none;
 }
 
-.astra-color-picker-wrap {
-    margin-left: 5px;
-}
-
 .components-button.astra-color-icon-indicate {
     height: auto;
     position: relative;
@@ -285,7 +281,8 @@ svg.dashicon {
     padding: 0;
     background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
-    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+	background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+	border: 1px solid #929ba4;
 }
 .components-button {
     display: inline-flex;
@@ -367,9 +364,6 @@ svg.dashicon {
 .color-button-wrap {
 	display: inline;
     float: right;
-}
-.components-button.astra-color-icon-indicate:hover {
-    transform: scale(1.1);
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -515,16 +509,23 @@ svg.dashicon {
 	margin-top: 5px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
-	border-radius: 8px;
+	border-radius: 4px;
 }
 .components-color-picker__saturation-black {
-	border-radius: 8px 8px 0 0;
+	border-radius: 4px 4px 0 0;
 }
 .components-color-picker__saturation-color {
-	border-radius: 7px;
+	border-radius: 3px;
 }
 .components-color-picker__saturation-white {
-	border-radius: 7px;
+	border-radius: 3px;
+}
+.astra-color-picker-wrap {
+	margin-left: 5px;
+}
+.components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+	width: 27px;
+    height: 27px;
 }
 @media (max-width: 1800px) {
     .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
@@ -929,6 +930,32 @@ input[type="text"].select2-search__field {
   min-height: 30px;
 }
 
+.customize-control-ast-responsive-background .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 55px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
+  position: absolute;
+  right: 24px;
+  top: 4px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
+  position: absolute;
+  right: 0px;
+  top: 6px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
+  margin-top: -14px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
+.customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-white {
+  border-radius: unset;
+}
+
 /**
  * BG Media Button.
  */
@@ -1070,6 +1097,28 @@ input[type="text"].select2-search__field {
   display: none;
 }
 
+.ast-field-settings-modal .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 60px;
+}
+
+.ast-field-settings-modal .customize-control-content .color-button-wrap {
+  right: 30px;
+}
+
+.ast-field-settings-modal .customize-control-content .ast-responsive-btns {
+  right: 7px;
+}
+
+.ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
+  margin-left: 0px;
+}
+
+.ast-field-settings-modal .customize-control-content .astra-popover-color .ast-color-palette {
+  width: auto;
+  padding: 8px 0px 0px 7.5px;
+}
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
@@ -1080,19 +1129,19 @@ input[type="text"].select2-search__field {
   background-color: #ffffff;
   text-align: center;
   border: 1px solid #a29090;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-black {
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color {
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-white {
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
