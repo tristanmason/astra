@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 
 			add_action( 'after_setup_theme', array( $this, 'load_plugin' ) );
 
-			add_action( 'after_setup_theme', array( $this, 'load_options_default' ) );
+			add_action( 'after_setup_theme', array( $this, 'load_options_default' ), 9 );
 
 
 			add_action( 'init', array( $this, 'load_core_files' ) );
