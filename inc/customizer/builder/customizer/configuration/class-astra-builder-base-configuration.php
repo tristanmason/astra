@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 			return array(
 
 				/**
-				 * Option: Blog Color Section heading
+				 * Option: Margin heading
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-heading]',
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 				),
 
 				/**
-				 * Option: Padded Layout Custom Width
+				 * Option: Margin Space
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
