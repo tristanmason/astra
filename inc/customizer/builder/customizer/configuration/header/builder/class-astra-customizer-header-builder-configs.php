@@ -51,7 +51,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 		'search'   => array(
 			'name'    => 'Search',
 			'icon'    => 'search',
-			'section' => 'section-hb-search',
+			'section' => 'section-header-search',
 		),
 		'button-1' => array(
 			'name'    => 'Button 1',
@@ -100,7 +100,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 		'search'         => array(
 			'name'    => 'Search',
 			'icon'    => 'search',
-			'section' => 'section-hb-search',
+			'section' => 'section-header-search',
 		),
 		'button-1'       => array(
 			'name'    => 'Button 1',
@@ -139,6 +139,8 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
+
+		$astra_addon_status = defined( 'ASTRA_EXT_VER' );
 
 		$pro_header_desktop_items = array(
 			'button-2' => array(
@@ -511,7 +513,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( 'section-header-builder-layout' ) );
 
-		if ( defined( 'ASTRA_EXT_VER' ) ) {
+		if ( $astra_addon_status ) {
 			/**
 			 * Option: Header Transparant
 			 */

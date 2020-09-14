@@ -551,9 +551,8 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$dynamic_css .= $css_output;
 
-		$selector = '.astra-hfb-header .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu';
-		
-		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
+		$selector     = '.astra-hfb-header .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu';
+		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
 	}
 
 	return $dynamic_css;

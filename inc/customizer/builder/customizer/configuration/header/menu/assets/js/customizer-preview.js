@@ -415,7 +415,7 @@
 			} );
 
         // Advanced CSS Generation.
-        astra_builder_advanced_css( 'section-hb-menu-' + index, selector );
+        astra_builder_advanced_margin_css( 'section-hb-menu-' + index, selector );
 	}
 	
 	// Sub Menu Divider Toggle.
