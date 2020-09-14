@@ -34,45 +34,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_section              = 'title_tagline';
-			$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
-
-			$wp_customize->get_control( 'blogname' )->priority        = 7;
-			$wp_customize->get_control( 'site_icon' )->priority       = 16;
-			$wp_customize->get_control( 'blogdescription' )->priority = 10;
-
-			$wp_customize->get_setting( 'custom_logo' )->transport     = 'postMessage';
-			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-
-			$wp_customize->selective_refresh->add_partial(
-				'custom_logo',
-				array(
-					'selector'            => '.site-branding',
-					'container_inclusive' => false,
-					'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'blogdescription',
-				array(
-					'selector'        => '.site-description',
-					'render_callback' => function() {
-						bloginfo( 'description' );
-					},
-				)
-			);
-
-			$wp_customize->selective_refresh->add_partial(
-				'blogname',
-				array(
-					'selector'        => '.site-title',
-					'render_callback' => function() {
-						bloginfo( 'name' );
-					},
-				)
-			);
-
+			
 			$_configs = array(
 
 				/*
