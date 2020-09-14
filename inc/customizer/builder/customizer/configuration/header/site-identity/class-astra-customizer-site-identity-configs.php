@@ -34,7 +34,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_section              = 'title_tagline';
-			$is_astra_addon_active = is_astra_addon_activated();
+			$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
 
 			$wp_customize->get_control( 'blogname' )->priority        = 7;
 			$wp_customize->get_control( 'site_icon' )->priority       = 16;

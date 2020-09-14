@@ -264,7 +264,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$mega_menu_mobile_spacing_unit = ( isset( $mega_menu_heading_spacing['mobile-unit'] ) && ! empty( $mega_menu_heading_spacing['mobile-unit'] ) ) ? $mega_menu_heading_spacing['mobile-unit'] : '';
 
 		// If Astra-Pro is active or not.
-		$is_astra_addon_active = is_astra_addon_activated();
+		$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
 
 		$css_output_desktop = array(
 
