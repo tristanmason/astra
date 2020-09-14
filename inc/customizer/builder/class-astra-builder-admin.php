@@ -68,16 +68,19 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 						<p><?php esc_html_e( 'Astra Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'astra-builder' ); ?></p>
 						<p><?php esc_html_e( 'Activating this feature will add advanced options to Astra customizer where you can create awesome new designs.', 'astra-builder' ); ?></p>
 						<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer.', 'astra-builder' ); ?></p>
-						<div class="ast-actions" style="justify-content: space-between;display: flex;align-items: flex-end; margin-top: 10px;">
-							<button href="#" class="button button-primary ast-builder-migrate" data-value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></button>
-							<?php
-							$is_deleted = get_option( 'ast_builder_old_deleted', false );
-							if ( ! $is_deleted && false !== astra_get_db_option( 'header-desktop-items', false ) ) {
-								?>
-							<a href="#" class="ast-delete-old-options button <?php echo ( $value ) ? 'hidden' : ''; ?>"><?php esc_html_e( 'Delete Older Options', 'astra-builder' ); ?></a>
+						<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
+							<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customzier', 'astra-builder' ); ?></a>
+							<div class="ast-actions" style="display: inline-flex;">
+								<button href="#" class="button button-primary ast-builder-migrate" style="margin-right:10px;" data-value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></button>
 								<?php
-							}
-							?>
+								$is_deleted = get_option( 'ast_builder_old_deleted', false );
+								if ( ! $is_deleted && false !== astra_get_db_option( 'header-desktop-items', false ) ) {
+									?>
+								<a href="#" class="ast-delete-old-options button <?php echo ( $value ) ? 'hidden' : ''; ?>"><?php esc_html_e( 'Delete Older Options', 'astra-builder' ); ?></a>
+									<?php
+								}
+								?>
+							</div>
 						</div>
 					</div>
 				</div>
