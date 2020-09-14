@@ -11,6 +11,7 @@ export const colorControl = wp.customize.astraControl.extend( {
 	ready : function() {
 		'use strict';
 		let control = this;
+		console.log(control.container);
 		jQuery(document).mouseup(function(e){
 			var container = jQuery(control.container);
 			// If the target of the click isn't the container nor a descendant of the container.

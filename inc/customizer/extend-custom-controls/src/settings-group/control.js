@@ -10,7 +10,7 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
 
-import { getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs } from '../common/responsive-helper';
+import { getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs,  astGetColor } from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -34,7 +34,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
         } else {
         var parent_width_remove = 16;
 		}
-		
+
         jQuery('#customize-controls .wp-full-overlay-sidebar-content .control-section').on( 'scroll', function (event) {
             var $this = jQuery(this);
             // Run sticky js for only open section.
@@ -72,18 +72,18 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				jQuery( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
 			}
 		});
-		
+
 		control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
-			
+
 			e.preventDefault();
 			e.stopPropagation();
-			
+
 			var $this = jQuery(this);
-			
+
 			var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
 			var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
 			var parent_section = parent_wrap.parents('.control-section');
-			
+
 			if( $this.hasClass('open') ) {
 				parent_wrap.find( '.ast-field-settings-modal' ).hide();
 			} else {
@@ -145,8 +145,8 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			var clean_param_name = control_elem.params.name.replace( '[', '-' ),
 				clean_param_name = clean_param_name.replace( ']', '' );
 
-			fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">'; 
-			fields_html += '<ul class="ast-group-list">'; 
+			fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">';
+			fields_html += '<ul class="ast-group-list">';
 			var counter = 0;
 
 			_.each( fields.tabs, function ( value, key ) {
@@ -160,7 +160,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				counter++;
 			});
 
-			fields_html += '</ul>'; 
+			fields_html += '</ul>';
 
 			fields_html += '<div class="ast-tab-content" >';
 
@@ -176,7 +176,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 					control_types.push({
 						key: control_value.key,
 						value : control_value.value,
-						name  : control_value.name 
+						name  : control_value.name
 					});
 				});
 
@@ -196,7 +196,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			var result = control.generateFieldHtml( fields, field_values );
 
 			fields_html += result.html;
-			
+
 			_.each( result.controls, function (control_value, control_key) {
 				control_types.push({
 					key: control_value.key,
@@ -214,6 +214,13 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			switch( control_type.key ) {
 
+				case "ast-color":
+					// console.log("customize-control-" + control_type.name);
+					// var control_clean_name = attr.name.replace('[', '-');
+					// control_clea n_name = control_clean_name.replace(']', '');
+					// var selector = '#customize-control-' + control_clean_name;
+					astGetColor( "#customize-control-" + control_type.name )
+					break;
 				case "ast-responsive-background":
 					getResponsiveBgJs( control )
 					break;
@@ -229,7 +236,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				case "ast-responsive-spacing":
 					getResponsiveSpacingJs( control )
 					break;
-				case "ast-font": 
+				case "ast-font":
 
 					var googleFontsString = astra.customizer.settings.google_fonts;
 					control.container.find( '.ast-font-family' ).html( googleFontsString );
@@ -249,7 +256,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 						control.generateDropdownHtml( weightObject, fontWeightContainer );
 						fontWeightContainer.val( fontWeightContainer.data('value') );
 
-					}); 
+					});
 
 					control.container.find( '.ast-font-family' ).selectWoo();
 					control.container.find( '.ast-font-family' ).on( 'select2:select', function() {
@@ -270,7 +277,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 						font_weight_control = font_weight_control.replace( 'customize-control-', '' );
 
 						control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val(), font_weight_control ] );
-						
+
 					});
 
 					control.container.find( '.ast-font-weight' ).on( 'change', function() {
@@ -282,19 +289,19 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 						control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
 					});
-					
-				break; 
+
+				break;
 			}
 
 		});
 
 		wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
-		
+
 	},
 	getJS: function( control ) {
-		
+
 	},
-	generateFieldHtml: function ( fields_data, field_values ) {    
+	generateFieldHtml: function ( fields_data, field_values ) {
 
 		var fields_html = '';
 		var control_types = [];
@@ -302,7 +309,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 		_.each(fields_data, function (attr, index) {
 
-			var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+			var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' );
 			var control = attr.control;
 			var template_id = "customize-control-" + control + "-content";
             var template = wp.template(template_id);
@@ -377,7 +384,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
 			}
 		}
-		
+
 		element.html( weightOptions );
 	},
 
@@ -421,7 +428,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		if ( undefined !== attr.responsive && ( undefined === controlObject.params['responsive'] || '' === controlObject.params['responsive'] || null === controlObject.params['responsive'] ) ) {
 			controlObject.params['responsive'] = attr.responsive;
 		}
-		
+
 		return controlObject;
 	},
 	renderReactControl: function( fields, control ) {
@@ -438,7 +445,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
 			'ast-select' : SelectComponent,
 		};
-		
+
 		if( 'undefined' != typeof fields.tabs ) {
 
 			_.each( fields.tabs, function ( fields_data, key ) {
@@ -451,28 +458,28 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 						var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
 						controlObject = control.getFinalControlObject( attr, controlObject );
 						const ComponetName = reactControls[ attr.control ];
-						
+
 						ReactDOM.render(
 							<ComponetName control={controlObject} customizer={ wp.customize }/>,
 							jQuery( selector )[0]
 						);
 					}
 				});
-				
+
 			});
 		} else {
 
 			_.each(fields, function (attr, index) {
-				
+
 				if ( 'ast-font' !== attr.control ) {
-					
+
 					var control_clean_name = attr.name.replace('[', '-');
 					control_clean_name = control_clean_name.replace(']', '');
 					var selector = '#customize-control-' + control_clean_name;
 					var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
 					controlObject = control.getFinalControlObject( attr, controlObject );
 					const ComponetName = reactControls[ attr.control ];
-					
+
 					ReactDOM.render(
 						<ComponetName control={controlObject} customizer={ wp.customize }/>,
 						jQuery( selector )[0]

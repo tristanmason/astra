@@ -9840,6 +9840,7 @@ var colorControl = wp.customize.astraControl.extend({
     'use strict';
 
     var control = this;
+    console.log(control.container);
     jQuery(document).mouseup(function (e) {
       var container = jQuery(control.container); // If the target of the click isn't the container nor a descendant of the container.
 
@@ -10397,16 +10398,29 @@ AstraColorPickerControl.propTypes = {
 /*!*****************************************!*\
   !*** ./src/common/responsive-helper.js ***!
   \*****************************************/
-/*! exports provided: getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs */
+/*! exports provided: astraGetColor, getResponsiveBgJs, getResponsiveColorJs, getResponsiveJs, getResponsiveSliderJs, getResponsiveSpacingJs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetColor", function() { return astraGetColor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveBgJs", function() { return getResponsiveBgJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveColorJs", function() { return getResponsiveColorJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveJs", function() { return getResponsiveJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveSliderJs", function() { return getResponsiveSliderJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResponsiveSpacingJs", function() { return getResponsiveSpacingJs; });
+function astraGetColor(control) {
+  'use strict';
+
+  console.log(control);
+  jQuery(document).mouseup(function (e) {
+    var container = jQuery(control); // If the target of the click isn't the container nor a descendant of the container.
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      container.find('.components-button.astra-color-icon-indicate.open').click();
+    }
+  });
+}
 function getResponsiveBgJs(control) {
   'use strict';
 
@@ -13716,6 +13730,14 @@ var settingsGroupControl = wp.customize.astraControl.extend({
 
     _.each(control_types, function (control_type, index) {
       switch (control_type.key) {
+        case "ast-color":
+          // console.log("customize-control-" + control_type.name);
+          // var control_clean_name = attr.name.replace('[', '-');
+          // control_clea n_name = control_clean_name.replace(']', '');
+          // var selector = '#customize-control-' + control_clean_name;
+          Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["astGetColor"])("#customize-control-" + control_type.name);
+          break;
+
         case "ast-responsive-background":
           Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_12__["getResponsiveBgJs"])(control);
           break;
