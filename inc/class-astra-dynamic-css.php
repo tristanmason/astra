@@ -705,7 +705,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
-			if ( self::gtn_group_column_media_block_css_comp() ) {
+			if ( self::gutenberg_core_blocks_css_comp() ) {
 
 				/**
 				 * If transparent header is activated then it adds top 1.5em padding space, so this CSS will fix this issue.
@@ -2309,7 +2309,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function gtn_group_column_media_block_css_comp() {
+		public static function gutenberg_core_blocks_css_comp() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-group-column-media-block-css'] = isset( $astra_settings['guntenberg-group-column-media-block-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-group-column-media-block-css'] );
