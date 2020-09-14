@@ -452,9 +452,54 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					),
 				),
 			),
-		);
 
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_margin_tab( $_section ) );
+			/**
+			 * Option: Margin heading
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Margin', 'astra-builder' ),
+				'priority' => 200,
+				'settings' => array(),
+				'context'  => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
+					),
+				),
+			),
+
+			/**
+			 * Option: Margin Space
+			 */
+			array(
+				'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+				'default'        => '',
+				'type'           => 'control',
+				'transport'      => 'postMessage',
+				'control'        => 'ast-responsive-spacing',
+				'section'        => $_section,
+				'priority'       => 220,
+				'title'          => __( 'Margin', 'astra-builder' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'astra-builder' ),
+					'right'  => __( 'Right', 'astra-builder' ),
+					'bottom' => __( 'Bottom', 'astra-builder' ),
+					'left'   => __( 'Left', 'astra-builder' ),
+				),
+				'context'        => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
+					),
+				),
+			),
+		);
 
 		return array_merge( $configurations, $_configs );
 	}

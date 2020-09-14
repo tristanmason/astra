@@ -54,6 +54,9 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 
 	$trigger_border_width_left = ( isset( $trigger_border_width ) && isset( $trigger_border_width['left'] ) ) ? $trigger_border_width['left'] : 0;
 
+	$margin = astra_get_option( $_section . '-margin' );
+	$margin_selector = $selector . ' .ast-button-wrap .menu-toggle';
+
 	/**
 	 * Off-Canvas CSS.
 	 */
@@ -99,14 +102,46 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 		$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-minimal' => array(
 			'background' => 'transparent',
 		),
+		$margin_selector => array(
+			// Margin CSS.
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+		),
+	);
+
+	// Tablet CSS.
+	$css_output_tablet = array(
+
+		$margin_selector => array(
+			// Margin CSS.
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+		),
+	);
+
+	// Mobile CSS.
+	$css_output_mobile = array(
+
+		$margin_selector => array(
+			// Margin CSS.
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+		),
 	);
 
 	/* Parse CSS from array() */
 	$css_output = astra_parse_css( $css_output );
+	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+
 
 	$dynamic_css .= $css_output;
-
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector . ' .ast-button-wrap .menu-toggle' );
 
 	return $dynamic_css;
 }
