@@ -39,8 +39,6 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 	$trigger_border_width   = astra_get_option( 'mobile-header-toggle-btn-border-size' );
 	$trigger_border_color   = astra_get_option( 'mobile-header-toggle-border-color' );
 	$trigger_border_radius  = astra_get_option( 'mobile-header-toggle-border-radius' );
-	$trigger_padding        = astra_get_option( 'mobile-header-toggle-btn-padding' );
-	$trigger_margin         = astra_get_option( 'mobile-header-toggle-btn-margin' );
 	$font_family            = astra_get_option( 'mobile-header-label-font-family' );
 	$font_weight            = astra_get_option( 'mobile-header-label-font-weight' );
 	$font_size              = astra_get_option( 'mobile-header-label-font-size' );
@@ -55,24 +53,6 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 	$trigger_border_width_right = ( isset( $trigger_border_width ) && isset( $trigger_border_width['right'] ) ) ? $trigger_border_width['right'] : 0;
 
 	$trigger_border_width_left = ( isset( $trigger_border_width ) && isset( $trigger_border_width['left'] ) ) ? $trigger_border_width['left'] : 0;
-
-	// Padding.
-	$trigger_padding_top = ( isset( $trigger_padding ) && isset( $trigger_padding['top'] ) ) ? $trigger_padding['top'] : 0;
-
-	$trigger_padding_bottom = ( isset( $trigger_padding ) && isset( $trigger_padding['bottom'] ) ) ? $trigger_padding['bottom'] : 0;
-
-	$trigger_padding_right = ( isset( $trigger_padding ) && isset( $trigger_padding['right'] ) ) ? $trigger_padding['right'] : 0;
-
-	$trigger_padding_left = ( isset( $trigger_padding ) && isset( $trigger_padding['left'] ) ) ? $trigger_padding['left'] : 0;
-
-	// Margin.
-	$trigger_margin_top = ( isset( $trigger_margin ) && isset( $trigger_margin['top'] ) ) ? $trigger_margin['top'] : 0;
-
-	$trigger_margin_bottom = ( isset( $trigger_margin ) && isset( $trigger_margin['bottom'] ) ) ? $trigger_margin['bottom'] : 0;
-
-	$trigger_margin_right = ( isset( $trigger_margin ) && isset( $trigger_margin['right'] ) ) ? $trigger_margin['right'] : 0;
-
-	$trigger_margin_left = ( isset( $trigger_margin ) && isset( $trigger_margin['left'] ) ) ? $trigger_margin['left'] : 0;
 
 	/**
 	 * Off-Canvas CSS.
@@ -94,19 +74,6 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 			'font-size'      => astra_get_css_value( $font_size, 'px' ),
 			'line-height'    => esc_attr( $line_height ),
 			'text-transform' => esc_attr( $text_transform ),
-		),
-		$selector . ' .ast-button-wrap .menu-toggle' => array(
-			// Padding.
-			'padding-top'    => astra_get_css_value( $trigger_padding_top, 'px' ),
-			'padding-bottom' => astra_get_css_value( $trigger_padding_bottom, 'px' ),
-			'padding-right'  => astra_get_css_value( $trigger_padding_right, 'px' ),
-			'padding-left'   => astra_get_css_value( $trigger_padding_left, 'px' ),
-
-			// Margin.
-			'margin-top'     => astra_get_css_value( $trigger_margin_top, 'px' ),
-			'margin-bottom'  => astra_get_css_value( $trigger_margin_bottom, 'px' ),
-			'margin-right'   => astra_get_css_value( $trigger_margin_right, 'px' ),
-			'margin-left'    => astra_get_css_value( $trigger_margin_left, 'px' ),
 		),
 		$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill, ' . $selector . ' .ast-button-wrap .ast-mobile-menu-trigger-minimal' => array(
 			// Color & Border.
@@ -138,6 +105,8 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 	$css_output = astra_parse_css( $css_output );
 
 	$dynamic_css .= $css_output;
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector . ' .ast-button-wrap .menu-toggle' );
 
 	return $dynamic_css;
 }

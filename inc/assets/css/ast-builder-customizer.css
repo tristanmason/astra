@@ -551,9 +551,9 @@
     color: #c8dbe4;
     text-transform: uppercase;
     font-size: 10px;
+    font-weight: 400;
     height: auto;
     line-height: 24px;
-    border-radius: 0;
     position: absolute;
     top: -24px;
     left: calc(50% - 45px);

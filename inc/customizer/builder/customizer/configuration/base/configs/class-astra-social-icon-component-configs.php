@@ -363,7 +363,7 @@ class Astra_Social_Icon_Component_Configs {
 
 		);
 
-		$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
+		$html_config[] = Astra_Builder_Base_Configuration::prepare_margin_tab( $_section );
 
 		$html_config[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section, array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-label-toggle]', '===', true ) );
 

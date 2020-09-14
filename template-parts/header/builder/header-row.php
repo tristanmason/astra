@@ -5,6 +5,8 @@
  * @package Astra Builder
  */
 
+$row = get_query_var( 'row' );
+
 if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 
 	$customizer_editor_row        = 'section-' . esc_attr( $row ) . '-header-builder';
@@ -14,7 +16,10 @@ if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 		$customizer_editor_row = 'section-transparent-header';
 	}
 
+	$row_label = ( 'primary' === $row ) ? 'main' : $row;
+
 	?>
+		<div class="ast-<?php echo esc_attr( $row_label ); ?>-header-wrap">
 		<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?>">
 			<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
 				<div class="ast-builder-grid-row-container-inner">
@@ -34,14 +39,14 @@ if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 										do_action( 'astra_render_header_column', $row, 'left' );
 									if ( Astra_Builder_helper::has_center_column( $row ) ) {
 										?>
-											<div class="site-header-<?php echo esc_attr( $row ); ?>-section-left-center site-header-section ast-grid-left-center-section">
+												<div class="site-header-<?php echo esc_attr( $row ); ?>-section-left-center site-header-section ast-grid-left-center-section">
 											<?php
 											/**
 											 * Astra Render Header Column
 											 */
 											do_action( 'astra_render_header_column', $row, 'left_center' );
 											?>
-											</div>
+												</div>
 											<?php
 									}
 									?>
@@ -83,6 +88,7 @@ if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	<?php
 }

@@ -184,6 +184,6 @@
     } );
 
     // Advanced CSS Generation.
-    astra_builder_advanced_css( 'section-footer-menu', selector );
+    astra_builder_advanced_margin_css( 'section-footer-menu', selector );
 
 } )( jQuery );

@@ -21,7 +21,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
         );
 
         // Advanced CSS Generation.
-        astra_builder_advanced_css( section, selector );
+        astra_builder_advanced_margin_css( section, selector );
 
         // Typography CSS Generation.
         astra_builder_typography_css( section, selector );
@@ -145,7 +145,7 @@ function astra_builder_social_css( builder_type = 'header' ) {
 	} );
 
 	// Advanced CSS Generation.
-	astra_builder_advanced_css( section, selector );
+	astra_builder_advanced_margin_css( section, selector );
 
 	// Typography CSS Generation.
 	astra_builder_typography_css( section, selector );

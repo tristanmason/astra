@@ -33,7 +33,7 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	$_section = 'title_tagline';
 	$selector = '.ast-builder-layout-element .ast-site-identity';
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
 
 	return $dynamic_css;
 }

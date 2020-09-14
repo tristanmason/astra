@@ -452,61 +452,9 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					),
 				),
 			),
-
-			/**
-			 * Option: Trigger Button Padding.
-			 */
-			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-padding]',
-				'default'        => astra_get_option( 'mobile-header-toggle-btn-padding' ),
-				'type'           => 'control',
-				'section'        => $_section,
-				'control'        => 'ast-border',
-				'transport'      => 'postMessage',
-				'linked_choices' => true,
-				'priority'       => 80,
-				'title'          => __( 'Padding', 'astra-builder' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'astra-builder' ),
-					'right'  => __( 'Right', 'astra-builder' ),
-					'bottom' => __( 'Bottom', 'astra-builder' ),
-					'left'   => __( 'Left', 'astra-builder' ),
-				),
-				'context'        => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-				),
-			),
-
-			/**
-			 * Option: Trigger Button Margin.
-			 */
-			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-margin]',
-				'default'        => astra_get_option( 'mobile-header-toggle-btn-margin' ),
-				'type'           => 'control',
-				'section'        => $_section,
-				'control'        => 'ast-border',
-				'transport'      => 'postMessage',
-				'linked_choices' => true,
-				'priority'       => 80,
-				'title'          => __( 'Margin', 'astra-builder' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'astra-builder' ),
-					'right'  => __( 'Right', 'astra-builder' ),
-					'bottom' => __( 'Bottom', 'astra-builder' ),
-					'left'   => __( 'Left', 'astra-builder' ),
-				),
-				'context'        => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-				),
-			),
 		);
+
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_margin_tab( $_section ) );
 
 		return array_merge( $configurations, $_configs );
 	}

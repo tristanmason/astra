@@ -653,7 +653,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Footer - Defaults
 	 */
-	$defaults['hb-footer-main-layout-width']  = 'content';
 	$defaults['hba-footer-bg-obj-responsive'] = array(
 		'desktop' => array(
 			'background-color'      => '#eeeeee',
@@ -736,13 +735,21 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Below Footer Defaults.
 	 */
-	$defaults['hbb-footer-height'] = 60;
+	$defaults['hbb-footer-height'] = 80;
 	$defaults['hbb-footer-column'] = '1';
 	$defaults['hbb-footer-layout'] = array(
 		'desktop' => 'full',
 		'tablet'  => 'full',
 		'mobile'  => 'full',
 	);
+
+	$defaults['hba-footer-layout-width'] = 'content';
+	$defaults['hb-footer-layout-width']  = 'content';
+	$defaults['hbb-footer-layout-width'] = 'content';
+
+	$defaults['hba-footer-vertical-alignment'] = 'center';
+	$defaults['hb-footer-vertical-alignment']  = 'center';
+	$defaults['hbb-footer-vertical-alignment'] = 'center';
 
 	/**
 	 * Primary Footer Defaults.
@@ -1042,12 +1049,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'left'   => 1,
 	);
 	$defaults['mobile-header-toggle-border-color']    = '#eeeeee';
-	$defaults['mobile-header-toggle-btn-padding']     = array(
-		'top'    => 5,
-		'right'  => 5,
-		'bottom' => 5,
-		'left'   => 5,
-	);
 
 	// HTML Header defaults.
 	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_html; $index++ ) {

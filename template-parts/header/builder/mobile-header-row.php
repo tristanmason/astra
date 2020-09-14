@@ -8,9 +8,22 @@
 $row = get_query_var( 'row' );
 
 if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'mobile' ) ) {
+
+	$customizer_editor_row        = 'section-' . esc_attr( $row ) . '-header-builder';
+	$is_transparent_header_enable = astra_get_option( 'transparent-header-enable' );
+
+	if ( 'primary' === $row && $is_transparent_header_enable ) {
+		$customizer_editor_row = 'section-transparent-header';
+	}
+
 	?>
-<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header ' ); ?><?php echo 'primary' === $row ? 'main-header-bar ' : ''; ?>site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item ast-builder-grid-row-layout-default ast-builder-grid-row-tablet-layout-default ast-builder-grid-row-mobile-layout-default">
+<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header ' ); ?><?php echo 'primary' === $row ? 'main-header-bar ' : ''; ?>site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item ast-builder-grid-row-layout-default ast-builder-grid-row-tablet-layout-default ast-builder-grid-row-mobile-layout-default" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
 	<div class="ast-builder-grid-row-container-inner">
+		<?php
+		if ( is_customize_preview() ) {
+			Astra_Builder_UI_Controller::render_grid_row_customizer_edit_button( 'Header', $row );
+		}
+		?>
 		<div class="site-container">
 			<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap ast-builder-grid-row <?php echo ( Astra_Builder_Helper::has_mobile_side_columns( $row, 'header', 'mobile' ) ? 'ast-builder-grid-row-has-sides' : 'ast-grid-center-col-layout-only' ); ?> <?php echo ( Astra_Builder_Helper::has_mobile_center_column( $row, 'header', 'mobile' ) ? 'ast-grid-center-col-layout' : 'ast-builder-grid-row-no-center' ); ?>">
 				<?php if ( Astra_Builder_Helper::has_mobile_side_columns( $row, 'header', 'mobile' ) ) { ?>

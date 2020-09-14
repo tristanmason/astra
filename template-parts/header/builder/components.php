@@ -83,7 +83,7 @@ switch ( $type ) {
 
 	case 'search':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-search" data-section="astra_customizer_header_search">
+		<div class="ast-builder-layout-element site-header-focus-item ast-header-search" data-section="section-header-search">
 			<?php do_action( 'astra_header_search' ); ?>
 		</div>
 		<?php
@@ -156,7 +156,7 @@ switch ( $type ) {
 
 	case 'widget-2':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
 			<div class="header-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'header-widget-2' );
@@ -168,7 +168,7 @@ switch ( $type ) {
 
 	case 'widget-3':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-3">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
 			<div class="header-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'header-widget-3' );
@@ -180,7 +180,7 @@ switch ( $type ) {
 
 	case 'widget-4':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-4">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
 			<div class="header-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'header-widget-4' );

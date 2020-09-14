@@ -30,7 +30,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		return $dynamic_css;
 	}
 
-	$_section  = 'section-hb-search';
+	$_section  = 'section-header-search';
 	$selector  = '.ast-header-search';
 	$icon_size = astra_get_option( 'header-search-icon-space' );
 
@@ -72,7 +72,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	$dynamic_css .= $css_output;
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, '.astra-hfb-header .site-header-section > .ast-header-search' );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, '.astra-hfb-header .site-header-section > .ast-header-search' );
 
 	return $dynamic_css;
 }
