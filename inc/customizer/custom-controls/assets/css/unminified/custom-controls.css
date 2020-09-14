@@ -444,8 +444,7 @@ svg.dashicon {
 }
 .ast-field-settings-modal .customize-control-title .astra-reset, .background-wrapper .customize-control-title .astra-reset {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    right: 46px;
 }
 .customize-control-title .astra-reset svg {
     width: 14px;
