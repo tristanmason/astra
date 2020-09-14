@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_footer_widget_bg',
 			),
 			'2.6.0' => array(
-				'astra_gb_group_column_media_text_block_css_compatibility',
+				'astra_gutenberg_core_blocks_design_compatibility',
 			),
 		);
 

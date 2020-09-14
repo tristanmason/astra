@@ -286,7 +286,7 @@ function astra_footer_widget_bg() {
  *
  * @return void
  */
-function astra_gb_group_column_media_text_block_css_compatibility() {
+function astra_gutenberg_core_blocks_design_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['guntenberg-group-column-media-block-css'] ) ) {
