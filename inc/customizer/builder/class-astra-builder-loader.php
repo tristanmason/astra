@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 *
 		 * @var constant
 		 */
-		public static $num_of_header_button = 1;
+		public static $num_of_header_button = 2;
 
 		/**
 		 *  No. Of. Header HTML.
