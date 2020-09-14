@@ -155,7 +155,7 @@ final class Astra_Builder_Controller {
 
 	/**
 	 * Get the Link for Control.
-	 *
+	 * @since x.x.x
 	 * @param array $id Control ID.
 	 */
 	public static function get_control_link( $id ) {
@@ -168,7 +168,7 @@ final class Astra_Builder_Controller {
 
 	/**
 	 * Bypass JS configs for Controls.
-	 *
+	 * 
 	 * @param array $configuration configuration.
 	 */
 	public static function bypass_control_configs( $configuration ) {
