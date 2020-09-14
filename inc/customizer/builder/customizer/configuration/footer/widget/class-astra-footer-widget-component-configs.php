@@ -64,6 +64,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'title'    => __( 'Widget ', 'astra-builder' ) . $index,
 					'panel'    => 'panel-footer-builder-group',
 				),
+				
 				/**
 				 * Option: Column Alignment
 				 */
