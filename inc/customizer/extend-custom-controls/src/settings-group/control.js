@@ -218,10 +218,10 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 					astraGetColor( "#customize-control-" + control_type.name )
 					break;
 				case "ast-responsive-background":
-					astraGetResponsiveBgJs( control )
+					astraGetResponsiveBgJs( control, "#customize-control-" + control_type.name )
 					break;
 				case "ast-responsive-color":
-					astraGetResponsiveColorJs( control )
+					astraGetResponsiveColorJs( control, "#customize-control-" + control_type.name )
 					break;
 				case "ast-responsive":
 					astraGetResponsiveJs( control )

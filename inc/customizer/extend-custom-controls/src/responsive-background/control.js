@@ -7,7 +7,7 @@ export const responsiveBackgroundControl = wp.customize.astraControl.extend( {
 	ReactDOM.render( <ResponsiveBackground control={ control } />, control.container[0] );
 	},
 	ready: function() {
-		astraGetResponsiveBgJs( this );
+		astraGetResponsiveBgJs( this, '' );
 		let control = this;
 		jQuery(document).mouseup(function(e){
 			var container = jQuery(control.container);

@@ -8,7 +8,7 @@ export function astraGetColor( control ) {
 		}
 	});
 }
-export function astraGetResponsiveBgJs( control ) {
+export function astraGetResponsiveBgJs( control, child_control_name ) {
     'use strict';
 
     jQuery('html').addClass('responsive-background-img-ready');
@@ -45,9 +45,18 @@ export function astraGetResponsiveBgJs( control ) {
         }
 
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-    });
+	});
+	if (child_control_name) {
+		jQuery(document).mouseup(function(e){
+			var container = jQuery(child_control_name);
+			// If the target of the click isn't the container nor a descendant of the container.
+			if (!container.is(e.target) && container.has(e.target).length === 0){
+				container.find('.components-button.astra-color-icon-indicate.open').click();
+			}
+		});
+	}
 }
-export function astraGetResponsiveColorJs( control ) {
+export function astraGetResponsiveColorJs( control, child_control_name ) {
     'use strict';
 
     jQuery('html').addClass('responsive-background-color-ready');
@@ -84,7 +93,16 @@ export function astraGetResponsiveColorJs( control ) {
         }
 
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-    });
+	});
+	if (child_control_name) {
+		jQuery(document).mouseup(function(e){
+			var container = jQuery(child_control_name);
+			// If the target of the click isn't the container nor a descendant of the container.
+			if (!container.is(e.target) && container.has(e.target).length === 0){
+				container.find('.components-button.astra-color-icon-indicate.open').click();
+			}
+		});
+	}
 }
 export function astraGetResponsiveJs ( control ) {
     'use strict';
