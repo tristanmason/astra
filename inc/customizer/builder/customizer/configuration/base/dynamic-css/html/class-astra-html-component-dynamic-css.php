@@ -94,8 +94,6 @@ class Astra_Html_Component_Dynamic_CSS {
 
 			$dynamic_css .= $css_output;
 
-			$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
-
 			$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 		}
 

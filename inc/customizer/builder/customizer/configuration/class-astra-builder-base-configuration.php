@@ -127,66 +127,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 		}
 
 		/**
-		 * Prepare Advanced > Margin configuration.
-		 *
-		 * @param string $section_id section id.
-		 * @return array
-		 * @since x.x.x
-		 */
-		public static function prepare_margin_tab( $section_id ) {
-
-			return array(
-
-				/**
-				 * Option: Margin heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-heading]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $section_id,
-					'title'    => __( 'Margin', 'astra-builder' ),
-					'priority' => 200,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				/**
-				 * Option: Margin Space
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $section_id,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra-builder' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra-builder' ),
-						'right'  => __( 'Right', 'astra-builder' ),
-						'bottom' => __( 'Bottom', 'astra-builder' ),
-						'left'   => __( 'Left', 'astra-builder' ),
-					),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-			);
-		}
-
-		/**
 		 * Prepare Advance Typography configuration.
 		 *
 		 * @param string $section_id section id.

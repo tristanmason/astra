@@ -122,68 +122,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Prepare Advanced Margin Dynamic CSS.
-		 *
-		 * @param string $section_id section id.
-		 * @param string $selector selector.
-		 *
-		 * @since x.x.x
-		 *
-		 * @return array
-		 */
-		public static function prepare_advanced_margin_css( $section_id, $selector ) {
-
-			if ( isset( $section_id ) && isset( $selector ) ) {
-
-				$margin = astra_get_option( $section_id . '-margin' );
-
-				// Desktop CSS.
-				$css_output_desktop = array(
-
-					$selector => array(
-						// Margin CSS.
-						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
-						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
-						'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
-						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
-					),
-				);
-
-				// Tablet CSS.
-				$css_output_tablet = array(
-
-					$selector => array(
-						// Margin CSS.
-						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
-						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
-						'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
-						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
-					),
-				);
-
-				// Mobile CSS.
-				$css_output_mobile = array(
-
-					$selector => array(
-						// Margin CSS.
-						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
-						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
-						'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
-						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
-					),
-				);
-
-				$css_output  = astra_parse_css( $css_output_desktop );
-				$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
-				$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
-
-				return $css_output;
-			}
-
-			return '';
-		}
-
-		/**
 		 * Prepare Advanced Margin / Padding Dynamic CSS.
 		 *
 		 * @param string $section_id section id.
