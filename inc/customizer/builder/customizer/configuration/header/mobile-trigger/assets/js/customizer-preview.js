@@ -76,7 +76,7 @@
 	);
 
 	// Advanced CSS Generation.
-	astra_builder_advanced_margin_css( 'section-header-mobile-trigge', selector + '[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
+	astra_builder_advanced_margin_css( 'section-header-mobile-trigger', '[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
 
 	// Trigger Typography.
 	astra_generate_outside_font_family_css(

@@ -184,11 +184,16 @@ final class Astra_Builder_Controller {
 			}
 		}
 
+		if ( isset( $val ) && ! empty( $val ) ) {
+
+			$configuration['value'] = $val;
+		}
+		
 		switch ( $configuration['type'] ) {
 
 			case 'ast-responsive-spacing':
 				if ( ! is_array( $val ) || is_numeric( $val ) ) {
-
+					
 					$configuration['value'] = array(
 						'desktop'      => array(
 							'top'    => $val,
@@ -340,7 +345,7 @@ final class Astra_Builder_Controller {
 				}
 			}
 		}
-
+		
 		return $configuration;
 	}
 
