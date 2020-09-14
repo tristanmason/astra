@@ -141,7 +141,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 				$css_output_desktop = array(
 
 					$selector => array(
-
 						// Margin CSS.
 						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -154,7 +153,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 				$css_output_tablet = array(
 
 					$selector => array(
-
 						// Margin CSS.
 						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -167,7 +165,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 				$css_output_mobile = array(
 
 					$selector => array(
-
 						// Margin CSS.
 						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

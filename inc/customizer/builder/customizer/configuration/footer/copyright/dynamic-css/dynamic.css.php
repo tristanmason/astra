@@ -39,6 +39,8 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 	$tablet_alignment  = ( isset( $alignment['tablet'] ) ) ? $alignment['tablet'] : '';
 	$mobile_alignment  = ( isset( $alignment['mobile'] ) ) ? $alignment['mobile'] : '';
 
+	$margin = astra_get_option( $_section . '-margin' );
+
 	/**
 	 * Copyright CSS.
 	 */
@@ -49,17 +51,38 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-footer-copyright' => array(
 			'text-align' => $desktop_alignment,
 		),
+		$selector => array(
+			// Margin CSS.
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+		),
 	);
 
 	$css_output_tablet = array(
 		'.ast-footer-copyright' => array(
 			'text-align' => $tablet_alignment,
 		),
+		$selector => array(
+			// Margin CSS.
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+		),
 	);
 
 	$css_output_mobile = array(
 		'.ast-footer-copyright' => array(
 			'text-align' => $mobile_alignment,
+		),
+		$selector => array(
+			// Margin CSS.
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 		),
 	);
 
@@ -69,8 +92,6 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
-
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 
