@@ -357,3 +357,19 @@ svg.dashicon {
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
 }
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 7.5px 0px 0px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 5px;
+}
+@-moz-document url-prefix() {
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		margin-left: 5px;
+		height: 25px;
+		width: 25px;
+	}
+	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+		padding: 16px 14px 0px 0px;
+	}
+}

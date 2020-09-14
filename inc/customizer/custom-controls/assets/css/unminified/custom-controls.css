@@ -553,6 +553,22 @@ svg.dashicon {
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-right: 6px;
 }
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 0px 0px 7.5px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-right: 5px;
+}
+@-moz-document url-prefix() {
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		margin-right: 5px;
+		height: 25px;
+		width: 25px;
+	}
+	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+		padding: 16px 0px 0px 14px;
+	}
+}
 
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
@@ -1113,11 +1129,6 @@ input[type="text"].select2-search__field {
   margin-left: 0px;
 }
 
-.ast-field-settings-modal .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 0px 0px 7.5px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
@@ -1179,11 +1190,6 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
   margin-left: 0px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 0px 0px 7.5px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {

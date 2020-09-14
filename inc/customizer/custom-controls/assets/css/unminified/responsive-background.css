@@ -276,8 +276,3 @@
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
   margin-left: 0px;
 }
-
-.ast-field-settings-modal .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 0px 0px 7.5px;
-}

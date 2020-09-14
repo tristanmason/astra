@@ -553,6 +553,22 @@ svg.dashicon {
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
 }
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 7.5px 0px 0px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 5px;
+}
+@-moz-document url-prefix() {
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		margin-left: 5px;
+		height: 25px;
+		width: 25px;
+	}
+	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+		padding: 16px 14px 0px 0px;
+	}
+}
 
 #customize-controls .customize-control-notifications-container {
   margin: 0;
@@ -1108,6 +1124,19 @@ svg.dashicon {
 }
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
+}
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 7.5px 0px 0px;
+}
+@-moz-document url-prefix() {
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		margin-left: 5px;
+		height: 25px;
+		width: 25px;
+	}
+	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+		padding: 16px 14px 0px 0px;
+	}
 }
 
 .customize-control-ast-customizer-link .customizer-link {
@@ -1669,18 +1698,13 @@ input[type="text"].select2-search__field {
   margin-right: 0px;
 }
 
-.ast-field-settings-modal .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 7.5px 0px 0px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-right: 2px;
-  margin-top: 5px;
+  margin-top: -14px;
   background-color: #ffffff;
   text-align: center;
   border-radius: 4px;
@@ -1713,10 +1737,6 @@ input[type="text"].select2-search__field {
   top: 4px;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
-  margin-top: -14px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-white {
   border-radius: unset;
@@ -1739,11 +1759,6 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
   margin-right: 0px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 7.5px 0px 0px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
@@ -3219,11 +3234,6 @@ input[type="text"].select2-search__field {
   margin-right: 0px;
 }
 
-.ast-field-settings-modal .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 7.5px 0px 0px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
@@ -3285,11 +3295,6 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
   margin-right: 0px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-popover-color .ast-color-palette {
-  width: auto;
-  padding: 8px 7.5px 0px 0px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
