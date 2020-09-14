@@ -743,12 +743,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $desktop_screen_gb_css );
 
 				$middle_screen_min_gb_css = array(
-					'.wp-block-group'        => array(
-						'padding' => '5em 0',
-					),
 					'.has-text-align-center' => array(
 						'max-width' => '55%',
 						'margin'    => '0 auto',
@@ -756,9 +754,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.wp-block-cover .wp-block-group, .wp-block-group .wp-block-group' => array(
 						'padding' => '2em',
 					),
-					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container, .wp-block-group.alignnone, .wp-block-group.aligncenter, .wp-block-group.alignleft, .wp-block-group.alignright, .wp-block-group.alignwide, .wp-block-columns.alignwide' => array(
+					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container' => array(
 						'max-width' => '1200px',
 						'margin'    => '0 auto',
+					),
+					'.wp-block-group.alignnone, .wp-block-group.aligncenter, .wp-block-group.alignleft, .wp-block-group.alignright, .wp-block-group.alignwide, .wp-block-columns.alignwide' => array(
+						'margin' => '2rem 0 1rem 0',
 					),
 				);
 
@@ -785,10 +786,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $middle_screen_max_gb_css, '', '1200' );
 
 				$mobile_screen_max_gb_css = array(
-					'.wp-block-group' => array(
-						'padding' => '3em 2em',
-					),
-					'.wp-block-media-text .wp-block-media-text__content' => array(
+					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
 						'padding' => '1em 0',
 					),
 					'.wp-block-cover, .wp-block-cover-image' => array(
@@ -798,7 +796,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'width'     => 'unset',
 						'max-width' => '100%',
 					),
-					'.wp-block-media-text.has-background .wp-block-media-text__content' => array(
+					'.entry-content .wp-block-media-text.has-background .wp-block-media-text__content' => array(
 						'padding' => '1em',
 					),
 				);
@@ -2310,7 +2308,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gutenberg_core_blocks_css_comp() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-core-blocks-comp-css'] = isset( $astra_settings['guntenberg-core-blocks-comp-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-core-blocks-comp-css'] );
 		}
