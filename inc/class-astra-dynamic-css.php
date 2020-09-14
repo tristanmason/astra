@@ -2311,8 +2311,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function gutenberg_core_blocks_css_comp() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['guntenberg-group-column-media-block-css'] = isset( $astra_settings['guntenberg-group-column-media-block-css'] ) ? false : true;
-			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-group-column-media-block-css'] );
+			$astra_settings['guntenberg-core-blocks-comp-css'] = isset( $astra_settings['guntenberg-core-blocks-comp-css'] ) ? false : true;
+			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-core-blocks-comp-css'] );
 		}
 	}
 }
