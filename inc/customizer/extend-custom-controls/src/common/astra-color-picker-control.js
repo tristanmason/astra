@@ -127,7 +127,7 @@ class AstraColorPickerControl extends Component {
 						{ 'image' === backgroundType &&
 							<>
 								<ColorIndicator className="astra-advanced-color-indicate" colorValue='#ffffff' />
-								<Dashicon icon="admin-site" />
+								<Dashicon icon="format-image" />
 							</>
 						}
 					</Button>

@@ -298,14 +298,11 @@ svg.dashicon {
     right: 50%;
     top: 50%;
     color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 100%;
-    width: 16px;
-    height: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.components-button.astra-color-icon-indicate > svg.dashicon path {
-    transform: translate(-1px, 1px);
+    background: rgb(85 93 101);
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    border: 7px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
     margin-right: 2px;

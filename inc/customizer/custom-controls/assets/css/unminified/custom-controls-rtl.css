@@ -494,14 +494,11 @@ svg.dashicon {
     right: 50%;
     top: 50%;
     color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 100%;
-    width: 16px;
-    height: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.components-button.astra-color-icon-indicate > svg.dashicon path {
-    transform: translate(-1px, 1px);
+    background: rgb(85 93 101);
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    border: 7px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
     margin-right: 2px;
@@ -1066,14 +1063,11 @@ svg.dashicon {
     right: 50%;
     top: 50%;
     color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 100%;
-    width: 16px;
-    height: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.components-button.astra-color-icon-indicate > svg.dashicon path {
-    transform: translate(-1px, 1px);
+    background: rgb(85 93 101);
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    border: 7px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
     margin-right: 2px;
@@ -1127,6 +1121,9 @@ svg.dashicon {
 }
 .ast-field-settings-modal .astra-popover-color .ast-color-palette {
 	padding: 8px 7.5px 0px 0px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 5px;
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
