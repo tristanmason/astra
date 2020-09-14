@@ -5,6 +5,8 @@
  * @package Astra Builder
  */
 
+$row = get_query_var( 'row' );
+
 if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 
 	$customizer_editor_row        = 'section-' . esc_attr( $row ) . '-header-builder';

@@ -5,6 +5,8 @@
  * @package Astra Builder
  */
 
+$type = get_query_var( 'type' );
+
 switch ( $type ) {
 
 	case 'logo':

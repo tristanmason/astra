@@ -6,6 +6,7 @@
  */
 
 $row = get_query_var( 'row' );
+
 if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
 
 	$option  = ( 'above' === $row ) ? 'hba' : ( ( 'below' === $row ) ? 'hbb' : 'hb' );
