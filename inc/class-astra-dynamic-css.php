@@ -707,44 +707,104 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( self::gtn_group_column_media_block_css_comp() ) {
 
-				$gtn_column_block_css = array(
-					'.entry-content .wp-block-columns' => array(
-						'margin-bottom'  => 'unset',
+				/**
+				 * If transparent header is activated then it adds top 1.5em padding space, so this CSS will fix this issue.
+				 * This issue is only visible on responsive devices.
+				 *
+				 * @since x.x.x
+				 */
+				$trans_header_responsive_top_space_css_fix = array(
+					'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary' => array(
+						'padding' => 0,
 					),
 				);
 
-				$parse_css .= astra_parse_css( $gtn_column_block_css );
+				/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
+				$parse_css .= astra_parse_css( $trans_header_responsive_top_space_css_fix, '', astra_get_tablet_breakpoint() );
 
-				$gtn_group_block_css = array(
+				$desktop_screen_gb_css = array(
+					'figure.size-full' => array(
+						'margin'  => '2rem 0',
+					),
+					'.wp-block-gallery' => array(
+						'margin-bottom'  => '1.6em',
+					),
+					'.wp-block-group__inner-container:last-child, .wp-block-table table, .wpforms-container' => array(
+						'margin-bottom'  => '0',
+					),
+					'.blocks-gallery-grid' => array(
+						'width'  => '100%',
+					),
+					'.wp-block-navigation-link__content' => array(
+						'padding'  => '5px 0',
+					),
+					'.wp-block-group .wp-block-group .has-text-align-center, .wp-block-group .wp-block-column .has-text-align-center' => array(
+						'max-width'  => '100%',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $desktop_screen_gb_css );
+
+				$middle_screen_min_gb_css = array(
 					'.wp-block-group' => array(
-						'padding-top'   => '4em',
-						'padding-bottom'  => '4em',
+						'padding'   => '5em 0',
+					),
+					'.has-text-align-center' => array(
+						'max-width'   => '55%',
+						'margin'   => '0 auto',
+					),
+					'.wp-block-cover .wp-block-group, .wp-block-group .wp-block-group' => array(
+						'padding'   => '2em',
+					),
+					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container, .wp-block-group.alignnone, .wp-block-group.aligncenter, .wp-block-group.alignleft, .wp-block-group.alignright, .wp-block-group.alignwide, .wp-block-columns.alignwide' => array(
+						'max-width'   => '1200px',
+						'margin'   => '0 auto',
 					),
 				);
 
-				$parse_css .= astra_parse_css( $gtn_group_block_css, '1200' );
+				/* Parse CSS from array() -> min-width: (1200)px CSS */
+				$parse_css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
 
-				$gtn_tablet_group_block_css = array(
-					'.wp-block-columns .wp-block-group' => array(
-						'padding'   => '2em',
+				$middle_screen_max_gb_css = array(
+					'.wp-block-group' => array(
+						'padding'   => '3em',
+					),
+					'.wp-block-group .wp-block-group' => array(
+						'padding'   => '1.5em',
+					),
+					'.wp-block-columns, .wp-block-column' => array(
+						'margin'   => '1rem 0',
+					),
+					'.has-text-align-center' => array(
+						'max-width'   => '75%',
+						'margin'   => '0 auto',
 					),
 				);
 
-				$parse_css .= astra_parse_css( $gtn_tablet_group_block_css, astra_get_tablet_breakpoint() );
+				/* Parse CSS from array() -> max-width: (1200)px CSS */
+				$parse_css .= astra_parse_css( $middle_screen_max_gb_css, '', '1200' );
 
-				$gtn_mobile_group_block_css = array(
-					'.entry-content .wp-block-cover-image .wp-block-cover__inner-container, .entry-content .wp-block-cover .wp-block-cover__inner-container' => array(
-						'width'   => 'unset',
-					),
-					'.wp-block-group, .wp-block-cover' => array(
-						'padding'   => '2em',
-					),
-					'.wp-block-media-text .wp-block-media-text__content' => array(
+				$mobile_screen_max_gb_css = array(
+					'.wp-block-group' => array(
 						'padding'   => '3em 2em',
 					),
+					'.wp-block-media-text .wp-block-media-text__content' => array(
+						'padding'   => '1em 0',
+					),
+					'.wp-block-cover, .wp-block-cover-image' => array(
+						'padding'   => '2em 0',
+					),
+					'.wp-block-media-text__media img, .wp-block-media-text__media video' => array(
+						'width'   => 'unset',
+						'max-width'   => '100%',
+					),
+					'.wp-block-media-text.has-background .wp-block-media-text__content' => array(
+						'padding'   => '1em',
+					),
 				);
 
-				$parse_css .= astra_parse_css( $gtn_mobile_group_block_css, '', astra_get_mobile_breakpoint() );
+				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
+				$parse_css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
 			}
 
 			$static_layout_css = array(
