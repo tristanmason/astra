@@ -44,7 +44,7 @@ class Astra_Customizer_Header_Widget_Configs extends Astra_Customizer_Config_Bas
 				'name'     => 'sidebar-widgets-header-widget-' . $index,
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Widget ', 'astra-builder' ) . $index,
+				'title'    => __( 'Widget ', 'astra' ) . $index,
 				'panel'    => 'panel-header-builder-group',
 			);
 		}

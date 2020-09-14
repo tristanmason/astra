@@ -25,15 +25,15 @@ class ResponsiveControl extends Component {
 		let { view } = this.state,
 		deviceMap = {
 			'desktop': {
-				'tooltip': __( 'Desktop', 'astra-builder' ),
+				'tooltip': __( 'Desktop', 'astra' ),
 				'icon': 'desktop'
 			},
 			'tablet': {
-				'tooltip': __( 'Tablet', 'astra-builder' ),
+				'tooltip': __( 'Tablet', 'astra' ),
 				'icon': 'tablet'
 			},
 			'mobile': {
-				'tooltip': __( 'Mobile', 'astra-builder' ),
+				'tooltip': __( 'Mobile', 'astra' ),
 				'icon': 'smartphone'
 			}
 		};

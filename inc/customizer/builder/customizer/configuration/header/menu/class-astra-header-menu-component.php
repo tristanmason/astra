@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Header_Menu_Component' ) ) {
 				array(
 					'id'         => 'site-navigation',
 					'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
-					'aria-label' => esc_attr__( 'Site Navigation', 'astra-builder' ),
+					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
 			);
 			$items_wrap .= '>';

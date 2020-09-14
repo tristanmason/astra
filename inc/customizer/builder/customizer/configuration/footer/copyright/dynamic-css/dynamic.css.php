@@ -51,7 +51,7 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-footer-copyright' => array(
 			'text-align' => $desktop_alignment,
 		),
-		$selector => array(
+		$selector               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -64,7 +64,7 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-footer-copyright' => array(
 			'text-align' => $tablet_alignment,
 		),
-		$selector => array(
+		$selector               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -77,7 +77,7 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-footer-copyright' => array(
 			'text-align' => $mobile_alignment,
 		),
-		$selector => array(
+		$selector               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

@@ -112,7 +112,7 @@ class Astra_Social_Component_Dynamic_CSS {
 				// Icon Background Space.
 				'margin' => astra_get_css_value( $icon_bg_spacing, 'px' ),
 			),
-			$selector => array(
+			$selector                                  => array(
 				// Margin CSS.
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -143,7 +143,7 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				'fill' => $social_icons_h_color_tablet,
 			),
-			$selector => array(
+			$selector                                  => array(
 				// Margin CSS.
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -174,7 +174,7 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				'fill' => $social_icons_h_color_mobile,
 			),
-			$selector => array(
+			$selector                                  => array(
 				// Margin CSS.
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

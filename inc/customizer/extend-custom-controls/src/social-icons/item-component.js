@@ -19,7 +19,7 @@ class ItemComponent extends Component {
 					onClick={ () => {
 						this.setState( { open: ( this.state.open ? false : true ) } )
 					} } >
-					<Tooltip text={ __( 'Toggle Item Visiblity', 'astra-builder' ) }>
+					<Tooltip text={ __( 'Toggle Item Visiblity', 'astra' ) }>
 						<Button
 							className="ahfb-sorter-visiblity"
 						>
@@ -27,7 +27,7 @@ class ItemComponent extends Component {
 						</Button>
 					</Tooltip>
 					<span className="ahfb-sorter-title">
-						{ ( undefined !== this.props.item.label && '' !== this.props.item.label ? this.props.item.label : __( 'Social Item', 'astra-builder' ) ) }
+						{ ( undefined !== this.props.item.label && '' !== this.props.item.label ? this.props.item.label : __( 'Social Item', 'astra' ) ) }
 					</span>
 					<Button
 						className={ `ahfb-sorter-item-expand ${ ( this.props.item.enabled ? 'item-is-visible' : 'item-is-hidden' ) }`}
@@ -51,7 +51,7 @@ class ItemComponent extends Component {
 				{ this.state.open && (
 					<div className="ahfb-sorter-item-panel-content">
 						<TextControl
-							label={ __( 'Label', 'astra-builder' ) }
+							label={ __( 'Label', 'astra' ) }
 							value={ this.props.item.label ? this.props.item.label : '' }
 							onChange={ ( value ) => {
 								this.props.onChangeLabel( value, this.props.index );
@@ -59,7 +59,7 @@ class ItemComponent extends Component {
 						/>
 
 						<TextControl
-							label={ __( 'URL', 'astra-builder' ) }
+							label={ __( 'URL', 'astra' ) }
 							value={ this.props.item.url ? this.props.item.url : '' }
 							onChange={ ( value ) => {
 								this.props.onChangeURL( value, this.props.index );

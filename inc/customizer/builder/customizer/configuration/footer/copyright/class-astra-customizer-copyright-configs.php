@@ -46,7 +46,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Copyright', 'astra-builder' ),
+				'title'    => __( 'Copyright', 'astra' ),
 				'panel'    => 'panel-footer-builder-group',
 			),
 
@@ -100,11 +100,11 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-responsive-select',
 				'section'   => $_section,
 				'priority'  => 6,
-				'title'     => __( 'Alignment', 'astra-builder' ),
+				'title'     => __( 'Alignment', 'astra' ),
 				'choices'   => array(
-					'left'   => __( 'Left', 'astra-builder' ),
-					'right'  => __( 'Right', 'astra-builder' ),
-					'center' => __( 'Center', 'astra-builder' ),
+					'left'   => __( 'Left', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'center' => __( 'Center', 'astra' ),
 				),
 				'context'   => array(
 					array(
@@ -126,7 +126,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'priority'  => 8,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra-builder' ),
+				'title'     => __( 'Color', 'astra' ),
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -143,7 +143,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Margin', 'astra-builder' ),
+				'title'    => __( 'Margin', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
 				'context'  => array(
@@ -165,14 +165,14 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'control'        => 'ast-responsive-spacing',
 				'section'        => $_section,
 				'priority'       => 220,
-				'title'          => __( 'Margin', 'astra-builder' ),
+				'title'          => __( 'Margin', 'astra' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
 				'choices'        => array(
-					'top'    => __( 'Top', 'astra-builder' ),
-					'right'  => __( 'Right', 'astra-builder' ),
-					'bottom' => __( 'Bottom', 'astra-builder' ),
-					'left'   => __( 'Left', 'astra-builder' ),
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'        => array(
 					array(

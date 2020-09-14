@@ -72,7 +72,7 @@ class RowComponent extends Component {
 					onClick={ () => this.props.focusPanel( this.props.row + '-' + mode  ) }
 				>
 					<Dashicon icon="admin-generic" />
-					{ ( this.props.row === 'popup' ? __( 'Off Canvas', 'astra-builder' ) : this.props.row + ' ' + mode ) }
+					{ ( this.props.row === 'popup' ? __( 'Off Canvas', 'astra' ) : this.props.row + ' ' + mode ) }
 				</Button>
 					<div className={`ahfb-builder-group ahfb-builder-group-horizontal ${layout}`} data-setting={ this.props.row }>
 					{ Object.keys( this.props.controlParams.zones[ this.props.row ] ).map( ( zone, index ) => {

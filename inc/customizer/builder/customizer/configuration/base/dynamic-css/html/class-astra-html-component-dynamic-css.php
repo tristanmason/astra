@@ -54,7 +54,7 @@ class Astra_Html_Component_Dynamic_CSS {
 				),
 
 				// Margin CSS.
-				$selector => array(
+				$selector                                => array(
 					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
 					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
@@ -76,7 +76,7 @@ class Astra_Html_Component_Dynamic_CSS {
 					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 				),
 			);
-			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+			$css_output       .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 
 			// Mobile CSS.
 			$css_output_mobile = array(
@@ -90,7 +90,7 @@ class Astra_Html_Component_Dynamic_CSS {
 					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 				),
 			);
-			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+			$css_output       .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 			$dynamic_css .= $css_output;
 

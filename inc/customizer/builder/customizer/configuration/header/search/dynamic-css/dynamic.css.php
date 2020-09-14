@@ -40,7 +40,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	$icon_size_mobile = ( isset( $icon_size ) && isset( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : '';
 
-	$margin = astra_get_option( $_section . '-margin' );
+	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = '.astra-hfb-header .site-header-section > .ast-header-search';
 
 	/**
@@ -52,7 +52,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 			'color'     => esc_attr( astra_get_option( 'header-search-icon-color' ) ),
 			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
-		$margin_selector => array(
+		$margin_selector                  => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -66,7 +66,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		$selector . ' .astra-search-icon' => array(
 			'font-size' => astra_get_css_value( $icon_size_tablet, 'px' ),
 		),
-		$margin_selector => array(
+		$margin_selector                  => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -80,7 +80,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		$selector . ' .astra-search-icon' => array(
 			'font-size' => astra_get_css_value( $icon_size_mobile, 'px' ),
 		),
-		$margin_selector => array(
+		$margin_selector                  => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

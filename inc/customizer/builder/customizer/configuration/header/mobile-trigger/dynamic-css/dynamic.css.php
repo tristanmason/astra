@@ -54,7 +54,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 
 	$trigger_border_width_left = ( isset( $trigger_border_width ) && isset( $trigger_border_width['left'] ) ) ? $trigger_border_width['left'] : 0;
 
-	$margin = astra_get_option( $_section . '-margin' );
+	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = $selector . ' .ast-button-wrap .menu-toggle';
 
 	/**
@@ -136,7 +136,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 	);
 
 	/* Parse CSS from array() */
-	$css_output = astra_parse_css( $css_output );
+	$css_output  = astra_parse_css( $css_output );
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 

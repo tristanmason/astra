@@ -33,7 +33,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_section              = 'title_tagline';
+			$_section = 'title_tagline';
 			
 			$_configs = array(
 
@@ -46,7 +46,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'     => 'title_tagline',
 					'type'     => 'section',
 					'priority' => 100,
-					'title'    => __( 'Logo', 'astra-builder' ),
+					'title'    => __( 'Logo', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
 				),
 
@@ -58,7 +58,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'site-title-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra-builder' ),
+					'title'     => __( 'Title', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 16,
@@ -83,7 +83,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'site-tagline-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Tagline', 'astra-builder' ),
+					'title'     => __( 'Tagline', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 20,
@@ -107,7 +107,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'title'    => __( 'Site Icon', 'astra-builder' ),
+					'title'    => __( 'Site Icon', 'astra' ),
 					'section'  => 'title_tagline',
 					'priority' => 15,
 					'settings' => array(),
@@ -128,7 +128,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'default'   => astra_get_option( 'display-site-title' ),
 					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Title', 'astra-builder' ),
+					'title'     => __( 'Display Site Title', 'astra' ),
 					'priority'  => 7,
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -160,7 +160,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'control'   => 'checkbox',
 					'section'   => 'title_tagline',
-					'title'     => __( 'Inline Logo & Site Title', 'astra-builder' ),
+					'title'     => __( 'Inline Logo & Site Title', 'astra' ),
 					'priority'  => 7,
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -185,7 +185,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'default'   => astra_get_option( 'display-site-tagline' ),
 					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Tagline', 'astra-builder' ),
+					'title'     => __( 'Display Site Tagline', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -208,7 +208,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'checkbox',
 					'section'   => 'title_tagline',
-					'title'     => __( 'Different Logo For Retina Devices?', 'astra-builder' ),
+					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'   => false,
 					'priority'  => 5,
 					'transport' => 'postMessage',
@@ -236,7 +236,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'        => 'title_tagline',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
 					'priority'       => 5,
-					'title'          => __( 'Retina Logo', 'astra-builder' ),
+					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'      => 'postMessage',
 					'partial'        => array(
@@ -261,7 +261,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'checkbox',
 					'default'  => false,
 					'section'  => 'title_tagline',
-					'title'    => __( 'Different Logo For Mobile Devices?', 'astra-builder' ),
+					'title'    => __( 'Different Logo For Mobile Devices?', 'astra' ),
 					'priority' => 5,
 					'context'  => array(
 						array(
@@ -283,7 +283,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
 					'section'        => 'title_tagline',
 					'priority'       => 5,
-					'title'          => __( 'Mobile Logo (optional)', 'astra-builder' ),
+					'title'          => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'context'        => array(
 						array(
@@ -314,7 +314,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
-					'title'    => __( 'Typography', 'astra-builder' ),
+					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 15,
 					'settings' => array(),
 					'context'  => array(
@@ -416,7 +416,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Margin', 'astra-builder' ),
+					'title'    => __( 'Margin', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
 					'context'  => array(
@@ -438,14 +438,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'        => 'ast-responsive-spacing',
 					'section'        => $_section,
 					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra-builder' ),
+					'title'          => __( 'Margin', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
 					'choices'        => array(
-						'top'    => __( 'Top', 'astra-builder' ),
-						'right'  => __( 'Right', 'astra-builder' ),
-						'bottom' => __( 'Bottom', 'astra-builder' ),
-						'left'   => __( 'Left', 'astra-builder' ),
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'        => array(
 						array(

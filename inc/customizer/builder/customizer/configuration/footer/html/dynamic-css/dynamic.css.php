@@ -52,7 +52,7 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'color'      => esc_attr( astra_get_option( 'footer-html-' . $index . 'color' ) ),
 				'text-align' => $desktop_alignment,
 			),
-			$selector => array(
+			$selector                                => array(
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
 				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
@@ -64,7 +64,7 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .ast-builder-html-element' => array(
 				'text-align' => $tablet_alignment,
 			),
-			$selector => array(
+			$selector                                => array(
 				// Margin CSS.
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -77,7 +77,7 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .ast-builder-html-element' => array(
 				'text-align' => $mobile_alignment,
 			),
-			$selector => array(
+			$selector                                => array(
 				// Margin CSS.
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
