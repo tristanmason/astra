@@ -263,6 +263,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$mega_menu_mobile_spacing_unit = ( isset( $mega_menu_heading_spacing['mobile-unit'] ) && ! empty( $mega_menu_heading_spacing['mobile-unit'] ) ) ? $mega_menu_heading_spacing['mobile-unit'] : '';
 
+		// Margin.
+		$margin = astra_get_option( $_section . '-margin' );
+		$margin_selector     = '.astra-hfb-header .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu';
+
 		// If Astra-Pro is active or not.
 		$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
 
@@ -351,6 +355,13 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .sub-menu .current-menu-item > .ast-menu-toggle' => array(
 				'color' => $submenu_resp_color_active_desktop,
 			),
+			// Margin CSS.
+			$margin_selector => array(
+				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+			),
 		);
 
 		if ( $is_astra_addon_active ) {
@@ -424,6 +435,13 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 			$selector . ' .sub-menu .current-menu-item > .ast-menu-toggle' => array(
 				'color' => $submenu_resp_color_active_tablet,
+			),
+			// Margin CSS.
+			$margin_selector => array(
+				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 			),
 		);
 
@@ -499,6 +517,13 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .sub-menu .current-menu-item  > .ast-menu-toggle' => array(
 				'color' => $submenu_resp_color_active_mobile,
 			),
+			// Margin CSS.
+			$margin_selector => array(
+				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+			),
 		);
 
 		if ( $is_astra_addon_active ) {
@@ -550,9 +575,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 		$dynamic_css .= $css_output;
-
-		$selector     = '.astra-hfb-header .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu';
-		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
 	}
 
 	return $dynamic_css;

@@ -219,6 +219,53 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 					),
+
+					/**
+					 * Option: Margin heading
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'Margin', 'astra-builder' ),
+						'priority' => 200,
+						'settings' => array(),
+						'context'  => array(
+							array(
+								'setting' => 'ast_selected_tab',
+								'value'   => 'design',
+							),
+						),
+					),
+
+					/**
+					 * Option: Margin Space
+					 */
+					array(
+						'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+						'default'        => '',
+						'type'           => 'control',
+						'transport'      => 'postMessage',
+						'control'        => 'ast-responsive-spacing',
+						'section'        => $_section,
+						'priority'       => 220,
+						'title'          => __( 'Margin', 'astra-builder' ),
+						'linked_choices' => true,
+						'unit_choices'   => array( 'px', 'em', '%' ),
+						'choices'        => array(
+							'top'    => __( 'Top', 'astra-builder' ),
+							'right'  => __( 'Right', 'astra-builder' ),
+							'bottom' => __( 'Bottom', 'astra-builder' ),
+							'left'   => __( 'Left', 'astra-builder' ),
+						),
+						'context'        => array(
+							array(
+								'setting' => 'ast_selected_tab',
+								'value'   => 'design',
+							),
+						),
+					),
 				);
 
 				if ( $is_astra_addon_active ) {
@@ -1099,7 +1146,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					$_configs = array_merge( $_configs, $_addon_dependent_configs );
 				}
 
-				$html_config[] = Astra_Builder_Base_Configuration::prepare_margin_tab( $_section );
 				$html_config[] = $_configs;
 			}
 
