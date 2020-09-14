@@ -4,10 +4,9 @@
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-left: 2px;
-  margin-top: 5px;
+  margin-top: -14px;
   background-color: #ffffff;
   text-align: center;
-  border: 1px solid #a29090;
   border-radius: 4px;
 }
 
@@ -25,4 +24,48 @@
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
   display: block;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 55px;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+  position: absolute;
+  right: 24px;
+  top: 4px;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
+.customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-white {
+  border-radius: unset;
+}
+
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  right: 0px;
+  top: 6px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 60px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+  right: 30px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
+  margin-left: 0px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-popover-color .ast-color-palette {
+  width: auto;
+  padding: 8px 0px 0px 7.5px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
+  right: 7px;
 }
