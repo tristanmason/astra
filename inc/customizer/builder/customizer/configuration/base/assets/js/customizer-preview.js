@@ -212,7 +212,7 @@ function astra_builder_social_css( builder_type = 'header' ) {
                 dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
-                astra_add_dynamic_css( section + '-margin-toggle-button', dynamicStyle );
+                astra_add_dynamic_css( section + '-margin', dynamicStyle );
             }
         } );
     } );
