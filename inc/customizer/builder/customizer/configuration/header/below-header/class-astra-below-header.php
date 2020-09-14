@@ -28,12 +28,14 @@ class Astra_Below_Header {
 	 */
 	public function __construct() {
 
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_BELOW_HEADER_DIR . '/class-astra-below-header-loader.php';
 
 		// Include front end files.
 		if ( ! is_admin() ) {
 			require_once ASTRA_BELOW_HEADER_DIR . '/dynamic-css/dynamic.css.php';
 		}
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }
 

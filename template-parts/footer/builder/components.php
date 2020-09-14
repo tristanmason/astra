@@ -5,9 +5,9 @@
  * @package Astra Builder
  */
 
-$type = get_query_var( 'type' );
+$comp_type = get_query_var( 'type' );
 
-switch ( $type ) {
+switch ( $comp_type ) {
 
 	case 'copyright':
 		?>

@@ -45,7 +45,9 @@ class Astra_Mobile_Trigger_Loader {
 		/**
 		 * Register Sections & Options.
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_MOBILE_TRIGGER_DIR . '/class-astra-customizer-mobile-trigger-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

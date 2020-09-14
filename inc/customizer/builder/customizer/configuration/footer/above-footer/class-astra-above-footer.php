@@ -30,12 +30,14 @@ if ( ! class_exists( 'Astra_Above_Footer' ) ) {
 		 */
 		public function __construct() {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_DIR . '/class-astra-above-footer-component-loader.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
 				require_once ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_DIR . '/dynamic-css/dynamic.css.php';
 			}
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
 

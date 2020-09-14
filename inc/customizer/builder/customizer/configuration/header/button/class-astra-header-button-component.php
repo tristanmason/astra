@@ -31,12 +31,14 @@ if ( ! class_exists( 'Astra_Header_Button_Component' ) ) {
 		 */
 		public function __construct() {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_HEADER_BUTTON_DIR . '/class-astra-header-button-component-loader.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
 				require_once ASTRA_HEADER_BUTTON_DIR . '/dynamic-css/dynamic.css.php';
 			}
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 		/**

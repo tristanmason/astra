@@ -29,13 +29,14 @@ if ( ! class_exists( 'Astra_Header_Site_Identity_Component' ) ) {
 		 * Constructor function that initializes required actions and hooks
 		 */
 		public function __construct() {
-
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_HEADER_SITE_IDENTITY_DIR . '/class-astra-header-site-identity-component-loader.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
 				require_once ASTRA_HEADER_SITE_IDENTITY_DIR . '/dynamic-css/dynamic.css.php';
 			}
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
 
