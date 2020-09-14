@@ -39,6 +39,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_configs = array(
 
+				/*
+				 * Panel - New Footer
+				 *
+				 * @since x.x.x
+				 */
+				array(
+					'name'            => 'panel-footer-builder-group',
+					'type'            => 'panel',
+					'priority'        => 20,
+					'title'           => __( 'Footer Builder', 'astra-builder' ),
+					'active_callback' => 'Astra_Builder_Helper::is_migrated',
+				),
+
 				// Section: Primary Footer.
 				array(
 					'name'     => $_section,
@@ -116,6 +129,71 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 				),
 
+				// Section: Primary Footer Layout Divider.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-layout-options-separator-divider]',
+					'section'  => $_section,
+					'priority' => 20,
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+				),
+
+				/**
+				 * Option: Layout Width
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-layout-width]',
+					'default'   => astra_get_option( 'hb-footer-layout-width' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 25,
+					'title'     => __( 'Width', 'astra-builder' ),
+					'choices'   => array(
+						'full'    => __( 'Full Width', 'astra-builder' ),
+						'content' => __( 'Content Width', 'astra-builder' ),
+					),
+					'context'   => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Vertical Alignment
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-vertical-alignment]',
+					'default'   => astra_get_option( 'hb-footer-vertical-alignment' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 30,
+					'title'     => __( 'Vertical Alignment', 'astra-builder' ),
+					'choices'   => array(
+						'flex-start' => __( 'Top', 'astra-builder' ),
+						'center'     => __( 'Middle', 'astra-builder' ),
+						'flex-end'   => __( 'Bottom', 'astra-builder' ),
+					),
+					'context'   => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+					'transport' => 'postMessage',
+				),
+
 				// Option: Footer Separator.
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[hb-footer-main-sep]',
@@ -164,7 +242,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Background Color', 'astra-builder' ),
+					'title'    => __( 'Background Color & Image', 'astra-builder' ),
 					'priority' => 6,
 					'settings' => array(),
 					'context'  => array(

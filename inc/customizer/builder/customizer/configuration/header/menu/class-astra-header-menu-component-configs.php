@@ -34,7 +34,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$html_config           = array();
-			$is_astra_addon_active = is_astra_addon_activated();
+			$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
 
 			for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_menu; $index++ ) {
 
