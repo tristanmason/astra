@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $menu_page_title
 		 */
-		public static $menu_page_title = 'Astra Theme';
+		public static $menu_page_title;
 
 		/**
 		 * Page title
@@ -181,54 +181,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				if ( ! empty( Astra_Ext_White_Label_Markup::$branding['astra']['name'] ) ) {
 					return;
 				}
-			}
-
-			if ( false === get_option( 'astra-theme-old-setup' ) ) {
-				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
-				update_option( 'astra-theme-old-setup', true );
-			} elseif ( false === get_transient( 'astra-theme-first-rating' ) && current_user_can( 'install_plugins' ) ) {
-				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-				Astra_Notices::add_notice(
-					array(
-						'id'                         => 'astra-theme-rating',
-						'type'                       => '',
-						'message'                    => sprintf(
-							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
-								<div class="notice-content">
-									<div class="notice-heading">
-										%2$s
-									</div>
-									%3$s<br />
-									<div class="astra-review-notice-container">
-										<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
-										%5$s
-										</a>
-									<span class="dashicons dashicons-calendar"></span>
-										<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
-										%7$s
-										</a>
-									<span class="dashicons dashicons-smiley"></span>
-										<a href="#" class="astra-notice-close astra-review-notice">
-										%8$s
-										</a>
-									</div>
-								</div>',
-							$image_path,
-							__( 'Hello! Seems like you have used Astra theme to build this website &mdash; Thanks a ton!', 'astra' ),
-							__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.', 'astra' ),
-							'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post',
-							__( 'Ok, you deserve it', 'astra' ),
-							MONTH_IN_SECONDS,
-							__( 'Nope, maybe later', 'astra' ),
-							__( 'I already did', 'astra' )
-						),
-						'repeat-notice-after'        => MONTH_IN_SECONDS,
-						'priority'                   => 10,
-						'display-with-other-notices' => false,
-						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
-					)
-				);
 			}
 
 			// Force Astra welcome notice on theme activation.
@@ -1184,9 +1136,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
-			<!-- Notice for Older version of Astra Addon -->
-			<?php self::min_addon_version_message(); ?>
-
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					<?php do_action( 'astra_addon_bulk_action' ); ?>
@@ -1250,14 +1199,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				array(
 					'astra-import-export'           =>
 						array(
-							'plugin-name'        => 'Import / Export Customizer Settings',
+							'plugin-name'        => __( 'Import / Export Customizer Settings', 'astra' ),
 							'plugin-init'        => 'astra-import-export/astra-import-export.php',
 							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
 					'reset-astra-customizer'        =>
 						array(
-							'plugin-name'        => 'Astra Customizer Reset',
+							'plugin-name'        => __( 'Astra Customizer Reset', 'astra' ),
 							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
 							'settings-link'      => admin_url( 'customize.php' ),
 							'settings-link-text' => 'Settings',
@@ -1265,7 +1214,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'customizer-search'             =>
 					array(
-						'plugin-name'        => 'Customizer Search',
+						'plugin-name'        => __( 'Customizer Search', 'astra' ),
 						'plugin-init'        => 'customizer-search/customizer-search.php',
 						'settings-link'      => admin_url( 'customize.php' ),
 						'settings-link-text' => 'Settings',
@@ -1273,7 +1222,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'astra-bulk-edit'               =>
 					array(
-						'plugin-name'        => 'Astra Bulk Edit',
+						'plugin-name'        => __( 'Astra Bulk Edit', 'astra' ),
 						'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
 						'settings-link'      => '',
 						'settings-link-text' => 'Settings',
@@ -1281,7 +1230,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'astra-widgets'                 =>
 					array(
-						'plugin-name'        => 'Astra Widgets',
+						'plugin-name'        => __( 'Astra Widgets', 'astra' ),
 						'plugin-init'        => 'astra-widgets/astra-widgets.php',
 						'settings-link'      => admin_url( 'widgets.php' ),
 						'settings-link-text' => 'Settings',
@@ -1289,7 +1238,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'custom-fonts'                  =>
 					array(
-						'plugin-name'        => 'Custom Fonts',
+						'plugin-name'        => __( 'Custom Fonts', 'astra' ),
 						'plugin-init'        => 'custom-fonts/custom-fonts.php',
 						'settings-link'      => admin_url( 'edit-tags.php?taxonomy=bsf_custom_fonts' ),
 						'settings-link-text' => 'Settings',
@@ -1297,7 +1246,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'custom-typekit-fonts'          =>
 						array(
-							'plugin-name'        => 'Custom Typekit Fonts',
+							'plugin-name'        => __( 'Custom Typekit Fonts', 'astra' ),
 							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
 							'settings-link'      => admin_url( 'themes.php?page=custom-typekit-fonts' ),
 							'settings-link-text' => 'Settings',
@@ -1305,7 +1254,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'sidebar-manager'               =>
 					array(
-						'plugin-name'        => 'Sidebar Manager',
+						'plugin-name'        => __( 'Sidebar Manager', 'astra' ),
 						'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
 						'settings-link'      => admin_url( 'edit.php?post_type=bsf-sidebar' ),
 						'settings-link-text' => 'Settings',
@@ -1313,7 +1262,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'ultimate-addons-for-gutenberg' =>
 						array(
-							'plugin-name'        => 'Ultimate Addons for Gutenberg',
+							'plugin-name'        => __( 'Ultimate Addons for Gutenberg', 'astra' ),
 							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
 							'settings-link'      => admin_url( 'options-general.php?page=uag' ),
 							'settings-link-text' => 'Settings',
@@ -1549,41 +1498,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				)
 			);
 
-		}
-
-		/**
-		 * Check compatible theme version.
-		 *
-		 * @since 1.2.4
-		 */
-		public static function min_addon_version_message() {
-
-			$astra_global_options = get_option( 'astra-settings' );
-
-			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
-
-				if ( version_compare( $astra_global_options['astra-addon-auto-version'], '1.2.1' ) < 0 ) {
-
-					// If addon is not updated & White Label for Addon is added then show the white labelewd pro name.
-					$astra_addon_name        = astra_get_addon_name();
-					$update_astra_addon_link = astra_get_pro_url( 'https://wpastra.com/?p=25258', 'astra-dashboard', 'update-to-astra-pro', 'welcome-page' );
-					if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-						$plugin_data = Astra_Ext_White_Label_Markup::$branding;
-						if ( ! empty( $plugin_data['astra-pro']['name'] ) ) {
-							$update_astra_addon_link = '';
-						}
-					}
-
-					$class   = 'ast-notice ast-notice-error';
-					$message = sprintf(
-						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
-						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ),
-						( ! empty( $update_astra_addon_link ) ) ? '<a href=' . esc_url( $update_astra_addon_link ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>' : $astra_addon_name
-					);
-
-					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
-				}
-			}
 		}
 
 		/**

@@ -1613,12 +1613,12 @@
         "Cabin": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -2043,7 +2043,10 @@
         "Cinzel": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "serif"
@@ -3756,6 +3759,31 @@
         }
     },
     {
+        "Grandstander": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Gravitas One": {
             "variants": [
                 "regular"
@@ -4996,6 +5024,25 @@
         }
     },
     {
+        "Kufam": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Kulim Park": {
             "variants": [
                 "200",
@@ -5026,6 +5073,16 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Kumbh Sans": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -5370,14 +5427,22 @@
     {
         "Literata": {
             "variants": [
+                "200",
+                "300",
                 "regular",
                 "500",
                 "600",
                 "700",
+                "800",
+                "900",
+                "200italic",
+                "300italic",
                 "italic",
                 "500italic",
                 "600italic",
-                "700italic"
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -5953,12 +6018,16 @@
         "Merriweather Sans": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic",
                 "800",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
                 "800italic"
             ],
             "category": "sans-serif"
@@ -8242,14 +8311,18 @@
         "Rubik": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic",
+                "800",
                 "900",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -9323,6 +9396,18 @@
             "variants": [
                 "regular",
                 "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Syne": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
             ],
             "category": "sans-serif"
         }
