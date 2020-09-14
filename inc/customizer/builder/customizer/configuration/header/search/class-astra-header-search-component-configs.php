@@ -36,8 +36,9 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = 'section-hb-search';
-		$defaults = Astra_Theme_Options::defaults();
+		$_section              = 'section-header-search';
+		$is_astra_addon_active = is_astra_addon_activated();
+		$defaults              = Astra_Theme_Options::defaults();
 
 		$_configs = array(
 
@@ -110,7 +111,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 		);
 
-		if ( defined( 'ASTRA_EXT_VER' ) ) {
+		if ( $is_astra_addon_active ) {
 			/**
 			 * Option: Pro Search Bar Configs.
 			 */
@@ -148,7 +149,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			$_configs = array_merge( $_configs, $_addon_dependent_configs );
 		}
 
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_margin_tab( $_section ) );
 
 		return array_merge( $configurations, $_configs );
 	}

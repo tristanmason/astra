@@ -332,12 +332,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		document.querySelector('body').style.overflow = originalOverflow;
 
 		var break_point = astra.break_point,
-			headerWrap = document.querySelectorAll('.main-header-bar-wrap');
+			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
 
 		if (headerWrap.length > 0) {
 			for (var i = 0; i < headerWrap.length; i++) {
 
-				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('main-header-bar-wrap')) {
+				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
 					if (ww > break_point) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {

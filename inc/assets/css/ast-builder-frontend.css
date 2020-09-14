@@ -73,6 +73,11 @@
 
 .ast-builder-grid-row.ast-grid-center-col-layout-only, .ast-builder-layout-element, .site-header-section {
     display: flex;
+    height: 100%;
+}
+
+.site-header-section .ast-main-header-bar-alignment {
+    height: 100%;
 }
 
 .ast-grid-right-center-section {
@@ -127,7 +132,7 @@
     text-align: center;
 }
 
-.ast-logo-title-inline .grid-section-center .ast-site-identity {
+.ast-logo-title-inline .grid-section-center .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
     text-align: left;
 }
 
@@ -243,7 +248,7 @@
  * AST HF Builder - Widgets related CSS.
  * Header Nav and Submenu compatibility CSS.
  */
-.main-header-bar-wrap .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
+.site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
     content: "\e900";
     display: inline-block;
     font-family: 'Astra';
@@ -279,9 +284,10 @@ ul.astra-footer-vertical-menu {
     display: block;
 }
 
-#astra-footer-menu {
+#astra-footer-menu, #astra-footer-menu > ul {
     margin: 0;
     list-style: none;
+    background: inherit;
 }
 
 /**

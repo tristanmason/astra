@@ -33,7 +33,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$html_config = array();
+			$html_config           = array();
+			$is_astra_addon_active = is_astra_addon_activated();
 
 			for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_menu; $index++ ) {
 
@@ -78,6 +79,25 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'linked'    => 'menu_locations',
 						'link_text' => __( 'Configure Menu from Here.', 'astra-builder' ),
 						'context'   => array(
+							array(
+								'setting' => 'ast_selected_tab',
+								'value'   => 'general',
+							),
+						),
+					),
+
+					/**
+					 * Option: Primary Header Button Colors Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'Submenu', 'astra-builder' ),
+						'settings' => array(),
+						'priority' => 30,
+						'context'  => array(
 							array(
 								'setting' => 'ast_selected_tab',
 								'value'   => 'general',
@@ -201,7 +221,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				);
 
-				if ( defined( 'ASTRA_EXT_VER' ) ) {
+				if ( $is_astra_addon_active ) {
 					/**
 					 * Option: Pro Menu Configs.
 					 */
@@ -1079,7 +1099,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					$_configs = array_merge( $_configs, $_addon_dependent_configs );
 				}
 
-				$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
+				$html_config[] = Astra_Builder_Base_Configuration::prepare_margin_tab( $_section );
 				$html_config[] = $_configs;
 			}
 

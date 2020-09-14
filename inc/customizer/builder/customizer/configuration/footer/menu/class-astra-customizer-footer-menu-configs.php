@@ -33,7 +33,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
+			$defaults              = Astra_Theme_Options::defaults();
+			$is_astra_addon_active = is_astra_addon_activated();
 
 			$_section = 'section-footer-menu';
 
@@ -117,9 +118,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 21,
 					'title'     => __( 'Alignment', 'astra-builder' ),
 					'choices'   => array(
-						'left'       => __( 'Left', 'astra-builder' ),
-						'flex-end'   => __( 'Right', 'astra-builder' ),
-						'flex-start' => __( 'Center', 'astra-builder' ),
+						'left'     => __( 'Left', 'astra-builder' ),
+						'center'   => __( 'Center', 'astra-builder' ),
+						'flex-end' => __( 'Right', 'astra-builder' ),
 					),
 					'context'   => array(
 						array(
@@ -131,7 +132,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 			);
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( $is_astra_addon_active ) {
 				/**
 				 * Option: Pro Menu Configs.
 				 */
@@ -498,7 +499,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				$_configs = array_merge( $_configs, $_addon_dependent_configs );
 			}
 
-			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_margin_tab( $_section ) );
 
 			return array_merge( $configurations, $_configs );
 		}

@@ -76,30 +76,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Section: Below Footer Height.
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hbb-footer-height]',
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'hbb-footer-height' ),
-					'priority'    => 30,
-					'title'       => __( 'Height', 'astra-builder' ),
-					'type'        => 'control',
-					'control'     => 'ast-slider',
-					'suffix'      => '',
-					'input_attrs' => array(
-						'min'  => 30,
-						'step' => 1,
-						'max'  => 600,
-					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
-				),
-
 				/**
 				 * Option: Column count
 				 */
@@ -154,6 +130,97 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'footer'     => 'primary',
 					),
 					'transport'   => 'postMessage',
+				),
+
+				/**
+				 * Option: Layout Width
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-layout-width]',
+					'default'   => astra_get_option( 'hbb-footer-layout-width' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 25,
+					'title'     => __( 'Width', 'astra-builder' ),
+					'choices'   => array(
+						'full'    => __( 'Full Width', 'astra-builder' ),
+						'content' => __( 'Content Width', 'astra-builder' ),
+					),
+					'suffix'    => '',
+					'context'   => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+					'transport' => 'postMessage',
+				),
+
+				// Section: Below Footer Height.
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[hbb-footer-height]',
+					'section'     => $_section,
+					'transport'   => 'postMessage',
+					'default'     => astra_get_option( 'hbb-footer-height' ),
+					'priority'    => 30,
+					'title'       => __( 'Height', 'astra-builder' ),
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'suffix'      => '',
+					'input_attrs' => array(
+						'min'  => 30,
+						'step' => 1,
+						'max'  => 600,
+					),
+					'context'     => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+				),
+
+				/**
+				 * Option: Vertical Alignment
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-vertical-alignment]',
+					'default'   => astra_get_option( 'hbb-footer-vertical-alignment' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 34,
+					'title'     => __( 'Vertical Alignment', 'astra-builder' ),
+					'choices'   => array(
+						'flex-start' => __( 'Top', 'astra-builder' ),
+						'center'     => __( 'Middle', 'astra-builder' ),
+						'flex-end'   => __( 'Bottom', 'astra-builder' ),
+					),
+					'context'   => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+					'transport' => 'postMessage',
+				),
+
+				// Section: Below Footer Color & Backgroud Heading.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[hbb-footer-colors-heading]',
+					'section'  => $_section,
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 60,
+					'title'    => __( 'Background Color', 'astra-builder' ),
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'design',
+						),
+					),
 				),
 
 				// Group Option: Below Footer Background styling.
