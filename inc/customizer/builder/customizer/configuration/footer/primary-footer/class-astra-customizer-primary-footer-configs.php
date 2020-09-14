@@ -39,19 +39,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_configs = array(
 
-				/*
-				 * Panel - New Footer
-				 *
-				 * @since x.x.x
-				 */
-				array(
-					'name'            => 'panel-footer-builder-group',
-					'type'            => 'panel',
-					'priority'        => 20,
-					'title'           => __( 'Footer Builder', 'astra-builder' ),
-					'active_callback' => 'Astra_Builder_Helper::is_migrated',
-				),
-
 				// Section: Primary Footer.
 				array(
 					'name'     => $_section,
