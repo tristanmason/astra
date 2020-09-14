@@ -140,7 +140,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$astra_addon_status = is_astra_addon_activated();
+		$astra_addon_status = defined( 'ASTRA_EXT_VER' );
 
 		$pro_header_desktop_items = array(
 			'button-2' => array(
