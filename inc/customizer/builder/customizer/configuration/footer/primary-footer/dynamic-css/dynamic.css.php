@@ -42,13 +42,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 
 	$css_output_desktop = array(
 
-		$selector                                => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
-		$selector . ' .footer-widget-area-inner' => array(
-			'color' => astra_get_option( 'hb-footer-widget-color' ),
-		),
-		$selector . ' .widget-title'             => array(
-			'color' => astra_get_option( 'hb-footer-widget-title-color' ),
-		),
+		$selector => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
 	);
 
 	if ( isset( $footer_bottom_border_size ) && 1 <= $footer_bottom_border_size ) {

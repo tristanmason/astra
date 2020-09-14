@@ -110,7 +110,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						'transport' => 'postMessage',
 						'partial'   => array(
-							'selector'        => '#ast-hs-menu-' . $index,
+							'selector'        => '#ast-hf-menu-' . $index,
 							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 						),
 					),

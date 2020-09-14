@@ -14,7 +14,7 @@
 	astra_css(
 		'astra-settings[hb-header-height]',
 		'min-height',
-		'.ast-primary-header-bar',
+		'.ast-primary-header-bar, .ast-mobile-header-wrap .ast-builder-grid-row-container-inner',
 		'px'
 	);
 
@@ -22,7 +22,7 @@
 	astra_css(
 		'astra-settings[hb-header-height]',
 		'line-height',
-		'.ast-primary-header-bar',
+		'.ast-primary-header-bar, .ast-mobile-header-wrap .ast-builder-grid-row-container-inner',
 		'px'
 	);
 

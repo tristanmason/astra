@@ -102,7 +102,7 @@ function astra_builder_social_css( builder_type = 'header' ) {
 	astra_css(
 		'astra-settings[' + builder_type + '-social-icons-icon-radius]',
 		'border-radius',
-		selector + ' .ast-builder-social-element,' + selector + ' .ast-builder-social-element .ahfb-svg-icon',
+		selector + ' .ast-builder-social-element',
 		'px'
 	);
 

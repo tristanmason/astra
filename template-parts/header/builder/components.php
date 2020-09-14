@@ -156,7 +156,7 @@ switch ( $type ) {
 
 	case 'widget-2':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2">
 			<div class="header-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'header-widget-2' );
@@ -168,7 +168,7 @@ switch ( $type ) {
 
 	case 'widget-3':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-3">
 			<div class="header-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'header-widget-3' );
@@ -180,7 +180,7 @@ switch ( $type ) {
 
 	case 'widget-4':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-4">
 			<div class="header-widget-area-inner site-info-inner">
 				<?php
 				dynamic_sidebar( 'header-widget-4' );

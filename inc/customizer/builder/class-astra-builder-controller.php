@@ -93,7 +93,6 @@ final class Astra_Builder_Controller {
 
 		add_action( 'customize_register', array( $this, 'builder_configs' ), 2 );
 		add_action( 'customize_register', array( $this, 'header_configs' ), 2 );
-		add_action( 'customize_register', array( $this, 'footer_configs' ), 2 );
 		add_action( 'customize_register', array( $this, 'update_default_wp_configs' ) );
 		add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
@@ -418,6 +417,11 @@ final class Astra_Builder_Controller {
 		} else {
 			self::$group_configs[ $parent ][] = $config;
 		}
+
+		$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+
+		$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+
 		$new_config = array(
 			'name'              => $sub_control_name,
 			'datastore_type'    => 'option',
@@ -425,11 +429,7 @@ final class Astra_Builder_Controller {
 			'control'           => 'ast-hidden',
 			'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
 			'default'           => astra_get_prop( $config, 'default' ),
-			'sanitize_callback' => astra_get_prop(
-				$config,
-				'sanitize_callback',
-				Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) )
-			),
+			'sanitize_callback' => $sanitize_callback,
 		);
 
 		$wp_customize->add_setting(
@@ -465,13 +465,18 @@ final class Astra_Builder_Controller {
 		// Remove type from configuration.
 		unset( $config['type'] );
 
+		$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+
+		$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+
+		
 		$wp_customize->add_setting(
 			astra_get_prop( $config, 'name' ),
 			array(
 				'default'           => astra_get_prop( $config, 'default' ),
 				'type'              => astra_get_prop( $config, 'datastore_type' ),
 				'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
-				'sanitize_callback' => ( 'ast-settings-group' === $config['control'] ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+				'sanitize_callback' => $sanitize_callback,
 			)
 		);
 
@@ -776,6 +781,7 @@ final class Astra_Builder_Controller {
 		require_once $footer_config_path . '/social-icon/class-astra-footer-social-icons-component.php';
 		require_once $footer_config_path . '/above-footer/class-astra-above-footer.php';
 		require_once $footer_config_path . '/primary-footer/class-astra-primary-footer.php';
+		require_once $footer_config_path . '/widget/class-astra-footer-widget-component.php';
 	}
 
 	/**
@@ -803,19 +809,6 @@ final class Astra_Builder_Controller {
 		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header';
 		require_once $header_config_path . '/widget/class-astra-customizer-header-widget-configs.php';
 		require_once $header_config_path . '/transparent/class-astra-customizer-transparent-header-builder-configs.php';
-	}
-
-
-	/**
-	 * Register controls for Footer Components.
-	 *
-	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-	 * @since x.x.x
-	 */
-	public function footer_configs( $wp_customize ) {
-		$footer_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/footer';
-
-		require_once $footer_config_path . '/widget/class-astra-customizer-footer-widget-configs.php';
 	}
 
 	/**
