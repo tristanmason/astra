@@ -57,7 +57,9 @@ class Astra_Footer_Social_Icons_Component_Loader {
 		/**
 		 * Configs.
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR . '/class-astra-customizer-footer-social-icons-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

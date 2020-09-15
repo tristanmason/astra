@@ -30,7 +30,9 @@ if ( ! class_exists( 'Astra_Sticky_Header_Component' ) ) {
 		 */
 		public function __construct() {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_HEADER_STICKY_DIR . '/class-astra-sticky-header-component-loader.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 		}
 	}

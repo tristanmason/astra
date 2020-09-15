@@ -42,7 +42,9 @@ class Astra_Header_Site_Identity_Component_Loader {
 		/**
 		 * Register Panel & Sections
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_HEADER_SITE_IDENTITY_DIR . '/class-astra-customizer-site-identity-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

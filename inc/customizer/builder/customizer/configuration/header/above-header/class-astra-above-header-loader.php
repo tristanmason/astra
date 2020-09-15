@@ -45,7 +45,9 @@ class Astra_Above_Header_Loader {
 		/**
 		 * Register Sections & Options.
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_ABOVE_HEADER_DIR . '/class-astra-customizer-above-header-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**
