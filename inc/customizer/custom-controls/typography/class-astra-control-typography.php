@@ -57,7 +57,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @since 1.0.0
 	 * @var string $type
 	 */
-	public $type = 'ast-font';
+	public $type = 'ast-font-variant';
 
 	/**
 	 * Used to connect variant controls to each other.
@@ -141,13 +141,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @return void
 	 */
 	protected function render_content() {
-
-		switch ( $this->type ) {
-
-			case 'ast-font-variant':
-				$this->render_font_variant( $this->ast_inherit );
-				break;
-		}
+// echo 'Helloraj';
+		$this->render_font_variant( $this->ast_inherit );
 	}
 
 	/**
@@ -215,13 +210,31 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	protected function render_font_variant( $default ) {
 		echo '<label>';
-		$this->render_content_title();
+		if ( ! empty( $this->label ) ) {
+			echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
+		}
+		if ( ! empty( $this->description ) ) {
+			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
+		}
 		echo '</label>';
 		echo '<select ';
 		$this->link();
-		$this->render_connect_attribute();
+		if ( $this->connect ) {
+			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
+			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
+		}
+		if ( $this->variant ) {
+			echo ' data-connected-variant="' . esc_attr( $this->variant ) . '"';
+			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
+		}
+
+		echo ' data-value="' . esc_attr( $this->value() ) . '"';
+		echo ' data-name="' . esc_attr( $this->name ) . '"';
 		echo ' multiple >';
 		$values = explode( ',', $this->value() );
+		echo 'rajtest';
+		var_dump($values);
+
 		foreach ( $values as $key => $value ) {
 			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
 		}
@@ -260,28 +273,22 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
+		echo '<label>';
+		$this->render_content_title();
+		echo '</label>';
+		echo '<select ';
+		$this->link();
+		$this->render_connect_attribute();
+		echo ' multiple >';
+		$values = explode( ',', $this->value() );
+		echo 'rajtest';
+		var_dump($values);
 
-		?>
-
-		<label>
-		<# if ( data.label ) { #>
-			<span class="customize-control-title">{{{data.label}}}</span>
-		<# } #>
-
-		</label>
-		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
-		data-value="{{data.value}}" 
-
-		<# if ( data.connect ) { #>
-			data-connected-control={{ data.connect }}
-		<# } #>
-		<# if ( data.variant ) { #>
-			data-connected-variant="{{data.variant}}"; 
-		<# } #>
-
-		>
-		</select>
-
-		<?php
+		foreach ( $values as $key => $value ) {
+			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
+		}
+		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
+		echo '</select>';
+		echo '<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>';
 	}
 }

@@ -491,6 +491,7 @@ final class Astra_Builder_Controller {
 		$config['label'] = astra_get_prop( $config, 'title' );
 		$config['type']  = astra_get_prop( $config, 'control' );
 
+
 		if ( false !== astra_get_prop( $config, 'font-type', false ) ) {
 			$config['type'] = astra_get_prop( $config, 'font-type', false );
 		}
@@ -521,6 +522,10 @@ final class Astra_Builder_Controller {
 
 			self::$js_configs ['controls'] [ $config['section'] ] [] = $config;
 		}
+		// if ( 'astra-settings[body-font-variant]' === $config['name'] ) {
+		// 	var_dump($config);
+		// 	die();
+		// }
 	}
 
 	/**
@@ -664,6 +669,9 @@ final class Astra_Builder_Controller {
 					break;
 			}
 		}
+		// echo "<pre>";
+		// print_r( self::$js_configs );
+		// die;
 	}
 
 	/**
