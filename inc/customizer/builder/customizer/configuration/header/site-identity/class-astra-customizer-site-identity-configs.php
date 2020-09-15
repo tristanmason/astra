@@ -33,7 +33,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_section              = 'title_tagline';
+			$_section = 'title_tagline';
 			
 			$_configs = array(
 
@@ -46,7 +46,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'     => 'title_tagline',
 					'type'     => 'section',
 					'priority' => 100,
-					'title'    => __( 'Logo', 'astra-builder' ),
+					'title'    => __( 'Logo', 'astra-builder', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
 				),
 
@@ -58,7 +58,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'site-title-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra-builder' ),
+					'title'     => __( 'Title', 'astra-builder', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 16,
@@ -83,7 +83,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'site-tagline-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Tagline', 'astra-builder' ),
+					'title'     => __( 'Tagline', 'astra-builder', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 20,
@@ -107,7 +107,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'title'    => __( 'Site Icon', 'astra-builder' ),
+					'title'    => __( 'Site Icon', 'astra-builder', 'astra' ),
 					'section'  => 'title_tagline',
 					'priority' => 15,
 					'settings' => array(),
@@ -128,7 +128,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'default'   => astra_get_option( 'display-site-title' ),
 					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Title', 'astra-builder' ),
+					'title'     => __( 'Display Site Title', 'astra-builder', 'astra' ),
 					'priority'  => 7,
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -160,7 +160,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'control'   => 'checkbox',
 					'section'   => 'title_tagline',
-					'title'     => __( 'Inline Logo & Site Title', 'astra-builder' ),
+					'title'     => __( 'Inline Logo & Site Title', 'astra-builder', 'astra' ),
 					'priority'  => 7,
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -185,7 +185,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'default'   => astra_get_option( 'display-site-tagline' ),
 					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Tagline', 'astra-builder' ),
+					'title'     => __( 'Display Site Tagline', 'astra-builder', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -208,7 +208,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'checkbox',
 					'section'   => 'title_tagline',
-					'title'     => __( 'Different Logo For Retina Devices?', 'astra-builder' ),
+					'title'     => __( 'Different Logo For Retina Devices?', 'astra-builder', 'astra' ),
 					'default'   => false,
 					'priority'  => 5,
 					'transport' => 'postMessage',
@@ -236,7 +236,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'        => 'title_tagline',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
 					'priority'       => 5,
-					'title'          => __( 'Retina Logo', 'astra-builder' ),
+					'title'          => __( 'Retina Logo', 'astra-builder', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'      => 'postMessage',
 					'partial'        => array(
@@ -261,7 +261,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'checkbox',
 					'default'  => false,
 					'section'  => 'title_tagline',
-					'title'    => __( 'Different Logo For Mobile Devices?', 'astra-builder' ),
+					'title'    => __( 'Different Logo For Mobile Devices?', 'astra-builder', 'astra' ),
 					'priority' => 5,
 					'context'  => array(
 						array(
@@ -283,7 +283,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
 					'section'        => 'title_tagline',
 					'priority'       => 5,
-					'title'          => __( 'Mobile Logo (optional)', 'astra-builder' ),
+					'title'          => __( 'Mobile Logo (optional)', 'astra-builder', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'context'        => array(
 						array(
@@ -314,7 +314,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
-					'title'    => __( 'Typography', 'astra-builder' ),
+					'title'    => __( 'Typography', 'astra-builder', 'astra' ),
 					'priority' => 15,
 					'settings' => array(),
 					'context'  => array(
@@ -337,7 +337,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'site-identity-title-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra-addon' ),
+					'title'     => __( 'Title', 'astra-addon', 'astra' ),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 8,
@@ -357,8 +357,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-color',
 					'default'   => astra_get_option( 'header-color-site-title' ),
 					'transport' => 'postMessage',
-					'title'     => __( 'Title Color', 'astra-addon' ),
-					'tab'       => __( 'Normal', 'astra-addon' ),
+					'title'     => __( 'Title Color', 'astra-addon', 'astra' ),
+					'tab'       => __( 'Normal', 'astra-addon', 'astra' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -376,8 +376,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
-					'title'     => __( 'Title Hover Color', 'astra-addon' ),
-					'tab'       => __( 'Hover', 'astra-addon' ),
+					'title'     => __( 'Title Hover Color', 'astra-addon', 'astra' ),
+					'tab'       => __( 'Hover', 'astra-addon', 'astra' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -393,7 +393,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-color-site-tagline' ),
-					'title'     => __( 'Tagline', 'astra-addon' ),
+					'title'     => __( 'Tagline', 'astra-addon', 'astra' ),
 					'section'   => 'title_tagline',
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-tagline]',

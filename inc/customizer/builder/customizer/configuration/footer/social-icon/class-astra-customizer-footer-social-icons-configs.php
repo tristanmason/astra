@@ -49,11 +49,11 @@ class Astra_Customizer_Footer_Social_Icons_Configs extends Astra_Customizer_Conf
 				'control'   => 'ast-responsive-select',
 				'section'   => 'section-footer-social-icons',
 				'priority'  => 6,
-				'title'     => __( 'Alignment', 'astra-builder' ),
+				'title'     => __( 'Alignment', 'astra-builder', 'astra' ),
 				'choices'   => array(
-					'left'   => __( 'Left', 'astra-builder' ),
-					'right'  => __( 'Right', 'astra-builder' ),
-					'center' => __( 'Center', 'astra-builder' ),
+					'left'   => __( 'Left', 'astra-builder', 'astra' ),
+					'right'  => __( 'Right', 'astra-builder', 'astra' ),
+					'center' => __( 'Center', 'astra-builder', 'astra' ),
 				),
 				'context'   => array(
 					array(

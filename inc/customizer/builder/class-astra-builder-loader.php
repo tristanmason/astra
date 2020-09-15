@@ -123,7 +123,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			<table class="ast-advanced-headers-table widefat ast-required-advanced-headers">
 				<tr class="ast-advanced-headers-row ast-advanced-header-layout-merge-wrap">
 					<td class="ast-advanced-headers-row-heading">
-						<label><?php esc_html_e( 'Merge Page Header with Site Header', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Merge Page Header with Site Header', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="checkbox" id="ast-advanced-header-layout-merged"
@@ -137,12 +137,12 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				<!-- Site Identity  -->
 				<tr class="ast-advanced-headers-row">
 					<td class="ast-advanced-headers-row-heading title">
-						<label><?php esc_html_e( 'Site Identity', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Site Identity', 'astra-addon', 'astra' ); ?></label>
 					</td>
 				</tr>
 				<tr class="ast-advanced-headers-row diff-logo-wrap">
 					<td class="ast-advanced-headers-row-heading">
-						<label><?php esc_html_e( 'Different Logo for Page Header?', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Different Logo for Page Header?', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="checkbox" id="ast-advanced-header-diff-header-logo"
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				<tr class="ast-advanced-headers-row ast-logo-settings-wrap">
 
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Logo', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Logo', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<div id="ast-advanced-headers-preview-logo">
@@ -171,20 +171,20 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 								value="<?php echo esc_attr( $design['logo-url'] ); ?>"/>
 
 						<a class="ast-advanced-header-logo-select button-secondary"
-							href="#"><?php esc_html_e( 'Select logo', 'astra-addon' ); ?></a>
+							href="#"><?php esc_html_e( 'Select logo', 'astra-addon', 'astra' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
 						$remove_logo_button = ( isset( $design['logo-url'] ) && '' != $design['logo-url'] ) ? 'display:inline-block;' : 'display:none;';
 						?>
 						<button class="ast-advanced-headers-logo-remove button" type="button"
 								style="<?php echo esc_attr( $remove_logo_button ); ?>">
-							<?php esc_html_e( 'Remove Logo', 'astra-addon' ); ?>
+							<?php esc_html_e( 'Remove Logo', 'astra-addon', 'astra' ); ?>
 						</button>
 					</td>
 				</tr>
 				<tr class="ast-advanced-headers-row ast-diff-header-retina-logo">
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Different Logo for retina devices?', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Different Logo for retina devices?', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="checkbox" id="ast-advanced-header-diff-header-retina-logo"
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				</tr>
 				<tr class="ast-advanced-headers-row ast-retina-logo-settings-wrap">
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Retina Logo', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Retina Logo', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<div id="ast-advanced-headers-preview-logo">
@@ -212,20 +212,20 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 								value="<?php echo esc_attr( $design['retina-logo-url'] ); ?>"/>
 
 						<a class="ast-advanced-header-logo-select button-secondary"
-							href="#"><?php esc_html_e( 'Select logo', 'astra-addon' ); ?></a>
+							href="#"><?php esc_html_e( 'Select logo', 'astra-addon', 'astra' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
 						$remove_logo_button = ( isset( $design['retina-logo-url'] ) && '' != $design['retina-logo-url'] ) ? 'display:inline-block;' : 'display:none;';
 						?>
 						<button class="ast-advanced-headers-logo-remove button" type="button"
 								style="<?php echo esc_attr( $remove_logo_button ); ?>">
-							<?php esc_html_e( 'Remove Logo', 'astra-addon' ); ?>
+							<?php esc_html_e( 'Remove Logo', 'astra-addon', 'astra' ); ?>
 						</button>
 					</td>
 				</tr>
 				<tr class="ast-advanced-headers-row ast-logo-settings-wrap">
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Logo Width', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Logo Width', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="number" min="0" step="1" max="600"
@@ -236,12 +236,12 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				<!-- Header Colors  -->
 				<tr class="ast-advanced-headers-row">
 					<td class="ast-advanced-headers-row-heading title">
-						<label><?php esc_html_e( 'Customize Site Header', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Customize Site Header', 'astra-addon', 'astra' ); ?></label>
 					</td>
 				</tr>
 				<tr class="ast-advanced-headers-row">
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Background Overlay Color', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Background Overlay Color', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					?>
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Site Title Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Site Title Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Site Title Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Site Title Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -282,7 +282,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Site Tagline Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Site Tagline Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -295,7 +295,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				?>
 				<tr class="ast-advanced-headers-row">
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Border Bottom Size', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Border Bottom Size', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="number" min="0" step="1" max="600"
@@ -305,7 +305,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				</tr>
 				<tr class="ast-advanced-headers-row">
 					<td class="ast-advanced-headers-row-sub-heading">
-						<label><?php esc_html_e( 'Bottom Border Color', 'astra-addon' ); ?></label>
+						<label><?php esc_html_e( 'Bottom Border Color', 'astra-addon', 'astra' ); ?></label>
 					</td>
 					<td class="ast-advanced-headers-row-content">
 						<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -318,12 +318,12 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				<table class="ast-advanced-headers-table widefat">
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-heading title">
-							<label><?php esc_html_e( 'Primary Menu', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Primary Menu', 'astra-addon', 'astra' ); ?></label>
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Background Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Background Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -333,7 +333,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link / Text Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link / Text Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -343,7 +343,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -353,7 +353,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link Active Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link Active Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -365,7 +365,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					<!-- Primary menu -> submenu Colors  -->
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Background Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Background Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -375,7 +375,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link / Text Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link / Text Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -395,7 +395,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link Active Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link Active Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -410,7 +410,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Select Primary Menu', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Select Primary Menu', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<?php
@@ -423,7 +423,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 
 							<select name="ast-advanced-headers-design[custom-menu]" style="width: auto" ;>
 								<option
-									value="0"><?php printf( '&mdash; %s &mdash;', esc_html__( 'Default', 'astra-addon' ) ); ?></option>
+									value="0"><?php printf( '&mdash; %s &mdash;', esc_html__( 'Default', 'astra-addon', 'astra' ) ); ?></option>
 								<?php
 								if ( isset( $design['custom-menu'] ) && ! empty( $nav_menus ) ) {
 									foreach ( $nav_menus as $menu ) :
@@ -451,11 +451,11 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				<table class="ast-advanced-headers-table widefat">
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-heading title">
-							<label><?php esc_html_e( 'Above Header', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Above Header', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<tr class="ast-advanced-headers-row">
 							<td class="ast-advanced-headers-row-sub-heading">
-								<label><?php esc_html_e( 'Display Above Header', 'astra-addon' ); ?></label>
+								<label><?php esc_html_e( 'Display Above Header', 'astra-addon', 'astra' ); ?></label>
 							</td>
 							<td class="ast-advanced-headers-row-content">
 								<input type="checkbox" id="ast-advanced-header-layout-above-header"
@@ -466,7 +466,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Background Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Background Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -476,7 +476,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link / Text Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link / Text Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -486,7 +486,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -496,7 +496,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link Active Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link Active Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -507,7 +507,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					<!-- Above menu -> submenu Colors  -->
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Background Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Background Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -517,7 +517,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link / Text Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link / Text Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -527,7 +527,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -537,7 +537,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link Active Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link Active Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -558,11 +558,11 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				<table class="ast-advanced-headers-table widefat">
 					<tr class="ast-advanced-headers-row">
 						<td class="ast-advanced-headers-row-heading title">
-							<label><?php esc_html_e( 'Below Header', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Below Header', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<tr class="ast-advanced-headers-row">
 							<td class="ast-advanced-headers-row-sub-heading">
-								<label><?php esc_html_e( 'Display Below Header', 'astra-addon' ); ?></label>
+								<label><?php esc_html_e( 'Display Below Header', 'astra-addon', 'astra' ); ?></label>
 							</td>
 							<td class="ast-advanced-headers-row-content">
 								<input type="checkbox" id="ast-advanced-header-layout-below-header"
@@ -573,7 +573,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Background Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Background Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -583,7 +583,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link / Text Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link / Text Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -593,7 +593,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -603,7 +603,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Link Active Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Link Active Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -614,7 +614,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					<!-- Below menu -> submenu Colors  -->
 					<tr class="ast-advanced-headers-row ast-above-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Background Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Background Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -624,7 +624,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link / Text Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link / Text Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -634,7 +634,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link Hover Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link Hover Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -644,7 +644,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
 						<td class="ast-advanced-headers-row-sub-heading">
-							<label><?php esc_html_e( 'Submenu Link Active Color', 'astra-addon' ); ?></label>
+							<label><?php esc_html_e( 'Submenu Link Active Color', 'astra-addon', 'astra' ); ?></label>
 						</td>
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
@@ -685,10 +685,10 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				return $quick_settings;
 			}
 
-			$quick_settings['header']['title']     = __( 'Header Builder', 'astra-builder' );
+			$quick_settings['header']['title']     = __( 'Header Builder', 'astra-builder', 'astra' );
 			$quick_settings['header']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-header-builder-layout' );
 
-			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra-builder' );
+			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra-builder', 'astra' );
 			$quick_settings['footer']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-footer-builder-layout' );
 
 			return $quick_settings;
@@ -812,7 +812,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				// Register the Secondary & Mobile menus.
 				register_nav_menus(
 					array(
-						'secondary_menu' => __( 'Secondary Menu', 'astra-builder' ),
+						'secondary_menu' => __( 'Secondary Menu', 'astra-builder', 'astra' ),
 					)
 				);
 			}

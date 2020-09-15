@@ -155,6 +155,7 @@ final class Astra_Builder_Controller {
 
 	/**
 	 * Get the Link for Control.
+	 *
 	 * @since x.x.x
 	 * @param array $id Control ID.
 	 */

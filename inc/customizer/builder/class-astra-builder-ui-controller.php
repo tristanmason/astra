@@ -95,8 +95,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		public static function render_customizer_edit_button() {
 			?>
 			<div class="customize-partial-edit-shortcut" data-id="ahfb">
-				<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra-builder' ); ?>"
-						title="<?php esc_attr_e( 'Click to edit this element.', 'astra-builder' ); ?>"
+				<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra-builder', 'astra' ); ?>"
+						title="<?php esc_attr_e( 'Click to edit this element.', 'astra-builder', 'astra' ); ?>"
 						class="customize-partial-edit-shortcut-button item-customizer-focus">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 						<path d="M13.89 3.39l2.71 2.72c.46.46.42 1.24.03 1.64l-8.01 8.02-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.03c.39-.39 1.22-.39 1.68.07zm-2.73 2.79l-5.59 5.61 1.11 1.11 5.54-5.65zm-2.97 8.23l5.58-5.6-1.07-1.08-5.59 5.6z"></path>
@@ -119,15 +119,15 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			switch ( $row_position ) {
 				case 'primary':
 					/* translators: %s: icon term */
-					$row_label = sprintf( __( 'Primary %s' ), $type );
+					$row_label = sprintf( __( 'Primary %s', 'astra' ), $type );
 					break;
 				case 'above':
 					/* translators: %s: icon term */
-					$row_label = sprintf( __( 'Above %s' ), $type );
+					$row_label = sprintf( __( 'Above %s', 'astra' ), $type );
 					break;
 				case 'below':
 					/* translators: %s: icon term */
-					$row_label = sprintf( __( 'Below %s' ), $type );
+					$row_label = sprintf( __( 'Below %s', 'astra' ), $type );
 					break;
 				default:
 					$row_label = $type;
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			?>
 			<div class="customize-partial-edit-shortcut row-editor-shortcut" data-id="ahfb">
-				<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra-builder' ); ?>"	title="<?php esc_attr_e( 'Click to edit this Row.', 'astra-builder' ); ?>" class="item-customizer-focus">
+				<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra-builder', 'astra' ); ?>"	title="<?php esc_attr_e( 'Click to edit this Row.', 'astra-builder', 'astra' ); ?>" class="item-customizer-focus">
 					<span class="ahfb-customizer-row-shortcut"> <?php echo esc_attr( $row_label ); ?> </span>
 				</button>
 			</div>
