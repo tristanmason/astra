@@ -33,27 +33,27 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 * @since x.x.x
 	 */
 	public static $header_desktop_items = array(
-		'logo'     => array(
+		'logo'   => array(
 			'name'    => 'Logo',
 			'icon'    => 'admin-appearance',
 			'section' => 'title_tagline',
 		),
-		'menu-1'   => array(
+		'menu-1' => array(
 			'name'    => 'Primary Menu',
 			'icon'    => 'menu',
 			'section' => 'section-hb-menu-1',
 		),
-		'menu-2'   => array(
+		'menu-2' => array(
 			'name'    => 'Secondary Menu',
 			'icon'    => 'menu',
 			'section' => 'section-hb-menu-2',
 		),
-		'search'   => array(
+		'search' => array(
 			'name'    => 'Search',
 			'icon'    => 'search',
 			'section' => 'section-header-search',
 		),
-		'social'   => array(
+		'social' => array(
 			'name'    => 'Social',
 			'icon'    => 'share',
 			'section' => 'section-header-social-icons',
@@ -121,7 +121,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 
 			self::$header_desktop_items[ 'button-' . $index ] = $item;
-			self::$header_mobile_items[ 'button-' . $index ] = $item;
+			self::$header_mobile_items[ 'button-' . $index ]  = $item;
 		}
 
 		for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
@@ -133,7 +133,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 
 			self::$header_desktop_items[ 'html-' . $index ] = $item;
-			self::$header_mobile_items[ 'html-' . $index ] = $item;
+			self::$header_mobile_items[ 'html-' . $index ]  = $item;
 		}
 
 		for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
@@ -145,7 +145,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 
 			self::$header_desktop_items[ 'widget-' . $index ] = $item;
-			self::$header_mobile_items[ 'widget-' . $index ] = $item;
+			self::$header_mobile_items[ 'widget-' . $index ]  = $item;
 		}
 
 		$_configs = array(
