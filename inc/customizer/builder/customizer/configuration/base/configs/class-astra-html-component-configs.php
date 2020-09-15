@@ -69,7 +69,7 @@ class Astra_Html_Component_Configs {
 					'type'     => 'section',
 					'priority' => 60,
 					/* translators: %s Index */
-					'title'    => sprintf( __( 'HTML %s', 'astra-builder' ), $index ),
+					'title'    => sprintf( __( 'HTML %s', 'astra-builder', 'astra' ), $index ),
 					'panel'    => 'panel-' . $builder_type . '-builder-group',
 				),
 
@@ -110,7 +110,7 @@ class Astra_Html_Component_Configs {
 					'priority'  => 8,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Color', 'astra-builder' ),
+					'title'     => __( 'Color', 'astra-builder', 'astra' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -129,11 +129,11 @@ class Astra_Html_Component_Configs {
 					'control'   => 'ast-responsive-select',
 					'section'   => $_section,
 					'priority'  => 6,
-					'title'     => __( 'Alignment', 'astra-builder' ),
+					'title'     => __( 'Alignment', 'astra-builder', 'astra' ),
 					'choices'   => array(
-						'left'   => __( 'Left', 'astra-builder' ),
-						'right'  => __( 'Right', 'astra-builder' ),
-						'center' => __( 'Center', 'astra-builder' ),
+						'left'   => __( 'Left', 'astra-builder', 'astra' ),
+						'right'  => __( 'Right', 'astra-builder', 'astra' ),
+						'center' => __( 'Center', 'astra-builder', 'astra' ),
 					),
 					'context'   => array(
 						array(

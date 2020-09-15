@@ -57,26 +57,26 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 			$status = astra_get_option( 'migrate-to-builder', false );
 
 			$value = ( $status ) ? 0 : 1;
-			$label = ( $value ) ? __( 'Use New Header/Footer Builder', 'astra-builder' ) : __( 'Use Old Header/Footer', 'astra-builder' );
+			$label = ( $value ) ? __( 'Use New Header/Footer Builder', 'astra-builder', 'astra' ) : __( 'Use Old Header/Footer', 'astra-builder', 'astra' );
 
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php esc_attr_e( 'Astra Header/Footer Builder', 'astra-builder' ); ?></span>
+				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php esc_attr_e( 'Astra Header/Footer Builder', 'astra-builder', 'astra' ); ?></span>
 				</h2>
 				<div class="inside">
 					<div>
-						<p><?php esc_html_e( 'Astra Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'astra-builder' ); ?></p>
-						<p><?php esc_html_e( 'Activating this feature will add advanced options to Astra customizer where you can create awesome new designs.', 'astra-builder' ); ?></p>
-						<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer.', 'astra-builder' ); ?></p>
+						<p><?php esc_html_e( 'Astra Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'astra-builder', 'astra' ); ?></p>
+						<p><?php esc_html_e( 'Activating this feature will add advanced options to Astra customizer where you can create awesome new designs.', 'astra-builder', 'astra' ); ?></p>
+						<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer.', 'astra-builder', 'astra' ); ?></p>
 						<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
-							<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customzier', 'astra-builder' ); ?></a>
+							<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customzier', 'astra-builder', 'astra' ); ?></a>
 							<div class="ast-actions" style="display: inline-flex;">
 								<button href="#" class="button button-primary ast-builder-migrate" style="margin-right:10px;" data-value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></button>
 								<?php
 								$is_deleted = get_option( 'ast_builder_old_deleted', false );
 								if ( ! $is_deleted && false !== astra_get_db_option( 'header-desktop-items', false ) ) {
 									?>
-								<a href="#" class="ast-delete-old-options button <?php echo ( $value ) ? 'hidden' : ''; ?>"><?php esc_html_e( 'Delete Older Options', 'astra-builder' ); ?></a>
+								<a href="#" class="ast-delete-old-options button <?php echo ( $value ) ? 'hidden' : ''; ?>"><?php esc_html_e( 'Delete Older Options', 'astra-builder', 'astra' ); ?></a>
 									<?php
 								}
 								?>
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 			check_ajax_referer( 'astra-builder-module-nonce', 'nonce' );
 
 			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error( __( 'You don\'t have the access', 'astra-builder' ) );
+				wp_send_json_error( __( 'You don\'t have the access', 'astra-builder', 'astra' ) );
 			}
 
 			$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 			check_ajax_referer( 'astra-builder-module-nonce', 'nonce' );
 
 			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error( __( 'You don\'t have the access', 'astra-builder' ) );
+				wp_send_json_error( __( 'You don\'t have the access', 'astra-builder', 'astra' ) );
 			}
 
 			$module_id          = isset( $_POST['module_id'] ) ? sanitize_text_field( wp_unslash( $_POST['module_id'] ) ) : '';
@@ -163,11 +163,11 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 
 			$options = array(
 				'ajax_nonce'         => wp_create_nonce( 'astra-builder-module-nonce' ),
-				'deleted'            => __( 'Deleted', 'astra-builder' ),
+				'deleted'            => __( 'Deleted', 'astra-builder', 'astra' ),
 				'ajaxurl'            => admin_url( 'admin-ajax.php' ),
-				'old_header_footer'  => __( 'Use Old Header/Footer', 'astra-builder' ),
-				'migrate_to_builder' => __( 'Use New Header/Footer Builder', 'astra-builder' ),
-				'delete_permission'  => __( 'This will remove old header/footer permanently from your website. Are you sure?', 'astra-builder' ),
+				'old_header_footer'  => __( 'Use Old Header/Footer', 'astra-builder', 'astra' ),
+				'migrate_to_builder' => __( 'Use New Header/Footer Builder', 'astra-builder', 'astra' ),
+				'delete_permission'  => __( 'This will remove old header/footer permanently from your website. Are you sure?', 'astra-builder', 'astra' ),
 			);
 
 			wp_localize_script( 'astra-builder-admin-settings', 'astraBuilderModules', $options );

@@ -43,7 +43,7 @@ class Astra_Social_Icon_Component_Configs {
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 90,
-				'title'    => __( 'Social Icons', 'astra-builder' ),
+				'title'    => __( 'Social Icons', 'astra-builder', 'astra' ),
 				'panel'    => 'panel-' . $builder_type . '-builder-group',
 			),
 
@@ -67,7 +67,7 @@ class Astra_Social_Icon_Component_Configs {
 				'section'   => $_section,
 				'type'      => 'control',
 				'control'   => 'ast-social-icons',
-				'title'     => __( 'Social Icons', 'astra-builder' ),
+				'title'     => __( 'Social Icons', 'astra-builder', 'astra' ),
 				'transport' => 'postMessage',
 				'priority'  => 1,
 				'default'   => astra_get_option( $builder_type . '-social-icons' ),
@@ -92,7 +92,7 @@ class Astra_Social_Icon_Component_Configs {
 				'control'   => 'checkbox',
 				'section'   => $_section,
 				'priority'  => 2,
-				'title'     => __( 'Show Label', 'astra-builder' ),
+				'title'     => __( 'Show Label', 'astra-builder', 'astra' ),
 				'transport' => 'postMessage',
 				'partial'   => array(
 					'selector'            => '.ast-' . $builder_type . '-social-wrap',
@@ -116,7 +116,7 @@ class Astra_Social_Icon_Component_Configs {
 				'priority'    => 2,
 				'transport'   => 'postMessage',
 				'default'     => astra_get_option( $builder_type . '-social-icons-icon-space' ),
-				'title'       => __( 'Icon Spacing', 'astra-builder' ),
+				'title'       => __( 'Icon Spacing', 'astra-builder', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-slider',
 				'input_attrs' => array(
@@ -141,7 +141,7 @@ class Astra_Social_Icon_Component_Configs {
 				'priority'    => 2,
 				'transport'   => 'postMessage',
 				'default'     => astra_get_option( $builder_type . '-social-icons-icon-bg-space' ),
-				'title'       => __( 'Icon Background Spacing', 'astra-builder' ),
+				'title'       => __( 'Icon Background Spacing', 'astra-builder', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-slider',
 				'input_attrs' => array(
@@ -166,7 +166,7 @@ class Astra_Social_Icon_Component_Configs {
 				'priority'    => 3,
 				'transport'   => 'postMessage',
 				'default'     => astra_get_option( $builder_type . '-social-icons-icon-size' ),
-				'title'       => __( 'Icon Size', 'astra-builder' ),
+				'title'       => __( 'Icon Size', 'astra-builder', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-slider',
 				'input_attrs' => array(
@@ -191,7 +191,7 @@ class Astra_Social_Icon_Component_Configs {
 				'priority'    => 4,
 				'transport'   => 'postMessage',
 				'default'     => astra_get_option( $builder_type . '-social-icons-icon-radius' ),
-				'title'       => __( 'Icon Radius (In px)', 'astra-builder' ),
+				'title'       => __( 'Icon Radius (In px)', 'astra-builder', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-slider',
 				'input_attrs' => array(
@@ -212,7 +212,7 @@ class Astra_Social_Icon_Component_Configs {
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Colors & Typography', 'astra-builder' ),
+				'title'    => __( 'Colors & Typography', 'astra-builder', 'astra' ),
 				'priority' => 7,
 				'settings' => array(),
 				'context'  => array(
@@ -229,11 +229,11 @@ class Astra_Social_Icon_Component_Configs {
 				'section'   => $_section,
 				'type'      => 'control',
 				'control'   => 'select',
-				'title'     => __( 'Color Type', 'astra-builder' ),
+				'title'     => __( 'Color Type', 'astra-builder', 'astra' ),
 				'priority'  => 7,
 				'choices'   => array(
-					'custom'   => __( 'Custom', 'astra-builder' ),
-					'official' => __( 'Official', 'astra-builder' ),
+					'custom'   => __( 'Custom', 'astra-builder', 'astra' ),
+					'official' => __( 'Official', 'astra-builder', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'context'   => array(
@@ -252,7 +252,7 @@ class Astra_Social_Icon_Component_Configs {
 				'default'   => astra_get_option( $builder_type . '-social-color-group' ),
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
-				'title'     => __( 'Colors', 'astra-builder' ),
+				'title'     => __( 'Colors', 'astra-builder', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'required'  => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-type]', '===', 'custom' ),
@@ -275,7 +275,7 @@ class Astra_Social_Icon_Component_Configs {
 				'type'       => 'sub-control',
 				'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-group]',
 				'section'    => $_section,
-				'tab'        => __( 'Normal', 'astra-builder' ),
+				'tab'        => __( 'Normal', 'astra-builder', 'astra' ),
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
@@ -286,7 +286,7 @@ class Astra_Social_Icon_Component_Configs {
 						'value'   => 'design',
 					),
 				),
-				'title'      => __( 'Color', 'astra-builder' ),
+				'title'      => __( 'Color', 'astra-builder', 'astra' ),
 			),
 
 			/**
@@ -299,7 +299,7 @@ class Astra_Social_Icon_Component_Configs {
 				'type'       => 'sub-control',
 				'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-group]',
 				'section'    => $_section,
-				'tab'        => __( 'Hover', 'astra-builder' ),
+				'tab'        => __( 'Hover', 'astra-builder', 'astra' ),
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
@@ -310,7 +310,7 @@ class Astra_Social_Icon_Component_Configs {
 						'value'   => 'design',
 					),
 				),
-				'title'      => __( 'Color', 'astra-builder' ),
+				'title'      => __( 'Color', 'astra-builder', 'astra' ),
 			),
 
 			/**
@@ -323,7 +323,7 @@ class Astra_Social_Icon_Component_Configs {
 				'type'       => 'sub-control',
 				'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-group]',
 				'section'    => $_section,
-				'tab'        => __( 'Normal', 'astra-builder' ),
+				'tab'        => __( 'Normal', 'astra-builder', 'astra' ),
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
@@ -334,7 +334,7 @@ class Astra_Social_Icon_Component_Configs {
 						'value'   => 'design',
 					),
 				),
-				'title'      => __( 'Background Color', 'astra-builder' ),
+				'title'      => __( 'Background Color', 'astra-builder', 'astra' ),
 			),
 
 			/**
@@ -347,7 +347,7 @@ class Astra_Social_Icon_Component_Configs {
 				'type'       => 'sub-control',
 				'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-group]',
 				'section'    => $_section,
-				'tab'        => __( 'Hover', 'astra-builder' ),
+				'tab'        => __( 'Hover', 'astra-builder', 'astra' ),
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
@@ -358,7 +358,7 @@ class Astra_Social_Icon_Component_Configs {
 						'value'   => 'design',
 					),
 				),
-				'title'      => __( 'Background Color', 'astra-builder' ),
+				'title'      => __( 'Background Color', 'astra-builder', 'astra' ),
 			),
 
 		);
