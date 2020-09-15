@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$css_uri     = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir_name . '/';
 			$js_uri      = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir_name . '/';
 
-			wp_enqueue_style( 'custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
+			wp_enqueue_style( 'astra-custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
 
 			if ( ! SCRIPT_DEBUG ) {
 
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 					'wp-block-editor',
 				);
 
-				wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', $custom_controls_deps, ASTRA_THEME_VERSION, true );
+				wp_enqueue_script( 'astra-custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', $custom_controls_deps, ASTRA_THEME_VERSION, true );
 
 				
 				$astra_typo_localize = array(
@@ -98,10 +98,10 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
 				wp_localize_script( 'custom-control-script', 'astraTypo', $astra_typo_localize );
 				$localize_array = array(
-					'colors' => wp_json_encode( astra_color_palette() ),
+					'colors' => astra_color_palette(),
 				);
 
-				wp_localize_script( 'custom-control-script', 'astColorPalette', $localize_array );
+				wp_localize_script( 'astra-custom-control-script', 'astColorPalette', $localize_array );
 
 			} else {
 
@@ -112,18 +112,19 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 					'jquery-ui-tabs',
 					'jquery-ui-sortable',
 				);
-				wp_enqueue_script( 'custom-control-plain-script', $js_uri . 'custom-controls-plain' . $file_prefix . '.js', $custom_controls_plain_deps, ASTRA_THEME_VERSION, true );
+				wp_enqueue_script( 'astra-custom-control-plain-script', $js_uri . 'custom-controls-plain' . $file_prefix . '.js', $custom_controls_plain_deps, ASTRA_THEME_VERSION, true );
 
 				// Enqueue Customizer React.JS script.
 				$custom_controls_react_deps = array(
-					'custom-control-plain-script',
+					'astra-custom-control-plain-script',
 					'wp-i18n',
 					'wp-components',
 					'wp-element',
 					'wp-media-utils',
 					'wp-block-editor',
 				);
-				wp_enqueue_script( 'custom-control-react-script', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/index.js', $custom_controls_react_deps, ASTRA_THEME_VERSION, true );
+
+				wp_enqueue_script( 'astra-custom-control-react-script', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/index.js', $custom_controls_react_deps, ASTRA_THEME_VERSION, true );
 
 				$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		
@@ -155,7 +156,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 					'colors' => astra_color_palette(),
 				);
 
-				wp_localize_script( 'custom-control-react-script', 'astColorPalette', $localize_array );
+				wp_localize_script( 'astra-custom-control-react-script', 'astColorPalette', $localize_array );
 			}
 		}
 

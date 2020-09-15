@@ -5,7 +5,7 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 import { __ } from '@wordpress/i18n';
 
 class ResponsiveBackground extends Component {
-	
+
 	constructor(props) {
 
 		super( props );
@@ -13,7 +13,7 @@ class ResponsiveBackground extends Component {
 		let value = this.props.control.setting.get();
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
-		
+
 		this.state = {
 			value: value,
 		};
@@ -30,7 +30,7 @@ class ResponsiveBackground extends Component {
 	updateBackgroundType( device ) {
 
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 
 		if ( undefined === this.state.value[ device ]['background-type']  || '' === this.state.value[ device ]['background-type'] ) {
@@ -46,14 +46,14 @@ class ResponsiveBackground extends Component {
 				this.updateValues( obj );
 
 				if ( this.state.value[ device ]['background-color'].includes('gradient') ) {
-					
+
 					deviceObj['background-type'] = 'gradient';
 					obj[ device ] = deviceObj
 					this.updateValues( obj );
 				}
 			}
 			if ( undefined !== this.state.value[ device ]['background-image'] ) {
-				
+
 				deviceObj['background-type'] = 'image';
 				obj[ device ] = deviceObj
 				this.updateValues( obj );
@@ -69,7 +69,7 @@ class ResponsiveBackground extends Component {
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							
+
 							this.updateValues( value );
 						} }
 					>
@@ -82,7 +82,7 @@ class ResponsiveBackground extends Component {
 	onSelectImage ( media, key, backgroundType ) {
 
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 		let deviceObj = {
 			...obj[key]
@@ -97,7 +97,7 @@ class ResponsiveBackground extends Component {
 	onChangeImageOptions( mainKey, value, device, backgroundType ) {
 
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 		let deviceObj = {
 			...obj[device]
@@ -110,7 +110,7 @@ class ResponsiveBackground extends Component {
         this.updateValues( obj );
 	}
 	renderSettings ( key ) {
-		
+
 		return (
 			<>
 				<AstraColorPickerControl
@@ -141,9 +141,9 @@ class ResponsiveBackground extends Component {
 		} else {
 			value = color.hex;
 		}
-		
+
 		let obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 		let deviceObj = {
 			...obj[key]
@@ -154,9 +154,9 @@ class ResponsiveBackground extends Component {
 
         this.updateValues( obj );
 	}
-	
+
     render() {
-		
+
 		const {
 			defaultValue,
 			label,
@@ -180,14 +180,14 @@ class ResponsiveBackground extends Component {
 			defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
 		}
 
-		if ( label && '' !== label && undefined !== label ) { 
+		if ( label && '' !== label && undefined !== label ) {
 
 			labelHtml = <span className="customize-control-title">{ label }</span>
 		} else {
 			labelHtml = <span className="customize-control-title">{ __( 'Background', 'astra' ) }</span>
 		}
 
-		if ( description ) { 
+		if ( description ) {
 
 			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
@@ -211,7 +211,7 @@ class ResponsiveBackground extends Component {
 				</li>
 			</ul>
 		)
-		
+
 		inputHtml = (
 			<div className="background-wrapper">
 				<div className="background-container desktop active">
@@ -226,19 +226,17 @@ class ResponsiveBackground extends Component {
 				{ this.renderReset( 'mobile' ) }
 				{ this.renderSettings( 'mobile' ) }
 				</div>
-			</div>	
+			</div>
 		)
-		
+
 		return (
 			<>
 				<label>
 					{ labelHtml }
 					{ descriptionHtml }
 				</label>
-
-				{ responsiveHtml }
-
 				<div className="customize-control-content">
+					{ responsiveHtml }
 					{ inputHtml }
 				</div>
 			</>

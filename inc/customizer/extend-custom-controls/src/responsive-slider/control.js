@@ -1,5 +1,5 @@
 import ResponsiveSliderComponent from './responsive-slider-component.js';
-import { getResponsiveSliderJs } from '../common/responsive-helper';
+import { astraGetResponsiveSliderJs } from '../common/responsive-helper';
 
 export const responsiveSliderControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -7,7 +7,6 @@ export const responsiveSliderControl = wp.customize.astraControl.extend( {
 	ReactDOM.render( <ResponsiveSliderComponent control={ control } />, control.container[0] );
 	},
 	ready: function() {
-
-		getResponsiveSliderJs( this );
+		astraGetResponsiveSliderJs( this );
 	}
 } );
