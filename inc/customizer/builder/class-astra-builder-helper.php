@@ -327,31 +327,39 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 
 			if ( is_null( self::$loaded_grid ) ) {
 
-				$grids[] = astra_get_option( 'header-desktop-items' );
-				$grids[] = astra_get_option( 'header-mobile-items' );
-				$grids[] = astra_get_option( 'footer-desktop-items' );
+				$grids[] = astra_get_option( 'header-desktop-items', array() );
+				$grids[] = astra_get_option( 'header-mobile-items', array() );
+				$grids[] = astra_get_option( 'footer-desktop-items', array() );
 
-				foreach ( $grids as $row_gird => $row_grids ) {
+				if ( ! empty( $grids ) ) {
 
-					foreach ( $row_grids as $row => $grid ) {
+					foreach ( $grids as $row_gird => $row_grids ) {
 
-						if ( ! in_array( $row, array( 'below', 'above', 'primary', 'popup' ) ) ) {
-							continue;
+						if ( ! empty( $row_grids ) ) {
+
+							foreach ( $row_grids as $row => $grid ) {
+
+								if ( ! in_array( $row, array( 'below', 'above', 'primary', 'popup' ) ) ) {
+									continue;
+								}
+
+								if ( ! is_array( $grid ) ) {
+									continue;
+								}
+
+								$result              = array_values( $grid );
+								$loaded_component    = call_user_func_array( 'array_merge', $result );
+								$loaded_components[] = is_array( $loaded_component ) ? $loaded_component : array();
+							}
 						}
-
-						if ( ! is_array( $grid ) ) {
-							continue;
-						}
-
-						$result              = array_values( $grid );
-						$loaded_component    = call_user_func_array( 'array_merge', $result );
-						$loaded_components[] = is_array( $loaded_component ) ? $loaded_component : array();
 					}
 				}
 
-				$loaded_components = array_values( $loaded_components );
-
-				$loaded_components = call_user_func_array( 'array_merge', $loaded_components );
+				if ( ! empty( $loaded_components ) ) {
+					$loaded_components = array_values( $loaded_components );
+					$loaded_components = call_user_func_array( 'array_merge', $loaded_components );
+				}
+				
 				self::$loaded_grid = $loaded_components;
 			}
 
