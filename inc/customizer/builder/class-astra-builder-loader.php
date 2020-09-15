@@ -807,10 +807,10 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-controller.php';
 			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-icon-controller.php';
 			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-ui-controller.php';
+			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-header.php';
 
 			if ( Astra_Builder_Helper::is_migrated() ) {
 
-				require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-header.php';
 				require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-footer.php';
 
 				// Register the Secondary & Mobile menus.
