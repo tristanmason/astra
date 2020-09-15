@@ -25135,15 +25135,12 @@ __webpack_require__.r(__webpack_exports__);
         switch (settingName) {
           case 'ast_selected_device':
             return api.previewedDevice;
-            break;
 
           case 'ast_selected_tab':
             return api.state('astra-customizer-tab');
-            break;
 
           default:
             return api(settingName);
-            break;
         }
       };
 
@@ -25272,6 +25269,11 @@ __webpack_require__.r(__webpack_exports__);
       api.section.each(function (section) {
         section.expanded.bind(function () {
           $('.ahfb-builder-drop .ahfb-builder-item').removeClass('active-builder-item');
+
+          _.each(section.controls(), function (control) {
+            highlight_active_component(section.id);
+            set_context(control.id);
+          });
         });
       });
     });

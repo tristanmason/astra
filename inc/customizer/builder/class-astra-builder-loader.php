@@ -703,7 +703,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function load_markup() {
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || ! Astra_Builder_Helper::is_migrated() ) {
+			if ( ! defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) || ! Astra_Builder_Helper::is_migrated() ) {
 				return;
 			}
 
@@ -721,7 +721,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			foreach ( $result as $post_id => $post_data ) {
 				$post_type = get_post_type();
 
-				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE != $post_type ) {
+				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
 
 					$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', false );
 

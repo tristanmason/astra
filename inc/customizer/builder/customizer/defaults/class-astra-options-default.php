@@ -1011,7 +1011,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['footer-menu-text-transform'] = '';
 	$defaults['footer-menu-line-height']    = '';
 
-	$defaults['footer-menu-menu-spacing'] = array(
+	$defaults['footer-menu-spacing'] = array(
 		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',

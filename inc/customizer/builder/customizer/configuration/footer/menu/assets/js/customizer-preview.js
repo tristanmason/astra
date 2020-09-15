@@ -99,7 +99,7 @@
      * Menu - Colors
      */
     astra_color_responsive_css(
-        'astra-builder',
+        'astra-footer-menu-preview',
         'astra-settings[footer-menu-color-responsive]',
         'color',
         selector + ' .menu-item > .menu-link'
@@ -107,7 +107,7 @@
 
     // Menu - Hover Color
     astra_color_responsive_css(
-        'astra-builder',
+        'astra-footer-menu-preview',
         'astra-settings[footer-menu-h-color-responsive]',
         'color',
         selector + ' .menu-item:hover > .menu-link'
@@ -115,7 +115,7 @@
 
     // Menu - Active Color
     astra_color_responsive_css(
-        'astra-builder',
+        'astra-footer-menu-preview',
         'astra-settings[footer-menu-a-color-responsive]',
         'color',
         selector + ' .menu-item.current-menu-item > .menu-link'
@@ -128,7 +128,7 @@
 
     // Menu - Hover Background
     astra_color_responsive_css(
-        'astra-builder',
+        'astra-footer-menu-preview',
         'astra-settings[footer-menu-h-bg-color-responsive]',
         'background',
         selector + ' .menu-item:hover > .menu-link'
@@ -136,7 +136,7 @@
 
     // Menu - Active Background
     astra_color_responsive_css(
-        'astra-builder',
+        'astra-footer-menu-preview',
         'astra-settings[footer-menu-a-bg-color-responsive]',
         'background',
         selector + ' .menu-item.current-menu-item > .menu-link'

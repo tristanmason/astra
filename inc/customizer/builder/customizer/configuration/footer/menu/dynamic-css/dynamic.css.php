@@ -83,7 +83,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_font_size_mobile_unit  = ( isset( $menu_font_size['mobile-unit'] ) ) ? $menu_font_size['mobile-unit'] : '';
 
 	// Menu Spacing.
-	$menu_spacing = astra_get_option( 'footer-menu-menu-spacing' );
+	$menu_spacing = astra_get_option( 'footer-menu-spacing' );
 
 	// - Desktop.
 	$menu_desktop_spacing_top = ( isset( $menu_spacing['desktop']['top'] ) && ! empty( $menu_spacing['desktop']['top'] ) ) ? $menu_spacing['desktop']['top'] : '';

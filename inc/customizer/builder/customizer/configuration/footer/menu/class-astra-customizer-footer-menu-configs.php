@@ -452,7 +452,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 					// Option: Spacing Heading.
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-menu-spacing-divider]',
+						'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-spacing-divider]',
 						'section'  => $_section,
 						'type'     => 'control',
 						'control'  => 'ast-heading',
@@ -470,8 +470,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 					// Option - Menu Space.
 					array(
-						'name'           => ASTRA_THEME_SETTINGS . '[footer-menu-menu-spacing]',
-						'default'        => astra_get_option( 'footer-menu-menu-spacing' ),
+						'name'           => ASTRA_THEME_SETTINGS . '[footer-menu-spacing]',
+						'default'        => astra_get_option( 'footer-menu-spacing' ),
 						'type'           => 'control',
 						'control'        => 'ast-responsive-spacing',
 						'transport'      => 'postMessage',
