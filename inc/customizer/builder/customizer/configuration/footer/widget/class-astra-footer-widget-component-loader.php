@@ -58,7 +58,9 @@ class Astra_Footer_Widget_Component_Loader {
 		/**
 		 * Register Panel & Sections
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_BUILDER_FOOTER_WIDGET_DIR . '/class-astra-footer-widget-component-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

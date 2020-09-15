@@ -58,7 +58,9 @@ class Astra_Header_Social_Icon_Component_Loader {
 		/**
 		 * Register Panel & Sections
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_HEADER_SOCIAL_ICON_DIR . '/class-astra-header-social-icon-component-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**
