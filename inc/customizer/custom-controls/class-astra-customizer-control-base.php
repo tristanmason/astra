@@ -97,6 +97,12 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 				);
 
 				wp_localize_script( 'custom-control-script', 'astraTypo', $astra_typo_localize );
+				$localize_array = array(
+					'colors' => wp_json_encode( astra_color_palette() ),
+				);
+
+				wp_localize_script( 'custom-control-script', 'astColorPalette', $localize_array );
+
 			} else {
 
 				// Enqueue Customizer Plain script.
@@ -145,6 +151,11 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 				);
 
 				wp_localize_script( 'custom-control-react-script', 'astraTypo', $astra_typo_localize );
+				$localize_array = array(
+					'colors' => astra_color_palette(),
+				);
+
+				wp_localize_script( 'custom-control-react-script', 'astColorPalette', $localize_array );
 			}
 		}
 
