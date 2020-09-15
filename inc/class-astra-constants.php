@@ -122,12 +122,12 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		 */
 		public function __construct() {
 
-			self::$num_of_header_button  = apply_filters( 'astra_num_of_header_button', 1 );
-			self::$num_of_header_html    = apply_filters( 'astra_num_of_header_html', 2 );
+			self::$num_of_header_button  = apply_filters( 'num_of_header_button', 1 );
+			self::$num_of_header_html    = apply_filters( 'num_of_header_html', 2 );
 			self::$num_of_header_menu    = apply_filters( 'num_of_header_menu', 2 );
-			self::$num_of_header_widgets = apply_filters( 'astra_num_of_header_widgets', 0 );
-			self::$num_of_footer_html    = apply_filters( 'astra_num_of_footer_html', 2 );
-			self::$num_of_footer_widgets = apply_filters( 'astra_num_of_footer_widgets', 4 );
+			self::$num_of_header_widgets = apply_filters( 'num_of_header_widgets', 0 );
+			self::$num_of_footer_html    = apply_filters( 'num_of_footer_html', 2 );
+			self::$num_of_footer_widgets = apply_filters( 'num_of_footer_widgets', 4 );
 		}
 	}
 	/**
