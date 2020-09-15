@@ -415,7 +415,7 @@
 			} );
 
         // Advanced CSS Generation.
-        astra_builder_advanced_css( 'section-hb-menu-' + index, selector );
+        astra_builder_advanced_margin_css( 'section-hb-menu-' + index, selector );
 	}
 	
 	// Sub Menu Divider Toggle.
@@ -427,13 +427,13 @@
 			var dynamicStyle = '';
 			if ( value ) {
 
-				dynamicStyle += '.astra-hfb-header .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item .menu-link {';
+				dynamicStyle += '.astra-hfb-header.ast-header-break-point .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item .menu-link {';
 					dynamicStyle += 'border-bottom-width: 1px;';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += 'border-color:' + item_divider_color + ';';
 				dynamicStyle += '}';
 
-				dynamicStyle += '.astra-hfb-header .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item:last-child .menu-link {';
+				dynamicStyle += '.astra-hfb-header.ast-header-break-point .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item:last-child .menu-link {';
 					dynamicStyle += 'border-bottom-width: 0px;';
 					dynamicStyle += 'border-style: none;';
 				dynamicStyle += '}';
@@ -471,12 +471,12 @@
 			var dynamicStyle = '';
 			if ( value ) {
 
-				dynamicStyle += '.astra-hfb-header .ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item .menu-link {';
+				dynamicStyle += '.astra-hfb-header.ast-header-break-point .ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item .menu-link {';
 					dynamicStyle += 'border-bottom-width: 1px;';
 					dynamicStyle += 'border-style: solid;';
 				dynamicStyle += '}';
 
-				dynamicStyle += '.astra-hfb-header .ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item:last-child .menu-link {';
+				dynamicStyle += '.astra-hfb-header.ast-header-break-point .ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item:last-child .menu-link {';
 					dynamicStyle += 'border-bottom-width: 0px;';
 					dynamicStyle += 'border-style: none;';
 				dynamicStyle += '}';

@@ -1,7 +1,7 @@
 /**
  * AST HF Builder - Grid related CSS.
  */
-.ast-builder-grid-row {
+ .ast-builder-grid-row {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
@@ -71,8 +71,13 @@
     align-items: center;
 }
 
-.ast-builder-grid-row.ast-grid-center-col-layout-only, .ast-builder-layout-element, .site-header-section, .site-footer-section {
+.ast-builder-grid-row.ast-grid-center-col-layout-only, .ast-builder-layout-element, .site-header-section {
     display: flex;
+    height: 100%;
+}
+
+.site-header-section .ast-main-header-bar-alignment {
+    height: 100%;
 }
 
 .ast-grid-right-center-section {
@@ -127,7 +132,7 @@
     text-align: center;
 }
 
-.ast-logo-title-inline .grid-section-center .ast-site-identity {
+.ast-logo-title-inline .grid-section-center .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
     text-align: left;
 }
 
@@ -243,7 +248,7 @@
  * AST HF Builder - Widgets related CSS.
  * Header Nav and Submenu compatibility CSS.
  */
-.main-header-bar-wrap .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
+.site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
     content: "\e900";
     display: inline-block;
     font-family: 'Astra';
@@ -279,9 +284,10 @@ ul.astra-footer-vertical-menu {
     display: block;
 }
 
-#astra-footer-menu {
+#astra-footer-menu, #astra-footer-menu > ul {
     margin: 0;
     list-style: none;
+    background: inherit;
 }
 
 /**
@@ -292,7 +298,7 @@ ul.astra-footer-vertical-menu {
     display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 922px) {
     #ast-desktop-header {
         display: block;
     }
@@ -515,137 +521,242 @@ body.ast-main-header-nav-open {
 .ast-header-break-point .ast-nav-menu .sub-menu {
     line-height: 3;
 }
+
+.ast-mobile-header-wrap .ast-builder-grid-row-container-inner {
+    display: grid;
+    align-items: center;
+}
+
 /* Social Icons Official CSS */
 
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook {
     color: white;
     background: #557dbc;
 }
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook svg {
+    fill: white;
+}
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.twitter {
     color: #7acdee;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.twitter svg {
+    fill: #7acdee;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.instagram {
     color: #292929;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.instagram svg {
+    fill: #292929;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.linkedin {
     color: #1c86c6;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.linkedin svg {
+    fill: #1c86c6;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook_group {
     color: #3D87FB;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook_group svg {
+    fill: #3D87FB;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.discord {
     color: #7187D4;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.discord svg {
+    fill: #7187D4;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.pinterest {
     color: #ea575a;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.pinterest svg {
+    fill: #ea575a;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.dribbble {
     color: #d77ea6;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.dribbble svg {
+    fill: #d77ea6;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.behance {
     color: #1B64F6;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.behance svg {
+    fill: #1B64F6;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.medium {
     color: #292929;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.medium svg {
+    fill: #292929;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.reddit {
     color: #FC471E;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.reddit svg {
+    fill: #FC471E;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.patreon {
     color: #e65c4b;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.patreon svg {
+    fill: #e65c4b;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vk {
     color: #5382b6;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vk svg {
+    fill: #5382b6;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.youtube {
     color: #e96651;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.youtube svg {
+    fill: #e96651;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vimeo {
     color: #8ecfde;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vimeo svg {
+    fill: #8ecfde;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.rss {
     color: #f09124;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.rss svg {
+    fill: #f09124;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.whatsapp {
     color: #5BBA67;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.whatsapp svg {
+    fill: #5BBA67;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.viber {
     color: #7F509E;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.viber svg {
+    fill: #7F509E;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.telegram {
     color: #229CCE;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.telegram svg {
+    fill: #229CCE;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.xing {
     color: #0A5C5D;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.xing svg {
+    fill: #0A5C5D;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.weibo {
     color: #E41C34;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.weibo svg {
+    fill: #E41C34;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.tumblr {
     color: #314255;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.tumblr svg {
+    fill: #314255;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.qq {
     color: #487FC8;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.qq svg {
+    fill: #487FC8;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wechat {
     color: #2DC121;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wechat svg {
+    fill: #2DC121;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.strava {
     color: #2DC121;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.strava svg {
+    fill: #2DC121;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.email {
     color: #ea4335;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.email svg {
+    fill: #ea4335;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.github {
     color: #24292e;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.github svg {
+    fill: #24292e;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.google_reviews {
     color: #dc4e41;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.google_reviews svg {
+    fill: #dc4e41;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.imdb {
     color: #000000;
     background: #F5C518;
 }
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.imdb svg {
+    fill: #000000;
+}
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.trip_advisor {
     color: #000000;
     background: #00aa6c;
 }
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.trip_advisor svg {
+    fill: #000000;
+}
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wordpress {
     color: #464646;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wordpress svg {
+    fill: #464646;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.yelp {
     color: #af0606;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.yelp svg {
+    fill: #af0606;
 }
 .ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.phone {
     color: inherit;
-    background: white;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.phone svg {
+    fill: inherit;
 }

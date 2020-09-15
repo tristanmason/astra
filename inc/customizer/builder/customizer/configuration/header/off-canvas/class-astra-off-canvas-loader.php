@@ -45,7 +45,9 @@ class Astra_Off_Canvas_Loader {
 		/**
 		 * Register Sections & Options.
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_OFF_CANVAS_DIR . '/class-astra-customizer-off-canvas-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

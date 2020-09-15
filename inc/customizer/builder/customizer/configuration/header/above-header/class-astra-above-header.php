@@ -27,13 +27,14 @@ class Astra_Above_Header {
 	 * Constructor function that initializes required actions and hooks.
 	 */
 	public function __construct() {
-
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_ABOVE_HEADER_DIR . '/class-astra-above-header-loader.php';
 
 		// Include front end files.
 		if ( ! is_admin() ) {
 			require_once ASTRA_ABOVE_HEADER_DIR . '/dynamic-css/dynamic.css.php';
 		}
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }
 

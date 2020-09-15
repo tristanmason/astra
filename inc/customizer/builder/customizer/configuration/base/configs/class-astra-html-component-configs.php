@@ -59,7 +59,6 @@ class Astra_Html_Component_Configs {
 					'control'     => 'ast-builder-header-control',
 					'priority'    => 0,
 					'description' => '',
-
 				),
 
 				/*
@@ -146,7 +145,7 @@ class Astra_Html_Component_Configs {
 				);
 			}
 
-			$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
+			$html_config[] = Astra_Builder_Base_Configuration::prepare_margin_tab( $_section );
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section );
 
 			$html_config[] = $_configs;

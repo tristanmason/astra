@@ -132,6 +132,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 				),
 
+				/**
+				 * Option: Layout Width
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-layout-width]',
+					'default'   => astra_get_option( 'hba-footer-layout-width' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 25,
+					'title'     => __( 'Width', 'astra-builder' ),
+					'choices'   => array(
+						'full'    => __( 'Full Width', 'astra-builder' ),
+						'content' => __( 'Content Width', 'astra-builder' ),
+					),
+					'suffix'    => '',
+					'context'   => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+					'transport' => 'postMessage',
+				),
+
 				// Section: Above Footer Height.
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[hba-footer-height]',
@@ -142,7 +167,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'       => __( 'Height', 'astra-builder' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
-					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 30,
 						'step' => 1,
@@ -154,6 +178,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'   => 'general',
 						),
 					),
+				),
+
+				/**
+				 * Option: Vertical Alignment
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-vertical-alignment]',
+					'default'   => astra_get_option( 'hba-footer-vertical-alignment' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 34,
+					'title'     => __( 'Vertical Alignment', 'astra-builder' ),
+					'choices'   => array(
+						'flex-start' => __( 'Top', 'astra-builder' ),
+						'center'     => __( 'Middle', 'astra-builder' ),
+						'flex-end'   => __( 'Bottom', 'astra-builder' ),
+					),
+					'context'   => array(
+						array(
+							'setting' => 'ast_selected_tab',
+							'value'   => 'general',
+						),
+					),
+					'transport' => 'postMessage',
 				),
 
 				// Section: Above Footer Border.
@@ -205,7 +254,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 60,
-					'title'    => __( 'Background Color', 'astra-builder' ),
+					'title'    => __( 'Background Color & Image', 'astra-builder' ),
 					'context'  => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -223,62 +272,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				// Option: Above Footer - Widget Color.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hba-footer-widget-heading]',
-					'section'  => $_section,
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 72,
-					'title'    => __( 'Widget Colors', 'astra-builder' ),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				/**
-				 * Option: Above Footer - Widget Color.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-widget-color]',
-					'default'   => astra_get_option( 'hba-footer-widget-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 76,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Content Color', 'astra-builder' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				/**
-				 * Option: Above Footer - Widget Title Color.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-widget-title-color]',
-					'default'   => astra_get_option( 'hba-footer-widget-title-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 74,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Title Color', 'astra-builder' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',

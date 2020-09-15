@@ -327,6 +327,7 @@ class RowLayoutComponent extends Component {
 							{ Object.keys( controlMap ).map( ( item, key ) => {
 								return (
 									<Button
+									 	key = { key }
 										isTertiary
 										className={ ( item === this.state.value[this.state.currentDevice] ?
 												'active-radio ' :

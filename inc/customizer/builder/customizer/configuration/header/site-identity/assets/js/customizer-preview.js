@@ -13,6 +13,6 @@
 	var selector = '.ast-builder-layout-element .ast-site-identity';
 
 	// Advanced CSS Generation.
-	astra_builder_advanced_css( 'title_tagline', selector );
+	astra_builder_advanced_margin_css( 'title_tagline', selector );
 
 } )( jQuery );

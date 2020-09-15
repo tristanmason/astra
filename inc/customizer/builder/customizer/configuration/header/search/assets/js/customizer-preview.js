@@ -57,6 +57,6 @@
 	} );
 
 	// Advanced CSS Generation.
-	astra_builder_advanced_css( 'section-hb-search', selector );
+	astra_builder_advanced_margin_css( 'section-header-search', '.astra-hfb-header .site-header-section > .ast-header-search' );
 
 } )( jQuery );

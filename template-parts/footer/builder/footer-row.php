@@ -5,7 +5,15 @@
  * @package Astra Builder
  */
 
-$row = get_query_var( 'row' );
+if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
+
+	$row = wp_parse_args( $args, array( 'row' => '' ) );
+	$row = $row['row'];
+} else {
+
+	$row = get_query_var( 'row' );
+}
+
 if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
 
 	$option  = ( 'above' === $row ) ? 'hba' : ( ( 'below' === $row ) ? 'hbb' : 'hb' );

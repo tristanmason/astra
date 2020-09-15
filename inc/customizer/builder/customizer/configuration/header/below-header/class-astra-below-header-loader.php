@@ -45,7 +45,10 @@ class Astra_Below_Header_Loader {
 		/**
 		 * Register Sections & Options.
 		 */
+
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_BELOW_HEADER_DIR . '/class-astra-customizer-below-header-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

@@ -21,20 +21,6 @@
 		'px'
 	);
 
-	// Widget Content Color.
-    astra_css(
-        'astra-settings[hba-footer-widget-color]',
-        'color',
-        selector + ' .footer-widget-area-inner'
-    );
-
-    // Widget Title Color.
-    astra_css(
-        'astra-settings[hba-footer-widget-title-color]',
-        'color',
-        selector + ' .widget-title'
-    );
-
 	// Footer Line Height.
 	astra_css(
 		'astra-settings[hba-footer-height]',

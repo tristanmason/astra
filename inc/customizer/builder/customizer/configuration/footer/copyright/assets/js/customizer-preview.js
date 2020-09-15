@@ -45,7 +45,7 @@
     } );
 
     // Advanced CSS Generation.
-    astra_builder_advanced_css( 'section-footer-copyright', selector );
+    astra_builder_advanced_margin_css( 'section-footer-copyright', selector );
 
     // Typography CSS Generation.
     astra_builder_typography_css( 'section-footer-copyright', selector );

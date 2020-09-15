@@ -102,11 +102,8 @@ class Astra_Social_Component_Dynamic_CSS {
 			$selector . ' .ast-builder-social-element .ahfb-svg-icon' => array(
 
 				// Icon Size.
-				'width'         => astra_get_css_value( $icon_size, 'px' ),
-				'height'        => astra_get_css_value( $icon_size, 'px' ),
-
-				// Icon Radius.
-				'border-radius' => astra_get_css_value( $icon_radius, 'px' ),
+				'width'  => astra_get_css_value( $icon_size, 'px' ),
+				'height' => astra_get_css_value( $icon_size, 'px' ),
 			),
 			$selector . ' .ast-social-icon-image-wrap' => array(
 
@@ -169,7 +166,7 @@ class Astra_Social_Component_Dynamic_CSS {
 		$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 		// Advanced CSS Generation.
-		$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
+		$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
 
 		$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 

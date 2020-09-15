@@ -74,32 +74,9 @@
 		'border-color',
 		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.ast-mobile-menu-trigger-outline, [data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.ast-mobile-menu-trigger-fill'
 	);
-	
-	// Padding for Trigger Button.
-	wp.customize( 'astra-settings[mobile-header-toggle-btn-padding]', function( setting ) {
-		setting.bind( function( padding ) {
-			var dynamicStyle = '[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.main-header-menu-toggle {';
-				dynamicStyle += 'padding-top:'  + padding.top + 'px;';
-				dynamicStyle += 'padding-right:'  + padding.right + 'px;';
-				dynamicStyle += 'padding-left:'   + padding.left + 'px;';
-				dynamicStyle += 'padding-bottom:'   + padding.bottom + 'px;';
-				dynamicStyle += '} ';
-			astra_add_dynamic_css( 'astra-settings[mobile-header-toggle-btn-padding]', dynamicStyle );
-		} );
-	} );
 
-	// Margin for Trigger Button.
-	wp.customize( 'astra-settings[mobile-header-toggle-btn-margin]', function( setting ) {
-		setting.bind( function( margin ) {
-			var dynamicStyle = '[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.main-header-menu-toggle {';
-				dynamicStyle += 'margin-top:'  + margin.top + 'px;';
-				dynamicStyle += 'margin-right:'  + margin.right + 'px;';
-				dynamicStyle += 'margin-left:'   + margin.left + 'px;';
-				dynamicStyle += 'margin-bottom:'   + margin.bottom + 'px;';
-				dynamicStyle += '} ';
-			astra_add_dynamic_css( 'astra-settings[mobile-header-toggle-btn-margin]', dynamicStyle );
-		} );
-	} );
+	// Advanced CSS Generation.
+	astra_builder_advanced_margin_css( 'section-header-mobile-trigger', '[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
 
 	// Trigger Typography.
 	astra_generate_outside_font_family_css(
