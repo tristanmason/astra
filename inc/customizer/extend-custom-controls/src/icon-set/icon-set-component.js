@@ -17,18 +17,18 @@ class IconSetComponent extends Component {
 		let defaultParams = {
 			layout: {
 				standard: {
-					tooltip: __( 'Background Fullwidth, Content Contained', 'astra-builder' ),
-					name: __( 'Standard', 'astra-builder' ),
+					tooltip: __( 'Background Fullwidth, Content Contained', 'astra' ),
+					name: __( 'Standard', 'astra' ),
 					icon: '',
 				},
 				fullwidth: {
-					tooltip: __( 'Background & Content Fullwidth', 'astra-builder' ),
-					name: __( 'Fullwidth', 'astra-builder' ),
+					tooltip: __( 'Background & Content Fullwidth', 'astra' ),
+					name: __( 'Fullwidth', 'astra' ),
 					icon: '',
 				},
 				contained: {
-					tooltip: __( 'Background & Content Contained', 'astra-builder' ),
-					name: __( 'Contained', 'astra-builder' ),
+					tooltip: __( 'Background & Content Contained', 'astra' ),
+					name: __( 'Contained', 'astra' ),
 					icon: '',
 				},
 			},
@@ -72,7 +72,7 @@ class IconSetComponent extends Component {
 		const responsiveControlLabel = (
 			<Fragment>
 				{ this.state.currentDevice !== 'desktop' && (
-					<Tooltip text={ __( 'Reset Device Values', 'astra-builder' ) }>
+					<Tooltip text={ __( 'Reset Device Values', 'astra' ) }>
 						<Button
 							className="reset ahfb-reset"
 							disabled={ ( this.state.value[this.state.currentDevice] === this.defaultValue[this.state.currentDevice] ) }
@@ -94,7 +94,7 @@ class IconSetComponent extends Component {
 		);
 		const controlLabel = (
 			<Fragment>
-				<Tooltip text={ __( 'Reset Values', 'astra-builder' ) }>
+				<Tooltip text={ __( 'Reset Values', 'astra' ) }>
 					<Button
 						className="reset ahfb-reset"
 						disabled={ ( this.state.value === this.defaultValue ) }

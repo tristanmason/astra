@@ -270,7 +270,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$_prefix = 'button' . $index;
 
-		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra-builder', 'astra' );
+		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );
 		$defaults[ 'header-' . $_prefix . '-link-option' ]    = array(
 			'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 			'new_tab'  => false,
@@ -341,7 +341,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$_section = 'section-hb-html-' . $index;
 
-		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra-builder', 'astra' );
+		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		/**
 		 * HTML Components - Typography.
@@ -1011,7 +1011,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['footer-menu-text-transform'] = '';
 	$defaults['footer-menu-line-height']    = '';
 
-	$defaults['footer-menu-menu-spacing'] = array(
+	$defaults['footer-menu-spacing'] = array(
 		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
@@ -1066,7 +1066,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	// HTML Footer defaults.
 	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_footer_html; $index++ ) {
 
-		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra-builder', 'astra' );
+		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		$defaults[ 'font-size-section-fb-html-' . $index ] = array(
 			'desktop'      => '',
