@@ -342,13 +342,13 @@ class AstraColorPickerControl extends Component {
 					<img src={ ( media.url ) ? media.url : backgroundImage } width="200" height="200" />
 				}
 				<MediaUpload
-					title={ "Select Background Image"  }
+					title={ __( "Select Background Image", 'astra' )  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
 					allowedTypes={ [ "image" ] }
 					value={ ( undefined !== media && media ? media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ( ! media && ! backgroundImage ) ? "Select Background Image"  : "Replace image"  }
+							{ ( ! media && ! backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
 						</Button>
 					) }
 				/>
