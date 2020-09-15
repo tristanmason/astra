@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		 */
 		public function __construct() {
 
-			add_action( 'after_setup_theme', array( $this, 'override_number_components_count' ), 99 );
+			add_action( 'init', array( $this, 'override_number_components_count' ), 99 );
 					
 		}
 		
