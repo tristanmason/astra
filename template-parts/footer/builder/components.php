@@ -5,7 +5,14 @@
  * @package Astra Builder
  */
 
-$comp_type = get_query_var( 'type' );
+if ( version_compare( get_bloginfo( 'version' ), '5.5', '>=' ) ) {
+
+	$comp_type = wp_parse_args( $args, array( 'type' => '' ) );
+	$comp_type = $comp_type['type'];
+} else {
+
+	$comp_type = get_query_var( 'type' );
+}
 
 switch ( $comp_type ) {
 
