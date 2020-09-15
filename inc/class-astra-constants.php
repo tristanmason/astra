@@ -128,6 +128,7 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		
 		/**
 		 * Add filter to Override Components count.
+		 *
 		 * @since x.x.x
 		 */
 		public function override_number_components_count() {
