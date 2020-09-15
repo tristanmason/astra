@@ -126,6 +126,9 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 					
 		}
 		
+		/**
+		 * Add filter to Override Components count.
+		 */
 		public function override_number_components_count() {
 
 			self::$num_of_header_button  = apply_filters( 'num_of_header_button', 1 );
