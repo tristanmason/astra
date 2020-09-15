@@ -132,20 +132,20 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 				foreach ( $elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
 
 
-					if ( version_compare( get_bloginfo( 'version' ), '5.5', '>=' ) ) {
+					if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 						get_template_part(
 							'template-parts/' . $builder . '/builder/components',
 							'',
 							array(
 								'type' => $item,
-							) 
+							)
 						);
 					} else {
 
 						set_query_var( 'type', $item );
 						get_template_part( 'template-parts/' . $builder . '/builder/components' );
-					}               
+					}
 				}
 			}
 		}

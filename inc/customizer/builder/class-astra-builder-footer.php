@@ -91,14 +91,14 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function above_footer() {
 
-			if ( version_compare( get_bloginfo( 'version' ), '5.5', '>=' ) ) {
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				get_template_part(
 					'template-parts/footer/builder/footer',
 					'row',
 					array(
 						'row' => 'above',
-					) 
+					)
 				);
 			} else {
 
@@ -113,14 +113,14 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function primary_footer() {
 
-			if ( version_compare( get_bloginfo( 'version' ), '5.5', '>=' ) ) {
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				get_template_part(
 					'template-parts/footer/builder/footer',
 					'row',
 					array(
 						'row' => 'primary',
-					) 
+					)
 				);
 			} else {
 
@@ -135,14 +135,14 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function below_footer() {
 
-			if ( version_compare( get_bloginfo( 'version' ), '5.5', '>=' ) ) {
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				get_template_part(
 					'template-parts/footer/builder/footer',
 					'row',
 					array(
 						'row' => 'below',
-					) 
+					)
 				);
 			} else {
 
