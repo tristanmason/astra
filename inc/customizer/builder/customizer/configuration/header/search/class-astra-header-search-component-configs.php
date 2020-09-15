@@ -76,7 +76,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'priority'  => 8,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra' ),
+				'title'     => __( 'Icon Color', 'astra' ),
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',

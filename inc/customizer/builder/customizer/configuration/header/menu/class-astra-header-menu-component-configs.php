@@ -145,7 +145,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'        => $_section,
 						'linked_choices' => true,
 						'priority'       => 15,
-						'title'          => __( 'Container Border', 'astra' ),
+						'title'          => __( 'Submenu Container Border', 'astra' ),
 						'choices'        => array(
 							'top'    => __( 'Top', 'astra' ),
 							'right'  => __( 'Right', 'astra' ),
