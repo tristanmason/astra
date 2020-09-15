@@ -119,15 +119,15 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			switch ( $row_position ) {
 				case 'primary':
 					/* translators: %s: icon term */
-					$row_label = sprintf( __( 'Primary %s' ), $type );
+					$row_label = sprintf( __( 'Primary %s', 'astra' ), $type );
 					break;
 				case 'above':
 					/* translators: %s: icon term */
-					$row_label = sprintf( __( 'Above %s' ), $type );
+					$row_label = sprintf( __( 'Above %s', 'astra' ), $type );
 					break;
 				case 'below':
 					/* translators: %s: icon term */
-					$row_label = sprintf( __( 'Below %s' ), $type );
+					$row_label = sprintf( __( 'Below %s', 'astra' ), $type );
 					break;
 				default:
 					$row_label = $type;
