@@ -75,7 +75,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 								$is_deleted = get_option( 'ast_builder_old_deleted', false );
 								if ( ! $is_deleted && false !== astra_get_db_option( 'header-desktop-items', false ) ) {
 									?>
-								<a href="#" class="ast-delete-old-options button <?php ( $status ) ? '' : esc_attr_e( 'hidden' ); ?>"><?php esc_html_e( 'Delete Older Options', 'astra' ); ?></a>
+								<a href="#" class="ast-delete-old-options button <?php echo esc_attr( $status ? '' : 'hidden' ); ?>"><?php esc_html_e( 'Delete Older Options', 'astra' ); ?></a>
 									<?php
 								}
 								?>

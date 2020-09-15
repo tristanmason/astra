@@ -732,7 +732,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 				),
-
 			);
 
 			return array_merge( $configurations, $_configs );

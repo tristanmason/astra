@@ -109,8 +109,6 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 				)
 			);
 		}
-
-
 	}
 
 	/**
@@ -119,7 +117,3 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 	 */
 	Astra_Builder_Widget_Controller::get_instance();
 }
-
-
-
-
