@@ -118,7 +118,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$menu_mobile_spacing_unit = ( isset( $menu_spacing['mobile-unit'] ) && ! empty( $menu_spacing['mobile-unit'] ) ) ? $menu_spacing['mobile-unit'] : '';
 
-	$margin = astra_get_option( $section_id . '-margin' );
+	$margin = astra_get_option( $_section . '-margin' );
 
 	$css_output_desktop = array(
 		$selector                                    => astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' ),

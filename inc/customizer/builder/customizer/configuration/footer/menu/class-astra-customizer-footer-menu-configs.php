@@ -499,10 +499,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Margin heading
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-heading]',
+						'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
 						'type'     => 'control',
 						'control'  => 'ast-heading',
-						'section'  => $section_id,
+						'section'  => $_section,
 						'title'    => __( 'Margin', 'astra' ),
 						'priority' => 200,
 						'settings' => array(),
@@ -518,12 +518,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Margin Space
 					 */
 					array(
-						'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
+						'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
 						'default'        => '',
 						'type'           => 'control',
 						'transport'      => 'postMessage',
 						'control'        => 'ast-responsive-spacing',
-						'section'        => $section_id,
+						'section'        => $_section,
 						'priority'       => 220,
 						'title'          => __( 'Margin', 'astra' ),
 						'linked_choices' => true,

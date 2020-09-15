@@ -33,7 +33,7 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	$_section = 'title_tagline';
 	$selector = '.ast-builder-layout-element .ast-site-identity';
 
-	$margin = astra_get_option( $section_id . '-margin' );
+	$margin = astra_get_option( $_section . '-margin' );
 
 	// Desktop CSS.
 	$css_output_desktop = array(
