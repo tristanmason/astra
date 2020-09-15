@@ -122,6 +122,12 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		 */
 		public function __construct() {
 
+			add_action( 'after_setup_theme', array( $this, 'override_number_components_count' ), 99 );
+					
+		}
+		
+		public function override_number_components_count() {
+
 			self::$num_of_header_button  = apply_filters( 'num_of_header_button', 1 );
 			self::$num_of_header_html    = apply_filters( 'num_of_header_html', 2 );
 			self::$num_of_header_menu    = apply_filters( 'num_of_header_menu', 2 );
