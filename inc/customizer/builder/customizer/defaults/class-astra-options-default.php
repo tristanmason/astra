@@ -608,36 +608,37 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults['transparent-header-main-sep']       = '';
 		$defaults['transparent-header-main-sep-color'] = '';
 
-		/**
-		 * Footer Builder - Desktop Defaults.
-		 */
-		$defaults['footer-desktop-items'] = array(
-			'above'   =>
-				array(
-					'above_1' => array(),
-					'above_2' => array(),
-					'above_3' => array(),
-					'above_4' => array(),
-					'above_5' => array(),
-				),
-			'primary' =>
-				array(
-					'primary_1' => array(),
-					'primary_2' => array(),
-					'primary_3' => array(),
-					'primary_4' => array(),
-					'primary_5' => array(),
-				),
-			'below'   =>
-				array(
-					'below_1' => array( 'copyright' ),
-					'below_2' => array(),
-					'below_3' => array(),
-					'below_4' => array(),
-					'below_5' => array(),
-				),
-		);
 	}
+
+	/**
+	 * Footer Builder - Desktop Defaults.
+	 */
+	$defaults['footer-desktop-items'] = array(
+		'above'   =>
+			array(
+				'above_1' => array(),
+				'above_2' => array(),
+				'above_3' => array(),
+				'above_4' => array(),
+				'above_5' => array(),
+			),
+		'primary' =>
+			array(
+				'primary_1' => array(),
+				'primary_2' => array(),
+				'primary_3' => array(),
+				'primary_4' => array(),
+				'primary_5' => array(),
+			),
+		'below'   =>
+			array(
+				'below_1' => array( 'copyright' ),
+				'below_2' => array(),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
+			),
+	);
 
 	/**
 	 * Above Footer Defaults.
