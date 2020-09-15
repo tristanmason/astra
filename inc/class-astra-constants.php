@@ -56,6 +56,83 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 			),
 		);
 
-	}
+		/**
+		 *  No. Of. Footer Widgets.
+		 *
+		 * @var int
+		 */
+		public static $num_of_footer_widgets;
 
+		/**
+		 *  No. Of. Footer HTML.
+		 *
+		 * @var int
+		 */
+		public static $num_of_footer_html;
+
+		/**
+		 *  No. Of. Header Widgets.
+		 *
+		 * @var int
+		 */
+		public static $num_of_header_widgets;
+
+		/**
+		 *  No. Of. Header Menu.
+		 *
+		 * @var int
+		 */
+		public static $num_of_header_menu;
+
+		/**
+		 *  No. Of. Header Buttons.
+		 *
+		 * @var int
+		 */
+		public static $num_of_header_button;
+
+		/**
+		 *  No. Of. Header HTML.
+		 *
+		 * @var int
+		 */
+		public static $num_of_header_html;
+
+		/**
+		 * Member Variable
+		 *
+		 * @var instance
+		 */
+		private static $instance = null;
+
+		/**
+		 *  Initiator
+		 */
+		public static function get_instance() {
+
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
+			}
+	
+			return self::$instance;
+		}
+
+		/**
+		 * Constructor
+		 */
+		public function __construct() {
+
+			self::$num_of_header_button = apply_filters( 'astra_num_of_header_button', 1 );
+			self::$num_of_header_html = apply_filters( 'astra_num_of_header_html', 2 );
+			self::$num_of_header_menu = apply_filters( 'num_of_header_menu', 2 );
+			self::$num_of_header_widgets = apply_filters( 'astra_num_of_header_widgets', 0 );
+			self::$num_of_footer_html = apply_filters( 'astra_num_of_footer_html', 2 );
+			self::$num_of_footer_widgets = apply_filters( 'astra_num_of_footer_widgets', 4 );
+		}
+	}
+	/**
+	*  Prepare if class 'Astra_Builder_Loader' exist.
+	*  Kicking this off by calling 'get_instance()' method
+	*/
+	Astra_Constants::get_instance();
 endif;

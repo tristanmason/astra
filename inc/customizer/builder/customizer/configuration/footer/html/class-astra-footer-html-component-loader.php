@@ -80,7 +80,7 @@ class Astra_Footer_Html_Component_Loader {
 			'astra-footer-html-customizer-preview-js',
 			'AstraBuilderHTMLData',
 			array(
-				'footer_html_count' => Astra_Builder_Loader::$num_of_footer_html,
+				'footer_html_count' => Astra_Constants::$num_of_footer_html,
 			)
 		);
 	}

@@ -65,7 +65,7 @@ class Astra_Header_Html_Component_Loader {
 			'astra-heading-html-customizer-preview-js',
 			'AstraBuilderHTMLData',
 			array(
-				'header_html_count' => Astra_Builder_Loader::$num_of_header_html,
+				'header_html_count' => Astra_Constants::$num_of_header_html,
 			)
 		);
 	}

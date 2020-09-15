@@ -36,7 +36,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			$html_config           = array();
 			$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
 
-			for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_menu; $index++ ) {
+			for ( $index = 1; $index <= Astra_Constants::$num_of_header_menu; $index++ ) {
 
 				$_section        = 'section-hb-menu-' . $index;
 				$_prefix         = 'menu' . $index;
