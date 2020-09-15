@@ -1,15 +1,16 @@
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Popover, Dashicon, Button, ColorIndicator, Tooltip, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl } from '@wordpress/components';
+import { Popover, Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 class AstraColorPickerControl extends Component {
 
 	constructor( props ) {
-		
+
 		super( props );
 		this.onChangeComplete = this.onChangeComplete.bind( this );
+		this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind( this );
 		this.onChangeGradientComplete = this.onChangeGradientComplete.bind( this );
 		this.renderImageSettings = this.renderImageSettings.bind( this );
 		this.onRemoveImage = this.onRemoveImage.bind( this );
@@ -67,18 +68,18 @@ class AstraColorPickerControl extends Component {
 				if ( isVisible === true ) {
 					this.setState( { isVisible: false } );
 				}
-			} 
+			}
 		};
-		
+
         const showingGradient = ( allowGradient && supportGradient ? true : false );
-        
+
         let tabs = [
             {
                 name: 'color',
                 title: __( 'Color', 'astra' ),
                 className: 'astra-color-background',
             },
-            
+
         ];
 
         if ( showingGradient ) {
@@ -91,7 +92,7 @@ class AstraColorPickerControl extends Component {
 
             tabs.push( gradientTab )
 		}
-		
+
         if ( allowImage ) {
 
             let imageTab = {
@@ -101,106 +102,136 @@ class AstraColorPickerControl extends Component {
             };
 
             tabs.push( imageTab )
-        }
+		}
+
+		let finalpaletteColors = [];
+		let count = 0;
+
+		const defaultColorPalette = [...astColorPalette.colors];
+
+		defaultColorPalette.forEach( singleColor => {
+			let paletteColors = {};
+			Object.assign( paletteColors, { name: count + '_' + singleColor } );
+			Object.assign( paletteColors, { color: singleColor } );
+			finalpaletteColors.push(paletteColors);
+			count ++;
+		});
 
 		return (
-			<div className="astra-color-picker-wrap">
-				
-                <>
-                    { isVisible && (
-                        <Popover position="top left" className="astra-popover-color" onClose={ toggleClose }>
-							{ 1 < tabs.length && 
-								<TabPanel className="astra-popover-tabs astra-background-tabs"
-									activeClass="active-tab"
-									initialTabName={ backgroundType }
-									tabs={ tabs }>
-									{
-										( tab ) => {
-											let tabout;
-											
-											if ( tab.name ) {
-												if ( 'gradient' === tab.name ) {
-													tabout = (
-														<>
-															<__experimentalGradientPicker
-																value={ color && color.includes( 'gradient' ) ? color : '' }
-																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
-															/>
-														</>
-													);
-												}  if ( 'image' === tab.name ) {
-													tabout = (
-														this.renderImageSettings()
-													);
-												} else if ( 'color' === tab.name ){
-													tabout = (
-														<>
-															{ refresh && (
-																<>
-																	<ColorPicker
-																		color={ color }
-																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-																	/>
-																</>
-															) }
-															{ ! refresh &&  (
-																<>
-																	<ColorPicker
-																		color={ color }
-																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-																	/>
-																	
-																</>
-															) }
-														</>
-													);
-												}
-											}
-											return <div>{ tabout }</div>;
-										}
-									}
-								</TabPanel>
-							}
-							{ 1 === tabs.length &&
-
-								<>
-									{ refresh && (
-										<>
-											<ColorPicker
-												color={ color }
-												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-											/>
-										</>
-									) }
-									{ ! refresh &&  (
-										<>
-											<ColorPicker
-												color={ color }
-												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-											/>
-											
-										</>
-									) }
-								</>
-							}
-                        </Popover>
-                    ) }
-                </>
-
+			<>
 				<div className="color-button-wrap">
-					<Button className={ 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
+					<Button className={ isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
 						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&
-						 <ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
+						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
 						}
 						{ 'image' === backgroundType &&
 							<>
 								<ColorIndicator className="astra-advanced-color-indicate" colorValue='#ffffff' />
-								<Dashicon icon="admin-site" />
+								<Dashicon icon="format-image" />
 							</>
 						}
 					</Button>
 				</div>
-			</div>
+				<div className="astra-color-picker-wrap">
+					<>
+						{ isVisible && (
+							<div className="astra-popover-color" onClose={ toggleClose }>
+								{ 1 < tabs.length &&
+									<TabPanel className="astra-popover-tabs astra-background-tabs"
+										activeClass="active-tab"
+										initialTabName={ backgroundType }
+										tabs={ tabs }>
+										{
+											( tab ) => {
+												let tabout;
+
+												if ( tab.name ) {
+													if ( 'gradient' === tab.name ) {
+														tabout = (
+															<>
+																<__experimentalGradientPicker
+																	value={ color && color.includes( 'gradient' ) ? color : '' }
+																	onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
+																/>
+															</>
+														);
+													}  if ( 'image' === tab.name ) {
+														tabout = (
+															this.renderImageSettings()
+														);
+													} else if ( 'color' === tab.name ){
+														tabout = (
+															<>
+																{ refresh && (
+																	<>
+																		<ColorPicker
+																			color={ color }
+																			onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+																		/>
+																	</>
+																) }
+																{ ! refresh &&  (
+																	<>
+																		<ColorPicker
+																			color={ color }
+																			onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+																		/>
+
+																	</>
+																) }
+																<ColorPalette
+																	colors={ finalpaletteColors }
+																	value={ color }
+																	clearable={ false }
+																	disableCustomColors={ true }
+																	className="ast-color-palette"
+																	onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+																/>
+															</>
+														);
+													}
+												}
+												return <div>{ tabout }</div>;
+											}
+										}
+									</TabPanel>
+								}
+								{ 1 === tabs.length &&
+
+									<>
+										{ refresh && (
+											<>
+												<ColorPicker
+													color={ color }
+													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+												/>
+											</>
+										) }
+										{ ! refresh &&  (
+											<>
+												<ColorPicker
+													color={ color }
+													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+												/>
+
+											</>
+										) }
+
+										<ColorPalette
+											colors={ finalpaletteColors }
+											value={ color }
+											clearable={ false }
+											disableCustomColors={ true }
+											className="ast-color-palette"
+											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+										/>
+									</>
+								}
+							</div>
+						) }
+					</>
+				</div>
+			</>
 		);
 	}
 
@@ -230,6 +261,16 @@ class AstraColorPickerControl extends Component {
 		this.props.onChangeComplete( color, 'color' );
 	}
 
+	onPaletteChangeComplete( color ) {
+		this.setState( { color: color } );
+		if ( this.state.refresh === true ) {
+			this.setState( { refresh: false } );
+		} else {
+			this.setState( { refresh: true } );
+		}
+		this.props.onChangeComplete( color, 'color' );
+	}
+
 	onSelectImage( media ) {
 
 		this.setState( { modalCanClose: true } );
@@ -251,14 +292,40 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onChangeImageOptions( tempKey, mainkey, value ) {
-		
+
 		this.setState( { [tempKey]: value } );
 		this.setState( { backgroundType: 'image' } );
 		this.props.onChangeImageOptions( mainkey, value, 'image' );
 	}
 
+	toggleMoreSettings() {
+
+		let parent = event.target.parentElement.parentElement;
+		let trigger = parent.querySelector( '.more-settings' );
+		let wrapper = parent.querySelector( '.media-position-setting' );
+
+		var dataDirection = trigger.dataset.direction;
+		let dataId = trigger.dataset.id;
+
+		if( 'down' === dataDirection ) {
+			trigger.setAttribute( 'data-direction', 'up' );
+			parent.querySelector('.message').innerHTML = __( "Less Settings" );
+			parent.querySelector('.icon').innerHTML = '↑';
+		} else {
+			trigger.setAttribute( 'data-direction', 'down' );
+			parent.querySelector('.message').innerHTML = __( "More Settings" );
+			parent.querySelector('.icon').innerHTML = '↓';
+		}
+
+		if ( wrapper.classList.contains( 'hide-settings' ) ) {
+			wrapper.classList.remove( 'hide-settings' );
+		} else {
+			wrapper.classList.add( 'hide-settings' );
+		}
+	}
+
 	renderImageSettings() {
-		
+
 		const {
 			media,
 			backgroundImage,
@@ -268,82 +335,88 @@ class AstraColorPickerControl extends Component {
 			backgroundSize
 		} = this.state
 
-		return ( 
+		return (
 			<>
 				{ ( media.url || backgroundImage ) &&
 
 					<img src={ ( media.url ) ? media.url : backgroundImage } width="200" height="200" />
 				}
 				<MediaUpload
-					title={ "Select Background Image"  }
+					title={ __( "Select Background Image", 'astra' )  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
 					allowedTypes={ [ "image" ] }
 					value={ ( undefined !== media && media ? media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ( ! media && ! backgroundImage ) ? "Select Background Image"  : "Replace image"  }
+							{ ( ! media && ! backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
 						</Button>
 					) }
 				/>
-				
+
 				{ ( media || backgroundImage ) &&
 					<>
-						<Button className="uagb-rm-btn" onClick={ this.onRemoveImage } isLink isDestructive>
-							{  "Remove Image" }
-						</Button> 
+						<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
+							{ __( "Remove Image", 'astra' ) }
+						</Button>
 
-						<SelectControl
-						label={  "Image Position"  }
-						value={ backgroundPosition }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
-						options={ [
-							{ value: "top-left", label:  "Top Left"  },
-							{ value: "top-center", label:  "Top Center"  },
-							{ value: "top-right", label:  "Top Right"  },
-							{ value: "center-left", label:  "Center Left"  },
-							{ value: "center-center", label:  "Center Center"  },
-							{ value: "center-right", label:  "Center Right"  },
-							{ value: "bottom-left", label:  "Bottom Left"  },
-							{ value: "bottom-center", label:  "Bottom Center"  },
-							{ value: "bottom-right", label:  "Bottom Right"  },
-						] }
-						/>
-						<SelectControl
-						label={ __( "Attachment" ) }
-						value={ backgroundAttachment }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
-						options={ [
-							{ value: "fixed", label:  "Fixed"  },
-							{ value: "scroll", label:  "Scroll"  }
-						] }
-						/>
-						<SelectControl
-						label={ __( "Repeat" ) }
-						value={ backgroundRepeat }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
-						options={ [
-							{ value: "no-repeat", label:  "No Repeat"  },
-							{ value: "repeat", label:  "Repeat"  },
-							{ value: "repeat-x", label:  "Repeat-x"  },
-							{ value: "repeat-y", label:  "Repeat-y"  }
-						] }
-						/>
-						<SelectControl
-						label={ __( "Size" ) }
-						value={ backgroundSize }
-						onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
-						options={ [
-							{ value: "auto", label:  "Auto"  },
-							{ value: "cover", label:  "Cover"  },
-							{ value: "contain", label:  "Contain"  }
-						] }
-						/>
+						<a href="#" className="more-settings" onClick={ this.toggleMoreSettings } data-direction="down" data-id="desktop">
+							<span className="message"> { __( "More Settings" ) } </span>
+							<span className="icon"> ↓ </span>
+						</a>
+
+						<div className="media-position-setting hide-settings">
+							<SelectControl
+							label={ __( "Image Position" ) }
+							value={ backgroundPosition }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
+							options={ [
+								{ value: "left top", label:  __( "Left Top", 'astra'  )  },
+								{ value: "left center", label:  __( "Left Center", 'astra'  )  },
+								{ value: "left bottom", label:  __( "Left Bottom", 'astra'  )  },
+								{ value: "right top", label:  __( "Right Top", 'astra'  )  },
+								{ value: "right center", label:  __( "Right Center", 'astra'  )  },
+								{ value: "right bottom", label:  __( "Right Bottom", 'astra'  )  },
+								{ value: "center top", label:  __( "Center Top", 'astra'  )  },
+								{ value: "center center", label:  __( "Center Center", 'astra'  )  },
+								{ value: "center bottom", label:  __( "Center Bottom", 'astra'  )  },
+							] }
+							/>
+							<SelectControl
+							label={ __( "Attachment", 'astra' ) }
+							value={ backgroundAttachment }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
+							options={ [
+								{ value: "fixed", label:  __( "Fixed", 'astra' )  },
+								{ value: "scroll", label:  __( "Scroll", 'astra' )  }
+							] }
+							/>
+							<SelectControl
+							label={ __( "Repeat", 'astra' ) }
+							value={ backgroundRepeat }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
+							options={ [
+								{ value: "no-repeat", label:  __( "No Repeat", 'astra' )  },
+								{ value: "repeat", label:  __( "Repeat All", 'astra' )  },
+								{ value: "repeat-x", label:  __( "Repeat Horizontally", 'astra' )  },
+								{ value: "repeat-y", label:  __( "Repeat Vertically", 'astra' )  }
+							] }
+							/>
+							<SelectControl
+							label={ __( "Size", 'astra' ) }
+							value={ backgroundSize }
+							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
+							options={ [
+								{ value: "auto", label:  __( "Auto", 'astra' )  },
+								{ value: "cover", label:  __( "Cover", 'astra' )  },
+								{ value: "contain", label:  __( "Contain", 'astra' )  }
+							] }
+							/>
+						</div>
 					</>
-				} 
+				}
 			</>
 		)
 	}
-
 }
 
 AstraColorPickerControl.propTypes = {
@@ -352,6 +425,7 @@ AstraColorPickerControl.propTypes = {
 	palette: PropTypes.string,
 	presetColors: PropTypes.object,
 	onChangeComplete: PropTypes.func,
+	onPaletteChangeComplete: PropTypes.func,
 	onChange: PropTypes.func,
 	customizer: PropTypes.object
 };
