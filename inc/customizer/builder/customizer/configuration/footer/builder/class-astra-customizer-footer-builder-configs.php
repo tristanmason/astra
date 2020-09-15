@@ -2,7 +2,7 @@
 /**
  * Astra Theme Customizer Configuration Builder.
  *
- * @package     astra-builder
+ * @package     astra
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
@@ -96,7 +96,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'panel-footer-builder-group',
 				'type'     => 'panel',
 				'priority' => 60,
-				'title'    => __( 'Footer Builder', 'astra-builder' ),
+				'title'    => __( 'Footer Builder', 'astra' ),
 			),
 
 			/**
@@ -106,7 +106,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-footer-builder-layout',
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Footer Layout', 'astra-builder' ),
+				'title'    => __( 'Footer Layout', 'astra' ),
 				'panel'    => 'panel-footer-builder-group',
 			),
 
@@ -129,7 +129,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-footer-builder',
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Footer Builder', 'astra-builder' ),
+				'title'    => __( 'Footer Builder', 'astra' ),
 				'panel'    => 'panel-footer-builder-group',
 				'context'  => array(
 					array(
@@ -159,24 +159,38 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
-			// Option: Footer Width.
+			// Group Option: Footer Background styling.
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-main-layout-width]',
-				'default'   => astra_get_option( 'hb-footer-main-layout-width' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
 				'type'      => 'control',
+				'control'   => 'ast-settings-group',
+				'title'     => __( 'Background', 'astra' ),
+				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
-				'control'   => 'select',
-				'section'   => 'section-footer-builder',
-				'priority'  => 100,
-				'title'     => __( 'Width', 'astra-builder' ),
-				'choices'   => array(
-					'full'    => __( 'Full Width', 'astra-builder' ),
-					'content' => __( 'Content Width', 'astra-builder' ),
-				),
+				'priority'  => 70,
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',
 						'value'   => 'design',
+					),
+				),
+			),
+
+			// Option: Footer Background styling.
+			array(
+				'name'      => 'footer-bg-obj-responsive',
+				'parent'    => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
+				'type'      => 'sub-control',
+				'section'   => 'section-footer-builder-layout',
+				'control'   => 'ast-responsive-background',
+				'transport' => 'postMessage',
+				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
+				'label'     => __( 'Background', 'astra' ),
+				'priority'  => 5,
+				'context'   => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'general',
 					),
 				),
 			),
@@ -189,7 +203,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'         => 'section-footer-builder',
 				'type'            => 'control',
 				'control'         => 'ast-builder',
-				'title'           => __( 'Footer Builder', 'astra-builder' ),
+				'title'           => __( 'Footer Builder', 'astra' ),
 				'priority'        => 10,
 				'default'         => astra_get_option( 'footer-desktop-items' ),
 				'choices'         => self::$footer_items,
@@ -275,28 +289,6 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 					array(
 						'setting' => 'ast_selected_tab',
 						'value'   => 'general',
-					),
-				),
-			),
-
-			// Option: Footer Width.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-main-layout-width]',
-				'default'   => astra_get_option( 'hb-footer-main-layout-width' ),
-				'type'      => 'control',
-				'transport' => 'postMessage',
-				'control'   => 'select',
-				'section'   => 'section-footer-builder-layout',
-				'priority'  => 4,
-				'title'     => __( 'Width', 'astra-builder' ),
-				'choices'   => array(
-					'full'    => __( 'Full Width', 'astra-builder' ),
-					'content' => __( 'Content Width', 'astra-builder' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
 					),
 				),
 			),

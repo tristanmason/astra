@@ -64,6 +64,11 @@
 	astra_apply_responsive_background_css( 'astra-settings[hb-footer-bg-obj-responsive]', selector, 'tablet' );
 	astra_apply_responsive_background_css( 'astra-settings[hb-footer-bg-obj-responsive]', selector, 'mobile' );
 
+	// Responsive BG styles > Global Footer Row.
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', selector, 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', selector, 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', selector, 'mobile' );
+
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );
 

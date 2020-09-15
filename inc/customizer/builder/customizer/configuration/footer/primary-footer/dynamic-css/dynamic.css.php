@@ -35,6 +35,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$selector = '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]';
 
 	$footer_bg                  = astra_get_option( 'hb-footer-bg-obj-responsive' );
+	$global_footer_bg           = astra_get_option( 'footer-bg-obj-responsive' );
 	$footer_bottom_border_size  = astra_get_option( 'hb-footer-main-sep' );
 	$footer_bottom_border_color = astra_get_option( 'hb-footer-main-sep-color' );
 	$footer_width               = astra_get_option( 'hb-footer-main-layout-width' );
@@ -42,7 +43,8 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 
 	$css_output_desktop = array(
 
-		$selector => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
+		$selector               => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
+		'.ast-main-footer-wrap' => astra_get_responsive_background_obj( $global_footer_bg, 'desktop' ),
 	);
 
 	if ( isset( $footer_bottom_border_size ) && 1 <= $footer_bottom_border_size ) {
@@ -62,11 +64,13 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	}
 	$css_output_tablet = array(
 
-		$selector => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),
+		$selector               => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),
+		'.ast-main-footer-wrap' => astra_get_responsive_background_obj( $global_footer_bg, 'tablet' ),
 	);
 	$css_output_mobile = array(
 
-		$selector => astra_get_responsive_background_obj( $footer_bg, 'mobile' ),
+		$selector               => astra_get_responsive_background_obj( $footer_bg, 'mobile' ),
+		'.ast-main-footer-wrap' => astra_get_responsive_background_obj( $global_footer_bg, 'mobile' ),
 	);
 
 	/* Parse CSS from array() */
