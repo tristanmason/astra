@@ -46,7 +46,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Copyright', 'astra-builder' ),
+				'title'    => __( 'Copyright', 'astra-builder', 'astra' ),
 				'panel'    => 'panel-footer-builder-group',
 			),
 
@@ -100,11 +100,11 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-responsive-select',
 				'section'   => $_section,
 				'priority'  => 6,
-				'title'     => __( 'Alignment', 'astra-builder' ),
+				'title'     => __( 'Alignment', 'astra-builder', 'astra' ),
 				'choices'   => array(
-					'left'   => __( 'Left', 'astra-builder' ),
-					'right'  => __( 'Right', 'astra-builder' ),
-					'center' => __( 'Center', 'astra-builder' ),
+					'left'   => __( 'Left', 'astra-builder', 'astra' ),
+					'right'  => __( 'Right', 'astra-builder', 'astra' ),
+					'center' => __( 'Center', 'astra-builder', 'astra' ),
 				),
 				'context'   => array(
 					array(
@@ -126,7 +126,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'priority'  => 8,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra-builder' ),
+				'title'     => __( 'Color', 'astra-builder', 'astra' ),
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',

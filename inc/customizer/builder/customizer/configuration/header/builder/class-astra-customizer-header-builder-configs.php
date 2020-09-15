@@ -231,7 +231,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-header-builder',
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Header Builder', 'astra-builder' ),
+				'title'    => __( 'Header Builder', 'astra-builder', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -242,7 +242,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-header-builder-layout',
 				'type'     => 'section',
 				'priority' => 0,
-				'title'    => __( 'Header Layout', 'astra-builder' ),
+				'title'    => __( 'Header Layout', 'astra-builder', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -278,7 +278,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'         => 'section-header-builder',
 				'type'            => 'control',
 				'control'         => 'ast-builder',
-				'title'           => __( 'Header Builder', 'astra-builder' ),
+				'title'           => __( 'Header Builder', 'astra-builder', 'astra' ),
 				'priority'        => 25,
 				'default'         => astra_get_option( 'header-desktop-items' ),
 				'choices'         => self::$header_desktop_items,
@@ -362,7 +362,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'         => 'section-header-builder',
 				'type'            => 'control',
 				'control'         => 'ast-builder',
-				'title'           => __( 'Header Builder', 'astra-builder' ),
+				'title'           => __( 'Header Builder', 'astra-builder', 'astra' ),
 				'priority'        => 35,
 				'default'         => astra_get_option( 'header-mobile-items' ),
 				'choices'         => self::$header_mobile_items,
@@ -451,7 +451,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => 'section-header-builder-layout',
-				'title'    => __( 'Header Types', 'astra-builder' ),
+				'title'    => __( 'Header Types', 'astra-builder', 'astra' ),
 				'priority' => 44,
 				'settings' => array(),
 				'context'  => array(
@@ -472,7 +472,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-header-type-button',
 				'input_attrs' => array(
 					'section' => 'section-transparent-header',
-					'label'   => esc_html__( 'Transparent Header', 'astra-builder' ),
+					'label'   => esc_html__( 'Transparent Header', 'astra-builder', 'astra' ),
 				),
 				'priority'    => 45,
 				'context'     => array(
@@ -492,10 +492,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'   => 'select',
 				'section'   => 'section-header-builder-layout',
 				'priority'  => 4,
-				'title'     => __( 'Width', 'astra-builder' ),
+				'title'     => __( 'Width', 'astra-builder', 'astra' ),
 				'choices'   => array(
-					'full'    => __( 'Full Width', 'astra-builder' ),
-					'content' => __( 'Content Width', 'astra-builder' ),
+					'full'    => __( 'Full Width', 'astra-builder', 'astra' ),
+					'content' => __( 'Content Width', 'astra-builder', 'astra' ),
 				),
 				'context'   => array(
 					array(
@@ -524,7 +524,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-header-type-button',
 				'input_attrs' => array(
 					'section' => 'section-sticky-header',
-					'label'   => esc_html__( 'Sticky Header', 'astra-builder' ),
+					'label'   => esc_html__( 'Sticky Header', 'astra-builder', 'astra' ),
 				),
 				'priority'    => 45,
 				'context'     => array(
