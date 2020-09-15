@@ -422,6 +422,7 @@
 						margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
 						margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
 					) {
+						var selector = '.astra-hfb-header .ast-builder-menu-' + index + ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' + index + ' .main-header-bar-navigation .main-header-menu';
 						var dynamicStyle = '';
 						dynamicStyle += selector + ' {';
 						dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
@@ -447,7 +448,7 @@
 						dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
-						astra_add_dynamic_css( section + '-margin', dynamicStyle );
+						astra_add_dynamic_css( 'section-hb-menu-' + index + '-margin', dynamicStyle );
 					}
 				} );
 			} );

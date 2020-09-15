@@ -90,7 +90,7 @@
                 dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
-                astra_add_dynamic_css( section + '-margin', dynamicStyle );
+                astra_add_dynamic_css( 'header-search-margin', dynamicStyle );
             }
         } );
     } );
