@@ -229,8 +229,8 @@ class Astra_Social_Icon_Component_Configs {
 				'section'   => $_section,
 				'type'      => 'control',
 				'control'   => 'select',
-				'title'     => __( 'Color Type', 'astra' ),
-				'priority'  => 7,
+				'title'     => __( 'Color Type', 'astra-builder' ),
+				'priority'  => 8,
 				'choices'   => array(
 					'custom'   => __( 'Custom', 'astra' ),
 					'official' => __( 'Official', 'astra' ),
@@ -256,7 +256,7 @@ class Astra_Social_Icon_Component_Configs {
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'required'  => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-type]', '===', 'custom' ),
-				'priority'  => 7,
+				'priority'  => 9,
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -279,7 +279,7 @@ class Astra_Social_Icon_Component_Configs {
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
-				'priority'   => 10,
+				'priority'   => 9,
 				'context'    => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -303,7 +303,7 @@ class Astra_Social_Icon_Component_Configs {
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
-				'priority'   => 10,
+				'priority'   => 9,
 				'context'    => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -327,7 +327,7 @@ class Astra_Social_Icon_Component_Configs {
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
-				'priority'   => 10,
+				'priority'   => 9,
 				'context'    => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -351,7 +351,7 @@ class Astra_Social_Icon_Component_Configs {
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
 				'rgba'       => true,
-				'priority'   => 10,
+				'priority'   => 9,
 				'context'    => array(
 					array(
 						'setting' => 'ast_selected_tab',

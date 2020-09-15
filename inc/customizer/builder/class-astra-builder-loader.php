@@ -13,48 +13,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 	final class Astra_Builder_Loader {
 
 		/**
-		 *  No. Of. Footer Widgets.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_footer_widgets = 4;
-
-		/**
-		 *  No. Of. Footer HTML.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_footer_html = 2;
-
-		/**
-		 *  No. Of. Header Widgets.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_widgets = 0;
-
-		/**
-		 *  No. Of. Header Menu.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_menu = 2;
-
-		/**
-		 *  No. Of. Header Buttons.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_button = 2;
-
-		/**
-		 *  No. Of. Header HTML.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_html = 2;
-
-		/**
 		 * Member Variable
 		 *
 		 * @var instance
