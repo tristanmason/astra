@@ -1460,7 +1460,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 		}
 
 		if ( isset( $bg_obj['background-position'] ) ) {
-			$gen_bg_css['background-position'] = esc_attr( $bg_obj['background-position'] );
+			$gen_bg_css['background-position'] = str_replace( '-', ' ', esc_attr( $bg_obj['background-position'] ) );
 		}
 
 		if ( isset( $bg_obj['background-size'] ) ) {
