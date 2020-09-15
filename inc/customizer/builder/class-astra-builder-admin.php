@@ -56,8 +56,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 
 			$status = astra_get_option( 'migrate-to-builder', false );
 
-			$value = ( $status ) ? 0 : 1;
-			$label = ( $value ) ? __( 'Use New Header/Footer Builder', 'astra' ) : __( 'Use Old Header/Footer', 'astra' );
+			$label = ( $status ) ? __( 'Use Old Header/Footer', 'astra' ) : __( 'Use New Header/Footer Builder', 'astra' );
 
 			?>
 			<div class="postbox">
@@ -71,12 +70,12 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 						<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
 							<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customzier', 'astra' ); ?></a>
 							<div class="ast-actions" style="display: inline-flex;">
-								<button href="#" class="button button-primary ast-builder-migrate" style="margin-right:10px;" data-value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></button>
+								<button href="#" class="button button-primary ast-builder-migrate" style="margin-right:10px;" data-value="<?php echo esc_attr( $status ); ?>"><?php echo esc_html( $label ); ?></button>
 								<?php
 								$is_deleted = get_option( 'ast_builder_old_deleted', false );
 								if ( ! $is_deleted && false !== astra_get_db_option( 'header-desktop-items', false ) ) {
 									?>
-								<a href="#" class="ast-delete-old-options button <?php echo ( $value ) ? 'hidden' : ''; ?>"><?php esc_html_e( 'Delete Older Options', 'astra' ); ?></a>
+								<a href="#" class="ast-delete-old-options button <?php ( $status ) ? '' : esc_attr_e( 'hidden' ); ?>"><?php esc_html_e( 'Delete Older Options', 'astra' ); ?></a>
 									<?php
 								}
 								?>
