@@ -685,10 +685,10 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				return $quick_settings;
 			}
 
-			$quick_settings['header']['title']     = __( 'Header Builder', 'astra-builder', 'astra' );
+			$quick_settings['header']['title']     = __( 'Header Builder', 'astra-builder' );
 			$quick_settings['header']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-header-builder-layout' );
 
-			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra-builder', 'astra' );
+			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra-builder' );
 			$quick_settings['footer']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-footer-builder-layout' );
 
 			return $quick_settings;
@@ -812,7 +812,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				// Register the Secondary & Mobile menus.
 				register_nav_menus(
 					array(
-						'secondary_menu' => __( 'Secondary Menu', 'astra-builder', 'astra' ),
+						'secondary_menu' => __( 'Secondary Menu', 'astra-builder' ),
 					)
 				);
 			}

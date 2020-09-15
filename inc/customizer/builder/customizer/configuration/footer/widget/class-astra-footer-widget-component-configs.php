@@ -61,7 +61,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'name'     => 'sidebar-widgets-footer-widget-' . $index,
 					'type'     => 'section',
 					'priority' => 5,
-					'title'    => __( 'Widget ', 'astra-builder', 'astra' ) . $index,
+					'title'    => __( 'Widget ', 'astra-builder' ) . $index,
 					'panel'    => 'panel-footer-builder-group',
 				),
 				
@@ -75,11 +75,11 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'control'   => 'ast-responsive-select',
 					'section'   => $_section,
 					'priority'  => 5,
-					'title'     => __( 'Alignment', 'astra-builder', 'astra' ),
+					'title'     => __( 'Alignment', 'astra-builder' ),
 					'choices'   => array(
-						'left'   => __( 'Left', 'astra-builder', 'astra' ),
-						'right'  => __( 'Right', 'astra-builder', 'astra' ),
-						'center' => __( 'Center', 'astra-builder', 'astra' ),
+						'left'   => __( 'Left', 'astra-builder' ),
+						'right'  => __( 'Right', 'astra-builder' ),
+						'center' => __( 'Center', 'astra-builder' ),
 					),
 					'transport' => 'postMessage',
 					'context'   => array(
@@ -97,7 +97,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 5,
-					'title'    => __( 'Widget Colors', 'astra-builder', 'astra' ),
+					'title'    => __( 'Widget Colors', 'astra-builder' ),
 					'context'  => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -117,7 +117,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'priority'  => 6,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Title Color', 'astra-builder', 'astra' ),
+					'title'     => __( 'Title Color', 'astra-builder' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -137,7 +137,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'priority'  => 7,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Content Color', 'astra-builder', 'astra' ),
+					'title'     => __( 'Content Color', 'astra-builder' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -157,7 +157,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'priority'  => 8,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Link Color', 'astra-builder', 'astra' ),
+					'title'     => __( 'Link Color', 'astra-builder' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',

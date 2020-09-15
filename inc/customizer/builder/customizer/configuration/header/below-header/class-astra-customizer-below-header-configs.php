@@ -41,7 +41,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => $_section,
 					'type'     => 'section',
-					'title'    => __( 'Below Header', 'astra-builder', 'astra' ),
+					'title'    => __( 'Below Header', 'astra-builder' ),
 					'panel'    => 'panel-header-builder-group',
 					'priority' => 30,
 				),
@@ -65,7 +65,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hbb-header-height' ),
 					'priority'    => 30,
-					'title'       => __( 'Height', 'astra-builder', 'astra' ),
+					'title'       => __( 'Height', 'astra-builder' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'suffix'      => '',
@@ -89,7 +89,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'    => 40,
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hbb-header-separator' ),
-					'title'       => __( 'Bottom Border', 'astra-builder', 'astra' ),
+					'title'       => __( 'Bottom Border', 'astra-builder' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
@@ -115,7 +115,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'required'  => array( ASTRA_THEME_SETTINGS . '[hbb-header-separator]', '>=', 1 ),
 					'priority'  => 50,
-					'title'     => __( 'Bottom Border Color', 'astra-builder', 'astra' ),
+					'title'     => __( 'Bottom Border Color', 'astra-builder' ),
 					'context'   => array(
 						array(
 							'setting' => 'ast_selected_tab',
@@ -131,7 +131,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 60,
-					'title'    => __( 'Background Color & Image', 'astra-builder', 'astra' ),
+					'title'    => __( 'Background Color & Image', 'astra-builder' ),
 					'settings' => array(),
 					'context'  => array(
 						array(
@@ -146,7 +146,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[hbb-header-background-styling]',
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra-builder', 'astra' ),
+					'title'     => __( 'Background', 'astra-builder' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
@@ -167,7 +167,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-responsive-background',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hbb-header-bg-obj-responsive' ),
-					'label'     => __( 'Background', 'astra-builder', 'astra' ),
+					'label'     => __( 'Background', 'astra-builder' ),
 					'priority'  => 5,
 					'context'   => array(
 						array(

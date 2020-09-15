@@ -49,7 +49,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 80,
-				'title'    => __( 'Search', 'astra-builder', 'astra' ),
+				'title'    => __( 'Search', 'astra-builder' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -76,7 +76,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'priority'  => 8,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra-builder', 'astra' ),
+				'title'     => __( 'Color', 'astra-builder' ),
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -94,7 +94,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'priority'    => 2,
 				'transport'   => 'postMessage',
 				'default'     => $defaults['header-search-icon-space'],
-				'title'       => __( 'Icon Size', 'astra-builder', 'astra' ),
+				'title'       => __( 'Icon Size', 'astra-builder' ),
 				'type'        => 'control',
 				'control'     => 'ast-responsive-slider',
 				'input_attrs' => array(
@@ -122,14 +122,14 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'default'   => $defaults['header-search-box-type'],
 					'section'   => $_section,
 					'priority'  => 10,
-					'title'     => __( 'Search Style', 'astra-builder', 'astra' ),
+					'title'     => __( 'Search Style', 'astra-builder' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'choices'   => array(
-						'slide-search' => __( 'Slide Search', 'astra-builder', 'astra' ),
-						'full-screen'  => __( 'Full Screen Search', 'astra-builder', 'astra' ),
-						'header-cover' => __( 'Header Cover Search', 'astra-builder', 'astra' ),
-						'search-box'   => __( 'Search Box', 'astra-builder', 'astra' ),
+						'slide-search' => __( 'Slide Search', 'astra-builder' ),
+						'full-screen'  => __( 'Full Screen Search', 'astra-builder' ),
+						'header-cover' => __( 'Header Cover Search', 'astra-builder' ),
+						'search-box'   => __( 'Search Box', 'astra-builder' ),
 					),
 					'context'   => array(
 						array(
