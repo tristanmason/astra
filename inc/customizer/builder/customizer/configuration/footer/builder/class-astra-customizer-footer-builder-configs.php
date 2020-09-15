@@ -61,7 +61,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
-			
+
 			self::$footer_items[ 'html-' . $index ] = array(
 				'name'    => 'HTML ' . $index,
 				'icon'    => 'text',
@@ -203,11 +203,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 				'input_attrs'     => array(
 					'group'   => ASTRA_THEME_SETTINGS . '[footer-desktop-items]',
-					'rows'    => array(
-						0 => 'above',
-						1 => 'primary',
-						2 => 'below',
-					),
+					'rows'    => array( 'above', 'primary', 'below' ),
 					'zones'   => array(
 						'above'   => array(
 							'above_1' => 'Top - Left',
