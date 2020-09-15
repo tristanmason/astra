@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function __construct() {
 
-			$this->define_constants();
+			// $this->define_constants();
 
 			add_action( 'after_setup_theme', array( $this, 'load_plugin' ) );
 
