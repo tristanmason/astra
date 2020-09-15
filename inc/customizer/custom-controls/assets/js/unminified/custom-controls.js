@@ -24740,7 +24740,7 @@ var ResponsiveControl = /*#__PURE__*/function (_Component) {
           isTertiary: true,
           className: (device === view ? 'active-device ' : '') + device,
           onClick: function onClick() {
-            var event = new CustomEvent('kadenceChangedRepsonsivePreview', {
+            var event = new CustomEvent('AstraChangedRepsonsivePreview', {
               'detail': device
             });
             document.dispatchEvent(event);
@@ -24753,7 +24753,7 @@ var ResponsiveControl = /*#__PURE__*/function (_Component) {
           isTertiary: true,
           className: (device === view ? 'active-device ' : '') + device,
           onClick: function onClick() {
-            var event = new CustomEvent('kadenceChangedRepsonsivePreview', {
+            var event = new CustomEvent('AstraChangedRepsonsivePreview', {
               'detail': device
             });
             document.dispatchEvent(event);
@@ -24778,7 +24778,7 @@ var ResponsiveControl = /*#__PURE__*/function (_Component) {
     key: "linkResponsiveButtons",
     value: function linkResponsiveButtons() {
       var self = this;
-      document.addEventListener('kadenceChangedRepsonsivePreview', function (e) {
+      document.addEventListener('AstraChangedRepsonsivePreview', function (e) {
         self.changeViewType(e.detail);
       });
     }
