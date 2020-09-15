@@ -751,6 +751,33 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hb-footer-vertical-alignment']  = 'center';
 	$defaults['hbb-footer-vertical-alignment'] = 'center';
 
+	$defaults['footer-bg-obj-responsive'] = array(
+		'desktop' => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+		'tablet'  => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+		'mobile'  => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+	);
+
 	/**
 	 * Primary Footer Defaults.
 	 */

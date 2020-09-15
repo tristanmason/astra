@@ -2,7 +2,7 @@
 /**
  * Astra Theme Customizer Configuration Builder.
  *
- * @package     astra-builder
+ * @package     astra
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
@@ -147,24 +147,38 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
-			// Option: Footer Width.
+			// Group Option: Global Footer Background styling.
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-main-layout-width]',
-				'default'   => astra_get_option( 'hb-footer-main-layout-width' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
 				'type'      => 'control',
+				'control'   => 'ast-settings-group',
+				'title'     => __( 'Background', 'astra' ),
+				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
-				'control'   => 'select',
-				'section'   => 'section-footer-builder',
-				'priority'  => 100,
-				'title'     => __( 'Width', 'astra' ),
-				'choices'   => array(
-					'full'    => __( 'Full Width', 'astra' ),
-					'content' => __( 'Content Width', 'astra' ),
-				),
+				'priority'  => 70,
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',
 						'value'   => 'design',
+					),
+				),
+			),
+
+			// Option: Global Footer Background styling.
+			array(
+				'name'      => 'footer-bg-obj-responsive',
+				'parent'    => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
+				'type'      => 'sub-control',
+				'section'   => 'section-footer-builder-layout',
+				'control'   => 'ast-responsive-background',
+				'transport' => 'postMessage',
+				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
+				'label'     => __( 'Background', 'astra' ),
+				'priority'  => 5,
+				'context'   => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'general',
 					),
 				),
 			),
@@ -263,28 +277,6 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 					array(
 						'setting' => 'ast_selected_tab',
 						'value'   => 'general',
-					),
-				),
-			),
-
-			// Option: Footer Width.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-main-layout-width]',
-				'default'   => astra_get_option( 'hb-footer-main-layout-width' ),
-				'type'      => 'control',
-				'transport' => 'postMessage',
-				'control'   => 'select',
-				'section'   => 'section-footer-builder-layout',
-				'priority'  => 4,
-				'title'     => __( 'Width', 'astra' ),
-				'choices'   => array(
-					'full'    => __( 'Full Width', 'astra' ),
-					'content' => __( 'Content Width', 'astra' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
 					),
 				),
 			),

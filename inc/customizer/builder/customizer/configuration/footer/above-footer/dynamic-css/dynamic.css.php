@@ -38,11 +38,26 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$footer_bottom_border_size  = astra_get_option( 'hba-footer-separator' );
 	$footer_bottom_border_color = astra_get_option( 'hba-footer-bottom-border-color' );
 	$footer_height              = astra_get_option( 'hba-footer-height' );
+	$footer_width               = astra_get_option( 'hba-footer-layout-width' );
+	$content_width              = astra_get_option( 'site-content-width' );
+
 
 	$css_output_desktop = array(
 
-		$selector => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
+		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
+		$selector . ' .ast-builder-grid-row' => array(
+			'align-items' => astra_get_option( 'hba-footer-vertical-alignment' ),
+		),
+
 	);
+
+	if ( isset( $footer_width ) && 'content' === $footer_width ) {
+
+		$css_output_desktop[ $selector . ' .site-container' ]['max-width']    = astra_get_css_value( $content_width, 'px' );
+		$css_output_desktop[ $selector . ' .site-container' ]['margin-left']  = 'auto';
+		$css_output_desktop[ $selector . ' .site-container' ]['margin-right'] = 'auto';
+	}
+
 
 	$css_output_desktop[ $selector ]['min-height'] = astra_get_css_value( $footer_height, 'px' );
 
