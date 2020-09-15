@@ -729,7 +729,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.wp-block-gallery'                  => array(
 						'margin-bottom' => '1.6em',
 					),
-					'.wp-block-group__inner-container:last-child, .wp-block-table table, .wpforms-container' => array(
+					'.wp-block-group__inner-container:last-child, .wp-block-table table' => array(
 						'margin-bottom' => '0',
 					),
 					'.blocks-gallery-grid'               => array(
@@ -741,19 +741,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.wp-block-group .wp-block-group .has-text-align-center, .wp-block-group .wp-block-column .has-text-align-center' => array(
 						'max-width' => '100%',
 					),
+					'.has-text-align-center'             => array(
+						'margin' => '0 auto',
+					),
 				);
 
 				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $desktop_screen_gb_css );
 
 				$middle_screen_min_gb_css = array(
-					'.has-text-align-center' => array(
-						'max-width' => '55%',
-						'margin'    => '0 auto',
-					),
-					'.wp-block-cover .wp-block-group, .wp-block-group .wp-block-group' => array(
-						'padding' => '2em',
-					),
 					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container' => array(
 						'max-width' => '1200px',
 						'margin'    => '0 auto',
@@ -775,10 +771,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.wp-block-columns, .wp-block-column' => array(
 						'margin' => '1rem 0',
-					),
-					'.has-text-align-center'              => array(
-						'max-width' => '75%',
-						'margin'    => '0 auto',
 					),
 				);
 
