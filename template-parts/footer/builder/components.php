@@ -5,9 +5,16 @@
  * @package Astra Builder
  */
 
-$type = get_query_var( 'type' );
+if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
-switch ( $type ) {
+	$comp_type = wp_parse_args( $args, array( 'type' => '' ) );
+	$comp_type = $comp_type['type'];
+} else {
+
+	$comp_type = get_query_var( 'type' );
+}
+
+switch ( $comp_type ) {
 
 	case 'copyright':
 		?>

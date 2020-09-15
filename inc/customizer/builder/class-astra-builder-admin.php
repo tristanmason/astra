@@ -119,7 +119,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 				wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
 			}
 
-			$migrate = sanitize_key( $_POST['value'] );
+			$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
 			astra_update_option( 'migrate-to-builder', $migrate );
 			wp_send_json_success();
 		}
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 				wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
 			}
 
-			$module_id          = sanitize_text_field( $_POST['module_id'] );
+			$module_id          = isset( $_POST['module_id'] ) ? sanitize_text_field( wp_unslash( $_POST['module_id'] ) ) : '';
 			$deprecated_options = self::get_deprecated_options();
 
 			foreach ( $deprecated_options as $key => $option ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedForeach

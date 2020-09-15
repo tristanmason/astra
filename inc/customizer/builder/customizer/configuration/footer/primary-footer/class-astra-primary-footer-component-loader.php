@@ -43,7 +43,9 @@ class Astra_Primary_Footer_Component_Loader {
 		/**
 		 * Register Panel & Sections
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_BUILDER_FOOTER_PRIMARY_FOOTER_DIR . '/class-astra-customizer-primary-footer-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

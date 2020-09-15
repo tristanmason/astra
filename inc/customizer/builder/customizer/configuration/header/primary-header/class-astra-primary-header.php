@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Primary_Header' ) ) {
 		 * Constructor function that initializes required actions and hooks
 		 */
 		public function __construct() {
-
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_PRIMARY_HEADER_DIR . '/class-astra-primary-header-loader.php';
 
 			// Include front end files.
@@ -37,6 +37,7 @@ if ( ! class_exists( 'Astra_Primary_Header' ) ) {
 				require_once ASTRA_PRIMARY_HEADER_DIR . '/dynamic-css/dynamic.css.php';
 				remove_filter( 'astra_dynamic_theme_css', 'astra_header_breakpoint_style' );
 			}
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
 
