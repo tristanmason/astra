@@ -184,7 +184,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-toggle-btn-color' ),
 				'type'      => 'control',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra' ),
+				'title'     => __( 'Icon Color', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,

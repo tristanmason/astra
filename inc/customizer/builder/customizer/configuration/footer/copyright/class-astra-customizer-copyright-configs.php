@@ -126,7 +126,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'priority'  => 8,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra' ),
+				'title'     => __( 'Text Color', 'astra' ),
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',

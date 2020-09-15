@@ -93,7 +93,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			'section' => 'section-header-social-icons',
 		),
 		'mobile-trigger' => array(
-			'name'    => 'Toggle Menu Button',
+			'name'    => 'Toggle Button',
 			'icon'    => 'menu-alt',
 			'section' => 'section-header-mobile-trigger',
 		),
