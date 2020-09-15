@@ -100,7 +100,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 					array(
 						'name'          => ucfirst( $builder_type ) . ' Builder Widget ' . $index,
 						'id'            => $builder_type . '-widget-' . $index,
-						'description'   => esc_html__( 'Add widgets here:', 'astra-builder', 'astra' ),
+						'description'   => esc_html__( 'Add widgets here:', 'astra' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
 						'after_widget'  => '</section>',
 						'before_title'  => '<h2 class="widget-title">',
@@ -109,8 +109,6 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 				)
 			);
 		}
-
-
 	}
 
 	/**
@@ -119,7 +117,3 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 	 */
 	Astra_Builder_Widget_Controller::get_instance();
 }
-
-
-
-

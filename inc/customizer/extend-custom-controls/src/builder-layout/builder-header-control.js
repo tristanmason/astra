@@ -11,8 +11,8 @@ const BuilderHeader = ( props ) => {
 				<span className="ast-customize-control-title"></span>
 				<span className="ast-customize-control-description">
 					<span className="button button-secondary ahfb-builder-hide-button ahfb-builder-tab-toggle">
-						<span className="ast-builder-hide-action"> <span className="dashicons dashicons-arrow-down-alt2"></span> { __( 'Hide Builder', 'astra-builder' ) } </span>
-						<span className="ast-builder-show-action"> <span className="dashicons dashicons-arrow-up-alt2"></span> { __( 'Show Builder', 'astra-builder' ) } </span>
+						<span className="ast-builder-hide-action"> <span className="dashicons dashicons-arrow-down-alt2"></span> { __( 'Hide Builder', 'astra' ) } </span>
+						<span className="ast-builder-show-action"> <span className="dashicons dashicons-arrow-up-alt2"></span> { __( 'Show Builder', 'astra' ) } </span>
 					</span>
 				</span>
 			</React.Fragment>
@@ -24,8 +24,8 @@ const BuilderHeader = ( props ) => {
 				<span className="ast-customize-control-title"></span>
 				<span className="ast-customize-control-description">
 					<span className="button button-secondary ahfb-builder-hide-button ahfb-builder-tab-toggle">
-						<span className="ast-builder-hide-action"> <span className="dashicons dashicons-arrow-down-alt2"></span> { __( 'Hide Builder', 'astra-builder' ) } </span>
-						<span className="ast-builder-show-action"> <span className="dashicons dashicons-arrow-up-alt2"></span> { __( 'Show Builder', 'astra-builder' ) } </span>
+						<span className="ast-builder-hide-action"> <span className="dashicons dashicons-arrow-down-alt2"></span> { __( 'Hide Builder', 'astra' ) } </span>
+						<span className="ast-builder-show-action"> <span className="dashicons dashicons-arrow-up-alt2"></span> { __( 'Show Builder', 'astra' ) } </span>
 					</span>
 				</span>
 			</React.Fragment>
@@ -37,11 +37,11 @@ const BuilderHeader = ( props ) => {
 					<a href="#"
 					   className={"nav-tab ahfb-general-tab ahfb-compontent-tabs-button " + ( ( 'general' === props.tab ) ? "nav-tab-active" : "" ) }
 					   data-tab="general">
-						<span>{ __( 'General', 'astra-builder' ) }</span>
+						<span>{ __( 'General', 'astra' ) }</span>
 					</a>
 					<a href="#" className={"nav-tab ahfb-design-tab ahfb-compontent-tabs-button " + ( ( 'design' ===  props.tab ) ? "nav-tab-active" : "" ) }
 					   data-tab="design">
-						<span>{ __( 'Design', 'astra-builder' ) }</span>
+						<span>{ __( 'Design', 'astra' ) }</span>
 					</a>
 				</div>
 			</React.Fragment>
