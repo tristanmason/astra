@@ -66,32 +66,32 @@ class SocialComponent extends Component {
 		let defaultParams = {
 			'group' : 'social_item_group',
 			'options': [
-				{ value: 'facebook', label: __( 'Facebook', 'astra-builder' ) },
-				{ value: 'twitter', label: __( 'Twitter', 'astra-builder' ) },
-				{ value: 'instagram', label: __( 'Instagram', 'astra-builder' ) },
-				{ value: 'youtube', label: __( 'YouTube', 'astra-builder' ) },
-				{ value: 'facebook_group', label: __( 'Facebook Group', 'astra-builder' ) },
-				{ value: 'vimeo', label: __( 'Vimeo', 'astra-builder' ) },
-				{ value: 'pinterest', label: __( 'Pinterest', 'astra-builder' ) },
-				{ value: 'linkedin', label: __( 'Linkedin', 'astra-builder' ) },
-				{ value: 'medium', label: __( 'Medium', 'astra-builder' ) },
-				{ value: 'wordpress', label: __( 'WordPress', 'astra-builder' ) },
-				{ value: 'reddit', label: __( 'Reddit', 'astra-builder' ) },
-				{ value: 'patreon', label: __( 'Patreon', 'astra-builder' ) },
-				{ value: 'github', label: __( 'GitHub', 'astra-builder' ) },
-				{ value: 'dribbble', label: __( 'Dribbble', 'astra-builder' ) },
-				{ value: 'behance', label: __( 'Behance', 'astra-builder' ) },
-				{ value: 'vk', label: __( 'VK', 'astra-builder' ) },
-				{ value: 'xing', label: __( 'Xing', 'astra-builder' ) },
-				{ value: 'rss', label: __( 'RSS', 'astra-builder' ) },
-				{ value: 'email', label: __( 'Email', 'astra-builder' ) },
-				{ value: 'phone', label: __( 'Phone', 'astra-builder' ) },
-				{ value: 'whatsapp', label: __( 'WhatsApp', 'astra-builder' ) },
-				{ value: 'google_reviews', label: __( 'Google Reviews', 'astra-builder' ) },
-				{ value: 'telegram', label: __( 'Telegram', 'astra-builder' ) },
-				{ value: 'yelp', label: __( 'Yelp', 'astra-builder' ) },
-				{ value: 'trip_advisor', label: __( 'Trip Advisor', 'astra-builder' ) },
-				{ value: 'imdb', label: __( 'IMDB', 'astra-builder' ) },
+				{ value: 'facebook', label: __( 'Facebook', 'astra' ) },
+				{ value: 'twitter', label: __( 'Twitter', 'astra' ) },
+				{ value: 'instagram', label: __( 'Instagram', 'astra' ) },
+				{ value: 'youtube', label: __( 'YouTube', 'astra' ) },
+				{ value: 'facebook_group', label: __( 'Facebook Group', 'astra' ) },
+				{ value: 'vimeo', label: __( 'Vimeo', 'astra' ) },
+				{ value: 'pinterest', label: __( 'Pinterest', 'astra' ) },
+				{ value: 'linkedin', label: __( 'Linkedin', 'astra' ) },
+				{ value: 'medium', label: __( 'Medium', 'astra' ) },
+				{ value: 'wordpress', label: __( 'WordPress', 'astra' ) },
+				{ value: 'reddit', label: __( 'Reddit', 'astra' ) },
+				{ value: 'patreon', label: __( 'Patreon', 'astra' ) },
+				{ value: 'github', label: __( 'GitHub', 'astra' ) },
+				{ value: 'dribbble', label: __( 'Dribbble', 'astra' ) },
+				{ value: 'behance', label: __( 'Behance', 'astra' ) },
+				{ value: 'vk', label: __( 'VK', 'astra' ) },
+				{ value: 'xing', label: __( 'Xing', 'astra' ) },
+				{ value: 'rss', label: __( 'RSS', 'astra' ) },
+				{ value: 'email', label: __( 'Email', 'astra' ) },
+				{ value: 'phone', label: __( 'Phone', 'astra' ) },
+				{ value: 'whatsapp', label: __( 'WhatsApp', 'astra' ) },
+				{ value: 'google_reviews', label: __( 'Google Reviews', 'astra' ) },
+				{ value: 'telegram', label: __( 'Telegram', 'astra' ) },
+				{ value: 'yelp', label: __( 'Yelp', 'astra' ) },
+				{ value: 'trip_advisor', label: __( 'Trip Advisor', 'astra' ) },
+				{ value: 'imdb', label: __( 'IMDB', 'astra' ) },
 			].sort((a,b) => {
 				if(a.value < b.value) { return -1; }
 				if(a.value > b.value) { return 1; }
@@ -316,7 +316,7 @@ class SocialComponent extends Component {
 								this.addItem();
 							} }
 						>
-							{ __( 'Add Social Icon', 'astra-builder' ) }
+							{ __( 'Add Social Icon', 'astra' ) }
 							<Dashicon icon="plus"/>
 						</Button> }
 					</div>

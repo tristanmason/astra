@@ -266,11 +266,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile-unit'  => 'px',
 	);
 
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_button; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
 		$_prefix = 'button' . $index;
 
-		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra-builder', 'astra' );
+		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );
 		$defaults[ 'header-' . $_prefix . '-link-option' ]    = array(
 			'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 			'new_tab'  => false,
@@ -337,11 +337,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = 2;
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
 
 		$_section = 'section-hb-html-' . $index;
 
-		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra-builder', 'astra' );
+		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		/**
 		 * HTML Components - Typography.
@@ -360,7 +360,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults[ 'text-transform-' . $_section ] = '';
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_menu; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_menu; $index++ ) {
 		$_prefix = 'menu' . $index;
 
 		// Specify all the default values for Menu from here.
@@ -1011,7 +1011,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['footer-menu-text-transform'] = '';
 	$defaults['footer-menu-line-height']    = '';
 
-	$defaults['footer-menu-menu-spacing'] = array(
+	$defaults['footer-menu-spacing'] = array(
 		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
@@ -1051,7 +1051,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-toggle-border-color']    = '#eeeeee';
 
 	// HTML Header defaults.
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
 
 		$defaults[ 'font-size-section-hb-html-' . $index ] = array(
 			'desktop'      => '',
@@ -1064,9 +1064,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 
 	// HTML Footer defaults.
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_footer_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
 
-		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra-builder', 'astra' );
+		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		$defaults[ 'font-size-section-fb-html-' . $index ] = array(
 			'desktop'      => '',

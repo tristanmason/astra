@@ -181,13 +181,10 @@
                 switch (settingName) {
                     case 'ast_selected_device':
                         return api.previewedDevice;
-                        break;
                     case 'ast_selected_tab':
                         return api.state('astra-customizer-tab');
-                        break;
                     default:
                         return api(settingName);
-                        break;
                 }
             }
             var initContext = function (element) {
@@ -320,9 +317,12 @@
             api.section.each(function (section) {
                 section.expanded.bind(function () {
                     $('.ahfb-builder-drop .ahfb-builder-item').removeClass('active-builder-item');
+                    _.each(section.controls(), function (control) {
+                        highlight_active_component( section.id );
+                        set_context(control.id);
+                    });
                 });
             });
-
         });
 
         api.state.create('astra-customizer-tab');

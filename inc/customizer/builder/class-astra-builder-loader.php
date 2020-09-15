@@ -13,48 +13,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 	final class Astra_Builder_Loader {
 
 		/**
-		 *  No. Of. Footer Widgets.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_footer_widgets = 4;
-
-		/**
-		 *  No. Of. Footer HTML.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_footer_html = 2;
-
-		/**
-		 *  No. Of. Header Widgets.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_widgets = 0;
-
-		/**
-		 *  No. Of. Header Menu.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_menu = 2;
-
-		/**
-		 *  No. Of. Header Buttons.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_button = 2;
-
-		/**
-		 *  No. Of. Header HTML.
-		 *
-		 * @var constant
-		 */
-		public static $num_of_header_html = 2;
-
-		/**
 		 * Member Variable
 		 *
 		 * @var instance
@@ -685,10 +643,10 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				return $quick_settings;
 			}
 
-			$quick_settings['header']['title']     = __( 'Header Builder', 'astra-builder', 'astra' );
+			$quick_settings['header']['title']     = __( 'Header Builder', 'astra' );
 			$quick_settings['header']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-header-builder-layout' );
 
-			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra-builder', 'astra' );
+			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra' );
 			$quick_settings['footer']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-footer-builder-layout' );
 
 			return $quick_settings;
@@ -703,7 +661,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function load_markup() {
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || ! Astra_Builder_Helper::is_migrated() ) {
+			if ( ! defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) || ! Astra_Builder_Helper::is_migrated() ) {
 				return;
 			}
 
@@ -721,7 +679,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			foreach ( $result as $post_id => $post_data ) {
 				$post_type = get_post_type();
 
-				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE != $post_type ) {
+				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
 
 					$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', false );
 
@@ -816,7 +774,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				// Register the Secondary & Mobile menus.
 				register_nav_menus(
 					array(
-						'secondary_menu' => __( 'Secondary Menu', 'astra-builder', 'astra' ),
+						'secondary_menu' => __( 'Secondary Menu', 'astra' ),
 					)
 				);
 			}
