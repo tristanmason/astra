@@ -159,12 +159,12 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
-			// Group Option: Footer Background styling.
+			// Group Option: Global Footer Background styling.
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
-				'title'     => __( 'Background', 'astra' ),
+				'title'     => __( 'Background', 'astra-builder', 'astra' ),
 				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
 				'priority'  => 70,
@@ -176,7 +176,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
-			// Option: Footer Background styling.
+			// Option: Global Footer Background styling.
 			array(
 				'name'      => 'footer-bg-obj-responsive',
 				'parent'    => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
@@ -184,8 +184,8 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'   => 'section-footer-builder-layout',
 				'control'   => 'ast-responsive-background',
 				'transport' => 'postMessage',
-				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
-				'label'     => __( 'Background', 'astra' ),
+				'default'   => $defaults['footer-bg-obj-responsive'],
+				'label'     => __( 'Background', 'astra-builder', 'astra' ),
 				'priority'  => 5,
 				'context'   => array(
 					array(
