@@ -1,0 +1,137 @@
+<?php
+/**
+ * Primary Header - Dynamic CSS
+ *
+ * @package Astra
+ * @since x.x.x
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * Heading Colors
+ */
+add_filter( 'astra_dynamic_theme_css', 'astra_primary_header_breakpoint_style', 11 );
+
+/**
+ * Dynamic CSS
+ *
+ * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+ * @return String Generated dynamic CSS for Heading Colors.
+ *
+ * @since x.x.x
+ */
+function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+	// Header Break Point.
+	$header_break_point = astra_header_break_point();
+	$parse_css          = '';
+
+	$hb_header_height = astra_get_option( 'hb-header-height' );
+
+	$common_css_output = array(
+		'.ast-primary-header-bar, .ast-mobile-header-wrap .ast-builder-grid-row-container-inner' => array(
+			'min-height'  => astra_get_css_value( $hb_header_height, 'px' ),
+			'line-height' => astra_get_css_value( $hb_header_height, 'px' ),
+		),
+	);
+
+	$parse_css .= astra_parse_css( $common_css_output );
+
+	$astra_header_width = astra_get_option( 'hb-header-main-layout-width' );
+
+	/* Width for Header */
+	if ( 'content' !== $astra_header_width ) {
+		$genral_global_responsive = array(
+			'#masthead .ast-container' => array(
+				'max-width'     => '100%',
+				'padding-left'  => '35px',
+				'padding-right' => '35px',
+			),
+		);
+
+		/* Parse CSS from array()*/
+		$parse_css .= astra_parse_css( $genral_global_responsive );
+	}
+
+	$padding_below_breakpoint = array(
+		'#masthead .ast-mobile-header-wrap .ast-above-header-bar, #masthead .ast-mobile-header-wrap .ast-primary-header-bar, #masthead .ast-mobile-header-wrap .ast-below-header-bar' => array(
+			'padding-left'  => '20px',
+			'padding-right' => '20px',
+		),
+	);
+
+	$parse_css .= astra_parse_css( $padding_below_breakpoint, '', astra_get_tablet_breakpoint() );
+
+	// Header Separator.
+	$header_separator       = astra_get_option( 'hb-header-main-sep' );
+	$header_separator_color = astra_get_option( 'hb-header-main-sep-color' );
+
+	$meta_style = array(
+		'.ast-header-break-point .ast-primary-header-bar' => array(
+			'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
+			'border-bottom-color' => esc_attr( $header_separator_color ),
+			'border-bottom-style' => 'solid',
+		),
+	);
+
+	$parse_css .= astra_parse_css( $meta_style );
+
+	$meta_style = array(
+		'.ast-primary-header-bar' => array(
+			'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
+			'border-bottom-color' => esc_attr( $header_separator_color ),
+			'border-bottom-style' => 'solid',
+		),
+	);
+
+	$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint( '', 1 ) );
+
+	$header_bg_obj = astra_get_option( 'hb-header-bg-obj-responsive' );
+
+	/**
+	 * Responsive Colors options
+	 * Header Responsive Background with Image
+	 */
+	$desktop_colors = array(
+		'.ast-primary-header-bar' => astra_get_responsive_background_obj( $header_bg_obj, 'desktop' ),
+	);
+
+	$tablet_colors = array(
+		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'tablet' ),
+	);
+	$mobile_colors = array(
+		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'mobile' ),
+	);
+
+	/* Parse CSS from array() */
+	/**
+	 * Tweak - Check for AMP Support.
+	 */
+	$parse_css .= apply_filters( 'astra_addon_colors_dynamic_css_desktop', astra_parse_css( $desktop_colors ) );
+	$parse_css .= apply_filters( 'astra_addon_colors_dynamic_css_tablet', astra_parse_css( $tablet_colors, '', astra_get_tablet_breakpoint() ) );
+	$parse_css .= apply_filters( 'astra_addon_colors_dynamic_css_mobile', astra_parse_css( $mobile_colors, '', astra_get_mobile_breakpoint() ) );
+
+	/**
+	 * Tweak - $remove_bottom_sire_brancing - Search in Astra Pro.
+	 */
+
+	// Trim white space for faster page loading.
+	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $parse_css );
+
+	$_section = 'section-primary-header-builder';
+
+	$selector = '.site-primary-header-wrap[data-section="ast_header_primary"]';
+
+	$parent_selector = '.ast-desktop .ast-primary-header-bar.main-header-bar, .ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar';
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
+
+	// Advanced CSS for Header Builder.
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-builder-layout', '.astra-hfb-header .site-header' );
+
+	return $dynamic_css;
+}

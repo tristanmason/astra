@@ -1,0 +1,762 @@
+/**
+ * AST HF Builder - Grid related CSS.
+ */
+ .ast-builder-grid-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+.ast-builder-grid-row.ast-grid-center-col-layout {
+    grid-template-columns: 1fr auto 1fr;
+}
+
+.ast-builder-grid-row-5-equal .ast-builder-grid-row {
+    grid-template-columns: repeat( 5, 1fr );
+}
+
+.ast-builder-grid-row-4-equal .ast-builder-grid-row {
+    grid-template-columns: repeat( 4, 1fr );
+}
+
+.ast-builder-grid-row-4-lheavy .ast-builder-grid-row {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.ast-builder-grid-row-4-rheavy .ast-builder-grid-row {
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+}
+
+.ast-builder-grid-row-3-equal .ast-builder-grid-row {
+    grid-template-columns: repeat( 3, 1fr );
+}
+
+.ast-builder-grid-row-3-lheavy .ast-builder-grid-row {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.ast-builder-grid-row-3-rheavy .ast-builder-grid-row {
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.ast-builder-grid-row-3-cheavy .ast-builder-grid-row {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.ast-builder-grid-row-3-cwide .ast-builder-grid-row {
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.ast-builder-grid-row-2-equal .ast-builder-grid-row {
+    grid-template-columns: repeat( 2, 1fr );
+}
+
+.ast-builder-grid-row-2-lheavy .ast-builder-grid-row {
+    grid-template-columns: 2fr 1fr;
+}
+
+.ast-builder-grid-row-2-rheavy .ast-builder-grid-row {
+    grid-template-columns: 1fr 2fr;
+}
+
+.ast-builder-grid-row-2-full .ast-builder-grid-row {
+    grid-template-columns: 2fr;
+}
+
+.ast-builder-grid-row-full .ast-builder-grid-row {
+    grid-template-columns: 1fr;
+}
+
+.ast-builder-layout-element {
+    align-items: center;
+}
+
+.ast-builder-grid-row.ast-grid-center-col-layout-only, .ast-builder-layout-element, .site-header-section {
+    display: flex;
+    height: 100%;
+}
+
+.site-header-section .ast-main-header-bar-alignment {
+    height: 100%;
+}
+
+.ast-grid-right-center-section {
+    justify-content: flex-start;
+}
+
+.ast-grid-right-section, .ast-grid-left-center-section {
+    justify-content: flex-end;
+}
+
+.ast-builder-grid-row.ast-grid-center-col-layout-only, .grid-section-center {
+    justify-content: center;
+}
+
+.ast-grid-left-center-section, .ast-grid-right-center-section, .ast-builder-grid-row.ast-grid-center-col-layout-only .grid-section-center {
+    flex-grow: 1;
+}
+
+.site-header-section > * {
+    padding: 0 10px;
+}
+
+.site-header-section > div:first-child {
+    padding-right: 0;
+}
+
+.site-header-section > div:last-child {
+    padding-left: 0;
+}
+
+/**
+ * AST HF Builder - Widgets related CSS.
+ * Text/HTML Widget.
+ */
+.ast-builder-html-element img.alignnone {
+    display: inline-block;
+}
+
+.ast-builder-html-element p:first-child {
+    margin-top: 0;
+}
+
+.ast-builder-html-element p:last-child {
+    margin-bottom: 0;
+}
+
+/**
+ * AST HF Builder - Logo related CSS.
+ * Align center section's Site title & Tagline center align.
+ */
+.grid-section-center .ast-site-identity {
+    text-align: center;
+}
+
+.ast-logo-title-inline .grid-section-center .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
+    text-align: right;
+}
+
+/**
+ * AST HF Builder - Widgets related CSS.
+ * Social Widget.
+ */
+.ast-builder-social-element {
+    display: inline-flex;
+    line-height: 1;
+    color: #3a3a3a;
+    background: transparent;
+    vertical-align: middle;
+    border-radius: 3px;
+    transition: all 0.01s;
+    margin-right: 6px;
+    margin-left: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+.ahfb-svg-iconset {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    align-self: center;
+}
+
+.ahfb-svg-iconset svg {
+    width: 17px;
+    height: 17px;
+    transition: none;
+    display: flex;
+}
+
+.ahfb-svg-iconset svg > * {
+    transition: none;
+}
+
+.ast-builder-social-element:hover {
+    color: #0274be;
+}
+
+.ast-builder-social-element .social-item-label {
+    padding-right: 6px;
+}
+
+.ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:first-child {
+    margin-right: 0;
+}
+
+.ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:last-child {
+    margin-left: 0;
+}
+
+.social-show-label-true .ast-builder-social-element {
+    width: auto;
+    padding: 0 0.4em;
+}
+
+.ast-builder-social-element.social-element-with-image {
+    width: auto;
+    height: auto;
+}
+
+.ast-social-element-style-outline .ast-builder-social-element {
+    background: transparent !important;
+}
+
+.ast-social-element-style-outline .ast-builder-social-element:hover {
+    border-color: currentColor;
+}
+
+.ast-header-social-wrap .ast-builder-social-element:first-child {
+    margin-right: 0;
+}
+
+.ast-header-social-wrap .ast-builder-social-element:last-child {
+    margin-left: 0;
+}
+
+/**
+ * AST HF Builder - Widgets related CSS.
+ * Button.
+ */
+[data-section="section-hb-button-1"] .menu-link, [data-section="section-hb-button-2"] .menu-link {
+    display: none;
+}
+
+.ast-builder-button-wrap .ast-custom-button {
+    color: #ffffff;
+    background-color: #0274be;
+    border-radius: 2px;
+    line-height: 16px;
+    padding: 12px 30px;
+}
+
+.ast-builder-button-wrap .ast-custom-button:hover {
+    color: #ffffff;
+    background-color: #3a3a3a;
+    border-color: #ad38e2;
+}
+
+.ast-footer-html-inner p {
+    margin-bottom: 0;
+}
+
+.ast-builder-grid-row-container {
+    display: grid;
+    align-content: center;
+}
+
+/**
+ * AST HF Builder - Widgets related CSS.
+ * Header Nav and Submenu compatibility CSS.
+ */
+.site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
+    content: "\e900";
+    display: inline-block;
+    font-family: 'Astra';
+    font-size: 9px;
+    font-size: .6rem;
+    font-weight: bold;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 10px;
+    line-height: normal;
+}
+
+.ast-nav-menu .sub-menu {
+    line-height: 1.45;
+}
+
+.site-header-section .ast-builder-menu {
+    display: flex;
+    align-items: center;
+}
+
+.site-footer-focus-item,
+.ast-footer-copyright,
+.ast-footer-social-wrap {
+    width: 100%;
+}
+
+/**
+ * Astra HF Builder - Footer Menu Compatibility CSS.
+ */
+ul.astra-footer-vertical-menu {
+    display: block;
+}
+
+#astra-footer-menu, #astra-footer-menu > ul {
+    margin: 0;
+    list-style: none;
+    background: inherit;
+}
+
+/**
+ * AST HF Builder - Responsive CSS.
+ * For desktop view.
+ */
+#ast-desktop-header {
+    display: none;
+}
+
+@media screen and (min-width: 922px) {
+    #ast-desktop-header {
+        display: block;
+    }
+
+    #ast-mobile-header {
+        display: none;
+    }
+}
+
+.site-footer-section {
+    justify-content: center;
+}
+
+.site-primary-footer-wrap {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+/* Mobile Off-canvas CSS */
+
+[data-section="astra_customizer_mobile_header_button"] .menu-link {
+    display: none;
+}
+.ast-mobile-popup-drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -99999rem;
+    left: 99999rem;
+    transition: opacity 0.25s ease-in, right 0s 0.25s, left 0s 0.25s;
+    z-index: 100000;
+    opacity: 0;
+    visibility: hidden;
+}
+.ast-mobile-popup-drawer .ast-mobile-popup-inner {
+    width: 100%;
+    transform: translateX(-100%);
+    max-width: 90%;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background: #fafafa;
+    color: #3a3a3a;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    box-shadow: 0 0 2rem 0 rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+    padding: 0 1.5em 1.5em;
+}
+.ast-mobile-popup-drawer.ast-mobile-popup-left .ast-mobile-popup-inner {
+    transform: translateX(100%);
+    left: auto;
+    right: 0;
+}
+.ast-mobile-popup-drawer.ast-mobile-popup-full-width .ast-mobile-popup-inner {
+    max-width: none;
+    transition: transform 0s ease-in, opacity 0.2s ease-in;
+}
+.ast-mobile-popup-drawer .ast-mobile-popup-overlay {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.ast-mobile-popup-drawer .ast-mobile-popup-header {
+    display: flex;
+    justify-content: flex-end;
+    min-height: calc( 1.2em + 24px);
+}
+.ast-mobile-popup-drawer .ast-mobile-popup-header .menu-toggle-close {
+    background: transparent;
+    border: 0;
+    font-size: 24px;
+    line-height: 1;
+    padding: .6em;
+    color: inherit;
+    display: flex;
+    box-shadow: none;
+}
+.ast-mobile-popup-drawer.show {
+    opacity: 1;
+    visibility: visible;
+}
+.ast-mobile-popup-drawer.active {
+    right: 0;
+    opacity: 1;
+    left: 0;
+    transition: opacity 0.25s ease-out;
+}
+
+.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+}
+.ast-mobile-popup-drawer.active .ast-mobile-popup-overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+body.admin-bar .ast-mobile-popup-drawer, body.admin-bar .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+    top: 46px;
+}
+.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
+    display: inline-block;
+    position: absolute;
+    font-size: inherit;
+    top: -1px;
+    left: 20px;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 15px;
+    font-weight: normal;
+    line-height: inherit;
+    transition: all .2s;
+}
+.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
+    font-weight: bold;
+    content: "\e900";
+    font-family: 'Astra';
+    text-decoration: inherit;
+    display: inline-block;
+}
+.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children .sub-menu {
+    display: none;
+}
+
+.ast-header-break-point .main-header-bar-navigation {
+    line-height: 3;
+}
+
+.astra-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-popup-drawer .main-header-bar-navigation ul .menu-item .sub-menu .menu-link, .astra-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content .main-header-bar-navigation ul .sub-menu .menu-link {
+    padding-right: 30px;
+}
+.astra-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-popup-drawer .main-header-bar-navigation .sub-menu .menu-item .menu-item .menu-link, .astra-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content .main-header-bar-navigation .sub-menu .menu-item .menu-item .menu-link {
+    padding-right: 40px;
+}
+
+.astra-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content .main-header-bar-navigation {
+    width: unset;
+    margin: unset;
+}
+.astra-hfb-header.ast-header-break-point .main-header-bar-navigation .main-header-menu {
+    padding: 0 1.5em 0em;
+}
+.ast-mobile-popup-content > * {
+    padding: 10px 0;
+}
+body.ast-main-header-nav-open {
+    overflow: hidden;
+}
+@media screen and (max-width: 921px) {
+    .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
+        left: calc( 20px - 0.907em );
+    }
+   
+}
+.ast-mobile-header-wrap .ast-mobile-header-content, .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content, .ast-mobile-header-wrap .menu-toggle.toggled .ast-mobile-svg, .ast-mobile-header-wrap .menu-toggle .ast-close-svg {
+    display: none;
+}
+.ast-main-header-nav-open .ast-mobile-header-wrap .ast-mobile-header-content, .ast-mobile-header-wrap .menu-toggle.toggled .ast-close-svg {
+    display: block;
+}
+
+.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+.ast-button-wrap .menu-toggle.main-header-menu-toggle {
+    padding: .5em;
+}
+.ast-mobile-header-wrap .menu-toggle .mobile-menu-toggle-icon,
+.ast-mobile-header-wrap .menu-toggle .mobile-menu-wrap {
+    display: inline-flex;
+    align-self: center;
+}
+.ast-mobile-header-wrap .menu-toggle .mobile-menu-wrap {
+    margin-right: 0.4em;
+}   
+
+.ast-header-break-point .ast-mobile-header-wrap .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
+    font-weight: bold;
+    content: "\e900";
+    font-family: 'Astra';
+    text-decoration: inherit;
+    display: inline-block;
+}
+.ast-header-break-point .ast-mobile-header-wrap .main-header-bar-navigation .ast-submenu-expanded >  .ast-menu-toggle::before,
+.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
+    transform: rotateX(180deg);
+}
+.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
+    display: inline-block;
+    position: absolute;
+    font-size: inherit;
+    top: 0px;
+    left: 20px;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0 0.907em;
+    font-weight: normal;
+    line-height: inherit;
+    transition: all .2s;
+}
+.ast-search-menu-icon.ast-inline-search .search-field {
+    width: 100%;
+    padding-left: 5.5em;
+}
+.ast-header-break-point .ast-nav-menu .sub-menu {
+    line-height: 3;
+}
+
+.ast-mobile-header-wrap .ast-builder-grid-row-container-inner {
+    display: grid;
+    align-items: center;
+}
+
+/* Social Icons Official CSS */
+
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook {
+    color: white;
+    background: #557dbc;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook svg {
+    fill: white;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.twitter {
+    color: #7acdee;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.twitter svg {
+    fill: #7acdee;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.instagram {
+    color: #292929;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.instagram svg {
+    fill: #292929;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.linkedin {
+    color: #1c86c6;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.linkedin svg {
+    fill: #1c86c6;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook_group {
+    color: #3D87FB;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook_group svg {
+    fill: #3D87FB;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.discord {
+    color: #7187D4;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.discord svg {
+    fill: #7187D4;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.pinterest {
+    color: #ea575a;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.pinterest svg {
+    fill: #ea575a;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.dribbble {
+    color: #d77ea6;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.dribbble svg {
+    fill: #d77ea6;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.behance {
+    color: #1B64F6;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.behance svg {
+    fill: #1B64F6;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.medium {
+    color: #292929;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.medium svg {
+    fill: #292929;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.reddit {
+    color: #FC471E;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.reddit svg {
+    fill: #FC471E;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.patreon {
+    color: #e65c4b;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.patreon svg {
+    fill: #e65c4b;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vk {
+    color: #5382b6;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vk svg {
+    fill: #5382b6;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.youtube {
+    color: #e96651;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.youtube svg {
+    fill: #e96651;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vimeo {
+    color: #8ecfde;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vimeo svg {
+    fill: #8ecfde;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.rss {
+    color: #f09124;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.rss svg {
+    fill: #f09124;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.whatsapp {
+    color: #5BBA67;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.whatsapp svg {
+    fill: #5BBA67;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.viber {
+    color: #7F509E;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.viber svg {
+    fill: #7F509E;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.telegram {
+    color: #229CCE;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.telegram svg {
+    fill: #229CCE;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.xing {
+    color: #0A5C5D;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.xing svg {
+    fill: #0A5C5D;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.weibo {
+    color: #E41C34;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.weibo svg {
+    fill: #E41C34;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.tumblr {
+    color: #314255;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.tumblr svg {
+    fill: #314255;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.qq {
+    color: #487FC8;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.qq svg {
+    fill: #487FC8;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wechat {
+    color: #2DC121;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wechat svg {
+    fill: #2DC121;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.strava {
+    color: #2DC121;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.strava svg {
+    fill: #2DC121;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.email {
+    color: #ea4335;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.email svg {
+    fill: #ea4335;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.github {
+    color: #24292e;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.github svg {
+    fill: #24292e;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.google_reviews {
+    color: #dc4e41;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.google_reviews svg {
+    fill: #dc4e41;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.imdb {
+    color: #000000;
+    background: #F5C518;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.imdb svg {
+    fill: #000000;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.trip_advisor {
+    color: #000000;
+    background: #00aa6c;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.trip_advisor svg {
+    fill: #000000;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wordpress {
+    color: #464646;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wordpress svg {
+    fill: #464646;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.yelp {
+    color: #af0606;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.yelp svg {
+    fill: #af0606;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.phone {
+    color: inherit;
+    background: transparent;
+}
+.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.phone svg {
+    fill: inherit;
+}
