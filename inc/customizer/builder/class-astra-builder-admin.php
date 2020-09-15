@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php esc_attr_e( 'Astra Header/Footer Builder', 'astra' ); ?></span>
+				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php esc_html_e( 'Astra Header/Footer Builder', 'astra' ); ?></span>
 				</h2>
 				<div class="inside">
 					<div>
