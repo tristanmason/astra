@@ -27,7 +27,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_html_dynamic_css' );
 function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$dynamic_css .= Astra_Html_Component_Dynamic_CSS::astra_html_dynamic_css( 'footer', $dynamic_css, $dynamic_css_filtered = '' );
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_footer_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
 
 		if ( ! Astra_Builder_Helper::is_component_loaded( 'footer', 'html-' . $index ) ) {
 			continue;

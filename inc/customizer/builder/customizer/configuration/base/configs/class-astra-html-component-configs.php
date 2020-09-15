@@ -36,11 +36,11 @@ class Astra_Html_Component_Configs {
 		$html_config = array();
 
 		$class_name     = 'Astra_Builder_Header';
-		$number_of_html = Astra_Builder_Loader::$num_of_header_html;
+		$number_of_html = Astra_Constants::$num_of_header_html;
 
 		if ( 'footer' === $builder_type ) {
 			$class_name     = 'Astra_Builder_Footer';
-			$number_of_html = Astra_Builder_Loader::$num_of_footer_html;
+			$number_of_html = Astra_Constants::$num_of_footer_html;
 		}
 
 		for ( $index = 1; $index <= $number_of_html; $index++ ) {

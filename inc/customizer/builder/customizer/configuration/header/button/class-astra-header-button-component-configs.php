@@ -32,7 +32,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$html_config = array();
-			for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_button; $index++ ) {
+			for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
 				$_section = 'section-hb-button-' . $index;
 				$_prefix  = 'button' . $index;
