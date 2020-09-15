@@ -184,7 +184,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'   => 'section-footer-builder-layout',
 				'control'   => 'ast-responsive-background',
 				'transport' => 'postMessage',
-				'default'   => $defaults['footer-bg-obj-responsive'],
+				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
 				'label'     => __( 'Background', 'astra-builder', 'astra' ),
 				'priority'  => 5,
 				'context'   => array(

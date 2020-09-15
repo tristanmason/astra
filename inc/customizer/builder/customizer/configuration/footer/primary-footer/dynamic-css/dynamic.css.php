@@ -38,13 +38,17 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$global_footer_bg           = astra_get_option( 'footer-bg-obj-responsive' );
 	$footer_bottom_border_size  = astra_get_option( 'hb-footer-main-sep' );
 	$footer_bottom_border_color = astra_get_option( 'hb-footer-main-sep-color' );
-	$footer_width               = astra_get_option( 'hb-footer-main-layout-width' );
+	$footer_width               = astra_get_option( 'hb-footer-layout-width' );
 	$content_width              = astra_get_option( 'site-content-width' );
 
 	$css_output_desktop = array(
 
-		$selector               => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
-		'.ast-main-footer-wrap' => astra_get_responsive_background_obj( $global_footer_bg, 'desktop' ),
+		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
+		'.ast-main-footer-wrap'              => astra_get_responsive_background_obj( $global_footer_bg, 'desktop' ),
+		$selector . ' .ast-builder-grid-row' => array(
+			'align-items' => astra_get_option( 'hb-footer-vertical-alignment' ),
+		),
+
 	);
 
 	if ( isset( $footer_bottom_border_size ) && 1 <= $footer_bottom_border_size ) {
@@ -58,9 +62,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 
 	if ( isset( $footer_width ) && 'content' === $footer_width ) {
 
-		$css_output_desktop['.ast-site-footer .site-container']['max-width']    = astra_get_css_value( $content_width, 'px' );
-		$css_output_desktop['.ast-site-footer .site-container']['margin-left']  = 'auto';
-		$css_output_desktop['.ast-site-footer .site-container']['margin-right'] = 'auto';
+		$css_output_desktop[ $selector . ' .site-container' ]['max-width']    = astra_get_css_value( $content_width, 'px' );
+		$css_output_desktop[ $selector . ' .site-container' ]['margin-left']  = 'auto';
+		$css_output_desktop[ $selector . ' .site-container' ]['margin-right'] = 'auto';
 	}
 	$css_output_tablet = array(
 
