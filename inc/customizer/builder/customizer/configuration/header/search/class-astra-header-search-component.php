@@ -30,12 +30,14 @@ if ( ! class_exists( 'Astra_Header_Search_Component' ) ) {
 		 */
 		public function __construct() {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require_once ASTRA_HEADER_SEARCH_DIR . '/class-astra-header-search-component-loader.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
 				require_once ASTRA_HEADER_SEARCH_DIR . '/dynamic-css/dynamic.css.php';
 			}
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
 

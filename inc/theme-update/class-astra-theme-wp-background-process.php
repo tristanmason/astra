@@ -6,14 +6,14 @@
  * @since 2.1.3
  */
 
-if ( class_exists( 'WP_Background_Process' ) ) :
+if ( class_exists( 'Astra_WP_Background_Process' ) ) :
 
 	/**
 	 * Database Background Process
 	 *
 	 * @since 2.1.3
 	 */
-	class WP_Background_Process_Astra_Theme extends WP_Background_Process {
+	class Astra_Theme_WP_Background_Process extends Astra_WP_Background_Process {
 
 		/**
 		 * Database Process
@@ -59,8 +59,6 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * @since 2.1.3
 		 */
 		protected function complete() {
-			error_log( 'Astra: Batch Process Completed!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-
 			do_action( 'astra_database_migration_complete' );
 			parent::complete();
 		}

@@ -57,7 +57,9 @@ class Astra_Footer_Menu_Component_Loader {
 		/**
 		 * Configs.
 		 */
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_BUILDER_FOOTER_MENU_DIR . '/class-astra-customizer-footer-menu-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**

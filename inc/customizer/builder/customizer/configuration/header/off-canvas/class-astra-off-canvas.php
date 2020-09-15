@@ -28,12 +28,14 @@ class Astra_Off_Canvas {
 	 */
 	public function __construct() {
 
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_OFF_CANVAS_DIR . '/class-astra-off-canvas-loader.php';
 
 		// Include front end files.
 		if ( ! is_admin() ) {
 			require_once ASTRA_OFF_CANVAS_DIR . '/dynamic-css/dynamic.css.php';
 		}
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }
 

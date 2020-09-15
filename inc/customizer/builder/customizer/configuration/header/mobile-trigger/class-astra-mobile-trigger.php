@@ -27,13 +27,14 @@ class Astra_Mobile_Trigger {
 	 * Constructor function that initializes required actions and hooks.
 	 */
 	public function __construct() {
-
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_MOBILE_TRIGGER_DIR . '/class-astra-mobile-trigger-loader.php';
 
 		// Include front end files.
 		if ( ! is_admin() ) {
 			require_once ASTRA_MOBILE_TRIGGER_DIR . '/dynamic-css/dynamic.css.php';
 		}
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }
 

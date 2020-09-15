@@ -131,9 +131,21 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 			if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 				foreach ( $elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
 
-					set_query_var( 'type', $item );
-					get_template_part( 'template-parts/' . $builder . '/builder/components' );
 
+					if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
+
+						get_template_part(
+							'template-parts/' . $builder . '/builder/components',
+							'',
+							array(
+								'type' => $item,
+							)
+						);
+					} else {
+
+						set_query_var( 'type', $item );
+						get_template_part( 'template-parts/' . $builder . '/builder/components' );
+					}
 				}
 			}
 		}

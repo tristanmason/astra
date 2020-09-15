@@ -1,0 +1,134 @@
+/**
+ * Customizer Header-n-Footer section edit highligheting CSS.
+ *
+ * With new design improvements.
+ */
+
+ .ast-primary-header-bar, .ast-above-header-bar, .ast-below-header-bar, .site-footer-focus-item {
+    outline: 1px solid transparent;
+    position: relative;
+    transition: outline 0.15s ease;
+    outline-offset: -1px;
+}
+
+.site-header-focus-item .customize-partial-edit-shortcut, .ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
+    opacity: 0;
+    transition: all 0.2s;
+    top: 5px;
+}
+
+.ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+/**
+ * Customizer edit icon custom positioning.
+ */
+.ast-below-header .ast-header-button-2 .customize-partial-edit-shortcut-button, .ast-below-header .ast-header-button-1 .customize-partial-edit-shortcut-button {
+    top: -10px;
+}
+
+.ast-builder-layout-element.site-header-focus-item[data-section="title_tagline"] .customize-partial-edit-shortcut {
+    top: 25px;
+}
+
+.site-header-focus-item[data-section="section-header-mobile-trigger"] .customize-partial-edit-shortcut {
+    top: -10px;
+    right: 0px;
+}
+
+.ast-primary-header-bar:hover, .ast-above-header-bar:hover, .ast-below-header-bar:hover,
+.site-primary-footer-wrap.site-footer-focus-item:hover, .site-above-footer-wrap.site-footer-focus-item:hover, .site-below-footer-wrap.site-footer-focus-item:hover {
+    outline: 1px solid #007cba;
+}
+
+.site-footer-focus-item:hover > * > .customize-partial-edit-shortcut, .ast-primary-header-bar:hover .row-editor-shortcut, .ast-above-header-bar:hover .row-editor-shortcut, .ast-below-header-bar:hover .row-editor-shortcut, .site-header-focus-item:hover > * > .customize-partial-edit-shortcut, .site-header-focus-item:hover > .customize-partial-edit-shortcut {
+    opacity: 1;
+}
+
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav, .customize-partial-edit-shortcut-custom_logo {
+    display: none;
+}
+
+.customize-partial-edit-shortcut.row-editor-shortcut > button {
+    background: transparent !important;
+    box-shadow: unset;
+    border: unset;
+}
+
+#ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) span.ahfb-customizer-row-shortcut, .ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut {
+    top: -40px;
+    border-radius: 5px 5px 0 0;
+}
+
+#ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) .site-primary-header-wrap span.ahfb-customizer-row-shortcut, .ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut {
+    top: -29px;
+}
+
+#ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) span.ahfb-customizer-row-shortcut:before, .ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut:before {
+    top: 2px;
+    border-width: 22px 0 0 12px;
+    right: -11px;
+}
+
+#ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) span.ahfb-customizer-row-shortcut:after, .ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut:after {
+    top: 2px;
+    border-width: 22px 12px 0 0;
+    left: -11px;
+}
+
+span.ahfb-customizer-row-shortcut {
+    background: #007cba;
+    color: #c8dbe4;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 24px;
+    position: absolute;
+    top: -5px;
+    right: -20px;
+    transition: all 0.2s;
+    border-radius: 0 0 5px 5px;
+    padding: 0 12px 0 10px;
+    letter-spacing: normal;
+    height: 24px;
+    font-weight: 400;
+    width: max-content;
+    text-shadow: none;
+}
+
+span.ahfb-customizer-row-shortcut:hover {
+    color: #ffffff;
+}
+
+span.ahfb-customizer-row-shortcut:before {
+    content: '';
+    position: absolute;
+    border: solid transparent;
+    border-left-color: #007cba;
+    left: calc(100% - 1px);
+    top: 0;
+    border-width: 0 0 22px 12px;
+}
+
+span.ahfb-customizer-row-shortcut:after {
+    content: '';
+    position: absolute;
+    border: solid transparent;
+    border-right-color: #007cba;
+    right: calc(100% - 1px);
+    top: 0;
+    border-width: 0 12px 22px 0;
+}
+
+/**
+ * Footer widget edit icon compatible CSS.
+ */
+.footer-widget-area .widget {
+    position: relative;
+}
+.footer-widget-area .widget:hover > .customize-partial-edit-shortcut {
+    opacity: 1;
+}
