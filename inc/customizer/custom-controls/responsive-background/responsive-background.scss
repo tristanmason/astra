@@ -5,7 +5,7 @@
         font-weight: 600;
         color: rgb(85, 93, 102);
 	}
-    
+
     .background-attachment,
     .background-color,
     .background-position,
@@ -30,7 +30,7 @@
         .buttonset {
             display: flex;
             flex-wrap: wrap;
-            
+
             .switch-label {
                 background: #ffffff;
                 border: 1px solid rgba(0, 0, 0, 0.1);
@@ -66,7 +66,7 @@
         outline: 0;
         box-shadow: none;
     }
-    
+
     .arrow-icon {
         margin-left: 5px;
     }
@@ -85,7 +85,32 @@
             margin-left: 4px;
             min-height: 30px;
         }
-    }
+	}
+	.customize-control-content {
+		.customize-control-title {
+			.astra-reset {
+				top: 1px;
+    			right: 55px;
+			}
+		}
+		.color-button-wrap {
+			position: absolute;
+			right: 24px;
+			top: 4px;
+		}
+		.ast-responsive-btns {
+			position: absolute;
+			right: 0px;
+			top: 6px;
+		}
+		.astra-color-picker-wrap {
+			margin-top: -14px;
+		}
+		.components-color-picker__saturation-color,
+		.components-color-picker__saturation-white {
+			border-radius: unset;
+		}
+	}
 }
 
 
@@ -222,4 +247,23 @@
 }
 .media-position-setting.hide-settings {
     display: none;
+}
+.ast-field-settings-modal {
+	.customize-control-content {
+		.customize-control-title {
+			.astra-reset {
+				top: 1px;
+    			right: 60px;
+			}
+		}
+		.color-button-wrap {
+			right: 30px;
+		}
+		.ast-responsive-btns {
+			right: 7px;
+		}
+		.astra-color-picker-wrap {
+			margin-left: 0px;
+		}
+	}
 }

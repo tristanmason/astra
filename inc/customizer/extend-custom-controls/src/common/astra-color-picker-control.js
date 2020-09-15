@@ -118,120 +118,120 @@ class AstraColorPickerControl extends Component {
 		});
 
 		return (
-			<div className="astra-color-picker-wrap">
-
-                <>
-                    { isVisible && (
-                        <Popover position="top left" className="astra-popover-color" onClose={ toggleClose }>
-							{ 1 < tabs.length &&
-								<TabPanel className="astra-popover-tabs astra-background-tabs"
-									activeClass="active-tab"
-									initialTabName={ backgroundType }
-									tabs={ tabs }>
-									{
-										( tab ) => {
-											let tabout;
-
-											if ( tab.name ) {
-												if ( 'gradient' === tab.name ) {
-													tabout = (
-														<>
-															<__experimentalGradientPicker
-																value={ color && color.includes( 'gradient' ) ? color : '' }
-																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
-															/>
-														</>
-													);
-												}  if ( 'image' === tab.name ) {
-													tabout = (
-														this.renderImageSettings()
-													);
-												} else if ( 'color' === tab.name ){
-													tabout = (
-														<>
-															{ refresh && (
-																<>
-																	<ColorPicker
-																		color={ color }
-																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-																	/>
-																</>
-															) }
-															{ ! refresh &&  (
-																<>
-																	<ColorPicker
-																		color={ color }
-																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-																	/>
-
-																</>
-															) }
-															<ColorPalette
-																colors={ finalpaletteColors }
-																value={ color }
-																clearable={ false }
-																disableCustomColors={ true }
-																className="ast-color-palette"
-																onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-															/>
-														</>
-													);
-												}
-											}
-											return <div>{ tabout }</div>;
-										}
-									}
-								</TabPanel>
-							}
-							{ 1 === tabs.length &&
-
-								<>
-									{ refresh && (
-										<>
-											<ColorPicker
-												color={ color }
-												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-											/>
-										</>
-									) }
-									{ ! refresh &&  (
-										<>
-											<ColorPicker
-												color={ color }
-												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
-											/>
-
-										</>
-									) }
-
-									<ColorPalette
-										colors={ finalpaletteColors }
-										value={ color }
-										clearable={ false }
-										disableCustomColors={ true }
-										className="ast-color-palette"
-										onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-									/>
-								</>
-							}
-                        </Popover>
-                    ) }
-                </>
-
+			<>
 				<div className="color-button-wrap">
-					<Button className={ 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
+					<Button className={ isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
 						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&
-						 <ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
+						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
 						}
 						{ 'image' === backgroundType &&
 							<>
 								<ColorIndicator className="astra-advanced-color-indicate" colorValue='#ffffff' />
-								<Dashicon icon="admin-site" />
+								<Dashicon icon="format-image" />
 							</>
 						}
 					</Button>
 				</div>
-			</div>
+				<div className="astra-color-picker-wrap">
+					<>
+						{ isVisible && (
+							<div className="astra-popover-color" onClose={ toggleClose }>
+								{ 1 < tabs.length &&
+									<TabPanel className="astra-popover-tabs astra-background-tabs"
+										activeClass="active-tab"
+										initialTabName={ backgroundType }
+										tabs={ tabs }>
+										{
+											( tab ) => {
+												let tabout;
+
+												if ( tab.name ) {
+													if ( 'gradient' === tab.name ) {
+														tabout = (
+															<>
+																<__experimentalGradientPicker
+																	value={ color && color.includes( 'gradient' ) ? color : '' }
+																	onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
+																/>
+															</>
+														);
+													}  if ( 'image' === tab.name ) {
+														tabout = (
+															this.renderImageSettings()
+														);
+													} else if ( 'color' === tab.name ){
+														tabout = (
+															<>
+																{ refresh && (
+																	<>
+																		<ColorPicker
+																			color={ color }
+																			onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+																		/>
+																	</>
+																) }
+																{ ! refresh &&  (
+																	<>
+																		<ColorPicker
+																			color={ color }
+																			onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+																		/>
+
+																	</>
+																) }
+																<ColorPalette
+																	colors={ finalpaletteColors }
+																	value={ color }
+																	clearable={ false }
+																	disableCustomColors={ true }
+																	className="ast-color-palette"
+																	onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+																/>
+															</>
+														);
+													}
+												}
+												return <div>{ tabout }</div>;
+											}
+										}
+									</TabPanel>
+								}
+								{ 1 === tabs.length &&
+
+									<>
+										{ refresh && (
+											<>
+												<ColorPicker
+													color={ color }
+													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+												/>
+											</>
+										) }
+										{ ! refresh &&  (
+											<>
+												<ColorPicker
+													color={ color }
+													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
+												/>
+
+											</>
+										) }
+
+										<ColorPalette
+											colors={ finalpaletteColors }
+											value={ color }
+											clearable={ false }
+											disableCustomColors={ true }
+											className="ast-color-palette"
+											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+										/>
+									</>
+								}
+							</div>
+						) }
+					</>
+				</div>
+			</>
 		);
 	}
 

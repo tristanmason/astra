@@ -272,20 +272,17 @@ svg.dashicon {
     outline: none;
 }
 
-.astra-color-picker-wrap {
-    margin-left: 5px;
-}
-
 .components-button.astra-color-icon-indicate {
     height: auto;
     position: relative;
     transform: scale(1);
     transition: transform 0.1s ease;
-    border-radius: 50%;
+    border-radius: 4px;
     padding: 0;
     background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
-    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+	background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+	border: 1px solid #929ba4;
 }
 .components-button {
     display: inline-flex;
@@ -309,7 +306,7 @@ svg.dashicon {
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: 4px;
     margin: 0;
 }
 .component-color-indicator {
@@ -364,25 +361,9 @@ svg.dashicon {
     min-height: 340px;
     max-height: 60vh;
 }
-.components-button.astra-color-icon-indicate {
-    height: auto;
-    position: relative;
-    transform: scale(1);
-    transition: transform 0.1s ease;
-    border-radius: 50%;
-    padding: 0;
-    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
-    background-size: 10px 10px;
-    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
-}
-.components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    margin: 0;
-}
-.components-button.astra-color-icon-indicate:hover {
-    transform: scale(1.1);
+.color-button-wrap {
+	display: inline;
+    float: right;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -401,7 +382,7 @@ svg.dashicon {
 .components-button.astra-background-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 4px;
     margin: 0;
     display: block;
     position: absolute;
@@ -463,8 +444,7 @@ svg.dashicon {
 }
 .ast-field-settings-modal .customize-control-title .astra-reset, .background-wrapper .customize-control-title .astra-reset {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    right: 46px;
 }
 .customize-control-title .astra-reset svg {
     width: 14px;
@@ -514,19 +494,34 @@ svg.dashicon {
     left: 50%;
     top: 50%;
     color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 100%;
-    width: 16px;
-    height: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgb(85 93 101);
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    border: 7px solid rgba(0, 0, 0, 0.1);
 }
-.components-button.astra-color-icon-indicate > svg.dashicon path {
-    transform: translate(1px, 1px);
+.astra-popover-color {
+    margin-left: 2px;
+	margin-top: 5px;
+	background-color: #ffffff;
+	border: 1px solid #a29090;
+	border-radius: 4px;
+}
+.components-color-picker__saturation-black {
+	border-radius: 4px 4px 0 0;
+}
+.components-color-picker__saturation-color {
+	border-radius: 3px;
+}
+.components-color-picker__saturation-white {
+	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-    margin-left: 5px;
-    display: inline-block;
-    float: right;
+	margin-left: 5px;
+}
+.components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+	width: 27px;
+    height: 27px;
 }
 @media (max-width: 1800px) {
     .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
@@ -554,6 +549,22 @@ svg.dashicon {
 }
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-right: 6px;
+}
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 0px 0px 7.5px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-right: 5px;
+}
+@-moz-document url-prefix() {
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		margin-right: 5px;
+		height: 25px;
+		width: 25px;
+	}
+	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+		padding: 16px 0px 0px 14px;
+	}
 }
 
 .customize-control-ast-customizer-link .customizer-link {
@@ -931,6 +942,32 @@ input[type="text"].select2-search__field {
   min-height: 30px;
 }
 
+.customize-control-ast-responsive-background .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 55px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
+  position: absolute;
+  right: 24px;
+  top: 4px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
+  position: absolute;
+  right: 0px;
+  top: 6px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
+  margin-top: -14px;
+}
+
+.customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
+.customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-white {
+  border-radius: unset;
+}
+
 /**
  * BG Media Button.
  */
@@ -1072,18 +1109,88 @@ input[type="text"].select2-search__field {
   display: none;
 }
 
+.ast-field-settings-modal .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 60px;
+}
+
+.ast-field-settings-modal .customize-control-content .color-button-wrap {
+  right: 30px;
+}
+
+.ast-field-settings-modal .customize-control-content .ast-responsive-btns {
+  right: 7px;
+}
+
+.ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
+  margin-left: 0px;
+}
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
-  display: inline-block;
-  float: right;
-  margin-bottom: 10px;
+  margin-left: 2px;
+  margin-top: -14px;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-black {
+  border-radius: 4px 4px 0 0;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color {
+  border-radius: 3px;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-white {
+  border-radius: 3px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha.active {
   display: block;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 55px;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+  position: absolute;
+  right: 24px;
+  top: 4px;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
+.customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-white {
+  border-radius: unset;
+}
+
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  right: 0px;
+  top: 6px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
+  top: 1px;
+  right: 60px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+  right: 30px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
+  margin-left: 0px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
+  right: 7px;
 }
 
 .ast-responsive-select-container {
