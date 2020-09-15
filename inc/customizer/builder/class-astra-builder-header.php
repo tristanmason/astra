@@ -37,54 +37,57 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function __construct() {
 
-			$this->remove_existing_actions();
+			if ( Astra_Builder_Helper::is_migrated() ) {
+				$this->remove_existing_actions();
 
-			add_action( 'astra_header', array( $this, 'header_builder_markup' ) );
+				add_action( 'astra_header', array( $this, 'header_builder_markup' ) );
 
-			add_action( 'body_class', array( $this, 'add_body_class' ) );
+				add_action( 'body_class', array( $this, 'add_body_class' ) );
 
-			// Header Desktop Builder.
-			add_action( 'astra_masthead', array( $this, 'desktop_header' ) );
+				// Header Desktop Builder.
+				add_action( 'astra_masthead', array( $this, 'desktop_header' ) );
 
-			add_action( 'astra_above_header', array( $this, 'above_header' ) );
-			add_action( 'astra_primary_header', array( $this, 'primary_header' ) );
-			add_action( 'astra_below_header', array( $this, 'below_header' ) );
+				add_action( 'astra_above_header', array( $this, 'above_header' ) );
+				add_action( 'astra_primary_header', array( $this, 'primary_header' ) );
+				add_action( 'astra_below_header', array( $this, 'below_header' ) );
 
-			add_action( 'astra_render_header_column', array( $this, 'render_column' ), 10, 2 );
+				add_action( 'astra_render_header_column', array( $this, 'render_column' ), 10, 2 );
 
-			// Mobile Builder.
-			add_action( 'astra_mobile_header', array( $this, 'mobile_header' ) );
+				// Mobile Builder.
+				add_action( 'astra_mobile_header', array( $this, 'mobile_header' ) );
 
-			add_action( 'astra_mobile_above_header', array( $this, 'mobile_above_header' ) );
-			add_action( 'astra_mobile_primary_header', array( $this, 'mobile_primary_header' ) );
-			add_action( 'astra_mobile_below_header', array( $this, 'mobile_below_header' ) );
+				add_action( 'astra_mobile_above_header', array( $this, 'mobile_above_header' ) );
+				add_action( 'astra_mobile_primary_header', array( $this, 'mobile_primary_header' ) );
+				add_action( 'astra_mobile_below_header', array( $this, 'mobile_below_header' ) );
 
-			add_action( 'astra_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
+				add_action( 'astra_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
 
-			// Load Off-Canvas Markup on Footer.
-			add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
+				// Load Off-Canvas Markup on Footer.
+				add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
 
-			add_action( 'astra_mobile_header_content', array( $this, 'render_mobile_column' ), 10, 2 );
+				add_action( 'astra_mobile_header_content', array( $this, 'render_mobile_column' ), 10, 2 );
 
-			add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
+				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 
-			// Core Components.
+				// Core Components.
+				add_action( 'astra_header_button_1', array( $this, 'button_1' ) );
+				add_action( 'astra_header_button_2', array( $this, 'button_2' ) );
+				add_action( 'astra_header_menu_1', array( $this, 'menu_1' ) );
+				add_action( 'astra_header_menu_2', array( $this, 'menu_2' ) );
+				add_action( 'astra_mobile_site_identity', array( $this, 'site_identity' ) );
+				add_action( 'astra_header_search', array( $this, 'header_search' ) );
+				add_action( 'astra_header_html_1', array( $this, 'header_html_1' ) );
+				add_action( 'astra_header_html_2', array( $this, 'header_html_2' ) );
+				add_action( 'astra_header_html_3', array( $this, 'header_html_3' ) );
+				add_action( 'astra_header_html_4', array( $this, 'header_html_4' ) );
+				add_action( 'astra_header_social', array( $this, 'header_social' ) );
+
+				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
+
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			}
+
 			add_action( 'astra_site_identity', array( $this, 'site_identity' ) );
-			add_action( 'astra_header_button_1', array( $this, 'button_1' ) );
-			add_action( 'astra_header_button_2', array( $this, 'button_2' ) );
-			add_action( 'astra_header_menu_1', array( $this, 'menu_1' ) );
-			add_action( 'astra_header_menu_2', array( $this, 'menu_2' ) );
-			add_action( 'astra_mobile_site_identity', array( $this, 'site_identity' ) );
-			add_action( 'astra_header_search', array( $this, 'header_search' ) );
-			add_action( 'astra_header_html_1', array( $this, 'header_html_1' ) );
-			add_action( 'astra_header_html_2', array( $this, 'header_html_2' ) );
-			add_action( 'astra_header_html_3', array( $this, 'header_html_3' ) );
-			add_action( 'astra_header_html_4', array( $this, 'header_html_4' ) );
-			add_action( 'astra_header_social', array( $this, 'header_social' ) );
-
-			add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
-
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		}
 
 		/**
