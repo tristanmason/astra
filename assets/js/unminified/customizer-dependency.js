@@ -176,7 +176,9 @@
                             }
                         } else {
                             var control_obj = api.control(test);
-                            control_obj.container.removeClass('ast-hide');
+                            if ( undefined !== control_obj ) {
+                                control_obj.container.removeClass('ast-hide');
+                            }
                         }
                     }
                 }

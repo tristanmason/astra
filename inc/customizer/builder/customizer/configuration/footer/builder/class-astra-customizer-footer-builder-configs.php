@@ -43,36 +43,6 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			'icon'    => 'nametag',
 			'section' => 'section-footer-copyright',
 		),
-		'widget-1'  => array(
-			'name'    => 'Widget 1',
-			'icon'    => 'wordpress',
-			'section' => 'sidebar-widgets-footer-widget-1',
-		),
-		'widget-2'  => array(
-			'name'    => 'Widget 2',
-			'icon'    => 'wordpress',
-			'section' => 'sidebar-widgets-footer-widget-2',
-		),
-		'widget-3'  => array(
-			'name'    => 'Widget 3',
-			'icon'    => 'wordpress',
-			'section' => 'sidebar-widgets-footer-widget-3',
-		),
-		'widget-4'  => array(
-			'name'    => 'Widget 4',
-			'icon'    => 'wordpress',
-			'section' => 'sidebar-widgets-footer-widget-4',
-		),
-		'html-1'    => array(
-			'name'    => 'HTML 1',
-			'icon'    => 'text',
-			'section' => 'section-fb-html-1',
-		),
-		'html-2'    => array(
-			'name'    => 'HTML 2',
-			'icon'    => 'text',
-			'section' => 'section-fb-html-2',
-		),
 		'menu'      => array(
 			'name'    => 'Footer Menu',
 			'icon'    => 'menu',
@@ -90,13 +60,31 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
+		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
+			
+			self::$footer_items[ 'html-' . $index ] = array(
+				'name'    => 'HTML ' . $index,
+				'icon'    => 'text',
+				'section' => 'section-fb-html-' . $index,
+			);
+		}
+
+		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
+
+			self::$footer_items[ 'widget-' . $index ] = array(
+				'name'    => 'Widget ' . $index,
+				'icon'    => 'wordpress',
+				'section' => 'sidebar-widgets-footer-widget-' . $index,
+			);
+		}
+
 		$_configs = array(
 
 			array(
 				'name'     => 'panel-footer-builder-group',
 				'type'     => 'panel',
 				'priority' => 60,
-				'title'    => __( 'Footer Builder', 'astra-builder', 'astra' ),
+				'title'    => __( 'Footer Builder', 'astra' ),
 			),
 
 			/**
@@ -106,7 +94,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-footer-builder-layout',
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Footer Layout', 'astra-builder', 'astra' ),
+				'title'    => __( 'Footer Layout', 'astra' ),
 				'panel'    => 'panel-footer-builder-group',
 			),
 
@@ -129,7 +117,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-footer-builder',
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Footer Builder', 'astra-builder', 'astra' ),
+				'title'    => __( 'Footer Builder', 'astra' ),
 				'panel'    => 'panel-footer-builder-group',
 				'context'  => array(
 					array(
@@ -164,7 +152,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
-				'title'     => __( 'Background', 'astra-builder', 'astra' ),
+				'title'     => __( 'Background', 'astra' ),
 				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
 				'priority'  => 70,
@@ -185,7 +173,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'   => 'ast-responsive-background',
 				'transport' => 'postMessage',
 				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
-				'label'     => __( 'Background', 'astra-builder', 'astra' ),
+				'label'     => __( 'Background', 'astra' ),
 				'priority'  => 5,
 				'context'   => array(
 					array(
@@ -203,7 +191,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'         => 'section-footer-builder',
 				'type'            => 'control',
 				'control'         => 'ast-builder',
-				'title'           => __( 'Footer Builder', 'astra-builder', 'astra' ),
+				'title'           => __( 'Footer Builder', 'astra' ),
 				'priority'        => 10,
 				'default'         => astra_get_option( 'footer-desktop-items' ),
 				'choices'         => self::$footer_items,

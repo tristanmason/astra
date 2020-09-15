@@ -47,7 +47,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-header-mobile-trigger',
 				'type'     => 'section',
 				'priority' => 70,
-				'title'    => __( 'Trigger', 'astra-builder', 'astra' ),
+				'title'    => __( 'Trigger', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -77,7 +77,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
 				'section'     => $_section,
-				'title'       => __( 'Icons', 'astra-builder', 'astra' ),
+				'title'       => __( 'Icons', 'astra' ),
 				'priority'    => 10,
 				'default'     => astra_get_option( 'header-trigger-icon' ),
 				'input_attrs' => array(
@@ -111,7 +111,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'        => 'control',
 				'control'     => 'ast-slider',
 				'section'     => $_section,
-				'title'       => __( 'Icon Size', 'astra-builder', 'astra' ),
+				'title'       => __( 'Icon Size', 'astra' ),
 				'priority'    => 20,
 				'suffix'      => '',
 				'transport'   => 'postMessage',
@@ -141,7 +141,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-menu-label' ),
 				'section'   => $_section,
 				'priority'  => 20,
-				'title'     => __( 'Menu Label', 'astra-builder', 'astra' ),
+				'title'     => __( 'Menu Label', 'astra' ),
 				'type'      => 'control',
 				'control'   => 'text',
 				'context'   => array(
@@ -159,14 +159,14 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
 				'default'  => astra_get_option( 'mobile-header-toggle-btn-style' ),
 				'section'  => $_section,
-				'title'    => __( 'Toggle Button Style', 'astra-builder', 'astra' ),
+				'title'    => __( 'Toggle Button Style', 'astra' ),
 				'type'     => 'control',
 				'control'  => 'select',
 				'priority' => 30,
 				'choices'  => array(
-					'fill'    => __( 'Fill', 'astra-builder', 'astra' ),
-					'outline' => __( 'Outline', 'astra-builder', 'astra' ),
-					'minimal' => __( 'Minimal', 'astra-builder', 'astra' ),
+					'fill'    => __( 'Fill', 'astra' ),
+					'outline' => __( 'Outline', 'astra' ),
+					'minimal' => __( 'Minimal', 'astra' ),
 				),
 				'context'  => array(
 					array(
@@ -184,7 +184,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-toggle-btn-color' ),
 				'type'      => 'control',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra-builder', 'astra' ),
+				'title'     => __( 'Color', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,
@@ -204,7 +204,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-toggle-btn-bg-color' ),
 				'type'      => 'control',
 				'control'   => 'ast-color',
-				'title'     => __( 'Background Color', 'astra-builder', 'astra' ),
+				'title'     => __( 'Background Color', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,
@@ -233,12 +233,12 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'transport'      => 'postMessage',
 				'linked_choices' => true,
 				'priority'       => 60,
-				'title'          => __( 'Border Width', 'astra-builder', 'astra' ),
+				'title'          => __( 'Border Width', 'astra' ),
 				'choices'        => array(
-					'top'    => __( 'Top', 'astra-builder', 'astra' ),
-					'right'  => __( 'Right', 'astra-builder', 'astra' ),
-					'bottom' => __( 'Bottom', 'astra-builder', 'astra' ),
-					'left'   => __( 'Left', 'astra-builder', 'astra' ),
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
 				),
 				'required'       => array(
 					ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
@@ -261,7 +261,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-toggle-border-color' ),
 				'type'      => 'control',
 				'control'   => 'ast-color',
-				'title'     => __( 'Border Color', 'astra-builder', 'astra' ),
+				'title'     => __( 'Border Color', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 65,
@@ -287,7 +287,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'        => 'control',
 				'control'     => 'ast-slider',
 				'section'     => $_section,
-				'title'       => __( 'Border Radius', 'astra-builder', 'astra' ),
+				'title'       => __( 'Border Radius', 'astra' ),
 				'priority'    => 70,
 				'suffix'      => '',
 				'transport'   => 'postMessage',
@@ -315,7 +315,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-label-typography' ),
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
-				'title'     => __( 'Typography', 'astra-builder', 'astra' ),
+				'title'     => __( 'Typography', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 70,
@@ -342,7 +342,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'transport' => 'postMessage',
 				'control'   => 'ast-font',
 				'font_type' => 'ast-font-family',
-				'title'     => __( 'Family', 'astra-builder', 'astra' ),
+				'title'     => __( 'Family', 'astra' ),
 				'priority'  => 22,
 				'connect'   => 'mobile-header-label-font-weight',
 				'context'   => array(
@@ -364,7 +364,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'transport'         => 'postMessage',
 				'font_type'         => 'ast-font-weight',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-				'title'             => __( 'Weight', 'astra-builder', 'astra' ),
+				'title'             => __( 'Weight', 'astra' ),
 				'priority'          => 24,
 				'connect'           => 'mobile-header-label-font-family',
 				'context'           => array(
@@ -384,14 +384,14 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'      => 'sub-control',
 				'control'   => 'ast-select',
 				'transport' => 'postMessage',
-				'title'     => __( 'Text Transform', 'astra-builder', 'astra' ),
+				'title'     => __( 'Text Transform', 'astra' ),
 				'priority'  => 25,
 				'choices'   => array(
-					''           => __( 'Inherit', 'astra-builder', 'astra' ),
-					'none'       => __( 'None', 'astra-builder', 'astra' ),
-					'capitalize' => __( 'Capitalize', 'astra-builder', 'astra' ),
-					'uppercase'  => __( 'Uppercase', 'astra-builder', 'astra' ),
-					'lowercase'  => __( 'Lowercase', 'astra-builder', 'astra' ),
+					''           => __( 'Inherit', 'astra' ),
+					'none'       => __( 'None', 'astra' ),
+					'capitalize' => __( 'Capitalize', 'astra' ),
+					'uppercase'  => __( 'Uppercase', 'astra' ),
+					'lowercase'  => __( 'Lowercase', 'astra' ),
 				),
 				'context'   => array(
 					array(
@@ -409,7 +409,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'     => $_section,
 				'type'        => 'sub-control',
 				'priority'    => 23,
-				'title'       => __( 'Size', 'astra-builder', 'astra' ),
+				'title'       => __( 'Size', 'astra' ),
 				'control'     => 'ast-slider',
 				'transport'   => 'postMessage',
 				'input_attrs' => array(
@@ -434,7 +434,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'           => $_section,
 				'type'              => 'sub-control',
 				'priority'          => 26,
-				'title'             => __( 'Line Height', 'astra-builder', 'astra' ),
+				'title'             => __( 'Line Height', 'astra' ),
 				'transport'         => 'postMessage',
 				'default'           => '',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -452,9 +452,54 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					),
 				),
 			),
-		);
 
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_margin_tab( $_section ) );
+			/**
+			 * Option: Margin heading
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Margin', 'astra' ),
+				'priority' => 200,
+				'settings' => array(),
+				'context'  => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
+					),
+				),
+			),
+
+			/**
+			 * Option: Margin Space
+			 */
+			array(
+				'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+				'default'        => '',
+				'type'           => 'control',
+				'transport'      => 'postMessage',
+				'control'        => 'ast-responsive-spacing',
+				'section'        => $_section,
+				'priority'       => 220,
+				'title'          => __( 'Margin', 'astra' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
+				),
+				'context'        => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
+					),
+				),
+			),
+		);
 
 		return array_merge( $configurations, $_configs );
 	}

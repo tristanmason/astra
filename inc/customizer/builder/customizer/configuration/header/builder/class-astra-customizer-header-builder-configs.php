@@ -33,45 +33,30 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 * @since x.x.x
 	 */
 	public static $header_desktop_items = array(
-		'logo'     => array(
+		'logo'   => array(
 			'name'    => 'Logo',
 			'icon'    => 'admin-appearance',
 			'section' => 'title_tagline',
 		),
-		'menu-1'   => array(
+		'menu-1' => array(
 			'name'    => 'Primary Menu',
 			'icon'    => 'menu',
 			'section' => 'section-hb-menu-1',
 		),
-		'menu-2'   => array(
+		'menu-2' => array(
 			'name'    => 'Secondary Menu',
 			'icon'    => 'menu',
 			'section' => 'section-hb-menu-2',
 		),
-		'search'   => array(
+		'search' => array(
 			'name'    => 'Search',
 			'icon'    => 'search',
 			'section' => 'section-header-search',
 		),
-		'button-1' => array(
-			'name'    => 'Button 1',
-			'icon'    => 'admin-links',
-			'section' => 'section-hb-button-1',
-		),
-		'social'   => array(
+		'social' => array(
 			'name'    => 'Social',
 			'icon'    => 'share',
 			'section' => 'section-header-social-icons',
-		),
-		'html-1'   => array(
-			'name'    => 'HTML 1',
-			'icon'    => 'text',
-			'section' => 'section-hb-html-1',
-		),
-		'html-2'   => array(
-			'name'    => 'HTML 2',
-			'icon'    => 'text',
-			'section' => 'section-hb-html-2',
 		),
 	);
 
@@ -102,25 +87,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			'icon'    => 'search',
 			'section' => 'section-header-search',
 		),
-		'button-1'       => array(
-			'name'    => 'Button 1',
-			'icon'    => 'admin-links',
-			'section' => 'section-hb-button-1',
-		),
 		'social'         => array(
 			'name'    => 'Social',
 			'icon'    => 'share',
 			'section' => 'section-header-social-icons',
-		),
-		'html-1'         => array(
-			'name'    => 'HTML 1',
-			'icon'    => 'text',
-			'section' => 'section-hb-html-1',
-		),
-		'html-2'         => array(
-			'name'    => 'HTML 2',
-			'icon'    => 'text',
-			'section' => 'section-hb-html-2',
 		),
 		'mobile-trigger' => array(
 			'name'    => 'Toggle Menu Button',
@@ -141,86 +111,42 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		$astra_addon_status = defined( 'ASTRA_EXT_VER' );
+		
+		for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
-		$pro_header_desktop_items = array(
-			'button-2' => array(
-				'name'    => 'Button 2',
+			$item = array(
+				'name'    => 'Button ' . $index,
 				'icon'    => 'admin-links',
-				'section' => 'section-hb-button-2',
-			),
-			'html-3'   => array(
-				'name'    => 'HTML 3',
-				'icon'    => 'text',
-				'section' => 'section-hb-html-3',
-			),
-			'html-4'   => array(
-				'name'    => 'HTML 4',
-				'icon'    => 'text',
-				'section' => 'section-hb-html-4',
-			),
-			'widget-1' => array(
-				'name'    => 'Widget 1',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-1',
-			),
-			'widget-2' => array(
-				'name'    => 'Widget 2',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-2',
-			),
-			'widget-3' => array(
-				'name'    => 'Widget 3',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-3',
-			),
-			'widget-4' => array(
-				'name'    => 'Widget 4',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-4',
-			),
-		);
+				'section' => 'section-hb-button-' . $index,
+			);
 
-		$pro_header_mobile_items = array(
-			'button-2' => array(
-				'name'    => 'Button 2',
-				'icon'    => 'admin-links',
-				'section' => 'section-hb-button-2',
-			),
-			'html-3'   => array(
-				'name'    => 'HTML 3',
-				'icon'    => 'text',
-				'section' => 'section-hb-html-3',
-			),
-			'html-4'   => array(
-				'name'    => 'HTML 4',
-				'icon'    => 'text',
-				'section' => 'section-hb-html-4',
-			),
-			'widget-1' => array(
-				'name'    => 'Widget 1',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-1',
-			),
-			'widget-2' => array(
-				'name'    => 'Widget 2',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-2',
-			),
-			'widget-3' => array(
-				'name'    => 'Widget 3',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-3',
-			),
-			'widget-4' => array(
-				'name'    => 'Widget 4',
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-4',
-			),
-		);
+			self::$header_desktop_items[ 'button-' . $index ] = $item;
+			self::$header_mobile_items[ 'button-' . $index ]  = $item;
+		}
 
-		self::$header_desktop_items = array_merge( self::$header_desktop_items, $pro_header_desktop_items );
+		for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
 
-		self::$header_mobile_items = array_merge( self::$header_mobile_items, $pro_header_mobile_items );
+			$item = array(
+				'name'    => 'HTML ' . $index,
+				'icon'    => 'text',
+				'section' => 'section-hb-html-' . $index,
+			);
+
+			self::$header_desktop_items[ 'html-' . $index ] = $item;
+			self::$header_mobile_items[ 'html-' . $index ]  = $item;
+		}
+
+		for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
+			
+			$item = array(
+				'name'    => 'Widget ' . $index,
+				'icon'    => 'wordpress',
+				'section' => 'sidebar-widgets-header-widget-' . $index,
+			);
+
+			self::$header_desktop_items[ 'widget-' . $index ] = $item;
+			self::$header_mobile_items[ 'widget-' . $index ]  = $item;
+		}
 
 		$_configs = array(
 
@@ -231,7 +157,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-header-builder',
 				'type'     => 'section',
 				'priority' => 5,
-				'title'    => __( 'Header Builder', 'astra-builder', 'astra' ),
+				'title'    => __( 'Header Builder', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -242,7 +168,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-header-builder-layout',
 				'type'     => 'section',
 				'priority' => 0,
-				'title'    => __( 'Header Layout', 'astra-builder', 'astra' ),
+				'title'    => __( 'Header Layout', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -278,7 +204,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'         => 'section-header-builder',
 				'type'            => 'control',
 				'control'         => 'ast-builder',
-				'title'           => __( 'Header Builder', 'astra-builder', 'astra' ),
+				'title'           => __( 'Header Builder', 'astra' ),
 				'priority'        => 25,
 				'default'         => astra_get_option( 'header-desktop-items' ),
 				'choices'         => self::$header_desktop_items,
@@ -362,7 +288,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'         => 'section-header-builder',
 				'type'            => 'control',
 				'control'         => 'ast-builder',
-				'title'           => __( 'Header Builder', 'astra-builder', 'astra' ),
+				'title'           => __( 'Header Builder', 'astra' ),
 				'priority'        => 35,
 				'default'         => astra_get_option( 'header-mobile-items' ),
 				'choices'         => self::$header_mobile_items,
@@ -451,7 +377,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => 'section-header-builder-layout',
-				'title'    => __( 'Header Types', 'astra-builder', 'astra' ),
+				'title'    => __( 'Header Types', 'astra' ),
 				'priority' => 44,
 				'settings' => array(),
 				'context'  => array(
@@ -472,7 +398,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-header-type-button',
 				'input_attrs' => array(
 					'section' => 'section-transparent-header',
-					'label'   => esc_html__( 'Transparent Header', 'astra-builder', 'astra' ),
+					'label'   => esc_html__( 'Transparent Header', 'astra' ),
 				),
 				'priority'    => 45,
 				'context'     => array(
@@ -492,10 +418,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'   => 'select',
 				'section'   => 'section-header-builder-layout',
 				'priority'  => 4,
-				'title'     => __( 'Width', 'astra-builder', 'astra' ),
+				'title'     => __( 'Width', 'astra' ),
 				'choices'   => array(
-					'full'    => __( 'Full Width', 'astra-builder', 'astra' ),
-					'content' => __( 'Content Width', 'astra-builder', 'astra' ),
+					'full'    => __( 'Full Width', 'astra' ),
+					'content' => __( 'Content Width', 'astra' ),
 				),
 				'context'   => array(
 					array(
@@ -524,7 +450,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-header-type-button',
 				'input_attrs' => array(
 					'section' => 'section-sticky-header',
-					'label'   => esc_html__( 'Sticky Header', 'astra-builder', 'astra' ),
+					'label'   => esc_html__( 'Sticky Header', 'astra' ),
 				),
 				'priority'    => 45,
 				'context'     => array(

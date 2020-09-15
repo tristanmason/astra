@@ -32,7 +32,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$html_config = array();
-			for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_button; $index++ ) {
+			for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
 				$_section = 'section-hb-button-' . $index;
 				$_prefix  = 'button' . $index;
@@ -51,7 +51,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'     => 'section',
 						'priority' => 50,
 						/* translators: %s Index */
-						'title'    => sprintf( __( 'Button %s', 'astra-builder', 'astra' ), $index ),
+						'title'    => sprintf( __( 'Button %s', 'astra' ), $index ),
 						'panel'    => 'panel-header-builder-group',
 					),
 
@@ -78,7 +78,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'text',
 						'section'   => $_section,
 						'priority'  => 20,
-						'title'     => __( 'Text', 'astra-builder', 'astra' ),
+						'title'     => __( 'Text', 'astra' ),
 						'transport' => 'postMessage',
 						'partial'   => array(
 							'selector'            => '.ast-header-button-' . $index,
@@ -103,7 +103,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'ast-link',
 						'section'   => $_section,
 						'priority'  => 30,
-						'title'     => __( 'Link', 'astra-builder', 'astra' ),
+						'title'     => __( 'Link', 'astra' ),
 						'transport' => 'postMessage',
 						'partial'   => array(
 							'selector'            => '.ast-header-button-' . $index,
@@ -126,7 +126,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'   => astra_get_option( 'header-' . $_prefix . '-color-group' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Colors', 'astra-builder', 'astra' ),
+						'title'     => __( 'Colors', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 70,
@@ -148,7 +148,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'       => 'sub-control',
 						'parent'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-color-group]',
 						'section'    => $_section,
-						'tab'        => __( 'Normal', 'astra-builder', 'astra' ),
+						'tab'        => __( 'Normal', 'astra' ),
 						'control'    => 'ast-responsive-color',
 						'responsive' => true,
 						'rgba'       => true,
@@ -159,7 +159,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'design',
 							),
 						),
-						'title'      => __( 'Text Color', 'astra-builder', 'astra' ),
+						'title'      => __( 'Text Color', 'astra' ),
 					),
 
 					/**
@@ -172,7 +172,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'       => 'sub-control',
 						'parent'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-color-group]',
 						'section'    => $_section,
-						'tab'        => __( 'Hover', 'astra-builder', 'astra' ),
+						'tab'        => __( 'Hover', 'astra' ),
 						'control'    => 'ast-responsive-color',
 						'responsive' => true,
 						'rgba'       => true,
@@ -183,7 +183,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'design',
 							),
 						),
-						'title'      => __( 'Text Color', 'astra-builder', 'astra' ),
+						'title'      => __( 'Text Color', 'astra' ),
 					),
 
 					/**
@@ -196,7 +196,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'       => 'sub-control',
 						'parent'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-color-group]',
 						'section'    => $_section,
-						'tab'        => __( 'Normal', 'astra-builder', 'astra' ),
+						'tab'        => __( 'Normal', 'astra' ),
 						'control'    => 'ast-responsive-color',
 						'responsive' => true,
 						'rgba'       => true,
@@ -207,7 +207,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'design',
 							),
 						),
-						'title'      => __( 'Background Color', 'astra-builder', 'astra' ),
+						'title'      => __( 'Background Color', 'astra' ),
 					),
 
 					/**
@@ -220,7 +220,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'       => 'sub-control',
 						'parent'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-color-group]',
 						'section'    => $_section,
-						'tab'        => __( 'Hover', 'astra-builder', 'astra' ),
+						'tab'        => __( 'Hover', 'astra' ),
 						'control'    => 'ast-responsive-color',
 						'responsive' => true,
 						'rgba'       => true,
@@ -231,7 +231,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'design',
 							),
 						),
-						'title'      => __( 'Background Color', 'astra-builder', 'astra' ),
+						'title'      => __( 'Background Color', 'astra' ),
 					),
 
 					/**
@@ -242,7 +242,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'   => astra_get_option( 'header-' . $_prefix . '-border-group' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Border', 'astra-builder', 'astra' ),
+						'title'     => __( 'Border', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 80,
@@ -267,7 +267,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport'      => 'postMessage',
 						'linked_choices' => true,
 						'priority'       => 10,
-						'title'          => __( 'Width', 'astra-builder', 'astra' ),
+						'title'          => __( 'Width', 'astra' ),
 						'context'        => array(
 							array(
 								'setting' => 'ast_selected_tab',
@@ -275,10 +275,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 						'choices'        => array(
-							'top'    => __( 'Top', 'astra-builder', 'astra' ),
-							'right'  => __( 'Right', 'astra-builder', 'astra' ),
-							'bottom' => __( 'Bottom', 'astra-builder', 'astra' ),
-							'left'   => __( 'Left', 'astra-builder', 'astra' ),
+							'top'    => __( 'Top', 'astra' ),
+							'right'  => __( 'Right', 'astra' ),
+							'bottom' => __( 'Bottom', 'astra' ),
+							'left'   => __( 'Left', 'astra' ),
 						),
 					),
 
@@ -302,7 +302,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'general',
 							),
 						),
-						'title'      => __( 'Color', 'astra-builder', 'astra' ),
+						'title'      => __( 'Color', 'astra' ),
 					),
 
 					/**
@@ -325,7 +325,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'general',
 							),
 						),
-						'title'      => __( 'Hover Color', 'astra-builder', 'astra' ),
+						'title'      => __( 'Hover Color', 'astra' ),
 					),
 
 					/**
@@ -346,7 +346,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'   => 'general',
 							),
 						),
-						'title'       => __( 'Border Radius', 'astra-builder', 'astra' ),
+						'title'       => __( 'Border Radius', 'astra' ),
 						'input_attrs' => array(
 							'min'  => 0,
 							'step' => 1,
@@ -362,7 +362,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'   => astra_get_option( 'header-' . $_prefix . '-text-typography' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Typography', 'astra-builder', 'astra' ),
+						'title'     => __( 'Typography', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'context'   => array(
@@ -385,7 +385,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'control'   => 'ast-font',
 						'font_type' => 'ast-font-family',
-						'title'     => __( 'Family', 'astra-builder', 'astra' ),
+						'title'     => __( 'Family', 'astra' ),
 						'context'   => array(
 							array(
 								'setting' => 'ast_selected_tab',
@@ -404,7 +404,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'     => astra_get_option( 'header-' . $_prefix . '-font-size' ),
 						'parent'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
 						'transport'   => 'postMessage',
-						'title'       => __( 'Size', 'astra-builder', 'astra' ),
+						'title'       => __( 'Size', 'astra' ),
 						'type'        => 'sub-control',
 						'section'     => $_section,
 						'control'     => 'ast-responsive',
@@ -434,7 +434,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'           => $_section,
 						'control'           => 'ast-font',
 						'font_type'         => 'ast-font-weight',
-						'title'             => __( 'Weight', 'astra-builder', 'astra' ),
+						'title'             => __( 'Weight', 'astra' ),
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 						'connect'           => 'header-' . $_prefix . '-font-family',
 						'priority'          => 2,
@@ -454,7 +454,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'   => astra_get_option( 'header-' . $_prefix . '-text-transform' ),
 						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
 						'transport' => 'postMessage',
-						'title'     => __( 'Text Transform', 'astra-builder', 'astra' ),
+						'title'     => __( 'Text Transform', 'astra' ),
 						'type'      => 'sub-control',
 						'section'   => $_section,
 						'control'   => 'ast-select',
@@ -466,11 +466,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 						'choices'   => array(
-							''           => __( 'Inherit', 'astra-builder', 'astra' ),
-							'none'       => __( 'None', 'astra-builder', 'astra' ),
-							'capitalize' => __( 'Capitalize', 'astra-builder', 'astra' ),
-							'uppercase'  => __( 'Uppercase', 'astra-builder', 'astra' ),
-							'lowercase'  => __( 'Lowercase', 'astra-builder', 'astra' ),
+							''           => __( 'Inherit', 'astra' ),
+							'none'       => __( 'None', 'astra' ),
+							'capitalize' => __( 'Capitalize', 'astra' ),
+							'uppercase'  => __( 'Uppercase', 'astra' ),
+							'lowercase'  => __( 'Lowercase', 'astra' ),
 						),
 					),
 
@@ -486,7 +486,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'              => 'sub-control',
 						'section'           => $_section,
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-						'title'             => __( 'Line Height', 'astra-builder', 'astra' ),
+						'title'             => __( 'Line Height', 'astra' ),
 						'suffix'            => '',
 						'context'           => array(
 							array(
@@ -514,7 +514,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'              => 'sub-control',
 						'default'           => '',
 						'section'           => $_section,
-						'title'             => __( 'Letter Spacing', 'astra-builder', 'astra' ),
+						'title'             => __( 'Letter Spacing', 'astra' ),
 						'suffix'            => '',
 						'priority'          => 5,
 						'context'           => array(

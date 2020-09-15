@@ -33,7 +33,7 @@ class Astra_Html_Component_Dynamic_CSS {
 	 */
 	public static function astra_html_dynamic_css( $builder_type = 'header', $dynamic_css, $dynamic_css_filtered = '' ) {
 
-		$number_of_html = ( 'header' === $builder_type ) ? Astra_Builder_Loader::$num_of_header_html : Astra_Builder_Loader::$num_of_footer_html;
+		$number_of_html = ( 'header' === $builder_type ) ? Astra_Constants::$num_of_header_html : Astra_Constants::$num_of_footer_html;
 
 		for ( $index = 1; $index <= $number_of_html; $index++ ) {
 
@@ -43,6 +43,8 @@ class Astra_Html_Component_Dynamic_CSS {
 
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-html-' . $index : 'section-fb-html-' . $index;
 
+			$margin = astra_get_option( $_section . '-margin' );
+
 			$selector = ( 'header' === $builder_type ) ? '.site-header-section .ast-builder-layout-element.ast-header-html-' . $index : '.footer-widget-area[data-section="section-fb-html-' . $index . '"]';
 
 			$css_output = array(
@@ -51,14 +53,46 @@ class Astra_Html_Component_Dynamic_CSS {
 					'color' => esc_attr( astra_get_option( $builder_type . '-html-' . $index . 'color' ) ),
 				),
 
+				// Margin CSS.
+				$selector                                => array(
+					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+				),
 			);
-
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
-			$dynamic_css .= $css_output;
+			// Tablet CSS.
+			$css_output_tablet = array(
 
-			$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
+				$selector => array(
+
+					// Margin CSS.
+					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+				),
+			);
+			$css_output       .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+
+			// Mobile CSS.
+			$css_output_mobile = array(
+
+				$selector => array(
+
+					// Margin CSS.
+					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+				),
+			);
+			$css_output       .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+
+			$dynamic_css .= $css_output;
 
 			$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 		}

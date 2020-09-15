@@ -43,7 +43,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => $_section,
 					'type'     => 'section',
-					'title'    => __( 'Below Footer', 'astra-builder', 'astra' ),
+					'title'    => __( 'Below Footer', 'astra' ),
 					'panel'    => 'panel-footer-builder-group',
 					'priority' => 30,
 				),
@@ -86,13 +86,13 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'select',
 					'section'   => $_section,
 					'priority'  => 2,
-					'title'     => __( 'Column', 'astra-builder', 'astra' ),
+					'title'     => __( 'Column', 'astra' ),
 					'choices'   => array(
-						'1' => __( '1', 'astra-builder', 'astra' ),
-						'2' => __( '2', 'astra-builder', 'astra' ),
-						'3' => __( '3', 'astra-builder', 'astra' ),
-						'4' => __( '4', 'astra-builder', 'astra' ),
-						'5' => __( '5', 'astra-builder', 'astra' ),
+						'1' => __( '1', 'astra' ),
+						'2' => __( '2', 'astra' ),
+						'3' => __( '3', 'astra' ),
+						'4' => __( '4', 'astra' ),
+						'5' => __( '5', 'astra' ),
 					),
 					'context'   => array(
 						array(
@@ -116,7 +116,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'     => $_section,
 					'default'     => astra_get_option( 'hbb-footer-layout' ),
 					'priority'    => 3,
-					'title'       => __( 'Layout', 'astra-builder', 'astra' ),
+					'title'       => __( 'Layout', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-row-layout',
 					'context'     => array(
@@ -142,10 +142,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'select',
 					'section'   => $_section,
 					'priority'  => 25,
-					'title'     => __( 'Width', 'astra-builder', 'astra' ),
+					'title'     => __( 'Width', 'astra' ),
 					'choices'   => array(
-						'full'    => __( 'Full Width', 'astra-builder', 'astra' ),
-						'content' => __( 'Content Width', 'astra-builder', 'astra' ),
+						'full'    => __( 'Full Width', 'astra' ),
+						'content' => __( 'Content Width', 'astra' ),
 					),
 					'suffix'    => '',
 					'context'   => array(
@@ -164,7 +164,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hbb-footer-height' ),
 					'priority'    => 30,
-					'title'       => __( 'Height', 'astra-builder', 'astra' ),
+					'title'       => __( 'Height', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'suffix'      => '',
@@ -191,11 +191,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'select',
 					'section'   => $_section,
 					'priority'  => 34,
-					'title'     => __( 'Vertical Alignment', 'astra-builder', 'astra' ),
+					'title'     => __( 'Vertical Alignment', 'astra' ),
 					'choices'   => array(
-						'flex-start' => __( 'Top', 'astra-builder', 'astra' ),
-						'center'     => __( 'Middle', 'astra-builder', 'astra' ),
-						'flex-end'   => __( 'Bottom', 'astra-builder', 'astra' ),
+						'flex-start' => __( 'Top', 'astra' ),
+						'center'     => __( 'Middle', 'astra' ),
+						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
 					'context'   => array(
 						array(
@@ -213,7 +213,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 60,
-					'title'    => __( 'Background Color', 'astra-builder', 'astra' ),
+					'title'    => __( 'Background Color', 'astra' ),
 					'settings' => array(),
 					'context'  => array(
 						array(
@@ -228,7 +228,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-background-styling]',
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra-builder', 'astra' ),
+					'title'     => __( 'Background', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
@@ -249,7 +249,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-responsive-background',
 					'transport' => 'postMessage',
 					'default'   => $defaults['hbb-footer-bg-obj-responsive'],
-					'label'     => __( 'Background', 'astra-builder', 'astra' ),
+					'label'     => __( 'Background', 'astra' ),
 					'priority'  => 5,
 					'context'   => array(
 						array(
