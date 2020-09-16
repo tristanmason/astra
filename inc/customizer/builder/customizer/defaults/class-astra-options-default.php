@@ -266,11 +266,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile-unit'  => 'px',
 	);
 
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_button; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
 		$_prefix = 'button' . $index;
 
-		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra-builder' );
+		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );
 		$defaults[ 'header-' . $_prefix . '-link-option' ]    = array(
 			'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 			'new_tab'  => false,
@@ -337,11 +337,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = 2;
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
 
 		$_section = 'section-hb-html-' . $index;
 
-		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra-builder' );
+		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		/**
 		 * HTML Components - Typography.
@@ -360,7 +360,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults[ 'text-transform-' . $_section ] = '';
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_menu; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_menu; $index++ ) {
 		$_prefix = 'menu' . $index;
 
 		// Specify all the default values for Menu from here.
@@ -608,36 +608,37 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults['transparent-header-main-sep']       = '';
 		$defaults['transparent-header-main-sep-color'] = '';
 
-		/**
-		 * Footer Builder - Desktop Defaults.
-		 */
-		$defaults['footer-desktop-items'] = array(
-			'above'   =>
-				array(
-					'above_1' => array(),
-					'above_2' => array(),
-					'above_3' => array(),
-					'above_4' => array(),
-					'above_5' => array(),
-				),
-			'primary' =>
-				array(
-					'primary_1' => array(),
-					'primary_2' => array(),
-					'primary_3' => array(),
-					'primary_4' => array(),
-					'primary_5' => array(),
-				),
-			'below'   =>
-				array(
-					'below_1' => array( 'copyright' ),
-					'below_2' => array(),
-					'below_3' => array(),
-					'below_4' => array(),
-					'below_5' => array(),
-				),
-		);
 	}
+
+	/**
+	 * Footer Builder - Desktop Defaults.
+	 */
+	$defaults['footer-desktop-items'] = array(
+		'above'   =>
+			array(
+				'above_1' => array(),
+				'above_2' => array(),
+				'above_3' => array(),
+				'above_4' => array(),
+				'above_5' => array(),
+			),
+		'primary' =>
+			array(
+				'primary_1' => array(),
+				'primary_2' => array(),
+				'primary_3' => array(),
+				'primary_4' => array(),
+				'primary_5' => array(),
+			),
+		'below'   =>
+			array(
+				'below_1' => array( 'copyright' ),
+				'below_2' => array(),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
+			),
+	);
 
 	/**
 	 * Above Footer Defaults.
@@ -750,6 +751,33 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hba-footer-vertical-alignment'] = 'center';
 	$defaults['hb-footer-vertical-alignment']  = 'center';
 	$defaults['hbb-footer-vertical-alignment'] = 'center';
+
+	$defaults['footer-bg-obj-responsive'] = array(
+		'desktop' => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+		'tablet'  => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+		'mobile'  => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+	);
 
 	/**
 	 * Primary Footer Defaults.
@@ -1011,7 +1039,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['footer-menu-text-transform'] = '';
 	$defaults['footer-menu-line-height']    = '';
 
-	$defaults['footer-menu-menu-spacing'] = array(
+	$defaults['footer-menu-spacing'] = array(
 		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
@@ -1051,7 +1079,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-toggle-border-color']    = '#eeeeee';
 
 	// HTML Header defaults.
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
 
 		$defaults[ 'font-size-section-hb-html-' . $index ] = array(
 			'desktop'      => '',
@@ -1064,9 +1092,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 
 	// HTML Footer defaults.
-	for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_footer_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
 
-		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra-builder' );
+		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		$defaults[ 'font-size-section-fb-html-' . $index ] = array(
 			'desktop'      => '',

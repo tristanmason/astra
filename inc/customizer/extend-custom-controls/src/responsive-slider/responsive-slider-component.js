@@ -43,16 +43,33 @@ class ResponsiveSliderComponent extends Component {
 		} = this.props.control.params
 
 		let suffixHtml = null;
+		let inp_array = [];
 
 		if ( suffix ) { 
 			suffixHtml = <span className="ast-range-unit">{ suffix }</span>
 		}
 
+		if ( undefined !== inputAttrs ) {
+
+			let splited_values = inputAttrs.split( " " );
+
+			splited_values.map( (item, i ) => {
+
+				let item_values = item.split( "=" )
+
+				if ( undefined !== item_values[1] ) {
+
+					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+				
+			});
+		}
+
 		return (
 			<div className={ `input-field-wrapper ${ device } ${ active }` }>
-				<input type="range" value={ this.state.value[ device ] } data-reset_value={ this.props.control.params.default[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+				<input type="range" { ...inp_array } value={ this.state.value[ device ] } data-reset_value={ this.props.control.params.default[ device ] } onChange={ () => { this.onInputChange( device ) } } />
 				<div className="astra_range_value">
-					<input type="number" data-id={ device } className="ast-responsive-range-value-input" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+					<input type="number" { ...inp_array } data-id={ device } className="ast-responsive-range-value-input" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
 					{ suffixHtml }
 				</div>
 			</div>
@@ -71,6 +88,7 @@ class ResponsiveSliderComponent extends Component {
 		let descriptionHtml = null;
 		let inputHtml = null;
 		let resetHtml = null;
+		
 
 		if ( label ) {
 
@@ -131,6 +149,41 @@ class ResponsiveSliderComponent extends Component {
 	}
 
 	updateValues( updateState ) {
+
+		let inputAttrs = this.props.control.params.inputAttrs;
+
+		if ( inputAttrs && undefined !== inputAttrs && '' !== inputAttrs ) {
+
+			let splited_values = inputAttrs.split( " " );
+
+			let input_attrs = [];
+			
+			splited_values.map( (item, i ) => {
+
+				let item_values = item.split( "=" )
+
+				if ( undefined !== item_values[1] ) {
+
+					input_attrs[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+				
+			});
+
+			for ( let device in updateState ) {
+				
+				if( undefined !== input_attrs['max'] && '' !== input_attrs['max'] && updateState[ device ] > input_attrs['max'] ) {
+
+					updateState[ device ] = input_attrs['max']
+				}
+	
+				if( undefined !== input_attrs['min'] && '' !== input_attrs['min'] && updateState[ device ] < input_attrs['min'] ) {
+					
+					updateState[ device ] = input_attrs['min']
+				} 
+			}
+			
+		}
+
 		this.setState( { value : updateState } )
 		this.props.control.setting.set( updateState );
 	}

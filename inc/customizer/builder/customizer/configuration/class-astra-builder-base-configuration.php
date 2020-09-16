@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => $section_id,
-					'title'    => __( 'Margin & Padding', 'astra-builder' ),
+					'title'    => __( 'Margin & Padding', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
 					'context'  => array(
@@ -79,14 +79,14 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'control'        => 'ast-responsive-spacing',
 					'section'        => $section_id,
 					'priority'       => 210,
-					'title'          => __( 'Padding', 'astra-builder' ),
+					'title'          => __( 'Padding', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
 					'choices'        => array(
-						'top'    => __( 'Top', 'astra-builder' ),
-						'right'  => __( 'Right', 'astra-builder' ),
-						'bottom' => __( 'Bottom', 'astra-builder' ),
-						'left'   => __( 'Left', 'astra-builder' ),
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'        => array(
 						array(
@@ -107,74 +107,14 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'control'        => 'ast-responsive-spacing',
 					'section'        => $section_id,
 					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra-builder' ),
+					'title'          => __( 'Margin', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
 					'choices'        => array(
-						'top'    => __( 'Top', 'astra-builder' ),
-						'right'  => __( 'Right', 'astra-builder' ),
-						'bottom' => __( 'Bottom', 'astra-builder' ),
-						'left'   => __( 'Left', 'astra-builder' ),
-					),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-			);
-		}
-
-		/**
-		 * Prepare Advanced > Margin configuration.
-		 *
-		 * @param string $section_id section id.
-		 * @return array
-		 * @since x.x.x
-		 */
-		public static function prepare_margin_tab( $section_id ) {
-
-			return array(
-
-				/**
-				 * Option: Blog Color Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-heading]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $section_id,
-					'title'    => __( 'Margin', 'astra-builder' ),
-					'priority' => 200,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
-				),
-
-				/**
-				 * Option: Padded Layout Custom Width
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $section_id,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra-builder' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra-builder' ),
-						'right'  => __( 'Right', 'astra-builder' ),
-						'bottom' => __( 'Bottom', 'astra-builder' ),
-						'left'   => __( 'Left', 'astra-builder' ),
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'        => array(
 						array(
@@ -203,7 +143,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'default'   => astra_get_option( $section_id . '-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Typography', 'astra-builder' ),
+					'title'     => __( 'Typography', 'astra' ),
 					'section'   => $section_id,
 					'transport' => 'postMessage',
 					'required'  => $required_condition,
@@ -227,7 +167,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'default'     => astra_get_option( 'font-size-' . $section_id ),
 					'transport'   => 'postMessage',
 					'priority'    => 15,
-					'title'       => __( 'Size', 'astra-builder' ),
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -248,7 +188,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'font_type' => 'ast-font-weight',
 					'type'      => 'sub-control',
 					'default'   => astra_get_option( 'font-weight-' . $section_id ),
-					'title'     => __( 'Weight', 'astra-builder' ),
+					'title'     => __( 'Weight', 'astra' ),
 					'priority'  => 14,
 					'connect'   => 'font-family-' . $section_id,
 				),
@@ -264,7 +204,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-' . $section_id ),
-					'title'     => __( 'Family', 'astra-builder' ),
+					'title'     => __( 'Family', 'astra' ),
 					'priority'  => 13,
 					'connect'   => 'font-weight-' . $section_id,
 				),
@@ -279,7 +219,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'section'           => $section_id,
 					'default'           => astra_get_option( 'line-height-' . $section_id ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-builder' ),
+					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
 					'control'           => 'ast-slider',
 					'priority'          => 16,
@@ -299,17 +239,17 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'type'      => 'sub-control',
 					'parent'    => $parent,
 					'section'   => $section_id,
-					'title'     => __( 'Text Transform', 'astra-builder' ),
+					'title'     => __( 'Text Transform', 'astra' ),
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'text-transform-' . $section_id ),
 					'control'   => 'ast-select',
 					'priority'  => 17,
 					'choices'   => array(
-						''           => __( 'Inherit', 'astra-builder' ),
-						'none'       => __( 'None', 'astra-builder' ),
-						'capitalize' => __( 'Capitalize', 'astra-builder' ),
-						'uppercase'  => __( 'Uppercase', 'astra-builder' ),
-						'lowercase'  => __( 'Lowercase', 'astra-builder' ),
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
 				),
 

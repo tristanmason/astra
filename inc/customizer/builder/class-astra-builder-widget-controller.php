@@ -72,15 +72,15 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 			}
 
 			// Register Footer Widgets.
-			for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_footer_widgets; $index++ ) {
+			for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
 				$this->ast_register_sidebar( 'footer', $index );
 			}
 
 			// Register Header Widgets.
-			$header_widgets_count = Astra_Builder_Loader::$num_of_header_widgets;
+			$header_widgets_count = Astra_Constants::$num_of_header_widgets;
 
 			if ( $header_widgets_count ) {
-				for ( $index = 1; $index <= Astra_Builder_Loader::$num_of_header_widgets; $index++ ) {
+				for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
 					$this->ast_register_sidebar( 'header', $index );
 				}
 			}
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 					array(
 						'name'          => ucfirst( $builder_type ) . ' Builder Widget ' . $index,
 						'id'            => $builder_type . '-widget-' . $index,
-						'description'   => esc_html__( 'Add widgets here:', 'astra-builder' ),
+						'description'   => esc_html__( 'Add widgets here:', 'astra' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
 						'after_widget'  => '</section>',
 						'before_title'  => '<h2 class="widget-title">',
@@ -109,8 +109,6 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 				)
 			);
 		}
-
-
 	}
 
 	/**
@@ -119,7 +117,3 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 	 */
 	Astra_Builder_Widget_Controller::get_instance();
 }
-
-
-
-

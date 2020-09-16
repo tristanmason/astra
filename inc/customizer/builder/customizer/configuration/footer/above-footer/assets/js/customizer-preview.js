@@ -21,6 +21,14 @@
 		'px'
 	);
 
+	// Footer Vertical Alignment.
+    astra_css(
+        'astra-settings[hba-footer-vertical-alignment]',
+        'align-items',
+        selector + ' .ast-builder-grid-row'
+    );
+
+
 	// Footer Line Height.
 	astra_css(
 		'astra-settings[hba-footer-height]',
@@ -50,6 +58,31 @@
 	dynamicStyle += '} ';
 
 	astra_add_dynamic_css( 'hba-footer-bottom-border-color', dynamicStyle );
+
+	// Primary Header - Layout.
+	wp.customize( 'astra-settings[hba-footer-layout-width]', function( setting ) {
+		setting.bind( function( layout ) {
+
+			var dynamicStyle = '';
+
+			if ( 'content' == layout ) {
+				dynamicStyle = selector + ' .ast-site-footer .site-container {';
+				dynamicStyle += 'max-width: ' + AstraBuilderPrimaryFooterData.footer_content_width + 'px;';
+				dynamicStyle += 'margin-left: auto;';
+				dynamicStyle += 'margin-right: auto;';
+				dynamicStyle += '} ';
+			}
+
+			if ( 'full' == layout ) {
+				dynamicStyle = selector + ' .ast-site-footer .site-container {';
+					dynamicStyle += 'max-width: 100%';
+				dynamicStyle += '} ';
+			}
+
+			astra_add_dynamic_css( 'hba-footer-layout-width', dynamicStyle );
+
+		} );
+	} );
 
 	// Responsive BG styles > Above Footer Row.
 	astra_apply_responsive_background_css( 'astra-settings[hba-footer-bg-obj-responsive]', selector, 'desktop' );

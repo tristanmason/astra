@@ -70,6 +70,8 @@ class Astra_Social_Component_Dynamic_CSS {
 		$social_icons_h_bg_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-social-icons-bg-h-color' ), 'tablet' );
 		$social_icons_h_bg_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-social-icons-bg-h-color' ), 'mobile' );
 
+		$margin = astra_get_option( $_section . '-margin' );
+
 		/**
 		 * Social Icon CSS.
 		 */
@@ -110,6 +112,13 @@ class Astra_Social_Component_Dynamic_CSS {
 				// Icon Background Space.
 				'margin' => astra_get_css_value( $icon_bg_spacing, 'px' ),
 			),
+			$selector                                  => array(
+				// Margin CSS.
+				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+			),
 		);
 
 		/**
@@ -133,6 +142,13 @@ class Astra_Social_Component_Dynamic_CSS {
 			$selector . ' .ast-builder-social-element:hover svg' => array(
 
 				'fill' => $social_icons_h_color_tablet,
+			),
+			$selector                                  => array(
+				// Margin CSS.
+				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 			),
 		);
 
@@ -158,15 +174,19 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				'fill' => $social_icons_h_color_mobile,
 			),
+			$selector                                  => array(
+				// Margin CSS.
+				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+			),
 		);
 
 		/* Parse CSS from array() */
 		$css_output  = astra_parse_css( $css_output_desktop );
 		$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 		$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
-
-		// Advanced CSS Generation.
-		$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_css( $_section, $selector );
 
 		$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 

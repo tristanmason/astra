@@ -49,7 +49,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 80,
-				'title'    => __( 'Search', 'astra-builder' ),
+				'title'    => __( 'Search', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
@@ -76,7 +76,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'priority'  => 8,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra-builder' ),
+				'title'     => __( 'Icon Color', 'astra' ),
 				'context'   => array(
 					array(
 						'setting' => 'ast_selected_tab',
@@ -94,7 +94,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'priority'    => 2,
 				'transport'   => 'postMessage',
 				'default'     => $defaults['header-search-icon-space'],
-				'title'       => __( 'Icon Size', 'astra-builder' ),
+				'title'       => __( 'Icon Size', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-responsive-slider',
 				'input_attrs' => array(
@@ -106,6 +106,53 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					array(
 						'setting' => 'ast_selected_tab',
 						'value'   => 'general',
+					),
+				),
+			),
+
+			/**
+			 * Option: Margin heading
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Margin', 'astra' ),
+				'priority' => 200,
+				'settings' => array(),
+				'context'  => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
+					),
+				),
+			),
+
+			/**
+			 * Option: Margin Space
+			 */
+			array(
+				'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+				'default'        => '',
+				'type'           => 'control',
+				'transport'      => 'postMessage',
+				'control'        => 'ast-responsive-spacing',
+				'section'        => $_section,
+				'priority'       => 220,
+				'title'          => __( 'Margin', 'astra' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
+				),
+				'context'        => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
 					),
 				),
 			),
@@ -122,14 +169,14 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'default'   => $defaults['header-search-box-type'],
 					'section'   => $_section,
 					'priority'  => 10,
-					'title'     => __( 'Search Style', 'astra-builder' ),
+					'title'     => __( 'Search Style', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'choices'   => array(
-						'slide-search' => __( 'Slide Search', 'astra-builder' ),
-						'full-screen'  => __( 'Full Screen Search', 'astra-builder' ),
-						'header-cover' => __( 'Header Cover Search', 'astra-builder' ),
-						'search-box'   => __( 'Search Box', 'astra-builder' ),
+						'slide-search' => __( 'Slide Search', 'astra' ),
+						'full-screen'  => __( 'Full Screen Search', 'astra' ),
+						'header-cover' => __( 'Header Cover Search', 'astra' ),
+						'search-box'   => __( 'Search Box', 'astra' ),
 					),
 					'context'   => array(
 						array(
@@ -148,8 +195,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 
 			$_configs = array_merge( $_configs, $_addon_dependent_configs );
 		}
-
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_margin_tab( $_section ) );
 
 		return array_merge( $configurations, $_configs );
 	}

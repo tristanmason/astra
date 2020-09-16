@@ -41,7 +41,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => $_section,
 					'type'     => 'section',
-					'title'    => __( 'Off-Canvas', 'astra-builder' ),
+					'title'    => __( 'Off-Canvas', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
 					'priority' => 30,
 				),
@@ -68,10 +68,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'select',
 					'section'   => $_section,
 					'priority'  => 30,
-					'title'     => __( 'Header Type', 'astra-builder' ),
+					'title'     => __( 'Header Type', 'astra' ),
 					'choices'   => array(
-						'off-canvas' => __( 'Off-Canvas', 'astra-builder' ),
-						'dropdown'   => __( 'Dropdown', 'astra-builder' ),
+						'off-canvas' => __( 'Off-Canvas', 'astra' ),
+						'dropdown'   => __( 'Dropdown', 'astra' ),
 					),
 					'transport' => 'postMessage',
 					'context'   => array(
@@ -93,15 +93,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'select',
 					'section'   => $_section,
 					'priority'  => 30,
-					'title'     => __( 'Layout', 'astra-builder' ),
+					'title'     => __( 'Layout', 'astra' ),
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[mobile-header-type]',
 						'==',
 						'off-canvas',
 					),
 					'choices'   => array(
-						'full-width' => __( 'Full Width', 'astra-builder' ),
-						'side-panel' => __( 'Flyout', 'astra-builder' ),
+						'full-width' => __( 'Full Width', 'astra' ),
+						'side-panel' => __( 'Flyout', 'astra' ),
 					),
 					'context'   => array(
 						array(
@@ -122,10 +122,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'select',
 					'section'   => $_section,
 					'priority'  => 30,
-					'title'     => __( 'Position', 'astra-builder' ),
+					'title'     => __( 'Position', 'astra' ),
 					'choices'   => array(
-						'left'  => __( 'Left', 'astra-builder' ),
-						'right' => __( 'Right', 'astra-builder' ),
+						'left'  => __( 'Left', 'astra' ),
+						'right' => __( 'Right', 'astra' ),
 					),
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[off-canvas-layout]',
@@ -145,7 +145,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra-builder' ),
+					'title'     => __( 'Background', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 30,
@@ -187,7 +187,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-color',
 					'section'   => $_section,
 					'priority'  => 30,
-					'title'     => __( 'Close Icon Color', 'astra-builder' ),
+					'title'     => __( 'Close Icon Color', 'astra' ),
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[mobile-header-type]',
 						'==',

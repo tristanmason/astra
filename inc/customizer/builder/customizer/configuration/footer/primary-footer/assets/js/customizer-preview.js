@@ -14,13 +14,13 @@
 	var selector = '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]';
 
 	// Primary Header - Layout.
-	wp.customize( 'astra-settings[hb-footer-main-layout-width]', function( setting ) {
+	wp.customize( 'astra-settings[hb-footer-layout-width]', function( setting ) {
 		setting.bind( function( layout ) {
 
 			var dynamicStyle = '';
 
 			if ( 'content' == layout ) {
-				dynamicStyle = '.ast-site-footer .site-container {';
+				dynamicStyle = selector + ' .ast-site-footer .site-container {';
 				dynamicStyle += 'max-width: ' + AstraBuilderPrimaryFooterData.footer_content_width + 'px;';
 				dynamicStyle += 'margin-left: auto;';
 				dynamicStyle += 'margin-right: auto;';
@@ -28,15 +28,23 @@
 			}
 
 			if ( 'full' == layout ) {
-				dynamicStyle = '.ast-site-footer .site-container {';
+				dynamicStyle = selector + ' .ast-site-footer .site-container {';
 					dynamicStyle += 'max-width: 100%';
 				dynamicStyle += '} ';
 			}
 
-			astra_add_dynamic_css( 'hb-footer-main-layout-width', dynamicStyle );
+			astra_add_dynamic_css( 'hb-footer-layout-width', dynamicStyle );
 
 		} );
 	} );
+
+	// Footer Vertical Alignment.
+    astra_css(
+        'astra-settings[hb-footer-vertical-alignment]',
+        'align-items',
+        selector + ' .ast-builder-grid-row'
+    );
+
 
 	// Border Bottom width.
 	astra_css(
@@ -63,6 +71,11 @@
 	astra_apply_responsive_background_css( 'astra-settings[hb-footer-bg-obj-responsive]', selector, 'desktop' );
 	astra_apply_responsive_background_css( 'astra-settings[hb-footer-bg-obj-responsive]', selector, 'tablet' );
 	astra_apply_responsive_background_css( 'astra-settings[hb-footer-bg-obj-responsive]', selector, 'mobile' );
+
+	// Responsive BG styles > Global Footer Row.
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', selector, 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', selector, 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', selector, 'mobile' );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );
