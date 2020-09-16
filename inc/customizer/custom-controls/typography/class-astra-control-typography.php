@@ -100,7 +100,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @param array                $args    Default parent's arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
-		$this->ast_inherit         = __( 'Inherit', 'astra' );
+		$this->ast_inherit = __( 'Inherit', 'astra' );
 		parent::__construct( $manager, $id, $args );
 	}
 
@@ -159,9 +159,9 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		>
 		<?php 
 			$values = explode( ',', $this->value() );
-			foreach ( $values as $key => $value ) {
-				echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
-			}
+		foreach ( $values as $key => $value ) {
+			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
+		}
 		?>
 		<input class="ast-font-variant-hidden-value" type="hidden" value="{{data.value}}">
 		</select>
