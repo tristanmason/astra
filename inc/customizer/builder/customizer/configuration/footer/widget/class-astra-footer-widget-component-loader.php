@@ -83,6 +83,8 @@ class Astra_Footer_Widget_Component_Loader {
 			'AstraBuilderWIDGETData',
 			array(
 				'footer_widget_count' => Astra_Constants::$num_of_footer_widgets,
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)
 		);
 	}
