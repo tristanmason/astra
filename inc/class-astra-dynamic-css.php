@@ -794,8 +794,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $tablet_screen_min_gb_css, astra_get_tablet_breakpoint() );
 
 				$mobile_screen_max_gb_css = array(
-					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
-						'padding' => '1em 0',
+					'.wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '3em 2em',
 					),
 					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container'  => array(
 						'width'     => 'unset',
@@ -810,7 +810,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'width'     => 'unset',
 						'max-width' => '100%',
 					),
-					'.entry-content .wp-block-media-text.has-background .wp-block-media-text__content' => array(
+					'.wp-block-media-text.has-background .wp-block-media-text__content' => array(
 						'padding' => '1em',
 					),
 				);
