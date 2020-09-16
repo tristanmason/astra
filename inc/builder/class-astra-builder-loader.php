@@ -65,11 +65,13 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			require_once ASTRA_THEME_DIR . 'inc/builder/controllers/class-astra-builder-widget-controller.php';
 			require_once ASTRA_THEME_DIR . 'inc/builder/controllers/class-astra-builder-icon-controller.php';
 			require_once ASTRA_THEME_DIR . 'inc/builder/controllers/class-astra-builder-ui-controller.php';
-
+			/**
+			 * Customizer - Configs.
+			 */
+			require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-builder-customizer.php';
 
 			/**DONE */
 
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-controller.php';
 
 			if ( Astra_Builder_Helper::is_migrated() ) {
 				add_filter( 'astra_existing_header_footer_configs', '__return_false' );
