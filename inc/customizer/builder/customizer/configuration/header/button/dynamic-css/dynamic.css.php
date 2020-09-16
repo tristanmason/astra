@@ -39,12 +39,7 @@ function astra_hb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		$_prefix               = 'button' . $index;
 		$_section              = 'section-hb-button-' . $index;
 		$selector              = '.ast-header-button-' . $index;
-		$button_font_family    = astra_get_option( 'header-' . $_prefix . '-font-family', 'inherit' );
-		$button_font_weight    = astra_get_option( 'header-' . $_prefix . '-font-weight', 'inherit' );
 		$button_font_size      = astra_get_option( 'header-' . $_prefix . '-font-size' );
-		$button_text_transform = astra_get_option( 'header-' . $_prefix . '-text-transform' );
-		$button_line_height    = astra_get_option( 'header-' . $_prefix . '-line-height' );
-		$button_letter_spacing = astra_get_option( 'header-' . $_prefix . '-letter-spacing' );
 		$button_border_width   = astra_get_option( 'header-' . $_prefix . '-border-size' );
 		$button_border_radius  = astra_get_option( 'header-' . $_prefix . '-border-radius' );
 		// Normal Responsive Colors.
@@ -86,12 +81,7 @@ function astra_hb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 				'background'          => $button_bg_color_desktop,
 
 				// Typography.
-				'font-family'         => astra_get_css_value( $button_font_family, 'font' ),
-				'font-weight'         => astra_get_css_value( $button_font_weight, 'font' ),
 				'font-size'           => astra_responsive_font( $button_font_size, 'desktop' ),
-				'line-height'         => esc_attr( $button_line_height ),
-				'text-transform'      => esc_attr( $button_text_transform ),
-				'letter-spacing'      => astra_get_css_value( $button_letter_spacing, 'px' ),
 
 				// Border.
 				'border-color'        => $button_border_color_desktop,

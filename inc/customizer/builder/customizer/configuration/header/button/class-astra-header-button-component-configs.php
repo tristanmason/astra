@@ -51,7 +51,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'     => 'section',
 						'priority' => 50,
 						/* translators: %s Index */
-						'title'    => sprintf( __( 'Button %s', 'astra' ), $index ),
+						'title'    => ( 1 === Astra_Constants::$num_of_header_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
 						'panel'    => 'panel-header-builder-group',
 					),
 
@@ -310,23 +310,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
-					 * Option: Primary Header Button Font Family
-					 */
-					array(
-						'name'      => 'header-' . $_prefix . '-font-family',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-font-family' ),
-						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
-						'type'      => 'sub-control',
-						'section'   => $_section,
-						'control'   => 'ast-font',
-						'font_type' => 'ast-font-family',
-						'title'     => __( 'Family', 'astra' ),
-						'context'   => Astra_Constants::$general_tab,
-						'connect'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-font-weight]',
-						'priority'  => 1,
-					),
-
-					/**
 					 * Option: Primary Header Button Font Size
 					 */
 					array(
@@ -345,93 +328,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'units'       => array(
 							'px' => 'px',
 							'em' => 'em',
-						),
-					),
-
-					/**
-					 * Option: Primary Header Button Font Weight
-					 */
-					array(
-						'name'              => 'header-' . $_prefix . '-font-weight',
-						'default'           => astra_get_option( 'header-' . $_prefix . '-font-weight' ),
-						'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
-						'type'              => 'sub-control',
-						'section'           => $_section,
-						'control'           => 'ast-font',
-						'font_type'         => 'ast-font-weight',
-						'title'             => __( 'Weight', 'astra' ),
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-						'connect'           => 'header-' . $_prefix . '-font-family',
-						'priority'          => 2,
-						'context'           => Astra_Constants::$general_tab,
-					),
-
-					/**
-					 * Option: Primary Header Button Text Transform
-					 */
-					array(
-						'name'      => 'header-' . $_prefix . '-text-transform',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-text-transform' ),
-						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
-						'transport' => 'postMessage',
-						'title'     => __( 'Text Transform', 'astra' ),
-						'type'      => 'sub-control',
-						'section'   => $_section,
-						'control'   => 'ast-select',
-						'priority'  => 3,
-						'context'   => Astra_Constants::$general_tab,
-						'choices'   => array(
-							''           => __( 'Inherit', 'astra' ),
-							'none'       => __( 'None', 'astra' ),
-							'capitalize' => __( 'Capitalize', 'astra' ),
-							'uppercase'  => __( 'Uppercase', 'astra' ),
-							'lowercase'  => __( 'Lowercase', 'astra' ),
-						),
-					),
-
-					/**
-					 * Option: Primary Header Button Line Height
-					 */
-					array(
-						'name'              => 'header-' . $_prefix . '-line-height',
-						'default'           => astra_get_option( 'header-' . $_prefix . '-line-height' ),
-						'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
-						'control'           => 'ast-slider',
-						'transport'         => 'postMessage',
-						'type'              => 'sub-control',
-						'section'           => $_section,
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-						'title'             => __( 'Line Height', 'astra' ),
-						'suffix'            => '',
-						'context'           => Astra_Constants::$general_tab,
-						'priority'          => 4,
-						'input_attrs'       => array(
-							'min'  => 1,
-							'step' => 0.01,
-							'max'  => 5,
-						),
-					),
-
-					/**
-					 * Option: Primary Header Button Letter Spacing
-					 */
-					array(
-						'name'              => 'header-' . $_prefix . '-letter-spacing',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-						'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-typography]',
-						'control'           => 'ast-slider',
-						'transport'         => 'postMessage',
-						'type'              => 'sub-control',
-						'default'           => '',
-						'section'           => $_section,
-						'title'             => __( 'Letter Spacing', 'astra' ),
-						'suffix'            => '',
-						'priority'          => 5,
-						'context'           => Astra_Constants::$general_tab,
-						'input_attrs'       => array(
-							'min'  => 1,
-							'step' => 1,
-							'max'  => 100,
 						),
 					),
 				);
