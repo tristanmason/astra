@@ -19107,12 +19107,14 @@ __webpack_require__.r(__webpack_exports__);
       // this.AddDummyControl(id);
     },
     addSubControl: function addSubControl(parent_control_id) {
-      var sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id];
+      if ('undefined' != typeof AstraBuilderCustomizerData) {
+        var sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id];
 
-      if (sub_controls) {
-        for (var i = 0; i < sub_controls.length; i++) {
-          var config = sub_controls[i];
-          AstCustomizerAPI.addControl(config.id, config);
+        if (sub_controls) {
+          for (var i = 0; i < sub_controls.length; i++) {
+            var config = sub_controls[i];
+            AstCustomizerAPI.addControl(config.id, config);
+          }
         }
       }
     },
@@ -19151,12 +19153,14 @@ __webpack_require__.r(__webpack_exports__);
       api.control.add(new Constructor(section_id + "-ast-dummy", options));
     },
     registerControlsBySection: function registerControlsBySection(section) {
-      var controls = AstraBuilderCustomizerData.js_configs.controls[section.id];
+      if ('undefined' != typeof AstraBuilderCustomizerData) {
+        var controls = AstraBuilderCustomizerData.js_configs.controls[section.id];
 
-      if (controls) {
-        for (var i = 0; i < controls.length; i++) {
-          var config = controls[i];
-          this.addControl(config.id, config);
+        if (controls) {
+          for (var i = 0; i < controls.length; i++) {
+            var config = controls[i];
+            this.addControl(config.id, config);
+          }
         }
       }
     }
@@ -19164,88 +19168,91 @@ __webpack_require__.r(__webpack_exports__);
 
   function set_context(control_id) {
     var control_rules = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    var rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
 
-    if (rules) {
-      var getSetting = function getSetting(settingName) {
-        switch (settingName) {
-          case 'ast_selected_device':
-            return api.previewedDevice;
+    if ('undefined' != typeof AstraBuilderCustomizerData) {
+      var rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
 
-          case 'ast_selected_tab':
-            return api.state('astra-customizer-tab');
+      if (rules) {
+        var getSetting = function getSetting(settingName) {
+          switch (settingName) {
+            case 'ast_selected_device':
+              return api.previewedDevice;
 
-          default:
-            return api(settingName);
-        }
-      };
+            case 'ast_selected_tab':
+              return api.state('astra-customizer-tab');
 
-      var initContext = function initContext(element) {
-        var isDisplayed = function isDisplayed() {
-          var displayed = false,
-              relation = rules['relation'];
+            default:
+              return api(settingName);
+          }
+        };
 
-          if ('OR' !== relation) {
-            relation = 'AND';
-            displayed = true;
-          } // Each rule iteration
+        var initContext = function initContext(element) {
+          var isDisplayed = function isDisplayed() {
+            var displayed = false,
+                relation = rules['relation'];
+
+            if ('OR' !== relation) {
+              relation = 'AND';
+              displayed = true;
+            } // Each rule iteration
 
 
-          _.each(rules, function (rule, i) {
-            var result = false,
-                setting = getSetting(rule['setting']);
+            _.each(rules, function (rule, i) {
+              var result = false,
+                  setting = getSetting(rule['setting']);
 
-            if (undefined !== setting) {
-              var operator = rule['operator'],
-                  comparedValue = rule['value'],
-                  currentValue = setting.get();
+              if (undefined !== setting) {
+                var operator = rule['operator'],
+                    comparedValue = rule['value'],
+                    currentValue = setting.get();
 
-              if (undefined == operator || '=' == operator) {
-                operator = '==';
+                if (undefined == operator || '=' == operator) {
+                  operator = '==';
+                }
+
+                switch (operator) {
+                  case 'in':
+                    result = 0 <= comparedValue.indexOf(currentValue);
+                    break;
+
+                  default:
+                    result = comparedValue == currentValue;
+                    break;
+                }
               }
 
-              switch (operator) {
-                case 'in':
-                  result = 0 <= comparedValue.indexOf(currentValue);
+              switch (relation) {
+                case 'OR':
+                  displayed = displayed || result;
                   break;
 
                 default:
-                  result = comparedValue == currentValue;
+                  displayed = displayed && result;
                   break;
               }
-            }
+            });
 
-            switch (relation) {
-              case 'OR':
-                displayed = displayed || result;
-                break;
+            return displayed;
+          };
 
-              default:
-                displayed = displayed && result;
-                break;
+          var setActiveState = function setActiveState() {
+            element.active.set(isDisplayed());
+          };
+
+          _.each(rules, function (rule, i) {
+            var setting = getSetting(rule['setting']);
+
+            if (undefined !== setting) {
+              setting.bind(setActiveState);
             }
           });
 
-          return displayed;
+          element.active.validate = isDisplayed;
+          setActiveState();
         };
 
-        var setActiveState = function setActiveState() {
-          element.active.set(isDisplayed());
-        };
-
-        _.each(rules, function (rule, i) {
-          var setting = getSetting(rule['setting']);
-
-          if (undefined !== setting) {
-            setting.bind(setActiveState);
-          }
-        });
-
-        element.active.validate = isDisplayed;
-        setActiveState();
-      };
-
-      api.control(control_id, initContext);
+        api.control(control_id, initContext);
+      }
     }
   }
 
@@ -19265,7 +19272,7 @@ __webpack_require__.r(__webpack_exports__);
       renderContent: function renderContent() {}
     });
     setTimeout(function () {
-      if (AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
+      if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
         var panels = AstraBuilderCustomizerData.js_configs.panels;
         var sections = AstraBuilderCustomizerData.js_configs.sections;
         setTimeout(function () {
@@ -19289,7 +19296,7 @@ __webpack_require__.r(__webpack_exports__);
     }, 1);
     api.previewer.bind('ready', function (data) {
       // Process wordpress default control contexts.
-      if (AstraBuilderCustomizerData && AstraBuilderCustomizerData.contexts) {
+      if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData && AstraBuilderCustomizerData.contexts) {
         var default_contexts = AstraBuilderCustomizerData.contexts['wp_defaults'];
         setTimeout(function () {
           for (var _i = 0, _Object$entries = Object.entries(default_contexts); _i < _Object$entries.length; _i++) {
