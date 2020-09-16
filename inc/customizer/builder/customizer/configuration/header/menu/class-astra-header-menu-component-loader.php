@@ -88,6 +88,8 @@ class Astra_Header_Menu_Component_Loader {
 			'AstraBuilderMenuData',
 			array(
 				'header_menu_count' => Astra_Constants::$num_of_header_menu,
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)
 		);
 	}
