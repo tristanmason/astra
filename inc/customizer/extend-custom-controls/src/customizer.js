@@ -273,6 +273,19 @@
             }
         });
 
+		setTimeout(function (){
+			// Set tab status as general for all wp default controls.
+			$.each( api.settings.controls, function( id, data ) {
+
+				set_context( id, [
+					{
+						"setting": "ast_selected_tab",
+						"value": "general"
+					}
+				] );
+			});
+		}, 1);
+
         setTimeout(function (){
             if (AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
 
@@ -300,19 +313,9 @@
                 }, 3)
 
             }
-        }, 1);
+        }, 2);
 
         api.previewer.bind('ready', function (data) {
-
-            // Process wordpress default control contexts.
-            if (AstraBuilderCustomizerData && AstraBuilderCustomizerData.contexts) {
-                let default_contexts = AstraBuilderCustomizerData.contexts['wp_defaults'];
-                setTimeout(function (){
-                    for (const [key, value] of Object.entries(default_contexts)) {
-                        set_context( key, value );
-                    }
-                }, 1);
-            }
 
             api.section.each(function (section) {
                 section.expanded.bind(function () {
