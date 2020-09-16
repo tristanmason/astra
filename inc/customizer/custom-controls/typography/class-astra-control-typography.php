@@ -57,7 +57,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @since 1.0.0
 	 * @var string $type
 	 */
-	public $type = 'ast-font';
+	public $type = 'ast-font-variant';
 
 	/**
 	 * Used to connect variant controls to each other.
@@ -109,125 +109,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$this->ast_inherit         = __( 'Inherit', 'astra' );
-		$this->ast_all_font_weight = array(
-			'100'       => __( 'Thin 100', 'astra' ),
-			'100italic' => __( '100 Italic', 'astra' ),
-			'200'       => __( 'Extra-Light 200', 'astra' ),
-			'200italic' => __( '200 Italic', 'astra' ),
-			'300'       => __( 'Light 300', 'astra' ),
-			'300italic' => __( '300 Italic', 'astra' ),
-			'400'       => __( 'Normal 400', 'astra' ),
-			'italic'    => __( '400 Italic', 'astra' ),
-			'500'       => __( 'Medium 500', 'astra' ),
-			'500italic' => __( '500 Italic', 'astra' ),
-			'600'       => __( 'Semi-Bold 600', 'astra' ),
-			'600italic' => __( '600 Italic', 'astra' ),
-			'700'       => __( 'Bold 700', 'astra' ),
-			'700italic' => __( '700 Italic', 'astra' ),
-			'800'       => __( 'Extra-Bold 800', 'astra' ),
-			'800italic' => __( '800 Italic', 'astra' ),
-			'900'       => __( 'Ultra-Bold 900', 'astra' ),
-			'900italic' => __( '900 Italic', 'astra' ),
-		);
 		parent::__construct( $manager, $id, $args );
-	}
-
-	/**
-	 * Renders the content for a control based on the type
-	 * of control specified when this class is initialized.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_content() {
-
-		switch ( $this->type ) {
-
-			case 'ast-font-variant':
-				$this->render_font_variant( $this->ast_inherit );
-				break;
-		}
-	}
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
-
-		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		$astra_typo_localize = $this->ast_all_font_weight;
-
-		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
-	}
-	/**
-	 * Renders the title and description for a control.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_content_title() {
-		if ( ! empty( $this->label ) ) {
-			echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
-		}
-		if ( ! empty( $this->description ) ) {
-			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
-		}
-	}
-
-	/**
-	 * Renders the connect attribute for a connected control.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_connect_attribute() {
-		if ( $this->connect ) {
-			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
-			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
-		}
-		if ( $this->variant ) {
-			echo ' data-connected-variant="' . esc_attr( $this->variant ) . '"';
-			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
-		}
-
-		echo ' data-value="' . esc_attr( $this->value() ) . '"';
-		echo ' data-name="' . esc_attr( $this->name ) . '"';
-	}
-	
-	/**
-	 * Renders a font variant control.
-	 *
-	 * @since 1.5.2
-	 * @param  string $default Inherit/Default.
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_font_variant( $default ) {
-		echo '<label>';
-		$this->render_content_title();
-		echo '</label>';
-		echo '<select ';
-		$this->link();
-		$this->render_connect_attribute();
-		echo ' multiple >';
-		$values = explode( ',', $this->value() );
-		foreach ( $values as $key => $value ) {
-			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
-		}
-		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
-		echo '</select>';
-		echo '<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>';
 	}
 
 	/**
@@ -267,9 +149,12 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{{data.label}}}</span>
 		<# } #>
+		<# if ( data.description ) { #>
+			<span class="description customize-control-description">{{{data.description}}}</span>
+		<# } #>
 
 		</label>
-		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
+		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?>  multiple data-name={{ data.name }}
 		data-value="{{data.value}}" 
 
 		<# if ( data.connect ) { #>
@@ -280,8 +165,15 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		<# } #>
 
 		>
+		<?php 
+			$values = explode( ',', $this->value() );
+			foreach ( $values as $key => $value ) {
+				echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
+			}
+		?>
+		<input class="ast-font-variant-hidden-value" type="hidden" value="<?php echo $this->value(); ?>">
 		</select>
-
-		<?php
+		<?php 
+		echo '<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>';
 	}
 }
