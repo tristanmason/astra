@@ -836,12 +836,6 @@ final class Astra_Builder_Controller {
 	 */
 	public static function ast_get_contexts() {
 		// Return contexts.
-
-		self::$contexts ['wp_defaults'] ['custom_logo']   = Astra_Constants::$general_tab;
-		self::$contexts['wp_defaults']['blogname']        = Astra_Constants::$general_tab;
-		self::$contexts['wp_defaults']['blogdescription'] = Astra_Constants::$general_tab;
-		self::$contexts['wp_defaults']['site_icon']       = Astra_Constants::$general_tab;
-
 		return apply_filters( 'astra_customizer_context', self::$contexts );
 	}
 
@@ -862,17 +856,33 @@ final class Astra_Builder_Controller {
 	 */
 	public function enqueue_customizer_scripts() {
 
-		// Localize variables for Builder JS.
-		wp_localize_script(
-			'astra-custom-control-react-script',
-			'AstraBuilderCustomizerData',
-			array(
-				'contexts'    => self::ast_get_contexts(),
-				'choices'     => self::ast_get_choices(),
-				'js_configs'  => self::$js_configs,
-				'is_migrated' => Astra_Builder_Helper::is_migrated(),
-			)
-		);
+		if ( SCRIPT_DEBUG ) {
+
+			// Localize variables for Dev mode > Customizer JS.
+			wp_localize_script(
+				'astra-custom-control-react-script',
+				'AstraBuilderCustomizerData',
+				array(
+					'contexts'    => self::ast_get_contexts(),
+					'choices'     => self::ast_get_choices(),
+					'js_configs'  => self::$js_configs,
+					'is_migrated' => Astra_Builder_Helper::is_migrated(),
+				)
+			);
+		} else {
+
+			// Localize variables for User's view > Customizer JS.
+			wp_localize_script(
+				'astra-custom-control-script',
+				'AstraBuilderCustomizerData',
+				array(
+					'contexts'    => self::ast_get_contexts(),
+					'choices'     => self::ast_get_choices(),
+					'js_configs'  => self::$js_configs,
+					'is_migrated' => Astra_Builder_Helper::is_migrated(),
+				)
+			);
+		}
 		// Enqueue Builder CSS.
 		wp_enqueue_style(
 			'ahfb-customizer-style',

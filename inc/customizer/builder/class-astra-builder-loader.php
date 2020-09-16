@@ -37,8 +37,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function __construct() {
 
-			// $this->define_constants();
-
 			add_action( 'after_setup_theme', array( $this, 'load_plugin' ) );
 
 			add_action( 'after_setup_theme', array( $this, 'load_options_default' ), 9 );
@@ -51,6 +49,8 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 			add_action( 'admin_init', array( $this, 'page_header_compatibility' ) );
+
+			add_filter( 'astra_quick_settings', array( $this, 'quick_settings' ) );
 		}
 
 		/**
@@ -613,22 +613,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 				</table>
 					<?php
 				}
-		}
-
-		/**
-		 * Update components based on Pro / Free version.
-		 *
-		 * @since x.x.x
-		 */
-		public function define_constants() {
-
-			if ( defined( 'ASTRA_EXT_FILE' ) ) {
-				self::$num_of_header_widgets = 4;
-				self::$num_of_header_button  = 2;
-				self::$num_of_header_html    = 4;
-			}
-
-			add_filter( 'astra_quick_settings', array( $this, 'quick_settings' ) );
 		}
 
 		/**
