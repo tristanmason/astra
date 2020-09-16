@@ -836,12 +836,6 @@ final class Astra_Builder_Controller {
 	 */
 	public static function ast_get_contexts() {
 		// Return contexts.
-
-		self::$contexts ['wp_defaults'] ['custom_logo']   = Astra_Constants::$general_tab;
-		self::$contexts['wp_defaults']['blogname']        = Astra_Constants::$general_tab;
-		self::$contexts['wp_defaults']['blogdescription'] = Astra_Constants::$general_tab;
-		self::$contexts['wp_defaults']['site_icon']       = Astra_Constants::$general_tab;
-
 		return apply_filters( 'astra_customizer_context', self::$contexts );
 	}
 

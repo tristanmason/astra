@@ -34,7 +34,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_section = 'title_tagline';
-			
+
 			$_configs = array(
 
 				/*
@@ -162,30 +162,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'title_tagline',
 					'title'     => __( 'Inline Logo & Site Title', 'astra' ),
 					'priority'  => 7,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.site-branding',
-						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
-					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
-				),
-
-				/**
-				 * Option: Display Tagline
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-					'type'      => 'control',
-					'control'   => 'checkbox',
-					'default'   => astra_get_option( 'display-site-tagline' ),
-					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Tagline', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
