@@ -69,11 +69,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
 
 	// Typography.
-	$menu_font_family    = astra_get_option( 'footer-menu-font-family' );
 	$menu_font_size      = astra_get_option( 'footer-menu-font-size' );
-	$menu_font_weight    = astra_get_option( 'footer-menu-font-weight' );
-	$menu_text_transform = astra_get_option( 'footer-menu-text-transform' );
-	$menu_line_height    = astra_get_option( 'footer-menu-line-height' );
 
 	$menu_font_size_desktop      = ( isset( $menu_font_size['desktop'] ) ) ? $menu_font_size['desktop'] : '';
 	$menu_font_size_tablet       = ( isset( $menu_font_size['tablet'] ) ) ? $menu_font_size['tablet'] : '';
@@ -127,11 +123,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		),
 		$selector . ' .menu-item > .menu-link'       => array(
 			'color'          => $menu_resp_color_desktop,
-			'font-family'    => astra_get_font_family( $menu_font_family ),
-			'font-weight'    => esc_attr( $menu_font_weight ),
 			'font-size'      => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
-			'line-height'    => esc_attr( $menu_line_height ),
-			'text-transform' => esc_attr( $menu_text_transform ),
 			'padding-top'    => astra_get_css_value( $menu_desktop_spacing_top, $menu_desktop_spacing_unit ),
 			'padding-bottom' => astra_get_css_value( $menu_desktop_spacing_bottom, $menu_desktop_spacing_unit ),
 			'padding-left'   => astra_get_css_value( $menu_desktop_spacing_left, $menu_desktop_spacing_unit ),
