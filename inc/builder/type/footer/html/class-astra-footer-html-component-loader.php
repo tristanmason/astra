@@ -26,23 +26,7 @@ class Astra_Footer_Html_Component_Loader {
 	 * @since x.x.x
 	 */
 	public function __construct() {
-
-		add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
-	}
-
-	/**
-	 * Set Options Default Values
-	 *
-	 * @param  array $defaults  Astra options default value array.
-	 * @return array
-	 *
-	 * @since x.x.x
-	 */
-	public function theme_defaults( $defaults ) {
-
-		// Specify all the default values for Button from here.
-		return $defaults;
 	}
 
 	/**

@@ -91,6 +91,8 @@ final class Astra_Builder_Customizer {
 		$this->remove_old_header_footer();
 
 		add_action( 'customize_register', array( $this, 'builder_configs' ), 2 );
+		add_action( 'customize_register', array( $this, 'header_configs' ), 2 );
+		add_action( 'customize_register', array( $this, 'footer_configs' ), 2 );
 		add_action( 'customize_register', array( $this, 'update_default_wp_configs' ) );
 		add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
@@ -757,22 +759,6 @@ final class Astra_Builder_Customizer {
 	 */
 	public function load_header_components() {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/header';
-		require_once $header_config_path . '/class-astra-customizer-above-header-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-header-builder-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-header-widget-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-mobile-trigger-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-off-canvas-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-primary-header-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-site-identity-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-sticky-header-builder-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-transparent-header-builder-configs.php';
-		require_once $header_config_path . '/class-astra-header-button-component-configs.php';
-		require_once $header_config_path . '/class-astra-header-html-component-configs.php';
-		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
-		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
-		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
-
 		$header_components_path = ASTRA_THEME_DIR . 'inc/builder/type/header';
 		require_once $header_components_path . '/site-identity/class-astra-header-site-identity-component.php';
 		require_once $header_components_path . '/off-canvas/class-astra-off-canvas.php';
@@ -800,17 +786,6 @@ final class Astra_Builder_Customizer {
 	 */
 	public function load_footer_components() {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		$footer_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/footer';
-		require_once $footer_config_path . '/class-astra-customizer-above-footer-configs.php';
-		require_once $footer_config_path . '/class-astra-customizer-below-footer-configs.php';
-		require_once $footer_config_path . '/class-astra-customizer-copyright-configs.php';
-		require_once $footer_config_path . '/class-astra-customizer-footer-builder-configs.php';
-		require_once $footer_config_path . '/class-astra-customizer-footer-menu-configs.php';
-		require_once $footer_config_path . '/class-astra-customizer-footer-social-icons-configs.php';
-		require_once $footer_config_path . '/class-astra-customizer-primary-footer-configs.php';
-		require_once $footer_config_path . '/class-astra-footer-html-component-configs.php';
-		require_once $footer_config_path . '/class-astra-footer-widget-component-configs.php';
-
 		$footer_components_path = ASTRA_THEME_DIR . 'inc/builder/type/footer';
 		require_once $footer_components_path . '/below-footer/class-astra-below-footer.php';
 		require_once $footer_components_path . '/menu/class-astra-footer-menu-component.php';
@@ -836,6 +811,53 @@ final class Astra_Builder_Customizer {
 		require_once $builder_config_path . '/header/class-astra-customizer-header-builder-configs.php';
 		// Footer Builder.
 		require_once $builder_config_path . '/footer/class-astra-customizer-footer-builder-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+	}
+
+	/**
+	 * Register controls for Header Builder.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @since x.x.x
+	 */
+	public function header_configs( $wp_customize ) {
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/header';
+		require_once $header_config_path . '/class-astra-customizer-above-header-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-header-builder-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-header-widget-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-mobile-trigger-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-off-canvas-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-primary-header-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-site-identity-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-sticky-header-builder-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-transparent-header-builder-configs.php';
+		require_once $header_config_path . '/class-astra-header-button-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-html-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+	}
+
+	/**
+	 * Register controls for Footer Builder.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @since x.x.x
+	 */
+	public function footer_configs( $wp_customize ) {
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		$footer_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/footer';
+		require_once $footer_config_path . '/class-astra-customizer-above-footer-configs.php';
+		require_once $footer_config_path . '/class-astra-customizer-below-footer-configs.php';
+		require_once $footer_config_path . '/class-astra-customizer-copyright-configs.php';
+		require_once $footer_config_path . '/class-astra-customizer-footer-builder-configs.php';
+		require_once $footer_config_path . '/class-astra-customizer-footer-menu-configs.php';
+		require_once $footer_config_path . '/class-astra-customizer-footer-social-icons-configs.php';
+		require_once $footer_config_path . '/class-astra-customizer-primary-footer-configs.php';
+		require_once $footer_config_path . '/class-astra-footer-html-component-configs.php';
+		require_once $footer_config_path . '/class-astra-footer-widget-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
