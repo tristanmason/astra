@@ -18,8 +18,11 @@
                 margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
                 margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
             ) {
-                var dynamicStyle = '';
-				var selector = '.ast-builder-layout-element .ast-site-identity';
+                var dynamicStyle = '',
+                    selector = '.ast-builder-layout-element .ast-site-identity',
+                    tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+                    mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
@@ -27,7 +30,7 @@
                 dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -36,7 +39,7 @@
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';

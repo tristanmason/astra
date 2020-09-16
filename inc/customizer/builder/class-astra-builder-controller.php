@@ -718,6 +718,16 @@ final class Astra_Builder_Controller {
 			true
 		);
 
+		// Localize variables for Astra Breakpoints JS.
+		wp_localize_script(
+			'ahfb-base-customizer-preview',
+			'astraBuilderPreview',
+			array(
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
+			)
+		);
+
 		wp_localize_script(
 			'ahfb-customizer-preview',
 			'astraBuilderCustomizer',
