@@ -711,7 +711,7 @@ final class Astra_Builder_Controller {
 		// Base Dynamic CSS.
 		wp_enqueue_script(
 			'ahfb-base-customizer-preview',
-			ASTRA_THEME_URI . 'inc/customizer/builder/customizer/configuration/base/assets/js/customizer-preview.js',
+			ASTRA_THEME_URI . 'inc/customizer/configurations/builder/base/assets/js/customizer-preview.js',
 			array( 'customize-preview' ),
 			ASTRA_THEME_VERSION,
 			true
@@ -733,19 +733,19 @@ final class Astra_Builder_Controller {
 	public function load_base_components() {
 
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/class-astra-builder-base-configuration.php';
+		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/class-astra-builder-base-configuration.php';
 
-		require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/class-astra-builder-base-dynamic-css.php';
+		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/class-astra-builder-base-dynamic-css.php';
 
 		// Base Config Files.
-		require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/base/configs/class-astra-social-icon-component-configs.php';
+		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/configs/class-astra-social-icon-component-configs.php';
 
-		require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/base/configs/class-astra-html-component-configs.php';
+		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/configs/class-astra-html-component-configs.php';
 
 		// Base Dynamic CSS Files.
-		require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/base/dynamic-css/html/class-astra-html-component-dynamic-css.php';
+		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/dynamic-css/html/class-astra-html-component-dynamic-css.php';
 
-		require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/base/dynamic-css/social/class-astra-social-component-dynamic-css.php';
+		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/dynamic-css/social/class-astra-social-component-dynamic-css.php';
 
 		$this->load_header_components();
 		$this->load_footer_components();
@@ -759,7 +759,7 @@ final class Astra_Builder_Controller {
 	 */
 	public function load_header_components() {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header';
+		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/header';
 		require_once $header_config_path . '/site-identity/class-astra-header-site-identity-component.php';
 		require_once $header_config_path . '/off-canvas/class-astra-off-canvas.php';
 		require_once $header_config_path . '/primary-header/class-astra-primary-header.php';
@@ -786,7 +786,7 @@ final class Astra_Builder_Controller {
 	 */
 	public function load_footer_components() {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		$footer_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/footer';
+		$footer_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/footer';
 		require_once $footer_config_path . '/below-footer/class-astra-below-footer.php';
 		require_once $footer_config_path . '/menu/class-astra-footer-menu-component.php';
 		require_once $footer_config_path . '/html/class-astra-footer-html-component.php';
@@ -823,7 +823,7 @@ final class Astra_Builder_Controller {
 	 */
 	public function header_configs( $wp_customize ) {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration/header';
+		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/header';
 		require_once $header_config_path . '/widget/class-astra-customizer-header-widget-configs.php';
 		require_once $header_config_path . '/transparent/class-astra-customizer-transparent-header-builder-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
