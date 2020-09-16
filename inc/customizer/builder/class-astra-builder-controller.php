@@ -171,7 +171,7 @@ final class Astra_Builder_Controller {
 
 	/**
 	 * Bypass JS configs for Controls.
-	 * 
+	 *
 	 * @param array $configuration configuration.
 	 */
 	public static function bypass_control_configs( $configuration ) {
@@ -191,12 +191,12 @@ final class Astra_Builder_Controller {
 
 			$configuration['value'] = $val;
 		}
-		
+
 		switch ( $configuration['type'] ) {
 
 			case 'ast-responsive-spacing':
 				if ( ! is_array( $val ) || is_numeric( $val ) ) {
-					
+
 					$configuration['value'] = array(
 						'desktop'      => array(
 							'top'    => $val,
@@ -348,7 +348,7 @@ final class Astra_Builder_Controller {
 				}
 			}
 		}
-		
+
 		return $configuration;
 	}
 
@@ -491,7 +491,6 @@ final class Astra_Builder_Controller {
 		$config['label'] = astra_get_prop( $config, 'title' );
 		$config['type']  = astra_get_prop( $config, 'control' );
 
-
 		if ( false !== astra_get_prop( $config, 'font-type', false ) ) {
 			$config['type'] = astra_get_prop( $config, 'font-type', false );
 		}
@@ -522,10 +521,6 @@ final class Astra_Builder_Controller {
 
 			self::$js_configs ['controls'] [ $config['section'] ] [] = $config;
 		}
-		// if ( 'astra-settings[body-font-variant]' === $config['name'] ) {
-		// 	var_dump($config);
-		// 	die();
-		// }
 	}
 
 	/**
@@ -669,9 +664,6 @@ final class Astra_Builder_Controller {
 					break;
 			}
 		}
-		// echo "<pre>";
-		// print_r( self::$js_configs );
-		// die;
 	}
 
 	/**
@@ -872,7 +864,7 @@ final class Astra_Builder_Controller {
 
 		// Localize variables for Builder JS.
 		wp_localize_script(
-			'custom-control-react-script',
+			'astra-custom-control-react-script',
 			'AstraBuilderCustomizerData',
 			array(
 				'contexts'    => self::ast_get_contexts(),
