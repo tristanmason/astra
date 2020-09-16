@@ -334,6 +334,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'bottom' => '',
 			'left'   => '',
 		);
+		$defaults[ 'header-' . $_prefix . '-border-color' ]    = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
 		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = 2;
 	}
 
