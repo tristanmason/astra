@@ -84,14 +84,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $ast_inherit = '';
 
 	/**
-	 * All font weights
-	 *
-	 * @since 1.0.8
-	 * @var string $ast_inherit
-	 */
-	public $ast_all_font_weight = array();
-
-	/**
 	 * If true, the preview button for a control will be rendered.
 	 *
 	 * @since 1.0.0
