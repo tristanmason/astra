@@ -82,12 +82,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => true,
 					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'ast_footer_copyright' ),
 				),
-				'context'     => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'     => Astra_Constants::$general_tab,
 			),
 
 			/**
@@ -106,12 +101,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'right'  => __( 'Right', 'astra' ),
 					'center' => __( 'Center', 'astra' ),
 				),
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'   => Astra_Constants::$general_tab,
 				'transport' => 'postMessage',
 			),
 
@@ -127,12 +117,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Text Color', 'astra' ),
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-				),
+				'context'   => Astra_Constants::$design_tab,
 			),
 
 			/**
@@ -146,12 +131,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'title'    => __( 'Margin', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-				),
+				'context'  => Astra_Constants::$design_tab,
 			),
 
 			/**
@@ -174,12 +154,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-				),
+				'context'        => Astra_Constants::$design_tab,
 			),
 		);
 

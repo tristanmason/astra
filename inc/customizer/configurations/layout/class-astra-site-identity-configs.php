@@ -299,12 +299,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'==',
 						true,
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
