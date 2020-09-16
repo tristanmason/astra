@@ -83,6 +83,8 @@ class Astra_Footer_Html_Component_Loader {
 			'AstraBuilderHTMLData',
 			array(
 				'footer_html_count' => Astra_Constants::$num_of_footer_html,
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)
 		);
 	}
