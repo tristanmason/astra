@@ -37,12 +37,45 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'after_setup_theme', array( $this, 'load_plugin' ) );
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			/**
+			 * Builder Core Files.
+			 */
+			require_once ASTRA_THEME_DIR . 'inc/core/builder/class-astra-builder-helper.php';
+			require_once ASTRA_THEME_DIR . 'inc/core/builder/class-astra-builder-options.php';
+			require_once ASTRA_THEME_DIR . 'inc/core/builder/class-astra-builder-admin.php';
+			/**
+			 * Builder - Header & Footer Markup.
+			 */
+			require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-header.php';
+			if ( Astra_Builder_Helper::is_migrated() ) {
 
-			add_action( 'after_setup_theme', array( $this, 'load_options_default' ), 9 );
+				require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-footer.php';
+
+				// Register the Secondary & Mobile menus.
+				register_nav_menus(
+					array(
+						'secondary_menu' => __( 'Secondary Menu', 'astra' ),
+					)
+				);
+			}
+			/**
+			 * Builder Controllers.
+			 */
+			require_once ASTRA_THEME_DIR . 'inc/builder/controllers/class-astra-builder-widget-controller.php';
+			require_once ASTRA_THEME_DIR . 'inc/builder/controllers/class-astra-builder-icon-controller.php';
+			require_once ASTRA_THEME_DIR . 'inc/builder/controllers/class-astra-builder-ui-controller.php';
 
 
-			add_action( 'init', array( $this, 'load_core_files' ) );
+			/**DONE */
+
+			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-controller.php';
+
+			if ( Astra_Builder_Helper::is_migrated() ) {
+				add_filter( 'astra_existing_header_footer_configs', '__return_false' );
+				add_filter( 'astra_addon_existing_header_footer_configs', '__return_false' );
+			}
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			add_action( 'wp', array( $this, 'load_markup' ), 100 );
 
@@ -704,71 +737,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			}
 
 			wp_enqueue_script( 'astra-mobile-header-js', ASTRA_THEME_URI . 'inc/assets/js/navigation.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
-		}
-
-		/**
-		 * Loads default options array.
-		 *
-		 * @since x.x.x
-		 */
-		public function load_options_default() {
-			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/defaults/class-astra-options-default.php';
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-widget-controller.php';
-			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		}
-
-		/**
-		 * Loads plugin files.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @return void
-		 */
-		public function load_plugin() {
-
-			/**
-			 * Astra Builder Init.
-			 *
-			 * Fires when Astra Builder is instantiated.
-			 *
-			 * @since 1.0.0
-			 */
-			do_action( 'astra_builder_init' );
-
-			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-helper.php';
-			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		}
-
-		/**
-		 * Load core files.
-		 */
-		public function load_core_files() {
-			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-controller.php';
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-icon-controller.php';
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-ui-controller.php';
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-header.php';
-
-			if ( Astra_Builder_Helper::is_migrated() ) {
-
-				require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-footer.php';
-
-				// Register the Secondary & Mobile menus.
-				register_nav_menus(
-					array(
-						'secondary_menu' => __( 'Secondary Menu', 'astra' ),
-					)
-				);
-			}
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/theme-configuration/class-astra-theme-existing-configs.php';
-			require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-admin.php';
-			if ( Astra_Builder_Helper::is_migrated() ) {
-				add_filter( 'astra_existing_header_footer_configs', '__return_false' );
-				add_filter( 'astra_addon_existing_header_footer_configs', '__return_false' );
-			}
-			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 	}

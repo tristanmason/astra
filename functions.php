@@ -115,13 +115,10 @@ if ( is_admin() ) {
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
 
-
 /**
  * Customizer additions.
  */
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
-require_once ASTRA_THEME_DIR . 'inc/customizer/builder/class-astra-builder-loader.php';
-
 
 /**
  * Compatibility
@@ -145,6 +142,7 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-yoast-seo.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-transparent-header.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-colors.php';
+require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {

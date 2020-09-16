@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 			if ( is_null( self::$instance ) ) {
 				self::$instance = new self();
 			}
-	
+
 			return self::$instance;
 		}
 
@@ -121,18 +121,6 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-
-			add_action( 'init', array( $this, 'override_number_components_count' ), 99 );
-					
-		}
-		
-		/**
-		 * Add filter to Override Components count.
-		 *
-		 * @since x.x.x
-		 */
-		public function override_number_components_count() {
-
 			self::$num_of_header_button  = apply_filters( 'astra_header_button_component_count', 1 );
 			self::$num_of_header_html    = apply_filters( 'astra_header_html_component_count', 2 );
 			self::$num_of_header_menu    = apply_filters( 'astra_header_menu_component_count', 2 );

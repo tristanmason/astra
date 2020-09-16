@@ -37,8 +37,8 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'widgets_init', array( $this, 'ast_widget_init' ) );
-			add_filter( 'customize_section_active', array( $this, 'ast_display_sidebar' ), 99, 2 );
+			add_action( 'widgets_init', array( $this, 'widget_init' ) );
+			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 
 		}
 
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 * @param object $section section.
 		 * @return bool
 		 */
-		public function ast_display_sidebar( $active, $section ) {
+		public function display_sidebar( $active, $section ) {
 
 			if ( ! Astra_Builder_Helper::is_migrated() ) {
 				return $active;
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		/**
 		 * Initiate Astra Widgets.
 		 */
-		public function ast_widget_init() {
+		public function widget_init() {
 
 			if ( ! Astra_Builder_Helper::is_migrated() ) {
 				return;
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 
 			// Register Footer Widgets.
 			for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
-				$this->ast_register_sidebar( 'footer', $index );
+				$this->register_sidebar( 'footer', $index );
 			}
 
 			// Register Header Widgets.
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 
 			if ( $header_widgets_count ) {
 				for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
-					$this->ast_register_sidebar( 'header', $index );
+					$this->register_sidebar( 'header', $index );
 				}
 			}
 		}
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 * @param string  $builder_type builder type.
 		 * @param integer $index index of widget.
 		 */
-		public function ast_register_sidebar( $builder_type = 'header', $index ) {
+		public function register_sidebar( $builder_type = 'header', $index ) {
 			register_sidebar(
 				apply_filters(
 					'astra_' . $builder_type . '_widget_' . $index . 'args',

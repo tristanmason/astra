@@ -88,7 +88,6 @@ final class Astra_Builder_Controller {
 
 		$this->load_base_components();
 		$this->remove_actions();
-
 		$this->remove_old_header_footer();
 
 		add_action( 'customize_register', array( $this, 'builder_configs' ), 2 );
