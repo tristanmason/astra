@@ -289,7 +289,7 @@ final class Astra_Builder_Controller {
 
 				if ( isset( self::$group_configs[ $configuration['name'] ]['tabs'] ) ) {
 					$tab = array_keys( self::$group_configs[ $configuration['name'] ]['tabs'] );
-
+					rsort( $tab );
 					foreach ( $tab as $key => $value ) {
 
 						$config['tabs'][ $value ] = wp_list_sort( self::$group_configs[ $configuration['name'] ]['tabs'][ $value ], 'priority' );
@@ -664,6 +664,7 @@ final class Astra_Builder_Controller {
 					break;
 			}
 		}
+
 	}
 
 	/**
