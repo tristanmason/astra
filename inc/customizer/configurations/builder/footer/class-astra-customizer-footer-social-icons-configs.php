@@ -55,12 +55,7 @@ class Astra_Customizer_Footer_Social_Icons_Configs extends Astra_Customizer_Conf
 					'right'  => __( 'Right', 'astra' ),
 					'center' => __( 'Center', 'astra' ),
 				),
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'   => Astra_Constants::$general_tab,
 				'transport' => 'postMessage',
 			),
 		);

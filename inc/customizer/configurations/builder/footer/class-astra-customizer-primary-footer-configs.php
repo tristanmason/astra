@@ -78,12 +78,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'4' => __( '4', 'astra' ),
 						'5' => __( '5', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-primary-footer-wrap',
@@ -103,12 +98,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'       => __( 'Layout', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-row-layout',
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 					'input_attrs' => array(
 						'responsive' => true,
 						'footer'     => 'primary',
@@ -124,12 +114,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -147,12 +132,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 				),
 
@@ -172,12 +152,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 				),
 
@@ -196,12 +171,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'     => Astra_Constants::$design_tab,
 				),
 
 				// Option: Footer Bottom Boder Color.
@@ -215,12 +185,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Option: Primary Footer color and background divider.
@@ -232,12 +197,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Background Color & Image', 'astra' ),
 					'priority' => 6,
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				// Group Option: Footer Background.
@@ -250,12 +210,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 7,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Sub Option: Footer Background.
@@ -271,12 +226,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'default'    => $defaults['hb-footer-bg-obj-responsive'],
 					'label'      => __( 'Background', 'astra' ),
-					'context'    => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'    => Astra_Constants::$design_tab,
 				),
 			);
 

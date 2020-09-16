@@ -91,12 +91,7 @@ class Astra_Html_Component_Configs {
 						'selector'        => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback' => array( $class_name, $builder_type . '_html_' . $index ),
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -111,12 +106,7 @@ class Astra_Html_Component_Configs {
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Color', 'astra' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -130,12 +120,7 @@ class Astra_Html_Component_Configs {
 					'title'    => __( 'Margin', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -158,12 +143,7 @@ class Astra_Html_Component_Configs {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'        => Astra_Constants::$design_tab,
 				),
 			);
 
@@ -181,12 +161,7 @@ class Astra_Html_Component_Configs {
 						'right'  => __( 'Right', 'astra' ),
 						'center' => __( 'Center', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 				);
 			}
