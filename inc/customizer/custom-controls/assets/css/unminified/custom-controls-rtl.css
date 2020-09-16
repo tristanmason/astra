@@ -507,6 +507,10 @@ svg.dashicon {
 	border: 1px solid #a29090;
 	border-radius: 4px;
 }
+.astra-color-clear-button.components-button,
+.astra-popover-tabs .astra-color-clear-button.components-button {
+    margin: 10px;
+}
 .components-color-picker__saturation-black {
 	border-radius: 4px 4px 0 0;
 }
@@ -1075,6 +1079,9 @@ svg.dashicon {
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
+}
+.astra-color-clear-button.components-button {
+    margin: 10px;
 }
 .components-color-picker__saturation-black {
 	border-radius: 4px 4px 0 0;
