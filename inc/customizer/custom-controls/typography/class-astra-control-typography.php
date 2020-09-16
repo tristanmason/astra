@@ -165,7 +165,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		?>
 		<input class="ast-font-variant-hidden-value" type="hidden" value="{{data.value}}">
 		</select>
-		<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="<?php echo __( 'Only selected Font Variants will be loaded from Google Fonts.', 'astra' ); ?>"></span>
+		<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="<?php esc_html_e( 'Only selected Font Variants will be loaded from Google Fonts.', 'astra' ); ?>"></span>
 		<?php 
 		
 	}

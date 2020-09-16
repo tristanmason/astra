@@ -10,6 +10,9 @@
 
 ( function( $ ) {
 
+    var tablet_break_point    = AstraBuilderHTMLData.tablet_break_point || 768,
+        mobile_break_point    = AstraBuilderHTMLData.mobile_break_point || 544;
+
     astra_builder_html_css( 'footer', AstraBuilderHTMLData.footer_html_count );
 
     wp.customize( 'astra-settings[footer-html-1-alignment]', function( value ) {
@@ -20,13 +23,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="section-fb-html-1"] .ast-builder-html-element {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="section-fb-html-1"] .ast-builder-html-element {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
@@ -45,13 +48,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="section-fb-html-2"] .ast-builder-html-element {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="section-fb-html-2"] .ast-builder-html-element {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';

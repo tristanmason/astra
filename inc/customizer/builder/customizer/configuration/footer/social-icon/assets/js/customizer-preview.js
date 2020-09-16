@@ -10,6 +10,9 @@
 
 ( function( $ ) {
 
+    var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
 	astra_builder_social_css( 'footer' );
 
 	// Alignment.
@@ -21,13 +24,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.ast-footer-social-wrap {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.ast-footer-social-wrap {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
