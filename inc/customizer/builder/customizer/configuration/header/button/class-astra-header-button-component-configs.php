@@ -85,12 +85,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'container_inclusive' => false,
 							'render_callback'     => array( 'Astra_Builder_Header', 'button_' . $index ),
 						),
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'   => Astra_Constants::$general_tab,
 					),
 
 					/**
@@ -110,12 +105,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'container_inclusive' => false,
 							'render_callback'     => array( 'Astra_Builder_Header', 'button_' . $index ),
 						),
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'   => Astra_Constants::$general_tab,
 					),
 
 					/**
@@ -130,12 +120,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 70,
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'   => Astra_Constants::$design_tab,
 					),
 
 					/**
@@ -153,12 +138,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'    => Astra_Constants::$design_tab,
 						'title'      => __( 'Text Color', 'astra' ),
 					),
 
@@ -177,12 +157,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'    => Astra_Constants::$design_tab,
 						'title'      => __( 'Text Color', 'astra' ),
 					),
 
@@ -201,12 +176,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'    => Astra_Constants::$design_tab,
 						'title'      => __( 'Background Color', 'astra' ),
 					),
 
@@ -225,12 +195,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'    => Astra_Constants::$design_tab,
 						'title'      => __( 'Background Color', 'astra' ),
 					),
 
@@ -246,12 +211,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 80,
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'   => Astra_Constants::$design_tab,
 					),
 
 					/**
@@ -268,12 +228,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'linked_choices' => true,
 						'priority'       => 10,
 						'title'          => __( 'Width', 'astra' ),
-						'context'        => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'        => Astra_Constants::$general_tab,
 						'choices'        => array(
 							'top'    => __( 'Top', 'astra' ),
 							'right'  => __( 'Right', 'astra' ),
@@ -296,12 +251,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 12,
-						'context'    => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'    => Astra_Constants::$general_tab,
 						'title'      => __( 'Color', 'astra' ),
 					),
 
@@ -319,12 +269,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 14,
-						'context'    => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'    => Astra_Constants::$general_tab,
 						'title'      => __( 'Hover Color', 'astra' ),
 					),
 
@@ -340,12 +285,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'     => 'ast-slider',
 						'transport'   => 'postMessage',
 						'priority'    => 16,
-						'context'     => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'     => Astra_Constants::$general_tab,
 						'title'       => __( 'Border Radius', 'astra' ),
 						'input_attrs' => array(
 							'min'  => 0,
@@ -365,12 +305,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'     => __( 'Typography', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'design',
-							),
-						),
+						'context'   => Astra_Constants::$design_tab,
 						'priority'  => 90,
 					),
 
@@ -386,12 +321,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'ast-font',
 						'font_type' => 'ast-font-family',
 						'title'     => __( 'Family', 'astra' ),
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'   => Astra_Constants::$general_tab,
 						'connect'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-font-weight]',
 						'priority'  => 1,
 					),
@@ -411,12 +341,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'input_attrs' => array(
 							'min' => 0,
 						),
-						'context'     => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'     => Astra_Constants::$general_tab,
 						'units'       => array(
 							'px' => 'px',
 							'em' => 'em',
@@ -438,12 +363,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 						'connect'           => 'header-' . $_prefix . '-font-family',
 						'priority'          => 2,
-						'context'           => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'           => Astra_Constants::$general_tab,
 					),
 
 					/**
@@ -459,12 +379,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'control'   => 'ast-select',
 						'priority'  => 3,
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'   => Astra_Constants::$general_tab,
 						'choices'   => array(
 							''           => __( 'Inherit', 'astra' ),
 							'none'       => __( 'None', 'astra' ),
@@ -488,12 +403,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 						'title'             => __( 'Line Height', 'astra' ),
 						'suffix'            => '',
-						'context'           => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'           => Astra_Constants::$general_tab,
 						'priority'          => 4,
 						'input_attrs'       => array(
 							'min'  => 1,
@@ -517,12 +427,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'             => __( 'Letter Spacing', 'astra' ),
 						'suffix'            => '',
 						'priority'          => 5,
-						'context'           => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'context'           => Astra_Constants::$general_tab,
 						'input_attrs'       => array(
 							'min'  => 1,
 							'step' => 1,

@@ -74,12 +74,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'dropdown'   => __( 'Dropdown', 'astra' ),
 					),
 					'transport' => 'postMessage',
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -103,12 +98,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'full-width' => __( 'Full Width', 'astra' ),
 						'side-panel' => __( 'Flyout', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -132,12 +122,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						'side-panel',
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 
 				// Option Group: Off-Canvas Colors Group.
@@ -149,12 +134,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 30,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -170,12 +150,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-background',
 					'default'   => astra_get_option( 'off-canvas-background' ),
 					'priority'  => 35,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Option: Off-Canvas Close Icon Color.
@@ -193,12 +168,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						'off-canvas',
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 			);
 

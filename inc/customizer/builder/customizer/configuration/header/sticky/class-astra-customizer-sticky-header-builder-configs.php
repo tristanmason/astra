@@ -74,12 +74,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'transport' => 'postMessage',
 					'required'  => array( 1, '==', 1 ), // ToDo: Remove this when Astra Addon option gets depricated.
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -94,12 +89,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 6,
 					'control'   => 'checkbox',
 					'transport' => 'postMessage',
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -115,12 +105,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'required'  => array( 1, '==', 1 ), // ToDo: Remove this when Astra Addon option gets depricated.
 					'transport' => 'postMessage',
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -134,12 +119,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Logo', 'astra' ),
 					'settings' => array(),
 					'priority' => 8,
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -153,12 +133,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Different Logo for Sticky Header?', 'astra' ),
 					'priority' => 15,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -174,12 +149,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'          => __( 'Sticky Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-sticky-logo]', '==', 1 ),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'        => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -206,12 +176,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						'operator'   => 'OR',
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -226,12 +191,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority' => 20,
 					'control'  => 'checkbox',
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-sticky-logo]', '==', 1 ),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -247,12 +207,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'          => __( 'Sticky Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-sticky-retina-logo]', '==', 1 ),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'        => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -267,12 +222,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'    => 35,
 					'control'     => 'checkbox',
 					'description' => __( 'It will shrink the sticky header height, logo, and menu size. Sticky header will display in a compact size.', 'astra' ),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -286,12 +236,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Hide When Scrolling Down', 'astra' ),
 					'priority' => 35,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -305,12 +250,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Animations & Rules', 'astra' ),
 					'settings' => array(),
 					'priority' => 39,
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -330,12 +270,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'fade'  => __( 'Fade', 'astra' ),
 					),
 					'required' => array( ASTRA_THEME_SETTINGS . '[sticky-hide-on-scroll]', '!=', 1 ),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -354,12 +289,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'mobile'  => __( 'Mobile', 'astra' ),
 						'both'    => __( 'Desktop + Mobile', 'astra' ),
 					),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -373,12 +303,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Above Header Colors', 'astra' ),
 					'settings' => array(),
 					'priority' => 60,
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -393,12 +318,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 60,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Sticky Header Above Menu Color Group
@@ -412,12 +332,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 60,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Sticky Header Above Menu Color Group
@@ -431,12 +346,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 65,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Sticky Header Above Color Group
@@ -450,12 +360,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 75,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -470,12 +375,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -489,12 +389,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Primary Header Colors', 'astra' ),
 					'settings' => array(),
 					'priority' => 80,
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -509,12 +404,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 85,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Sticky Header primary Color Group
@@ -528,12 +418,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 90,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -548,12 +433,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 95,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -568,12 +448,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 105,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -588,12 +463,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 100,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -608,12 +478,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'settings' => array(),
 					'priority' => 110,
 
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -629,12 +494,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 115,
 
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Sticky Header Below Color Group
@@ -649,12 +509,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 120,
 
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Sticky Header Below Submenu Color Group
@@ -669,12 +524,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 125,
 
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -704,12 +554,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						'operator'   => 'OR',
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -725,12 +570,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 130,
 
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 			);
 
