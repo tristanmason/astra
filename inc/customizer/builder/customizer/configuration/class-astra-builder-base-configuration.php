@@ -60,12 +60,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'title'    => __( 'Margin & Padding', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -88,12 +83,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'        => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -116,12 +106,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'        => Astra_Constants::$design_tab,
 				),
 			);
 		}
@@ -148,12 +133,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'transport' => 'postMessage',
 					'required'  => $required_condition,
 					'priority'  => 16,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 				/**
 				 * Option: Font Size

@@ -72,13 +72,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Enable on Complete Website', 'astra' ),
 					'priority' => 20,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
+
+
 
 				/**
 				 * Option: Disable Transparent Header on Archive Pages
@@ -93,12 +90,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -114,12 +106,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -135,12 +122,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -155,12 +137,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Disable on Pages?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -175,12 +152,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Disable on Posts?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -193,12 +165,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'  => 'section-transparent-header',
 					'priority' => 26,
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -217,12 +184,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'mobile'  => __( 'Mobile', 'astra' ),
 						'both'    => __( 'Desktop + Mobile', 'astra' ),
 					),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -236,12 +198,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Logo', 'astra' ),
 					'settings' => array(),
 					'priority' => 29,
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				array(
@@ -252,12 +209,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
 					'priority' => 30,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -277,12 +229,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'selector'            => '.ast-replace-site-logo-transparent .site-branding .site-logo-img',
 						'container_inclusive' => false,
 					),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'        => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -297,12 +244,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority' => 32,
 					'control'  => 'checkbox',
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -318,12 +260,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'       => 33,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'context'        => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'        => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -344,12 +281,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -369,12 +301,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'     => Astra_Constants::$design_tab,
 				),
 
 				/**
@@ -389,12 +316,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'section-transparent-header',
 					'priority'  => 41,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				array(
@@ -406,12 +328,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				array(
@@ -423,12 +340,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				array(
@@ -440,12 +352,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				array(
@@ -457,12 +364,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				array(
@@ -474,14 +376,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 			);
+
+
 
 			$wp_customize->remove_control( 'astra-settings[divider-section-transparent-styling]' );
 			$wp_customize->remove_control( 'astra-settings[divider-section-transparent-border-styling]' );

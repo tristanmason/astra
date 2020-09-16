@@ -74,12 +74,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				// Section: Above Header Border.
@@ -97,12 +92,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 10,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'     => Astra_Constants::$design_tab,
 				),
 
 				// Section: Above Header Border Color.
@@ -116,12 +106,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[hba-header-separator]', '>=', 1 ),
 					'priority'  => 50,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Section: Above Header Color & Backgroud Heading.
@@ -133,12 +118,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority' => 60,
 					'title'    => __( 'Background Color & Image', 'astra' ),
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				// Group Option: Above Header Background styling.
@@ -150,12 +130,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Option: Above Header Background styling.
@@ -169,12 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'hba-header-bg-obj-responsive' ),
 					'label'     => __( 'Background', 'astra' ),
 					'priority'  => 5,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 			);
 
