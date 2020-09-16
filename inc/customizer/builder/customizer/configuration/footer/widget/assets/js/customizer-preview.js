@@ -10,6 +10,9 @@
 
 ( function( $ ) {
 
+    var tablet_break_point    = AstraBuilderWIDGETData.tablet_break_point || 768,
+        mobile_break_point    = AstraBuilderWIDGETData.mobile_break_point || 544;
+
     wp.customize( 'astra-settings[footer-widget-alignment-1]', function( value ) {
         value.bind( function( alignment ) {
             if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
@@ -18,13 +21,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-1"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-1"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
@@ -43,13 +46,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-2"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-2"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
@@ -68,13 +71,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-2"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-2"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
@@ -93,13 +96,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-2"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-2"] .footer-widget-area-inner {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';

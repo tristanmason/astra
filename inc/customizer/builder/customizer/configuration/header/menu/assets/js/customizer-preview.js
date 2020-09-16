@@ -9,6 +9,10 @@
  */
 
 ( function( $ ) {
+
+	var tablet_break_point    = AstraBuilderMenuData.tablet_break_point || 768,
+		mobile_break_point    = AstraBuilderMenuData.mobile_break_point || 544;
+
 	for ( var index = 1; index <= AstraBuilderMenuData.header_menu_count; index++ ) {
 
 		var prefix = 'menu' + index;
@@ -182,7 +186,7 @@
 						dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 		
-						dynamicStyle +=  '@media (max-width: 768px) {';
+						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
 						dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
 						dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
@@ -191,7 +195,7 @@
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 		
-						dynamicStyle +=  '@media (max-width: 544px) {';
+						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
 						dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
 						dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
@@ -222,7 +226,7 @@
 						dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 
-						dynamicStyle +=  '@media (max-width: 768px) {';
+						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 						dynamicStyle += selector + ' {';
 						dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
 						dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -231,7 +235,7 @@
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 
-						dynamicStyle +=  '@media (max-width: 544px) {';
+						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 						dynamicStyle += selector + ' {';
 						dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
 						dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
