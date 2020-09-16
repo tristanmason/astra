@@ -118,16 +118,16 @@
 
         addSubControl: function (parent_control_id) {
 
-            let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id];
+            if( 'undefined' != typeof AstraBuilderCustomizerData ) {
+                let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id];
 
-            if (sub_controls) {
-                for (let i = 0; i < sub_controls.length; i++) {
-                    let config = sub_controls[i];
-                    AstCustomizerAPI.addControl(config.id, config);
+                if (sub_controls) {
+                    for (let i = 0; i < sub_controls.length; i++) {
+                        let config = sub_controls[i];
+                        AstCustomizerAPI.addControl(config.id, config);
+                    }
                 }
             }
-
-
         },
 
         addControl: function (id, data) {
@@ -162,11 +162,13 @@
 
         registerControlsBySection: function (section) {
 
-            let controls = AstraBuilderCustomizerData.js_configs.controls[section.id];
-            if (controls) {
-                for (let i = 0; i < controls.length; i++) {
-                    let config = controls[i];
-                    this.addControl(config.id, config);
+            if( 'undefined' != typeof AstraBuilderCustomizerData ) {
+                let controls = AstraBuilderCustomizerData.js_configs.controls[section.id];
+                if (controls) {
+                    for (let i = 0; i < controls.length; i++) {
+                        let config = controls[i];
+                        this.addControl(config.id, config);
+                    }
                 }
             }
         },
@@ -174,83 +176,85 @@
 
     function set_context(control_id, control_rules = null ) {
 
-        let rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
-        if (rules) {
-            var getSetting = function (settingName) {
+        if( 'undefined' != typeof AstraBuilderCustomizerData ) {
+            let rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
+            if (rules) {
+                var getSetting = function (settingName) {
 
-                switch (settingName) {
-                    case 'ast_selected_device':
-                        return api.previewedDevice;
-                    case 'ast_selected_tab':
-                        return api.state('astra-customizer-tab');
-                    default:
-                        return api(settingName);
-                }
-            }
-            var initContext = function (element) {
-                var isDisplayed = function () {
-
-                    var displayed = false,
-                        relation = rules['relation'];
-
-                    if ('OR' !== relation) {
-                        relation = 'AND';
-                        displayed = true;
+                    switch (settingName) {
+                        case 'ast_selected_device':
+                            return api.previewedDevice;
+                        case 'ast_selected_tab':
+                            return api.state('astra-customizer-tab');
+                        default:
+                            return api(settingName);
                     }
+                }
+                var initContext = function (element) {
+                    var isDisplayed = function () {
 
-                    // Each rule iteration
-                    _.each(rules, function (rule, i) {
+                        var displayed = false,
+                            relation = rules['relation'];
 
-                        var result = false,
-                            setting = getSetting(rule['setting']);
+                        if ('OR' !== relation) {
+                            relation = 'AND';
+                            displayed = true;
+                        }
 
-                        if (undefined !== setting) {
-                            var operator = rule['operator'],
-                                comparedValue = rule['value'],
-                                currentValue = setting.get();
-                            if (undefined == operator || '=' == operator) {
-                                operator = '==';
+                        // Each rule iteration
+                        _.each(rules, function (rule, i) {
+
+                            var result = false,
+                                setting = getSetting(rule['setting']);
+
+                            if (undefined !== setting) {
+                                var operator = rule['operator'],
+                                    comparedValue = rule['value'],
+                                    currentValue = setting.get();
+                                if (undefined == operator || '=' == operator) {
+                                    operator = '==';
+                                }
+
+                                switch (operator) {
+                                    case 'in':
+                                        result = 0 <= comparedValue.indexOf(currentValue);
+                                        break;
+
+                                    default:
+                                        result = comparedValue == currentValue;
+                                        break;
+                                }
                             }
 
-                            switch (operator) {
-                                case 'in':
-                                    result = 0 <= comparedValue.indexOf(currentValue);
+                            switch (relation) {
+                                case 'OR':
+                                    displayed = displayed || result;
                                     break;
 
                                 default:
-                                    result = comparedValue == currentValue;
+                                    displayed = displayed && result;
                                     break;
                             }
-                        }
+                        });
 
-                        switch (relation) {
-                            case 'OR':
-                                displayed = displayed || result;
-                                break;
+                        return displayed;
+                    };
+                    var setActiveState = function () {
+                        element.active.set(isDisplayed());
+                    };
+                    _.each(rules, function (rule, i) {
 
-                            default:
-                                displayed = displayed && result;
-                                break;
+                        var setting = getSetting(rule['setting']);
+
+                        if (undefined !== setting) {
+                            setting.bind(setActiveState);
                         }
                     });
-
-                    return displayed;
+                    element.active.validate = isDisplayed;
+                    setActiveState();
                 };
-                var setActiveState = function () {
-                    element.active.set(isDisplayed());
-                };
-                _.each(rules, function (rule, i) {
-
-                    var setting = getSetting(rule['setting']);
-
-                    if (undefined !== setting) {
-                        setting.bind(setActiveState);
-                    }
-                });
-                element.active.validate = isDisplayed;
-                setActiveState();
-            };
-            api.control(control_id, initContext);
+                api.control(control_id, initContext);
+            }
         }
     }
 
@@ -274,7 +278,7 @@
         });
 
         setTimeout(function (){
-            if (AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
+            if ( 'undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
 
                 let panels = AstraBuilderCustomizerData.js_configs.panels;
                 let sections = AstraBuilderCustomizerData.js_configs.sections;
@@ -305,7 +309,7 @@
         api.previewer.bind('ready', function (data) {
 
             // Process wordpress default control contexts.
-            if (AstraBuilderCustomizerData && AstraBuilderCustomizerData.contexts) {
+            if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData && AstraBuilderCustomizerData.contexts) {
                 let default_contexts = AstraBuilderCustomizerData.contexts['wp_defaults'];
                 setTimeout(function (){
                     for (const [key, value] of Object.entries(default_contexts)) {
