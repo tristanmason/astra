@@ -68,12 +68,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'  => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -94,12 +89,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'4' => __( '4', 'astra' ),
 						'5' => __( '5', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-above-footer-wrap',
@@ -119,12 +109,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'       => __( 'Layout', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-row-layout',
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 					'input_attrs' => array(
 						'responsive' => true,
 						'footer'     => 'primary',
@@ -148,12 +133,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'content' => __( 'Content Width', 'astra' ),
 					),
 					'suffix'    => '',
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 				),
 
@@ -172,12 +152,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'     => Astra_Constants::$general_tab,
 				),
 
 				/**
@@ -196,12 +171,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 				),
 
@@ -220,12 +190,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'     => Astra_Constants::$design_tab,
 				),
 
 				// Section: Above Footer Border Color.
@@ -239,12 +204,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 50,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Section: Above Footer Color & Backgroud Heading.
@@ -255,12 +215,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 60,
 					'title'    => __( 'Background Color & Image', 'astra' ),
-					'context'  => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'  => Astra_Constants::$design_tab,
 				),
 
 				// Group Option: Above Footer Background styling.
@@ -272,12 +227,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'design',
-						),
-					),
+					'context'   => Astra_Constants::$design_tab,
 				),
 
 				// Option: Above Footer Background styling.
@@ -291,12 +241,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => $defaults['hba-footer-bg-obj-responsive'],
 					'label'     => __( 'Background', 'astra' ),
 					'priority'  => 5,
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'context'   => Astra_Constants::$general_tab,
 				),
 			);
 
