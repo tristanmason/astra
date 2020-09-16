@@ -806,7 +806,7 @@ final class Astra_Builder_Controller {
 	 */
 	public function builder_configs( $wp_customize ) {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		$builder_config_path = ASTRA_THEME_DIR . 'inc/customizer/builder/customizer/configuration';
+		$builder_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/';
 		// Header Builder.
 		require_once $builder_config_path . '/header/builder/class-astra-customizer-header-builder-configs.php';
 		// Footer Builder.
