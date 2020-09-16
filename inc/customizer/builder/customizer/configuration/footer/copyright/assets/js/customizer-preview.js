@@ -83,7 +83,10 @@
     } );
 
     // Typography CSS Generation.
-    astra_builder_typography_css( 'section-footer-copyright', selector );
+    astra_responsive_font_size(
+        'astra-settings[font-size-section-footer-copyright]',
+        selector
+    );
     
 } )( jQuery );
 		

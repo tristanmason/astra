@@ -90,7 +90,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		
 		// Spacing.
-		$menu_spacing = astra_get_option( 'header-' . $_prefix . '-menu-spacing' );
+		$menu_spacing              = astra_get_option( 'header-' . $_prefix . '-menu-spacing' );
 
 		$sub_menu_divider_color = ( true === $sub_menu_divider_toggle ) ? $sub_menu_divider_color : '';
 
@@ -141,6 +141,9 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$margin          = astra_get_option( $_section . '-margin' );
 		$margin_selector = '.astra-hfb-header .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu';
 
+		// If Astra-Pro is active or not.
+		$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
+
 		$css_output_desktop = array(
 
 			// Menu.
@@ -189,11 +192,14 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 			),
-			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
+		);
+
+		if ( $is_astra_addon_active ) {
+			$css_output_desktop[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
 				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
 				'right' => astra_calc_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
-			),
-		);
+			);
+		}
 
 		$css_output_desktop[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_desktop );
 
@@ -231,11 +237,14 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 			),
-			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
+		);
+
+		if ( $is_astra_addon_active ) {
+			$css_output_tablet[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
 				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
 				'right' => astra_calc_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ), '-', '0.907', 'em' ),
-			),
-		);
+			);
+		}
 
 		$css_output_tablet[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_tablet );
 
@@ -273,11 +282,14 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 			),
-			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
+		);
+
+		if ( $is_astra_addon_active ) {
+			$css_output_mobile[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
 				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
 				'right' => astra_calc_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'mobile' ), '-', '0.907', 'em' ),
-			),
-		);
+			);
+		}
 
 		$css_output_mobile[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_mobile );
 

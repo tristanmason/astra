@@ -58,8 +58,11 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 			} );
 		} );
 
-        // Typography CSS Generation.
-        astra_builder_typography_css( section, selector );
+		// Typography CSS Generation.
+		astra_responsive_font_size(
+			'astra-settings[font-size-' + section + ']',
+			selector
+		);
     }
 }
 
@@ -218,5 +221,8 @@ function astra_builder_social_css( builder_type = 'header' ) {
     } );
 
 	// Typography CSS Generation.
-	astra_builder_typography_css( section, selector );
+	astra_responsive_font_size(
+        'astra-settings[font-size-' + section + ']',
+        selector
+    );
 }
