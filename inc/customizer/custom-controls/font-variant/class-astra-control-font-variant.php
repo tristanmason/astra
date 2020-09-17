@@ -1,12 +1,12 @@
 <?php
 /**
- * Customizer Control: typography.
+ * Customizer Control: Variant.
  *
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       1.0.0
+ * @since       x.x.x
  */
 
 // Exit if accessed directly.
@@ -15,14 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Typography control.
+ * Variant control.
  */
 final class Astra_Control_Font_Variant extends WP_Customize_Control {
 
 	/**
 	 * Used to connect controls to each other.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var bool $connect
 	 */
 	public $connect = false;
@@ -30,7 +30,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * Option name.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var string $name
 	 */
 	public $name = '';
@@ -38,7 +38,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * Option label.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var string $label
 	 */
 	public $label = '';
@@ -46,7 +46,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * Option description.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var string $description
 	 */
 	public $description = '';
@@ -54,7 +54,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * Control type.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var string $type
 	 */
 	public $type = 'ast-font-variant';
@@ -70,7 +70,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * Used to set the mode for code controls.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var bool $mode
 	 */
 	public $mode = 'html';
@@ -86,7 +86,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * If true, the preview button for a control will be rendered.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 * @var bool $preview_button
 	 */
 	public $preview_button = false;
@@ -94,7 +94,7 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	/**
 	 * Set the default font options.
 	 *
-	 * @since 1.0.8
+	 * @since x.x.x
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Default parent's arguments.
@@ -106,7 +106,8 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
-	 *
+	 * 
+	 * @since x.x.x
 	 * @see WP_Customize_Control::to_json()
 	 */
 	public function to_json() {
@@ -123,13 +124,10 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	}
 
 	/**
-	 * An Underscore (JS) template for this control's content (but not its container).
-	 *
-	 * Class variables for this control class are available in the `data` JS object;
-	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
+	 * COntent Template for the Control rendering.
 	 *
 	 * @see WP_Customize_Control::print_template()
-	 *
+	 * @since x.x.x
 	 * @access protected
 	 */
 	protected function content_template() {
