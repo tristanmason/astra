@@ -68,28 +68,12 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 	public $variant = false;
 
 	/**
-	 * Used to set the mode for code controls.
-	 *
-	 * @since x.x.x
-	 * @var bool $mode
-	 */
-	public $mode = 'html';
-
-	/**
 	 * Used to set the default font options.
 	 *
 	 * @since 1.0.8
 	 * @var string $ast_inherit
 	 */
 	public $ast_inherit = '';
-
-	/**
-	 * If true, the preview button for a control will be rendered.
-	 *
-	 * @since x.x.x
-	 * @var bool $preview_button
-	 */
-	public $preview_button = false;
 
 	/**
 	 * Set the default font options.
