@@ -1080,7 +1080,8 @@ svg.dashicon {
 	border: 1px solid #a29090;
 	border-radius: 4px;
 }
-.astra-color-clear-button.components-button {
+.astra-color-clear-button.components-button,
+.astra-popover-tabs .astra-color-clear-button.components-button {
     margin: 10px;
 }
 .components-color-picker__saturation-black {

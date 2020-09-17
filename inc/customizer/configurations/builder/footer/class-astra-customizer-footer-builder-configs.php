@@ -149,28 +149,15 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 			// Group Option: Global Footer Background styling.
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
+				'name'      => ASTRA_THEME_SETTINGS . '[footer-bg-obj-responsive]',
 				'type'      => 'control',
-				'control'   => 'ast-settings-group',
-				'title'     => __( 'Background', 'astra' ),
+				'control'   => 'ast-responsive-background',
+				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
 				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
 				'priority'  => 70,
+				'title'     => __( 'Background', 'astra' ),
 				'context'   => Astra_Constants::$design_tab,
-			),
-
-			// Option: Global Footer Background styling.
-			array(
-				'name'      => 'footer-bg-obj-responsive',
-				'parent'    => ASTRA_THEME_SETTINGS . '[footer-background-styling]',
-				'type'      => 'sub-control',
-				'section'   => 'section-footer-builder-layout',
-				'control'   => 'ast-responsive-background',
-				'transport' => 'postMessage',
-				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
-				'label'     => __( 'Background', 'astra' ),
-				'priority'  => 5,
-				'context'   => Astra_Constants::$general_tab,
 			),
 
 			/**
