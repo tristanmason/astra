@@ -16,8 +16,8 @@ class AstraColorPickerControl extends Component {
 		this.onRemoveImage = this.onRemoveImage.bind( this );
 		this.onSelectImage = this.onSelectImage.bind( this );
 		this.open = this.open.bind( this );
-
-
+		this.onColorClearClick = this.onColorClearClick.bind( this );
+		
 		this.state = {
 			isVisible: false,
 			refresh: false,
@@ -187,6 +187,7 @@ class AstraColorPickerControl extends Component {
 																	className="ast-color-palette"
 																	onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 																/>
+																<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 															</>
 														);
 													}
@@ -225,6 +226,7 @@ class AstraColorPickerControl extends Component {
 											className="ast-color-palette"
 											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 										/>
+										<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 									</>
 								}
 							</div>
@@ -235,6 +237,17 @@ class AstraColorPickerControl extends Component {
 		);
 	}
 
+	onColorClearClick() {
+
+		this.setState( { color: 'unset' } );
+
+		if ( this.state.refresh === true ) {
+			this.setState( { refresh: false } );
+		} else {
+			this.setState( { refresh: true } );
+		}
+		this.props.onChangeComplete( 'unset', 'color' );
+	}
 	onChangeGradientComplete( gradient ) {
 
 		let newColor;

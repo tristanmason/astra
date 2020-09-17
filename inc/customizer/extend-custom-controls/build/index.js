@@ -16036,6 +16036,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
     _this.onRemoveImage = _this.onRemoveImage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.onSelectImage = _this.onSelectImage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.open = _this.open.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
+    _this.onColorClearClick = _this.onColorClearClick.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.state = {
       isVisible: false,
       refresh: false,
@@ -16200,7 +16201,13 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
               onChange: function onChange(color) {
                 return _this2.onPaletteChangeComplete(color);
               }
-            }));
+            }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
+              type: "button",
+              onClick: function onClick() {
+                _this2.onColorClearClick();
+              },
+              className: "astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small"
+            }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_10__["__"])('Clear', 'astra')));
           }
         }
 
@@ -16224,7 +16231,32 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         onChange: function onChange(color) {
           return _this2.onPaletteChangeComplete(color);
         }
-      }))))));
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
+        type: "button",
+        onClick: function onClick() {
+          _this2.onColorClearClick();
+        },
+        className: "astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small"
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_10__["__"])('Clear', 'astra')))))));
+    }
+  }, {
+    key: "onColorClearClick",
+    value: function onColorClearClick() {
+      this.setState({
+        color: 'unset'
+      });
+
+      if (this.state.refresh === true) {
+        this.setState({
+          refresh: false
+        });
+      } else {
+        this.setState({
+          refresh: true
+        });
+      }
+
+      this.props.onChangeComplete('unset', 'color');
     }
   }, {
     key: "onChangeGradientComplete",
