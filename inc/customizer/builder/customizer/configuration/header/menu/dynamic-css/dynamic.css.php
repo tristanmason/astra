@@ -90,7 +90,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		
 		// Spacing.
-		$menu_spacing              = astra_get_option( 'header-' . $_prefix . '-menu-spacing' );
+		$menu_spacing = astra_get_option( 'header-' . $_prefix . '-menu-spacing' );
 
 		$sub_menu_divider_color = ( true === $sub_menu_divider_toggle ) ? $sub_menu_divider_color : '';
 

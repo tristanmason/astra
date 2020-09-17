@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 */
 		public static function prepare_advanced_typography_css( $section_id, $selector ) {
 
-			$font_size      = astra_get_option( 'font-size-' . $section_id );
+			$font_size = astra_get_option( 'font-size-' . $section_id );
 
 			/**
 			 * Typography CSS.
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 				$selector => array(
 
 					// Typography.
-					'font-size'      => astra_responsive_font( $font_size, 'desktop' ),
+					'font-size' => astra_responsive_font( $font_size, 'desktop' ),
 				),
 			);
 

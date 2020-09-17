@@ -69,7 +69,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
 
 	// Typography.
-	$menu_font_size      = astra_get_option( 'footer-menu-font-size' );
+	$menu_font_size = astra_get_option( 'footer-menu-font-size' );
 
 	$menu_font_size_desktop      = ( isset( $menu_font_size['desktop'] ) ) ? $menu_font_size['desktop'] : '';
 	$menu_font_size_tablet       = ( isset( $menu_font_size['tablet'] ) ) ? $menu_font_size['tablet'] : '';

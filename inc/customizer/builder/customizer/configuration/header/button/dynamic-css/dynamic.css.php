@@ -36,12 +36,12 @@ function astra_hb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 			continue;
 		}
 
-		$_prefix               = 'button' . $index;
-		$_section              = 'section-hb-button-' . $index;
-		$selector              = '.ast-header-button-' . $index;
-		$button_font_size      = astra_get_option( 'header-' . $_prefix . '-font-size' );
-		$button_border_width   = astra_get_option( 'header-' . $_prefix . '-border-size' );
-		$button_border_radius  = astra_get_option( 'header-' . $_prefix . '-border-radius' );
+		$_prefix              = 'button' . $index;
+		$_section             = 'section-hb-button-' . $index;
+		$selector             = '.ast-header-button-' . $index;
+		$button_font_size     = astra_get_option( 'header-' . $_prefix . '-font-size' );
+		$button_border_width  = astra_get_option( 'header-' . $_prefix . '-border-size' );
+		$button_border_radius = astra_get_option( 'header-' . $_prefix . '-border-radius' );
 		// Normal Responsive Colors.
 		$button_bg_color_desktop = astra_get_prop( astra_get_option( 'header-' . $_prefix . '-back-color' ), 'desktop' );
 		$button_bg_color_tablet  = astra_get_prop( astra_get_option( 'header-' . $_prefix . '-back-color' ), 'tablet' );

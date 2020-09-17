@@ -37,11 +37,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_section = 'section-primary-footer-builder';
 
-			$column_count = array();
-
-			for ( $index = 1; $index <= Astra_Constants::$num_of_footer_columns; $index++ ) {
-				$column_count[ $index ] = $index;
-			}
+			$column_count = range( 1, Astra_Constants::$num_of_footer_columns );
+			$column_count = array_combine( $column_count, $column_count );
 
 			$_configs = array(
 
