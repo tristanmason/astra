@@ -123,15 +123,15 @@
 				success: function( response ) {
 					$this.removeClass( 'updating-message' );
 					if ( response.success ) {
-						if ( data.value == 1 ) {
+						if ( data.value == '1' ) {
 							// Change button classes & text.
 							$this.text( astraBuilderModules.old_header_footer );
-							$this.attr( 'data-value', 0 );
+							$this.attr( 'data-value', '0' );
 							$( '.ast-delete-old-options' ).removeClass( 'hidden' );
 						} else {
 							// Change button classes & text.
 							$this.text( astraBuilderModules.migrate_to_builder );
-							$this.attr( 'data-value', 1 );
+							$this.attr( 'data-value', '1' );
 							$( '.ast-delete-old-options' ).addClass( 'hidden' );
 						}
 					}
