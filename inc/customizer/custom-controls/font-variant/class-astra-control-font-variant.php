@@ -120,7 +120,6 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 		$this->json['connect']             = $this->connect;
 		$this->json['variant']             = $this->variant;
 		$this->json['link']                = $this->get_link();
-		$this->json['ast_all_font_weight'] = $this->ast_all_font_weight;
 	}
 
 	/**
