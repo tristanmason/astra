@@ -113,13 +113,13 @@ final class Astra_Control_Font_Variant extends WP_Customize_Control {
 		
 		parent::to_json();
 
-		$this->json['label']               = esc_html( $this->label );
-		$this->json['description']         = $this->description;
-		$this->json['name']                = $this->name;
-		$this->json['value']               = $this->value();
-		$this->json['connect']             = $this->connect;
-		$this->json['variant']             = $this->variant;
-		$this->json['link']                = $this->get_link();
+		$this->json['label']       = esc_html( $this->label );
+		$this->json['description'] = $this->description;
+		$this->json['name']        = $this->name;
+		$this->json['value']       = $this->value();
+		$this->json['connect']     = $this->connect;
+		$this->json['variant']     = $this->variant;
+		$this->json['link']        = $this->get_link();
 	}
 
 	/**
