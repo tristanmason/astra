@@ -12,6 +12,9 @@
 
     let selector = '.ast-footer-copyright .ast-footer-html-inner';
 
+    var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
     // HTML color.
     astra_css(
         'astra-settings[footer-copyright-color]',
@@ -27,13 +30,13 @@
                 dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.ast-footer-copyright {';
                 dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.ast-footer-copyright {';
                 dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
@@ -60,7 +63,7 @@
                 dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -69,7 +72,7 @@
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
@@ -83,7 +86,10 @@
     } );
 
     // Typography CSS Generation.
-    astra_builder_typography_css( 'section-footer-copyright', selector );
+    astra_responsive_font_size(
+        'astra-settings[font-size-section-footer-copyright]',
+        selector
+    );
     
 } )( jQuery );
 		

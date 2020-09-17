@@ -9,6 +9,10 @@
  */
 
 ( function( $ ) {
+
+	var tablet_break_point    = AstraBuilderMenuData.tablet_break_point || 768,
+		mobile_break_point    = AstraBuilderMenuData.mobile_break_point || 544;
+
 	for ( var index = 1; index <= AstraBuilderMenuData.header_menu_count; index++ ) {
 
 		var prefix = 'menu' + index;
@@ -46,69 +50,6 @@
 				'astra-settings[header-' + prefix + '-letter-spacing]',
 				'letter-spacing',
 				selector + ' .menu-item > .menu-link',
-				'px'
-			);
-
-			// Sub-Menu Typography.
-			astra_generate_outside_font_family_css(
-				'astra-settings[header-font-family-' + prefix + '-sub-menu]',
-				selector + ' .sub-menu .menu-item .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-font-weight-' + prefix + '-sub-menu]',
-				'font-weight',
-				selector + ' .sub-menu .menu-item .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-text-transform-' + prefix + '-sub-menu]',
-				'text-transform',
-				selector + ' .sub-menu .menu-item .menu-link'
-			);
-			astra_responsive_font_size(
-				'astra-settings[header-font-size-' + prefix + '-sub-menu]',
-				'.astra-hfb-header .ast-builder-menu-1 .main-navigation .main-header-menu.ast-nav-menu .sub-menu .menu-item .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-line-height-' + prefix + '-sub-menu]',
-				'line-height',
-				selector + ' .sub-menu .menu-item .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-letter-spacing-' + prefix + '-sub-menu]',
-				'letter-spacing',
-				selector + ' .sub-menu .menu-item .menu-link',
-				'px'
-			);
-
-
-			// Mega Menu Typography.
-			astra_generate_outside_font_family_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-font-family]',
-				selector + ' .menu-item.menu-item-heading > .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-font-weight]',
-				'font-weight',
-				selector + ' .menu-item.menu-item-heading > .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-text-transform]',
-				'text-transform',
-				selector + ' .menu-item.menu-item-heading > .menu-link'
-			);
-			astra_responsive_font_size(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-font-size]',
-				selector + ' .menu-item.menu-item-heading > .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-line-height]',
-				'line-height',
-				selector + ' .menu-item.menu-item-heading > .menu-link'
-			);
-			astra_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-letter-spacing]',
-				'letter-spacing',
-				selector + ' .menu-item.menu-item-heading > .menu-link',
 				'px'
 			);
 
@@ -180,76 +121,6 @@
 				selector + ' .menu-item.current-menu-item > .menu-link'
 			);
 
-			/**
-			 * Sub-Menu - Colors
-			 */
-
-			// Sub-Menu - Normal Color
-			astra_color_responsive_css(
-				'astra-builder',
-				'astra-settings[header-' + prefix + '-submenu-color-responsive]',
-				'color',
-				selector + ' .sub-menu .menu-item .menu-link'
-			);
-
-			// Sub-Menu - Hover Color
-			astra_color_responsive_css(
-				'astra-builder',
-				'astra-settings[header-' + prefix + '-submenu-h-color-responsive]',
-				'color',
-				selector + ' .sub-menu li.menu-item:hover .menu-link'
-			);
-
-			// Sub-Menu - Active Color
-			astra_color_responsive_css(
-				'astra-builder',
-				'astra-settings[header-' + prefix + '-submenu-a-color-responsive]',
-				'color',
-				selector + ' .sub-menu li.menu-item.current-menu-item > .menu-link'
-			);
-
-			// Sub-Menu - Normal Background
-			astra_color_responsive_css(
-				'astra-builder',
-				'astra-settings[header-' + prefix + '-submenu-bg-color-responsive]',
-				'background',
-				selector + ' .sub-menu .menu-item .menu-link'
-			);
-
-			// Sub-Menu - Hover Background
-			astra_color_responsive_css(
-				'astra-builder',
-				'astra-settings[header-' + prefix + '-submenu-h-bg-color-responsive]',
-				'background',
-				selector + ' .sub-menu li.menu-item:hover .menu-link'
-			);
-
-			// Sub-Menu - Active Background
-			astra_color_responsive_css(
-				'astra-builder',
-				'astra-settings[header-' + prefix + '-submenu-a-bg-color-responsive]',
-				'background',
-				selector + ' .sub-menu li.menu-item.current-menu-item > .menu-link'
-			);
-
-			/**
-			 * Mega Menu - Colors
-			 */
-
-			// Mega-Menu - Normal Color
-			astra_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-color]',
-				'color',
-				selector + ' .menu-item.menu-item-heading > .menu-link'
-			);
-
-			// Mega-Menu - Hover Color
-			astra_color_responsive_css(
-				'astra-settings[header-' + prefix + '-header-megamenu-heading-h-color]',
-				'color',
-				selector + ' .menu-item.menu-item-heading:hover > .menu-link'
-			);
-
 		/**
 		 * Border CSS.
 		 */
@@ -315,7 +186,7 @@
 						dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 		
-						dynamicStyle +=  '@media (max-width: 768px) {';
+						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
 						dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
 						dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
@@ -324,7 +195,7 @@
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 		
-						dynamicStyle +=  '@media (max-width: 544px) {';
+						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
 						dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
 						dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
@@ -334,82 +205,6 @@
 						dynamicStyle += '} ';
 
 						astra_add_dynamic_css( 'header-' + prefix + '-menu-spacing-toggle-button', dynamicStyle );
-					}
-				} );
-			} );
-
-			// Sub Menu Spacing.
-			wp.customize( 'astra-settings[header-' + prefix + '-submenu-spacing]', function( value ) {
-				value.bind( function( padding ) {
-					if(
-						padding.desktop.bottom != '' || padding.desktop.top != '' || padding.desktop.left != '' || padding.desktop.right != '' ||
-						padding.tablet.bottom != '' || padding.tablet.top != '' || padding.tablet.left != '' || padding.tablet.right != '' ||
-						padding.mobile.bottom != '' || padding.mobile.top != '' || padding.mobile.left != '' || padding.mobile.right != ''
-					) {
-						var dynamicStyle = '';
-						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .sub-menu .menu-link  {';
-						dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-		
-						dynamicStyle +=  '@media (max-width: 768px) {';
-						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .sub-menu .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-		
-						dynamicStyle +=  '@media (max-width: 544px) {';
-						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .sub-menu .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-						astra_add_dynamic_css( 'header-' + prefix + '-submenu-spacing-toggle-button', dynamicStyle );
-					}
-				} );
-			} );
-
-			// Mega Menu Spacing.
-			wp.customize( 'astra-settings[header-' + prefix + '-header-megamenu-heading-space]', function( value ) {
-				value.bind( function( padding ) {
-					if(
-						padding.desktop.bottom != '' || padding.desktop.top != '' || padding.desktop.left != '' || padding.desktop.right != '' ||
-						padding.tablet.bottom != '' || padding.tablet.top != '' || padding.tablet.left != '' || padding.tablet.right != '' ||
-						padding.mobile.bottom != '' || padding.mobile.top != '' || padding.mobile.left != '' || padding.mobile.right != ''
-					) {
-						var dynamicStyle = '';
-						dynamicStyle += selector + ' .menu-item.menu-item-heading > .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-		
-						dynamicStyle +=  '@media (max-width: 768px) {';
-						dynamicStyle += selector + ' .menu-item.menu-item-heading > .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-		
-						dynamicStyle +=  '@media (max-width: 544px) {';
-						dynamicStyle += selector + ' .menu-item.menu-item-heading > .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-						astra_add_dynamic_css( 'header-' + prefix + '-header-megamenu-heading-space-toggle-button', dynamicStyle );
 					}
 				} );
 			} );
@@ -431,7 +226,7 @@
 						dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 
-						dynamicStyle +=  '@media (max-width: 768px) {';
+						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 						dynamicStyle += selector + ' {';
 						dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
 						dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -440,7 +235,7 @@
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 
-						dynamicStyle +=  '@media (max-width: 544px) {';
+						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 						dynamicStyle += selector + ' {';
 						dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
 						dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';

@@ -12,6 +12,9 @@
 
     var selector = '.footer-navigation .footer-nav-wrap';
 
+    var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
     /**
      * Menu Layout CSS.
      */
@@ -45,13 +48,13 @@
                 dynamicStyle += 'justify-content: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="section-footer-menu"] .ast-nav-menu {';
                 dynamicStyle += 'justify-content: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.footer-widget-area[data-section="section-footer-menu"] .ast-nav-menu {';
                 dynamicStyle += 'justify-content: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
@@ -65,34 +68,9 @@
     /**
      * Typography CSS.
      */
-    astra_generate_outside_font_family_css(
-        'astra-settings[footer-menu-font-family]',
-        selector + ' .menu-item > .menu-link'
-    );
-    astra_css(
-		'astra-settings[footer-menu-font-weight]',
-		'font-weight',
-		selector + ' .menu-item > .menu-link'
-	);
-    astra_css(
-        'astra-settings[footer-menu-text-transform]',
-        'text-transform',
-        selector + ' .menu-item > .menu-link'
-    );
     astra_responsive_font_size(
         'astra-settings[footer-menu-font-size]',
         selector + ' .menu-item > .menu-link'
-    );
-    astra_css(
-        'astra-settings[footer-menu-line-height]',
-        'line-height',
-        selector + ' .menu-item > .menu-link'
-    );
-    astra_css(
-        'astra-settings[footer-menu-letter-spacing]',
-        'letter-spacing',
-        selector + ' .menu-item > .menu-link',
-        'px'
     );
 
     /**
@@ -160,7 +138,7 @@
                 dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += selector + ' .menu-item > .menu-link {';
                 dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
                 dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
@@ -169,7 +147,7 @@
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += selector + ' .menu-item > .menu-link {';
                 dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
                 dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
@@ -199,7 +177,7 @@
                 dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -208,7 +186,7 @@
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';

@@ -11,7 +11,10 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 
         let selector = ( 'header' === builder_type ) ? '.site-header-section .ast-builder-layout-element.ast-header-html-' + index : '.footer-widget-area[data-section="section-fb-html-' + index + '"]';
         
-        let section = ( 'header' === builder_type ) ? 'section-hb-html-' + index : 'section-fb-html-' + index;
+		let section = ( 'header' === builder_type ) ? 'section-hb-html-' + index : 'section-fb-html-' + index;
+
+		var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+            mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
         // HTML color.
         astra_css(
@@ -36,7 +39,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 					dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
 					dynamicStyle += '} ';
 
-					dynamicStyle +=  '@media (max-width: 768px) {';
+					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 					dynamicStyle += selector + ' {';
 					dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
 					dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -45,7 +48,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
 
-					dynamicStyle +=  '@media (max-width: 544px) {';
+					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 					dynamicStyle += selector + ' {';
 					dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
 					dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
@@ -58,8 +61,11 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 			} );
 		} );
 
-        // Typography CSS Generation.
-        astra_builder_typography_css( section, selector );
+		// Typography CSS Generation.
+		astra_responsive_font_size(
+			'astra-settings[font-size-' + section + ']',
+			selector
+		);
     }
 }
 
@@ -74,6 +80,9 @@ function astra_builder_social_css( builder_type = 'header' ) {
 
     var selector = '.ast-builder-layout-element .ast-' + builder_type + '-social-wrap';
 	var section = 'section-' + builder_type + '-social-icons';
+
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	// Icon Color.
 	astra_color_responsive_css( 
@@ -195,7 +204,7 @@ function astra_builder_social_css( builder_type = 'header' ) {
                 dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -204,7 +213,7 @@ function astra_builder_social_css( builder_type = 'header' ) {
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
@@ -218,5 +227,8 @@ function astra_builder_social_css( builder_type = 'header' ) {
     } );
 
 	// Typography CSS Generation.
-	astra_builder_typography_css( section, selector );
+	astra_responsive_font_size(
+        'astra-settings[font-size-' + section + ']',
+        selector
+    );
 }

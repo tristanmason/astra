@@ -289,7 +289,7 @@ final class Astra_Builder_Controller {
 
 				if ( isset( self::$group_configs[ $configuration['name'] ]['tabs'] ) ) {
 					$tab = array_keys( self::$group_configs[ $configuration['name'] ]['tabs'] );
-
+					rsort( $tab );
 					foreach ( $tab as $key => $value ) {
 
 						$config['tabs'][ $value ] = wp_list_sort( self::$group_configs[ $configuration['name'] ]['tabs'][ $value ], 'priority' );
@@ -664,6 +664,7 @@ final class Astra_Builder_Controller {
 					break;
 			}
 		}
+
 	}
 
 	/**
@@ -715,6 +716,16 @@ final class Astra_Builder_Controller {
 			array( 'customize-preview' ),
 			ASTRA_THEME_VERSION,
 			true
+		);
+
+		// Localize variables for Astra Breakpoints JS.
+		wp_localize_script(
+			'ahfb-base-customizer-preview',
+			'astraBuilderPreview',
+			array(
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
+			)
 		);
 
 		wp_localize_script(

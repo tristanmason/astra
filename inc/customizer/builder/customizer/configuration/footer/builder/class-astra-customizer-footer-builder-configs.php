@@ -156,12 +156,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
 				'priority'  => 70,
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-				),
+				'context'   => Astra_Constants::$design_tab,
 			),
 
 			// Option: Global Footer Background styling.
@@ -175,12 +170,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'footer-bg-obj-responsive' ),
 				'label'     => __( 'Background', 'astra' ),
 				'priority'  => 5,
-				'context'   => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'   => Astra_Constants::$general_tab,
 			),
 
 			/**
@@ -269,12 +259,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 					'group' => ASTRA_THEME_SETTINGS . '[footer-desktop-items]',
 					'zones' => array( 'above', 'primary', 'below' ),
 				),
-				'context'     => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'     => Astra_Constants::$general_tab,
 			),
 		);
 

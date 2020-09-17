@@ -10,6 +10,9 @@
 
 ( function( $ ) {
 
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
 	var selector = '.ast-header-search';
 
 	// Icon Color.
@@ -40,13 +43,13 @@
 				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 
-				dynamicStyle +=  '@media (max-width: 768px) {';
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 				dynamicStyle += selector + ' .astra-search-icon {';
 				dynamicStyle += 'font-size: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
-				dynamicStyle +=  '@media (max-width: 544px) {';
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 				dynamicStyle += selector + ' .astra-search-icon {';
 				dynamicStyle += 'font-size: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
@@ -73,7 +76,7 @@
                 dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 768px) {';
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
@@ -82,7 +85,7 @@
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: 544px) {';
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';

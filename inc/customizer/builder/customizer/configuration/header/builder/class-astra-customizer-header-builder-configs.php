@@ -111,11 +111,11 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		$astra_addon_status = defined( 'ASTRA_EXT_VER' );
-		
+
 		for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
 			$item = array(
-				'name'    => 'Button ' . $index,
+				'name'    => ( 1 === Astra_Constants::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-hb-button-' . $index,
 			);
@@ -127,7 +127,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 		for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
 
 			$item = array(
-				'name'    => 'HTML ' . $index,
+				'name'    => ( 1 === Astra_Constants::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-hb-html-' . $index,
 			);
@@ -137,9 +137,9 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 		}
 
 		for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
-			
+
 			$item = array(
-				'name'    => 'Widget ' . $index,
+				'name'    => ( 1 === Astra_Constants::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
 				'icon'    => 'wordpress',
 				'section' => 'sidebar-widgets-header-widget-' . $index,
 			);
@@ -380,12 +380,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'title'    => __( 'Header Types', 'astra' ),
 				'priority' => 44,
 				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'  => Astra_Constants::$general_tab,
 			),
 
 			/**
@@ -401,12 +396,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					'label'   => esc_html__( 'Transparent Header', 'astra' ),
 				),
 				'priority'    => 45,
-				'context'     => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'     => Astra_Constants::$general_tab,
 				'settings'    => false,
 			),
 
@@ -453,12 +443,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					'label'   => esc_html__( 'Sticky Header', 'astra' ),
 				),
 				'priority'    => 45,
-				'context'     => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'general',
-					),
-				),
+				'context'     => Astra_Constants::$general_tab,
 				'settings'    => false,
 			);
 		}

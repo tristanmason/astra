@@ -44,34 +44,9 @@
 		);
 
 		// Button Typography.
-		astra_generate_outside_font_family_css(
-			'astra-settings[header-' + prefix + '-font-family]',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-font-weight]',
-			'font-weight',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-text-transform]',
-			'text-transform',
-			selector + ' .ast-custom-button'
-		);
 		astra_responsive_font_size(
 			'astra-settings[header-' + prefix + '-font-size]',
 			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-line-height]',
-			'line-height',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-letter-spacing]',
-			'letter-spacing',
-			selector + ' .ast-custom-button',
-			'px'
 		);
 
 		// Border Radius.
