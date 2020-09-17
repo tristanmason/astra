@@ -269,60 +269,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'   => Astra_Constants::$design_tab,
 					),
 
-					// Option: Menu Font Family.
-					array(
-						'name'      => 'footer-menu-font-family',
-						'default'   => astra_get_option( 'footer-menu-font-family' ),
-						'parent'    => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
-						'type'      => 'sub-control',
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'control'   => 'ast-font',
-						'font_type' => 'ast-font-family',
-						'title'     => __( 'Family', 'astra' ),
-						'priority'  => 22,
-						'connect'   => 'footer-menu-font-weight',
-						'context'   => Astra_Constants::$general_tab,
-					),
-
-					// Option: Menu Font Weight.
-					array(
-						'name'              => 'footer-menu-font-weight',
-						'default'           => astra_get_option( 'footer-menu-font-weight' ),
-						'parent'            => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
-						'section'           => $_section,
-						'type'              => 'sub-control',
-						'control'           => 'ast-font',
-						'transport'         => 'postMessage',
-						'font_type'         => 'ast-font-weight',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-						'title'             => __( 'Weight', 'astra' ),
-						'priority'          => 24,
-						'connect'           => 'footer-menu-font-family',
-						'context'           => Astra_Constants::$general_tab,
-					),
-
-					// Option: Menu Text Transform.
-					array(
-						'name'      => 'footer-menu-text-transform',
-						'default'   => astra_get_option( 'footer-menu-text-transform' ),
-						'parent'    => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
-						'section'   => $_section,
-						'type'      => 'sub-control',
-						'control'   => 'ast-select',
-						'transport' => 'postMessage',
-						'title'     => __( 'Text Transform', 'astra' ),
-						'priority'  => 25,
-						'choices'   => array(
-							''           => __( 'Inherit', 'astra' ),
-							'none'       => __( 'None', 'astra' ),
-							'capitalize' => __( 'Capitalize', 'astra' ),
-							'uppercase'  => __( 'Uppercase', 'astra' ),
-							'lowercase'  => __( 'Lowercase', 'astra' ),
-						),
-						'context'   => Astra_Constants::$general_tab,
-					),
-
 					// Option: Menu Font Size.
 					array(
 						'name'        => 'footer-menu-font-size',
@@ -342,27 +288,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'em' => 'em',
 						),
 						'context'     => Astra_Constants::$general_tab,
-					),
-
-					// Option: Menu Line Height.
-					array(
-						'name'              => 'footer-menu-line-height',
-						'parent'            => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
-						'section'           => $_section,
-						'type'              => 'sub-control',
-						'priority'          => 26,
-						'title'             => __( 'Line Height', 'astra' ),
-						'transport'         => 'postMessage',
-						'default'           => '',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-						'control'           => 'ast-slider',
-						'suffix'            => '',
-						'input_attrs'       => array(
-							'min'  => 1,
-							'step' => 0.01,
-							'max'  => 10,
-						),
-						'context'           => Astra_Constants::$general_tab,
 					),
 
 					// Option: Spacing Heading.
