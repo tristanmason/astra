@@ -185,6 +185,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'border-color'        => esc_attr( astra_get_option( 'header-' . $_prefix . '-submenu-b-color' ) ),
 				'border-style'        => 'solid',
 			),
+			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
+				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
+				'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
+			),
 			// Margin CSS.
 			$margin_selector                             => array(
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
@@ -193,13 +197,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 			),
 		);
-
-		if ( $is_astra_addon_active ) {
-			$css_output_desktop[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
-				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
-				'right' => astra_calc_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
-			);
-		}
 
 		$css_output_desktop[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_desktop );
 
@@ -230,6 +227,13 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item.current-menu-item > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_active_tablet,
 			),
+			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
+				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
+				'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ), '-', '0.907', 'em' ),
+			),
+			$selector . '.ast-nav-menu .menu-item-has-children > .menu-link:after' => array(
+				'content' => 'unset',
+			),
 			// Margin CSS.
 			$margin_selector                             => array(
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
@@ -238,13 +242,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 			),
 		);
-
-		if ( $is_astra_addon_active ) {
-			$css_output_tablet[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
-				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
-				'right' => astra_calc_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ), '-', '0.907', 'em' ),
-			);
-		}
 
 		$css_output_tablet[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_tablet );
 
@@ -275,6 +272,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item.current-menu-item  > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_active_mobile,
 			),
+			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
+				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
+				'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'mobile' ), '-', '0.907', 'em' ),
+			),
 			// Margin CSS.
 			$margin_selector                              => array(
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
@@ -283,13 +284,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 			),
 		);
-
-		if ( $is_astra_addon_active ) {
-			$css_output_mobile[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
-				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
-				'right' => astra_calc_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'mobile' ), '-', '0.907', 'em' ),
-			);
-		}
 
 		$css_output_mobile[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_mobile );
 
