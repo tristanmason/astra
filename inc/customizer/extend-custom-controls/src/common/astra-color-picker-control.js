@@ -239,14 +239,14 @@ class AstraColorPickerControl extends Component {
 
 	onColorClearClick() {
 
-		this.setState( { color: '' } );
+		this.setState( { color: 'unset' } );
 
 		if ( this.state.refresh === true ) {
 			this.setState( { refresh: false } );
 		} else {
 			this.setState( { refresh: true } );
 		}
-		this.props.onChangeComplete( '', 'color' );
+		this.props.onChangeComplete( 'unset', 'color' );
 	}
 	onChangeGradientComplete( gradient ) {
 
