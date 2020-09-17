@@ -356,36 +356,30 @@ function astra_remove_controls( $wp_customize ) {
 add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 
 /**
- * Get calc Responsive Spacing
+ * Get Spacing value
+ *
+ * @param  array  $value        Responsive spacing value with unit.
+ * @param  string $operation    + | - | * | /.
+ * @param  string $from         Perform operation from the value.
+ * @param  string $from_unit    Perform operation from the value of unit.
+ * 
+ * @since x.x.x
+ * @return mixed
  */
-if ( ! function_exists( 'astra_calculate_spacing' ) ) {
+function astra_calculate_spacing( $value, $operation = '', $from = '', $from_unit = '' ) {
 
-	/**
-	 * Get Spacing value
-	 *
-	 * @param  array  $value        Responsive spacing value with unit.
-	 * @param  string $operation    + | - | * | /.
-	 * @param  string $from         Perform operation from the value.
-	 * @param  string $from_unit    Perform operation from the value of unit.
-	 * 
-	 * @since x.x.x
-	 * @return mixed
-	 */
-	function astra_calculate_spacing( $value, $operation = '', $from = '', $from_unit = '' ) {
-
-		$css = '';
-		if ( ! empty( $value ) ) {
-			$css = $value;
-			if ( ! empty( $operation ) && ! empty( $from ) ) {
-				if ( ! empty( $from_unit ) ) {
-					$css = 'calc( ' . $value . ' ' . $operation . ' ' . $from . $from_unit . ' )';
-				}
-				if ( '*' === $operation || '/' === $operation ) {
-					$css = 'calc( ' . $value . ' ' . $operation . ' ' . $from . ' )';
-				}
+	$css = '';
+	if ( ! empty( $value ) ) {
+		$css = $value;
+		if ( ! empty( $operation ) && ! empty( $from ) ) {
+			if ( ! empty( $from_unit ) ) {
+				$css = 'calc( ' . $value . ' ' . $operation . ' ' . $from . $from_unit . ' )';
+			}
+			if ( '*' === $operation || '/' === $operation ) {
+				$css = 'calc( ' . $value . ' ' . $operation . ' ' . $from . ' )';
 			}
 		}
-
-		return $css;
 	}
+
+	return $css;
 }
