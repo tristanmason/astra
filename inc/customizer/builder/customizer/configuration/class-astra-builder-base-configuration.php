@@ -135,6 +135,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'priority'  => 16,
 					'context'   => Astra_Constants::$design_tab,
 				),
+
 				/**
 				 * Option: Font Size
 				 */
@@ -154,82 +155,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
-					),
-				),
-
-				/**
-				 * Option: Font Weight
-				 */
-				array(
-					'name'      => 'font-weight-' . $section_id,
-					'control'   => 'ast-font',
-					'parent'    => $parent,
-					'section'   => $section_id,
-					'font_type' => 'ast-font-weight',
-					'type'      => 'sub-control',
-					'default'   => astra_get_option( 'font-weight-' . $section_id ),
-					'title'     => __( 'Weight', 'astra' ),
-					'priority'  => 14,
-					'connect'   => 'font-family-' . $section_id,
-				),
-
-				/**
-				 * Option: Font Family
-				 */
-				array(
-					'name'      => 'font-family-' . $section_id,
-					'type'      => 'sub-control',
-					'parent'    => $parent,
-					'section'   => $section_id,
-					'control'   => 'ast-font',
-					'font_type' => 'ast-font-family',
-					'default'   => astra_get_option( 'font-family-' . $section_id ),
-					'title'     => __( 'Family', 'astra' ),
-					'priority'  => 13,
-					'connect'   => 'font-weight-' . $section_id,
-				),
-
-				/**
-				 * Option: Line Height.
-				 */
-				array(
-					'name'              => 'line-height-' . $section_id,
-					'type'              => 'sub-control',
-					'parent'            => $parent,
-					'section'           => $section_id,
-					'default'           => astra_get_option( 'line-height-' . $section_id ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra' ),
-					'transport'         => 'postMessage',
-					'control'           => 'ast-slider',
-					'priority'          => 16,
-					'suffix'            => '',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-' . $section_id,
-					'type'      => 'sub-control',
-					'parent'    => $parent,
-					'section'   => $section_id,
-					'title'     => __( 'Text Transform', 'astra' ),
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-' . $section_id ),
-					'control'   => 'ast-select',
-					'priority'  => 17,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
 				),
 

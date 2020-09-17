@@ -68,34 +68,9 @@
     /**
      * Typography CSS.
      */
-    astra_generate_outside_font_family_css(
-        'astra-settings[footer-menu-font-family]',
-        selector + ' .menu-item > .menu-link'
-    );
-    astra_css(
-		'astra-settings[footer-menu-font-weight]',
-		'font-weight',
-		selector + ' .menu-item > .menu-link'
-	);
-    astra_css(
-        'astra-settings[footer-menu-text-transform]',
-        'text-transform',
-        selector + ' .menu-item > .menu-link'
-    );
     astra_responsive_font_size(
         'astra-settings[footer-menu-font-size]',
         selector + ' .menu-item > .menu-link'
-    );
-    astra_css(
-        'astra-settings[footer-menu-line-height]',
-        'line-height',
-        selector + ' .menu-item > .menu-link'
-    );
-    astra_css(
-        'astra-settings[footer-menu-letter-spacing]',
-        'letter-spacing',
-        selector + ' .menu-item > .menu-link',
-        'px'
     );
 
     /**

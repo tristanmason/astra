@@ -99,6 +99,13 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		public static $num_of_header_html;
 
 		/**
+		 *  No. Of. Footer Columns.
+		 *
+		 * @var int
+		 */
+		public static $num_of_footer_columns;
+
+		/**
 		 * Member Variable
 		 *
 		 * @var instance
@@ -139,6 +146,7 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 			self::$num_of_header_widgets = apply_filters( 'astra_header_widget_component_count', 0 );
 			self::$num_of_footer_html    = apply_filters( 'astra_footer_html_component_count', 2 );
 			self::$num_of_footer_widgets = apply_filters( 'astra_footer_widget_component_count', 4 );
+			self::$num_of_footer_columns = apply_filters( 'astra_footer_column_count', 4 );
 		}
 	}
 	/**

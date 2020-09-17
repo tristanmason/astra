@@ -37,6 +37,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_section = 'section-below-footer-builder';
 
+			$column_count = range( 1, Astra_Constants::$num_of_footer_columns );
+			$column_count = array_combine( $column_count, $column_count );
+
 			$_configs = array(
 
 				// Section: Below Footer.
@@ -82,13 +85,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 2,
 					'title'     => __( 'Column', 'astra' ),
-					'choices'   => array(
-						'1' => __( '1', 'astra' ),
-						'2' => __( '2', 'astra' ),
-						'3' => __( '3', 'astra' ),
-						'4' => __( '4', 'astra' ),
-						'5' => __( '5', 'astra' ),
-					),
+					'choices'   => $column_count,
 					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 					'partial'   => array(
