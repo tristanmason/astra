@@ -236,71 +236,14 @@
     margin-left: -20px;
     opacity: 0.5;
 }
-.components-button:disabled, .components-button[aria-disabled="true"] {
+.astra-reset.components-button:disabled, .astra-reset.components-button[aria-disabled="true"] {
     cursor: default;
     opacity: 0.3;
-}
-.components-button {
-    display: inline-flex;
-    text-decoration: none;
-    font-size: 13px;
-    margin: 0;
-    border: 0;
-    cursor: pointer;
-    -webkit-appearance: none;
-    background: none;
-    transition: box-shadow 0.1s linear;
-    height: 36px;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 8px;
-    overflow: hidden;
-    border-radius: 3px;
-    color: #555d66;
 }
 
 .astra-control-field button.components-button.astra-reset svg {
     width: 12px;
     height: 12px;
-}
-svg.dashicon {
-    fill: currentColor;
-    outline: none;
-}
-.components-button svg {
-    fill: currentColor;
-    outline: none;
-}
-
-.components-button.astra-color-icon-indicate {
-    height: auto;
-    position: relative;
-    transform: scale(1);
-    transition: transform 0.1s ease;
-    border-radius: 4px;
-    padding: 0;
-    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
-    background-size: 10px 10px;
-	background-position: 0 0, 0 5px, 5px -5px, -5px 0;
-	border: 1px solid #929ba4;
-}
-.components-button {
-    display: inline-flex;
-    text-decoration: none;
-    font-size: 13px;
-    margin: 0;
-    border: 0;
-    cursor: pointer;
-    -webkit-appearance: none;
-    background: none;
-    transition: box-shadow 0.1s linear;
-    height: 36px;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 8px;
-    overflow: hidden;
-    border-radius: 3px;
-    color: #555d66;
 }
 
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
@@ -315,6 +258,19 @@ svg.dashicon {
     margin-left: 0.8rem;
     border: 1px solid #dadada;
     display: inline-block;
+}
+
+.astra-color-icon-indicate.components-button {
+    height: auto;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.1s ease;
+    border-radius: 4px;
+    padding: 0;
+    background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
+    background-size: 10px 10px;
+	background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+	border: 1px solid #929ba4;
 }
 
 /** Color */
@@ -363,7 +319,9 @@ svg.dashicon {
 }
 .color-button-wrap {
 	display: inline;
-    float: right;
+    position: absolute;
+    right: 5px;
+    top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -431,7 +389,7 @@ svg.dashicon {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 .customize-control-ast-color.customize-control {
-    margin-top: 20px;
+    margin-top: 32px;
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
@@ -555,6 +513,35 @@ svg.dashicon {
 }
 .ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-right: 5px;
+}
+/* Clear Button CSS */
+.ast-color-btn-clear-wrap {
+	position: absolute;
+    top: 1.5px;
+    right: 65px;
+}
+.ast-color-btn-clear-wrap .astra-color-clear-button.components-button {
+	padding: 10px 3px;
+	width: 20px;
+	height: 20px;
+}
+/* Reset Button CSS */
+.ast-color-btn-reset-wrap {
+	position: absolute;
+    right: 46px;
+    top: 1.5px;
+}
+.ast-color-btn-reset-wrap .ast-reset-btn.components-button {
+	color: #006BA1;
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    border: 1px solid #006BA1;
+}
+.astra-color-clear-button.components-button:focus:not(:disabled) {
+	box-shadow: unset;
+	outline: unset;
+	border: 1px solid #006BA1;
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {

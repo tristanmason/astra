@@ -162,6 +162,7 @@ class AstraColorPickerControl extends Component {
 													} else if ( 'color' === tab.name ){
 														tabout = (
 															<>
+																<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 																{ refresh && (
 																	<>
 																		<ColorPicker
@@ -187,7 +188,6 @@ class AstraColorPickerControl extends Component {
 																	className="ast-color-palette"
 																	onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 																/>
-																<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 															</>
 														);
 													}
@@ -200,6 +200,9 @@ class AstraColorPickerControl extends Component {
 								{ 1 === tabs.length &&
 
 									<>
+										<div className="ast-color-btn-clear-wrap">
+											<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small"><Dashicon icon="trash" /></button>
+										</div>
 										{ refresh && (
 											<>
 												<ColorPicker
@@ -217,7 +220,6 @@ class AstraColorPickerControl extends Component {
 
 											</>
 										) }
-
 										<ColorPalette
 											colors={ finalpaletteColors }
 											value={ color }
@@ -226,7 +228,6 @@ class AstraColorPickerControl extends Component {
 											className="ast-color-palette"
 											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 										/>
-										<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 									</>
 								}
 							</div>
