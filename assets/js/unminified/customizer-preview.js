@@ -519,24 +519,24 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 				gen_bg_css = 'background: ' + bg_color + ';';
 			} else {
 				if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color ) {
-					gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+					gen_bg_css = 'background: ' + bg_color + ', url(' + bg_img + ') ' + bg_obj[device]['background-repeat'] + ' ' + bg_obj[device]['background-position'] + ' ' + bg_obj[device]['background-size'] + ' ' + bg_obj[device]['background-attachment'] + ';';
 				} else if ( '' !== bg_img ) {
-					gen_bg_css = 'background-image: url(' + bg_img + ');';
+					gen_bg_css = 'background-image: url(' + bg_img + ') ' + bg_obj[device]['background-repeat'] + ' ' + bg_obj[device]['background-position'] + ' ' + bg_obj[device]['background-size'] + ' ' + bg_obj[device]['background-attachment'] + ';';
 				} else if ( '' !== bg_color ) {
 					if( 'mobile' === device ) {
 						if( true == desktop_css && true == tablet_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
+							gen_bg_css = 'background: ' + bg_color + ', url(' + bg_tab_img + ') ' + bg_obj[device]['background-repeat'] + ' ' + bg_obj[device]['background-position'] + ' ' + bg_obj[device]['background-size'] + ' ' + bg_obj[device]['background-attachment'] + ';';
 						} else if( true == desktop_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+							gen_bg_css = 'background: ' + bg_color + ', url(' + bg_desk_img + ') ' + bg_obj[device]['background-repeat'] + ' ' + bg_obj[device]['background-position'] + ' ' + bg_obj[device]['background-size'] + ' ' + bg_obj[device]['background-attachment'] + ';';
 						} else if( true == tablet_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
+							gen_bg_css = 'background: ' + bg_color + ', url(' + bg_tab_img + ') ' + bg_obj[device]['background-repeat'] + ' ' + bg_obj[device]['background-position'] + ' ' + bg_obj[device]['background-size'] + ' ' + bg_obj[device]['background-attachment'] + ';';
 						} else {
 							gen_bg_css = 'background-color: ' + bg_color + ';';
 							gen_bg_css += 'background-image: none;';
 						}
 					} else if( 'tablet' === device ) {
 						if( true == desktop_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+							gen_bg_css = 'background: ' + bg_color + ', url(' + bg_desk_img + ') ' + bg_obj[device]['background-repeat'] + ' ' + bg_obj[device]['background-position'] + ' ' + bg_obj[device]['background-size'] + ' ' + bg_obj[device]['background-attachment'] + ';';
 						} else {
 							gen_bg_css = 'background-color: ' + bg_color + ';';
 							gen_bg_css += 'background-image: none;';
@@ -552,12 +552,12 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 				}
 			}
 
-			if ( '' != bg_img ) {
-				gen_bg_css += 'background-repeat: ' + bg_obj[device]['background-repeat'] + ';';
-				gen_bg_css += 'background-position: ' + bg_obj[device]['background-position'] + ';';
-				gen_bg_css += 'background-size: ' + bg_obj[device]['background-size'] + ';';
-				gen_bg_css += 'background-attachment: ' + bg_obj[device]['background-attachment'] + ';';
-			}
+			// if ( '' != bg_img ) {
+			// 	gen_bg_css += 'background-repeat: ' + bg_obj[device]['background-repeat'] + ';';
+			// 	gen_bg_css += 'background-position: ' + bg_obj[device]['background-position'] + ';';
+			// 	gen_bg_css += 'background-size: ' + bg_obj[device]['background-size'] + ';';
+			// 	gen_bg_css += 'background-attachment: ' + bg_obj[device]['background-attachment'] + ';';
+			// }
 
 			// Remove old.
 			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
