@@ -132,7 +132,7 @@
     text-align: center;
 }
 
-.ast-logo-title-inline .grid-section-center .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
+.header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
     text-align: left;
 }
 

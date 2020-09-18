@@ -34,10 +34,22 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	$selector = '.ast-builder-layout-element .ast-site-identity';
 
 	$margin = astra_get_option( $_section . '-margin' );
+	$title_color       = astra_get_option( 'header-color-site-title' );
+	$title_hover_color = astra_get_option( 'header-color-h-site-title' );
+	$tagline_color     = astra_get_option( 'header-color-site-tagline' );
 
 	// Desktop CSS.
 	$css_output_desktop = array(
 
+		$selector . ' .site-title *'  => array(
+			'color' => esc_attr( $title_color ),
+		),
+		$selector . ' .site-title *:hover'  => array(
+			'color' => esc_attr( $title_hover_color ),
+		),
+		$selector . ' .site-description'  => array(
+			'color' => esc_attr( $tagline_color ),
+		),
 		$selector => array(
 
 			// Margin CSS.
