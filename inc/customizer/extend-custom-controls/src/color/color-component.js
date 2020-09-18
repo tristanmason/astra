@@ -21,6 +21,10 @@ class ColorComponent extends Component {
 		};
 	}
 	renderReset () {
+		let disabled = false;
+		if (!this.state.value) {
+			disabled = true;
+		}
 		return (
 			<span className="customize-control-title">
 				<>
@@ -37,7 +41,7 @@ class ColorComponent extends Component {
 						</button>
 					</div>
 					<div className="ast-color-btn-clear-wrap">
-						<button type="button" onClick = { () => { this.updateValues( '' ) } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small"><Dashicon icon="trash" /></button>
+						<button type="button" onClick = { () => { this.updateValues( '' ) } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ disabled }><Dashicon icon="trash" /></button>
 					</div>
 				</>
 			</span>

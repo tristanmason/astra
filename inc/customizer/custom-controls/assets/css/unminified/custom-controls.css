@@ -536,7 +536,7 @@
     height: 20px;
     width: 20px;
     padding: 4px;
-    border: 1px solid #006BA1;
+    box-shadow: inset 0 0 0 1px #007cba;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	outline: unset;
@@ -544,9 +544,13 @@
 }
 .astra-color-clear-button.components-button.is-secondary:hover:not(:disabled),
 .astra-color-clear-button.components-button:focus:not(:disabled) {
-	box-shadow: unset;
-	padding: 2.5px;
+	box-shadow: 0 0 black;
+	padding: 1.5px;
 	border: 1px solid #006BA1;
+}
+.astra-color-clear-button.components-button.is-secondary:disabled,
+.ast-reset-btn.components-button.is-secondary:disabled {
+	box-shadow: inset 0 0 0 1px #007cba;
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
