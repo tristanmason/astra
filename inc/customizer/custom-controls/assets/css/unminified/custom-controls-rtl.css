@@ -552,6 +552,22 @@
 .ast-reset-btn.components-button.is-secondary:disabled {
 	box-shadow: inset 0 0 0 1px #007cba;
 }
+/** Inside Setting group popup - Colors */
+.ast-field-settings-modal .color-button-wrap {
+    left: 16px;
+}
+.ast-field-settings-modal .ast-color-btn-reset-wrap {
+    left: 59px;
+}
+.ast-field-settings-modal .ast-color-btn-clear-wrap {
+    left: 78px;
+}
+.ast-field-settings-modal .customize-control-ast-color.customize-control {
+    margin-top: 28px;
+}
+.ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
+    margin-top: 28px;
+}
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
 		margin-left: 5px;
@@ -1116,6 +1132,19 @@
 .astra-color-clear-button.components-button.is-secondary:disabled,
 .ast-reset-btn.components-button.is-secondary:disabled {
 	box-shadow: inset 0 0 0 1px #007cba;
+}
+/** Inside Setting group popup - Colors */
+.ast-field-settings-modal .color-button-wrap {
+    left: 16px;
+}
+.ast-field-settings-modal .ast-color-btn-reset-wrap {
+    left: 59px;
+}
+.ast-field-settings-modal .ast-color-btn-clear-wrap {
+    left: 78px;
+}
+.ast-field-settings-modal .customize-control-ast-color.customize-control {
+    margin-top: 28px;
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
