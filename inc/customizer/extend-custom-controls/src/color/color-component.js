@@ -10,7 +10,7 @@ class ColorComponent extends Component {
 		super( props );
 		this.handleChangeComplete = this.handleChangeComplete.bind( this );
 		this.updateValues = this.updateValues.bind( this );
-		this.renderReset = this.renderReset.bind( this );
+		this.renderOperationButtons = this.renderOperationButtons.bind( this );
 
 		let value = this.props.control.setting.get();
 
@@ -20,7 +20,7 @@ class ColorComponent extends Component {
 			value: value,
 		};
 	}
-	renderReset () {
+	renderOperationButtons () {
 		let disabled = false;
 		if (!this.state.value) {
 			disabled = true;
@@ -79,9 +79,7 @@ class ColorComponent extends Component {
 					{ labelHtml }
 				</label>
 				<div className="ast-color-picker-alpha color-picker-hex">
-
-					{ this.renderReset() }
-
+					{ this.renderOperationButtons() }
 					<AstraColorPickerControl
 						color={ ( undefined !== this.state.value && this.state.value ? this.state.value :  '' ) }
 						onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color ) }

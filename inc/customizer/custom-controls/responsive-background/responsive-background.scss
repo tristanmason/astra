@@ -97,12 +97,12 @@
 		.color-button-wrap {
 			position: absolute;
 			right: 24px;
-			top: 4px;
+			top: -5px;
 		}
 		.ast-responsive-btns {
 			position: absolute;
 			right: 0px;
-			top: 6px;
+			top: -1px;
 		}
 		.astra-color-picker-wrap {
 			margin-top: -14px;
@@ -111,6 +111,12 @@
 		.components-color-picker__saturation-white {
 			border-radius: unset;
 		}
+	}
+	.ast-color-btn-clear-wrap {
+		right: 84px;
+	}
+	.ast-color-btn-reset-wrap {
+		right: 65px;
 	}
 }
 

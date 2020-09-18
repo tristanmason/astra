@@ -13,6 +13,7 @@ class ResponsiveBackground extends Component {
 		let value = this.props.control.setting.get();
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
+		this.onDeleteBtn = this.onDeleteBtn.bind( this );
 
 		this.state = {
 			value: value,
@@ -61,23 +62,48 @@ class ResponsiveBackground extends Component {
 		}
 	}
 	renderReset ( key ) {
+		let disabled = false;
+		if (!this.state.value) {
+			disabled = true;
+		}
+		console.log(this.state.value);
 		return (
 			<span className="customize-control-title">
 				<>
-					<Button
-						className="reset astra-reset"
-						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
-							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-
-							this.updateValues( value );
-						} }
-					>
-						<Dashicon icon='image-rotate' />
-					</Button>
+					<div className="ast-color-btn-reset-wrap">
+						<Button
+							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+							disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+							onClick={ () => {
+								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+								console.log(value);
+								this.updateValues( value );
+							} }
+						>
+							<Dashicon icon='image-rotate' />
+						</Button>
+					</div>
+					<div className="ast-color-btn-clear-wrap">
+						<button type="button" onClick={ () => { this.onDeleteBtn() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ disabled }><Dashicon icon="trash" /></button>
+					</div>
 				</>
 			</span>
 		)
+	}
+	onDeleteBtn() {
+
+		let obj = {
+			...this.state.value,
+		};
+		// console.log(obj);
+		let devices = [ 'desktop', 'mobile', 'tablet' ];
+
+		for( let device of devices ) {
+			obj[device]['background-color'] = '';
+			obj[device]['background-image'] = '';
+			obj[device]['background-media'] = '';
+		}
+        this.updateValues( obj );
 	}
 	onSelectImage ( media, key, backgroundType ) {
 
