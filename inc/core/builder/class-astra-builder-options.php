@@ -137,7 +137,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hba-header-bottom-border-color']     = '#eaeaea';
 	$defaults['hba-header-bg-obj-responsive']       = array(
 		'desktop' => array(
-			'background-color'      => '#ffffff',
+			'background-color'      => '',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
 			'background-position'   => 'center center',
