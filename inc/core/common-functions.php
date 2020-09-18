@@ -1445,7 +1445,10 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 				$gen_bg_css['background-image'] = 'url(' + $bg_img + ');';
 			}
 		} elseif ( 'gradient' === $bg_type ) {
-			$gen_bg_css['background-image'] = $bg_color . ';';
+			if ( isset( $bg_color ) && 'unset' !== $bg_color ) {
+				$gen_bg_css['background-image'] = $bg_color . ';';
+
+			}
 		}
 	}
 

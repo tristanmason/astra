@@ -536,7 +536,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 
 							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
 						}
-						
+
 					} else if ( undefined === bg_img || '' === bg_img ) {
 
 						gen_bg_css = 'background-color: ' + bg_color + ';';
@@ -552,7 +552,9 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 						gen_bg_css = 'background-image: url(' + bg_img + ');';
 					}
 				} else if ( 'gradient' === bg_obj[device]['background-type'] ) {
+					if ( '' !== bg_color && 'unset' !== bg_color ) {
 						gen_bg_css = 'background-image: ' + bg_color + ';';
+					}
 				}
 			}
 
