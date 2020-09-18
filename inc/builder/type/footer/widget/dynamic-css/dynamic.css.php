@@ -28,6 +28,10 @@ function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
 
+		if ( ! Astra_Builder_Helper::is_component_loaded( 'footer', 'widget-' . $index ) ) {
+			continue;
+		}
+
 		$_section = 'sidebar-widgets-footer-widget-' . $index;
 		$selector = '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' . $index . '"]';
 
