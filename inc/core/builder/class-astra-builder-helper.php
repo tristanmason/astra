@@ -365,7 +365,7 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 
 			$loaded_components = self::$loaded_grid;
 
-			return in_array( $component_id, $loaded_components, true );
+			return in_array( $component_id, $loaded_components, true ) || is_customize_preview();
 		}
 	}
 
