@@ -343,8 +343,13 @@
     border: 1px solid #006BA1;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
-	box-shadow: unset;
 	outline: unset;
+	border: 1px solid #006BA1;
+}
+.astra-color-clear-button.components-button.is-secondary:hover:not(:disabled),
+.astra-color-clear-button.components-button:focus:not(:disabled) {
+	box-shadow: unset;
+	padding: 2.5px;
 	border: 1px solid #006BA1;
 }
 @-moz-document url-prefix() {
