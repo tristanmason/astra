@@ -294,18 +294,16 @@ ul.astra-footer-vertical-menu {
  * AST HF Builder - Responsive CSS.
  * For desktop view.
  */
-#ast-desktop-header {
+#ast-mobile-header {
     display: none;
 }
 
-@media screen and (min-width: 922px) {
-    #ast-desktop-header {
-        display: block;
-    }
+.ast-header-break-point #ast-desktop-header {
+    display: none;
+}
 
-    #ast-mobile-header {
-        display: none;
-    }
+.ast-header-break-point #ast-mobile-header {
+    display: block;
 }
 
 .site-footer-section {
