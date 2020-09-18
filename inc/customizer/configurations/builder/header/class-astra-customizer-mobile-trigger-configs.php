@@ -156,6 +156,11 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'minimal' => __( 'Minimal', 'astra' ),
 				),
 				'context'  => Astra_Constants::$general_tab,
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-button-wrap',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
+				),
 			),
 
 			/**
