@@ -39,30 +39,6 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		}
 
 		/**
-		 * Contructor to initiate the class.
-		 *
-		 * @since x.x.x
-		 */
-		public function __construct() {
-			// add_action( 'after_setup_theme', __CLASS__ . '::init_admin_settings', 80 );
-		}
-
-		/**
-		 * Set backward compatibility admin values in options table.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public static function init_admin_settings() {
-			if ( '1' === get_option( 'fresh_site', false ) ) {
-				astra_update_option( 'migrate-to-builder-new-user', true );
-			} elseif ( false === astra_get_option( 'migrate-to-builder-new-user', false ) && 'not-in-db' === astra_get_option( 'migrate-to-builder', 'not-in-db' ) ) {
-				astra_update_option( 'migrate-to-builder', false );
-			}
-		}
-
-
-		/**
 		 *  Check if Migrated to new Astra Builder.
 		 */
 		public static function is_new_user() {
@@ -77,7 +53,7 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		 */
 		public static function is_header_footer_builder() {
 			$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? false : true;
+			$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? $astra_settings['is-header-footer-builder'] : true;
 			return apply_filters( 'astra_is_header_footer_builder', $astra_settings['is-header-footer-builder'] );
 		}
 

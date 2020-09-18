@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 				return;
 			}
 
-			$status = astra_get_option( 'migrate-to-builder', false );
+			$status = astra_get_option( 'is-header-footer-builder', false );
 
 			$label = ( false !== $status ) ? __( 'Use Old Header/Footer', 'astra' ) : __( 'Use New Header/Footer Builder', 'astra' );
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 
 			$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
 			$migrate = ( $migrate ) ? true : false;
-			astra_update_option( 'migrate-to-builder', $migrate );
+			astra_update_option( 'is-header-footer-builder', $migrate );
 			wp_send_json_success();
 		}
 
