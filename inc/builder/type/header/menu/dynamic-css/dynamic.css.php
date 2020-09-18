@@ -141,9 +141,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$margin          = astra_get_option( $_section . '-margin' );
 		$margin_selector = '.astra-hfb-header .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' . $index . ' .main-header-bar-navigation .main-header-menu';
 
-		// If Astra-Pro is active or not.
-		$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
-
 		$css_output_desktop = array(
 
 			// Menu.
