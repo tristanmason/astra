@@ -13,7 +13,6 @@ class ResponsiveBackground extends Component {
 		let value = this.props.control.setting.get();
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
-		this.onDeleteBtn = this.onDeleteBtn.bind( this );
 
 		this.state = {
 			value: value,
@@ -62,48 +61,47 @@ class ResponsiveBackground extends Component {
 		}
 	}
 	renderReset ( key ) {
-		let disabled = false;
-		if (!this.state.value) {
-			disabled = true;
+		let deleteBtnDisabled = true;
+		let reserBtnDisabled = true;
+		let devices = [ 'desktop', 'mobile', 'tablet' ];
+		for( let device of devices ) {
+			if (this.state.value[device]['background-color'] || this.state.value[device]['background-image'] || this.state.value[device]['background-media']) {
+				deleteBtnDisabled = false;
+			}
+			if (this.state.value[device]['background-color'] !== this.defaultValue[device]['background-image'] || this.state.value[device]['background-image'] !== this.defaultValue[device]['background-color'] || this.state.value[device]['background-media'] !== this.defaultValue[device]['background-media']) {
+				reserBtnDisabled = false;
+			}
 		}
-		console.log(this.state.value);
 		return (
 			<span className="customize-control-title">
 				<>
 					<div className="ast-color-btn-reset-wrap">
-						<Button
+						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+							disabled={ reserBtnDisabled }
 							onClick={ () => {
 								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-								console.log(value);
+								const bgDevices = [ 'desktop', 'mobile', 'tablet' ];
+								for( let device of bgDevices ) {
+									value[device]['background-color'] = '';
+									value[device]['background-image'] = '';
+									value[device]['background-media'] = '';
+								}
 								this.updateValues( value );
 							} }
 						>
 							<Dashicon icon='image-rotate' />
-						</Button>
+						</button>
 					</div>
 					<div className="ast-color-btn-clear-wrap">
-						<button type="button" onClick={ () => { this.onDeleteBtn() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ disabled }><Dashicon icon="trash" /></button>
+						<button type="button" onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							this.updateValues( value );
+						} } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ deleteBtnDisabled }><Dashicon icon="trash" /></button>
 					</div>
 				</>
 			</span>
 		)
-	}
-	onDeleteBtn() {
-
-		let obj = {
-			...this.state.value,
-		};
-		// console.log(obj);
-		let devices = [ 'desktop', 'mobile', 'tablet' ];
-
-		for( let device of devices ) {
-			obj[device]['background-color'] = '';
-			obj[device]['background-image'] = '';
-			obj[device]['background-media'] = '';
-		}
-        this.updateValues( obj );
 	}
 	onSelectImage ( media, key, backgroundType ) {
 
