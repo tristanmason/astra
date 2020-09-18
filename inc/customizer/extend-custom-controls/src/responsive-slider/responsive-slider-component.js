@@ -169,19 +169,34 @@ class ResponsiveSliderComponent extends Component {
 				
 			});
 
+			if( undefined !== input_attrs && '' !== input_attrs ) {
+				
+				for ( let value in input_attrs ) {
+
+					if ( '' !== input_attrs[value] ) {
+
+						input_attrs[value] = parseInt( input_attrs[value] );
+					}
+				}
+			}
+		
 			for ( let device in updateState ) {
 				
-				if( undefined !== input_attrs['max'] && '' !== input_attrs['max'] && updateState[ device ] > input_attrs['max'] ) {
+				if ( '' !== updateState[device] ) {
 
-					updateState[ device ] = input_attrs['max']
-				}
-	
-				if( undefined !== input_attrs['min'] && '' !== input_attrs['min'] && updateState[ device ] < input_attrs['min'] ) {
-					
-					updateState[ device ] = input_attrs['min']
-				} 
-			}
+					updateState[device] = parseInt( updateState[device] );
 			
+					if( undefined !== input_attrs['max'] && '' !== input_attrs['max'] && updateState[ device ] > input_attrs['max'] ) {
+
+						updateState[ device ] = input_attrs['max']
+					}
+		
+					if( undefined !== input_attrs['min'] && '' !== input_attrs['min'] && updateState[ device ] < input_attrs['min'] ) {
+						
+						updateState[ device ] = input_attrs['min']
+					} 
+				}
+			}
 		}
 
 		this.setState( { value : updateState } )
