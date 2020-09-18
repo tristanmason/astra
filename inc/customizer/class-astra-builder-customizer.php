@@ -111,6 +111,7 @@ final class Astra_Builder_Customizer {
 	 */
 	public function update_default_wp_configs( $wp_customize ) {
 
+		$wp_customize->get_control( 'custom_logo' )->priority     = 1;
 		$wp_customize->get_control( 'blogname' )->priority        = 7;
 		$wp_customize->get_control( 'site_icon' )->priority       = 16;
 		$wp_customize->get_control( 'blogdescription' )->priority = 11;
@@ -511,6 +512,19 @@ final class Astra_Builder_Customizer {
 
 		if ( false !== astra_get_prop( $config, 'required', false ) ) {
 			self::$dependency_arr[ astra_get_prop( $config, 'name' ) ] = astra_get_prop( $config, 'required' );
+		}
+
+		if( 'image' === $config['type'] ) {
+			// This control depends upon default configs hence keeping it as it is.
+			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
+
+			if ( false !== $instance ) {
+				$wp_customize->add_control(
+					new $instance( $wp_customize, astra_get_prop( $config, 'name' ), $config )
+				);
+			}
+
+			return;
 		}
 
 		$config['id']       = astra_get_prop( $config, 'name' );

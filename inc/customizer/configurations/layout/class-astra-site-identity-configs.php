@@ -33,6 +33,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			$_section = 'title_tagline';
 
+			$is_migrated = Astra_Builder_Helper::is_migrated();
+
 			$_configs = array(
 
 				/**
@@ -87,19 +89,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-site-identity-logo]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Site Logo', 'astra' ),
-					'priority' => 2,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Different retina logo
 				 */
 				array(
@@ -109,7 +98,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'   => false,
-					'priority'  => 5,
+					'priority'  => $is_migrated ? 2 : 5,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -128,7 +117,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'        => 'image',
 					'section'        => 'title_tagline',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
-					'priority'       => 5,
+					'priority'       => $is_migrated ? 3 : 5,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'      => 'postMessage',
@@ -143,14 +132,20 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Inherit Desktop logo
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
-					'type'     => 'control',
-					'control'  => 'checkbox',
-					'default'  => false,
-					'section'  => 'title_tagline',
-					'title'    => __( 'Different Logo For Mobile Devices?', 'astra' ),
-					'priority' => 5,
-					'context'  => Astra_Constants::$mobile_device,
+					'name'      => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'default'   => false,
+					'section'   => 'title_tagline',
+					'title'     => __( 'Different Logo For Mobile Devices?', 'astra' ),
+					'priority'  => $is_migrated ? 4 : 5,
+					'context'   => Astra_Constants::$mobile_device,
+					'transport' => 'postMessage',
+					'partial'   => array(
+						'selector'            => '.site-branding',
+						'container_inclusive' => false,
+						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+					),
 				),
 
 				/**
@@ -335,6 +330,28 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'context'   => Astra_Constants::$design_tab,
 				),
 			);
+
+
+			if ( ! Astra_Builder_Helper::is_migrated() ) {
+
+				array_push(
+					$_configs,
+					/**
+					* Option: Divider
+					*/
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[divider-section-site-identity-logo]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'Site Logo', 'astra' ),
+						'priority' => 2,
+						'settings' => array(),
+					) 
+				);
+
+			}
+
 
 			$configurations = array_merge( $configurations, $_configs );
 			return $configurations;
