@@ -339,7 +339,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = 2;
+		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
 	}
 
 	for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
