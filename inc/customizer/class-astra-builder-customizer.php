@@ -82,7 +82,7 @@ final class Astra_Builder_Customizer {
 
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
 
-		if ( ! Astra_Builder_Helper::is_migrated( 'astra-hf-builder' ) ) {
+		if ( ! Astra_Builder_Helper::is_header_footer_builder( 'astra-hf-builder' ) ) {
 			return;
 		}
 
@@ -909,7 +909,7 @@ final class Astra_Builder_Customizer {
 					'contexts'    => self::ast_get_contexts(),
 					'choices'     => self::ast_get_choices(),
 					'js_configs'  => self::$js_configs,
-					'is_migrated' => Astra_Builder_Helper::is_migrated(),
+					'is_header_footer_builder' => Astra_Builder_Helper::is_header_footer_builder(),
 				)
 			);
 		} else {
@@ -922,7 +922,7 @@ final class Astra_Builder_Customizer {
 					'contexts'    => self::ast_get_contexts(),
 					'choices'     => self::ast_get_choices(),
 					'js_configs'  => self::$js_configs,
-					'is_migrated' => Astra_Builder_Helper::is_migrated(),
+					'is_header_footer_builder' => Astra_Builder_Helper::is_header_footer_builder(),
 				)
 			);
 		}

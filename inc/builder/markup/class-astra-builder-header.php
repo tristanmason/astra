@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function __construct() {
 
-			if ( Astra_Builder_Helper::is_migrated() ) {
+			if ( Astra_Builder_Helper::is_header_footer_builder() ) {
 				$this->remove_existing_actions();
 
 				add_action( 'astra_header', array( $this, 'header_builder_markup' ) );

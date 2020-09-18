@@ -365,3 +365,24 @@ function astra_bg_responsive_control_migration() {
 		}
 	}
 }
+
+/**
+ * Do not apply the global border width and border color setting for the existng users.
+ *
+ * @since 2.5.0
+ *
+ * @return void
+ */
+function astra_header_builder_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
+		$theme_options['is-header-footer-builder'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+	if ( ! isset( $theme_options['header-footer-builder-notice'] ) ) {
+		$theme_options['header-footer-builder-notice'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
