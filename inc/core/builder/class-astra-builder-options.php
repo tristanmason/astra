@@ -852,9 +852,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['header-search-box-type']   = 'slide-search';
 	$defaults['header-search-icon-space'] = array(
-		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => 20,
+		'tablet'  => 20,
+		'mobile'  => 20,
 	);
 
 	/**
