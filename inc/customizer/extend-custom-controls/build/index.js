@@ -15297,7 +15297,7 @@ var BuilderHeader = function BuilderHeader(props) {
       className: "button button-secondary ahfb-builder-section-shortcut section-footer-builder",
       "data-section": "section-footer-builder"
     }, " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-      class: "dashicons dashicons-admin-generic"
+      className: "dashicons dashicons-admin-generic"
     }, " "), " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
       className: "button button-secondary ahfb-builder-hide-button ahfb-builder-tab-toggle"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
@@ -15318,7 +15318,7 @@ var BuilderHeader = function BuilderHeader(props) {
       className: "button button-secondary ahfb-builder-section-shortcut section-header-builder",
       "data-section": "section-header-builder"
     }, " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-      class: "dashicons dashicons-admin-generic"
+      className: "dashicons dashicons-admin-generic"
     }, " "), " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
       className: "button button-secondary ahfb-builder-hide-button ahfb-builder-tab-toggle"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
