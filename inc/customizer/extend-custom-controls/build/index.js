@@ -14749,6 +14749,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -14760,6 +14762,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 var _wp$components = wp.components,
@@ -14851,6 +14854,17 @@ var AddComponent = /*#__PURE__*/function (_Component) {
         }
       };
 
+      var droppedCount = 0,
+          droppableCount = Object.keys(choices).length;
+
+      if (this.state.isVisible) {
+        controlParams.rows.map(function (zone) {
+          Object.keys(_this2.props.settings[zone]).map(function (area) {
+            droppedCount = droppedCount + _this2.props.settings[zone][area].length;
+          });
+        });
+      }
+
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: classnames__WEBPACK_IMPORTED_MODULE_7___default()('ahfb-builder-add-item', ('astra-settings[header-desktop-items]' === controlParams.group || 'astra-settings[footer-desktop-items]' === controlParams.group) && 'right' === location ? 'center-on-left' : null, ('astra-settings[header-desktop-items]' === controlParams.group || 'astra-settings[footer-desktop-items]' === controlParams.group) && 'left' === location ? 'center-on-right' : null, ('astra-settings[header-desktop-items]' === controlParams.group || 'astra-settings[footer-desktop-items]' === controlParams.group) && 'left_center' === location ? 'right-center-on-right' : null, ('astra-settings[header-desktop-items]' === controlParams.group || 'astra-settings[footer-desktop-items]' === controlParams.group) && 'right_center' === location ? 'left-center-on-left' : null),
         key: id
@@ -14864,7 +14878,9 @@ var AddComponent = /*#__PURE__*/function (_Component) {
         className: "ahfb-radio-container-control"
       }, Object.keys(choices).map(function (item) {
         return renderItems(item, row, column);
-      })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(Button, {
+      }), droppableCount === droppedCount && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("p", {
+        className: "ahfb-all-coponents-used"
+      }, " ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])('Hurray! All Components Are Being Used.', 'astra'), " ")))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(Button, {
         className: "ahfb-builder-item-add-icon dashicon dashicons-plus-alt2",
         onClick: function onClick() {
           _this2.setState({

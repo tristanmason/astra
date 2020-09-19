@@ -763,6 +763,12 @@
     left: 0;
 }
 
+.ahfb-popover-builder-list .ahfb-all-coponents-used {
+    width: inherit;
+    text-align: center;
+    font-weight: 400;
+}
+
 .ahfb-builder-area {
     position: relative;
 }
