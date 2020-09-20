@@ -75,7 +75,9 @@
     display: flex;
     height: 100%;
 }
-
+.ast-builder-layout-element.ast-header-search {
+    height: auto;
+}
 .site-header-section .ast-main-header-bar-alignment {
     height: 100%;
 }
