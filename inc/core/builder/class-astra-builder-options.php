@@ -618,8 +618,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Header > Sticky Defaults.
 	 */
-	$defaults['sticky-header-on-devices']     = 'desktop';
-	$defaults['sticky-header-style']          = 'none';
+	$defaults['sticky-header-on-devices'] = 'desktop';
+	$defaults['sticky-header-style']      = 'none';
 
 	/**
 	 * Footer Builder - Desktop Defaults.

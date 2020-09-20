@@ -921,10 +921,10 @@ final class Astra_Builder_Customizer {
 				'astra-custom-control-react-script',
 				'AstraBuilderCustomizerData',
 				array(
-					'contexts'    => self::ast_get_contexts(),
-					'choices'     => self::ast_get_choices(),
-					'js_configs'  => self::$js_configs,
-					'is_header_footer_builder' => Astra_Builder_Helper::is_header_footer_builder(),
+					'contexts'                 => self::ast_get_contexts(),
+					'choices'                  => self::ast_get_choices(),
+					'js_configs'               => self::$js_configs,
+					'is_header_footer_builder' => Astra_Constants::$is_new_hfb_activated,
 				)
 			);
 		} else {
@@ -934,10 +934,10 @@ final class Astra_Builder_Customizer {
 				'astra-custom-control-script',
 				'AstraBuilderCustomizerData',
 				array(
-					'contexts'    => self::ast_get_contexts(),
-					'choices'     => self::ast_get_choices(),
-					'js_configs'  => self::$js_configs,
-					'is_header_footer_builder' => Astra_Builder_Helper::is_header_footer_builder(),
+					'contexts'                 => self::ast_get_contexts(),
+					'choices'                  => self::ast_get_choices(),
+					'js_configs'               => self::$js_configs,
+					'is_header_footer_builder' => Astra_Constants::$is_new_hfb_activated,
 				)
 			);
 		}

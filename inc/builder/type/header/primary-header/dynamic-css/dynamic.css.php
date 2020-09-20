@@ -27,7 +27,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_primary_header_breakpoint_style', 
 function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	// Parsed CSS.
-	$parse_css          = '';
+	$parse_css = '';
 
 	$hb_header_height = astra_get_option( 'hb-header-height' );
 

@@ -33,21 +33,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			$_section = 'title_tagline';
 
-			$is_migrated = Astra_Builder_Helper::is_migrated();
-
 			$_configs = array(
-
-				/**
-				 * Option: Header Builder Tabs
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-site-identity-tabs]',
-					'section'     => $_section,
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
 
 				/**
 				 * Notice for Colors - Transparent header enabled on page.
@@ -98,7 +84,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'   => false,
-					'priority'  => $is_migrated ? 2 : 5,
+					'priority'  => Astra_Constants::$is_new_hfb_activated ? 2 : 5,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -117,7 +103,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'        => 'image',
 					'section'        => 'title_tagline',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
-					'priority'       => $is_migrated ? 3 : 5,
+					'priority'       => Astra_Constants::$is_new_hfb_activated ? 3 : 5,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'      => 'postMessage',
@@ -138,7 +124,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => false,
 					'section'   => 'title_tagline',
 					'title'     => __( 'Different Logo For Mobile Devices?', 'astra' ),
-					'priority'  => $is_migrated ? 4 : 5,
+					'priority'  => Astra_Constants::$is_new_hfb_activated ? 4 : 5,
 					'context'   => Astra_Constants::$mobile_device,
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -328,7 +314,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			);
 
 
-			if ( ! Astra_Builder_Helper::is_migrated() ) {
+			if ( ! Astra_Constants::$is_new_hfb_activated ) {
 
 				array_push(
 					$_configs,
@@ -343,7 +329,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'title'    => __( 'Site Logo', 'astra' ),
 						'priority' => 2,
 						'settings' => array(),
-					) 
+					)
 				);
 
 			}
