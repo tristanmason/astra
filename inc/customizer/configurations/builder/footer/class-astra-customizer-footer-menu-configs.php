@@ -34,7 +34,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$defaults              = Astra_Theme_Options::defaults();
-			$is_astra_addon_active = defined( 'ASTRA_EXT_VER' );
 
 			$_section = 'section-footer-menu';
 
@@ -115,256 +114,247 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'   => Astra_Constants::$general_tab,
 					'transport' => 'postMessage',
 				),
-			);
 
-			if ( $is_astra_addon_active ) {
+				// Option Group: Menu Color.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'title'     => __( 'Menu Color', 'astra' ),
+					'section'   => $_section,
+					'transport' => 'postMessage',
+					'priority'  => 90,
+					'context'   => Astra_Constants::$design_tab,
+				),
+
+				// Option: Menu Color.
+				array(
+					'name'       => 'footer-menu-color-responsive',
+					'default'    => astra_get_option( 'footer-menu-color-responsive' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'section'    => $_section,
+					'title'      => __( 'Link / Text Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 7,
+					'context'    => Astra_Constants::$general_tab,
+				),
+
+				// Option: Menu Background image, color.
+				array(
+					'name'       => 'footer-menu-bg-obj-responsive',
+					'default'    => $defaults['footer-menu-bg-obj-responsive'],
+					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-background',
+					'section'    => $_section,
+					'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'data_attrs' => array( 'name' => 'footer-menu-bg-obj-responsive' ),
+					'label'      => __( 'Background', 'astra' ),
+					'priority'   => 9,
+					'context'    => Astra_Constants::$general_tab,
+				),
+
+				// Option: Menu Hover Color.
+				array(
+					'name'       => 'footer-menu-h-color-responsive',
+					'default'    => astra_get_option( 'footer-menu-h-color-responsive' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'tab'        => __( 'Hover', 'astra' ),
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'transport'  => 'postMessage',
+					'title'      => __( 'Link Color', 'astra' ),
+					'section'    => $_section,
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 19,
+					'context'    => Astra_Constants::$general_tab,
+				),
+
+				// Option: Menu Hover Background Color.
+				array(
+					'name'       => 'footer-menu-h-bg-color-responsive',
+					'default'    => astra_get_option( 'footer-menu-h-bg-color-responsive' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'type'       => 'sub-control',
+					'title'      => __( 'Background Color', 'astra' ),
+					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
+					'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Hover', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 21,
+					'context'    => Astra_Constants::$general_tab,
+				),
+
+				// Option: Active Menu Color.
+				array(
+					'name'       => 'footer-menu-a-color-responsive',
+					'default'    => astra_get_option( 'footer-menu-a-color-responsive' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
+					'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Active', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 31,
+					'context'    => Astra_Constants::$general_tab,
+				),
+
+				// Option: Active Menu Background Color.
+				array(
+					'name'       => 'footer-menu-a-bg-color-responsive',
+					'default'    => astra_get_option( 'footer-menu-a-bg-color-responsive' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'section'    => $_section,
+					'title'      => __( 'Background Color', 'astra' ),
+					'tab'        => __( 'Active', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 33,
+					'context'    => Astra_Constants::$general_tab,
+				),
+
+				// Option: Typography Heading.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-header-typography-styling-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'section'  => $_section,
+					'title'    => __( 'Typography', 'astra' ),
+					'priority' => 110,
+					'settings' => array(),
+					'context'  => Astra_Constants::$design_tab,
+				),
+
+				// Option Group: Menu Typography.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
+					'default'   => astra_get_option( 'footer-menu-header-menu-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Menu', 'astra' ),
+					'section'   => $_section,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'transport' => 'postMessage',
+					'priority'  => 120,
+					'context'   => Astra_Constants::$design_tab,
+				),
+
+				// Option: Menu Font Size.
+				array(
+					'name'        => 'footer-menu-font-size',
+					'default'     => astra_get_option( 'footer-menu-font-size' ),
+					'parent'      => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
+					'section'     => $_section,
+					'type'        => 'sub-control',
+					'priority'    => 23,
+					'title'       => __( 'Size', 'astra' ),
+					'control'     => 'ast-responsive',
+					'transport'   => 'postMessage',
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'context'     => Astra_Constants::$general_tab,
+				),
+
+				// Option: Spacing Heading.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-spacing-divider]',
+					'section'  => $_section,
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'title'    => __( 'Spacing', 'astra' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'priority' => 140,
+					'settings' => array(),
+					'context'  => Astra_Constants::$design_tab,
+				),
+
+				// Option - Menu Space.
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[footer-menu-spacing]',
+					'default'        => astra_get_option( 'footer-menu-spacing' ),
+					'type'           => 'control',
+					'control'        => 'ast-responsive-spacing',
+					'transport'      => 'postMessage',
+					'section'        => $_section,
+					'required'       => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
+					'priority'       => 150,
+					'title'          => __( 'Menu Space', 'astra' ),
+					'linked_choices' => true,
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'        => Astra_Constants::$design_tab,
+				),
+
 				/**
-				 * Option: Pro Menu Configs.
+				 * Option: Margin heading
 				 */
-				$_addon_dependent_configs = array(
-					// Option Group: Menu Color.
-					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'required'  => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'title'     => __( 'Menu Color', 'astra' ),
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'priority'  => 90,
-						'context'   => Astra_Constants::$design_tab,
-					),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Margin', 'astra' ),
+					'priority' => 200,
+					'settings' => array(),
+					'context'  => Astra_Constants::$design_tab,
+				),
 
-					// Option: Menu Color.
-					array(
-						'name'       => 'footer-menu-color-responsive',
-						'default'    => astra_get_option( 'footer-menu-color-responsive' ),
-						'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'type'       => 'sub-control',
-						'control'    => 'ast-responsive-color',
-						'transport'  => 'postMessage',
-						'tab'        => __( 'Normal', 'astra' ),
-						'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'section'    => $_section,
-						'title'      => __( 'Link / Text Color', 'astra' ),
-						'responsive' => true,
-						'rgba'       => true,
-						'priority'   => 7,
-						'context'    => Astra_Constants::$general_tab,
+				/**
+				 * Option: Margin Space
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'        => '',
+					'type'           => 'control',
+					'transport'      => 'postMessage',
+					'control'        => 'ast-responsive-spacing',
+					'section'        => $_section,
+					'priority'       => 220,
+					'title'          => __( 'Margin', 'astra' ),
+					'linked_choices' => true,
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
-
-					// Option: Menu Background image, color.
-					array(
-						'name'       => 'footer-menu-bg-obj-responsive',
-						'default'    => $defaults['footer-menu-bg-obj-responsive'],
-						'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'type'       => 'sub-control',
-						'control'    => 'ast-responsive-background',
-						'section'    => $_section,
-						'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'transport'  => 'postMessage',
-						'tab'        => __( 'Normal', 'astra' ),
-						'data_attrs' => array( 'name' => 'footer-menu-bg-obj-responsive' ),
-						'label'      => __( 'Background', 'astra' ),
-						'priority'   => 9,
-						'context'    => Astra_Constants::$general_tab,
-					),
-
-					// Option: Menu Hover Color.
-					array(
-						'name'       => 'footer-menu-h-color-responsive',
-						'default'    => astra_get_option( 'footer-menu-h-color-responsive' ),
-						'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'tab'        => __( 'Hover', 'astra' ),
-						'type'       => 'sub-control',
-						'control'    => 'ast-responsive-color',
-						'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'transport'  => 'postMessage',
-						'title'      => __( 'Link Color', 'astra' ),
-						'section'    => $_section,
-						'responsive' => true,
-						'rgba'       => true,
-						'priority'   => 19,
-						'context'    => Astra_Constants::$general_tab,
-					),
-
-					// Option: Menu Hover Background Color.
-					array(
-						'name'       => 'footer-menu-h-bg-color-responsive',
-						'default'    => astra_get_option( 'footer-menu-h-bg-color-responsive' ),
-						'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'type'       => 'sub-control',
-						'title'      => __( 'Background Color', 'astra' ),
-						'section'    => $_section,
-						'control'    => 'ast-responsive-color',
-						'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'transport'  => 'postMessage',
-						'tab'        => __( 'Hover', 'astra' ),
-						'responsive' => true,
-						'rgba'       => true,
-						'priority'   => 21,
-						'context'    => Astra_Constants::$general_tab,
-					),
-
-					// Option: Active Menu Color.
-					array(
-						'name'       => 'footer-menu-a-color-responsive',
-						'default'    => astra_get_option( 'footer-menu-a-color-responsive' ),
-						'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'type'       => 'sub-control',
-						'section'    => $_section,
-						'control'    => 'ast-responsive-color',
-						'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'transport'  => 'postMessage',
-						'tab'        => __( 'Active', 'astra' ),
-						'title'      => __( 'Link Color', 'astra' ),
-						'responsive' => true,
-						'rgba'       => true,
-						'priority'   => 31,
-						'context'    => Astra_Constants::$general_tab,
-					),
-
-					// Option: Active Menu Background Color.
-					array(
-						'name'       => 'footer-menu-a-bg-color-responsive',
-						'default'    => astra_get_option( 'footer-menu-a-bg-color-responsive' ),
-						'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-colors]',
-						'type'       => 'sub-control',
-						'control'    => 'ast-responsive-color',
-						'transport'  => 'postMessage',
-						'required'   => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'section'    => $_section,
-						'title'      => __( 'Background Color', 'astra' ),
-						'tab'        => __( 'Active', 'astra' ),
-						'responsive' => true,
-						'rgba'       => true,
-						'priority'   => 33,
-						'context'    => Astra_Constants::$general_tab,
-					),
-
-					// Option: Typography Heading.
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-header-typography-styling-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-heading',
-						'required' => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'section'  => $_section,
-						'title'    => __( 'Typography', 'astra' ),
-						'priority' => 110,
-						'settings' => array(),
-						'context'  => Astra_Constants::$design_tab,
-					),
-
-					// Option Group: Menu Typography.
-					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
-						'default'   => astra_get_option( 'footer-menu-header-menu-typography' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Menu', 'astra' ),
-						'section'   => $_section,
-						'required'  => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'transport' => 'postMessage',
-						'priority'  => 120,
-						'context'   => Astra_Constants::$design_tab,
-					),
-
-					// Option: Menu Font Size.
-					array(
-						'name'        => 'footer-menu-font-size',
-						'default'     => astra_get_option( 'footer-menu-font-size' ),
-						'parent'      => ASTRA_THEME_SETTINGS . '[footer-menu-header-menu-typography]',
-						'section'     => $_section,
-						'type'        => 'sub-control',
-						'priority'    => 23,
-						'title'       => __( 'Size', 'astra' ),
-						'control'     => 'ast-responsive',
-						'transport'   => 'postMessage',
-						'input_attrs' => array(
-							'min' => 0,
-						),
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-						'context'     => Astra_Constants::$general_tab,
-					),
-
-					// Option: Spacing Heading.
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-spacing-divider]',
-						'section'  => $_section,
-						'type'     => 'control',
-						'control'  => 'ast-heading',
-						'title'    => __( 'Spacing', 'astra' ),
-						'required' => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'priority' => 140,
-						'settings' => array(),
-						'context'  => Astra_Constants::$design_tab,
-					),
-
-					// Option - Menu Space.
-					array(
-						'name'           => ASTRA_THEME_SETTINGS . '[footer-menu-spacing]',
-						'default'        => astra_get_option( 'footer-menu-spacing' ),
-						'type'           => 'control',
-						'control'        => 'ast-responsive-spacing',
-						'transport'      => 'postMessage',
-						'section'        => $_section,
-						'required'       => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
-						'priority'       => 150,
-						'title'          => __( 'Menu Space', 'astra' ),
-						'linked_choices' => true,
-						'unit_choices'   => array( 'px', 'em', '%' ),
-						'choices'        => array(
-							'top'    => __( 'Top', 'astra' ),
-							'right'  => __( 'Right', 'astra' ),
-							'bottom' => __( 'Bottom', 'astra' ),
-							'left'   => __( 'Left', 'astra' ),
-						),
-						'context'        => Astra_Constants::$design_tab,
-					),
-
-					/**
-					 * Option: Margin heading
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
-						'type'     => 'control',
-						'control'  => 'ast-heading',
-						'section'  => $_section,
-						'title'    => __( 'Margin', 'astra' ),
-						'priority' => 200,
-						'settings' => array(),
-						'context'  => Astra_Constants::$design_tab,
-					),
-
-					/**
-					 * Option: Margin Space
-					 */
-					array(
-						'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-						'default'        => '',
-						'type'           => 'control',
-						'transport'      => 'postMessage',
-						'control'        => 'ast-responsive-spacing',
-						'section'        => $_section,
-						'priority'       => 220,
-						'title'          => __( 'Margin', 'astra' ),
-						'linked_choices' => true,
-						'unit_choices'   => array( 'px', 'em', '%' ),
-						'choices'        => array(
-							'top'    => __( 'Top', 'astra' ),
-							'right'  => __( 'Right', 'astra' ),
-							'bottom' => __( 'Bottom', 'astra' ),
-							'left'   => __( 'Left', 'astra' ),
-						),
-						'context'        => Astra_Constants::$design_tab,
-					),
-				);
-
-				$_configs = array_merge( $_configs, $_addon_dependent_configs );
-			}
+					'context'        => Astra_Constants::$design_tab,
+				),
+			);
 
 			return array_merge( $configurations, $_configs );
 		}

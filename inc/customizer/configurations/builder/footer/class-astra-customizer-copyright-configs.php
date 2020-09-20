@@ -98,8 +98,8 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Alignment', 'astra' ),
 				'choices'   => array(
 					'left'   => __( 'Left', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
 					'center' => __( 'Center', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
 				),
 				'context'   => Astra_Constants::$general_tab,
 				'transport' => 'postMessage',

@@ -1,4 +1,5 @@
 import classnames from "classnames"
+import { __ } from '@wordpress/i18n';
 
 const { ButtonGroup, Dashicon, Popover, Button } = wp.components;
 const { Component, Fragment } = wp.element;
@@ -70,6 +71,17 @@ class AddComponent extends Component {
 			}
 		};
 
+		let droppedCount = 0,
+			droppableCount = Object.keys(choices).length;
+
+		if( this.state.isVisible ) {
+			controlParams.rows.map( ( zone ) => {
+				Object.keys( this.props.settings[zone] ).map( ( area ) => {
+					droppedCount = droppedCount + this.props.settings[zone][area].length;
+				} );
+			} );
+		}
+
 		return (
 			<div
 				className={classnames(
@@ -88,6 +100,11 @@ class AddComponent extends Component {
 								{ Object.keys( choices ).map( ( item ) => {
 									return renderItems( item, row, column );
 								} ) }
+								{
+									droppableCount === droppedCount && (
+										<p className="ahfb-all-coponents-used"> { __( 'Hurray! All Components Are Being Used.', 'astra' ) } </p>
+									)
+								}
 							</ButtonGroup>
 						</div>
 					</Popover>

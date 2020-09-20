@@ -52,8 +52,8 @@ class Astra_Customizer_Footer_Social_Icons_Configs extends Astra_Customizer_Conf
 				'title'     => __( 'Alignment', 'astra' ),
 				'choices'   => array(
 					'left'   => __( 'Left', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
 					'center' => __( 'Center', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
 				),
 				'context'   => Astra_Constants::$general_tab,
 				'transport' => 'postMessage',

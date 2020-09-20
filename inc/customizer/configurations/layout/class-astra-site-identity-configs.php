@@ -173,11 +173,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'     => 'ast-responsive-slider',
 					'section'     => $_section,
 					'transport'   => 'postMessage',
-					'default'     => array(
-						'desktop' => '',
-						'tablet'  => '',
-						'mobile'  => '',
-					),
+					'default'     => astra_get_option( 'ast-header-responsive-logo-width' ),
 					'priority'    => 5,
 					'title'       => __( 'Logo Width', 'astra' ),
 					'input_attrs' => array(
