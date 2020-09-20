@@ -92,8 +92,6 @@
 	AstBuilderAdmin = {
 
 		init: function() {
-			
-			$( document ).delegate( ".ast-delete-old-options", "click", AstBuilderAdmin.delete_module );
 			$( document ).delegate( ".ast-builder-migrate", "click", AstBuilderAdmin.migrate );
 		},
 
@@ -123,64 +121,18 @@
 				success: function( response ) {
 					$this.removeClass( 'updating-message' );
 					if ( response.success ) {
-						if ( data.value == 1 ) {
+						if ( data.value == '1' ) {
 							// Change button classes & text.
 							$this.text( astraBuilderModules.old_header_footer );
-							$this.attr( 'data-value', 0 );
-							$( '.ast-delete-old-options' ).removeClass( 'hidden' );
+							$this.attr( 'data-value', '0' );
 						} else {
 							// Change button classes & text.
 							$this.text( astraBuilderModules.migrate_to_builder );
-							$this.attr( 'data-value', 1 );
-							$( '.ast-delete-old-options' ).addClass( 'hidden' );
+							$this.attr( 'data-value', '1' );
 						}
 					}
 				}
 			})
-		},
-
-		/**
-		 * Delete Module.
-		 */
-		delete_module: function( e ) {
-
-			e.stopPropagation();
-			e.preventDefault();
-
-			var delete_status = confirm( astraBuilderModules.delete_permission );
-
-			var button = $( this ),
-				data = {
-					module_id: 'astra-hf-builder',
-					action: 'astra_addon_delete_module',
-					nonce: astraBuilderModules.ajax_nonce,
-				};
-
-			if ( true == delete_status ) {
-				if ( button.hasClass( 'updating-message' ) ) {
-					return;
-				}
-
-				$( button ).addClass('updating-message');
-
-				AstraBuilderAjaxQueue.add({
-					url: ajaxurl,
-					type: 'POST',
-					data: data,
-					success: function(data){
-						// Change button classes & text.
-						button.text(astraBuilderModules.deleted).removeClass('updating-message');
-
-						setTimeout( function() {
-							button.remove();
-						}, 1000 );
-
-					}
-				})
-				e.preventDefault();
-
-				AstraBuilderAjaxQueue.run();
-			}
 		},
 	}
 
