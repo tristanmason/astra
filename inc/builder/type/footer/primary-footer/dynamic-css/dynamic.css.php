@@ -65,7 +65,12 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		$css_output_desktop[ $selector . ' .site-container' ]['max-width']    = astra_get_css_value( $content_width, 'px' );
 		$css_output_desktop[ $selector . ' .site-container' ]['margin-left']  = 'auto';
 		$css_output_desktop[ $selector . ' .site-container' ]['margin-right'] = 'auto';
+	} else {
+		$css_output_desktop[ $selector . ' .site-container' ]['max-width']    = '100%';
+		$css_output_desktop[ $selector . ' .site-container' ]['padding-left']  = '35px';
+		$css_output_desktop[ $selector . ' .site-container' ]['padding-right'] = '35px';
 	}
+
 	$css_output_tablet = array(
 
 		$selector               => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),

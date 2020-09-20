@@ -166,94 +166,150 @@
 				selector + ' li.menu-item .sub-menu '
 			);
 
-		/**
-		 * Spacing CSS.
-		 */
-
-			// Menu Spacing.
-			wp.customize( 'astra-settings[header-' + prefix + '-menu-spacing]', function( value ) {
-				value.bind( function( padding ) {
-					if(
-						padding.desktop.bottom != '' || padding.desktop.top != '' || padding.desktop.left != '' || padding.desktop.right != '' ||
-						padding.tablet.bottom != '' || padding.tablet.top != '' || padding.tablet.left != '' || padding.tablet.right != '' ||
-						padding.mobile.bottom != '' || padding.mobile.top != '' || padding.mobile.left != '' || padding.mobile.right != ''
-					) {
-						var dynamicStyle = '';
-						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-		
-						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-		
-						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-						dynamicStyle += '.ast-default-menu-enable .ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
-						dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
-						dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-
-						astra_add_dynamic_css( 'header-' + prefix + '-menu-spacing-toggle-button', dynamicStyle );
-					}
-				} );
-			} );
-
-			// Margin.
-			wp.customize( 'astra-settings[section-hb-menu-' + index + '-margin]', function( value ) {
-				value.bind( function( margin ) {
-					if(
-						margin.desktop.bottom != '' || margin.desktop.top != '' || margin.desktop.left != '' || margin.desktop.right != '' ||
-						margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
-						margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
-					) {
-						var selector = '.astra-hfb-header .ast-builder-menu-' + index + ' .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-' + index + ' .main-header-bar-navigation .main-header-menu';
-						var dynamicStyle = '';
-						dynamicStyle += selector + ' {';
-						dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-
-						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-						dynamicStyle += selector + ' {';
-						dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
-						dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
-						dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-
-						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-						dynamicStyle += selector + ' {';
-						dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
-						dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
-						dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
-						dynamicStyle += '} ';
-						dynamicStyle += '} ';
-						astra_add_dynamic_css( 'section-hb-menu-' + index + '-margin', dynamicStyle );
-					}
-				} );
-			} );
 	}
+
+	/**
+	 * Spacing CSS.
+	 */
+
+	// Menu Spacing - Menu 1.
+	wp.customize( 'astra-settings[header-menu1-menu-spacing]', function( value ) {
+		value.bind( function( padding ) {
+			var dynamicStyle = '';
+			dynamicStyle += '.ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '.ast-builder-menu-1.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( 'header-menu1-menu-spacing-toggle-button', dynamicStyle );
+		} );
+	} );
+
+	// Margin - Menu 1.
+	wp.customize( 'astra-settings[section-hb-menu-1-margin]', function( value ) {
+			value.bind( function( margin ) {
+				var selector = '.astra-hfb-header .ast-builder-menu-1 .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-1 .main-header-bar-navigation .main-header-menu';
+				var dynamicStyle = '';
+				dynamicStyle += selector + ' {';
+				dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += selector + ' {';
+				dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
+				dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
+				dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += selector + ' {';
+				dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
+				dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
+				dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+				astra_add_dynamic_css( 'section-hb-menu-1-margin', dynamicStyle );
+			} );
+		} );
+
+	// Menu Spacing - Menu 2.
+	wp.customize( 'astra-settings[header-menu2-menu-spacing]', function( value ) {
+		value.bind( function( padding ) {
+			var dynamicStyle = '';
+			dynamicStyle += '.ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '.ast-builder-menu-2.ast-builder-menu .main-header-menu .menu-item > .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( 'header-menu2-menu-spacing-toggle-button', dynamicStyle );
+		} );
+	} );
+
+	// Margin - Menu 2.
+	wp.customize( 'astra-settings[section-hb-menu-2-margin]', function( value ) {
+		value.bind( function( margin ) {
+			var selector = '.astra-hfb-header .ast-builder-menu-2 .main-header-bar-navigation .main-header-menu, .astra-hfb-header.ast-header-break-point .ast-builder-menu-2 .main-header-bar-navigation .main-header-menu';
+			var dynamicStyle = '';
+			dynamicStyle += selector + ' {';
+			dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
+			dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
+			dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
+			dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += selector + ' {';
+			dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
+			dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
+			dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
+			dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['desktop-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += selector + ' {';
+			dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
+			dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
+			dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';
+			dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+			astra_add_dynamic_css( 'section-hb-menu-2-margin', dynamicStyle );
+		} );
+	} );
+
 	
 	// Sub Menu Divider Toggle.
 	wp.customize( 'astra-settings[header-menu1-submenu-item-border]', function( setting ) {
 		setting.bind( function( value ) {
 
-			var item_divider_color = (typeof ( wp.customize._value['astra-settings[header-menu1-submenu-item-b-color]'] ) != 'undefined') ? wp.customize._value['astra-settings[header-menu1-submenu-item-b-color]']._value : '';
+			var item_divider_color = (typeof ( wp.customize._value['astra-settings[header-menu2-submenu-item-b-color]'] ) != 'undefined') ? wp.customize._value['astra-settings[header-menu2-submenu-item-b-color]']._value : '';
 
 			var dynamicStyle = '';
 			if ( value ) {
@@ -290,7 +346,7 @@
 				dynamicStyle += '}';
 			}
 
-			astra_add_dynamic_css( 'header-menu1-submenu-item-border', dynamicStyle );
+			astra_add_dynamic_css( 'header-menu2-submenu-item-border', dynamicStyle );
 
 		} );
 	} );
