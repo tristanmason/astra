@@ -221,20 +221,6 @@
     display: none;
 }
 
-.ast-builder-button-wrap .ast-custom-button {
-    color: #ffffff;
-    background-color: #0274be;
-    border-radius: 2px;
-    line-height: 16px;
-    padding: 12px 30px;
-}
-
-.ast-builder-button-wrap .ast-custom-button:hover {
-    color: #ffffff;
-    background-color: #3a3a3a;
-    border-color: #ad38e2;
-}
-
 .ast-footer-html-inner p {
     margin-bottom: 0;
 }
@@ -264,6 +250,10 @@
 
 .ast-nav-menu .sub-menu {
     line-height: 1.45;
+}
+
+.ast-builder-menu .main-navigation {
+    padding: 0;
 }
 
 .site-header-section .ast-builder-menu {

@@ -835,6 +835,7 @@ final class Astra_Builder_Customizer {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/header';
 		require_once $header_config_path . '/class-astra-customizer-above-header-configs.php';
+		require_once $header_config_path . '/class-astra-customizer-below-header-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-header-builder-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-header-widget-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-mobile-trigger-configs.php';

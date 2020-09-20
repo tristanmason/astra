@@ -76,6 +76,7 @@
 			if ( 'full' == layout ) {
 				dynamicStyle = selector + ' .ast-site-footer .site-container {';
 					dynamicStyle += 'max-width: 100%';
+					dynamicStyle += 'padding-right: 35px; padding-left: 35px;';
 				dynamicStyle += '} ';
 			}
 
