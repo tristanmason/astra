@@ -63,6 +63,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_bg_control_migration',
 				'astra_bg_responsive_control_migration',
 			),
+			'2.7.0' => array(
+				'astra_header_builder_compatibility',
+			),
 		);
 
 		/**

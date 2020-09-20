@@ -39,41 +39,22 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		}
 
 		/**
-		 * Contructor to initiate the class.
-		 *
-		 * @since x.x.x
-		 */
-		public function __construct() {
-			add_action( 'after_setup_theme', __CLASS__ . '::init_admin_settings', 80 );
-		}
-
-		/**
-		 * Set backward compatibility admin values in options table.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public static function init_admin_settings() {
-			if ( '1' === get_option( 'fresh_site', false ) ) {
-				astra_update_option( 'migrate-to-builder-new-user', true );
-			} elseif ( false === astra_get_option( 'migrate-to-builder-new-user', false ) && 'not-in-db' === astra_get_option( 'migrate-to-builder', 'not-in-db' ) ) {
-				astra_update_option( 'migrate-to-builder', false );
-			}
-		}
-
-
-		/**
 		 *  Check if Migrated to new Astra Builder.
 		 */
 		public static function is_new_user() {
-			return astra_get_option( 'migrate-to-builder-new-user', false );
+			return astra_get_option( 'header-footer-builder-notice', true );
 		}
 
 		/**
-		 *  Check if Migrated to new Astra Builder.
+		 * For existing users, do not load the wide/full width image CSS by default.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function is_migrated() {
-			return astra_get_option( 'migrate-to-builder', true );
+		public static function is_header_footer_builder() {
+			$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? $astra_settings['is-header-footer-builder'] : true;
+			return apply_filters( 'astra_is_header_footer_builder', $astra_settings['is-header-footer-builder'] );
 		}
 
 		/**
@@ -359,13 +340,13 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 					$loaded_components = array_values( $loaded_components );
 					$loaded_components = call_user_func_array( 'array_merge', $loaded_components );
 				}
-				
+
 				self::$loaded_grid = $loaded_components;
 			}
 
 			$loaded_components = self::$loaded_grid;
 
-			return in_array( $component_id, $loaded_components, true );
+			return in_array( $component_id, $loaded_components, true ) || is_customize_preview();
 		}
 	}
 

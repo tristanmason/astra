@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function __construct() {
 
-			if ( Astra_Builder_Helper::is_migrated() ) {
+			if ( Astra_Builder_Helper::is_header_footer_builder() ) {
 				$this->remove_existing_actions();
 
 				add_action( 'astra_header', array( $this, 'header_builder_markup' ) );
@@ -211,6 +211,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			remove_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
 			remove_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
+			remove_filter( 'wp_nav_menu_items', 'astra_masthead_custom_nav_menu_items' );
 		}
 
 		/**
