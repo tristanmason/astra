@@ -380,8 +380,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 			);
 
-
-
 			$wp_customize->remove_control( 'astra-settings[divider-section-transparent-styling]' );
 			$wp_customize->remove_control( 'astra-settings[divider-section-transparent-border-styling]' );
 			$wp_customize->remove_control( 'astra-settings[divider-sec-transparent-styling]' );

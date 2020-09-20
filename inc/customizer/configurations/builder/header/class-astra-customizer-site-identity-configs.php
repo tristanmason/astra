@@ -319,6 +319,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
+					'priority' => 9,
 					'default'   => astra_get_option( 'header-color-site-tagline' ),
 					'title'     => __( 'Tagline Color', 'astra' ),
 					'section'   => 'title_tagline',

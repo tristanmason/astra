@@ -205,8 +205,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['ast-header-responsive-logo-width'] = array(
 		'desktop' => 150,
-		'tablet'  => '',
-		'mobile'  => '',
+		'tablet'  => 120,
+		'mobile'  => 100,
 	);
 
 	/**
@@ -616,6 +616,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 
 	/**
+	 * Header > Sticky Defaults.
+	 */
+	$defaults['sticky-header-on-devices']     = 'desktop';
+	$defaults['sticky-header-style']          = 'none';
+
+	/**
 	 * Footer Builder - Desktop Defaults.
 	 */
 	$defaults['footer-desktop-items'] = array(
@@ -852,9 +858,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['header-search-box-type']   = 'slide-search';
 	$defaults['header-search-icon-space'] = array(
-		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => 20,
+		'tablet'  => 20,
+		'mobile'  => 20,
 	);
 
 	/**
