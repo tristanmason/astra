@@ -892,7 +892,7 @@ final class Astra_Builder_Customizer {
 	 *
 	 * @return mixed|void
 	 */
-	public static function ast_get_contexts() {
+	public static function get_contexts() {
 		// Return contexts.
 		return apply_filters( 'astra_customizer_context', self::$contexts );
 	}
@@ -902,7 +902,7 @@ final class Astra_Builder_Customizer {
 	 *
 	 * @return mixed|void
 	 */
-	public static function ast_get_choices() {
+	public static function get_choices() {
 		// Return contexts.
 		return apply_filters( 'astra_customizer_choices', self::$choices );
 	}
@@ -914,33 +914,18 @@ final class Astra_Builder_Customizer {
 	 */
 	public function enqueue_customizer_scripts() {
 
-		if ( SCRIPT_DEBUG ) {
+		// Localize variables for Dev mode > Customizer JS.
+		wp_localize_script(
+			SCRIPT_DEBUG ? 'astra-custom-control-react-script' : 'astra-custom-control-script',
+			'AstraBuilderCustomizerData',
+			array(
+				'contexts'                 => self::get_contexts(),
+				'choices'                  => self::get_choices(),
+				'js_configs'               => self::$js_configs,
+				'is_header_footer_builder' => Astra_Constants::$is_new_hfb_activated,
+			)
+		);
 
-			// Localize variables for Dev mode > Customizer JS.
-			wp_localize_script(
-				'astra-custom-control-react-script',
-				'AstraBuilderCustomizerData',
-				array(
-					'contexts'                 => self::ast_get_contexts(),
-					'choices'                  => self::ast_get_choices(),
-					'js_configs'               => self::$js_configs,
-					'is_header_footer_builder' => Astra_Constants::$is_new_hfb_activated,
-				)
-			);
-		} else {
-
-			// Localize variables for User's view > Customizer JS.
-			wp_localize_script(
-				'astra-custom-control-script',
-				'AstraBuilderCustomizerData',
-				array(
-					'contexts'                 => self::ast_get_contexts(),
-					'choices'                  => self::ast_get_choices(),
-					'js_configs'               => self::$js_configs,
-					'is_header_footer_builder' => Astra_Constants::$is_new_hfb_activated,
-				)
-			);
-		}
 		// Enqueue Builder CSS.
 		wp_enqueue_style(
 			'ahfb-customizer-style',
