@@ -1874,7 +1874,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-slider .ast-responsive-slider-reset {
   color: rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: -28px;
+  top: -33px;
   left: 1.5em;
   display: inline-block;
   -webkit-transition: color 0.5s ease-in;
@@ -2156,6 +2156,7 @@ input[type="text"].select2-search__field {
   display: block;
   width: 17%;
   float: none;
+  line-height: 1em;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
@@ -3370,6 +3371,7 @@ input[type="text"].select2-search__field {
   display: block;
   width: 17%;
   float: none;
+  line-height: 1em;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {

@@ -7,7 +7,7 @@
     opacity: 0.4;
 }
 
-.customize-control-ast-builder-header-control .ahfb-builder-tab-toggle {
+.customize-control-ast-builder-header-control .ahfb-builder-tab-toggle, .customize-control-ast-builder-header-control .ahfb-builder-section-shortcut {
     font-size: 13px;
     -webkit-box-align: center;
     align-items: center;
@@ -22,11 +22,19 @@
     background: #eeeeee;
     border: 1px solid #dddddd;
     border-bottom-color: #eeeeee;
-    padding: 4px 15px 4px 20px;
+    padding: 4px 15px 2px 20px;
     border-radius: 0 5px 0 0;
 }
 
-.customize-control-ast-builder-header-control .ahfb-builder-tab-toggle:hover {
+.customize-control-ast-builder-header-control .ahfb-builder-section-shortcut {
+    left: 130px;
+    border-bottom: none;
+    padding: 8px 10px 7px 12px;
+    border-radius: 5px 5px 0 0;
+    margin-left: 12px;
+}
+
+.customize-control-ast-builder-header-control .ahfb-builder-tab-toggle:hover, .customize-control-ast-builder-header-control .ahfb-builder-section-shortcut:hover {
     background: #eeeeee;
     color: #0073aa;
     border-color: #dddddd;
@@ -41,7 +49,7 @@
     display: none;
 }
 
-.customize-control-ast-builder-header-control .ahfb-builder-tab-toggle span.dashicons {
+.customize-control-ast-builder-header-control .ahfb-builder-tab-toggle span.dashicons, .customize-control-ast-builder-header-control .ahfb-builder-section-shortcut span.dashicons {
     font-size: 12px;
     vertical-align: middle;
     line-height: 20px;
@@ -196,18 +204,10 @@
     right: calc(-30px + -1.5rem);
 }
 
-#kt-scroll-up .customize-partial-edit-shortcut {
-    display: none;
-}
-
 /*------------------------------------------------------------------------------------------------------------------*/
 
-#customize-control-astra-settings-header-sticky-link {
-    margin-top: 0;
-}
-
 /*controls.css*/
-.customize-control-astra_builder_control {	
+.customize-control-astra_builder_control {
     border: 0 !important;
 }
 
@@ -763,6 +763,12 @@
     right: 0;
 }
 
+.ahfb-popover-builder-list .ahfb-all-coponents-used {
+    width: inherit;
+    text-align: center;
+    font-weight: 400;
+}
+
 .ahfb-builder-area {
     position: relative;
 }
@@ -818,8 +824,8 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     bottom: auto;
 }
 
-.ahfb-builder-group .ahfb-builder-area:nth-child(4) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(5) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder {
-    right: 0 !important;
+.ahfb-builder-group .ahfb-builder-area:nth-child(3) .ahfb-builder-add-item.center-on-left .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(4) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(5) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder {
+    right: 25% !important;
 }
 
 #customize-control-astra-settings-header-mobile-items .components-popover.ahfb-popover-add-builder[data-x-axis="center"] {

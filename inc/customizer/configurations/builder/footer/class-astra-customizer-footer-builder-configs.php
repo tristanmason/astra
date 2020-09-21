@@ -136,7 +136,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'     => 'section-footer-builder',
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
-				'priority'    => 10,
+				'priority'    => 9,
 				'description' => '',
 				'context'     => array(
 					array(

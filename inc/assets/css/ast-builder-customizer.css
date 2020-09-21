@@ -204,18 +204,10 @@
     left: calc(-30px + -1.5rem);
 }
 
-#kt-scroll-up .customize-partial-edit-shortcut {
-    display: none;
-}
-
 /*------------------------------------------------------------------------------------------------------------------*/
 
-#customize-control-astra-settings-header-sticky-link {
-    margin-top: 0;
-}
-
 /*controls.css*/
-.customize-control-astra_builder_control {	
+.customize-control-astra_builder_control {
     border: 0 !important;
 }
 
@@ -833,7 +825,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 
 .ahfb-builder-group .ahfb-builder-area:nth-child(3) .ahfb-builder-add-item.center-on-left .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(4) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(5) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder {
-    left: 0 !important;
+    left: 25% !important;
 }
 
 #customize-control-astra-settings-header-mobile-items .components-popover.ahfb-popover-add-builder[data-x-axis="center"] {
