@@ -1248,21 +1248,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     width: 16px;
 }
 
-.measure-input-wrap {
-    flex-grow: 0;
-    display: flex;
-    flex-direction: column;
-    padding-right: 5px;
-}
-
-.measure-input-wrap small {
-    padding-left: 3px;
-}
-
-.measure-input-wrap input.measure-inputs {
-    border: 1px solid #e2e4e7
-}
-
 .ahfb-radio-container-control .components-button.is-tertiary svg {
     width: 100%;
     height: 100%;
@@ -1506,11 +1491,7 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 @media (max-width: 1660px) {
-    .measure-input-wrap {
-        padding-right: 2px;
-    }
-
-    .measure-input-wrap input.measure-inputs, .ahfb-locked .components-button.is-single, .ahfb-range-control .components-button {
+    .ahfb-locked .components-button.is-single, .ahfb-range-control .components-button {
         padding: 0 2px;
     }
 
