@@ -1,15 +1,12 @@
 /* jshint esversion: 6 */
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-
 import ResponsiveControl from '../common/responsive.js';
 import Icons from '../common/icons.js';
 
 const { __ } = wp.i18n;
-
 const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
-
 const { Component, Fragment } = wp.element;
+
 class RowLayoutComponent extends Component {
 	constructor() {
 		
@@ -289,26 +286,7 @@ class RowLayoutComponent extends Component {
 				}
 			</Fragment>
 		);
-		const controlLabel = (
-			<Fragment>
-				<Tooltip text={ __( 'Reset Values', 'astra' ) }>
-					<Button
-						className="reset ahfb-reset"
-						disabled={ ( this.state.value === this.defaultValue ) }
-						onClick={ () => {
-							let value = this.defaultValue;
-							this.setState( { value: this.defaultValue } );
-							this.updateValues();
-						} }
-					>
-						<Dashicon icon='image-rotate' />
-					</Button>
-				</Tooltip>
-				{ this.props.control.params.label &&
-					this.props.control.params.label
-				}
-			</Fragment>
-		);
+
 		let controlMap = {}
 		if ( this.state.currentDevice !== 'desktop' ) {
 			controlMap = this.controlParams.mobile[ this.state.columns ];
@@ -372,7 +350,8 @@ class RowLayoutComponent extends Component {
 				'2' : '2-equal',
 				'3' : '3-equal',
 				'4' : '4-equal',
-				'5' : '5-equal'
+				'5' : '5-equal',
+				'6' : '6-equal'
 			}
 			value.desktop = defaults[columns];
 			value.tablet  = defaults[columns];

@@ -1,8 +1,7 @@
 import SocialIcons from './icons.js';
 
 const { __ } = wp.i18n;
-const { MediaUpload } = wp.blockEditor;
-const { ButtonGroup, Dashicon, Tooltip, TextControl, Button, TabPanel, RangeControl, Placeholder } = wp.components;
+const { Dashicon, Tooltip, TextControl, Button } = wp.components;
 
 const { Component, Fragment } = wp.element;
 class ItemComponent extends Component {
