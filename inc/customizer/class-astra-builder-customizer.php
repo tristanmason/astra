@@ -82,7 +82,7 @@ final class Astra_Builder_Customizer {
 
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
 
-		if ( ! Astra_Builder_Helper::is_header_footer_builder( 'astra-hf-builder' ) ) {
+		if ( ! Astra_Constants::$is_new_hfb_activated ) {
 			return;
 		}
 

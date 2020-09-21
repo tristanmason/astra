@@ -1124,11 +1124,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 
 
-	// Button defaults
-
+	// Button defaults.
 	for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
-		$defaults['header-button' . $index . '-border-radius'] = 0;
+		$defaults[ 'header-button' . $index . '-border-radius' ] = 0;
 	}
 
 	return $defaults;
