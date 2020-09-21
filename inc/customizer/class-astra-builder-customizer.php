@@ -111,7 +111,7 @@ final class Astra_Builder_Customizer {
 	 */
 	public function update_default_wp_configs( $wp_customize ) {
 
-		$wp_customize->get_control( 'custom_logo' )->priority     = 1;
+		$wp_customize->get_control( 'custom_logo' )->priority     = 2;
 		$wp_customize->get_control( 'blogname' )->priority        = 7;
 		$wp_customize->get_control( 'site_icon' )->priority       = 16;
 		$wp_customize->get_control( 'blogdescription' )->priority = 11;
