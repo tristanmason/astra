@@ -75,7 +75,9 @@
     display: flex;
     height: 100%;
 }
-
+.ast-builder-layout-element.ast-header-search {
+    height: auto;
+}
 .site-header-section .ast-main-header-bar-alignment {
     height: 100%;
 }
@@ -132,7 +134,7 @@
     text-align: center;
 }
 
-.ast-logo-title-inline .grid-section-center .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
+.header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
     text-align: right;
 }
 
@@ -221,20 +223,6 @@
     display: none;
 }
 
-.ast-builder-button-wrap .ast-custom-button {
-    color: #ffffff;
-    background-color: #0274be;
-    border-radius: 2px;
-    line-height: 16px;
-    padding: 12px 30px;
-}
-
-.ast-builder-button-wrap .ast-custom-button:hover {
-    color: #ffffff;
-    background-color: #3a3a3a;
-    border-color: #ad38e2;
-}
-
 .ast-footer-html-inner p {
     margin-bottom: 0;
 }
@@ -266,6 +254,10 @@
     line-height: 1.45;
 }
 
+.ast-builder-menu .main-navigation {
+    padding: 0;
+}
+
 .site-header-section .ast-builder-menu {
     display: flex;
     align-items: center;
@@ -294,18 +286,16 @@ ul.astra-footer-vertical-menu {
  * AST HF Builder - Responsive CSS.
  * For desktop view.
  */
-#ast-desktop-header {
+#ast-mobile-header {
     display: none;
 }
 
-@media screen and (min-width: 922px) {
-    #ast-desktop-header {
-        display: block;
-    }
+.ast-header-break-point #ast-desktop-header {
+    display: none;
+}
 
-    #ast-mobile-header {
-        display: none;
-    }
+.ast-header-break-point #ast-mobile-header {
+    display: block;
 }
 
 .site-footer-section {

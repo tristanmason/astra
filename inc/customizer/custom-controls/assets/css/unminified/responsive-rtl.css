@@ -60,6 +60,7 @@
   display: block;
   width: 17%;
   float: none;
+  line-height: 1em;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
