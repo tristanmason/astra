@@ -202,6 +202,10 @@
 
 /*------------------------------------------------------------------------------------------------------------------*/
 
+#customize-control-astra-settings-header-sticky-link {
+    margin-top: 0;
+}
+
 /*controls.css*/
 .customize-control-astra_builder_control {	
     border: 0 !important;

@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Header_Menu_Component' ) ) {
 			 * @since  x.x.x
 			 * @var Array
 			 */
-			$menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
+			$menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $submenu_class ) );
 
 			$items_wrap  = '<nav ';
 			$items_wrap .= astra_attr(

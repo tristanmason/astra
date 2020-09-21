@@ -37,7 +37,6 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 		public function __construct() {
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-			add_action( 'wp_ajax_astra_addon_delete_module', array( $this, 'delete_deprecated_options' ) );
 			add_action( 'wp_ajax_ast-migrate-to-builder', array( $this, 'migrate_to_builder' ) );
 			add_action( 'astra_welcome_page_content', array( $this, 'migrate_to_builder_box' ), 1 );
 		}
@@ -54,9 +53,9 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 				return;
 			}
 
-			$status = astra_get_option( 'migrate-to-builder', false );
+			$status = astra_get_option( 'is-header-footer-builder', false );
 
-			$label = ( $status ) ? __( 'Use Old Header/Footer', 'astra' ) : __( 'Use New Header/Footer Builder', 'astra' );
+			$label = ( false !== $status ) ? __( 'Use Old Header/Footer', 'astra' ) : __( 'Use New Header/Footer Builder', 'astra' );
 
 			?>
 			<div class="postbox">
@@ -70,15 +69,7 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 						<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
 							<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customzier', 'astra' ); ?></a>
 							<div class="ast-actions" style="display: inline-flex;">
-								<button href="#" class="button button-primary ast-builder-migrate" style="margin-right:10px;" data-value="<?php echo esc_attr( $status ); ?>"><?php echo esc_html( $label ); ?></button>
-								<?php
-								$is_deleted = get_option( 'ast_builder_old_deleted', false );
-								if ( ! $is_deleted && false !== astra_get_db_option( 'header-desktop-items', false ) ) {
-									?>
-								<a href="#" class="ast-delete-old-options button <?php echo esc_attr( $status ? '' : 'hidden' ); ?>"><?php esc_html_e( 'Delete Older Options', 'astra' ); ?></a>
-									<?php
-								}
-								?>
+								<button href="#" class="button button-primary ast-builder-migrate" style="margin-right:10px;" data-value="<?php echo ( $status ) ? 0 : 1; ?>"><?php echo esc_html( $label ); ?></button>
 							</div>
 						</div>
 					</div>
@@ -119,36 +110,8 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 			}
 
 			$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
-			astra_update_option( 'migrate-to-builder', $migrate );
-			wp_send_json_success();
-		}
-
-		/**
-		 * Delete Deprecated options
-		 */
-		public function delete_deprecated_options() {
-
-			check_ajax_referer( 'astra-builder-module-nonce', 'nonce' );
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
-			}
-
-			$module_id          = isset( $_POST['module_id'] ) ? sanitize_text_field( wp_unslash( $_POST['module_id'] ) ) : '';
-			$deprecated_options = self::get_deprecated_options();
-
-			foreach ( $deprecated_options as $key => $option ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedForeach
-				/**
-				 * Uncomment this when we want to enable delete older option.
-				 * astra_delete_option( $option );
-				 */
-			}
-
-			/**
-			 * Uncomment this when we want to enable delete older option.
-			 * update_option( 'ast_builder_old_deleted', true );
-			 */
-
+			$migrate = ( $migrate ) ? true : false;
+			astra_update_option( 'is-header-footer-builder', $migrate );
 			wp_send_json_success();
 		}
 
@@ -162,11 +125,9 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 
 			$options = array(
 				'ajax_nonce'         => wp_create_nonce( 'astra-builder-module-nonce' ),
-				'deleted'            => __( 'Deleted', 'astra' ),
 				'ajaxurl'            => admin_url( 'admin-ajax.php' ),
 				'old_header_footer'  => __( 'Use Old Header/Footer', 'astra' ),
 				'migrate_to_builder' => __( 'Use New Header/Footer Builder', 'astra' ),
-				'delete_permission'  => __( 'This will remove old header/footer permanently from your website. Are you sure?', 'astra' ),
 			);
 
 			wp_localize_script( 'astra-builder-admin-settings', 'astraBuilderModules', $options );

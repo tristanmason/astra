@@ -10,15 +10,20 @@ class DropComponent extends Component {
 	render() {
 		const location = this.props.zone.replace( this.props.row + '_', '');
 		const currentList = ( typeof this.props.items != "undefined" && this.props.items != null && this.props.items.length != null && this.props.items.length > 0 ? this.props.items : [] );
+		let choices = this.props.choices;
 
 		let theItems = [];
 		{ currentList.length > 0 && (
-			currentList.map( ( item ) => {
-				theItems.push(
-					{
-						id: item,
-					}
-				)
+			currentList.map( ( item, key ) => {
+				if ( Object.keys( choices ).includes( item ) ) {
+					theItems.push(
+						{
+							id: item,
+						}
+					)
+				} else {
+					currentList.splice( key, 1 );
+				}
 			} )
 		) }
 
@@ -26,12 +31,16 @@ class DropComponent extends Component {
 
 		let theCenterItems = [];
 		{ currentCenterList.length > 0 && (
-			currentCenterList.map( ( item ) => {
-				theCenterItems.push(
-					{
-						id: item,
-					}
-				)
+			currentCenterList.map( ( item, key ) => {
+				if ( Object.keys( choices ).includes( item ) ) {
+					theCenterItems.push(
+						{
+							id: item,
+						}
+					)
+				} else {
+					currentCenterList.splice( key, 1 );
+				}
 			} )
 		) }
 

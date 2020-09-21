@@ -52,4 +52,26 @@
         } );
     } );
 
+    var selector = '.ast-builder-layout-element .ast-site-identity';
+
+    // Title Color.
+    astra_css(
+        'astra-settings[header-color-site-title]',
+        'color',
+        selector + ' .site-title *'
+    );
+
+    // Title Hover Color.
+    astra_css(
+        'astra-settings[header-color-h-site-title]',
+        'color',
+        selector + ' .site-title *:hover'
+    );
+
+    // Tagline Color.
+    astra_css(
+        'astra-settings[header-color-site-tagline]',
+        'color',
+        selector + ' .site-description'
+    );
 } )( jQuery );
