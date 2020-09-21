@@ -79,7 +79,7 @@ class ResponsiveBackground extends Component {
 						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 							disabled={ reserBtnDisabled }
-							onClick={ (e) => {
+							onClick={ ( e ) => {
 								e.preventDefault();
 								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 								const bgDevices = [ 'desktop', 'mobile', 'tablet' ];
