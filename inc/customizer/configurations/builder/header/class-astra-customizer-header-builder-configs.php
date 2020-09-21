@@ -110,8 +110,6 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$astra_addon_status = defined( 'ASTRA_EXT_VER' );
-
 		for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
 
 			$item = array(
@@ -429,7 +427,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( 'section-header-builder-layout' ) );
 
-		if ( $astra_addon_status ) {
+		if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'sticky-header' ) ) {
 			/**
 			 * Option: Header Transparant
 			 */

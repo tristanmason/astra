@@ -856,7 +856,6 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-customizer-off-canvas-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-primary-header-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-site-identity-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-sticky-header-builder-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-transparent-header-builder-configs.php';
 		require_once $header_config_path . '/class-astra-header-button-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-html-component-configs.php';
