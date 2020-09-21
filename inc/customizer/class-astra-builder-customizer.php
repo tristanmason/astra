@@ -862,11 +862,6 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
-
-		if( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'sticky-header' ) ) {
-			require_once $header_config_path . '/class-astra-customizer-sticky-header-builder-configs.php';
-		}
-
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
