@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 */
 		public function display_sidebar( $active, $section ) {
 
-			if ( ! Astra_Builder_Helper::is_header_footer_builder() ) {
+			if ( ! Astra_Constants::$is_new_hfb_activated ) {
 				return $active;
 			}
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 */
 		public function widget_init() {
 
-			if ( ! Astra_Builder_Helper::is_header_footer_builder() ) {
+			if ( ! Astra_Constants::$is_new_hfb_activated ) {
 				return;
 			}
 

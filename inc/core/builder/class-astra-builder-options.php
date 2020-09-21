@@ -618,8 +618,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Header > Sticky Defaults.
 	 */
-	$defaults['sticky-header-on-devices']     = 'desktop';
-	$defaults['sticky-header-style']          = 'none';
+	$defaults['sticky-header-on-devices'] = 'desktop';
+	$defaults['sticky-header-style']      = 'none';
 
 	/**
 	 * Footer Builder - Desktop Defaults.
@@ -866,10 +866,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Header > Social Icon Defaults.
 	 */
-	$defaults['header-social-icons-icon-space']    = '';
-	$defaults['header-social-icons-icon-bg-space'] = '';
-	$defaults['header-social-icons-icon-size']     = '';
-	$defaults['header-social-icons-icon-radius']   = '';
+	$defaults['header-social-icons-icon-space']    = 0;
+	$defaults['header-social-icons-icon-bg-space'] = 10;
+	$defaults['header-social-icons-icon-size']     = 20;
+	$defaults['header-social-icons-icon-radius']   = 0;
 	$defaults['header-social-icons-color']         = '';
 	$defaults['header-social-icons-h-color']       = '';
 	$defaults['header-social-icons-bg-color']      = '';
@@ -917,10 +917,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Footer > Social Icon Defaults.
 	 */
-	$defaults['footer-social-icons-icon-space']    = '';
-	$defaults['footer-social-icons-icon-bg-space'] = '';
-	$defaults['footer-social-icons-icon-size']     = '';
-	$defaults['footer-social-icons-icon-radius']   = '';
+	$defaults['footer-social-icons-icon-space']    = 0;
+	$defaults['footer-social-icons-icon-bg-space'] = 10;
+	$defaults['footer-social-icons-icon-size']     = 20;
+	$defaults['footer-social-icons-icon-radius']   = 0;
 	$defaults['footer-social-icons-color']         = '';
 	$defaults['footer-social-icons-h-color']       = '';
 	$defaults['footer-social-icons-bg-color']      = '';
@@ -1121,6 +1121,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet'  => 'center',
 			'mobile'  => 'center',
 		);
+	}
+
+
+	// Button defaults.
+	for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
+
+		$defaults[ 'header-button' . $index . '-border-radius' ] = 0;
 	}
 
 	return $defaults;

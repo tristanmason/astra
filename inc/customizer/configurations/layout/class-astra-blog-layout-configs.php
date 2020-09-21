@@ -45,18 +45,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Blog / Archive Tabs.
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-blog-archive-tabs]',
-					'section'     => 'section-blog',
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
-
-				/**
 				 * Option: Blog Content Width
 				 */
 				array(
@@ -161,6 +149,25 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					),
 				),
 			);
+
+			if ( Astra_Constants::$is_new_hfb_activated ) {
+
+				array_push(
+					$_configs,
+					/**
+					 * Option: Blog / Archive Tabs.
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[builder-blog-archive-tabs]',
+						'section'     => 'section-blog',
+						'type'        => 'control',
+						'control'     => 'ast-builder-header-control',
+						'priority'    => 0,
+						'description' => '',
+					)
+				);
+
+			}
 
 			$configurations = array_merge( $configurations, $_configs );
 

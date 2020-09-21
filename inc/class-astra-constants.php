@@ -106,6 +106,13 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 		public static $num_of_footer_columns;
 
 		/**
+		 *  Check if migrated to new HFB.
+		 *
+		 * @var int
+		 */
+		public static $is_new_hfb_activated;
+
+		/**
 		 * Member Variable
 		 *
 		 * @var instance
@@ -135,7 +142,25 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 			self::$num_of_footer_html    = apply_filters( 'astra_footer_html_component_count', 2 );
 			self::$num_of_footer_widgets = apply_filters( 'astra_footer_widget_component_count', 4 );
 			self::$num_of_footer_columns = apply_filters( 'astra_footer_column_count', 4 );
+
+
+			self::$is_new_hfb_activated = self::is_header_footer_builder();
+
 		}
+
+
+		/**
+		 * For existing users, do not load the wide/full width image CSS by default.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function is_header_footer_builder() {
+			$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? $astra_settings['is-header-footer-builder'] : true;
+			return apply_filters( 'astra_is_header_footer_builder', $astra_settings['is-header-footer-builder'] );
+		}
+
 	}
 	/**
 	*  Prepare if class 'Astra_Builder_Loader' exist.

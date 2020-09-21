@@ -47,7 +47,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'            => 'panel',
 					'priority'        => 20,
 					'title'           => __( 'Header Builder', 'astra' ),
-					'active_callback' => 'Astra_Builder_Helper::is_header_footer_builder',
+					'active_callback' => 'Astra_Constants::is_header_footer_builder',
 				),
 
 				// Section: Primary Header.

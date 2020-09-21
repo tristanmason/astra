@@ -19146,6 +19146,10 @@ CustomizerLinkComponent.propTypes = {
       });
     }
   };
+  /**
+   * API for control/section/panel registrations.
+   */
+
 
   var AstCustomizerAPI = {
     addPanel: function addPanel(id, data) {
@@ -19238,6 +19242,30 @@ CustomizerLinkComponent.propTypes = {
       }
     }
   };
+  /**
+   * Change description to tooltip.
+   * @param ctrl
+   */
+
+  function change_description_as_tooltip(ctrl) {
+    var desc = ctrl.container.find(".customize-control-description");
+
+    if (desc.length) {
+      var title = ctrl.container.find(".customize-control-title");
+      var li_wrapper = desc.closest("li");
+      var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function (i) {
+        return '&#' + i.charCodeAt(0) + ';';
+      });
+      desc.remove();
+      li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip + "\'></i>");
+    }
+  }
+  /**
+   * Set context for all controls.
+   * @param control_id
+   * @param control_rules
+   */
+
 
   function set_context(control_id) {
     var control_rules = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -19328,6 +19356,11 @@ CustomizerLinkComponent.propTypes = {
       }
     }
   }
+  /**
+   * Highliting the active componenet.
+   * @param section_id
+   */
+
 
   function highlight_active_component(section_id) {
     var builder_items = $('.ahfb-builder-drop .ahfb-builder-item');
@@ -19377,6 +19410,12 @@ CustomizerLinkComponent.propTypes = {
       }
     }, 2);
     api.previewer.bind('ready', function (data) {
+      setTimeout(function () {
+        api.control.each(function (ctrl, id) {
+          // Change description to tooltip.
+          change_description_as_tooltip(ctrl);
+        });
+      }, 1);
       api.section.each(function (section) {
         section.expanded.bind(function () {
           $('.ahfb-builder-drop .ahfb-builder-item').removeClass('active-builder-item');
