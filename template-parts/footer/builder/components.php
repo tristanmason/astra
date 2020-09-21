@@ -82,7 +82,7 @@ switch ( $comp_type ) {
 
 	case 'html-1':
 		?>
-		<div class="footer-widget-area widget-area site-footer-focus-item" data-section="section-fb-html-1">
+		<div class="footer-widget-area widget-area site-footer-focus-item ast-footer-html-1" data-section="section-fb-html-1">
 			<?php do_action( 'astra_footer_html_1' ); ?>
 		</div>
 		<?php
@@ -90,7 +90,7 @@ switch ( $comp_type ) {
 
 	case 'html-2':
 		?>
-			<div class="footer-widget-area widget-area site-footer-focus-item" data-section="section-fb-html-2">
+			<div class="footer-widget-area widget-area site-footer-focus-item ast-footer-html-2" data-section="section-fb-html-2">
 				<?php do_action( 'astra_footer_html_2' ); ?>
 			</div>
 			<?php

@@ -51,6 +51,18 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
+				 * Option: Header Builder Tabs
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-site-identity-tabs]',
+					'section'     => $_section,
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				),
+
+				/**
 				 * Option: Header Site Title.
 				 */
 				array(
@@ -152,102 +164,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Different retina logo
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
-					'type'      => 'control',
-					'control'   => 'checkbox',
-					'section'   => 'title_tagline',
-					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
-					'default'   => false,
-					'priority'  => 5,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.site-branding',
-						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
-					),
-					'context'   => Astra_Constants::$general_tab,
-				),
-
-				/**
-				 * Option: Retina logo selector
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]',
-					'default'        => astra_get_option( 'ast-header-retina-logo' ),
-					'type'           => 'control',
-					'control'        => 'image',
-					'section'        => 'title_tagline',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
-					'priority'       => 5,
-					'title'          => __( 'Retina Logo', 'astra' ),
-					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'transport'      => 'postMessage',
-					'partial'        => array(
-						'selector'            => '.site-branding',
-						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
-					),
-					'context'        => Astra_Constants::$general_tab,
-				),
-
-				/**
-				 * Option: Inherit Desktop logo
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
-					'type'     => 'control',
-					'control'  => 'checkbox',
-					'default'  => false,
-					'section'  => 'title_tagline',
-					'title'    => __( 'Different Logo For Mobile Devices?', 'astra' ),
-					'priority' => 5,
-					'context'  => array(
-						array(
-							'setting'  => 'ast_selected_device',
-							'operator' => 'in',
-							'value'    => array( 'tablet', 'mobile' ),
-						),
-					),
-				),
-
-				/**
-				 * Option: Mobile header logo
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[mobile-header-logo]',
-					'default'        => astra_get_option( 'mobile-header-logo' ),
-					'type'           => 'control',
-					'control'        => 'image',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
-					'section'        => 'title_tagline',
-					'priority'       => 5,
-					'title'          => __( 'Mobile Logo (optional)', 'astra' ),
-					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'context'        => array(
-						array(
-							'setting'  => 'ast_selected_device',
-							'operator' => 'in',
-							'value'    => array( 'tablet', 'mobile' ),
-						),
-					),
-				),
-
-				/**
-				 * Option: Header Builder Tabs
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-site-identity-tabs]',
-					'section'     => $_section,
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
-
-				/**
 				 * Option: Design Typography Heading.
 				 */
 				array(
@@ -319,7 +235,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'priority' => 9,
+					'priority'  => 9,
 					'default'   => astra_get_option( 'header-color-site-tagline' ),
 					'title'     => __( 'Tagline Color', 'astra' ),
 					'section'   => 'title_tagline',
