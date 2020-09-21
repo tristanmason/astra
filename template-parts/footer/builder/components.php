@@ -18,7 +18,7 @@ switch ( $comp_type ) {
 
 	case 'copyright':
 		?>
-			<div class="ast-builder-layout-element site-footer-focus-item" data-section="section-footer-builder">
+			<div class="ast-builder-layout-element site-footer-focus-item ast-footer-copyright" data-section="section-footer-builder">
 				<?php do_action( 'astra_footer_copyright' ); ?>
 			</div>
 		<?php

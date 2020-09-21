@@ -80,7 +80,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'partial'     => array(
 					'selector'            => '.ast-footer-copyright',
 					'container_inclusive' => true,
-					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'ast_footer_copyright' ),
+					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_copyright' ),
 				),
 				'context'     => Astra_Constants::$general_tab,
 			),
