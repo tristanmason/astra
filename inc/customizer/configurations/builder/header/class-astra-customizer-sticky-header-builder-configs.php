@@ -71,7 +71,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Logo', 'astra' ),
 					'settings' => array(),
-					'priority' => 15,
+					'priority' => 14,
 					'context'  => Astra_Constants::$general_tab,
 				),
 
