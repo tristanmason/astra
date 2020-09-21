@@ -1274,7 +1274,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     height: 49px;
 }
 
-#customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg {
+#customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg {
     width: 50px;
     height: 49px;
 }
@@ -1606,7 +1606,7 @@ button.components-button.ahfb-sorter-item-expand {
     background: unset;
 }
 
-.components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg {
+.components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg, .active-radio .ahfb-icon-set svg {
     background: #ffffff;
     border-radius: 3px;
     box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
@@ -1619,11 +1619,11 @@ button.components-button.ahfb-sorter-item-expand {
     box-shadow: unset;
 }
 
-.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg rect, .ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg path {
+.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg rect, .ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg path, .ahfb-icon-set svg {
     fill: rgb(160 174 192);
 }
 
-.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg rect,.ahfb-radio-icon-control  .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg path {
+.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg rect, .ahfb-radio-icon-control  .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg path, .active-radio .ahfb-icon-set svg, .active-radio .ahfb-icon-set svg {
     fill: #007cba;
 }
 
