@@ -518,6 +518,12 @@ final class Astra_Builder_Customizer {
 			// This control depends upon default configs hence keeping it as it is.
 			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
 
+			// Forwarding to the DOM as default control.
+			if( 'title_tagline' !== $config['section'] ) {
+				self::$js_configs ['wp_defaults'][ astra_get_prop( $config, 'name' ) ] = $config['section'];
+				$config['section'] = 'title_tagline';
+			}
+
 			if ( false !== $instance ) {
 				$wp_customize->add_control(
 					new $instance( $wp_customize, astra_get_prop( $config, 'name' ), $config )
@@ -856,7 +862,6 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-customizer-off-canvas-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-primary-header-configs.php';
 		require_once $header_config_path . '/class-astra-customizer-site-identity-configs.php';
-		require_once $header_config_path . '/class-astra-customizer-transparent-header-builder-configs.php';
 		require_once $header_config_path . '/class-astra-header-button-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-html-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
