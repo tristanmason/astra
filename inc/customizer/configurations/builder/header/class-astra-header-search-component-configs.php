@@ -137,40 +137,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'context'        => Astra_Constants::$design_tab,
 			),
 		);
-
-		if ( $is_astra_addon_active ) {
-			/**
-			 * Option: Pro Search Bar Configs.
-			 */
-			$_addon_dependent_configs = array(
-				// Option: Header Search Style.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
-					'default'   => $defaults['header-search-box-type'],
-					'section'   => $_section,
-					'priority'  => 10,
-					'title'     => __( 'Search Style', 'astra' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'choices'   => array(
-						'slide-search' => __( 'Slide Search', 'astra' ),
-						'full-screen'  => __( 'Full Screen Search', 'astra' ),
-						'header-cover' => __( 'Header Cover Search', 'astra' ),
-						'search-box'   => __( 'Search Box', 'astra' ),
-					),
-					'context'   => Astra_Constants::$general_tab,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.ast-header-search',
-						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Builder_Header', 'header_search' ),
-					),
-				),
-			);
-
-			$_configs = array_merge( $_configs, $_addon_dependent_configs );
-		}
-
+		
 		return array_merge( $configurations, $_configs );
 	}
 }
