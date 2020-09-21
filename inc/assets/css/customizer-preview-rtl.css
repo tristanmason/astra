@@ -11,13 +11,13 @@
     outline-offset: -1px;
 }
 
-.site-header-focus-item .customize-partial-edit-shortcut, .ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
+.site-header-focus-item .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
     opacity: 0;
     transition: all 0.2s;
     top: 5px;
 }
 
-.ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
+.ast-builder-grid-row-container .customize-partial-edit-shortcut.row-editor-shortcut {
     right: 50%;
     -webkit-transform: translateX(50%);
     -ms-transform: translateX(50%);
@@ -27,6 +27,15 @@
 /**
  * Customizer edit icon custom positioning.
  */
+.ast-builder-layout-element.site-header-focus-item .customize-partial-edit-shortcut button, .site-footer-focus-item .customize-partial-edit-shortcut button {
+    right: 0;
+    top: 5px;
+}
+
+.site-footer-focus-item .customize-partial-edit-shortcut button {
+    top: 0;
+}
+
 .ast-below-header .ast-header-button-2 .customize-partial-edit-shortcut-button, .ast-below-header .ast-header-button-1 .customize-partial-edit-shortcut-button {
     top: -10px;
 }
@@ -64,8 +73,12 @@
     border-radius: 5px 5px 0 0;
 }
 
-#ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) .site-primary-header-wrap span.ahfb-customizer-row-shortcut, .ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut {
+#ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) .site-primary-header-wrap span.ahfb-customizer-row-shortcut {
     top: -29px;
+}
+
+.ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut {
+    top: -28px;
 }
 
 #ast-desktop-header [CLASS*="-header-wrap"]:not(:first-child) span.ahfb-customizer-row-shortcut:before, .ast-main-footer-wrap  [CLASS*="-footer-wrap"] span.ahfb-customizer-row-shortcut:before {

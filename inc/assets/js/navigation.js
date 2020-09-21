@@ -126,11 +126,16 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '.main-header-menu-toggle' );
 	var menu_click_listeners = {};
-	var mobileHeaderType = document.getElementById( 'ast-mobile-header' ).dataset.type;
+	var mobileHeader = document.getElementById( 'ast-mobile-header' );
+	var mobileHeaderType = '';
+	if ( undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
+
+		mobileHeaderType = mobileHeader.dataset.type;
+	}
 
 	jQuery('.ast-mobile-header-wrap ').on('ahfb-mobile-header-type-change', function(){
 		
-		mobileHeaderType = document.getElementById( 'ast-mobile-header' ).dataset.type;
+		mobileHeaderType = mobileHeader.dataset.type;
 		init( mobileHeaderType );
 	});
 
@@ -230,9 +235,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var popupClose = document.getElementById( 'menu-toggle-close' );
 		var submenuButtons = document.querySelectorAll( '.ast-menu-toggle' );
 
-		if ( undefined === mobileHeaderType ) {
+		if ( undefined === mobileHeaderType && undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
 
-			mobileHeaderType = document.getElementById( 'ast-mobile-header' ).dataset.type;
+			mobileHeaderType = mobileHeader.dataset.type;
 		}
 		
 		if ( 'off-canvas' === mobileHeaderType ) {
