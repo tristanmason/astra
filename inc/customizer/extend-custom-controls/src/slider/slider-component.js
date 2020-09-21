@@ -99,6 +99,7 @@ class SliderComponent extends Component {
 	}
 
 	updateValues( updateState ) {
+		
 		this.setState( { value : updateState } )
 		this.props.control.setting.set( updateState );
 	}
