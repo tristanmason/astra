@@ -51,6 +51,18 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 	);
 
 	/**
+	 * Footer Zones.
+	 *
+	 * @var array
+	 * @since x.x.x
+	 */
+	public static $zones = array(
+		'above'    => array(),
+		'primary' => array(),
+		'below'      => array(),
+	);
+
+	/**
 	 * Register Builder Customizer Configurations.
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
@@ -76,6 +88,14 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'wordpress',
 				'section' => 'sidebar-widgets-footer-widget-' . $index,
 			);
+		}
+		
+		$zone_base = array( 'above', 'primary', 'below' );
+
+		foreach ( $zone_base as $key => $base ) {
+			for ( $index = 1; $index <= Astra_Constants::$num_of_footer_columns; $index++ ) {
+				self::$zones[ $base ][ $base . '_' . $index ] = ucfirst( $base ) . ' Section ' . $index;
+			}
 		}
 
 		$_configs = array(
@@ -181,29 +201,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'input_attrs'     => array(
 					'group'   => ASTRA_THEME_SETTINGS . '[footer-desktop-items]',
 					'rows'    => array( 'above', 'primary', 'below' ),
-					'zones'   => array(
-						'above'   => array(
-							'above_1' => 'Top - Left',
-							'above_2' => 'Top - Left Center',
-							'above_3' => 'Top - Center',
-							'above_4' => 'Top - Right Center',
-							'above_5' => 'Top - Right',
-						),
-						'primary' => array(
-							'primary_1' => 'Main - Left',
-							'primary_2' => 'Main - Left Center',
-							'primary_3' => 'Main - Center',
-							'primary_4' => 'Main - Right Center',
-							'primary_5' => 'Main - Right',
-						),
-						'below'   => array(
-							'below_1' => 'Bottom - Left',
-							'below_2' => 'Bottom - Left Center',
-							'below_3' => 'Bottom - Center',
-							'below_4' => 'Bottom - Right Center',
-							'below_5' => 'Bottom - Right',
-						),
-					),
+					'zones'   => self::$zones,
 					'layouts' => array(
 						'above'   => array(
 							'column' => astra_get_option( 'hba-footer-column' ),

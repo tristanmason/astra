@@ -18,6 +18,11 @@ class RowLayoutComponent extends Component {
 		let value = this.props.control.setting.get();
 		let defaultParams = {
 			desktop: {
+				'6': {
+					'6-equal': {
+						icon: 'sixcol',
+					},
+				},
 				'5': {
 					'5-equal': {
 						icon: 'fivecol',
@@ -69,6 +74,16 @@ class RowLayoutComponent extends Component {
 				}
 			},
 			tablet: {
+				'6': {
+					'6-equal': {
+						tooltip: __( 'Equal Width Columns', 'astra' ),
+						icon: 'sixcol',
+					},
+					'full': {
+						tooltip: __( 'Collapse to Rows', 'astra' ),
+						icon: 'collapserowsix',
+					},
+				},
 				'5': {
 					'5-equal': {
 						tooltip: __( 'Equal Width Columns', 'astra' ),
@@ -153,6 +168,16 @@ class RowLayoutComponent extends Component {
 				}
 			},
 			mobile: {
+				'6': {
+					'6-equal': {
+						tooltip: __( 'Equal Width Columns', 'astra' ),
+						icon: 'sixcol',
+					},
+					'full': {
+						tooltip: __( 'Collapse to Rows', 'astra' ),
+						icon: 'collapserowsix',
+					},
+				},
 				'5': {
 					'5-equal': {
 						icon: 'fivecol',

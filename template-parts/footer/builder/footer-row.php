@@ -33,7 +33,7 @@ if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
 		?>
 		<div class="site-container">
 			<div class="ast-builder-footer-grid-columns site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap ast-builder-grid-row">
-			<?php for ( $zones = 1; $zones <= 5; $zones++ ) { ?>
+			<?php for ( $zones = 1; $zones <= Astra_Constants::$num_of_footer_columns; $zones++ ) { ?>
 				<?php
 				if ( $zones > $columns ) {
 					break; }
