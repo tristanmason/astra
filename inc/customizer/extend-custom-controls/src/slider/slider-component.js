@@ -99,44 +99,7 @@ class SliderComponent extends Component {
 	}
 
 	updateValues( updateState ) {
-
-		let inputAttrs = this.props.control.params.inputAttrs;
-
-		if ( inputAttrs && undefined !== inputAttrs && '' !== inputAttrs ) {
-
-			let splited_values = inputAttrs.split( " " );
-			let input_attrs = [];
-			splited_values.map( (item, i ) => {
-
-				let item_values = item.split( "=" )
-
-				if ( undefined !== item_values[1] ) {
-
-					input_attrs[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-				}
-				
-			});
-
-			if( undefined !== input_attrs['max'] && '' !== input_attrs['max'] && updateState > input_attrs['max'] ) {
-
-				updateState = input_attrs['max']
-			}
-
-			if( undefined !== input_attrs['min'] && '' !== input_attrs['min'] && updateState < input_attrs['min'] ) {
-				
-				updateState = input_attrs['min']
-			}
-
-			if( undefined !== input_attrs['step'] && '' !== input_attrs['step'] ) {
-
-				let temp = updateState / input_attrs['step'];
-
-				temp = Math.round( temp );
-
-				updateState = temp * input_attrs['step']
-			}
-		}
-
+		
 		this.setState( { value : updateState } )
 		this.props.control.setting.set( updateState );
 	}
