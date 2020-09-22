@@ -352,7 +352,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		 * HTML Components - Typography.
 		 */
 		$defaults[ 'font-size-' . $_section ]      = array(
-			'desktop'      => '',
+			'desktop'      => 15,
 			'tablet'       => '',
 			'mobile'       => '',
 			'desktop-unit' => 'px',
@@ -1089,26 +1089,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['mobile-header-toggle-border-color']    = '#eeeeee';
 
-	// HTML Header defaults.
-	for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
-
-		$defaults[ 'font-size-section-hb-html-' . $index ] = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-	}
-
 	// HTML Footer defaults.
 	for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
 
 		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
 		$defaults[ 'font-size-section-fb-html-' . $index ] = array(
-			'desktop'      => '',
+			'desktop'      => 15,
 			'tablet'       => '',
 			'mobile'       => '',
 			'desktop-unit' => 'px',
@@ -1122,7 +1109,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => 'center',
 		);
 	}
-
 
 	// Button defaults.
 	for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
