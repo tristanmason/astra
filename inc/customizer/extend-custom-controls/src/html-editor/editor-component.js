@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 
-const { __ } = wp.i18n;
 const { Component } = wp.element;
 
 class EditorComponent extends Component {

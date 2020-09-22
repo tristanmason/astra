@@ -307,7 +307,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => $_section,
 					'title'    => __( 'Colors & Background', 'astra' ),
-					'priority' => 35,
+					'priority' => 32,
 					'settings' => array(),
 					'context'  => Astra_Constants::$design_tab,
 
