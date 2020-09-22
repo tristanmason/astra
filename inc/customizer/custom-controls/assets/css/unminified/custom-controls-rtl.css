@@ -568,6 +568,9 @@
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
     margin-top: 28px;
 }
+.astra-color-picker-wrap .components-color-picker__inputs-wrapper {
+	min-width: unset;
+}
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
 		margin-left: 5px;
@@ -1149,6 +1152,9 @@
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
     margin-top: 28px;
 }
+.astra-color-picker-wrap .components-color-picker__inputs-wrapper {
+	min-width: unset;
+}
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
 		margin-left: 5px;
@@ -1595,40 +1601,6 @@ input[type="text"].select2-search__field {
   border-color: #0185ba;
 }
 
-.astra-popover-tabs .components-button.ast-bg-img-remove {
-  color: #0071a1;
-  border: 1px solid #0071a1;
-  background: #f3f5f6;
-  vertical-align: top;
-  margin: 15px 0;
-  text-decoration: none;
-  font-size: 13px;
-  line-height: 2.15384615;
-  min-height: 30px;
-  padding: 0 10px;
-}
-
-.astra-popover-tabs button.components-button.ast-bg-img-remove:hover {
-  box-shadow: none;
-  background: #f1f1f1;
-  border-color: #016087;
-  color: #016087;
-}
-
-.astra-popover-tabs button.components-button.ast-bg-img-remove:focus {
-  box-shadow: none;
-  background: #f1f1f1;
-  border-color: #016087;
-  color: #016087;
-}
-
-.astra-popover-tabs button.components-button.ast-bg-img-remove:active {
-  box-shadow: none;
-  background: #f1f1f1;
-  border-color: #016087;
-  color: #016087;
-}
-
 .astra-popover-tabs [ID*="-gradient-view"] {
   padding: 15px;
 }
@@ -1650,6 +1622,14 @@ input[type="text"].select2-search__field {
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:focus {
   box-shadow: unset;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div {
+  text-align: center;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div img {
+  width: 200px;
 }
 
 .astra-popover-color .components-circular-option-picker {
@@ -1770,7 +1750,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   left: 24px;
-  top: 4px;
+  top: -4px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -1799,6 +1779,10 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   left: 7px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
+  margin-top: 28px;
 }
 
 .ast-responsive-select-container {
@@ -3146,40 +3130,6 @@ input[type="text"].select2-search__field {
   border-color: #0185ba;
 }
 
-.astra-popover-tabs .components-button.ast-bg-img-remove {
-  color: #0071a1;
-  border: 1px solid #0071a1;
-  background: #f3f5f6;
-  vertical-align: top;
-  margin: 15px 0;
-  text-decoration: none;
-  font-size: 13px;
-  line-height: 2.15384615;
-  min-height: 30px;
-  padding: 0 10px;
-}
-
-.astra-popover-tabs button.components-button.ast-bg-img-remove:hover {
-  box-shadow: none;
-  background: #f1f1f1;
-  border-color: #016087;
-  color: #016087;
-}
-
-.astra-popover-tabs button.components-button.ast-bg-img-remove:focus {
-  box-shadow: none;
-  background: #f1f1f1;
-  border-color: #016087;
-  color: #016087;
-}
-
-.astra-popover-tabs button.components-button.ast-bg-img-remove:active {
-  box-shadow: none;
-  background: #f1f1f1;
-  border-color: #016087;
-  color: #016087;
-}
-
 .astra-popover-tabs [ID*="-gradient-view"] {
   padding: 15px;
 }
@@ -3201,6 +3151,15 @@ input[type="text"].select2-search__field {
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:focus {
   box-shadow: unset;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div {
+  text-align: center;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div img {
+  width: 200px;
+  margin-bottom: 18px;
 }
 
 .astra-popover-color .components-circular-option-picker {
@@ -3321,7 +3280,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   left: 24px;
-  top: 4px;
+  top: -4px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -3350,6 +3309,10 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   left: 7px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
+  margin-top: 28px;
 }
 
 .ast-responsive-btns {

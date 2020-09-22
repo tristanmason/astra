@@ -81,12 +81,6 @@ class ResponsiveBackground extends Component {
 							disabled={ reserBtnDisabled }
 							onClick={ () => {
 								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-								const bgDevices = [ 'desktop', 'mobile', 'tablet' ];
-								for( let device of bgDevices ) {
-									value[device]['background-color'] = '';
-									value[device]['background-image'] = '';
-									value[device]['background-media'] = '';
-								}
 								this.updateValues( value );
 							} }
 						>
@@ -96,6 +90,12 @@ class ResponsiveBackground extends Component {
 					<div className="ast-color-btn-clear-wrap">
 						<button type="button" onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							const bgDevices = [ 'desktop', 'mobile', 'tablet' ];
+							for( let device of bgDevices ) {
+								value[device]['background-color'] = '';
+								value[device]['background-image'] = '';
+								value[device]['background-media'] = '';
+							}
 							this.updateValues( value );
 						} } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ deleteBtnDisabled }><Dashicon icon="trash" /></button>
 					</div>

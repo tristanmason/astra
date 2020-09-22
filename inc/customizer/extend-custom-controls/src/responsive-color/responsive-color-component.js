@@ -20,6 +20,13 @@ class ResponsiveColorComponent extends Component {
 
 	}
 	renderReset ( key ) {
+		let deleteBtnDisabled = true;
+		let devices = [ 'desktop', 'mobile', 'tablet' ];
+		for( let device of devices ) {
+			if (this.state.value[device]) {
+				deleteBtnDisabled = false;
+			}
+		}
 		return (
 			<span className="customize-control-title">
 			<>
@@ -37,10 +44,18 @@ class ResponsiveColorComponent extends Component {
 					</button>
 				</div>
 				<div className="ast-color-btn-clear-wrap">
-					<button type="button" onClick={ () => {
-						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-						this.updateValues( value );
-					} } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ true }><Dashicon icon="trash" /></button>
+					<button
+						type="button"
+						onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							const resDevices = [ 'desktop', 'mobile', 'tablet' ];
+							for( let device of resDevices ) {
+								value[device] = '';
+							}
+							this.setState( { value : value } );
+							this.props.control.setting.set( value );
+						} }
+						className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ deleteBtnDisabled }><Dashicon icon="trash" /></button>
 				</div>
 			</>
 			</span>
