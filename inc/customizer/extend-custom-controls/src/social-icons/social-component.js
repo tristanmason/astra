@@ -10,7 +10,7 @@ import ItemComponent from './item-component';
 
 const { __ } = wp.i18n;
 
-const { ButtonGroup, Dashicon, Tooltip, Popover, Button, SelectControl } = wp.components;
+const { ButtonGroup, Popover, Button, SelectControl } = wp.components;
 
 const { Component, Fragment } = wp.element;
 class SocialComponent extends Component {
@@ -317,7 +317,6 @@ class SocialComponent extends Component {
 							} }
 						>
 							{ __( 'Add Social Icon', 'astra' ) }
-							<Dashicon icon="plus"/>
 						</Button> }
 					</div>
 				) }

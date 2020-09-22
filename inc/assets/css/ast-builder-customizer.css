@@ -1430,12 +1430,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     padding: 0 12px 2px;
 }
 
-.ahfb-social-add-area .ahfb-sorter-add-item svg {
-    width: 14px;
-    height: 14px;
-    margin: 4px 0 0 5px;
-}
-
 .ahfb-sorter-row {
     margin-bottom: 16px;
 }
@@ -1444,22 +1438,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     display: block;
     margin-bottom: 20px;
     height: auto;
-}
-
-.social-custom-image {
-    display: flex;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.social-custom-image .components-button.remove-image.is-destructive {
-    color: #b52727;
-}
-
-.ahfb-social-image {
-    max-width: 50px;
-    padding-right: 20px;
 }
 
 .ahfb-sorter-item-panel-content .ahfb-radio-container-control .components-button.is-tertiary {
