@@ -148,9 +148,19 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 			self::$num_of_header_widgets = apply_filters( 'astra_header_widget_component_count', 0 );
 			self::$num_of_footer_html    = apply_filters( 'astra_footer_html_component_count', 2 );
 			self::$num_of_footer_widgets = apply_filters( 'astra_footer_widget_component_count', 4 );
-			self::$num_of_footer_columns = apply_filters( 'astra_footer_column_count', 4 );
+			self::$num_of_footer_columns = apply_filters( 'astra_footer_column_count', 6 );
 			self::$footer_row_layouts    = apply_filters( 'astra_footer_row_layout', array(
 				'desktop' => array(
+					'6' => array(
+						'6-equal' => array(
+							'icon' => 'sixcol',
+						)
+					),
+					'5' => array(
+						'5-equal' => array(
+							'icon' => 'fivecol',
+						),
+					),
 					'4' => array(
 						'4-equal' => array(
 							'icon' => 'fourcol',
@@ -197,6 +207,26 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 					)
 				),
 				'tablet' => array(
+					'6' => array(
+						'6-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'astra' ),
+							'icon' => 'sixcol',
+						),
+						'full' => array(
+							'tooltip' => __( 'Collapse to Rows', 'astra' ),
+							'icon' => 'collapserowsix',
+						),
+					),
+					'5' => array(
+						'5-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'astra' ),
+							'icon' => 'fivecol',
+						),
+						'full' => array(
+							'tooltip' => __( 'Collapse to Rows', 'astra' ),
+							'icon' => 'collapserowfive',
+						),
+					),
 					'4' => array(
 						'4-equal' => array(
 							'tooltip' => __( 'Equal Width Columns', 'astra' ),
@@ -271,6 +301,26 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 					)
 				),
 				'mobile' => array(
+					'6' => array(
+						'6-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'astra' ),
+							'icon' => 'sixcol',
+						),
+						'full' => array(
+							'tooltip' => __( 'Collapse to Rows', 'astra' ),
+							'icon' => 'collapserowsix',
+						),
+					),
+					'5' => array(
+						'5-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'astra' ),
+							'icon' => 'fivecol',
+						),
+						'full' => array(
+							'tooltip' => __( 'Collapse to Rows', 'astra' ),
+							'icon' => 'collapserowfive',
+						),
+					),
 					'4' => array(
 						'4-equal' => array(
 							'icon' => 'fourcol',
