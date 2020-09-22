@@ -431,6 +431,34 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_register_script( 'astra-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
 
+			/**
+			 * Localize wp-color-picker & wpColorPickerL10n.
+			 *
+			 * This is only needed in WordPress version >= 5.5 because wpColorPickerL10n has been removed.
+			 *
+			 * @see https://github.com/WordPress/WordPress/commit/7e7b70cd1ae5772229abb769d0823411112c748b
+			 *
+			 * This is should be removed once the issue is fixed from wp-color-picker-alpha repo.
+			 * @see https://github.com/kallookoo/wp-color-picker-alpha/issues/35
+			 *
+			 * @since 2.5.3
+			 */
+			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
+				// Localizing variables.
+				wp_localize_script(
+					'wp-color-picker',
+					'wpColorPickerL10n',
+					array(
+						'clear'            => __( 'Clear', 'astra' ),
+						'clearAriaLabel'   => __( 'Clear color', 'astra' ),
+						'defaultString'    => __( 'Default', 'astra' ),
+						'defaultAriaLabel' => __( 'Select default color', 'astra' ),
+						'pick'             => __( 'Select Color', 'astra' ),
+						'defaultLabel'     => __( 'Color value', 'astra' ),
+					)
+				);
+			}
+
 			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
 				$post_types = get_post_types( array( 'public' => true ) );
 				$screen     = get_current_screen();
