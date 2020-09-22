@@ -208,7 +208,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'choices'         => self::$header_desktop_items,
 				'transport'       => 'postMessage',
 				'partial'         => array(
-					'selector'            => '#ast-desktop-header',
+					'selector'            => '#masthead',
 					'container_inclusive' => false,
 					'render_callback'     => array( Astra_Builder_Header::get_instance(), 'header_builder_markup' ),
 				),
@@ -292,7 +292,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'choices'         => self::$header_mobile_items,
 				'transport'       => 'postMessage',
 				'partial'         => array(
-					'selector'            => '#ast-mobile-header',
+					'selector'            => '#masthead',
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'mobile_header' ),
 				),
