@@ -1630,6 +1630,7 @@ input[type="text"].select2-search__field {
 
 .astra-popover-tabs .components-tab-panel__tab-content > div img {
   width: 200px;
+  margin-bottom: 18px;
 }
 
 .astra-popover-color .components-circular-option-picker {
