@@ -96,22 +96,6 @@ switch ( $comp_type ) {
 			<?php
 		break;
 
-	case 'html-3':
-		?>
-		<div class="footer-widget-area widget-area site-footer-focus-item ast-footer-html-3" data-section="section-fb-html-3">
-			<?php do_action( 'astra_footer_html_3' ); ?>
-		</div>
-		<?php
-		break;
-
-	case 'html-4':
-		?>
-			<div class="footer-widget-area widget-area site-footer-focus-item ast-footer-html-4" data-section="section-fb-html-4">
-				<?php do_action( 'astra_footer_html_4' ); ?>
-			</div>
-			<?php
-		break;
-
 	case 'menu':
 		?>
 			<div class="footer-widget-area widget-area site-footer-focus-item" data-section="section-footer-menu">
