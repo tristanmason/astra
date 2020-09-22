@@ -47,7 +47,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'name'     => 'section-header-mobile-trigger',
 				'type'     => 'section',
 				'priority' => 70,
-				'title'    => __( 'Trigger', 'astra' ),
+				'title'    => __( 'Toggle Button', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 
