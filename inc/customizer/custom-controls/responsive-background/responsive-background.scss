@@ -88,12 +88,6 @@
         }
 	}
 	.customize-control-content {
-		.customize-control-title {
-			.astra-reset {
-				top: 1px;
-    			right: 55px;
-			}
-		}
 		.color-button-wrap {
 			position: absolute;
 			right: 24px;
@@ -257,12 +251,6 @@
 }
 .ast-field-settings-modal {
 	.customize-control-content {
-		.customize-control-title {
-			.astra-reset {
-				top: 1px;
-    			right: 60px;
-			}
-		}
 		.color-button-wrap {
 			right: 30px;
 		}
@@ -271,6 +259,24 @@
 		}
 		.astra-color-picker-wrap {
 			margin-left: 0px;
+		}
+		.ast-color-btn-reset-wrap {
+			right: 72px;
+		}
+		.ast-color-btn-clear-wrap {
+			right: 91px;
+		}
+	}
+	.customize-control-ast-responsive-background {
+		&.customize-control {
+			margin-top: 28px;
+		}
+	}
+	.customize-control-ast-responsive-background {
+		&.customize-control {
+			&:first-child {
+				margin-top: 28px;
+			}
 		}
 	}
 }
