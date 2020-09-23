@@ -1531,6 +1531,7 @@ input[type="text"].select2-search__field {
   padding: 5px 0 5px 0;
   cursor: pointer;
   float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-responsive-background .more-settings:focus {

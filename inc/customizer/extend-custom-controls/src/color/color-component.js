@@ -32,7 +32,8 @@ class ColorComponent extends Component {
 						<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
+						onClick={ ( e ) => {
+							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 							this.updateValues( value )
 						} }
