@@ -269,6 +269,14 @@
 	border: 1px solid #a29090;
 	border-radius: 4px;
 }
+
+.ast-field-settings-modal .astra-popover-color {
+    margin-right: 0px;
+	border: 1px solid #dedede;
+}
+.ast-field-settings-modal .astra-popover-color .components-tab-panel__tabs {
+	padding: 8px;
+}
 .components-color-picker__saturation-black {
 	border-radius: 4px 4px 0 0;
 }
