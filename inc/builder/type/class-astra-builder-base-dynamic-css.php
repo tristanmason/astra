@@ -181,6 +181,9 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			 * Tablet CSS.
 			 */
 			$css_output_tablet = array(
+				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-6-equal .ast-builder-grid-row' => array(
+					'grid-template-columns' => 'repeat( 6, 1fr )',
+				),
 				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-5-equal .ast-builder-grid-row' => array(
 					'grid-template-columns' => 'repeat( 5, 1fr )',
 				),
@@ -235,6 +238,9 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			);
 
 			$css_output_mobile = array(
+				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-6-equal .ast-builder-grid-row' => array(
+					'grid-template-columns' => 'repeat( 6, 1fr )',
+				),
 				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-5-equal .ast-builder-grid-row' => array(
 					'grid-template-columns' => 'repeat( 5, 1fr )',
 				),

@@ -99,6 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'input_attrs' => array(
 						'responsive' => true,
 						'footer'     => 'primary',
+						'layout'     => Astra_Constants::$footer_row_layouts,
 					),
 					'transport'   => 'postMessage',
 				),
