@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 
 		/**
 		 * Footer Row layout
-		 * 
+		 *
 		 * @var array
 		 */
 		public static $footer_row_layouts;
@@ -149,237 +149,240 @@ if ( ! class_exists( 'Astra_Constants' ) ) :
 			self::$num_of_footer_html    = apply_filters( 'astra_footer_html_component_count', 2 );
 			self::$num_of_footer_widgets = apply_filters( 'astra_footer_widget_component_count', 4 );
 			self::$num_of_footer_columns = apply_filters( 'astra_footer_column_count', 6 );
-			self::$footer_row_layouts    = apply_filters( 'astra_footer_row_layout', array(
-				'desktop' => array(
-					'6' => array(
-						'6-equal' => array(
-							'icon' => 'sixcol',
-						)
-					),
-					'5' => array(
-						'5-equal' => array(
-							'icon' => 'fivecol',
+			self::$footer_row_layouts    = apply_filters(
+				'astra_footer_row_layout',
+				array(
+					'desktop'    => array(
+						'6' => array(
+							'6-equal' => array(
+								'icon' => 'sixcol',
+							),
+						),
+						'5' => array(
+							'5-equal' => array(
+								'icon' => 'fivecol',
+							),
+						),
+						'4' => array(
+							'4-equal'  => array(
+								'icon' => 'fourcol',
+							),
+							'4-lheavy' => array(
+								'icon' => 'lfourforty',
+							),
+							'4-rheavy' => array(
+								'icon' => 'rfourforty',
+							),
+						),
+						'3' => array(
+							'3-equal'  => array(
+								'icon' => 'threecol',
+							),
+							'3-lheavy' => array(
+								'icon' => 'lefthalf',
+							),
+							'3-rheavy' => array(
+								'icon' => 'righthalf',
+							),
+							'3-cheavy' => array(
+								'icon' => 'centerhalf',
+							),
+							'3-cwide'  => array(
+								'icon' => 'widecenter',
+							),
+						),
+						'2' => array(
+							'2-equal'  => array(
+								'icon' => 'twocol',
+							),
+							'2-lheavy' => array(
+								'icon' => 'twoleftgolden',
+							),
+							'2-rheavy' => array(
+								'icon' => 'tworightgolden',
+							),
+						),
+						'1' => array(
+							'full' => array(
+								'icon' => 'row',
+							),
 						),
 					),
-					'4' => array(
-						'4-equal' => array(
-							'icon' => 'fourcol',
+					'tablet'     => array(
+						'6' => array(
+							'6-equal' => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'sixcol',
+							),
+							'full'    => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserowsix',
+							),
 						),
-						'4-lheavy' => array(
-							'icon' => 'lfourforty',
+						'5' => array(
+							'5-equal' => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'fivecol',
+							),
+							'full'    => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserowfive',
+							),
 						),
-						'4-rheavy' => array(
-							'icon' => 'rfourforty',
+						'4' => array(
+							'4-equal' => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'fourcol',
+							),
+							'2-equal' => array(
+								'tooltip' => __( 'Two Column Grid', 'astra' ),
+								'icon'    => 'grid',
+							),
+							'full'    => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserowfour',
+							),
 						),
-					),
-					'3' => array(
-						'3-equal' => array(
-							'icon' => 'threecol',
+						'3' => array(
+							'3-equal'    => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'threecol',
+							),
+							'3-lheavy'   => array(
+								'tooltip' => __( 'Left Heavy 50/25/25', 'astra' ),
+								'icon'    => 'lefthalf',
+							),
+							'3-rheavy'   => array(
+								'tooltip' => __( 'Right Heavy 25/25/50', 'astra' ),
+								'icon'    => 'righthalf',
+							),
+							'3-cheavy'   => array(
+								'tooltip' => __( 'Center Heavy 25/50/25', 'astra' ),
+								'icon'    => 'centerhalf',
+							),
+							'3-cwide'    => array(
+								'tooltip' => __( 'Wide Center 20/60/20', 'astra' ),
+								'icon'    => 'widecenter',
+							),
+							'3-firstrow' => array(
+								'tooltip' => __( 'First Row, Next Columns 100 - 50/50', 'astra' ),
+								'icon'    => 'firstrow',
+							),
+							'3-lastrow'  => array(
+								'tooltip' => __( 'Last Row, Previous Columns 50/50 - 100', 'astra' ),
+								'icon'    => 'lastrow',
+							),
+							'full'       => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserowthree',
+							),
 						),
-						'3-lheavy' => array(
-							'icon' => 'lefthalf',
+						'2' => array(
+							'2-equal'  => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'twocol',
+							),
+							'2-lheavy' => array(
+								'tooltip' => __( 'Left Heavy 66/33', 'astra' ),
+								'icon'    => 'twoleftgolden',
+							),
+							'2-rheavy' => array(
+								'tooltip' => __( 'Right Heavy 33/66', 'astra' ),
+								'icon'    => 'tworightgolden',
+							),
+							'full'     => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserow',
+							),
 						),
-						'3-rheavy' => array(
-							'icon' => 'righthalf',
-						),
-						'3-cheavy' => array(
-							'icon' => 'centerhalf',
-						),
-						'3-cwide' => array(
-							'icon' => 'widecenter',
-						),
-					),
-					'2' => array(
-						'2-equal' => array(
-							'icon' => 'twocol',
-						),
-						'2-lheavy' => array(
-							'icon' => 'twoleftgolden',
-						),
-						'2-rheavy' => array(
-							'icon' => 'tworightgolden',
-						),
-					),
-					'1' => array(
-						'full' => array(
-							'icon' => 'row',
-						),
-					)
-				),
-				'tablet' => array(
-					'6' => array(
-						'6-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'sixcol',
-						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserowsix',
-						),
-					),
-					'5' => array(
-						'5-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'fivecol',
-						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserowfive',
-						),
-					),
-					'4' => array(
-						'4-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'fourcol',
-						),
-						'2-equal' => array(
-							'tooltip' => __( 'Two Column Grid', 'astra' ),
-							'icon' => 'grid',
-						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserowfour',
-						),
-					),
-					'3' => array(
-						'3-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'threecol',
-						),
-						'3-lheavy' => array(
-							'tooltip' => __( 'Left Heavy 50/25/25', 'astra' ),
-							'icon' => 'lefthalf',
-						),
-						'3-rheavy' => array(
-							'tooltip' => __( 'Right Heavy 25/25/50', 'astra' ),
-							'icon' => 'righthalf',
-						),
-						'3-cheavy' => array(
-							'tooltip' => __( 'Center Heavy 25/50/25', 'astra' ),
-							'icon' => 'centerhalf',
-						),
-						'3-cwide' => array(
-							'tooltip' => __( 'Wide Center 20/60/20', 'astra' ),
-							'icon' => 'widecenter',
-						),
-						'3-firstrow' => array(
-							'tooltip' => __( 'First Row, Next Columns 100 - 50/50', 'astra' ),
-							'icon' => 'firstrow',
-						),
-						'3-lastrow' => array(
-							'tooltip' => __( 'Last Row, Previous Columns 50/50 - 100', 'astra' ),
-							'icon' => 'lastrow',
-						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserowthree',
+						'1' => array(
+							'full' => array(
+								'tooltip' => __( 'Single Row', 'astra' ),
+								'icon'    => 'row',
+							),
 						),
 					),
-					'2' => array(
-						'2-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'twocol',
+					'mobile'     => array(
+						'6' => array(
+							'6-equal' => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'sixcol',
+							),
+							'full'    => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserowsix',
+							),
 						),
-						'2-lheavy' => array(
-							'tooltip' => __( 'Left Heavy 66/33', 'astra' ),
-							'icon' => 'twoleftgolden',
+						'5' => array(
+							'5-equal' => array(
+								'tooltip' => __( 'Equal Width Columns', 'astra' ),
+								'icon'    => 'fivecol',
+							),
+							'full'    => array(
+								'tooltip' => __( 'Collapse to Rows', 'astra' ),
+								'icon'    => 'collapserowfive',
+							),
 						),
-						'2-rheavy' => array(
-							'tooltip' => __( 'Right Heavy 33/66', 'astra' ),
-							'icon' => 'tworightgolden',
+						'4' => array(
+							'4-equal' => array(
+								'icon' => 'fourcol',
+							),
+							'2-equal' => array(
+								'icon' => 'grid',
+							),
+							'full'    => array(
+								'icon' => 'collapserowfour',
+							),
 						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserow',
+						'3' => array(
+							'3-equal'    => array(
+								'icon' => 'threecol',
+							),
+							'3-lheavy'   => array(
+								'icon' => 'lefthalf',
+							),
+							'3-rheavy'   => array(
+								'icon' => 'righthalf',
+							),
+							'3-cheavy'   => array(
+								'icon' => 'centerhalf',
+							),
+							'3-cwide'    => array(
+								'icon' => 'widecenter',
+							),
+							'3-firstrow' => array(
+								'icon' => 'firstrow',
+							),
+							'3-lastrow'  => array(
+								'icon' => 'lastrow',
+							),
+							'full'       => array(
+								'icon' => 'collapserowthree',
+							),
 						),
-					),
-					'1' => array(
-						'full' => array(
-							'tooltip' => __( 'Single Row', 'astra' ),
-							'icon' => 'row',
+						'2' => array(
+							'2-equal'  => array(
+								'icon' => 'twocol',
+							),
+							'2-lheavy' => array(
+								'icon' => 'twoleftgolden',
+							),
+							'2-rheavy' => array(
+								'icon' => 'tworightgolden',
+							),
+							'full'     => array(
+								'icon' => 'collapserow',
+							),
 						),
-					)
-				),
-				'mobile' => array(
-					'6' => array(
-						'6-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'sixcol',
-						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserowsix',
-						),
-					),
-					'5' => array(
-						'5-equal' => array(
-							'tooltip' => __( 'Equal Width Columns', 'astra' ),
-							'icon' => 'fivecol',
-						),
-						'full' => array(
-							'tooltip' => __( 'Collapse to Rows', 'astra' ),
-							'icon' => 'collapserowfive',
-						),
-					),
-					'4' => array(
-						'4-equal' => array(
-							'icon' => 'fourcol',
-						),
-						'2-equal' => array(
-							'icon' => 'grid',
-						),
-						'full' => array(
-							'icon' => 'collapserowfour',
-						),
-					),
-					'3' => array(
-						'3-equal' => array(
-							'icon' => 'threecol',
-						),
-						'3-lheavy' => array(
-							'icon' => 'lefthalf',
-						),
-						'3-rheavy' => array(
-							'icon' => 'righthalf',
-						),
-						'3-cheavy' => array(
-							'icon' => 'centerhalf',
-						),
-						'3-cwide' => array(
-							'icon' => 'widecenter',
-						),
-						'3-firstrow' => array(
-							'icon' => 'firstrow',
-						),
-						'3-lastrow' => array(
-							'icon' => 'lastrow',
-						),
-						'full' => array(
-							'icon' => 'collapserowthree',
+						'1' => array(
+							'full' => array(
+								'icon' => 'row',
+							),
 						),
 					),
-					'2' => array(
-						'2-equal' => array(
-							'icon' => 'twocol',
-						),
-						'2-lheavy' => array(
-							'icon' => 'twoleftgolden',
-						),
-						'2-rheavy' => array(
-							'icon' => 'tworightgolden',
-						),
-						'full' => array(
-							'icon' => 'collapserow',
-						),
-					),
-					'1' => array(
-						'full' => array(
-							'icon' => 'row',
-						),
-					)
-				),
-				'responsive' => true,
-			) );
+					'responsive' => true,
+				) 
+			);
 
 
 			self::$is_new_hfb_activated = self::is_header_footer_builder();
