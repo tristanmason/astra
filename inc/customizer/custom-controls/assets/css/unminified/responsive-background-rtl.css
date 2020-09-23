@@ -62,10 +62,12 @@
 
 .customize-control-ast-responsive-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
   cursor: pointer;
-  float: left;
+  float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-responsive-background .more-settings:focus {
@@ -183,6 +185,10 @@
 .astra-popover-tabs .components-tab-panel__tab-content > div img {
   width: 200px;
   margin-bottom: 18px;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div .media-position-setting {
+  text-align: right;
 }
 
 .astra-popover-color .components-circular-option-picker {

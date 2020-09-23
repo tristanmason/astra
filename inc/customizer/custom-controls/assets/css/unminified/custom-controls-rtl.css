@@ -1526,10 +1526,11 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
   cursor: pointer;
-  float: left;
+  float: none;
 }
 
 .customize-control-ast-responsive-background .more-settings:focus {
@@ -1647,6 +1648,10 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs .components-tab-panel__tab-content > div img {
   width: 200px;
   margin-bottom: 18px;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div .media-position-setting {
+  text-align: right;
 }
 
 .astra-popover-color .components-circular-option-picker {
@@ -2646,7 +2651,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control-ast-slider .ast-slider-reset {
-  left: 18px;
+  left: -18px;
+  top: -32px;
 }
 
 .customize-control-ast-sortable ul.ui-sortable {
@@ -3062,10 +3068,12 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
   cursor: pointer;
-  float: left;
+  float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-responsive-background .more-settings:focus {
@@ -3183,6 +3191,10 @@ input[type="text"].select2-search__field {
 .astra-popover-tabs .components-tab-panel__tab-content > div img {
   width: 200px;
   margin-bottom: 18px;
+}
+
+.astra-popover-tabs .components-tab-panel__tab-content > div .media-position-setting {
+  text-align: right;
 }
 
 .astra-popover-color .components-circular-option-picker {
