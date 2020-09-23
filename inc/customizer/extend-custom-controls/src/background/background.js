@@ -50,19 +50,34 @@ class Background extends Component {
 		}
 	}
 	renderReset () {
+		let deleteBtnDisabled = true;
 		return (
 			<span className="customize-control-title">
-				<Button
-					className="reset astra-reset"
-					disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-					onClick={ () => {
-						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+				<div className="ast-color-btn-reset-wrap">
+					<button
+						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+						onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 
+							this.updateValues( value );
+						} }
+					>
+						<Dashicon icon='image-rotate' />
+					</button>
+				</div>
+				<div className="ast-color-btn-clear-wrap">
+					<button type="button" onClick={ () => {
+						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+						const bgDevices = [ 'desktop', 'mobile', 'tablet' ];
+						for( let device of bgDevices ) {
+							value[device]['background-color'] = '';
+							value[device]['background-image'] = '';
+							value[device]['background-media'] = '';
+						}
 						this.updateValues( value );
-					} }
-				>
-					<Dashicon icon='image-rotate' />
-				</Button>
+					} } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ deleteBtnDisabled }><Dashicon icon="trash" /></button>
+				</div>
 			</span>
 		)
 	}
