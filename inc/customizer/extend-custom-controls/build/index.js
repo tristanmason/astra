@@ -20788,37 +20788,8 @@ var IconSetComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var responsiveControlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, this.state.currentDevice !== 'desktop' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Tooltip, {
-        text: __('Reset Device Values', 'astra')
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
-        className: "reset ahfb-reset",
-        disabled: this.state.value[this.state.currentDevice] === this.defaultValue[this.state.currentDevice],
-        onClick: function onClick() {
-          var value = _this2.state.value;
-          value[_this2.state.currentDevice] = _this2.defaultValue[_this2.state.currentDevice];
-
-          _this2.setState(value);
-
-          _this2.updateValues(value);
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Dashicon, {
-        icon: "image-rotate"
-      }))), this.props.control.params.label && this.props.control.params.label);
-      var controlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
-        className: "reset ahfb-reset",
-        disabled: this.state.value === this.defaultValue,
-        onClick: function onClick() {
-          var value = _this2.defaultValue;
-
-          _this2.setState({
-            value: _this2.defaultValue
-          });
-
-          _this2.updateValues(value);
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Dashicon, {
-        icon: "image-rotate"
-      })), this.props.control.params.label && this.props.control.params.label);
+      var responsiveControlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, this.props.control.params.label && this.props.control.params.label);
+      var controlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, this.props.control.params.label && this.props.control.params.label);
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "ahfb-control-field ahfb-icon-set-control".concat(this.controlParams.class ? ' ' + this.controlParams.class : '')
       }, this.controlParams.responsive && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_common_responsive_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -20835,7 +20806,7 @@ var IconSetComponent = /*#__PURE__*/function (_Component) {
           text: _this2.controlParams.layout[item].tooltip
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
           isTertiary: true,
-          className: (item === _this2.state.value[_this2.state.currentDevice] ? 'active-radio ' : '') + 'kt-ratio-' + item + (_this2.controlParams.layout[item].icon && _this2.controlParams.layout[item].name ? ' btn-flex-col' : ''),
+          className: (item === _this2.state.value[_this2.state.currentDevice] ? 'active-radio ' : '') + 'ast-radio-img-svg ast-radio-' + item + (_this2.controlParams.layout[item].icon && _this2.controlParams.layout[item].name ? ' btn-flex-col' : ''),
           onClick: function onClick() {
             var value = _this2.state.value;
             value[_this2.state.currentDevice] = item;
@@ -23568,41 +23539,7 @@ var RowLayoutComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var responsiveControlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, this.state.currentDevice !== 'desktop' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Tooltip, {
-        text: __('Reset Device Values', 'astra')
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
-        className: "reset ahfb-reset",
-        disabled: this.state.value[this.state.currentDevice] === this.defaultValue[this.state.currentDevice],
-        onClick: function onClick() {
-          var value = _this2.state.value;
-          value[_this2.state.currentDevice] = _this2.defaultValue[_this2.state.currentDevice];
-
-          _this2.setState({
-            value: value
-          });
-
-          _this2.updateValues();
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Dashicon, {
-        icon: "image-rotate"
-      }))), this.props.control.params.label && this.props.control.params.label);
-      var controlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Tooltip, {
-        text: __('Reset Values', 'astra')
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
-        className: "reset ahfb-reset",
-        disabled: this.state.value === this.defaultValue,
-        onClick: function onClick() {
-          var value = _this2.defaultValue;
-
-          _this2.setState({
-            value: _this2.defaultValue
-          });
-
-          _this2.updateValues();
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Dashicon, {
-        icon: "image-rotate"
-      }))), this.props.control.params.label && this.props.control.params.label);
+      var responsiveControlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, this.props.control.params.label && this.props.control.params.label);
       var controlMap = {};
 
       if (this.state.currentDevice !== 'desktop') {

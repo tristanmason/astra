@@ -971,29 +971,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     line-height: 18px;
 }
 
-.ahfb-control-field .components-button.ahfb-reset {
-    height: 18px;
-    padding: 0 5px;
-    margin-left: 0;
-    margin-right: -10px;
-    opacity: 0.5;
-}
-
-.ahfb-control-field .components-button.ahfb-reset svg {
-    width: 12px;
-    height: 12px;
-}
-
-.ahfb-control-field .components-button.ahfb-reset:disabled {
-    opacity: 0;
-}
-
-.ahfb-control-field .components-button.ahfb-reset:not(:disabled):hover {
-    opacity: 1;
-    color: #007cba;
-    box-shadow: none !important;
-}
-
 .ahfb-sorter-drop-social_item_group .ahfb-radio-container-control {
     display: block;
     padding: 10px;
