@@ -11,7 +11,7 @@ import ResponsiveColorComponent from '../responsive-color/responsive-color-compo
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 
-import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor } from '../common/responsive-helper';
+import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor, astraGetBackground } from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -217,6 +217,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 				case "ast-color":
 					astraGetColor( "#customize-control-" + control_type.name )
+					break;
+				case "ast-background":
+					astraGetBackground( "#customize-control-" + control_type.name )
 					break;
 				case "ast-responsive-background":
 					astraGetResponsiveBgJs( control, "#customize-control-" + control_type.name )
