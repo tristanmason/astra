@@ -2646,7 +2646,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control-ast-slider .ast-slider-reset {
-  left: 18px;
+  left: -18px;
+  top: -32px;
 }
 
 .customize-control-ast-sortable ul.ui-sortable {
