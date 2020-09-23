@@ -238,26 +238,6 @@
     margin-bottom: 4px;
 }
 
-.astra-control-field button.components-button.astra-reset:disabled {
-    opacity: 0;
-}
-.astra-control-field button.components-button.astra-reset {
-    height: 18px;
-    padding: 0 5px;
-    margin-right: 0;
-    margin-left: -20px;
-    opacity: 0.5;
-}
-.astra-reset.components-button:disabled, .astra-reset.components-button[aria-disabled="true"] {
-    cursor: default;
-    opacity: 0.3;
-}
-
-.astra-control-field button.components-button.astra-reset svg {
-    width: 12px;
-    height: 12px;
-}
-
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
@@ -405,20 +385,6 @@
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
-}
-.customize-control-ast-color .customize-control-title .astra-reset {
-    position: absolute;
-    top: -2px;
-    right: 30px;
-    transition: unset;
-}
-.ast-field-settings-modal .customize-control-title .astra-reset, .background-wrapper .customize-control-title .astra-reset {
-    position: absolute;
-    right: 46px;
-}
-.customize-control-title .astra-reset svg {
-    width: 14px;
-    height: 14px;
 }
 .components-popover.astra-popover-color .components-popover__content .sketch-picker {
     padding: 0 0 5px !important;
@@ -1185,11 +1151,6 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  right: 55px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   right: 24px;
@@ -1207,11 +1168,6 @@ input[type="text"].select2-search__field {
   top: 6px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  right: 60px;
-}
-
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   right: 30px;
 }
@@ -1222,6 +1178,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   right: 7px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {

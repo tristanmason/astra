@@ -238,26 +238,6 @@
     margin-bottom: 4px;
 }
 
-.astra-control-field button.components-button.astra-reset:disabled {
-    opacity: 0;
-}
-.astra-control-field button.components-button.astra-reset {
-    height: 18px;
-    padding: 0 5px;
-    margin-left: 0;
-    margin-right: -20px;
-    opacity: 0.5;
-}
-.astra-reset.components-button:disabled, .astra-reset.components-button[aria-disabled="true"] {
-    cursor: default;
-    opacity: 0.3;
-}
-
-.astra-control-field button.components-button.astra-reset svg {
-    width: 12px;
-    height: 12px;
-}
-
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
@@ -405,20 +385,6 @@
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
-}
-.customize-control-ast-color .customize-control-title .astra-reset {
-    position: absolute;
-    top: -2px;
-    left: 30px;
-    transition: unset;
-}
-.ast-field-settings-modal .customize-control-title .astra-reset, .background-wrapper .customize-control-title .astra-reset {
-    position: absolute;
-    left: 46px;
-}
-.customize-control-title .astra-reset svg {
-    width: 14px;
-    height: 14px;
 }
 .components-popover.astra-popover-color .components-popover__content .sketch-picker {
     padding: 0 0 5px !important;
@@ -842,26 +808,6 @@
     margin-bottom: 4px;
 }
 
-.astra-control-field button.components-button.astra-reset:disabled {
-    opacity: 0;
-}
-.astra-control-field button.components-button.astra-reset {
-    height: 18px;
-    padding: 0 5px;
-    margin-left: 0;
-    margin-right: -20px;
-    opacity: 0.5;
-}
-.astra-reset.components-button:disabled, .astra-reset.components-button[aria-disabled="true"] {
-    cursor: default;
-    opacity: 0.3;
-}
-
-.astra-control-field button.components-button.astra-reset svg {
-    width: 12px;
-    height: 12px;
-}
-
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
@@ -1009,20 +955,6 @@
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
-}
-.customize-control-ast-color .customize-control-title .astra-reset {
-    position: absolute;
-    top: -2px;
-    left: 30px;
-    transition: unset;
-}
-.ast-field-settings-modal .customize-control-title .astra-reset, .background-wrapper .customize-control-title .astra-reset {
-    position: absolute;
-    left: 46px;
-}
-.customize-control-title .astra-reset svg {
-    width: 14px;
-    height: 14px;
 }
 .components-popover.astra-popover-color .components-popover__content .sketch-picker {
     padding: 0 0 5px !important;
@@ -1789,11 +1721,6 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  left: 55px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   left: 24px;
@@ -1809,11 +1736,6 @@ input[type="text"].select2-search__field {
   position: absolute;
   left: 0px;
   top: 6px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  left: 60px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -3332,11 +3254,6 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  left: 55px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   left: 24px;
@@ -3354,11 +3271,6 @@ input[type="text"].select2-search__field {
   top: 6px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  left: 60px;
-}
-
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   left: 30px;
 }
@@ -3369,6 +3281,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   left: 7px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {

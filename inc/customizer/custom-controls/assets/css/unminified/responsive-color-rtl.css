@@ -26,11 +26,6 @@
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  left: 55px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   left: 24px;
@@ -48,11 +43,6 @@
   top: 6px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  left: 60px;
-}
-
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   left: 30px;
 }
@@ -63,6 +53,7 @@
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   left: 7px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
