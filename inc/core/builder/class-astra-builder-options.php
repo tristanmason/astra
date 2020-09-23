@@ -74,6 +74,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Primary Header Defaults.
 	 */
 	$defaults['hb-header-main-layout-width'] = 'content';
+	$defaults['hb-header-height']                  = 50;
 	$defaults['hb-header-main-sep']          = 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
 	$defaults['hb-header-main-menu-align']   = 'inline';
