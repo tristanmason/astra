@@ -318,14 +318,6 @@
 				]);
 			});
 
-			// Updating Section for wp default controls.
-			if( AstraBuilderCustomizerData.js_configs.wp_defaults ) {
-				for (const [control, section] of Object.entries( AstraBuilderCustomizerData.js_configs.wp_defaults )) {
-					wp.customize.control( control ).section( section );
-				}
-			}
-
-
 		}, 1);
 
 		setTimeout(function () {
@@ -360,10 +352,20 @@
 		api.previewer.bind('ready', function (data) {
 
 			setTimeout(function () {
+
+				// Update description as tooltip.
 				api.control.each(function (ctrl, id) {
 					// Change description to tooltip.
 					change_description_as_tooltip(ctrl);
 				});
+
+				// Updating Section for wp default controls.
+				if( AstraBuilderCustomizerData.js_configs.wp_defaults ) {
+					for (const [control, section] of Object.entries( AstraBuilderCustomizerData.js_configs.wp_defaults )) {
+						wp.customize.control( control ).section( section );
+					}
+				}
+
 			}, 1);
 
 			api.section.each(function (section) {

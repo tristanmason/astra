@@ -73,12 +73,12 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			'section' => 'title_tagline',
 		),
 		'menu-1'         => array(
-			'name'    => 'Mobile Menu',
+			'name'    => 'Primary Menu',
 			'icon'    => 'menu',
 			'section' => 'section-hb-menu-1',
 		),
 		'menu-2'         => array(
-			'name'    => 'Mobile Navigation',
+			'name'    => 'Secondary Menu',
 			'icon'    => 'menu',
 			'section' => 'section-hb-menu-2',
 		),
