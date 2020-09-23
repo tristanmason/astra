@@ -57,9 +57,9 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 	 * @since x.x.x
 	 */
 	public static $zones = array(
-		'above'    => array(),
+		'above'   => array(),
 		'primary' => array(),
-		'below'      => array(),
+		'below'   => array(),
 	);
 
 	/**
