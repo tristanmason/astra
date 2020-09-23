@@ -99,6 +99,23 @@
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
 
+			// Scroll to footer.
+			if ( 'panel-footer-builder-group' === id ) {
+				$( '#accordion-panel-' + id ).on( 'click', function() {
+					let $iframe = $body.find( 'iframe' )
+					let $iframeBody = $iframe.contents().find( 'body' );
+					window.frames[0].window.scrollTo( 0, ( $iframeBody[0].scrollHeight + 500 ) );
+				} );
+			}
+
+			// Scroll to header.
+			if ( 'panel-header-builder-group' === id ) {
+				$( '#accordion-panel-' + id ).on( 'click', function() {
+					// let $iframe = $body.find( 'iframe' )
+					// let $iframeBody = $iframe.contents().find( 'body' );
+					window.frames[0].window.scrollTo( 0, 0 );
+				} );
+			}
 		},
 
 		addSection: function (id, data) {
