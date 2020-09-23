@@ -20804,9 +20804,7 @@ var IconSetComponent = /*#__PURE__*/function (_Component) {
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Dashicon, {
         icon: "image-rotate"
       }))), this.props.control.params.label && this.props.control.params.label);
-      var controlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Tooltip, {
-        text: __('Reset Values', 'astra')
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
+      var controlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Button, {
         className: "reset ahfb-reset",
         disabled: this.state.value === this.defaultValue,
         onClick: function onClick() {
@@ -20820,7 +20818,7 @@ var IconSetComponent = /*#__PURE__*/function (_Component) {
         }
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(Dashicon, {
         icon: "image-rotate"
-      }))), this.props.control.params.label && this.props.control.params.label);
+      })), this.props.control.params.label && this.props.control.params.label);
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "ahfb-control-field ahfb-icon-set-control".concat(this.controlParams.class ? ' ' + this.controlParams.class : '')
       }, this.controlParams.responsive && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_common_responsive_js__WEBPACK_IMPORTED_MODULE_10__["default"], {

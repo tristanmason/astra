@@ -94,19 +94,17 @@ class IconSetComponent extends Component {
 		);
 		const controlLabel = (
 			<Fragment>
-				<Tooltip text={ __( 'Reset Values', 'astra' ) }>
-					<Button
-						className="reset ahfb-reset"
-						disabled={ ( this.state.value === this.defaultValue ) }
-						onClick={ () => {
-							let value = this.defaultValue;
-							this.setState( { value: this.defaultValue } );
-							this.updateValues( value );
-						} }
-					>
-						<Dashicon icon='image-rotate' />
-					</Button>
-				</Tooltip>
+				<Button
+					className="reset ahfb-reset"
+					disabled={ ( this.state.value === this.defaultValue ) }
+					onClick={ () => {
+						let value = this.defaultValue;
+						this.setState( { value: this.defaultValue } );
+						this.updateValues( value );
+					} }
+				>
+					<Dashicon icon='image-rotate' />
+				</Button>
 				{ this.props.control.params.label &&
 					this.props.control.params.label
 				}
