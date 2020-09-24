@@ -74,7 +74,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => Astra_Constants::$general_tab,
+					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Section: Below Header Border.
@@ -92,7 +92,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 10,
 					),
-					'context'     => Astra_Constants::$design_tab,
+					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Section: Below Header Border Color.
@@ -106,7 +106,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[hbb-header-separator]', '>=', 1 ),
 					'priority'  => 50,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Section: Below Header Color & Backgroud Heading.
@@ -118,7 +118,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority' => 60,
 					'title'    => __( 'Background Color & Image', 'astra' ),
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Group Option: Below Header Background styling.
@@ -130,7 +130,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Below Header Background styling.
@@ -144,7 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'hbb-header-bg-obj-responsive' ),
 					'label'     => __( 'Background', 'astra' ),
 					'priority'  => 5,
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 			);
 

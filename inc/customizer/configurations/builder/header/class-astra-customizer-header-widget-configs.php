@@ -39,7 +39,7 @@ class Astra_Customizer_Header_Widget_Configs extends Astra_Customizer_Config_Bas
 
 		$_configs = array();
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 			$_configs[] = array(
 				'name'     => 'sidebar-widgets-header-widget-' . $index,
 				'type'     => 'section',

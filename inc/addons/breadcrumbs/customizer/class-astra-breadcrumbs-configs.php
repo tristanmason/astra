@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'selector'            => '.ast-breadcrumbs-wrapper .ast-breadcrumbs .trail-items',
 						'container_inclusive' => false,
 					),
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'priority'        => 10,
 					'choices'         => $breadcrumb_source_list,
 					'active_callback' => array( $this, 'is_third_party_breadcrumb_active' ),
-					'context'         => Astra_Constants::$general_tab,
+					'context'         => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'priority'        => 15,
 					'title'           => __( 'Separator', 'astra' ),
 					'active_callback' => array( $this, 'is_selected_breadcrumb_active' ),
-					'context'         => Astra_Constants::$general_tab,
+					'context'         => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Home Page?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'       => __( 'Disable on Blog / Posts Page?', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
-					'context'     => Astra_Constants::$general_tab,
+					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Search?', 'astra' ),
 					'priority' => 30,
 					'control'  => 'checkbox',
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -183,7 +183,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Archive?', 'astra' ),
 					'priority' => 35,
 					'control'  => 'checkbox',
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Single Page?', 'astra' ),
 					'priority' => 40,
 					'control'  => 'checkbox',
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Single Post?', 'astra' ),
 					'priority' => 45,
 					'control'  => 'checkbox',
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'       => __( 'Disable on Singular?', 'astra' ),
 					'priority'    => 50,
 					'control'     => 'checkbox',
-					'context'     => Astra_Constants::$general_tab,
+					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on 404 Page?', 'astra' ),
 					'priority' => 55,
 					'control'  => 'checkbox',
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'center' => __( 'Center', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 					),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -289,12 +289,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					),
 					'required'       => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'section'        => $_section,
-					'context'        => Astra_Constants::$design_tab,
+					'context'        => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
 
-			if ( Astra_Constants::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_new_hfb_activated ) {
 
 				array_push(
 					$_configs,

@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				),
 			);
 
-			if ( Astra_Constants::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_new_hfb_activated ) {
 
 				array_push(
 					$_configs,

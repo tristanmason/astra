@@ -47,7 +47,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'            => 'panel',
 					'priority'        => 20,
 					'title'           => __( 'Header Builder', 'astra' ),
-					'active_callback' => 'Astra_Constants::is_header_footer_builder',
+					'active_callback' => 'Astra_Builder_Helper::is_header_footer_builder',
 				),
 
 				// Section: Primary Header.
@@ -87,7 +87,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => Astra_Constants::$general_tab,
+					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Option: Header Separator.
@@ -105,7 +105,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 10,
 					),
-					'context'     => Astra_Constants::$design_tab,
+					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Header Bottom Boder Color.
@@ -119,7 +119,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Primary Header color and background divider.
@@ -131,7 +131,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Background Color & Image', 'astra' ),
 					'priority' => 6,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Group Option: Header Background.
@@ -144,7 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 7,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Sub Option: Header Background.

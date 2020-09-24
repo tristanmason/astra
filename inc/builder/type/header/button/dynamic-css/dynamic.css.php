@@ -30,7 +30,7 @@ function astra_hb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	 * Button Style - Theme Button / Custom Button.
 	 */
 
-	for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
 
 		if ( ! Astra_Builder_Helper::is_component_loaded( 'header', 'button-' . $index ) ) {
 			continue;

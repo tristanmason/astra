@@ -48,7 +48,7 @@ class Astra_Footer_Widget_Component_Loader {
 			'astra-footer-widget-customizer-preview-js',
 			'AstraBuilderWIDGETData',
 			array(
-				'footer_widget_count' => Astra_Constants::$num_of_footer_widgets,
+				'footer_widget_count' => Astra_Builder_Helper::$num_of_footer_widgets,
 				'tablet_break_point'  => astra_get_tablet_breakpoint(),
 				'mobile_break_point'  => astra_get_mobile_breakpoint(),
 			)

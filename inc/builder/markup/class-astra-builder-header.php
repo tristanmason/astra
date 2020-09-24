@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function __construct() {
 
-			if ( Astra_Constants::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_new_hfb_activated ) {
 				$this->remove_existing_actions();
 
 				add_action( 'astra_header', array( $this, 'header_builder_markup' ) );

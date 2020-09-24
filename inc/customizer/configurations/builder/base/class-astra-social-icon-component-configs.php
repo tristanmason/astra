@@ -76,7 +76,7 @@ class Astra_Social_Icon_Component_Configs {
 					'container_inclusive' => true,
 					'render_callback'     => array( $class_name, $builder_type . '_social' ),
 				),
-				'context'   => Astra_Constants::$general_tab,
+				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
 			// Show label Toggle.
@@ -94,7 +94,7 @@ class Astra_Social_Icon_Component_Configs {
 					'container_inclusive' => true,
 					'render_callback'     => array( $class_name, $builder_type . '_social' ),
 				),
-				'context'   => Astra_Constants::$general_tab,
+				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -114,7 +114,7 @@ class Astra_Social_Icon_Component_Configs {
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => Astra_Constants::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -134,7 +134,7 @@ class Astra_Social_Icon_Component_Configs {
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => Astra_Constants::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -154,7 +154,7 @@ class Astra_Social_Icon_Component_Configs {
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => Astra_Constants::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -174,7 +174,7 @@ class Astra_Social_Icon_Component_Configs {
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => Astra_Constants::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			array(
@@ -185,7 +185,7 @@ class Astra_Social_Icon_Component_Configs {
 				'title'    => __( 'Colors & Typography', 'astra' ),
 				'priority' => 7,
 				'settings' => array(),
-				'context'  => Astra_Constants::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			array(
@@ -201,7 +201,7 @@ class Astra_Social_Icon_Component_Configs {
 					'official' => __( 'Official', 'astra' ),
 				),
 				'transport' => 'postMessage',
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -217,7 +217,7 @@ class Astra_Social_Icon_Component_Configs {
 				'transport' => 'postMessage',
 				'required'  => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-color-type]', '===', 'custom' ),
 				'priority'  => 9,
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -235,7 +235,7 @@ class Astra_Social_Icon_Component_Configs {
 				'responsive' => true,
 				'rgba'       => true,
 				'priority'   => 9,
-				'context'    => Astra_Constants::$design_tab,
+				'context'    => Astra_Builder_Helper::$design_tab,
 				'title'      => __( 'Color', 'astra' ),
 			),
 
@@ -254,7 +254,7 @@ class Astra_Social_Icon_Component_Configs {
 				'responsive' => true,
 				'rgba'       => true,
 				'priority'   => 9,
-				'context'    => Astra_Constants::$design_tab,
+				'context'    => Astra_Builder_Helper::$design_tab,
 				'title'      => __( 'Color', 'astra' ),
 			),
 
@@ -273,7 +273,7 @@ class Astra_Social_Icon_Component_Configs {
 				'responsive' => true,
 				'rgba'       => true,
 				'priority'   => 9,
-				'context'    => Astra_Constants::$design_tab,
+				'context'    => Astra_Builder_Helper::$design_tab,
 				'title'      => __( 'Background Color', 'astra' ),
 			),
 
@@ -292,7 +292,7 @@ class Astra_Social_Icon_Component_Configs {
 				'responsive' => true,
 				'rgba'       => true,
 				'priority'   => 9,
-				'context'    => Astra_Constants::$design_tab,
+				'context'    => Astra_Builder_Helper::$design_tab,
 				'title'      => __( 'Background Color', 'astra' ),
 			),
 
@@ -307,7 +307,7 @@ class Astra_Social_Icon_Component_Configs {
 				'title'    => __( 'Margin', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
-				'context'  => Astra_Constants::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -330,7 +330,7 @@ class Astra_Social_Icon_Component_Configs {
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Constants::$design_tab,
+				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 		);
 
