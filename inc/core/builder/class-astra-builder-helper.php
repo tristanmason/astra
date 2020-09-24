@@ -103,7 +103,7 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		 *
 		 * @var int
 		 */
-		public static $is_new_hfb_activated;
+		public static $is_header_footer_builder_active;
 
 		/**
 		 * Footer Row layout
@@ -383,7 +383,7 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 					'responsive' => true,
 				)
 			);
-			self::$is_new_hfb_activated = self::is_header_footer_builder();
+			self::$is_header_footer_builder_active = self::is_header_footer_builder_active();
 		}
 
 		/**
@@ -392,10 +392,10 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function is_header_footer_builder() {
+		public static function is_header_footer_builder_active() {
 			$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? $astra_settings['is-header-footer-builder'] : true;
-			return apply_filters( 'astra_is_header_footer_builder', $astra_settings['is-header-footer-builder'] );
+			return apply_filters( 'astra_is_header_footer_builder_active', $astra_settings['is-header-footer-builder'] );
 		}
 
 		/**

@@ -82,7 +82,7 @@ final class Astra_Builder_Customizer {
 
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
 
-		if ( ! Astra_Builder_Helper::$is_new_hfb_activated ) {
+		if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			return;
 		}
 
@@ -926,7 +926,6 @@ final class Astra_Builder_Customizer {
 				'contexts'                 => self::get_contexts(),
 				'choices'                  => self::get_choices(),
 				'js_configs'               => self::$js_configs,
-				'is_header_footer_builder' => Astra_Builder_Helper::$is_new_hfb_activated,
 			)
 		);
 
