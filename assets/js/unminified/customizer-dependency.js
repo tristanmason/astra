@@ -11,6 +11,10 @@
     /* Internal shorthand */
     var api = wp.customize;
 
+    var checkDependencyOnTabChange = function () {
+        Astra_Customizer.handleDependency();
+    }
+
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
@@ -34,7 +38,9 @@
             $this.handleDependency();
             $this.hideEmptySections();
 
-            api.bind('change', function ( setting, data ) {
+            api.state( 'astra-customizer-tab' ).bind( checkDependencyOnTabChange );
+
+            api.bind( 'change', function ( setting, data ) {
 
                 var has_dependents = $this.hasDependentControls( setting.id );
 
@@ -121,16 +127,18 @@
                 // If control has dependency defined
                 if ( 'undefined' != typeof astra.config[id] ) {
                     var check = false;
+                    var checkContext = true;
                     var required_param = astra.config[id];
                     var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
                     var operator = !_.isUndefined(required_param.operator) ? required_param.operator : 'AND';
 
                     if ( 'undefined' !== typeof conditions ) {
                         check = $this.checkDependency(conditions, values, operator);
+                        checkContext = $this.checkContext(id);
 
-                        this.checked_controls[id] = check;
+                        this.checked_controls[id] = ( check && checkContext );
 
-                        if (!check) {
+                        if (!( check && checkContext )) {
                             control.container.addClass('ast-hide');
                         } else {
                             control.container.removeClass('ast-hide');
@@ -138,6 +146,30 @@
                     }
                 }
             }
+        },
+
+        /**
+		 * Checks Context dependency condtions for controls
+		 *
+		 * @since x.x.x
+		 * @access private
+		 * @method checkDependency
+		 */
+        checkContext: function( id ) {
+
+            var contexts = AstraBuilderCustomizerData.contexts[id];
+
+            if ( undefined !== contexts ) {
+                var current_tab = api.state('astra-customizer-tab').get();
+                for( var $i = 0; $i < contexts.length; $i++ ) {
+                    if ( contexts[$i].setting === 'ast_selected_tab' && contexts[$i].value === current_tab ) {
+                        return true;
+                    }
+                    return false;
+                }
+                return true;
+            }
+            return true;
         },
 
 		/**
