@@ -142,14 +142,14 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			self::$num_of_header_button  = apply_filters( 'astra_header_button_component_count', 1 );
-			self::$num_of_header_html    = apply_filters( 'astra_header_html_component_count', 2 );
-			self::$num_of_header_menu    = apply_filters( 'astra_header_menu_component_count', 2 );
-			self::$num_of_header_widgets = apply_filters( 'astra_header_widget_component_count', 0 );
-			self::$num_of_footer_html    = apply_filters( 'astra_footer_html_component_count', 2 );
-			self::$num_of_footer_widgets = apply_filters( 'astra_footer_widget_component_count', 4 );
-			self::$num_of_footer_columns = apply_filters( 'astra_footer_column_count', 6 );
-			self::$footer_row_layouts    = apply_filters(
+			self::$num_of_header_button            = apply_filters( 'astra_header_button_component_count', 1 );
+			self::$num_of_header_html              = apply_filters( 'astra_header_html_component_count', 2 );
+			self::$num_of_header_menu              = apply_filters( 'astra_header_menu_component_count', 2 );
+			self::$num_of_header_widgets           = apply_filters( 'astra_header_widget_component_count', 0 );
+			self::$num_of_footer_html              = apply_filters( 'astra_footer_html_component_count', 2 );
+			self::$num_of_footer_widgets           = apply_filters( 'astra_footer_widget_component_count', 4 );
+			self::$num_of_footer_columns           = apply_filters( 'astra_footer_column_count', 6 );
+			self::$footer_row_layouts              = apply_filters(
 				'astra_footer_row_layout',
 				array(
 					'desktop'    => array(

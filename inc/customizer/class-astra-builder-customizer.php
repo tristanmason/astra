@@ -923,9 +923,9 @@ final class Astra_Builder_Customizer {
 			SCRIPT_DEBUG ? 'astra-custom-control-react-script' : 'astra-custom-control-script',
 			'AstraBuilderCustomizerData',
 			array(
-				'contexts'                 => self::get_contexts(),
-				'choices'                  => self::get_choices(),
-				'js_configs'               => self::$js_configs,
+				'contexts'   => self::get_contexts(),
+				'choices'    => self::get_choices(),
+				'js_configs' => self::$js_configs,
 			)
 		);
 
