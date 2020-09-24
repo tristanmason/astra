@@ -19,8 +19,8 @@ class ResponsiveSliderComponent extends Component {
 		this.onResetClick = this.onResetClick.bind(this);
 	}
 
-	onResetClick () {
-
+	onResetClick (e) {
+		e.preventDefault();
 		this.updateValues( this.props.control.params.default );
 		
 	}
@@ -129,7 +129,7 @@ class ResponsiveSliderComponent extends Component {
 		);
 
 		resetHtml = (
-			<div className="ast-responsive-slider-reset" onClick={ () => { this.onResetClick() } } >
+			<div className="ast-responsive-slider-reset" onClick={ (e) => { this.onResetClick(e) } } >
 				<span className="dashicons dashicons-image-rotate ast-control-tooltip" title={ reset } ></span>
 			</div>
 		);
