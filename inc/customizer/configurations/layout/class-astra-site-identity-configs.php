@@ -86,6 +86,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => false,
 					'priority'  => Astra_Constants::$is_new_hfb_activated ? 2 : 5,
 					'transport' => 'postMessage',
+					'required'  => array(
+						'custom_logo',
+						'!=',
+						'',
+					),
 					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
@@ -124,8 +129,13 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => false,
 					'section'   => 'title_tagline',
 					'title'     => __( 'Different Logo For Mobile Devices?', 'astra' ),
+					'required'  => array(
+						'custom_logo',
+						'!=',
+						'',
+					),
 					'priority'  => Astra_Constants::$is_new_hfb_activated ? 4 : 5,
-					'context'   => Astra_Constants::$mobile_device,
+					'context'   => Astra_Constants::$mobile_general_tab,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -147,7 +157,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'       => 5,
 					'title'          => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'context'        => Astra_Constants::$mobile_device,
+					'context'        => Astra_Constants::$mobile_general_tab,
 				),
 
 				/**
