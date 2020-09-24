@@ -53,12 +53,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 
 				require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-footer.php';
 
-				// Register the Secondary & Mobile menus.
-				register_nav_menus(
-					array(
-						'secondary_menu' => __( 'Secondary Menu', 'astra' ),
-					)
-				);
 			}
 			/**
 			 * Builder Controllers.

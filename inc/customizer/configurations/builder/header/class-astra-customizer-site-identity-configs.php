@@ -157,7 +157,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
-						'container_inclusive' => false,
+						'container_inclusive' => true,
 						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
 					),
 					'context'   => Astra_Constants::$general_tab,
