@@ -26,7 +26,8 @@ class AstraColorPickerControl extends Component {
 			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
-
+		console.log('in constructor');
+		console.log(this.state);
 		if ( this.props.allowImage ) {
 
 			this.state['backgroundImage'] = this.props.backgroundImage;
@@ -42,6 +43,9 @@ class AstraColorPickerControl extends Component {
 		let deviceObj = {
 			...value[ device ]
 		};
+		console.log(device);
+
+		console.log(value);
 
 		this.setState( { color: deviceObj['background-color'] } );
 		this.setState( { backgroundType: deviceObj['background-type'] } );
@@ -52,12 +56,18 @@ class AstraColorPickerControl extends Component {
 		this.setState( { backgroundRepeat: deviceObj['background-repeat'] } );
 		this.setState( { backgroundSize: deviceObj['background-size'] } );
 		console.log('in changestate');
-		console.log(deviceObj['background-position']);
-		console.log(this.state);
+
+		// console.log(deviceObj['background-position']);
+		// console.log(this.state);
+		console.log(this.state.backgroundPosition);
+		console.log('-------')
+
 	}
 	render() {
 		console.log( 'in render');
-		console.log( this.state )
+		// console.log( this.state )
+		console.log(this.state.backgroundPosition);
+
 		const {
 			refresh,
 			modalCanClose,

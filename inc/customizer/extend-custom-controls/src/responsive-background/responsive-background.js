@@ -71,8 +71,9 @@ class ResponsiveBackground extends Component {
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							this.parentElement.current.changeState( value, key );
+							
 							this.updateValues( value );
+							this.parentElement.current.changeState( value, key );
 						} }
 					>
 						<Dashicon icon='image-rotate' />
