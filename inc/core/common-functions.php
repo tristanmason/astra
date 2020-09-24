@@ -1437,12 +1437,13 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 			}
 		} elseif ( 'image' === $bg_type ) {
 
-			if ( '' !== $bg_img && '' !== $bg_color && 'unset' !== $bg_color && ! strpos( $bg_color, 'linear-gradient' ) ) {
+			if ( '' !== $bg_img && '' !== $bg_color && 'unset' !== $bg_color && ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) ) {
 
 				$gen_bg_css['background-image'] = 'linear-gradient(to right, ' . $bg_color . ', ' . $bg_color . '), url(' . $bg_img . ');';
 			}
-			if ( ( '' === $bg_color || 'unset' === $bg_color || strpos( $bg_color, 'linear-gradient' ) ) && '' !== $bg_img ) {
-				$gen_bg_css['background-image'] = 'url(' + $bg_img + ');';
+			if ( ( '' === $bg_color || 'unset' === $bg_color || is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && '' !== $bg_img ) ) {
+				
+				$gen_bg_css['background-image'] = 'url(' . $bg_img . ');';
 			}
 		} elseif ( 'gradient' === $bg_type ) {
 			if ( isset( $bg_color ) && 'unset' !== $bg_color ) {
@@ -1451,7 +1452,6 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 			}
 		}
 	}
-
 	if ( '' !== $bg_img ) {
 		if ( isset( $bg_obj['background-repeat'] ) ) {
 			$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
