@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from "react";
 import { Component } from '@wordpress/element';
 import { Button, Dashicon } from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
@@ -17,6 +18,7 @@ class ResponsiveBackground extends Component {
 		this.state = {
 			value: value,
 		};
+		this.parentElement = React.createRef();
 	}
 	componentDidMount() {
 
@@ -69,7 +71,7 @@ class ResponsiveBackground extends Component {
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ () => {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-
+							this.parentElement.current.changeState( value, key );
 							this.updateValues( value );
 						} }
 					>
@@ -114,6 +116,7 @@ class ResponsiveBackground extends Component {
 		return (
 			<>
 				<AstraColorPickerControl
+					ref={ this.parentElement }
 					color={ ( undefined !== this.state.value[key]['background-color'] && this.state.value[key]['background-color'] ? this.state.value[key]['background-color'] :  '' ) }
 					onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key, backgroundType ) }
 					media={ ( undefined !== this.state.value[key]['background-media'] && this.state.value[key]['background-media'] ? this.state.value[key]['background-media'] :  '' ) }
