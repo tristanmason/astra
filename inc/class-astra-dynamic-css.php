@@ -723,6 +723,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $trans_header_responsive_top_space_css_fix, '', astra_get_tablet_breakpoint() );
 
 				$desktop_screen_gb_css = array(
+					// Group block, Columns block, Gallery block, Table block & has-text-align-center selector compatibility Desktop CSS.
 					'.wp-block-columns'                  => array(
 						'margin-bottom' => 'unset',
 					),
@@ -757,6 +758,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $desktop_screen_gb_css );
 
 				$middle_screen_min_gb_css = array(
+					// Group & Column block > align compatibility (min-width:1200px) CSS.
 					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container' => array(
 						'max-width' => '1200px',
 						'margin'    => '0 auto',
@@ -770,6 +772,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
 
 				$middle_screen_max_gb_css = array(
+					// Group & Column block (max-width:1200px) CSS.
 					'.wp-block-group'                     => array(
 						'padding' => '3em',
 					),
@@ -785,6 +788,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $middle_screen_max_gb_css, '', '1200' );
 
 				$tablet_screen_min_gb_css = array(
+					// Columns inside Group block compatibility (min-width: tablet-breakpoint) CSS.
 					'.wp-block-columns .wp-block-group' => array(
 						'padding' => '2em',
 					),
@@ -794,6 +798,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $tablet_screen_min_gb_css, astra_get_tablet_breakpoint() );
 
 				$mobile_screen_max_gb_css = array(
+					// Content | image | video inside Media & Text block, Cover block, Image inside cover block compatibility (max-width: mobile-breakpoint) CSS.
 					'.wp-block-media-text .wp-block-media-text__content' => array(
 						'padding' => '3em 2em',
 					),
