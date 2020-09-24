@@ -41,10 +41,10 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Desktop CSS.
 	$css_output_desktop = array(
 
-		$selector . ' .site-title *'       => array(
+		$selector . ' .site-title a'       => array(
 			'color' => esc_attr( $title_color ),
 		),
-		$selector . ' .site-title *:hover' => array(
+		$selector . ' .site-title a:hover' => array(
 			'color' => esc_attr( $title_hover_color ),
 		),
 		$selector . ' .site-description'   => array(
