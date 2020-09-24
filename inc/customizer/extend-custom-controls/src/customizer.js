@@ -103,14 +103,18 @@
 			if ( 'panel-footer-builder-group' === id ) {
 				$( '#accordion-panel-' + id ).on( 'click', function() {
 					let $iframeBody = $body.find( 'iframe' ).contents().find( 'body' );
-					window.frames[0].window.scrollTo( 0, ( $iframeBody[0].scrollHeight + 500 ) );
+					$body.find( 'iframe' ).contents().find( 'body, html' ).animate( {
+						scrollTop: $iframeBody[0].scrollHeight
+					}, 500 );
 				} );
 			}
 
 			// Scroll to header.
 			if ( 'panel-header-builder-group' === id ) {
 				$( '#accordion-panel-' + id ).on( 'click', function() {
-					window.frames[0].window.scrollTo( 0, 0 );
+					$body.find( 'iframe' ).contents().find( 'body, html' ).animate( {
+						scrollTop: 0
+					}, 500 );
 				} );
 			}
 		},
