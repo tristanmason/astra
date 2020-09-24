@@ -294,7 +294,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			);
 
 
-			if ( Astra_Builder_Helper::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				array_push(
 					$_configs,

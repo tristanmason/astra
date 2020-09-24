@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'   => false,
-					'priority'  => Astra_Builder_Helper::$is_new_hfb_activated ? 2 : 5,
+					'priority'  => Astra_Builder_Helper::$is_header_footer_builder_active ? 2 : 5,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'        => 'image',
 					'section'        => 'title_tagline',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
-					'priority'       => Astra_Builder_Helper::$is_new_hfb_activated ? 3 : 5,
+					'priority'       => Astra_Builder_Helper::$is_header_footer_builder_active ? 3 : 5,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'      => 'postMessage',
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => false,
 					'section'   => 'title_tagline',
 					'title'     => __( 'Different Logo For Mobile Devices?', 'astra' ),
-					'priority'  => Astra_Builder_Helper::$is_new_hfb_activated ? 4 : 5,
+					'priority'  => Astra_Builder_Helper::$is_header_footer_builder_active ? 4 : 5,
 					'context'   => Astra_Builder_Helper::$mobile_device,
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -314,7 +314,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			);
 
 
-			if ( ! Astra_Builder_Helper::$is_new_hfb_activated ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				array_push(
 					$_configs,
