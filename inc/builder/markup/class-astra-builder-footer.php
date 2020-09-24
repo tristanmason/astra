@@ -52,6 +52,8 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 			add_action( 'astra_footer_social', array( $this, 'footer_social' ), 10 );
 			add_action( 'astra_footer_html_1', array( $this, 'footer_html_1' ) );
 			add_action( 'astra_footer_html_2', array( $this, 'footer_html_2' ) );
+			add_action( 'astra_footer_html_3', array( $this, 'footer_html_3' ) );
+			add_action( 'astra_footer_html_4', array( $this, 'footer_html_4' ) );
 
 			// Navigation menu.
 			add_action( 'astra_footer_menu', array( $this, 'footer_menu' ) );
@@ -202,6 +204,20 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function footer_html_2() {
 			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-2' );
+		}
+
+		/**
+		 * Render HTML 3.
+		 */
+		public function footer_html_3() {
+			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-3' );
+		}
+
+		/**
+		 * Render HTML 4.
+		 */
+		public function footer_html_4() {
+			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-4' );
 		}
 
 		/**
