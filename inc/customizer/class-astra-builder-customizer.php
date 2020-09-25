@@ -126,7 +126,7 @@ final class Astra_Builder_Customizer {
 			'custom_logo',
 			array(
 				'selector'            => '.site-branding',
-				'container_inclusive' => false,
+				'container_inclusive' => true,
 				'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
 			)
 		);
