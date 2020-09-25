@@ -69,6 +69,10 @@
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
 				} else {
+
+					// Setting general context when collapsed.
+					api.state('astra-customizer-tab').set('general');
+
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
 				}
@@ -387,7 +391,13 @@
 			}, 1);
 
 			api.section.each(function (section) {
-				section.expanded.bind(function () {
+				section.expanded.bind(function ( isExpanded ) {
+
+					if( ! isExpanded ) {
+						// Setting general context when collapsed.
+						api.state('astra-customizer-tab').set('general');
+					}
+
 					$('.ahfb-builder-drop .ahfb-builder-item').removeClass('active-builder-item');
 					_.each(section.controls(), function (control) {
 						highlight_active_component(section.id);
@@ -419,10 +429,6 @@
 		}
 		// Refresh all responsive elements when previewedDevice is changed.
 		api.state('astra-customizer-tab').bind(setCustomTabElementsDisplay);
-
-		$('#customize-theme-controls').on('click', 'customize-section-back', function (e) {
-			api.state('astra-customizer-tab').set('general');
-		});
 
 		$window.on('resize', resizePreviewer);
 
