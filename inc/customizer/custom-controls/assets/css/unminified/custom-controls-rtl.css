@@ -1130,7 +1130,7 @@
 	min-width: unset;
 }
 /** Gradient Color Picker */
-.ast-gradient-color-picker .components-angle-picker-control__input-field {
+.customize-control .ast-gradient-color-picker input[type="number"] {
 	width: 50%;
 }
 @-moz-document url-prefix() {
