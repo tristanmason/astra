@@ -461,7 +461,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			if( '' === bg_obj[device] || undefined === bg_obj[device] ){
 				return;
 			}
-		
+
 			var gen_bg_css 	= '';
 			var bg_img		= bg_obj[device]['background-image'];
 			var bg_tab_img	= bg_obj['tablet']['background-image'];
@@ -524,8 +524,8 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			// Remove old.
 			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
 
-			
-			if ( 'desktop' == device ) {	
+
+			if ( 'desktop' == device ) {
 				var dynamicStyle = '<style id="' + control + '-' + device + '-' + addon + '">'
 					+ selector + '	{ ' + gen_bg_css + ' }'
 				+ '</style>'
@@ -546,7 +546,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 				dynamicStyle
 			);
 		});
-	});    
+	});
 }
 
 function getChangedKey( value, other ) {
