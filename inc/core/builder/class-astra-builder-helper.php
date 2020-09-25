@@ -50,6 +50,23 @@ if ( ! class_exists( 'Astra_Builder_Helper' ) ) {
 		);
 
 		/**
+		 * Config Mobile device context.
+		 *
+		 * @var string[][]
+		 */
+		public static $mobile_general_tab = array(
+			array(
+				'setting' => 'ast_selected_tab',
+				'value'   => 'general',
+			),
+			array(
+				'setting'  => 'ast_selected_device',
+				'operator' => 'in',
+				'value'    => array( 'tablet', 'mobile' ),
+			),
+		);
+
+		/**
 		 *  No. Of. Footer Widgets.
 		 *
 		 * @var int

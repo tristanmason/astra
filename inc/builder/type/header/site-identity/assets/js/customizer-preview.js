@@ -58,14 +58,14 @@
     astra_css(
         'astra-settings[header-color-site-title]',
         'color',
-        selector + ' .site-title *'
+        selector + ' .site-title a'
     );
 
     // Title Hover Color.
     astra_css(
         'astra-settings[header-color-h-site-title]',
         'color',
-        selector + ' .site-title *:hover'
+        selector + ' .site-title a:hover'
     );
 
     // Tagline Color.

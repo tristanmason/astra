@@ -332,13 +332,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					),
 				),
 				'active_callback' => '__return_true',
-				'context'         => array(
-					array(
-						'setting'  => 'ast_selected_device',
-						'operator' => 'in',
-						'value'    => array( 'tablet', 'mobile' ),
-					),
-				),
+				'context'         => Astra_Builder_Helper::$mobile_device,
 			),
 
 			/**

@@ -2,19 +2,19 @@
 /**
  * Template part for displaying the footer component.
  *
- * @package Astra Builder
+ * @package Astra
  */
 
 if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
-	$comp_type = wp_parse_args( $args, array( 'type' => '' ) );
-	$comp_type = $comp_type['type'];
+	$component_slug = wp_parse_args( $args, array( 'type' => '' ) );
+	$component_slug = $component_slug['type'];
 } else {
 
-	$comp_type = get_query_var( 'type' );
+	$component_slug = get_query_var( 'type' );
 }
 
-switch ( $comp_type ) {
+switch ( $component_slug ) {
 
 	case 'copyright':
 		?>
@@ -105,6 +105,7 @@ switch ( $comp_type ) {
 		break;
 
 	default:
+		do_action( 'astra_render_footer_components', $component_slug );
 		break;
 
 }
