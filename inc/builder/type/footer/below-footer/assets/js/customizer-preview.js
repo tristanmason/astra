@@ -29,14 +29,6 @@
 		'px'
 	);
 
-	// Header Line Height.
-	astra_css(
-		'astra-settings[hbb-footer-height]',
-		'line-height',
-		selector,
-		'px'
-	);
-
 	// Primary Header - Layout.
 	wp.customize( 'astra-settings[hbb-footer-layout-width]', function( setting ) {
 		setting.bind( function( layout ) {
