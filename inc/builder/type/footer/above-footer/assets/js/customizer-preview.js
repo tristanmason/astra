@@ -28,15 +28,6 @@
         selector + ' .ast-builder-grid-row'
     );
 
-
-	// Footer Line Height.
-	astra_css(
-		'astra-settings[hba-footer-height]',
-		'line-height',
-		selector,
-		'px'
-	);
-
 	// Border Bottom width.
 	astra_css(
 		'astra-settings[hba-footer-separator]',
