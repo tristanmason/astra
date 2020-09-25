@@ -86,39 +86,6 @@ switch ( $component_slug ) {
 		</div>
 		<?php
 		break;
-
-	case 'mobile-logo':
-		?>
-		<div class="ast-builder-layout-element site-header-focus-item" data-section="title_tagline">
-			<?php do_action( 'astra_mobile_site_identity' ); ?>
-		</div>
-		<?php
-		break;
-
-	case 'mobile-button':
-		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-button-3" data-section="astra_customizer_mobile_header_button">
-			<?php do_action( 'astra_mobile_header_button' ); ?>
-		</div>
-		<?php
-		break;
-
-	case 'mobile-html':
-		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-html-4" data-section="astra_customizer_mobile_header_html">
-			<?php do_action( 'astra_header_html_4' ); ?>
-		</div>
-		<?php
-		break;
-
-	case 'mobile-social':
-		?>
-		<div class="ast-builder-layout-element site-header-focus-item" data-section="astra_customizer_mobile_header_social">
-			<?php do_action( 'astra_header_social' ); ?>
-		</div>
-		<?php
-		break;
-
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;
