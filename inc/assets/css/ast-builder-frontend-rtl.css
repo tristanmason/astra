@@ -201,11 +201,6 @@
     padding: 0 0.4em;
 }
 
-.ast-builder-social-element.social-element-with-image {
-    width: auto;
-    height: auto;
-}
-
 .ast-social-element-style-outline .ast-builder-social-element {
     background: transparent !important;
 }
@@ -526,234 +521,111 @@ body.ast-main-header-nav-open {
 
 /* Social Icons Official CSS */
 
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook {
-    color: white;
+.ast-social-color-type-official .twitter, .ast-social-color-type-official .instagram, .ast-social-color-type-official .linkedin,.ast-social-color-type-official .facebook_group, .ast-social-color-type-official .discord,.ast-social-color-type-official .pinterest, .ast-social-color-type-official .dribbble, .ast-social-color-type-official .behance,.ast-social-color-type-official .medium, .ast-social-color-type-official .patreon,.ast-social-color-type-official .vk, .ast-social-color-type-official .reddit, .ast-social-color-type-official .youtube,.ast-social-color-type-official .vimeo, .ast-social-color-type-official .rss,.ast-social-color-type-official .whatsapp, .ast-social-color-type-official .viber, .ast-social-color-type-official .telegram,.ast-social-color-type-official .xing, .ast-social-color-type-official .weibo,.ast-social-color-type-official .tumblr, .ast-social-color-type-official .qq, .ast-social-color-type-official .wechat,.ast-social-color-type-official .phone, .ast-social-color-type-official .strava,.ast-social-color-type-official .email, .ast-social-color-type-official .github, .ast-social-color-type-official .google_reviews,.ast-social-color-type-official .wordpress, .ast-social-color-type-official .yelp {
+    background: transparent;
+}
+.ast-social-color-type-official .facebook {
+    color: #ffffff;
     background: #557dbc;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook svg {
-    fill: white;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.twitter {
+.ast-social-color-type-official .twitter {
     color: #7acdee;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.twitter svg {
-    fill: #7acdee;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.instagram {
+.ast-social-color-type-official .instagram {
     color: #292929;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.instagram svg {
-    fill: #292929;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.linkedin {
+.ast-social-color-type-official .linkedin {
     color: #1c86c6;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.linkedin svg {
-    fill: #1c86c6;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook_group {
+.ast-social-color-type-official .facebook_group {
     color: #3D87FB;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.facebook_group svg {
-    fill: #3D87FB;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.discord {
+.ast-social-color-type-official .discord {
     color: #7187D4;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.discord svg {
-    fill: #7187D4;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.pinterest {
+.ast-social-color-type-official .pinterest {
     color: #ea575a;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.pinterest svg {
-    fill: #ea575a;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.dribbble {
+.ast-social-color-type-official .dribbble {
     color: #d77ea6;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.dribbble svg {
-    fill: #d77ea6;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.behance {
+.ast-social-color-type-official .behance {
     color: #1B64F6;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.behance svg {
-    fill: #1B64F6;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.medium {
+.ast-social-color-type-official .medium {
     color: #292929;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.medium svg {
-    fill: #292929;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.reddit {
+.ast-social-color-type-official .reddit {
     color: #FC471E;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.reddit svg {
-    fill: #FC471E;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.patreon {
+.ast-social-color-type-official .patreon {
     color: #e65c4b;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.patreon svg {
-    fill: #e65c4b;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vk {
+.ast-social-color-type-official .vk {
     color: #5382b6;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vk svg {
-    fill: #5382b6;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.youtube {
+.ast-social-color-type-official .youtube {
     color: #e96651;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.youtube svg {
-    fill: #e96651;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vimeo {
+.ast-social-color-type-official .vimeo {
     color: #8ecfde;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.vimeo svg {
-    fill: #8ecfde;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.rss {
+.ast-social-color-type-official .rss {
     color: #f09124;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.rss svg {
-    fill: #f09124;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.whatsapp {
+.ast-social-color-type-official .whatsapp {
     color: #5BBA67;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.whatsapp svg {
-    fill: #5BBA67;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.viber {
+.ast-social-color-type-official .viber {
     color: #7F509E;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.viber svg {
-    fill: #7F509E;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.telegram {
+.ast-social-color-type-official .telegram {
     color: #229CCE;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.telegram svg {
-    fill: #229CCE;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.xing {
+.ast-social-color-type-official .xing {
     color: #0A5C5D;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.xing svg {
-    fill: #0A5C5D;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.weibo {
+.ast-social-color-type-official .weibo {
     color: #E41C34;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.weibo svg {
-    fill: #E41C34;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.tumblr {
+.ast-social-color-type-official .tumblr {
     color: #314255;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.tumblr svg {
-    fill: #314255;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.qq {
+.ast-social-color-type-official .qq {
     color: #487FC8;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.qq svg {
-    fill: #487FC8;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wechat {
+.ast-social-color-type-official .wechat {
     color: #2DC121;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wechat svg {
-    fill: #2DC121;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.strava {
+.ast-social-color-type-official .strava {
     color: #2DC121;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.strava svg {
-    fill: #2DC121;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.email {
+.ast-social-color-type-official .email {
     color: #ea4335;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.email svg {
-    fill: #ea4335;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.github {
+.ast-social-color-type-official .github {
     color: #24292e;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.github svg {
-    fill: #24292e;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.google_reviews {
+.ast-social-color-type-official .google_reviews {
     color: #dc4e41;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.google_reviews svg {
-    fill: #dc4e41;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.imdb {
+.ast-social-color-type-official .imdb {
     color: #000000;
     background: #F5C518;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.imdb svg {
-    fill: #000000;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.trip_advisor {
+.ast-social-color-type-official .trip_advisor {
     color: #000000;
     background: #00aa6c;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.trip_advisor svg {
-    fill: #000000;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wordpress {
+.ast-social-color-type-official .wordpress {
     color: #464646;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.wordpress svg {
-    fill: #464646;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.yelp {
+.ast-social-color-type-official .yelp {
     color: #af0606;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.yelp svg {
-    fill: #af0606;
-}
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.phone {
+.ast-social-color-type-official .phone {
     color: inherit;
-    background: transparent;
 }
-.ast-builder-layout-element .ast-social-color-type-official .ast-builder-social-element.phone svg {
-    fill: inherit;
+.ast-social-color-type-official .ast-builder-social-element svg {
+    fill: currentColor;
 }
