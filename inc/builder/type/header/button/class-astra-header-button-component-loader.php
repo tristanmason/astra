@@ -38,7 +38,7 @@ class Astra_Header_Button_Component_Loader {
 	 */
 	public function add_fonts() {
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
 
 			$_prefix = 'button' . $index;
 
@@ -67,7 +67,7 @@ class Astra_Header_Button_Component_Loader {
 			'astra-heading-button-customizer-preview-js',
 			'AstraBuilderButtonData',
 			array(
-				'header_button_count' => Astra_Constants::$num_of_header_button,
+				'header_button_count' => Astra_Builder_Helper::$num_of_header_button,
 			)
 		);
 	}

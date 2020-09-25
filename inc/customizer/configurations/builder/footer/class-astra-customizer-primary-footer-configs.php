@@ -37,7 +37,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_section = 'section-primary-footer-builder';
 
-			$column_count = range( 1, Astra_Constants::$num_of_footer_columns );
+			$column_count = range( 1, Astra_Builder_Helper::$num_of_footer_columns );
 			$column_count = array_combine( $column_count, $column_count );
 
 			$_configs = array(
@@ -75,7 +75,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 2,
 					'title'     => __( 'Column', 'astra' ),
 					'choices'   => $column_count,
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-primary-footer-wrap',
@@ -95,11 +95,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'       => __( 'Layout', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-row-layout',
-					'context'     => Astra_Constants::$general_tab,
+					'context'     => Astra_Builder_Helper::$general_tab,
 					'input_attrs' => array(
 						'responsive' => true,
 						'footer'     => 'primary',
-						'layout'     => Astra_Constants::$footer_row_layouts,
+						'layout'     => Astra_Builder_Helper::$footer_row_layouts,
 					),
 					'transport'   => 'postMessage',
 				),
@@ -112,7 +112,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'settings' => array(),
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -130,7 +130,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				),
 
@@ -150,7 +150,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				),
 
@@ -169,7 +169,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => Astra_Constants::$design_tab,
+					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Footer Bottom Boder Color.
@@ -183,7 +183,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Primary Footer color and background divider.
@@ -195,7 +195,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Background Color & Image', 'astra' ),
 					'priority' => 6,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Group Option: Footer Background.
@@ -208,7 +208,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 7,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Sub Option: Footer Background.
@@ -224,7 +224,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'default'    => $defaults['hb-footer-bg-obj-responsive'],
 					'label'      => __( 'Background', 'astra' ),
-					'context'    => Astra_Constants::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

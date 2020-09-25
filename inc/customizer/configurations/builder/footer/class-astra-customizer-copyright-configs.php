@@ -82,7 +82,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => true,
 					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_copyright' ),
 				),
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -101,7 +101,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'center' => __( 'Center', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 				),
-				'context'   => Astra_Constants::$general_tab,
+				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',
 			),
 
@@ -117,7 +117,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Text Color', 'astra' ),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -131,7 +131,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'title'    => __( 'Margin', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
-				'context'  => Astra_Constants::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -154,7 +154,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Constants::$design_tab,
+				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 		);
 

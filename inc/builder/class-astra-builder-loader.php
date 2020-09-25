@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			 */
 			require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-header.php';
 
-			if ( Astra_Constants::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-footer.php';
 
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			/**DONE */
 
 
-			if ( Astra_Constants::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				add_filter( 'astra_existing_header_footer_configs', '__return_false' );
 				add_filter( 'astra_addon_existing_header_footer_configs', '__return_false' );
 			}
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 * @return void
 		 */
 		public function page_header_compatibility() {
-			if ( is_callable( 'Astra_Ext_Advanced_Headers_Meta::get_instance' ) && Astra_Constants::$is_new_hfb_activated ) {
+			if ( is_callable( 'Astra_Ext_Advanced_Headers_Meta::get_instance' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				remove_action( 'astra_adv_headers_tabs_site-header_action', array( Astra_Ext_Advanced_Headers_Meta::get_instance(), 'site_header_tab' ), 10, 1 );
 				add_action( 'astra_adv_headers_tabs_site-header_action', array( $this, 'site_header_tab' ), 10, 1 );
 			}
@@ -653,7 +653,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function quick_settings( $quick_settings ) {
 
-			if ( ! Astra_Constants::$is_new_hfb_activated ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return $quick_settings;
 			}
 
@@ -675,7 +675,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function load_markup() {
 
-			if ( ! defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) || ! Astra_Constants::$is_new_hfb_activated ) {
+			if ( ! defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) || ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 
@@ -729,7 +729,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			if ( ! Astra_Constants::$is_new_hfb_activated ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 

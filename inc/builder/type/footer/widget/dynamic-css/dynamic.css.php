@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_widget_dynamic_css' );
  */
 function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 
 		if ( ! Astra_Builder_Helper::is_component_loaded( 'footer', 'widget-' . $index ) ) {
 			continue;
