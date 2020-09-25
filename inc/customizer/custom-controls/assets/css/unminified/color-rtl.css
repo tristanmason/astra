@@ -348,6 +348,10 @@
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
 }
+/** Gradient Color Picker */
+.customize-control .ast-gradient-color-picker input[type="number"] {
+	width: 50%;
+}
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
 		margin-left: 5px;

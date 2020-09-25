@@ -149,6 +149,7 @@ class AstraColorPickerControl extends Component {
 														tabout = (
 															<>
 																<__experimentalGradientPicker
+																	className="ast-gradient-color-picker"
 																	value={ color && color.includes( 'gradient' ) ? color : '' }
 																	onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 																/>

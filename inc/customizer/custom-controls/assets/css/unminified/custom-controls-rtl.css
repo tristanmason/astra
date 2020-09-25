@@ -556,6 +556,10 @@
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
 }
+/** Gradient Color Picker */
+.customize-control .ast-gradient-color-picker input[type="number"] {
+	width: 50%;
+}
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
 		margin-left: 5px;
@@ -825,7 +829,6 @@
     height: auto;
     position: relative;
     transform: scale(1);
-    transition: transform 0.1s ease;
     border-radius: 4px;
     padding: 0;
     background-image: linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, transparent 75%, #ddd 0), linear-gradient(45deg, transparent 75%, #ddd 0);
@@ -1125,6 +1128,10 @@
 }
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
+}
+/** Gradient Color Picker */
+.ast-gradient-color-picker .components-angle-picker-control__input-field {
+	width: 50%;
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
