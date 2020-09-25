@@ -36,11 +36,11 @@ class Astra_Html_Component_Configs {
 		$html_config = array();
 
 		$class_name     = 'Astra_Builder_Header';
-		$number_of_html = Astra_Constants::$num_of_header_html;
+		$number_of_html = Astra_Builder_Helper::$num_of_header_html;
 
 		if ( 'footer' === $builder_type ) {
 			$class_name     = 'Astra_Builder_Footer';
-			$number_of_html = Astra_Constants::$num_of_footer_html;
+			$number_of_html = Astra_Builder_Helper::$num_of_footer_html;
 		}
 
 		for ( $index = 1; $index <= $number_of_html; $index++ ) {
@@ -91,7 +91,7 @@ class Astra_Html_Component_Configs {
 						'selector'        => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback' => array( $class_name, $builder_type . '_html_' . $index ),
 					),
-					'context'     => Astra_Constants::$general_tab,
+					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -106,7 +106,7 @@ class Astra_Html_Component_Configs {
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -120,7 +120,7 @@ class Astra_Html_Component_Configs {
 					'title'    => __( 'Margin', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -143,7 +143,7 @@ class Astra_Html_Component_Configs {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Constants::$design_tab,
+					'context'        => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
@@ -161,7 +161,7 @@ class Astra_Html_Component_Configs {
 						'right'  => __( 'Right', 'astra' ),
 						'center' => __( 'Center', 'astra' ),
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				);
 			}

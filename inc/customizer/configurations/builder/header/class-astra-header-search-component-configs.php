@@ -77,7 +77,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Icon Color', 'astra' ),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -97,7 +97,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -111,7 +111,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'title'    => __( 'Margin', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
-				'context'  => Astra_Constants::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -134,10 +134,10 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Constants::$design_tab,
+				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 		);
-		
+
 		return array_merge( $configurations, $_configs );
 	}
 }

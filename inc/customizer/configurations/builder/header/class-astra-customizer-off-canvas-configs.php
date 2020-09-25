@@ -74,7 +74,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'dropdown'   => __( 'Dropdown', 'astra' ),
 					),
 					'transport' => 'postMessage',
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -98,7 +98,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'full-width' => __( 'Full Width', 'astra' ),
 						'side-panel' => __( 'Flyout', 'astra' ),
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -122,7 +122,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						'side-panel',
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Option Group: Off-Canvas Colors Group.
@@ -134,7 +134,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 30,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -150,7 +150,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-background',
 					'default'   => astra_get_option( 'off-canvas-background' ),
 					'priority'  => 35,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Off-Canvas Close Icon Color.
@@ -168,7 +168,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						'off-canvas',
 					),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

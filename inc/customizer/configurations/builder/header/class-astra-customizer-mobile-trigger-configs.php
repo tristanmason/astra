@@ -94,7 +94,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					),
 					'responsive' => false,
 				),
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -115,7 +115,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'step' => 1,
 					'max'  => 100,
 				),
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
 
@@ -136,7 +136,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'     => __( 'Menu Label', 'astra' ),
 				'type'      => 'control',
 				'control'   => 'text',
-				'context'   => Astra_Constants::$general_tab,
+				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -155,7 +155,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'outline' => __( 'Outline', 'astra' ),
 					'minimal' => __( 'Minimal', 'astra' ),
 				),
-				'context'   => Astra_Constants::$general_tab,
+				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',
 				'partial'   => array(
 					'selector'        => '.ast-button-wrap',
@@ -175,7 +175,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -195,7 +195,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'==',
 					'fill',
 				),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -222,7 +222,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'==',
 					'outline',
 				),
-				'context'        => Astra_Constants::$design_tab,
+				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -242,7 +242,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'==',
 					'outline',
 				),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -268,7 +268,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'step' => 1,
 					'max'  => 100,
 				),
-				'context'     => Astra_Constants::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option Group: Trigger Typography.
@@ -286,7 +286,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'!=',
 					'',
 				),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option: Trigger Font Family.
@@ -302,7 +302,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'     => __( 'Family', 'astra' ),
 				'priority'  => 22,
 				'connect'   => 'mobile-header-label-font-weight',
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option: Trigger Font Weight.
@@ -319,7 +319,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Weight', 'astra' ),
 				'priority'          => 24,
 				'connect'           => 'mobile-header-label-font-family',
-				'context'           => Astra_Constants::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option: Trigger Text Transform.
@@ -340,7 +340,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'uppercase'  => __( 'Uppercase', 'astra' ),
 					'lowercase'  => __( 'Lowercase', 'astra' ),
 				),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option: Trigger Font Size.
@@ -361,7 +361,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'px' => 'px',
 					'em' => 'em',
 				),
-				'context'     => Astra_Constants::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option: Trigger Line Height.
@@ -382,7 +382,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'step' => 0.01,
 					'max'  => 10,
 				),
-				'context'           => Astra_Constants::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -396,7 +396,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'    => __( 'Margin', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
-				'context'  => Astra_Constants::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -419,7 +419,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Constants::$design_tab,
+				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 		);
 

@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 */
 		public function display_sidebar( $active, $section ) {
 
-			if ( ! Astra_Constants::$is_new_hfb_activated ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return $active;
 			}
 
@@ -67,20 +67,20 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		 */
 		public function widget_init() {
 
-			if ( ! Astra_Constants::$is_new_hfb_activated ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 
 			// Register Footer Widgets.
-			for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
+			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 				$this->register_sidebar( 'footer', $index );
 			}
 
 			// Register Header Widgets.
-			$header_widgets_count = Astra_Constants::$num_of_header_widgets;
+			$header_widgets_count = Astra_Builder_Helper::$num_of_header_widgets;
 
 			if ( $header_widgets_count ) {
-				for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
+				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
 					$this->register_sidebar( 'header', $index );
 				}
 			}

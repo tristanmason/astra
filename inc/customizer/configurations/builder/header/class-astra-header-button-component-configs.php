@@ -32,7 +32,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$html_config = array();
-			for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
+			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
 
 				$_section = 'section-hb-button-' . $index;
 				$_prefix  = 'button' . $index;
@@ -51,7 +51,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'     => 'section',
 						'priority' => 50,
 						/* translators: %s Index */
-						'title'    => ( 1 === Astra_Constants::$num_of_header_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
+						'title'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
 						'panel'    => 'panel-header-builder-group',
 					),
 
@@ -85,7 +85,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'container_inclusive' => false,
 							'render_callback'     => array( 'Astra_Builder_Header', 'button_' . $index ),
 						),
-						'context'   => Astra_Constants::$general_tab,
+						'context'   => Astra_Builder_Helper::$general_tab,
 					),
 
 					/**
@@ -105,7 +105,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'container_inclusive' => false,
 							'render_callback'     => array( 'Astra_Builder_Header', 'button_' . $index ),
 						),
-						'context'   => Astra_Constants::$general_tab,
+						'context'   => Astra_Builder_Helper::$general_tab,
 					),
 
 					/**
@@ -120,7 +120,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 70,
-						'context'   => Astra_Constants::$design_tab,
+						'context'   => Astra_Builder_Helper::$design_tab,
 					),
 
 					/**
@@ -138,7 +138,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => Astra_Constants::$design_tab,
+						'context'    => Astra_Builder_Helper::$design_tab,
 						'title'      => __( 'Text Color', 'astra' ),
 					),
 
@@ -157,7 +157,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => Astra_Constants::$design_tab,
+						'context'    => Astra_Builder_Helper::$design_tab,
 						'title'      => __( 'Text Color', 'astra' ),
 					),
 
@@ -176,7 +176,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => Astra_Constants::$design_tab,
+						'context'    => Astra_Builder_Helper::$design_tab,
 						'title'      => __( 'Background Color', 'astra' ),
 					),
 
@@ -195,7 +195,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 10,
-						'context'    => Astra_Constants::$design_tab,
+						'context'    => Astra_Builder_Helper::$design_tab,
 						'title'      => __( 'Background Color', 'astra' ),
 					),
 
@@ -211,7 +211,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 80,
-						'context'   => Astra_Constants::$design_tab,
+						'context'   => Astra_Builder_Helper::$design_tab,
 					),
 
 					/**
@@ -228,7 +228,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'linked_choices' => true,
 						'priority'       => 10,
 						'title'          => __( 'Width', 'astra' ),
-						'context'        => Astra_Constants::$general_tab,
+						'context'        => Astra_Builder_Helper::$general_tab,
 						'choices'        => array(
 							'top'    => __( 'Top', 'astra' ),
 							'right'  => __( 'Right', 'astra' ),
@@ -251,7 +251,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 12,
-						'context'    => Astra_Constants::$general_tab,
+						'context'    => Astra_Builder_Helper::$general_tab,
 						'title'      => __( 'Color', 'astra' ),
 					),
 
@@ -269,7 +269,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'priority'   => 14,
-						'context'    => Astra_Constants::$general_tab,
+						'context'    => Astra_Builder_Helper::$general_tab,
 						'title'      => __( 'Hover Color', 'astra' ),
 					),
 
@@ -285,7 +285,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'     => 'ast-slider',
 						'transport'   => 'postMessage',
 						'priority'    => 16,
-						'context'     => Astra_Constants::$general_tab,
+						'context'     => Astra_Builder_Helper::$general_tab,
 						'title'       => __( 'Border Radius', 'astra' ),
 						'input_attrs' => array(
 							'min'  => 0,
@@ -305,7 +305,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'     => __( 'Typography', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
-						'context'   => Astra_Constants::$design_tab,
+						'context'   => Astra_Builder_Helper::$design_tab,
 						'priority'  => 90,
 					),
 
@@ -324,7 +324,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'input_attrs' => array(
 							'min' => 0,
 						),
-						'context'     => Astra_Constants::$general_tab,
+						'context'     => Astra_Builder_Helper::$general_tab,
 						'units'       => array(
 							'px' => 'px',
 							'em' => 'em',

@@ -179,7 +179,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => $_section,
 					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
-					'priority' => Astra_Constants::$is_new_hfb_activated ? 29 : 30,
+					'priority' => Astra_Builder_Helper::$is_header_footer_builder_active ? 29 : 30,
 					'control'  => 'checkbox',
 				),
 
@@ -226,7 +226,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'        => 'image',
 					'section'        => $_section,
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-retina-logo]', '==', true ),
-					'priority'       => Astra_Constants::$is_new_hfb_activated ? 31 : 30,
+					'priority'       => Astra_Builder_Helper::$is_header_footer_builder_active ? 31 : 30,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
@@ -242,7 +242,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'     => 'ast-responsive-slider',
 					'section'     => $_section,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
-					'priority'    => Astra_Constants::$is_new_hfb_activated ? 31 : 30,
+					'priority'    => Astra_Builder_Helper::$is_header_footer_builder_active ? 31 : 30,
 					'title'       => __( 'Logo Width', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 50,
@@ -280,7 +280,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => Astra_Constants::$design_tab,
+					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -295,7 +295,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => $_section,
 					'priority'  => 30,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'    => __( 'Colors & Background', 'astra' ),
 					'priority' => 32,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 
 				),
 
@@ -322,7 +322,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(
@@ -334,7 +334,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(
@@ -358,7 +358,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(
@@ -370,12 +370,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 35,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
 
-			if ( Astra_Constants::$is_new_hfb_activated ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$_hfb_configs = array(
 					/**
 					 * Option: Header Builder Tabs

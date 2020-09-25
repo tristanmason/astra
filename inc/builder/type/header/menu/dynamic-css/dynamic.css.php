@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_menu_dynamic_css' );
  */
 function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	for ( $index = 1; $index <= Astra_Constants::$num_of_header_menu; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 
 		if ( ! Astra_Builder_Helper::is_component_loaded( 'header', 'menu-' . $index ) ) {
 			continue;
@@ -84,7 +84,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$menu_font_size_tablet_unit  = ( isset( $menu_font_size['tablet-unit'] ) ) ? $menu_font_size['tablet-unit'] : '';
 		$menu_font_size_mobile_unit  = ( isset( $menu_font_size['mobile-unit'] ) ) ? $menu_font_size['mobile-unit'] : '';
 
-		
+
 		// Spacing.
 		$menu_spacing = astra_get_option( 'header-' . $_prefix . '-menu-spacing' );
 
