@@ -57,10 +57,12 @@
 
     .more-settings {
         margin-top: 12px;
-        display: inline-block;
+		display: flex;
+		justify-content: flex-end;
         padding: 5px 0 5px 0;
         cursor: pointer;
-        float: right;
+		float: none;
+		text-decoration: none;
     }
 
     .more-settings:focus {
@@ -88,21 +90,15 @@
         }
 	}
 	.customize-control-content {
-		.customize-control-title {
-			.astra-reset {
-				top: 1px;
-    			right: 55px;
-			}
-		}
 		.color-button-wrap {
 			position: absolute;
 			right: 24px;
-			top: 4px;
+			top: -5px;
 		}
 		.ast-responsive-btns {
 			position: absolute;
 			right: 0px;
-			top: 6px;
+			top: -1px;
 		}
 		.astra-color-picker-wrap {
 			margin-top: -14px;
@@ -111,6 +107,12 @@
 		.components-color-picker__saturation-white {
 			border-radius: unset;
 		}
+	}
+	.ast-color-btn-clear-wrap {
+		right: 84px;
+	}
+	.ast-color-btn-reset-wrap {
+		right: 65px;
 	}
 }
 
@@ -145,38 +147,6 @@
 			border-color: #0185ba;
 		}
 	}
-	.components-button.ast-bg-img-remove {
-		color: #0071a1;
-		border: 1px solid #0071a1;
-		background: #f3f5f6;
-		vertical-align: top;
-		margin: 15px 0;
-		text-decoration: none;
-		font-size: 13px;
-		line-height: 2.15384615;
-		min-height: 30px;
-		padding: 0 10px;
-	}
-	button.components-button.ast-bg-img-remove {
-		&:hover {
-			box-shadow: none;
-			background: #f1f1f1;
-			border-color: #016087;
-			color: #016087;
-		}
-		&:focus {
-			box-shadow: none;
-			background: #f1f1f1;
-			border-color: #016087;
-			color: #016087;
-		}
-		&:active {
-			box-shadow: none;
-			background: #f1f1f1;
-			border-color: #016087;
-			color: #016087;
-		}
-	}
 	[ID*="-gradient-view"] {
 		padding: 15px;
 		.components-circular-option-picker__clear {
@@ -193,6 +163,16 @@
 			&:focus {
 				box-shadow: unset;
 			}
+		}
+	}
+	.components-tab-panel__tab-content > div {
+		text-align: center;
+		img {
+			width: 200px;
+			margin-bottom: 18px;
+		}
+		.media-position-setting {
+			text-align: left;
 		}
 	}
 }
@@ -251,12 +231,6 @@
 }
 .ast-field-settings-modal {
 	.customize-control-content {
-		.customize-control-title {
-			.astra-reset {
-				top: 1px;
-    			right: 60px;
-			}
-		}
 		.color-button-wrap {
 			right: 30px;
 		}
@@ -265,6 +239,20 @@
 		}
 		.astra-color-picker-wrap {
 			margin-left: 0px;
+		}
+		.ast-color-btn-reset-wrap {
+			right: 72px;
+		}
+		.ast-color-btn-clear-wrap {
+			right: 91px;
+		}
+	}
+	.customize-control-ast-responsive-background {
+		&.customize-control {
+			margin-top: 28px;
+			&:first-child {
+				margin-top: 28px;
+			}
 		}
 	}
 }
