@@ -34,11 +34,11 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$selector  = '.ast-header-search';
 	$icon_size = astra_get_option( 'header-search-icon-space' );
 
-	$icon_size_desktop = ( isset( $icon_size ) && isset( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : '';
+	$icon_size_desktop = ( isset( $icon_size ) && isset( $icon_size['desktop'] ) && ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;
+	
+	$icon_size_tablet = ( isset( $icon_size ) && isset( $icon_size['tablet'] ) && ! empty( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : 20;
 
-	$icon_size_tablet = ( isset( $icon_size ) && isset( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : '';
-
-	$icon_size_mobile = ( isset( $icon_size ) && isset( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : '';
+	$icon_size_mobile = ( isset( $icon_size ) && isset( $icon_size['mobile'] ) && ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : 20;
 
 	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = '.astra-hfb-header .site-header-section > .ast-header-search';
