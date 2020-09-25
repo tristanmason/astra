@@ -611,7 +611,13 @@
   flex-grow: 1;
   transition: background-color 140ms linear;
 }
-
+.astra-popover-tabs .astra-color-clear-button.components-button,
+.astra-popover-tabs .astra-color-clear-button,
+.astra-popover-color .astra-color-clear-button {
+  margin-right: 10px;
+  display: flex;
+  margin: 0 10px 10px 0;
+}
 .customize-control-ast-background .background-attachment .buttonset .switch-label:last-child, .customize-control-ast-background .background-size .buttonset .switch-label:last-child {
   margin-left: 0;
 }

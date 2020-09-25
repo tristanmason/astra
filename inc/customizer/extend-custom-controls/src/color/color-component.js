@@ -41,9 +41,6 @@ class ColorComponent extends Component {
 						<Dashicon icon='image-rotate' />
 						</button>
 					</div>
-					<div className="ast-color-btn-clear-wrap">
-						<button type="button" onClick = { () => { this.updateValues( '' ) } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ disabled }><Dashicon icon="trash" /></button>
-					</div>
 				</>
 			</span>
 		)
