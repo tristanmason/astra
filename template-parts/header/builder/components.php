@@ -120,7 +120,7 @@ switch ( $component_slug ) {
 		break;
 
 	default:
-		do_action( 'ast_render_header_components', $component_slug );
+		do_action( 'astra_render_header_components', $component_slug );
 		break;
 
 }
