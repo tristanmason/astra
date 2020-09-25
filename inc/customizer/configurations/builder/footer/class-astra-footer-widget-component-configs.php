@@ -39,7 +39,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 
 		$html_config = array();
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 
 			$_section = 'sidebar-widgets-footer-widget-' . $index;
 
@@ -82,7 +82,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 						'right'  => __( 'Right', 'astra' ),
 					),
 					'transport' => 'postMessage',
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Option: Above Footer - Widget Color.
@@ -93,7 +93,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'control'  => 'ast-heading',
 					'priority' => 5,
 					'title'    => __( 'Widget Colors', 'astra' ),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -108,7 +108,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Title Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -123,7 +123,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Content Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -138,7 +138,7 @@ class Astra_Footer_Widget_Component_Configs extends Astra_Customizer_Config_Base
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Link Color', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

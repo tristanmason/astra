@@ -110,10 +110,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_header_button; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
 
 			$item = array(
-				'name'    => ( 1 === Astra_Constants::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
+				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-hb-button-' . $index,
 			);
@@ -122,10 +122,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			self::$header_mobile_items[ 'button-' . $index ]  = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_header_html; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
 
 			$item = array(
-				'name'    => ( 1 === Astra_Constants::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
+				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-hb-html-' . $index,
 			);
@@ -134,10 +134,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			self::$header_mobile_items[ 'html-' . $index ]  = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_header_widgets; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
 
 			$item = array(
-				'name'    => ( 1 === Astra_Constants::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
+				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
 				'icon'    => 'wordpress',
 				'section' => 'sidebar-widgets-header-widget-' . $index,
 			);
@@ -332,7 +332,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					),
 				),
 				'active_callback' => '__return_true',
-				'context'         => Astra_Constants::$mobile_device,
+				'context'         => Astra_Builder_Helper::$mobile_device,
 			),
 
 			/**
@@ -372,7 +372,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'title'    => __( 'Header Types', 'astra' ),
 				'priority' => 44,
 				'settings' => array(),
-				'context'  => Astra_Constants::$general_tab,
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -388,7 +388,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					'label'   => esc_html__( 'Transparent Header', 'astra' ),
 				),
 				'priority'    => 45,
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 				'settings'    => false,
 			),
 
@@ -435,7 +435,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					'label'   => esc_html__( 'Sticky Header', 'astra' ),
 				),
 				'priority'    => 45,
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 				'settings'    => false,
 			);
 		}

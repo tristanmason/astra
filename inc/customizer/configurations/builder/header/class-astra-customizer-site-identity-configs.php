@@ -79,7 +79,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						true,
 					),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -99,7 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						true,
 					),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -113,7 +113,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'  => 'title_tagline',
 					'priority' => 15,
 					'settings' => array(),
-					'context'  => Astra_Constants::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -133,7 +133,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'container_inclusive' => true,
 						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -160,7 +160,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'container_inclusive' => true,
 						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
 					),
-					'context'   => Astra_Constants::$general_tab,
+					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -174,7 +174,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 15,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 					'required' => array(
 						'conditions' => array(
 							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', true ),
@@ -198,7 +198,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						true,
 					),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Site Title Color.
@@ -212,7 +212,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'title'     => __( 'Text Color', 'astra' ),
 					'tab'       => __( 'Normal', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Site Title Hover Color.
@@ -226,7 +226,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
 					'title'     => __( 'Hover Color', 'astra' ),
 					'tab'       => __( 'Hover', 'astra' ),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Site Tagline Color.
@@ -244,7 +244,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'==',
 						true,
 					),
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -258,7 +258,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Margin', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -281,7 +281,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Constants::$design_tab,
+					'context'        => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

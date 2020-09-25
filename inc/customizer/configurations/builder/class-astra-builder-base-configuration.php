@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'title'    => __( 'Margin & Padding', 'astra' ),
 					'priority' => 200,
 					'settings' => array(),
-					'context'  => Astra_Constants::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Constants::$design_tab,
+					'context'        => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Constants::$design_tab,
+					'context'        => Astra_Builder_Helper::$design_tab,
 				),
 			);
 		}
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					'transport' => 'postMessage',
 					'required'  => $required_condition,
 					'priority'  => 16,
-					'context'   => Astra_Constants::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**

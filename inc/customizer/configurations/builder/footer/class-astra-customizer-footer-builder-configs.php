@@ -72,7 +72,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_html; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
 
 			self::$footer_items[ 'html-' . $index ] = array(
 				'name'    => 'HTML ' . $index,
@@ -81,7 +81,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 		}
 
-		for ( $index = 1; $index <= Astra_Constants::$num_of_footer_widgets; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 
 			self::$footer_items[ 'widget-' . $index ] = array(
 				'name'    => 'Widget ' . $index,
@@ -89,11 +89,11 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section' => 'sidebar-widgets-footer-widget-' . $index,
 			);
 		}
-		
+
 		$zone_base = array( 'above', 'primary', 'below' );
 
 		foreach ( $zone_base as $key => $base ) {
-			for ( $index = 1; $index <= Astra_Constants::$num_of_footer_columns; $index++ ) {
+			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_columns; $index++ ) {
 				self::$zones[ $base ][ $base . '_' . $index ] = ucfirst( $base ) . ' Section ' . $index;
 			}
 		}
@@ -177,7 +177,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'transport' => 'postMessage',
 				'priority'  => 70,
 				'title'     => __( 'Background', 'astra' ),
-				'context'   => Astra_Constants::$design_tab,
+				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -244,7 +244,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 					'group' => ASTRA_THEME_SETTINGS . '[footer-desktop-items]',
 					'zones' => array( 'above', 'primary', 'below' ),
 				),
-				'context'     => Astra_Constants::$general_tab,
+				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 		);
 
