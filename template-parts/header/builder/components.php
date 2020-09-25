@@ -2,18 +2,18 @@
 /**
  * Template part for header component.
  *
- * @package Astra Builder
+ * @package Astra
  */
 
 if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
-	$comp_type = wp_parse_args( $args, array( 'type' => '' ) );
-	$comp_type = $comp_type['type'];
+	$component_slug = wp_parse_args( $args, array( 'type' => '' ) );
+	$component_slug = $component_slug['type'];
 } else {
-	$comp_type = get_query_var( 'type' );
+	$component_slug = get_query_var( 'type' );
 }
 
 
-switch ( $comp_type ) {
+switch ( $component_slug ) {
 
 	case 'logo':
 		?>
@@ -27,14 +27,6 @@ switch ( $comp_type ) {
 		?>
 		<div class="ast-builder-layout-element site-header-focus-item ast-header-button-1" data-section="section-hb-button-1">
 			<?php do_action( 'astra_header_button_1' ); ?>
-		</div>
-		<?php
-		break;
-
-	case 'button-2':
-		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-button-2" data-section="section-hb-button-2">
-			<?php do_action( 'astra_header_button_2' ); ?>
 		</div>
 		<?php
 		break;
@@ -67,22 +59,6 @@ switch ( $comp_type ) {
 		?>
 			<div class="ast-builder-layout-element site-header-focus-item ast-header-html-2" data-section="section-hb-html-2">
 				<?php do_action( 'astra_header_html_2' ); ?>
-			</div>
-			<?php
-		break;
-
-	case 'html-3':
-		?>
-			<div class="ast-builder-layout-element site-header-focus-item ast-header-html-3" data-section="section-hb-html-3">
-				<?php do_action( 'astra_header_html_3' ); ?>
-			</div>
-			<?php
-		break;
-
-	case 'html-4':
-		?>
-			<div class="ast-builder-layout-element site-header-focus-item ast-header-html-4" data-section="section-hb-html-4">
-				<?php do_action( 'astra_header_html_4' ); ?>
 			</div>
 			<?php
 		break;
@@ -143,60 +119,8 @@ switch ( $comp_type ) {
 		<?php
 		break;
 
-	case 'widget-1':
-		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
-			<?php
-			if ( is_customize_preview() ) {
-				Astra_Builder_UI_Controller::render_customizer_edit_button();
-			}
-			?>
-			<div class="header-widget-area-inner site-info-inner">
-				<?php
-				dynamic_sidebar( 'header-widget-1' );
-				?>
-			</div>
-		</aside>
-		<?php
-		break;
-
-	case 'widget-2':
-		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
-			<div class="header-widget-area-inner site-info-inner">
-				<?php
-				dynamic_sidebar( 'header-widget-2' );
-				?>
-			</div>
-		</aside>
-		<?php
-		break;
-
-	case 'widget-3':
-		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
-			<div class="header-widget-area-inner site-info-inner">
-				<?php
-				dynamic_sidebar( 'header-widget-3' );
-				?>
-			</div>
-		</aside>
-		<?php
-		break;
-
-	case 'widget-4':
-		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
-			<div class="header-widget-area-inner site-info-inner">
-				<?php
-				dynamic_sidebar( 'header-widget-4' );
-				?>
-			</div>
-		</aside>
-		<?php
-		break;
-
 	default:
+		do_action( 'ast_render_header_components', $component_slug );
 		break;
 
 }
