@@ -10,38 +10,48 @@ class ColorComponent extends Component {
 		super( props );
 		this.handleChangeComplete = this.handleChangeComplete.bind( this );
 		this.updateValues = this.updateValues.bind( this );
-		this.renderReset = this.renderReset.bind( this );
+		this.renderOperationButtons = this.renderOperationButtons.bind( this );
 
 		let value = this.props.control.setting.get();
-		
+
 		this.defaultValue = this.props.control.params.default;
 
 		this.state = {
 			value: value,
 		};
 	}
-	renderReset () {
+	renderOperationButtons () {
+		let disabled = false;
+		if (!this.state.value) {
+			disabled = true;
+		}
 		return (
 			<span className="customize-control-title">
 				<>
-					<Button
-						className="reset astra-reset"
+					<div className="ast-color-btn-reset-wrap">
+						<button
+						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
+						onClick={ ( e ) => {
+							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 							this.updateValues( value )
 						} }
-					>
+						>
 						<Dashicon icon='image-rotate' />
-					</Button>
+						</button>
+					</div>
+					<div className="ast-color-btn-clear-wrap">
+						<button type="button" onClick = { () => { this.updateValues( '' ) } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ disabled }><Dashicon icon="trash" /></button>
+					</div>
 				</>
 			</span>
 		)
 	}
     handleChangeComplete( color ) {
-		
+
 		let value;
-		
+
 		if ( typeof color === 'string' || color instanceof String ) {
 			value = color;
 		} else if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
@@ -55,24 +65,22 @@ class ColorComponent extends Component {
     render() {
 
 		let labelHtml = null;
-		
+
 		const {
 			label
 		} = this.props.control.params
-        
-		if ( label ) { 
+
+		if ( label ) {
 
 			labelHtml = <span className="customize-control-title">{ label }</span>
-		} 
+		}
 		return (
 			<>
 				<label>
 					{ labelHtml }
 				</label>
 				<div className="ast-color-picker-alpha color-picker-hex">
-					
-					{ this. renderReset() }
-					
+					{ this.renderOperationButtons() }
 					<AstraColorPickerControl
 						color={ ( undefined !== this.state.value && this.state.value ? this.state.value :  '' ) }
 						onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color ) }
@@ -85,7 +93,7 @@ class ColorComponent extends Component {
 			</>
 		);
     }
-    
+
     updateValues( value ) {
 		this.setState( { value: value } );
 		this.props.control.setting.set( value );

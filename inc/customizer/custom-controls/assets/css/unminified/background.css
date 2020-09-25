@@ -64,6 +64,18 @@
   margin-left: 5px;
 }
 
+.customize-control-ast-background .customize-control-title {
+  display: block;
+}
+
+.customize-control-ast-background .astra-color-picker-wrap {
+  margin-top: 18px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background.customize-control:first-child, .ast-field-settings-modal .customize-control-ast-background.customize-control {
+  margin-top: 28px;
+}
+
 .ast-field-settings-modal .customize-control-ast-background .more-settings {
   margin-top: 6px;
 }
