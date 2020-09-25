@@ -9,8 +9,9 @@ import ResponsiveBackground from '../responsive-background/responsive-background
 import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
+import DividerComponent from '../divider/divider-component';
 
-import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor } from '../common/responsive-helper';
+import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor, astraGetBackground } from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -216,6 +217,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 				case "ast-color":
 					astraGetColor( "#customize-control-" + control_type.name )
+					break;
+				case "ast-background":
+					astraGetBackground( "#customize-control-" + control_type.name )
 					break;
 				case "ast-responsive-background":
 					astraGetResponsiveBgJs( control, "#customize-control-" + control_type.name )
@@ -441,6 +445,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
 			'ast-select' : SelectComponent,
+			'ast-divider' : DividerComponent,
 		};
 
 		if( 'undefined' != typeof fields.tabs ) {
@@ -454,10 +459,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 						var selector = '#customize-control-' + control_clean_name;
 						var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
 						controlObject = control.getFinalControlObject( attr, controlObject );
-						const ComponetName = reactControls[ attr.control ];
-
+						const ComponentName = reactControls[ attr.control ];
 						ReactDOM.render(
-							<ComponetName control={controlObject} customizer={ wp.customize }/>,
+							<ComponentName control={controlObject} customizer={ wp.customize }/>,
 							jQuery( selector )[0]
 						);
 					}
@@ -475,10 +479,10 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 					var selector = '#customize-control-' + control_clean_name;
 					var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
 					controlObject = control.getFinalControlObject( attr, controlObject );
-					const ComponetName = reactControls[ attr.control ];
+					const ComponentName = reactControls[ attr.control ];
 
 					ReactDOM.render(
-						<ComponetName control={controlObject} customizer={ wp.customize }/>,
+						<ComponentName control={controlObject} customizer={ wp.customize }/>,
 						jQuery( selector )[0]
 					);
 				}

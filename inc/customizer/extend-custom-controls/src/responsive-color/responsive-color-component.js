@@ -7,7 +7,7 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 class ResponsiveColorComponent extends Component {
 
     constructor(props) {
-		
+
 		super( props );
 
 		let value = this.props.control.setting.get();
@@ -17,27 +17,52 @@ class ResponsiveColorComponent extends Component {
 		this.state = {
 			value: value,
 		};
-		
+
 	}
 	renderReset ( key ) {
+		let deleteBtnDisabled = true;
+		let devices = [ 'desktop', 'mobile', 'tablet' ];
+		for( let device of devices ) {
+			if (this.state.value[device]) {
+				deleteBtnDisabled = false;
+			}
+		}
 		return (
 			<span className="customize-control-title">
-				<Button
-					className="reset astra-reset"
-					disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-					onClick={ () => {
-						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-						this.setState( { value : value } )
-						this.props.control.setting.set( value );
-					} }
-				>
-					<Dashicon icon='image-rotate' />
-				</Button>
+			<>
+				<div className="ast-color-btn-reset-wrap">
+					<button
+						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
+						onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							this.setState( { value : value } )
+							this.props.control.setting.set( value );
+						} }
+					>
+						<Dashicon icon='image-rotate' />
+					</button>
+				</div>
+				<div className="ast-color-btn-clear-wrap">
+					<button
+						type="button"
+						onClick={ () => {
+							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							const resDevices = [ 'desktop', 'mobile', 'tablet' ];
+							for( let device of resDevices ) {
+								value[device] = '';
+							}
+							this.setState( { value : value } );
+							this.props.control.setting.set( value );
+						} }
+						className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ deleteBtnDisabled }><Dashicon icon="trash" /></button>
+				</div>
+			</>
 			</span>
 		)
 	}
 	renderSettings ( key ) {
-		
+
 		return (
 			<AstraColorPickerControl
 				color={ ( undefined !== this.state.value[key] && this.state.value[key] ? this.state.value[key] :  '' ) }
@@ -50,7 +75,7 @@ class ResponsiveColorComponent extends Component {
 	}
 	handleChangeComplete( color, key ) {
 		let value;
-		
+
 		if ( typeof color === 'string' || color instanceof String ) {
 			value = color;
 		} else if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
@@ -61,7 +86,7 @@ class ResponsiveColorComponent extends Component {
         this.updateValues( value, key );
     }
     render() {
-        
+
 		const {
 			defaultValue,
 			label,
@@ -87,12 +112,12 @@ class ResponsiveColorComponent extends Component {
 			defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
 		}
 
-		if ( label ) { 
+		if ( label ) {
 
 			labelHtml = <span className="customize-control-title">{ label }</span>
-		} 
+		}
 
-		if ( description ) { 
+		if ( description ) {
 
 			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
@@ -121,7 +146,7 @@ class ResponsiveColorComponent extends Component {
 
 			inputHtml = (
 				<>
-					
+
 					<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active">
 						{ this.renderReset( 'desktop' ) }
 						{ this.renderSettings( 'desktop' ) }
@@ -156,7 +181,7 @@ class ResponsiveColorComponent extends Component {
 	updateValues( value, key ) {
 
 		const obj = {
-			...this.state.value, 
+			...this.state.value,
 		};
 		obj[ key ] = value
 		this.setState( { value : obj } )

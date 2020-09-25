@@ -53,8 +53,20 @@
   .arrow-icon {
     margin-left: 5px;
   }
+  .customize-control-title {
+	display: block;
+  }
+  .astra-color-picker-wrap {
+	margin-top: 18px;
+  }
 }
 
-.ast-field-settings-modal .customize-control-ast-background .more-settings {
-  margin-top: 6px;
+.ast-field-settings-modal .customize-control-ast-background {
+	&.customize-control:first-child,
+	&.customize-control {
+		margin-top: 28px;
+	}
+	.more-settings {
+	  margin-top: 6px;
+	}
 }

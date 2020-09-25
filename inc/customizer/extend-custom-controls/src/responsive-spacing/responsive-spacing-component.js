@@ -38,7 +38,7 @@ class ResponsiveSpacingComponent extends Component {
 			inputs[i].classList.remove( 'connected' );
 			inputs[i].setAttribute( 'data-element-connect', '' )
 		}
-		event.target.parentElement.classList.remove( 'disconnected' );	
+		event.target.parentElement.classList.remove( 'disconnected' );
 	}
 
 	onDisconnectedClick () {
@@ -54,9 +54,9 @@ class ResponsiveSpacingComponent extends Component {
 			inputs[i].classList.add( 'connected' );
 			inputs[i].setAttribute( 'data-element-connect', elements )
 		}
-		event.target.parentElement.classList.add( 'disconnected' );		
+		event.target.parentElement.classList.add( 'disconnected' );
 	}
-	
+
 	onSpacingChange( device, choiceID ) {
 
 		const {
@@ -94,7 +94,7 @@ class ResponsiveSpacingComponent extends Component {
 	}
 
 	renderResponsiveInput( device ) {
-		
+
 		return(
 			<input key={ device } type='hidden' onChange = { () => this.onUnitChange( device, '' ) } className={ `ast-spacing-unit-input ast-spacing-${ device }-unit` } data-device={ `${ device }` } value={ this.state.value[ `${ device }-unit` ] }></input>
 		);
@@ -127,7 +127,7 @@ class ResponsiveSpacingComponent extends Component {
 
 		htmlChoices = Object.keys( choices ).map( ( choiceID ) => {
 
-			var html = ( 
+			var html = (
 				<li key={ choiceID } { ...inputAttrs } className='ast-spacing-input-item'>
 					<input type='number' className={ `ast-spacing-input ast-spacing-${ device }` } data-id={ choiceID } value={ this.state.value[ device ][ choiceID ] } onChange = { () => this.onSpacingChange( device, choiceID ) } />
 					<span className="ast-spacing-title">{ choices[ choiceID ] }</span>
@@ -138,16 +138,16 @@ class ResponsiveSpacingComponent extends Component {
 		} );
 
 		if ( unit_choices && undefined !== unit_choices ) {
-			
+
 			respHtml = Object.values( unit_choices ).map( ( unitKey ) => {
 
 				var unitClass = '';
 
-				if ( this.state.value[ `${ device }-unit` ] === unitKey ) { 
+				if ( this.state.value[ `${ device }-unit` ] === unitKey ) {
 					unitClass = 'active';
 				}
 
-				var html = ( 
+				var html = (
 					<li key={ unitKey } className={ `single-unit ${ unitClass }` } onClick = { () => this.onUnitChange( device, unitKey ) } data-unit={ unitKey } >
 						<span className="unit-text">{ unitKey }</span>
 					</li>
@@ -169,7 +169,7 @@ class ResponsiveSpacingComponent extends Component {
 	}
 
 	render() {
-		
+
 		const {
 			label,
 			description,
@@ -223,7 +223,7 @@ class ResponsiveSpacingComponent extends Component {
 			</>
 		);
 		return (
-			<label key={ 'ast-spacing-responsive' } className='ast-spacing-responsive'>
+			<label key={ 'ast-spacing-responsive' } className='ast-spacing-responsive' htmlFor="ast-spacing">
 				{ htmlLabel }
 				{ htmlDescription }
 				<div className="ast-spacing-responsive-outer-wrapper">
