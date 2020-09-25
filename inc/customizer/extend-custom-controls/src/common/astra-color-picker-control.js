@@ -13,11 +13,9 @@ class AstraColorPickerControl extends Component {
 		this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind( this );
 		this.onChangeGradientComplete = this.onChangeGradientComplete.bind( this );
 		this.renderImageSettings = this.renderImageSettings.bind( this );
-		this.onRemoveImage = this.onRemoveImage.bind( this );
 		this.onSelectImage = this.onSelectImage.bind( this );
 		this.open = this.open.bind( this );
 		this.onColorClearClick = this.onColorClearClick.bind( this );
-		
 		this.state = {
 			isVisible: false,
 			refresh: false,
@@ -150,6 +148,7 @@ class AstraColorPickerControl extends Component {
 														tabout = (
 															<>
 																<__experimentalGradientPicker
+																	className="ast-gradient-color-picker"
 																	value={ color && color.includes( 'gradient' ) ? color : '' }
 																	onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 																/>
@@ -217,7 +216,6 @@ class AstraColorPickerControl extends Component {
 
 											</>
 										) }
-
 										<ColorPalette
 											colors={ finalpaletteColors }
 											value={ color }
@@ -292,13 +290,6 @@ class AstraColorPickerControl extends Component {
 		this.props.onSelectImage( media, 'image' );
 	}
 
-	onRemoveImage() {
-
-		this.setState( { modalCanClose: true } );
-		this.setState( { media: '' } );
-		this.props.onSelectImage( '' );
-	}
-
 	open( open ) {
 		this.setState( { modalCanClose: false } );
 		open()
@@ -352,7 +343,7 @@ class AstraColorPickerControl extends Component {
 			<>
 				{ ( media.url || backgroundImage ) &&
 
-					<img src={ ( media.url ) ? media.url : backgroundImage } width="200" height="200" />
+					<img src={ ( media.url ) ? media.url : backgroundImage } />
 				}
 				<MediaUpload
 					title={ __( "Select Background Image", 'astra' )  }
@@ -368,10 +359,6 @@ class AstraColorPickerControl extends Component {
 
 				{ ( media || backgroundImage ) &&
 					<>
-						<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
-							{ __( "Remove Image", 'astra' ) }
-						</Button>
-
 						<a href="#" className="more-settings" onClick={ this.toggleMoreSettings } data-direction="down" data-id="desktop">
 							<span className="message"> { __( "More Settings" ) } </span>
 							<span className="icon"> ↓ </span>

@@ -26,15 +26,10 @@
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  right: 55px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
   right: 24px;
-  top: 4px;
+  top: -4px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -48,11 +43,6 @@
   top: 6px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title .astra-reset {
-  top: 1px;
-  right: 60px;
-}
-
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   right: 30px;
 }
@@ -63,4 +53,9 @@
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   right: 7px;
+  top: -2px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
+  margin-top: 28px;
 }
