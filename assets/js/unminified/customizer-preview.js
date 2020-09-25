@@ -461,7 +461,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			if( '' === bg_obj[device] || undefined === bg_obj[device] ){
 				return;
 			}
-
+		
 			var gen_bg_css 	= '';
 			var bg_img		= bg_obj[device]['background-image'];
 			var bg_tab_img	= bg_obj['tablet']['background-image'];
@@ -469,49 +469,52 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			var bg_color	= bg_obj[device]['background-color'];
 			var tablet_css  = ( bg_obj['tablet']['background-image'] ) ? true : false;
 			var desktop_css = ( bg_obj['desktop']['background-image'] ) ? true : false;
+			
+			if( undefined !== bg_obj[device]['background-type'] && '' !== bg_obj[device]['background-type'] ) {
 
-			if( undefined !== bg_obj[device]['background-type'] && 'gradient' === bg_obj[device]['background-type'] ) {
-				gen_bg_css = 'background: ' + bg_color + ';';
-			} else {
-				if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color ) {
-					if (bg_color.includes('linear')) {
-						gen_bg_css = 'background-image: url(' + bg_img + ');';
-					} else {
+				if ( ( 'color' === bg_obj[device]['background-type'] ) ) {
+
+					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color ) {
+
+						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+					} else if ( 'mobile' === device ) {
+						if ( desktop_css ) {
+
+							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+						} else if ( tablet_css ) {
+
+							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
+						}
+					} else if ( 'tablet' === device ) {
+
+						if ( desktop_css ) {
+
+							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+						}
+
+					} else if ( undefined === bg_img || '' === bg_img ) {
+
+						gen_bg_css = 'background-color: ' + bg_color + ';';
+						
+					} 
+				} else if ( 'image' === bg_obj[device]['background-type'] ) {
+
+					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color && ! bg_color.includes("linear-gradient") ) {
+
 						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
 					}
-				} else if ( '' !== bg_img ) {
-					gen_bg_css = 'background-image: url(' + bg_img + ');';
-				} else if ( '' !== bg_color ) {
-					if( 'mobile' === device ) {
-						if( true == desktop_css && true == tablet_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
-						} else if( true == desktop_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
-						} else if( true == tablet_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
-						} else {
-							gen_bg_css = 'background-color: ' + bg_color + ';';
-							gen_bg_css += 'background-image: none;';
-						}
-					} else if( 'tablet' === device ) {
-						if( true == desktop_css ) {
-							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
-						} else {
-							gen_bg_css = 'background-color: ' + bg_color + ';';
-							gen_bg_css += 'background-image: none;';
-						}
-					} else {
-						gen_bg_css = 'background-color: ' + bg_color + ';';
-						gen_bg_css += 'background-image: none;';
+					if ( ( undefined === bg_color || '' === bg_color || 'unset' === bg_color || bg_color.includes("linear-gradient") ) && '' !== bg_img ) {
+						gen_bg_css = 'background-image: url(' + bg_img + ');';
 					}
-
-					if( ! selector.includes( singleColorSelector ) ) {
-						selector += ', ' + singleColorSelector;
+				} else if ( 'gradient' === bg_obj[device]['background-type'] ) {
+					if ( '' !== bg_color && 'unset' !== bg_color ) {
+						gen_bg_css = 'background-image: ' + bg_color + ';';
 					}
 				}
 			}
 
-			if ( '' != bg_img ) {
+			if ( '' !== bg_img ) {
+
 				gen_bg_css += 'background-repeat: ' + bg_obj[device]['background-repeat'] + ';';
 				gen_bg_css += 'background-position: ' + bg_obj[device]['background-position'] + ';';
 				gen_bg_css += 'background-size: ' + bg_obj[device]['background-size'] + ';';
@@ -521,8 +524,8 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			// Remove old.
 			jQuery( 'style#' + control + '-' + device + '-' + addon ).remove();
 
-
-			if ( 'desktop' == device ) {
+			
+			if ( 'desktop' == device ) {	
 				var dynamicStyle = '<style id="' + control + '-' + device + '-' + addon + '">'
 					+ selector + '	{ ' + gen_bg_css + ' }'
 				+ '</style>'
@@ -543,7 +546,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 				dynamicStyle
 			);
 		});
-	});
+	});    
 }
 
 function getChangedKey( value, other ) {
