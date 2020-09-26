@@ -186,7 +186,7 @@ class AstraColorPickerControl extends Component {
 																	className="ast-color-palette"
 																	onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 																/>
-																<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+																<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 															</>
 														);
 													}
@@ -224,7 +224,7 @@ class AstraColorPickerControl extends Component {
 											className="ast-color-palette"
 											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 										/>
-										<button type="button" onClick = { () => { this.onColorClearClick() } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+										<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 									</>
 								}
 							</div>

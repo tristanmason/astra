@@ -178,16 +178,16 @@
   box-shadow: unset;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div {
+.astra-popover-tabs #tab-panel-0-image-view > div {
   text-align: center;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div img {
+.astra-popover-tabs #tab-panel-0-image-view > div img {
   width: 200px;
   margin-bottom: 18px;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div .media-position-setting {
+.astra-popover-tabs #tab-panel-0-image-view > div .media-position-setting {
   text-align: left;
 }
 
