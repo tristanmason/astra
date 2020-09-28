@@ -912,6 +912,18 @@ final class Astra_Builder_Customizer {
 	}
 
 	/**
+	 * Prepare javascript configs.
+	 *
+	 * @return mixed|void
+	 */
+	public static function get_js_configs() {
+
+		// Return contexts.
+		return apply_filters( 'astra_javascript_configurations', self::$js_configs );
+
+	}
+
+	/**
 	 * Add customizer script.
 	 *
 	 * @since x.x.x
@@ -925,7 +937,7 @@ final class Astra_Builder_Customizer {
 			array(
 				'contexts'   => self::get_contexts(),
 				'choices'    => self::get_choices(),
-				'js_configs' => self::$js_configs,
+				'js_configs' => self::get_js_configs(),
 			)
 		);
 

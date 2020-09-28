@@ -36,8 +36,8 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section              = 'section-header-search';
-		$defaults              = Astra_Theme_Options::defaults();
+		$_section = 'section-header-search';
+		$defaults = Astra_Theme_Options::defaults();
 
 		$_configs = array(
 
