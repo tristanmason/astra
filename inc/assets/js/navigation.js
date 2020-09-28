@@ -299,16 +299,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		init();
 	} );
 
-	if ( 'dropdown' === mobileHeaderType ) {
+	window.addEventListener('resize', function () {
 		
-		window.addEventListener('resize', function () {
-			// Skip resize event when keyboard display event triggers on devices.
-			if( 'INPUT' !== document.activeElement.tagName ) {
-				updateHeaderBreakPoint();
+		document.getElementById('menu-toggle-close').click();
+		// Skip resize event when keyboard display event triggers on devices.
+		if( 'INPUT' !== document.activeElement.tagName ) {
+			
+			updateHeaderBreakPoint();
+			if ( 'dropdown' === mobileHeaderType ) {
 				AstraToggleSetup();
 			}
-		});
+		}
+	});
 
+	if ( 'dropdown' === mobileHeaderType ) {
+		
 		document.addEventListener('DOMContentLoaded', function () {
 			AstraToggleSetup();
 			/**
