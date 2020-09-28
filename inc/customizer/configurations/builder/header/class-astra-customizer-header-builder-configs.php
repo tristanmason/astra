@@ -293,7 +293,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'transport'       => 'postMessage',
 				'partial'         => array(
 					'selector'            => '#ast-mobile-header',
-					'container_inclusive' => true,
+					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'mobile_header' ),
 				),
 				'input_attrs'     => array(
