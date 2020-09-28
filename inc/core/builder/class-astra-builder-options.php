@@ -857,7 +857,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Search.
 	 */
-	$defaults['header-search-box-type']   = 'slide-search';
 	$defaults['header-search-icon-space'] = array(
 		'desktop' => 20,
 		'tablet'  => 20,
