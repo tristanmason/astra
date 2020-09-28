@@ -97,7 +97,7 @@ class AddComponent extends Component {
 					<Popover position="top" className="ahfb-popover-add-builder" onClose={ toggleClose }>
 						<div className="ahfb-popover-builder-list">
 							<ButtonGroup className="ahfb-radio-container-control">
-								{ Object.keys( choices ).map( ( item ) => {
+								{ Object.keys( choices ).sort().map( ( item ) => {
 									return renderItems( item, row, column );
 								} ) }
 								{
