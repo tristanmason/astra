@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
+    grid-column-gap: 20px;
 }
 
 .ast-builder-grid-row.ast-grid-center-col-layout {
