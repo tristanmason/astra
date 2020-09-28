@@ -1798,7 +1798,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= astra_parse_css( $submenu_border_style );
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$parse_css .= astra_parse_css( $submenu_border_style );
+			}
+
 			// Submenu items goes outside?
 			$parse_css .= astra_parse_css( $submenu_border_for_left_align_menu, astra_get_tablet_breakpoint( '', 1 ) );
 
