@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since x.x.x
  */
-class Astra_Footer_Widget_Component_Loader {
+class Astra_Header_Widget_Component_Loader {
 
 	/**
 	 * Constructor
@@ -41,14 +41,14 @@ class Astra_Footer_Widget_Component_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'astra-footer-widget-customizer-preview-js', ASTRA_BUILDER_FOOTER_WIDGET_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'astra-header-widget-customizer-preview-js', ASTRA_BUILDER_HEADER_WIDGET_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
 		// Localize variables for WIDGET JS.
 		wp_localize_script(
-			'astra-footer-widget-customizer-preview-js',
+			'astra-header-widget-customizer-preview-js',
 			'AstraBuilderWidgetData',
 			array(
-				'footer_widget_count' => Astra_Builder_Helper::$num_of_footer_widgets,
+				'header_widget_count' => Astra_Builder_Helper::$num_of_header_widgets,
 				'tablet_break_point'  => astra_get_tablet_breakpoint(),
 				'mobile_break_point'  => astra_get_mobile_breakpoint(),
 			)
@@ -59,4 +59,4 @@ class Astra_Footer_Widget_Component_Loader {
 /**
 *  Kicking this off by creating the object of the class.
 */
-new Astra_Footer_Widget_Component_Loader();
+new Astra_Header_Widget_Component_Loader();

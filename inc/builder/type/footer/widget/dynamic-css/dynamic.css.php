@@ -46,15 +46,8 @@ function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		 */
 		$css_output_desktop = array(
 
-			$selector . ' .footer-widget-area-inner'   => array(
+			$selector . ' .footer-widget-area-inner' => array(
 				'text-align' => $desktop_alignment,
-				'color'      => astra_get_option( 'footer-widget-' . $index . '-color' ),
-			),
-			$selector . ' .footer-widget-area-inner a' => array(
-				'color' => astra_get_option( 'footer-widget-' . $index . '-link-color' ),
-			),
-			$selector . ' .widget-title'               => array(
-				'color' => astra_get_option( 'footer-widget-' . $index . '-title-color' ),
 			),
 		);
 
