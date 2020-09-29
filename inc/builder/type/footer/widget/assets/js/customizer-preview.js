@@ -10,8 +10,8 @@
 
 ( function( $ ) {
 
-    var tablet_break_point    = AstraBuilderWIDGETData.tablet_break_point || 768,
-        mobile_break_point    = AstraBuilderWIDGETData.mobile_break_point || 544;
+    var tablet_break_point    = AstraBuilderWidgetData.tablet_break_point || 768,
+        mobile_break_point    = AstraBuilderWidgetData.mobile_break_point || 544;
 
     wp.customize( 'astra-settings[footer-widget-alignment-1]', function( value ) {
         value.bind( function( alignment ) {
@@ -62,7 +62,7 @@
             }
         } );
     } );
-    
+
     wp.customize( 'astra-settings[footer-widget-alignment-3]', function( value ) {
         value.bind( function( alignment ) {
             if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
@@ -113,30 +113,6 @@
         } );
     } );
 
-    for ( var index = 1; index <= AstraBuilderWIDGETData.footer_widget_count; index++ ) {
-
-        var selector = '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"]';
-
-        // Widget Content Color.
-        astra_css(
-            'astra-settings[footer-widget-' + index + '-color]',
-            'color',
-            selector + ' .footer-widget-area-inner'
-        );
-
-        // Widget Title Color.
-        astra_css(
-            'astra-settings[footer-widget-' + index + '-link-color]',
-            'color',
-            selector + ' .footer-widget-area-inner a'
-        );
-
-        // Widget Link Color.
-        astra_css(
-            'astra-settings[footer-widget-' + index + '-title-color]',
-            'color',
-            selector + ' .widget-title'
-        );
-    }
+	astra_builder_widget_css('footer');
 
 } )( jQuery );

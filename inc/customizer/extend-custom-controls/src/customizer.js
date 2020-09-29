@@ -127,7 +127,8 @@
 
 			// Return if section already exists.
 			if (api.section(id)) {
-				if (!id.startsWith("sidebar-widgets-")) {
+				if ( id.startsWith("sidebar-widgets-") ) {
+					api.section( id ).panel( data['panel'] ); // Change panel.
 					return;
 				}
 				api.section.remove(id);

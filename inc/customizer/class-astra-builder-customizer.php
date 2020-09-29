@@ -778,6 +778,8 @@ final class Astra_Builder_Customizer {
 
 		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/social/class-astra-social-component-dynamic-css.php';
 
+		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/widget/class-astra-widget-component-dynamic-css.php';
+
 		$this->load_header_components();
 		$this->load_footer_components();
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -799,6 +801,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/html/class-astra-header-html-component.php';
 		require_once $header_components_path . '/search/class-astra-header-search-component.php';
 		require_once $header_components_path . '/social-icon/class-astra-header-social-icon-component.php';
+		require_once $header_components_path . '/widget/class-astra-header-widget-component.php';
 		require_once $header_components_path . '/mobile-trigger/class-astra-mobile-trigger.php';
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
@@ -912,6 +915,18 @@ final class Astra_Builder_Customizer {
 	}
 
 	/**
+	 * Prepare javascript configs.
+	 *
+	 * @return mixed|void
+	 */
+	public static function get_js_configs() {
+
+		// Return contexts.
+		return apply_filters( 'astra_javascript_configurations', self::$js_configs );
+
+	}
+
+	/**
 	 * Add customizer script.
 	 *
 	 * @since x.x.x
@@ -925,7 +940,7 @@ final class Astra_Builder_Customizer {
 			array(
 				'contexts'   => self::get_contexts(),
 				'choices'    => self::get_choices(),
-				'js_configs' => self::$js_configs,
+				'js_configs' => self::get_js_configs(),
 			)
 		);
 
