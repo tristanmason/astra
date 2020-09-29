@@ -52,13 +52,13 @@ class Astra_Widget_Component_Dynamic_CSS {
 			$css_output_desktop = array(
 
 				$selector . ' .' . $builder_type . '-widget-area-inner' => array(
-					'color' => astra_get_option( '' . $builder_type . '-widget-' . $index . '-color' ),
+					'color' => astra_get_option(  $builder_type . '-widget-' . $index . '-color' ),
 				),
 				$selector . ' .' . $builder_type . '-widget-area-inner a' => array(
-					'color' => astra_get_option( '' . $builder_type . '-widget-' . $index . '-link-color' ),
+					'color' => astra_get_option(  $builder_type . '-widget-' . $index . '-link-color' ),
 				),
 				$selector . ' .widget-title' => array(
-					'color' => astra_get_option( '' . $builder_type . '-widget-' . $index . '-title-color' ),
+					'color' => astra_get_option(  $builder_type . '-widget-' . $index . '-title-color' ),
 				),
 			);
 
