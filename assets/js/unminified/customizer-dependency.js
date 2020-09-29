@@ -157,17 +157,20 @@
 		 */
         checkContext: function( id ) {
 
-            var contexts = AstraBuilderCustomizerData.contexts[id];
+            if ('undefined' != typeof AstraBuilderCustomizerData) {
 
-            if ( undefined !== contexts ) {
-                var current_tab = api.state('astra-customizer-tab').get();
-                for( var $i = 0; $i < contexts.length; $i++ ) {
-                    if ( contexts[$i].setting === 'ast_selected_tab' && contexts[$i].value === current_tab ) {
-                        return true;
+                var contexts = AstraBuilderCustomizerData.contexts[id];
+
+                if ( undefined !== contexts ) {
+                    var current_tab = api.state('astra-customizer-tab').get();
+                    for( var $i = 0; $i < contexts.length; $i++ ) {
+                        if ( contexts[$i].setting === 'ast_selected_tab' && contexts[$i].value === current_tab ) {
+                            return true;
+                        }
+                        return false;
                     }
-                    return false;
+                    return true;
                 }
-                return true;
             }
             return true;
         },
