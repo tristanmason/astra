@@ -45,11 +45,6 @@ class Astra_Widget_Component_Dynamic_CSS {
 			$_section = 'sidebar-widgets-' . $builder_type . '-widget-' . $index;
 			$selector = '.' . $builder_type . '-widget-area[data-section="sidebar-widgets-' . $builder_type . '-widget-' . $index . '"]';
 
-			$alignment = astra_get_option( '' . $builder_type . '-widget-alignment-' . $index );
-
-			$desktop_alignment = ( isset( $alignment['desktop'] ) ) ? $alignment['desktop'] : '';
-			$tablet_alignment  = ( isset( $alignment['tablet'] ) ) ? $alignment['tablet'] : '';
-			$mobile_alignment  = ( isset( $alignment['mobile'] ) ) ? $alignment['mobile'] : '';
 
 			/**
 			 * Copyright CSS.
@@ -57,8 +52,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 			$css_output_desktop = array(
 
 				$selector . ' .' . $builder_type . '-widget-area-inner' => array(
-					'text-align' => $desktop_alignment,
-					'color'      => astra_get_option( '' . $builder_type . '-widget-' . $index . '-color' ),
+					'color' => astra_get_option( '' . $builder_type . '-widget-' . $index . '-color' ),
 				),
 				$selector . ' .' . $builder_type . '-widget-area-inner a' => array(
 					'color' => astra_get_option( '' . $builder_type . '-widget-' . $index . '-link-color' ),
@@ -68,23 +62,8 @@ class Astra_Widget_Component_Dynamic_CSS {
 				),
 			);
 
-			$css_output_tablet = array(
-				$selector . ' .' . $builder_type . '-widget-area-inner' => array(
-					'text-align' => $tablet_alignment,
-				),
-			);
-
-			$css_output_mobile = array(
-				$selector . ' .' . $builder_type . '-widget-area-inner' => array(
-					'text-align' => $mobile_alignment,
-				),
-			);
-
 			/* Parse CSS from array() */
-			$css_output  = astra_parse_css( $css_output_desktop );
-			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
-			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
-
+			$css_output   = astra_parse_css( $css_output_desktop );
 			$dynamic_css .= $css_output;
 		}
 
