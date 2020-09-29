@@ -35,7 +35,8 @@ class ColorComponent extends Component {
 						onClick={ ( e ) => {
 							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							this.updateValues( value )
+							this.updateValues( value );
+							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
 						>
 						<Dashicon icon='image-rotate' />
@@ -84,6 +85,8 @@ class ColorComponent extends Component {
 						backgroundType = { 'color' }
 						allowGradient={ false }
 						allowImage={ false }
+						defaultColorValue={ this.defaultValue }
+						ref="ChildAstraColorPickerControl"
 					/>
 
 				</div>
