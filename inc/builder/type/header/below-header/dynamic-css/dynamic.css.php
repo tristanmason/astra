@@ -49,7 +49,6 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$common_css_output = array(
 		'.ast-below-header-bar' => array(
 			'min-height'          => $hbb_header_height,
-			'line-height'         => $hbb_header_height,
 			'border-bottom-width' => astra_get_css_value( $hbb_header_divider, 'px' ),
 			'border-bottom-color' => esc_attr( $hbb_border_color ),
 			'border-bottom-style' => 'solid',

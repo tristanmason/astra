@@ -18,14 +18,6 @@
 		'px'
 	);
 
-	// Header Line Height.
-	astra_css(
-		'astra-settings[hbb-header-height]',
-		'line-height',
-		'.ast-below-header-bar',
-		'px'
-	);
-
 	// Border Bottom width.
 	astra_css(
 		'astra-settings[hbb-header-separator]',

@@ -18,14 +18,6 @@
 		'px'
 	);
 
-	// Header Line Height.
-	astra_css(
-		'astra-settings[hb-header-height]',
-		'line-height',
-		'.ast-primary-header-bar, .ast-mobile-header-wrap .ast-builder-grid-row-container-inner',
-		'px'
-	);
-
 	// Primary Header - Layout > Content Width.
 	wp.customize( 'astra-settings[hb-header-main-layout-width]', function( setting ) {
 		setting.bind( function( layout ) {
