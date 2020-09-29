@@ -97,6 +97,14 @@
   margin-top: 6px;
 }
 
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-color-btn-reset-wrap {
+  right: 59px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .color-button-wrap {
+  right: 16px;
+}
+
 .ast-field-settings-modal .customize-control-ast-background .astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
   margin: 5px 20px 20px 10px;
 }
