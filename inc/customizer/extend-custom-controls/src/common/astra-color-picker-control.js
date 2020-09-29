@@ -202,7 +202,6 @@ class AstraColorPickerControl extends Component {
 											<>
 												<ColorPicker
 													color={ this.props.color }
-													className="test"
 													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 												/>
 											</>
@@ -211,7 +210,6 @@ class AstraColorPickerControl extends Component {
 											<>
 												<ColorPicker
 													color={ this.props.color }
-													className="test01"
 													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 												/>
 
