@@ -382,7 +382,7 @@
 				});
 
 				// Updating Section for wp default controls.
-				if( AstraBuilderCustomizerData.js_configs.wp_defaults ) {
+				if( 'undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs.wp_defaults ) {
 					for (const [control, section] of Object.entries( AstraBuilderCustomizerData.js_configs.wp_defaults )) {
 						wp.customize.control( control ).section( section );
 					}
