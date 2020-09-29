@@ -26,16 +26,6 @@ class AstraColorPickerControl extends Component {
 			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
-
-		if ( this.props.allowImage ) {
-
-			this.state['backgroundImage'] = this.props.backgroundImage;
-			this.state['media'] = this.props.media;
-			this.state['backgroundAttachment'] = this.props.backgroundAttachment;
-			this.state['backgroundPosition'] = this.props.backgroundPosition;
-			this.state['backgroundRepeat'] = this.props.backgroundRepeat;
-			this.state['backgroundSize'] = this.props.backgroundSize;
-		}
 	}
 
 	render() {
@@ -46,7 +36,6 @@ class AstraColorPickerControl extends Component {
 			isVisible,
 			supportGradient,
 			backgroundType,
-			color
 		} = this.state
 
 		const {
@@ -151,7 +140,7 @@ class AstraColorPickerControl extends Component {
 															<>
 																<__experimentalGradientPicker
 																	className="ast-gradient-color-picker"
-																	value={ color && color.includes( 'gradient' ) ? color : '' }
+																	value={ this.props.color && this.props.color.includes( 'gradient' ) ? this.props.color : '' }
 																	onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 																/>
 															</>
@@ -166,7 +155,7 @@ class AstraColorPickerControl extends Component {
 																{ refresh && (
 																	<>
 																		<ColorPicker
-																			color={ color }
+																			color={ this.props.color }
 																			onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																		/>
 																	</>
@@ -174,7 +163,7 @@ class AstraColorPickerControl extends Component {
 																{ ! refresh &&  (
 																	<>
 																		<ColorPicker
-																			color={ color }
+																			color={ this.props.color }
 																			onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																		/>
 
@@ -182,7 +171,7 @@ class AstraColorPickerControl extends Component {
 																) }
 																<ColorPalette
 																	colors={ finalpaletteColors }
-																	value={ color }
+																	value={ this.props.color }
 																	clearable={ false }
 																	disableCustomColors={ true }
 																	className="ast-color-palette"
@@ -204,7 +193,7 @@ class AstraColorPickerControl extends Component {
 										{ refresh && (
 											<>
 												<ColorPicker
-													color={ color }
+													color={ this.props.color }
 													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 												/>
 											</>
@@ -212,7 +201,7 @@ class AstraColorPickerControl extends Component {
 										{ ! refresh &&  (
 											<>
 												<ColorPicker
-													color={ color }
+													color={ this.props.color }
 													onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 												/>
 
@@ -220,7 +209,7 @@ class AstraColorPickerControl extends Component {
 										) }
 										<ColorPalette
 											colors={ finalpaletteColors }
-											value={ color }
+											value={ this.props.color }
 											clearable={ false }
 											disableCustomColors={ true }
 											className="ast-color-palette"
@@ -239,8 +228,6 @@ class AstraColorPickerControl extends Component {
 
 	onColorClearClick() {
 
-		this.setState( { color: '' } );
-
 		if ( this.state.refresh === true ) {
 			this.setState( { refresh: false } );
 		} else {
@@ -257,7 +244,6 @@ class AstraColorPickerControl extends Component {
 		} else {
 			newColor = gradient;
 		}
-		this.setState( { color: newColor } );
 		this.setState( { backgroundType: 'gradient' } );
 		this.props.onChangeComplete( newColor, 'gradient' );
 	}
@@ -270,7 +256,6 @@ class AstraColorPickerControl extends Component {
 		} else {
 			newColor = color.hex;
 		}
-		this.setState( { color: newColor } );
 		this.setState( { backgroundType: 'color' } );
 		this.props.onChangeComplete( color, 'color' );
 	}
@@ -288,14 +273,12 @@ class AstraColorPickerControl extends Component {
 	onSelectImage( media ) {
 
 		this.setState( { modalCanClose: true } );
-		this.setState( { media: media } );
 		this.setState( { backgroundType: 'image' } );
 		this.props.onSelectImage( media, 'image' );
 	}
 	onRemoveImage() {
 
 		this.setState( { modalCanClose: true } );
-		this.setState( { media: '' } );
 		this.props.onSelectImage( '' );
 	}
 
@@ -305,8 +288,6 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onChangeImageOptions( tempKey, mainkey, value ) {
-
-		this.setState( { [tempKey]: value } );
 		this.setState( { backgroundType: 'image' } );
 		this.props.onChangeImageOptions( mainkey, value, 'image' );
 	}
@@ -339,34 +320,25 @@ class AstraColorPickerControl extends Component {
 
 	renderImageSettings() {
 
-		const {
-			media,
-			backgroundImage,
-			backgroundPosition,
-			backgroundAttachment,
-			backgroundRepeat,
-			backgroundSize
-		} = this.state
-
 		return (
 			<>
-				{ ( media.url || backgroundImage ) &&
+				{ ( this.props.media.url || this.props.backgroundImage ) &&
 
-					<img src={ ( media.url ) ? media.url : backgroundImage } />
+					<img src={ ( this.props.media.url ) ? this.props.media.url : this.props.backgroundImage } />
 				}
 				<MediaUpload
 					title={ __( "Select Background Image", 'astra' )  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
 					allowedTypes={ [ "image" ] }
-					value={ ( undefined !== media && media ? media :  '' ) }
+					value={ ( undefined !== this.props.media && this.props.media ? this.props.media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ( ! media && ! backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
+							{ ( ! this.props.media && ! this.props.backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
 						</Button>
 					) }
 				/>
 
-				{ ( media || backgroundImage ) &&
+				{ ( this.props.media || this.props.backgroundImage ) &&
 					<>
 						<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
 							{ __( "Remove Image", 'astra' ) }
@@ -380,7 +352,7 @@ class AstraColorPickerControl extends Component {
 						<div className="media-position-setting hide-settings">
 							<SelectControl
 							label={ __( "Image Position" ) }
-							value={ backgroundPosition }
+							value={ this.props.backgroundPosition }
 							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundPosition', 'background-position', value  ) }
 							options={ [
 								{ value: "left top", label:  __( "Left Top", 'astra'  )  },
@@ -396,7 +368,7 @@ class AstraColorPickerControl extends Component {
 							/>
 							<SelectControl
 							label={ __( "Attachment", 'astra' ) }
-							value={ backgroundAttachment }
+							value={ this.props.backgroundAttachment }
 							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundAttachment', 'background-attachment', value  ) }
 							options={ [
 								{ value: "fixed", label:  __( "Fixed", 'astra' )  },
@@ -405,7 +377,7 @@ class AstraColorPickerControl extends Component {
 							/>
 							<SelectControl
 							label={ __( "Repeat", 'astra' ) }
-							value={ backgroundRepeat }
+							value={ this.props.backgroundRepeat }
 							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundRepeat', 'background-repeat', value  ) }
 							options={ [
 								{ value: "no-repeat", label:  __( "No Repeat", 'astra' )  },
@@ -416,7 +388,7 @@ class AstraColorPickerControl extends Component {
 							/>
 							<SelectControl
 							label={ __( "Size", 'astra' ) }
-							value={ backgroundSize }
+							value={ this.props.backgroundSize }
 							onChange={ ( value ) => this.onChangeImageOptions( 'backgroundSize', 'background-size', value  ) }
 							options={ [
 								{ value: "auto", label:  __( "Auto", 'astra' )  },
