@@ -46,7 +46,7 @@ class Astra_Header_Widget_Component_Loader {
 		// Localize variables for WIDGET JS.
 		wp_localize_script(
 			'astra-header-widget-customizer-preview-js',
-			'AstraBuilderWIDGETData',
+			'AstraBuilderWidgetData',
 			array(
 				'header_widget_count' => Astra_Builder_Helper::$num_of_header_widgets,
 				'tablet_break_point'  => astra_get_tablet_breakpoint(),

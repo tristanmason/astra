@@ -243,8 +243,8 @@ function astra_builder_social_css( builder_type = 'header' ) {
  */
 function astra_builder_widget_css( builder_type = 'header' ) {
 
-	var tablet_break_point    = AstraBuilderWIDGETData.tablet_break_point || 768,
-		mobile_break_point    = AstraBuilderWIDGETData.mobile_break_point || 544;
+	var tablet_break_point    = AstraBuilderWidgetData.tablet_break_point || 768,
+		mobile_break_point    = AstraBuilderWidgetData.mobile_break_point || 544;
 
 	wp.customize( 'astra-settings[' + builder_type + '-widget-alignment-1]', function( value ) {
 		value.bind( function( alignment ) {
@@ -346,7 +346,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 		} );
 	} );
 
-	let widget_count = 'header' === builder_type ? AstraBuilderWIDGETData.header_widget_count: AstraBuilderWIDGETData.footer_widget_count;
+	let widget_count = 'header' === builder_type ? AstraBuilderWidgetData.header_widget_count: AstraBuilderWidgetData.footer_widget_count;
 	for ( var index = 1; index <= widget_count; index++ ) {
 
 		var selector = '.' + builder_type + '-widget-area[data-section="sidebar-widgets-' + builder_type + '-widget-' + index + '"]';
