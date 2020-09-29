@@ -33,8 +33,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$common_css_output = array(
 		'.ast-primary-header-bar, .ast-mobile-header-wrap .ast-builder-grid-row-container-inner' => array(
-			'min-height'  => astra_get_css_value( $hb_header_height, 'px' ),
-			'line-height' => astra_get_css_value( $hb_header_height, 'px' ),
+			'min-height' => astra_get_css_value( $hb_header_height, 'px' ),
 		),
 	);
 
