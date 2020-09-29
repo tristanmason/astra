@@ -893,7 +893,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 .expanded #customize-theme-controls #sub-accordion-section-section-header-builder.ahfb-header-builder-active, .preview-only.collapsed #customize-theme-controls #sub-accordion-section-section-footer-builder.ahfb-footer-builder-active {
     transform: translateY(0%);
-    left: 300px;
+    left: 290px;
     width: 100%;
     max-width: 80%;
 }
