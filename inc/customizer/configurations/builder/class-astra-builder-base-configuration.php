@@ -186,24 +186,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'panel'    => 'panel-' . $type . '-builder-group',
 					),
 
-					/**
-					 * Option: Column Alignment
-					 */
-					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
-						'default'   => astra_get_option( '' . $type . '-widget-alignment-' . $index ),
-						'type'      => 'control',
-						'control'   => 'ast-responsive-select',
-						'section'   => $_section,
-						'priority'  => 5,
-						'title'     => __( 'Alignment', 'astra' ),
-						'choices'   => array(
-							'left'   => __( 'Left', 'astra' ),
-							'center' => __( 'Center', 'astra' ),
-							'right'  => __( 'Right', 'astra' ),
-						),
-						'transport' => 'postMessage',
-					),
 
 					// Option: Widget heading.
 					array(
@@ -211,7 +193,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'section'  => $_section,
 						'type'     => 'control',
 						'control'  => 'ast-heading',
-						'priority' => 5,
+						'priority' => 6,
 						'title'    => __( 'Widget Colors', 'astra' ),
 					),
 
@@ -257,6 +239,30 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						'title'     => __( 'Link Color', 'astra' ),
 					),
 				);
+
+				if ( 'footer' === $type ) {
+					array_push(
+						$_configs,
+						/**
+						 * Option: Column Alignment
+						 */
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
+							'default'   => astra_get_option( '' . $type . '-widget-alignment-' . $index ),
+							'type'      => 'control',
+							'control'   => 'ast-responsive-select',
+							'section'   => $_section,
+							'priority'  => 5,
+							'title'     => __( 'Alignment', 'astra' ),
+							'choices'   => array(
+								'left'   => __( 'Left', 'astra' ),
+								'center' => __( 'Center', 'astra' ),
+								'right'  => __( 'Right', 'astra' ),
+							),
+							'transport' => 'postMessage',
+						)
+					);
+				}
 
 				$html_config[] = $_configs;
 			}
