@@ -1,7 +1,7 @@
-import PropTypes, { array } from 'prop-types';
+import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Popover, Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
+import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 class AstraColorPickerControl extends Component {
@@ -26,6 +26,14 @@ class AstraColorPickerControl extends Component {
 			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
 		};
+	}
+
+	onResetRefresh() {
+		if ( this.state.refresh === true ) {
+			this.setState( { refresh: false } );
+		} else {
+			this.setState( { refresh: true } );
+		}
 	}
 
 	render() {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
-import { Button, Dashicon } from '@wordpress/components';
+import { Dashicon } from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import { __ } from '@wordpress/i18n';
 
@@ -60,7 +60,7 @@ class ResponsiveBackground extends Component {
 			}
 		}
 	}
-	renderReset ( key ) {
+	renderReset( key ) {
 		let deleteBtnDisabled = true;
 		let reserBtnDisabled = true;
 		let devices = [ 'desktop', 'mobile', 'tablet' ];
@@ -83,6 +83,9 @@ class ResponsiveBackground extends Component {
 								e.preventDefault();
 								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 								this.updateValues( value );
+								this.refs.ChildAstraColorPickerControldesktop.onResetRefresh();
+								this.refs.ChildAstraColorPickerControltablet.onResetRefresh();
+								this.refs.ChildAstraColorPickerControlmobile.onResetRefresh();
 							} }
 						>
 							<Dashicon icon='image-rotate' />
@@ -140,6 +143,7 @@ class ResponsiveBackground extends Component {
 					backgroundType = { ( undefined !== this.state.value[key]['background-type'] && this.state.value[key]['background-type'] ? this.state.value[key]['background-type'] :  'color' ) }
 					allowGradient={ true }
 					allowImage={ true }
+					ref={"ChildAstraColorPickerControl" + key}
 				/>
 			</>
 		)

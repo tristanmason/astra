@@ -38,6 +38,9 @@ class ResponsiveColorComponent extends Component {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 							this.setState( { value : value } )
 							this.props.control.setting.set( value );
+							this.refs.ChildAstraColorPickerControldesktop.onResetRefresh();
+							this.refs.ChildAstraColorPickerControltablet.onResetRefresh();
+							this.refs.ChildAstraColorPickerControlmobile.onResetRefresh();
 						} }
 					>
 						<Dashicon icon='image-rotate' />
@@ -56,6 +59,7 @@ class ResponsiveColorComponent extends Component {
 				backgroundType = { 'color' }
 				allowGradient={ false }
 				allowImage={ false }
+				ref={"ChildAstraColorPickerControl" + key}
 			/>
 		)
 	}
