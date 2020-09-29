@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Heading Colors
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_fb_widget_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_hb_widget_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,9 +24,9 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_widget_dynamic_css' );
  *
  * @since x.x.x
  */
-function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_hb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$dynamic_css .= Astra_Widget_Component_Dynamic_CSS::astra_widget_dynamic_css( 'footer', $dynamic_css, $dynamic_css_filtered = '' );
+	$dynamic_css .= Astra_Widget_Component_Dynamic_CSS::astra_widget_dynamic_css( 'header', $dynamic_css, $dynamic_css_filtered = '' );
 
 	return $dynamic_css;
 }
