@@ -202,7 +202,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					 */
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-title-color]',
-						'default'   => astra_get_option( '' . $type . '-widget-' . $index . '-title-color' ),
+						'default'   => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
 						'type'      => 'control',
 						'section'   => $_section,
 						'priority'  => 6,
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					 */
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color]',
-						'default'   => astra_get_option( '' . $type . '-widget-' . $index . '-color' ),
+						'default'   => astra_get_option( $type . '-widget-' . $index . '-color' ),
 						'type'      => 'control',
 						'section'   => $_section,
 						'priority'  => 7,
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 					 */
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color]',
-						'default'   => astra_get_option( '' . $type . '-widget-' . $index . '-link-color' ),
+						'default'   => astra_get_option( $type . '-widget-' . $index . '-link-color' ),
 						'type'      => 'control',
 						'section'   => $_section,
 						'priority'  => 8,
@@ -248,7 +248,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Configuration' ) ) {
 						 */
 						array(
 							'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
-							'default'   => astra_get_option( '' . $type . '-widget-alignment-' . $index ),
+							'default'   => astra_get_option( $type . '-widget-alignment-' . $index ),
 							'type'      => 'control',
 							'control'   => 'ast-responsive-select',
 							'section'   => $_section,
