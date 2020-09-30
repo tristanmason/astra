@@ -34,8 +34,17 @@ class ResponsiveColorComponent extends Component {
 					<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
+						onClick={ (e) => {
+							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							if ( undefined !== value && '' !== value ) {
+
+								for ( let device in value ) {
+									if ( undefined === value[device] || '' === value[device] ) {
+										value[device] = 'unset';
+									}
+								}
+							}
 							this.setState( { value : value } )
 							this.props.control.setting.set( value );
 							this.refs.ChildAstraColorPickerControldesktop.onResetRefresh();

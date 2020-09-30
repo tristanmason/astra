@@ -82,6 +82,22 @@ class ResponsiveBackground extends Component {
 							onClick={ ( e ) => {
 								e.preventDefault();
 								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+								
+								if ( undefined !== value && '' !== value ) {
+
+									for ( let device in value ) {
+										if ( undefined === value[device]['background-color'] || '' === value[device]['background-color'] ) {
+											value[device]['background-color'] = 'unset';
+										}
+										if ( undefined === value[device]['background-image'] || '' === value[device]['background-image'] ) {
+											value[device]['background-image'] = 'unset';
+										}
+										if ( undefined === value[device]['background-media'] || '' === value[device]['background-media'] ) {
+											value[device]['background-media'] = 'unset';
+										}
+									}
+								}
+
 								this.updateValues( value );
 								this.refs.ChildAstraColorPickerControldesktop.onResetRefresh();
 								this.refs.ChildAstraColorPickerControltablet.onResetRefresh();
