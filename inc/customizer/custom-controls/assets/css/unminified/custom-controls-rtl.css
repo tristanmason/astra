@@ -48,6 +48,23 @@
   color: #565e67;
 }
 
+.customize-control-ast-background .ast-bg-img-remove.components-button.is-link {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control-ast-background .ast-bg-img-remove.components-button.is-destructive:hover:not(:disabled) {
+  color: #a02222;
+  box-shadow: unset;
+  border-color: #a02222;
+}
+
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
   display: inline-block;
@@ -78,6 +95,18 @@
 
 .ast-field-settings-modal .customize-control-ast-background .more-settings {
   margin-top: 6px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-color-btn-reset-wrap {
+  left: 59px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .color-button-wrap {
+  left: 16px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
+  margin: 5px 10px 20px 20px;
 }
 
 .customize-control-ast-border {
@@ -466,38 +495,8 @@
 	width: 27px;
     height: 27px;
 }
-@media (max-width: 1800px) {
-    .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-        width: 26px;
-        height: 26px;
-    }
-    .astra-palette-colors .astra-color-picker-wrap {
-        margin-right: 2px;
-    }
-    .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
-        padding: 0 2px;
-    }
-    .astra-typography-control .typography-button-wrap > button.components-button {
-        padding: 0 4px;
-    }
-}
-@media (max-width: 1400px) {
-    .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-        width: 22px;
-        height: 22px;
-    }
-}
-.astra-palette-colors .astra-color-picker-wrap:first-child {
-    margin-right: 0;
-}
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
-}
-.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 7.5px 0px 0px;
-}
-.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
-    margin-left: 5px;
 }
 /* Clear Button CSS */
 .ast-color-btn-clear-wrap {
@@ -509,6 +508,14 @@
 	padding: 10px 3px;
 	width: 20px;
 	height: 20px;
+}
+.ast-clear-btn-inside-picker.components-button,
+.astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
+	margin: 5px 15px 20px 20px;
+	padding: 0 8px;
+}
+.ast-clear-btn-inside-picker {
+	padding: 0 8px;
 }
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
@@ -559,6 +566,70 @@
 /** Gradient Color Picker */
 .customize-control .ast-gradient-color-picker input[type="number"] {
 	width: 50%;
+}
+/** Modal Color Picker - Group Param */
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 13px 0px 0px;
+	margin-bottom: -8px;
+}
+.ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 5px;
+}
+.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+	width: 24px;
+    height: 24px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+	height: 25px;
+	width: 25px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+	right: 2.5px;
+	top: 0px;
+	width: 20px;
+}
+@media (max-width: 1845px) {
+    /** Responsive Devices - Compatibility CSS */
+    .ast-color-palette .components-circular-option-picker__option-wrapper {
+        height: 25px;
+        width: 25px;
+    }
+    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
+        padding: 6px 11px;
+    }
+    .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+        width: 18px;
+        right: 4px;
+        top: 1px;
+    }
+    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+        width: 24px;
+        height: 24px;
+    }
+    .astra-popover-color .ast-color-palette.components-circular-option-picker {
+        width: auto;
+        padding: 16px 12px 0px 0px;
+    }
+    .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
+        padding: 0 2px;
+    }
+    .astra-typography-control .typography-button-wrap > button.components-button {
+        padding: 0 4px;
+	}
+	/** Modal Popup */
+	.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+		width: 21px;
+		height: 21px;
+	}
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		height: 22px;
+		width: 22px;
+	}
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+		right: 2.5px;
+		top: -1px;
+		width: 18px;
+	}
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
@@ -621,6 +692,23 @@
   color: #565e67;
 }
 
+.customize-control-ast-background .ast-bg-img-remove.components-button.is-link {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control-ast-background .ast-bg-img-remove.components-button.is-destructive:hover:not(:disabled) {
+  color: #a02222;
+  box-shadow: unset;
+  border-color: #a02222;
+}
+
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
   display: inline-block;
@@ -651,6 +739,18 @@
 
 .ast-field-settings-modal .customize-control-ast-background .more-settings {
   margin-top: 6px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-color-btn-reset-wrap {
+  left: 59px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .color-button-wrap {
+  left: 16px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
+  margin: 5px 10px 20px 20px;
 }
 
 .customize-control-ast-border {
@@ -1039,38 +1139,8 @@
 	width: 27px;
     height: 27px;
 }
-@media (max-width: 1800px) {
-    .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-        width: 26px;
-        height: 26px;
-    }
-    .astra-palette-colors .astra-color-picker-wrap {
-        margin-right: 2px;
-    }
-    .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
-        padding: 0 2px;
-    }
-    .astra-typography-control .typography-button-wrap > button.components-button {
-        padding: 0 4px;
-    }
-}
-@media (max-width: 1400px) {
-    .astra-palette-colors .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-        width: 22px;
-        height: 22px;
-    }
-}
-.astra-palette-colors .astra-color-picker-wrap:first-child {
-    margin-right: 0;
-}
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
-}
-.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 7.5px 0px 0px;
-}
-.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
-    margin-left: 5px;
 }
 /* Clear Button CSS */
 .ast-color-btn-clear-wrap {
@@ -1082,6 +1152,14 @@
 	padding: 10px 3px;
 	width: 20px;
 	height: 20px;
+}
+.ast-clear-btn-inside-picker.components-button,
+.astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
+	margin: 5px 15px 20px 20px;
+	padding: 0 8px;
+}
+.ast-clear-btn-inside-picker {
+	padding: 0 8px;
 }
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
@@ -1132,6 +1210,67 @@
 /** Gradient Color Picker */
 .customize-control .ast-gradient-color-picker input[type="number"] {
 	width: 50%;
+}
+/** Modal Color Picker - Group Param */
+.ast-field-settings-modal .astra-popover-color .ast-color-palette {
+	padding: 8px 13px 0px 0px;
+	margin-bottom: -8px;
+}
+.ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
+    margin-left: 5px;
+}
+.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+	width: 24px;
+    height: 24px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+	height: 25px;
+	width: 25px;
+}
+.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+	right: 2.5px;
+	top: 0px;
+	width: 20px;
+}
+@media (max-width: 1845px) {
+    /** Responsive Devices - Compatibility CSS */
+    .ast-color-palette .components-circular-option-picker__option-wrapper {
+        height: 25px;
+        width: 25px;
+    }
+    .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+        width: 18px;
+        right: 4px;
+        top: 1px;
+    }
+    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+        width: 24px;
+        height: 24px;
+    }
+    .astra-popover-color .ast-color-palette.components-circular-option-picker {
+        width: auto;
+        padding: 16px 12px 0px 0px;
+    }
+    .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
+        padding: 0 2px;
+    }
+    .astra-typography-control .typography-button-wrap > button.components-button {
+        padding: 0 4px;
+	}
+	/** Modal Popup */
+	.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+		width: 21px;
+		height: 21px;
+	}
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+		height: 22px;
+		width: 22px;
+	}
+	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+		right: 2.5px;
+		top: -1px;
+		width: 18px;
+	}
 }
 @-moz-document url-prefix() {
 	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
@@ -1486,6 +1625,23 @@ input[type="text"].select2-search__field {
   color: #565e67;
 }
 
+.customize-control-ast-responsive-background .ast-bg-img-remove.components-button.is-link {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control-ast-responsive-background .ast-bg-img-remove.components-button.is-destructive:hover:not(:disabled) {
+  color: #a02222;
+  box-shadow: unset;
+  border-color: #a02222;
+}
+
 .customize-control-ast-responsive-background .more-settings {
   margin-top: 12px;
   display: flex;
@@ -1604,16 +1760,16 @@ input[type="text"].select2-search__field {
   box-shadow: unset;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div {
+.astra-popover-tabs #tab-panel-0-image-view > div {
   text-align: center;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div img {
+.astra-popover-tabs #tab-panel-0-image-view > div img {
   width: 200px;
   margin-bottom: 18px;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div .media-position-setting {
+.astra-popover-tabs #tab-panel-0-image-view > div .media-position-setting {
   text-align: right;
 }
 
@@ -1633,7 +1789,7 @@ input[type="text"].select2-search__field {
 
 .astra-popover-color .ast-color-palette {
   width: auto;
-  padding: 16px 20px 0px 0px;
+  padding: 16px 14px 0px 0px;
 }
 
 .astra-popover-color .ast-color-palette .components-circular-option-picker__option {
@@ -1707,7 +1863,6 @@ input[type="text"].select2-search__field {
   margin-right: 2px;
   margin-top: -14px;
   background-color: #ffffff;
-  text-align: center;
   border-radius: 4px;
 }
 
@@ -1759,6 +1914,10 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
   margin-top: 28px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-clear-btn-inside-picker.components-button {
+  margin: 5px 10px 20px 20px;
 }
 
 .ast-responsive-select-container {
@@ -2146,7 +2305,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
   display: block;
-  width: 20%;
+  width: 25%;
   float: none;
 }
 
@@ -3020,6 +3179,23 @@ input[type="text"].select2-search__field {
   color: #565e67;
 }
 
+.customize-control-ast-responsive-background .ast-bg-img-remove.components-button.is-link {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control-ast-responsive-background .ast-bg-img-remove.components-button.is-destructive:hover:not(:disabled) {
+  color: #a02222;
+  box-shadow: unset;
+  border-color: #a02222;
+}
+
 .customize-control-ast-responsive-background .more-settings {
   margin-top: 12px;
   display: flex;
@@ -3138,16 +3314,16 @@ input[type="text"].select2-search__field {
   box-shadow: unset;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div {
+.astra-popover-tabs #tab-panel-0-image-view > div {
   text-align: center;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div img {
+.astra-popover-tabs #tab-panel-0-image-view > div img {
   width: 200px;
   margin-bottom: 18px;
 }
 
-.astra-popover-tabs .components-tab-panel__tab-content > div .media-position-setting {
+.astra-popover-tabs #tab-panel-0-image-view > div .media-position-setting {
   text-align: right;
 }
 
@@ -3167,7 +3343,7 @@ input[type="text"].select2-search__field {
 
 .astra-popover-color .ast-color-palette {
   width: auto;
-  padding: 16px 20px 0px 0px;
+  padding: 16px 14px 0px 0px;
 }
 
 .astra-popover-color .ast-color-palette .components-circular-option-picker__option {
@@ -3241,7 +3417,6 @@ input[type="text"].select2-search__field {
   margin-right: 2px;
   margin-top: -14px;
   background-color: #ffffff;
-  text-align: center;
   border-radius: 4px;
 }
 
@@ -3293,6 +3468,10 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
   margin-top: 28px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-clear-btn-inside-picker.components-button {
+  margin: 5px 10px 20px 20px;
 }
 
 .ast-responsive-btns {
@@ -3357,7 +3536,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
   display: block;
-  width: 20%;
+  width: 25%;
   float: none;
 }
 

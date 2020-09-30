@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
-import { Button, Dashicon } from '@wordpress/components';
+import { Dashicon } from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import { __ } from '@wordpress/i18n';
 
@@ -50,33 +50,34 @@ class Background extends Component {
 		}
 	}
 	renderReset () {
-		let deleteBtnDisabled = true;
 		return (
 			<span className="customize-control-title">
 				<div className="ast-color-btn-reset-wrap">
 					<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
+						onClick={ (e) => {
+							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 
+							if ( undefined !== value && '' !== value ) {								
+								if ( undefined === value['background-color'] || '' === value['background-color'] ) {
+									value['background-color'] = 'unset';
+								}
+								if ( undefined === value['background-image'] || '' === value['background-image'] ) {
+									value['background-image'] = 'unset';
+								}
+								if ( undefined === value['background-media'] || '' === value['background-media'] ) {
+									value['background-media'] = 'unset';
+								}
+							}
+							
 							this.updateValues( value );
+							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
 					>
 						<Dashicon icon='image-rotate' />
 					</button>
-				</div>
-				<div className="ast-color-btn-clear-wrap">
-					<button type="button" onClick={ () => {
-						let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-						const bgDevices = [ 'desktop', 'mobile', 'tablet' ];
-						for( let device of bgDevices ) {
-							value[device]['background-color'] = '';
-							value[device]['background-image'] = '';
-							value[device]['background-media'] = '';
-						}
-						this.updateValues( value );
-					} } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ deleteBtnDisabled }><Dashicon icon="trash" /></button>
 				</div>
 			</span>
 		)
@@ -122,6 +123,7 @@ class Background extends Component {
 					backgroundType = { ( undefined !== this.state.value['background-type'] && this.state.value['background-type'] ? this.state.value['background-type'] :  'color' ) }
 					allowGradient={ true }
 					allowImage={ true }
+					ref="ChildAstraColorPickerControl"
 				/>
 			</>
 		)

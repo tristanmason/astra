@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from '@wordpress/element';
-import { Button, Dashicon } from '@wordpress/components';
+import { Dashicon } from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 class ColorComponent extends Component {
@@ -33,16 +33,19 @@ class ColorComponent extends Component {
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ ( e ) => {
+							
 							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-							this.updateValues( value )
+							if ( undefined === value || '' === value ) {
+								value = 'unset';
+							}
+							
+							this.updateValues( value );
+							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
 						>
 						<Dashicon icon='image-rotate' />
 						</button>
-					</div>
-					<div className="ast-color-btn-clear-wrap">
-						<button type="button" onClick = { () => { this.updateValues( '' ) } } className="astra-color-clear-button components-button components-circular-option-picker__clear is-secondary is-small" disabled={ disabled }><Dashicon icon="trash" /></button>
 					</div>
 				</>
 			</span>
@@ -87,6 +90,7 @@ class ColorComponent extends Component {
 						backgroundType = { 'color' }
 						allowGradient={ false }
 						allowImage={ false }
+						ref="ChildAstraColorPickerControl"
 					/>
 
 				</div>
