@@ -594,6 +594,9 @@
         height: 25px;
         width: 25px;
     }
+    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
+        padding: 6px 11px;
+    }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
         width: 18px;
         left: 4px;
