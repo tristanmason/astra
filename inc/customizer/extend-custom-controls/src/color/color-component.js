@@ -28,7 +28,7 @@ class ColorComponent extends Component {
 		return (
 			<span className="customize-control-title">
 				<>
-					<div className="ast-color-btn-reset-wrap lucky">
+					<div className="ast-color-btn-reset-wrap">
 						<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
