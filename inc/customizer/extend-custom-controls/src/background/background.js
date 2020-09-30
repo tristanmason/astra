@@ -56,8 +56,22 @@ class Background extends Component {
 					<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ () => {
+						onClick={ (e) => {
+							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+
+							if ( undefined !== value && '' !== value ) {								
+								if ( undefined === value['background-color'] || '' === value['background-color'] ) {
+									value['background-color'] = 'unset';
+								}
+								if ( undefined === value['background-image'] || '' === value['background-image'] ) {
+									value['background-image'] = 'unset';
+								}
+								if ( undefined === value['background-media'] || '' === value['background-media'] ) {
+									value['background-media'] = 'unset';
+								}
+							}
+							
 							this.updateValues( value );
 							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
