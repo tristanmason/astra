@@ -28,13 +28,18 @@ class ColorComponent extends Component {
 		return (
 			<span className="customize-control-title">
 				<>
-					<div className="ast-color-btn-reset-wrap">
+					<div className="ast-color-btn-reset-wrap lucky">
 						<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ ( e ) => {
+							
 							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+							if ( undefined === value || '' === value ) {
+								value = 'unset';
+							}
+							
 							this.updateValues( value );
 							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
