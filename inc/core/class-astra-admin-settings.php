@@ -176,11 +176,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.4.0
 		 */
 		public static function register_notices() {
-
-			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-				if ( ! empty( Astra_Ext_White_Label_Markup::$branding['astra']['name'] ) ) {
-					return;
-				}
+			// Return if white labeled.
+			if ( astra_is_white_labelled() ) {
+				return;
 			}
 
 			// Force Astra welcome notice on theme activation.
@@ -1181,6 +1179,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_available_plugins() {
 
+			// Return if white labeled.
 			if ( astra_is_white_labelled() ) {
 				return;
 			}
