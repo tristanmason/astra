@@ -74,11 +74,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-wp-background-process-astra-theme.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-astra-wp-async-request.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-astra-wp-background-process.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-wp-background-process.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
-			self::$background_updater = new WP_Background_Process_Astra_Theme();
+			self::$background_updater = new Astra_Theme_WP_Background_Process();
 
 		}
 
@@ -268,7 +268,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private function update( $fallback ) {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 
-			error_log( 'Astra: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
@@ -276,14 +275,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 							if ( $fallback ) {
 								call_user_func( $update_callback );
 							} else {
-								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 								self::$background_updater->push_to_queue( $update_callback );
 							}
 						}
 					}
 				}
 				if ( $fallback ) {
-					error_log( 'Astra: Running migration without batch processing.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 					self::update_db_version();
 				} else {
 					astra_update_option( 'is_theme_queue_running', true );
@@ -339,8 +336,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// Update auto saved version number.
 			astra_update_option( 'theme-auto-version', $theme_version );
-
-			error_log( 'Astra: db version updated successfully!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 			astra_update_option( 'is_theme_queue_running', false );
 
