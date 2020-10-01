@@ -488,14 +488,14 @@ if ( ! function_exists( 'astra_update_option' ) ) {
 	function astra_update_option( $option, $value ) {
 
 		do_action( "astra_before_update_option_{$option}", $value, $option );
-		
+
 		// Get all customizer options.
 		$theme_options = get_option( ASTRA_THEME_SETTINGS );
 		// Update value in options array.
 		$theme_options[ $option ] = $value;
- 
+		
 		update_option( ASTRA_THEME_SETTINGS, $theme_options );
- 
+
 		do_action( "astra_after_update_option_{$option}", $value, $option );
 	}
 }
