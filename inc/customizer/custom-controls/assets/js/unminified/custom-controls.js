@@ -1384,15 +1384,24 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">'; 
                 fields_html += '<ul class="ast-group-list">'; 
                 var counter = 0;
+                var tabs_counter = 0;
 
                 _.each( fields.tabs, function ( value, key ) {
-
                     var li_class = '';
-                    if( 0 == counter ) {
-                        li_class = "active";
+
+                    switch(counter) {
+                        case 0:
+                            li_class = 'active';
+                            tab_key = 'normal';
+                          break;
+                        case 1:
+                            tab_key = 'hover';
+                          break;
+                        default:
+                            tab_key = 'active';
                     }
 
-                    fields_html += '<li class="'+ li_class + '"><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+                    fields_html += '<li class="'+ li_class + '"><a href="#tab-' + tab_key + '"><span>' + key +  '</span></a></li>';
                     counter++;
                 });
 
@@ -1401,8 +1410,19 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 fields_html += '<div class="ast-tab-content" >';
 
                 _.each( fields.tabs, function ( fields_data, key ) {
+                    switch(tabs_counter) {
+                        case 0:
+                            li_class = 'active';
+                            tab_key = 'normal';
+                          break;
+                        case 1:
+                            tab_key = 'hover';
+                          break;
+                        default:
+                            tab_key = 'active';
+                    }
 
-                    fields_html += '<div id="tab-'+ key +'" class="tab">';
+                    fields_html += '<div id="tab-'+ tab_key +'" class="tab">';
 
                     var result = control.generateFieldHtml( fields_data, field_values );
 
@@ -1417,6 +1437,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                     });
 
                     fields_html += '</div>';
+                    tabs_counter++;
                 });
 
                 fields_html += '</div></div>';
