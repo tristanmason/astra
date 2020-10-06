@@ -714,15 +714,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * @since x.x.x
 				 */
 				if ( is_singular() ) {
+
 					$trans_header_responsive_top_space_css_fix = array(
 						'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary' => array(
 							'padding' => 0,
 						),
 					);
-				}
 
-				/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
-				$parse_css .= astra_parse_css( $trans_header_responsive_top_space_css_fix, '', astra_get_tablet_breakpoint() );
+					/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
+					$parse_css .= astra_parse_css( $trans_header_responsive_top_space_css_fix, '', astra_get_tablet_breakpoint() );
+				}
 
 				$desktop_screen_gb_css = array(
 					// Group block, Columns block, Gallery block, Table block & has-text-align-center selector compatibility Desktop CSS.
