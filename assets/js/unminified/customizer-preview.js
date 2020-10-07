@@ -320,19 +320,19 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		if( undefined !== bg_obj['background-type'] && '' !== bg_obj['background-type'] ) {
 
 			if ( ( 'color' === bg_obj['background-type'] ) ) {
-	
+
 				if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color ) {
-	
+
 					gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
 				}  else if ( undefined === bg_img || '' === bg_img || 'unset' === bg_img ) {
-	
+
 					gen_bg_css = 'background-color: ' + bg_color + ';';
-					
-				} 
+
+				}
 			} else if ( 'image' === bg_obj['background-type'] ) {
-	
+
 				if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color && ! bg_color.includes("linear-gradient") ) {
-	
+
 					gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
 				}
 				if ( ( undefined === bg_color || '' === bg_color || 'unset' === bg_color || bg_color.includes("linear-gradient") ) && '' !== bg_img ) {
@@ -344,7 +344,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 				}
 			}
 		}
-		
+
 		if ( '' !== bg_img ) {
 
 			gen_bg_css += 'background-repeat: ' + bg_obj['background-repeat'] + ';';
@@ -482,38 +482,30 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			var bg_color	= bg_obj[device]['background-color'];
 			var tablet_css  = ( bg_obj['tablet']['background-image'] ) ? true : false;
 			var desktop_css = ( bg_obj['desktop']['background-image'] ) ? true : false;
-			
+
 			if( undefined !== bg_obj[device]['background-type'] && '' !== bg_obj[device]['background-type'] ) {
-
 				if ( ( 'color' === bg_obj[device]['background-type'] ) ) {
-
 					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color ) {
-
 						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
 					} else if ( 'mobile' === device ) {
 						if ( desktop_css ) {
-
 							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
 						} else if ( tablet_css ) {
-
 							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
+						} else {
+							gen_bg_css = 'background-color: ' + bg_color + ';';
 						}
 					} else if ( 'tablet' === device ) {
-
 						if ( desktop_css ) {
-
 							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
+						} else {
+							gen_bg_css = 'background-color: ' + bg_color + ';';
 						}
-
 					} else if ( undefined === bg_img || '' === bg_img ) {
-
 						gen_bg_css = 'background-color: ' + bg_color + ';';
-						
-					} 
+					}
 				} else if ( 'image' === bg_obj[device]['background-type'] ) {
-
 					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color && ! bg_color.includes("linear-gradient") ) {
-
 						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
 					}
 					if ( ( undefined === bg_color || '' === bg_color || 'unset' === bg_color || bg_color.includes("linear-gradient") ) && '' !== bg_img ) {
