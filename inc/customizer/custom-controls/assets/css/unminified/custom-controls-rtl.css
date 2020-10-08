@@ -462,7 +462,7 @@
     border-radius: 4px;
     width: 24px;
     height: 24px;
-    border: 7px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
     margin-right: 2px;
@@ -1106,7 +1106,7 @@
     border-radius: 4px;
     width: 24px;
     height: 24px;
-    border: 7px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
     margin-right: 2px;
@@ -1237,6 +1237,9 @@
     .ast-color-palette .components-circular-option-picker__option-wrapper {
         height: 25px;
         width: 25px;
+    }
+    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
+        padding: 6px 11px;
     }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
         width: 18px;
