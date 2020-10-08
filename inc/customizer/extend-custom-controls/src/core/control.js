@@ -12,6 +12,8 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @see PHP class WP_Customize_Control.
 	 *
+	 * @file wp-admin/js/customize-nav-menus.js
+	 *
 	 * @constructs wp.customize.Control
 	 * @augments   wp.customize.Class
 	 *
@@ -41,6 +43,8 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 * Triggered when the control's markup has been injected into the DOM.
 	 * Injecting markup from component based controls.
 	 *
+	 * @file wp-admin/js/customize-nav-menus.js
+	 *
 	 * @since x.x.x
 	 *
 	 * @returns {void}
@@ -52,11 +56,13 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	},
 
 	/**
-	 * Embed the control in the DOM.
-	 *
 	 * Override the embed() method to do nothing,
 	 * so that the control isn't embedded on load,
 	 * unless the containing section is already expanded.
+	 *
+	 * @file wp-admin/js/customize-nav-menus.js
+	 *
+	 * @since x.x.x
 	 *
 	 * @returns {void}
 	 */
@@ -82,12 +88,14 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	},
 
 	/**
-	 * Deferred embedding of control when actually
-	 *
-	 * This function is called in Section.onChangeExpanded() so the control
+	 * This function is called in control.embed() & control.focus() so the control
 	 * will only get embedded when the Section is first expanded.
 	 *
-	 * @returns {null}
+	 * @file wp-admin/js/customize-nav-menus.js
+	 *
+	 * @since x.x.x
+	 *
+	 * @returns {void}
 	 */
 	actuallyEmbed: function() {
 		var control = this;
@@ -96,20 +104,22 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 		}
 		control.renderContent();
 		control.deferred.embedded.resolve(); // This triggers control.ready().
-		// Fire event after control is initialized.
-		control.container.trigger( 'init' );
 	},
 
 	/**
-	 * This is not working with autofocus.
+	 * Expand the containing section and focus on the control.
 	 *
-	 * @param {object} [args] Args.
-	 * @returns {null}
+	 * @file wp-admin/js/customize-nav-menus.js
+	 *
+	 * @since x.x.x
+	 *
+	 * @param {Object}   [params] - Params object.
+	 * @param {Function} [params.completeCallback] - Optional callback function when focus has completed.
 	 */
-	focus: function( args ) {
+	focus: function( params ) {
 		var control = this;
 		control.actuallyEmbed();
-		wp.customize.Control.prototype.focus.call( control, args );
+		wp.customize.Control.prototype.focus.call( control, params );
 	},
 
 } );
