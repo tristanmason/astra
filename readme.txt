@@ -74,11 +74,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.com/normalize.css/
 Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)
 Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
 
-= WP Color Picker Alpha =
-
-WP Color Picker Alpha is used to Overwrite Automattic Iris for enabled Alpha Channel in wpColorPicker By Sergio. (https://github.com/kallookoo/wp-color-picker-alpha)
-Distributed under the terms of the GNU GPL v2.
-
 = IcoMoon-Free =
 
 Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
