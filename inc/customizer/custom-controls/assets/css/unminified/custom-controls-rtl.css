@@ -1239,7 +1239,7 @@
         width: 25px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
-        padding: 6px 11px;
+        padding: 6px 10px;
     }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
         width: 18px;
