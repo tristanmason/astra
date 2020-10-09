@@ -115,8 +115,6 @@ class ResponsiveSpacingComponent extends Component {
 		let htmlChoices = null;
 		let respHtml = null;
 
-		console.log(id);
-
 		if ( linked_choices ) {
 
 			linkHtml = (
