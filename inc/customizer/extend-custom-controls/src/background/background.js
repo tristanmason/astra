@@ -60,18 +60,21 @@ class Background extends Component {
 							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 
-							if ( undefined !== value && '' !== value ) {								
+							if ( undefined !== value && '' !== value ) {
 								if ( undefined === value['background-color'] || '' === value['background-color'] ) {
-									value['background-color'] = 'unset';
+									value['background-color'] = '';
+									this.props.customizerApi.preview.send( 'refresh' );
 								}
 								if ( undefined === value['background-image'] || '' === value['background-image'] ) {
-									value['background-image'] = 'unset';
+									value['background-image'] = '';
+									this.props.customizerApi.preview.send( 'refresh' );
 								}
 								if ( undefined === value['background-media'] || '' === value['background-media'] ) {
-									value['background-media'] = 'unset';
+									value['background-media'] = '';
+									this.props.customizerApi.preview.send( 'refresh' );
 								}
 							}
-							
+
 							this.updateValues( value );
 							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }

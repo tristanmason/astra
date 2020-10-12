@@ -13,6 +13,7 @@ class ResponsiveBackground extends Component {
 		let value = this.props.control.setting.get();
 		this.defaultValue = this.props.control.params.default;
 		this.onSelectImage = this.onSelectImage.bind( this );
+		this.renderReset = this.renderReset.bind( this );
 
 		this.state = {
 			value: value,
@@ -82,18 +83,18 @@ class ResponsiveBackground extends Component {
 							onClick={ ( e ) => {
 								e.preventDefault();
 								let value = JSON.parse( JSON.stringify( this.defaultValue ) );
-								
+
 								if ( undefined !== value && '' !== value ) {
 
 									for ( let device in value ) {
 										if ( undefined === value[device]['background-color'] || '' === value[device]['background-color'] ) {
-											value[device]['background-color'] = 'unset';
+											value[device]['background-color'] = '';
 										}
 										if ( undefined === value[device]['background-image'] || '' === value[device]['background-image'] ) {
-											value[device]['background-image'] = 'unset';
+											value[device]['background-image'] = '';
 										}
 										if ( undefined === value[device]['background-media'] || '' === value[device]['background-media'] ) {
-											value[device]['background-media'] = 'unset';
+											value[device]['background-media'] = '';
 										}
 									}
 								}
@@ -102,6 +103,7 @@ class ResponsiveBackground extends Component {
 								this.refs.ChildAstraColorPickerControldesktop.onResetRefresh();
 								this.refs.ChildAstraColorPickerControltablet.onResetRefresh();
 								this.refs.ChildAstraColorPickerControlmobile.onResetRefresh();
+								wp.customize.previewer.refresh();
 							} }
 						>
 							<Dashicon icon='image-rotate' />

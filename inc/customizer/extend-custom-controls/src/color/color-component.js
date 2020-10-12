@@ -33,13 +33,13 @@ class ColorComponent extends Component {
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
 						onClick={ ( e ) => {
-							
+
 							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 							if ( undefined === value || '' === value ) {
-								value = 'unset';
+								value = '';
 							}
-							
+
 							this.updateValues( value );
 							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
