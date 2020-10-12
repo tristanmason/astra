@@ -89,12 +89,15 @@ class ResponsiveBackground extends Component {
 									for ( let device in value ) {
 										if ( undefined === value[device]['background-color'] || '' === value[device]['background-color'] ) {
 											value[device]['background-color'] = '';
+											wp.customize.previewer.refresh();
 										}
 										if ( undefined === value[device]['background-image'] || '' === value[device]['background-image'] ) {
 											value[device]['background-image'] = '';
+											wp.customize.previewer.refresh();
 										}
 										if ( undefined === value[device]['background-media'] || '' === value[device]['background-media'] ) {
 											value[device]['background-media'] = '';
+											wp.customize.previewer.refresh();
 										}
 									}
 								}
@@ -103,7 +106,6 @@ class ResponsiveBackground extends Component {
 								this.refs.ChildAstraColorPickerControldesktop.onResetRefresh();
 								this.refs.ChildAstraColorPickerControltablet.onResetRefresh();
 								this.refs.ChildAstraColorPickerControlmobile.onResetRefresh();
-								wp.customize.previewer.refresh();
 							} }
 						>
 							<Dashicon icon='image-rotate' />

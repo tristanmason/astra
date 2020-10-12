@@ -42,6 +42,7 @@ class ResponsiveColorComponent extends Component {
 								for ( let device in value ) {
 									if ( undefined === value[device] || '' === value[device] ) {
 										value[device] = '';
+										wp.customize.previewer.refresh();
 									}
 								}
 							}

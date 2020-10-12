@@ -38,6 +38,7 @@ class ColorComponent extends Component {
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 							if ( undefined === value || '' === value ) {
 								value = '';
+								wp.customize.previewer.refresh();
 							}
 
 							this.updateValues( value );

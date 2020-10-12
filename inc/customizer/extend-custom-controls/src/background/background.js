@@ -63,15 +63,15 @@ class Background extends Component {
 							if ( undefined !== value && '' !== value ) {
 								if ( undefined === value['background-color'] || '' === value['background-color'] ) {
 									value['background-color'] = '';
-									this.props.customizerApi.preview.send( 'refresh' );
+									wp.customize.previewer.refresh();
 								}
 								if ( undefined === value['background-image'] || '' === value['background-image'] ) {
 									value['background-image'] = '';
-									this.props.customizerApi.preview.send( 'refresh' );
+									wp.customize.previewer.refresh();
 								}
 								if ( undefined === value['background-media'] || '' === value['background-media'] ) {
 									value['background-media'] = '';
-									this.props.customizerApi.preview.send( 'refresh' );
+									wp.customize.previewer.refresh();
 								}
 							}
 
