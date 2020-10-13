@@ -394,13 +394,23 @@
 		width: 18px;
 	}
 }
-@-moz-document url-prefix() {
-	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
-		margin-left: 5px;
-		height: 25px;
-		width: 25px;
-	}
-	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-		padding: 16px 14px 0px 0px;
+@supports (-moz-appearance:none) {
+	@media (max-width: 1845px) {
+		.ast-color-palette .components-circular-option-picker__option-wrapper {
+			margin-left: 5px;
+		}
+		.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+			width: 21px;
+			height: 21px;
+		}
+		.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+			height: 20px;
+			width: 20px;
+		}
+		.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+			right: 3px;
+			top: -2px;
+			width: 15px;
+		}
 	}
 }
