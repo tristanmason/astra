@@ -965,7 +965,7 @@ return array(
 	),
 	array(
 		'Cabin' => array(
-			'variants' => array( 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic' ), 
+			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -1235,7 +1235,7 @@ return array(
 	),
 	array(
 		'Cinzel' => array(
-			'variants' => array( 'regular', '700', '900' ), 
+			'variants' => array( 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -2254,6 +2254,12 @@ return array(
 		),
 	),
 	array(
+		'Grandstander' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Gravitas One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -2956,6 +2962,12 @@ return array(
 		),
 	),
 	array(
+		'Kufam' => array(
+			'variants' => array( 'regular', '500', '600', '700', '800', '900', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Kulim Park' => array(
 			'variants' => array( '200', '200italic', '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic' ), 
 			'category' => 'sans-serif', 
@@ -2971,6 +2983,12 @@ return array(
 		'Kumar One Outline' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Kumbh Sans' => array(
+			'variants' => array( '300', 'regular', '700' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -3197,7 +3215,7 @@ return array(
 	),
 	array(
 		'Literata' => array(
-			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -3545,7 +3563,7 @@ return array(
 	),
 	array(
 		'Merriweather Sans' => array(
-			'variants' => array( '300', '300italic', 'regular', 'italic', '700', '700italic', '800', '800italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -4871,7 +4889,7 @@ return array(
 	),
 	array(
 		'Rubik' => array(
-			'variants' => array( '300', '300italic', 'regular', 'italic', '500', '500italic', '700', '700italic', '900', '900italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '900', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -5538,6 +5556,12 @@ return array(
 	array(
 		'Syncopate' => array(
 			'variants' => array( 'regular', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Syne' => array(
+			'variants' => array( 'regular', '500', '600', '700', '800' ), 
 			'category' => 'sans-serif', 
 		),
 	),
