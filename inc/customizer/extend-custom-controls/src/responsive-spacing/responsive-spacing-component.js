@@ -118,7 +118,7 @@ class ResponsiveSpacingComponent extends Component {
 		if ( linked_choices ) {
 
 			linkHtml = (
-				<li key={ 'connect-disconnect' + device } className="ast-spacing-input-item-link">
+				<li key={ 'connect-disconnect' + device } className="ast-spacing-input-item-link disconnected">
 					<span key={ 'connect' + device } className="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" onClick = { () => { this.onConnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
 					<span key={ 'disconnect' + device } className="dashicons dashicons-editor-unlink ast-spacing-disconnected" onClick = { () => { this.onDisconnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
 				</li>
@@ -129,7 +129,7 @@ class ResponsiveSpacingComponent extends Component {
 
 			var html = (
 				<li key={ choiceID } { ...inputAttrs } className='ast-spacing-input-item'>
-					<input type='number' className={ `ast-spacing-input ast-spacing-${ device }` } data-id={ choiceID } value={ this.state.value[ device ][ choiceID ] } onChange = { () => this.onSpacingChange( device, choiceID ) } />
+					<input type='number' className={ `ast-spacing-input ast-spacing-${ device } connected` } data-id={ choiceID } value={ this.state.value[ device ][ choiceID ] } onChange = { () => this.onSpacingChange( device, choiceID ) } data-element-connect={ id } />
 					<span className="ast-spacing-title">{ choices[ choiceID ] }</span>
 				</li>
 			);
