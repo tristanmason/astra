@@ -1924,6 +1924,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   left: 30px;
+  top: -3px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
@@ -1932,7 +1933,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   left: 7px;
-  top: -2px;
+  top: 1px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
@@ -1941,6 +1942,17 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-clear-btn-inside-picker.components-button {
   margin: 5px 10px 20px 20px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  top: 3.5px;
+}
+
+@supports (-moz-appearance: none) {
+  .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+    top: 5.5px;
+    left: 65px;
+  }
 }
 
 .ast-responsive-select-container {
@@ -3478,6 +3490,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   left: 30px;
+  top: -3px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
@@ -3486,7 +3499,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   left: 7px;
-  top: -2px;
+  top: 1px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
@@ -3495,6 +3508,21 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-clear-btn-inside-picker.components-button {
   margin: 5px 10px 20px 20px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  top: 3.5px;
+}
+
+@supports (-moz-appearance: none) {
+  .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+    top: 5.5px;
+    left: 65px;
+  }
+  .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+    left: 27px;
+    top: -2px;
+  }
 }
 
 .ast-responsive-btns {
