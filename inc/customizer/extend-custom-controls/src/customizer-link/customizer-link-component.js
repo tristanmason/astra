@@ -12,27 +12,29 @@ class CustomizerLinkComponent extends Component {
 
 	onLinkClick() {
 
-		let linked = event.target.parentElement.dataset.customizerLinked;
-		let linkType = event.target.parentElement.dataset.astCustomizerLinkType;
+		const {
+			linked,
+			link_type,
+		} = this.props.control.params
 
-		switch ( linkType ) {
+		switch ( link_type ) {
 
 			case 'section':
-				section = wp.customize.section( linked );
+				var section = wp.customize.section( linked );
 				section.expand();
 				break;
 
 			case 'control':
 				wp.customize.control( linked ).focus();
 				break;
-		
+
 			default:
 				break;
 		}
 	}
 
 	render() {
-		
+
 		const {
 			linked,
 			link_text,
@@ -46,8 +48,8 @@ class CustomizerLinkComponent extends Component {
 			linkHtml = (
 				<a href="#" onClick= { () => { this.onLinkClick() } } className="customizer-link" data-customizer-linked={ linked } data-ast-customizer-link-type={ link_type } dangerouslySetInnerHTML={ { __html: link_text } } >
 				</a>
-			); 
-			
+			);
+
 		}
 
 		return (
