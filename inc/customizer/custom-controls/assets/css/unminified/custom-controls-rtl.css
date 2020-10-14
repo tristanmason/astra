@@ -1953,6 +1953,10 @@ input[type="text"].select2-search__field {
     top: 5.5px;
     left: 65px;
   }
+  .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+    left: 27px;
+    top: -2px;
+  }
 }
 
 .ast-responsive-select-container {
@@ -3370,6 +3374,12 @@ input[type="text"].select2-search__field {
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
   margin-top: 10px;
   justify-content: flex-start;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
+    width: 50px;
+  }
 }
 
 .astra-popover-color [ID*="-color-view"] .components-circular-option-picker {
