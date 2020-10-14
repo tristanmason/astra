@@ -20,7 +20,7 @@ class BorderComponent extends Component {
 	}
 
 	onBorderChange ( key ) {
-		
+
 		const {
 			choices,
 		} = this.props.control.params
@@ -55,7 +55,7 @@ class BorderComponent extends Component {
 			inputs[i].classList.remove( 'connected' );
 			inputs[i].setAttribute( 'data-element-connect', '' )
 		}
-		event.target.parentElement.classList.remove( 'disconnected' );	
+		event.target.parentElement.classList.remove( 'disconnected' );
 	}
 	onDisconnectedClick () {
 
@@ -70,7 +70,7 @@ class BorderComponent extends Component {
 			inputs[i].classList.add( 'connected' );
 			inputs[i].setAttribute( 'data-element-connect', elements )
 		}
-		event.target.parentElement.classList.add( 'disconnected' );		
+		event.target.parentElement.classList.add( 'disconnected' );
 	}
 	render() {
 
@@ -100,22 +100,22 @@ class BorderComponent extends Component {
 
 		if ( linked_choices ) {
 			htmlLinkedChoices = (
-				<li key={ id } className="ast-border-input-item-link">
+				<li key={ id } className="ast-border-input-item-link disconnected">
 					<span className="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" onClick = { () => { this.onConnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
 					<span className="dashicons dashicons-editor-unlink ast-border-disconnected" onClick = { () => { this.onDisconnectedClick() } } data-element-connect={ id } title={ itemLinkDesc }></span>
 				</li>
 			);
 		}
 
-		
-			
+
+
 			htmlChoices = Object.keys( choices ).map( ( choiceID ) => {
 
-				if ( choices[ choiceID ] ) { 
+				if ( choices[ choiceID ] ) {
 
-					var html = ( 
+					var html = (
 						<li { ...inputAttrs } key={ choiceID } className='ast-border-input-item'>
-							<input type='number' className='ast-border-input ast-border-desktop' data-id= { choiceID } data-name={ name } onChange = { () => this.onBorderChange( choiceID ) } value={ this.state.value[ choiceID ] }/>
+							<input type='number' className='ast-border-input ast-border-desktop connected' data-id= { choiceID } data-name={ name } onChange = { () => this.onBorderChange( choiceID ) } value={ this.state.value[ choiceID ] } data-element-connect={ id } />
 							<span className="ast-border-title">{ choices[ choiceID ] }</span>
 						</li>
 					);
@@ -123,7 +123,7 @@ class BorderComponent extends Component {
 
 				return html;
 			} );
-		
+
 
 		return (
 			<>
