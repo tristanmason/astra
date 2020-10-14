@@ -19,10 +19,10 @@ class ResponsiveSliderComponent extends Component {
 		this.onResetClick = this.onResetClick.bind(this);
 	}
 
-	onResetClick () {
-
+	onResetClick (e) {
+		e.preventDefault();
 		this.updateValues( this.props.control.params.default );
-		
+
 	}
 	onInputChange( device ) {
 
@@ -43,23 +43,40 @@ class ResponsiveSliderComponent extends Component {
 		} = this.props.control.params
 
 		let suffixHtml = null;
+		let inp_array = [];
 
-		if ( suffix ) { 
+		if ( suffix ) {
 			suffixHtml = <span className="ast-range-unit">{ suffix }</span>
+		}
+
+		if ( undefined !== inputAttrs ) {
+
+			let splited_values = inputAttrs.split( " " );
+
+			splited_values.map( (item, i ) => {
+
+				let item_values = item.split( "=" )
+
+				if ( undefined !== item_values[1] ) {
+
+					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
+				}
+
+			});
 		}
 
 		return (
 			<div className={ `input-field-wrapper ${ device } ${ active }` }>
-				<input type="range" value={ this.state.value[ device ] } data-reset_value={ this.props.control.params.default[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+				<input type="range" { ...inp_array } value={ this.state.value[ device ] } data-reset_value={ this.props.control.params.default[ device ] } onChange={ () => { this.onInputChange( device ) } } />
 				<div className="astra_range_value">
-					<input type="number" data-id={ device } className="ast-responsive-range-value-input" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+					<input type="number" { ...inp_array } data-id={ device } className="ast-responsive-range-value-input" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
 					{ suffixHtml }
 				</div>
 			</div>
 		);
 	}
 	render() {
-		
+
 		const {
 			description,
 			label,
@@ -94,7 +111,7 @@ class ResponsiveSliderComponent extends Component {
 						</button>
 					</li>
 				</ul>
-			);			
+			);
 		}
 
 		if ( description ) {
@@ -111,14 +128,14 @@ class ResponsiveSliderComponent extends Component {
 		);
 
 		resetHtml = (
-			<div className="ast-responsive-slider-reset" onClick={ () => { this.onResetClick() } } >
+			<div className="ast-responsive-slider-reset" onClick={ (e) => { this.onResetClick(e) } } >
 				<span className="dashicons dashicons-image-rotate ast-control-tooltip" title={ reset } ></span>
 			</div>
 		);
 
 		return (
 			<label key={ 'customizer-text' }>
-				{ labelHtml } 
+				{ labelHtml }
 				{ responsiveHtml }
 				{ descriptionHtml }
 

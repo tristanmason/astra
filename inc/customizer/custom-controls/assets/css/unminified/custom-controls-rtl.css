@@ -1286,21 +1286,23 @@
 	}
 }
 @supports (-moz-appearance:none) {
-	.ast-color-palette .components-circular-option-picker__option-wrapper {
-		margin-left: 5px;
-	}
-	.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
-		width: 21px;
-		height: 21px;
-	}
-	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
-		height: 20px;
-		width: 20px;
-	}
-	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-		right: 3px;
-		top: -2px;
-		width: 15px;
+	@media (max-width: 1845px) {
+		.ast-color-palette .components-circular-option-picker__option-wrapper {
+			margin-left: 5px;
+		}
+		.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+			width: 21px;
+			height: 21px;
+		}
+		.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+			height: 20px;
+			width: 20px;
+		}
+		.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+			right: 3px;
+			top: -2px;
+			width: 15px;
+		}
 	}
 }
 
