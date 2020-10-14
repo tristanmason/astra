@@ -103,7 +103,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
 			if ( ! is_customize_preview() ) {
-				add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_submenu_css' );
+				// add css on the admin init action to resolve the error in the PWA service worker js.
+				add_action( 'admin_head', __CLASS__ . '::admin_submenu_css' );
 			}
 
 			$requested_page = isset( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -1554,8 +1555,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 2.5.4
 		 */
 		public static function admin_submenu_css() {
-			?>
-			<style class="astra-menu-appearance-style">
+			
+			echo '<style class="astra-menu-appearance-style">
 					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
 					#menu-appearance a[href^="themes.php?page=astra-"]:before,
 					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
@@ -1566,8 +1567,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						margin-right: 0.5em;
 						opacity: 0.5;
 					}
-				</style>
-				<?php
+				</style>';
+				
 		}
 	}
 
