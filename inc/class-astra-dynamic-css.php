@@ -692,7 +692,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Remove margin top when No Sidebar is added in Full-Width / Contained Layout.
 				if ( is_singular() ) {
-					if ( apply_filters( 'astra_content_margin_full_width_contained', true ) ) {
+					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
+					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) || ( self::gutenberg_core_blocks_css_comp() ) ) {
 						$gtn_margin_top = array(
 							'.ast-plain-container.ast-no-sidebar #primary' => array(
 								'margin-top'    => '0',
