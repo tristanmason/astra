@@ -105,7 +105,7 @@ input[type="text"] {
             width: 20%;
 		}
 		.ast-reset-btn {
-			.components-button svg {
+			&.components-button svg {
 				padding: 0px;
     			height: 13px;
 			}
