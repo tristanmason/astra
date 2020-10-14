@@ -692,8 +692,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
 				if ( is_singular() ) {
-					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
-					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) ) {
+					if ( apply_filters( 'astra_content_margin_full_width_contained', true ) ) {
 						$gtn_margin_top = array(
 							'.ast-plain-container.ast-no-sidebar #primary' => array(
 								'margin-top'    => '0',
@@ -733,6 +732,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.wp-block-image.size-full'          => array(
 						'margin' => '2rem 0',
 					),
+					'.wp-block-separator.has-background' => array(
+						'padding' => '0',
+					),
 					'.wp-block-gallery'                  => array(
 						'margin-bottom' => '1.6em',
 					),
@@ -740,7 +742,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding-top'    => '4em',
 						'padding-bottom' => '4em',
 					),
-					'.wp-block-group__inner-container:last-child, .wp-block-table table' => array(
+					'.wp-block-group__inner-container .wp-block-columns:last-child, .wp-block-group__inner-container :last-child, .wp-block-table table' => array(
 						'margin-bottom' => '0',
 					),
 					'.blocks-gallery-grid'               => array(
