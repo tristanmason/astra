@@ -58,8 +58,6 @@ function astra_vertical_horizontal_padding_migration() {
 
 	if ( false === astra_get_db_option( 'theme-button-padding', false ) ) {
 
-		error_log( sprintf( 'Astra: Migrating vertical Padding - %s', $btn_vertical_padding ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-		error_log( sprintf( 'Astra: Migrating horizontal Padding - %s', $btn_horizontal_padding ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 		// Migrate button vertical padding to the new padding param for button.
 		$theme_options['theme-button-padding'] = array(
 			'desktop'      => array(
@@ -101,7 +99,6 @@ function astra_header_button_new_options() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
-	error_log( 'Astra: Migrating button url - ' . $btn_url ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 	$theme_options['header-main-rt-section-button-link-option'] = array(
 		'url'      => $btn_url,
 		'new_tab'  => false,
@@ -266,7 +263,6 @@ function astra_footer_widget_bg() {
 
 	// Check if Footer Backgound array is already set or not. If not then set it as array.
 	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] ) ) {
-		error_log( 'Astra: Migrating Footer BG option to array.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 		$theme_options['footer-adv-bg-obj'] = array(
 			'background-color'      => '',
 			'background-image'      => '',
@@ -275,6 +271,22 @@ function astra_footer_widget_bg() {
 			'background-size'       => 'auto',
 			'background-attachment' => 'scroll',
 		);
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Do not apply new Group, Column and Media & Text block CSS for existing users.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_gutenberg_core_blocks_design_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['guntenberg-core-blocks-comp-css'] ) ) {
+		$theme_options['guntenberg-core-blocks-comp-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

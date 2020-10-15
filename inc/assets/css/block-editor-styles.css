@@ -719,13 +719,6 @@ h6 {
   box-shadow: inset 0 2px 5px -3px black;
 }
 
-#elementor-editor-button[disabled], #elementor-editor-button:disabled, #elementor-editor-button.button-primary-disabled, #elementor-editor-button.disabled {
-  color: #c7ced1 !important;
-  background: #005781 !important;
-  border-color: #005781 !important;
-  text-shadow: none !important;
-}
-
 #elementor-editor-button i {
   font-style: normal;
   color: white;

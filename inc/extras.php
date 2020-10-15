@@ -327,17 +327,6 @@ function astra_wp_version_compare( $version, $compare ) {
 }
 
 /**
- * Get instance of WP_Filesystem.
- *
- * @since 2.1.0
- *
- * @return WP_Filesystem
- */
-function astra_filesystem() {
-	return Astra_Filesystem::instance();
-}
-
-/**
  * Remove Base Color > Background Color option from the customize array.
  *
  * @since 2.4.0

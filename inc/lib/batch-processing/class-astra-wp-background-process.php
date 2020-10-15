@@ -5,15 +5,15 @@
  * @package WP-Background-Processing
  */
 
-if ( ! class_exists( 'WP_Background_Process' ) ) {
+if ( ! class_exists( 'Astra_WP_Background_Process' ) ) {
 
 	/**
-	 * Abstract WP_Background_Process class.
+	 * Abstract Astra_WP_Background_Process class.
 	 *
 	 * @abstract
-	 * @extends WP_Async_Request
+	 * @extends Astra_WP_Async_Request
 	 */
-	abstract class WP_Background_Process extends WP_Async_Request {
+	abstract class Astra_WP_Background_Process extends Astra_WP_Async_Request {
 
 		/**
 		 * Action
