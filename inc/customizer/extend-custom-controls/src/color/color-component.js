@@ -21,10 +21,6 @@ class ColorComponent extends Component {
 		};
 	}
 	renderOperationButtons () {
-		let disabled = false;
-		if (!this.state.value) {
-			disabled = true;
-		}
 		return (
 			<span className="customize-control-title">
 				<>
