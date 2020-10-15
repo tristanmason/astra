@@ -2146,6 +2146,22 @@
         }
     },
     {
+        "Commissioner": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Concert One": {
             "variants": [
                 "regular"
@@ -2426,8 +2442,12 @@
         "Cuprum": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -2677,6 +2697,8 @@
         "Domine": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -7442,6 +7464,31 @@
         }
     },
     {
+        "Piazzolla": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Piedra": {
             "variants": [
                 "regular"
@@ -8060,6 +8107,8 @@
             "variants": [
                 "300",
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "display"
@@ -8549,6 +8598,20 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Sansita Swashed": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
