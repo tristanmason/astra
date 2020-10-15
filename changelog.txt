@@ -1,8 +1,8 @@
 v2.6.0
-- New: Gradient color option for background control in Customizer.
+- New: Gradient color option for background control in Customizer. ( Doc Link )
 - New: Partial refresh for Mobile Menu Label option in the Customizer.
 - Improvement: Color, Responsive Color, Background & Responsive Background control now uses Gutenberg's control in Customizer.
-Improvement: All custom controls HTML markup was loading from PHP, which is now moved to React JS for the better and optimized Customizer performance.
+Improvement: All custom controls HTML markup was loading from PHP, which is now moved to React JS for the better and optimized Customizer performance. ( Blog Link )
 - Improvement: Use "customize_controls_enqueue_scripts" action for enqueueing Customizer script to avoid loading on all admin pages. (Props - https://github.com/westonruter)
 - Improvement: Compatibility with the Gutenberg plugin.
 - Fix: JS Console error with PWA plugin.
