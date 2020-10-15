@@ -60,18 +60,21 @@ class Background extends Component {
 							e.preventDefault();
 							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
 
-							if ( undefined !== value && '' !== value ) {								
+							if ( undefined !== value && '' !== value ) {
 								if ( undefined === value['background-color'] || '' === value['background-color'] ) {
-									value['background-color'] = 'unset';
+									value['background-color'] = '';
+									wp.customize.previewer.refresh();
 								}
 								if ( undefined === value['background-image'] || '' === value['background-image'] ) {
-									value['background-image'] = 'unset';
+									value['background-image'] = '';
+									wp.customize.previewer.refresh();
 								}
 								if ( undefined === value['background-media'] || '' === value['background-media'] ) {
-									value['background-media'] = 'unset';
+									value['background-media'] = '';
+									wp.customize.previewer.refresh();
 								}
 							}
-							
+
 							this.updateValues( value );
 							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }

@@ -1410,7 +1410,7 @@ input[type="text"].select2-search__field {
     .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
       width: 20%;
     }
-    .ast-reset-btn .components-button svg {
+    .ast-reset-btn.components-button svg {
       padding: 0px;
       height: 13px;
     }
@@ -1939,6 +1939,13 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
   margin-right: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title {
+  display: block;
+  margin-bottom: 0px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
@@ -3519,6 +3526,13 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
   margin-right: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title {
+  display: block;
+  margin-bottom: 0px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {

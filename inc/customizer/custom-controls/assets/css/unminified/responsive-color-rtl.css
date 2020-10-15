@@ -49,6 +49,13 @@
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
   margin-right: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .customize-control-title {
+  display: block;
+  margin-bottom: 0px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
