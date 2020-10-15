@@ -631,14 +631,24 @@
 		width: 18px;
 	}
 }
-@-moz-document url-prefix() {
-	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
-		margin-right: 5px;
-		height: 25px;
-		width: 25px;
-	}
-	.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-		padding: 16px 0px 0px 14px;
+@supports (-moz-appearance:none) {
+	@media (max-width: 1845px) {
+		.ast-color-palette .components-circular-option-picker__option-wrapper {
+			margin-right: 5px;
+		}
+		.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+			width: 21px;
+			height: 21px;
+		}
+		.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
+			height: 20px;
+			width: 20px;
+		}
+		.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+			left: 3px;
+			top: -2px;
+			width: 15px;
+		}
 	}
 }
 
@@ -745,6 +755,10 @@ input[type="text"].select2-search__field {
     }
     .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
       width: 20%;
+    }
+    .ast-reset-btn.components-button svg {
+      padding: 0px;
+      height: 13px;
     }
   }
 }
@@ -1142,6 +1156,12 @@ input[type="text"].select2-search__field {
   justify-content: flex-start;
 }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
+    width: 50px;
+  }
+}
+
 .astra-popover-color [ID*="-color-view"] .components-circular-option-picker {
   width: auto;
 }
@@ -1260,6 +1280,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   right: 30px;
+  top: -3px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .astra-color-picker-wrap {
@@ -1275,7 +1296,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns {
   right: 7px;
-  top: -2px;
+  top: 1px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color.customize-control:first-child {
@@ -1284,6 +1305,21 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-clear-btn-inside-picker.components-button {
   margin: 5px 20px 20px 10px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  top: 3.5px;
+}
+
+@supports (-moz-appearance: none) {
+  .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+    top: 5.5px;
+    right: 65px;
+  }
+  .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
+    right: 27px;
+    top: -2px;
+  }
 }
 
 .ast-responsive-select-container {
@@ -1389,7 +1425,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-slider .ast-responsive-slider-reset {
   color: rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: -28px;
+  top: -34px;
   right: 1.5em;
   display: inline-block;
   -webkit-transition: color 0.5s ease-in;
