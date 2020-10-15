@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 2.6.0
  */
 
 // No direct access, please.
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Sanitizes
  *
- * @since x.x.x
+ * @since 2.6.0
  */
 if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since x.x.x
+		 * @since 2.6.0
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {

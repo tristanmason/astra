@@ -358,7 +358,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 /**
  * Is theme existing header footer configs enable.
  *
- * @since x.x.x
+ * @since 2.6.0
  *
  * @return boolean true/false.
  */

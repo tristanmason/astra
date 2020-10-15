@@ -278,7 +278,7 @@ function astra_footer_widget_bg() {
 /**
  * Migrate Background control options to new array.
  *
- * @since x.x.x
+ * @since 2.6.0
  *
  * @return void
  */
@@ -313,7 +313,7 @@ function astra_bg_control_migration() {
 /**
  * Migrate Background Responsive options to new array.
  *
- * @since x.x.x
+ * @since 2.6.0
  *
  * @return void
  */
@@ -369,7 +369,7 @@ function astra_bg_responsive_control_migration() {
 /**
  * Do not apply new Group, Column and Media & Text block CSS for existing users.
  *
- * @since x.x.x
+ * @since 2.6.0
  *
  * @return void
  */
