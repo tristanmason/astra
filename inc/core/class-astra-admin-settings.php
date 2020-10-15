@@ -421,7 +421,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			 *
 			 * @param array array of the javascript handles.
 			 */
-			$js_handle = apply_filters( 'astra_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
+			$js_handle = apply_filters( 'astra_admin_script_handles', array( 'jquery' ) );
 
 			// Add customize-base handle only for the Customizer Preview Screen.
 			if ( true === is_customize_preview() ) {
@@ -1555,7 +1555,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 2.5.4
 		 */
 		public static function admin_submenu_css() {
-			
+
 			echo '<style class="astra-menu-appearance-style">
 					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
 					#menu-appearance a[href^="themes.php?page=astra-"]:before,
@@ -1568,7 +1568,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						opacity: 0.5;
 					}
 				</style>';
-				
+
 		}
 	}
 
