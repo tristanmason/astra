@@ -203,6 +203,9 @@
 		.components-circular-option-picker__custom-clear-wrapper {
 			margin-top: 10px;
 			justify-content: flex-start;
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+				width: 50px;
+			}
 		}
 	}
 	[ID*="-color-view"] .components-circular-option-picker {

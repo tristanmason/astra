@@ -21,10 +21,6 @@ class ColorComponent extends Component {
 		};
 	}
 	renderOperationButtons () {
-		let disabled = false;
-		if (!this.state.value) {
-			disabled = true;
-		}
 		return (
 			<span className="customize-control-title">
 				<>
@@ -45,7 +41,7 @@ class ColorComponent extends Component {
 							this.refs.ChildAstraColorPickerControl.onResetRefresh();
 						} }
 						>
-						<Dashicon icon='image-rotate' />
+						<Dashicon icon='image-rotate' style={{width: 12, height: 12, fontSize: 12}} />
 						</button>
 					</div>
 				</>

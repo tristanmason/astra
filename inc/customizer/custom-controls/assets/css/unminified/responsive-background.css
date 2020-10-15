@@ -218,6 +218,12 @@
   justify-content: flex-start;
 }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .astra-popover-color .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
+    width: 50px;
+  }
+}
+
 .astra-popover-color [ID*="-color-view"] .components-circular-option-picker {
   width: auto;
 }
