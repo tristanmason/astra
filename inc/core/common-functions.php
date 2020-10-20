@@ -340,10 +340,10 @@ if ( ! function_exists( 'astra_get_background_obj' ) ) {
 					break;
 
 				case 'image':
-					if ( '' !== $bg_img && '' !== $bg_color && ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) ) {
+					if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
 						$gen_bg_css['background-image'] = 'linear-gradient(to right, ' . $bg_color . ', ' . $bg_color . '), url(' . $bg_img . ');';
 					}
-					if ( ( '' === $bg_color || is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && '' !== $bg_img ) ) {
+					if ( '' === $bg_color || is_numeric( strpos( $bg_color, 'linear-gradient' ) ) || is_numeric( strpos( $bg_color, 'radial-gradient' ) ) && '' !== $bg_img ) {
 						$gen_bg_css['background-image'] = 'url(' . $bg_img . ');';
 					}
 					break;
@@ -1455,10 +1455,10 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 				break;
 
 			case 'image':
-				if ( '' !== $bg_img && '' !== $bg_color && ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) ) {
+				if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
 					$gen_bg_css['background-image'] = 'linear-gradient(to right, ' . $bg_color . ', ' . $bg_color . '), url(' . $bg_img . ');';
 				}
-				if ( '' === $bg_color || is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && '' !== $bg_img ) {
+				if ( '' === $bg_color || is_numeric( strpos( $bg_color, 'linear-gradient' ) ) || is_numeric( strpos( $bg_color, 'radial-gradient' ) ) && '' !== $bg_img ) {
 					$gen_bg_css['background-image'] = 'url(' . $bg_img . ');';
 				}
 				break;
