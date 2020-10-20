@@ -357,6 +357,8 @@ if ( ! function_exists( 'astra_get_background_obj' ) ) {
 				default:
 					break;
 			}
+		} elseif ( '' !== $bg_color ) {
+			$gen_bg_css['background-color'] = $bg_color . ';';
 		}
 
 		if ( '' !== $bg_img ) {
@@ -1414,7 +1416,6 @@ function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
  */
 function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 
-
 	$gen_bg_css = array();
 
 	if ( ! is_array( $bg_obj_res ) ) {
@@ -1476,6 +1477,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 	} elseif ( '' !== $bg_color ) {
 		$gen_bg_css['background-color'] = $bg_color . ';';
 	}
+
 	if ( '' !== $bg_img ) {
 		if ( isset( $bg_obj['background-repeat'] ) ) {
 			$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
