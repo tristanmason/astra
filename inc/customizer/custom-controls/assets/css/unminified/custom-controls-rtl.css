@@ -1225,6 +1225,10 @@
 .customize-control .ast-gradient-color-picker input[type="number"] {
 	width: 50%;
 }
+/** Gradient Color Picker -> RGBA & HSLA range fields */
+.customize-control .ast-gradient-color-picker .is-alpha-enabled .components-base-control__field [type="number"] {
+    width: 100%;
+}
 /** Modal Color Picker - Group Param */
 .ast-field-settings-modal .astra-popover-color .ast-color-palette {
 	padding: 8px 13px 0px 0px;
