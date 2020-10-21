@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-20T07:48:45+02:00\n"
+"POT-Creation-Date: 2020-10-21T15:18:03+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: astra\n"
@@ -59,7 +59,7 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:407
-#: inc/core/common-functions.php:873
+#: inc/core/common-functions.php:875
 msgid "Home"
 msgstr ""
 
@@ -1730,27 +1730,27 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:879
+#: inc/core/common-functions.php:881
 msgid "This page doesn't seem to exist."
 msgstr ""
 
 #. translators: 1: search string
-#: inc/core/common-functions.php:885
-#: inc/core/common-functions.php:977
+#: inc/core/common-functions.php:887
+#: inc/core/common-functions.php:979
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/core/common-functions.php:1177
+#: inc/core/common-functions.php:1179
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: inc/core/common-functions.php:1178
+#: inc/core/common-functions.php:1180
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: inc/core/common-functions.php:1180
+#: inc/core/common-functions.php:1182
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:35
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:155
 #: inc/markup-extras.php:401
