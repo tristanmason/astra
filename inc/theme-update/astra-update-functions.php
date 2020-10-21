@@ -304,7 +304,6 @@ function astra_bg_control_migration() {
 				$theme_options[ $option_name ]['background-media'] = '';
 			}
 
-			error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
@@ -360,7 +359,6 @@ function astra_bg_responsive_control_migration() {
 				$theme_options[ $option_name ]['mobile']['background-media'] = '';
 			}
 
-			error_log( sprintf( 'Astra: Migrating Background Response Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
