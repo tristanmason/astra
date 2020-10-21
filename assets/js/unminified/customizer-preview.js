@@ -494,15 +494,18 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_tab_img + ');';
 						} else {
 							gen_bg_css = 'background-color: ' + bg_color + ';';
+							gen_bg_css += 'background-image: none;';
 						}
 					} else if ( 'tablet' === device ) {
 						if ( desktop_css ) {
 							gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_desk_img + ');';
 						} else {
 							gen_bg_css = 'background-color: ' + bg_color + ';';
+							gen_bg_css += 'background-image: none;';
 						}
 					} else if ( undefined === bg_img || '' === bg_img ) {
 						gen_bg_css = 'background-color: ' + bg_color + ';';
+						gen_bg_css += 'background-image: none;';
 					}
 				} else if ( 'image' === bg_obj[device]['background-type'] ) {
 					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color && ! bg_color.includes("linear-gradient") && ! bg_color.includes("radial-gradient") ) {
