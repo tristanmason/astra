@@ -30,7 +30,7 @@ class Background extends Component {
 
 		if ( undefined === this.state.value['background-type']  || '' === this.state.value['background-type'] ) {
 
-			if ( undefined !== this.state.value['background-color'] ) {
+			if ( undefined !== this.state.value['background-color'] && '' !== this.state.value['background-color'] ) {
 
 				obj['background-type'] = 'color';
 				this.updateValues( obj );
@@ -42,7 +42,7 @@ class Background extends Component {
 					this.updateValues( obj );
 				}
 			}
-			if ( undefined !== this.state.value['background-image'] ) {
+			if ( undefined !== this.state.value['background-image'] && '' !== this.state.value['background-image'] ) {
 
 				obj['background-type'] = 'image';
 				this.updateValues( obj );
