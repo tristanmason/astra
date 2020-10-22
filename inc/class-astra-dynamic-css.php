@@ -711,7 +711,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * If transparent header is activated then it adds top 1.5em padding space, so this CSS will fix this issue.
 				 * This issue is only visible on responsive devices.
 				 *
-				 * @since x.x.x
+				 * @since 2.6.0
 				 */
 				if ( is_singular() ) {
 
@@ -2329,7 +2329,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Do not apply new Group, Column and Media & Text block CSS for existing users.
 		 *
-		 * @since x.x.x
+		 * @since 2.6.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gutenberg_core_blocks_css_comp() {

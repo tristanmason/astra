@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial text for the mobile toggle menu
 		 *
-		 * @since x.x.x
+		 * @since 2.6.0
 		 *
 		 * @return mixed
 		 */
