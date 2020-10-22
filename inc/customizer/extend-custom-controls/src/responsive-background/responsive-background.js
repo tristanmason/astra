@@ -30,18 +30,20 @@ class ResponsiveBackground extends Component {
 	}
 	updateBackgroundType( device ) {
 
+		let value = this.props.control.setting.get();
+
 		let obj = {
-			...this.state.value,
+			...value,
 		};
 
 		if ( undefined === this.state.value[ device ]['background-type']  || '' === this.state.value[ device ]['background-type'] ) {
+		
 
 			let deviceObj = {
 				...obj[ device ]
 			};
 
-			if ( undefined !== this.state.value[ device ]['background-color'] ) {
-
+			if ( undefined !== this.state.value[ device ]['background-color'] && '' !== this.state.value[ device ]['background-color'] ) {
 				deviceObj['background-type'] = 'color';
 				obj[ device ] = deviceObj
 				this.updateValues( obj );
@@ -52,13 +54,15 @@ class ResponsiveBackground extends Component {
 					obj[ device ] = deviceObj
 					this.updateValues( obj );
 				}
+
 			}
-			if ( undefined !== this.state.value[ device ]['background-image'] ) {
+			if ( undefined !== this.state.value[ device ]['background-image'] && '' !== this.state.value[ device ]['background-image'] ) {
 
 				deviceObj['background-type'] = 'image';
 				obj[ device ] = deviceObj
 				this.updateValues( obj );
 			}
+
 		}
 	}
 	renderReset( key ) {
