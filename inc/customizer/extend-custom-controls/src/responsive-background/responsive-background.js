@@ -40,7 +40,7 @@ class ResponsiveBackground extends Component {
 				...obj[ device ]
 			};
 
-			if ( undefined !== this.state.value[ device ]['background-color'] ) {
+			if ( undefined !== this.state.value[ device ]['background-color'] && '' !== this.state.value[ device ]['background-color'] ) {
 
 				deviceObj['background-type'] = 'color';
 				obj[ device ] = deviceObj
@@ -53,7 +53,7 @@ class ResponsiveBackground extends Component {
 					this.updateValues( obj );
 				}
 			}
-			if ( undefined !== this.state.value[ device ]['background-image'] ) {
+			if ( undefined !== this.state.value[ device ]['background-image'] && '' !== this.state.value[ device ]['background-image'] ) {
 
 				deviceObj['background-type'] = 'image';
 				obj[ device ] = deviceObj
