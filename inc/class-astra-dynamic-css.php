@@ -716,7 +716,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( is_singular() ) {
 
 					$trans_header_responsive_top_space_css_fix = array(
-						'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary' => array(
+						'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary, .ast-plain-container.ast-no-sidebar #primary' => array(
 							'padding' => 0,
 						),
 					);
