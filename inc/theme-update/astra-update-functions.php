@@ -339,6 +339,11 @@ function astra_bg_responsive_control_migration() {
 				$theme_options[ $option_name ]['desktop']['background-type']  = 'image';
 				$theme_options[ $option_name ]['desktop']['background-media'] = attachment_url_to_postid( $theme_options[ $option_name ]['desktop']['background-image'] );
 			} else {
+								echo "<pre>";
+
+				var_dump($theme_options[ $option_name ]['desktop']);
+				echo "</pre>"; 
+				wp_die();
 				$theme_options[ $option_name ]['desktop']['background-type']  = '';
 				$theme_options[ $option_name ]['desktop']['background-media'] = '';
 			}
