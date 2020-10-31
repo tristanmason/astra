@@ -716,7 +716,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( is_singular() ) {
 
 					$trans_header_responsive_top_space_css_fix = array(
-						'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary, .ast-plain-container.ast-no-sidebar #primary' => array(
+						'.ast-theme-transparent-header #primary, .ast-theme-transparent-header #secondary' => array(
 							'padding' => 0,
 						),
 					);
@@ -805,9 +805,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$mobile_screen_max_gb_css = array(
 					// Content | image | video inside Media & Text block, Cover block, Image inside cover block compatibility (max-width: mobile-breakpoint) CSS.
-					'.wp-block-media-text .wp-block-media-text__content' => array(
-						'padding' => '3em 2em',
-					),
 					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
 						'width' => 'unset',
 					),
@@ -826,8 +823,58 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				if ( ! self::gutenberg_media_text_block_css_compat() ) {
+					// Added this [! self::gutenberg_media_text_block_css_compat()] condition as we update the same selector CSS in gutenberg_media_text_block_css_compat() function with new padding: 8% 0; CSS for max-width: (mobile-breakpoint).
+					$mobile_screen_max_gb_css['.wp-block-media-text .wp-block-media-text__content'] = array(
+						'padding' => '3em 2em',
+					);
+				}
+
 				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
 				$parse_css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
+			}
+
+			if ( self::gutenberg_media_text_block_css_compat() ) {
+
+				/**
+				 * Remove #primary padding on mobile devices which compromises deigned layout.
+				 *
+				 * @since x.x.x
+				 */
+				if ( is_singular() ) {
+
+					$remove_primary_padding_on_mobile_css = array(
+						'.ast-plain-container.ast-no-sidebar #primary' => array(
+							'padding' => 0,
+						),
+					);
+
+					/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
+					$parse_css .= astra_parse_css( $remove_primary_padding_on_mobile_css, '', astra_get_tablet_breakpoint() );
+				}
+
+				$media_text_block_padding_css = array(
+					// Media & Text block CSS compatibility (min-width: mobile-breakpoint) CSS.
+					'.entry-content .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content' => array(
+						'padding' => '0 8% 0 0',
+					),
+					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '0 0 0 8%',
+					),
+				);
+
+				/* Parse CSS from array() -> min-width: (mobile-breakpoint)px CSS */
+				$parse_css .= astra_parse_css( $media_text_block_padding_css, astra_get_mobile_breakpoint() );
+
+				$mobile_screen_media_text_block_css = array(
+					// Media & Text block padding CSS for (max-width: mobile-breakpoint) CSS.
+					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '8% 0',
+					),
+				);
+
+				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
+				$parse_css .= astra_parse_css( $mobile_screen_media_text_block_css, '', astra_get_mobile_breakpoint() );
 			}
 
 			$static_layout_css = array(
@@ -2336,6 +2383,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-core-blocks-comp-css'] = isset( $astra_settings['guntenberg-core-blocks-comp-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-core-blocks-comp-css'] );
+		}
+
+		/**
+		 * Do not apply new Group, Column and Media & Text block CSS for existing users.
+		 *
+		 * CSS for adding spacing|padding support to Gutenberg Media-&-Text Block
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function gutenberg_media_text_block_css_compat() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['guntenberg-media-text-block-padding-css'] = isset( $astra_settings['guntenberg-media-text-block-padding-css'] ) ? false : true;
+			return apply_filters( 'astra_gutenberg_media_text_block_spacing_compatibility', $astra_settings['guntenberg-media-text-block-padding-css'] );
 		}
 	}
 }
