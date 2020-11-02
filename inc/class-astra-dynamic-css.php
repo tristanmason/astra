@@ -871,6 +871,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
 						'padding' => '8% 0',
 					),
+					'.wp-block-media-text .wp-block-media-text__media img' => array(
+						'width' => 'auto',
+						'max-width' => '100%',
+					),
 				);
 
 				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
