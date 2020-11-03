@@ -28,12 +28,19 @@ class Astra_Control_Color_Palette extends WP_Customize_Control {
 	public $type = 'ast-color-palette';
 
 	/**
-	 * The control type.
+	 * The control default value.
 	 *
 	 * @access public
 	 * @var string
 	 */
-	public $help = '';
+	public $default = array();
+
+	/**
+	 * Additional arguments passed to JS.
+	 *
+	 * @var array
+	 */
+	public $input_attrs = array();
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -42,8 +49,7 @@ class Astra_Control_Color_Palette extends WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['label']       = esc_html( $this->label );
-		$this->json['default'] = $this->default;
+		$this->json['default']     = $this->default;
 		$this->json['input_attrs'] = $this->input_attrs;
 	}
 
