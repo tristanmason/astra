@@ -32,6 +32,19 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Global Color Palette
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[global-color-palette]',
+					'type'     => 'control',
+					'control'  => 'ast-color-palette',
+					'section'  => 'section-colors-body',
+					'default'  => '#0274be',
+					'priority' => 5,
+					'title'    => __( 'Global Color Palette', 'astra' ),
+				),
+
+				/**
 				 * Option: Text Color
 				 */
 				array(
