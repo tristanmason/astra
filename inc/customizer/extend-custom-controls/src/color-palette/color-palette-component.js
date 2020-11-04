@@ -50,51 +50,46 @@ class ColorPaletteComponent extends Component {
 					<div className="ast-color-picker-palette-1" >
 						<AstraColorPickerControl
 							color={ '#000000' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
-							style={ {right: "16%" } }
 						/>
 					</div>
 					<div className="ast-color-picker-palette-2" >
 						<AstraColorPickerControl
-							color={ '#000000' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
+							color={ '#ffffff' }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
-							style={ {right: "16%" } }
 						/>
 					</div>
 					<div className="ast-color-picker-palette-3" >
 						<AstraColorPickerControl
-							color={ '#000000' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
+							color={ '#dd3333' }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
-							style={ {right: "16%" } }
 						/>
 					</div>
 					<div className="ast-color-picker-palette-4" >
 						<AstraColorPickerControl
-							color={ '#000000' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
+							color={ '#1e73be' }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
-							style={ {right: "16%" } }
 						/>
 					</div>
 					<div className="ast-color-picker-palette-5" >
 						<AstraColorPickerControl
-							color={ '#000000' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, key ) }
+							color={ '#8224e3' }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
-							style={ {right: "16%" } }
 						/>
 					</div>
 				</div>

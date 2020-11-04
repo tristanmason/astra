@@ -9617,66 +9617,51 @@ var ColorPaletteComponent = /*#__PURE__*/function (_Component) {
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
         color: '#000000',
         onChangeComplete: function onChangeComplete(color, backgroundType) {
-          return _this2.handleChangeComplete(color, key);
+          return _this2.handleChangeComplete(color, 'desktop');
         },
         backgroundType: 'color',
         allowGradient: false,
-        allowImage: false,
-        style: {
-          right: "16%"
-        }
+        allowImage: false
       })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "ast-color-picker-palette-2"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        color: '#000000',
+        color: '#ffffff',
         onChangeComplete: function onChangeComplete(color, backgroundType) {
-          return _this2.handleChangeComplete(color, key);
+          return _this2.handleChangeComplete(color, 'desktop');
         },
         backgroundType: 'color',
         allowGradient: false,
-        allowImage: false,
-        style: {
-          right: "16%"
-        }
+        allowImage: false
       })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "ast-color-picker-palette-3"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        color: '#000000',
+        color: '#dd3333',
         onChangeComplete: function onChangeComplete(color, backgroundType) {
-          return _this2.handleChangeComplete(color, key);
+          return _this2.handleChangeComplete(color, 'desktop');
         },
         backgroundType: 'color',
         allowGradient: false,
-        allowImage: false,
-        style: {
-          right: "16%"
-        }
+        allowImage: false
       })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "ast-color-picker-palette-4"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        color: '#000000',
+        color: '#1e73be',
         onChangeComplete: function onChangeComplete(color, backgroundType) {
-          return _this2.handleChangeComplete(color, key);
+          return _this2.handleChangeComplete(color, 'desktop');
         },
         backgroundType: 'color',
         allowGradient: false,
-        allowImage: false,
-        style: {
-          right: "16%"
-        }
+        allowImage: false
       })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "ast-color-picker-palette-5"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        color: '#000000',
+        color: '#8224e3',
         onChangeComplete: function onChangeComplete(color, backgroundType) {
-          return _this2.handleChangeComplete(color, key);
+          return _this2.handleChangeComplete(color, 'desktop');
         },
         backgroundType: 'color',
         allowGradient: false,
-        allowImage: false,
-        style: {
-          right: "16%"
-        }
+        allowImage: false
       }))));
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("label", null, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", null, inputHtml));
     }
@@ -9718,14 +9703,15 @@ var colorPaletteControl = wp.customize.astraControl.extend({
   ready: function ready() {
     'use strict';
 
-    var control = this; // jQuery(document).mouseup(function(e){
-    // 	var container = jQuery(control.container);
-    // 	var colorWrap = container.find('.astra-color-picker-wrap');
-    // 	// If the target of the click isn't the container nor a descendant of the container.
-    // 	if (!colorWrap.is(e.target) && colorWrap.has(e.target).length === 0){
-    // 		container.find('.components-button.astra-color-icon-indicate.open').click();
-    // 	}
-    // });
+    var control = this;
+    jQuery(document).mouseup(function (e) {
+      var container = jQuery(control.container);
+      var colorWrap = container.find('.astra-color-picker-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+
+      if (!colorWrap.is(e.target) && colorWrap.has(e.target).length === 0) {
+        container.find('.components-button.astra-color-icon-indicate.open').click();
+      }
+    });
   }
 });
 
