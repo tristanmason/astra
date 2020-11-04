@@ -106,6 +106,21 @@
     left: 5px;
     top: -4.5px;
 }
+.ast-color-picker-palette-1 .color-button-wrap {
+    left: 60%;
+}
+.ast-color-picker-palette-2 .color-button-wrap {
+    left: 45%;
+}
+.ast-color-picker-palette-3 .color-button-wrap {
+    left: 30%;
+}
+.ast-color-picker-palette-4 .color-button-wrap {
+    left: 15%;
+}
+.ast-color-picker-palette-5 .color-button-wrap {
+    left: -4.5px;
+}
 .components-button.astra-background-icon-indicate {
     width: 50px;
     height: 50px;
