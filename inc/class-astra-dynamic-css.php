@@ -861,6 +861,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
 						'padding' => '0 0 0 8%',
 					),
+					'.ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-bottom-left > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-bottom-right > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-top-left > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-top-right > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-center-right > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-center-left > *'  => array(
+						'margin' => 0,
+					),
 				);
 
 				/* Parse CSS from array() -> min-width: (mobile-breakpoint)px CSS */
