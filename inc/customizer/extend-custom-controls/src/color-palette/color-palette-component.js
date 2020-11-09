@@ -18,16 +18,21 @@ class ColorPaletteComponent extends Component {
 	}
 
 	handleChangeComplete( color, key ) {
+		
 		let value;
+		let color_value;
 
 		if ( typeof color === 'string' || color instanceof String ) {
-			value = color;
+			color_value = color;
 		} else if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
-			value = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
+			color_value = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
 		} else {
-			value = color.hex;
+			color_value = color.hex;
 		}
-        this.updateValues( value, key );
+
+		// value[key] = color_value;
+		
+        this.updateValues( color_value );
     }
 
     render() {
@@ -47,10 +52,12 @@ class ColorPaletteComponent extends Component {
 		inputHtml = (
 			<>
 				<div className="ast-color-picker-palette">
-					<div className="ast-color-picker-palette-1" >
+				<label>
+					<input type="radio" value="Male" name="gender" />
+					 <div className="ast-color-picker-palette-1" >
 						<AstraColorPickerControl
-							color={ '#000000' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
+							color={ ( undefined !== this.state.value && this.state.value ? this.state.value :  '' ) }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'color1' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
@@ -59,7 +66,7 @@ class ColorPaletteComponent extends Component {
 					<div className="ast-color-picker-palette-2" >
 						<AstraColorPickerControl
 							color={ '#ffffff' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'color2' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
@@ -68,7 +75,7 @@ class ColorPaletteComponent extends Component {
 					<div className="ast-color-picker-palette-3" >
 						<AstraColorPickerControl
 							color={ '#dd3333' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'color3' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
@@ -77,7 +84,7 @@ class ColorPaletteComponent extends Component {
 					<div className="ast-color-picker-palette-4" >
 						<AstraColorPickerControl
 							color={ '#1e73be' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'color4' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
@@ -86,12 +93,13 @@ class ColorPaletteComponent extends Component {
 					<div className="ast-color-picker-palette-5" >
 						<AstraColorPickerControl
 							color={ '#8224e3' }
-							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'desktop' ) }
+							onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, 'color5' ) }
 							backgroundType = { 'color' }
 							allowGradient={ false }
 							allowImage={ false }
 						/>
-					</div>
+					</div> 
+				</label>
 				</div>
 			</>
 		)
@@ -105,7 +113,14 @@ class ColorPaletteComponent extends Component {
 				</div>
 			</>
 		);
-    }
+	}
+	updateValues( value ) {
+
+		console.log(value);
+		
+		this.setState( { value: value } );
+		this.props.control.setting.set( value );
+	}
 }
 
 ColorPaletteComponent.propTypes = {
