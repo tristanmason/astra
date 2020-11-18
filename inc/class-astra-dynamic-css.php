@@ -608,19 +608,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			
 			/* 
+			*
 			* Fix button aligment issue comming from the gutenberg plugin (v9.3.0)
 			*
 			*/
-			if ( is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
-				$gtn_plugin_button_center_alignment = array(
-					'.wp-block-buttons.aligncenter' => array(
-						'justify-content' => 'center',
-					),
-				);
-				$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
 
-			}
+			$gtn_plugin_button_center_alignment = array(
+				'.wp-block-buttons.aligncenter' => array(
+					'justify-content' => 'center',
+				),
+			);
+			$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
 			
 
 
