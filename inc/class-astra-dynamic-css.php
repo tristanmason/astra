@@ -608,6 +608,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			
+			/**  
+			 *
+			 * Fix button aligment issue comming from the gutenberg plugin (v9.3.0)
+			 */
+			$gtn_plugin_button_center_alignment = array(
+				'.wp-block-buttons.aligncenter' => array(
+					'justify-content' => 'center',
+				),
+			);
+			$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
+			
+
+
 			/*
 			* Fix the wide width issue in gutenberg
 			* check if the current user is existing user or new user.
@@ -673,6 +687,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right'  => 'auto',
 						'padding-left'  => '20px',
 						'padding-right' => '20px',
+						'width'         => astra_get_css_value( $site_content_width + 40, 'px' ),
 					),
 					// Full Width / Stretched - No Sidebar.
 					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignfull' => array(
@@ -875,7 +890,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding' => '8% 0',
 					),
 					'.wp-block-media-text .wp-block-media-text__media img' => array(
-						'width' => 'auto',
+						'width'     => 'auto',
 						'max-width' => '100%',
 					),
 				);
