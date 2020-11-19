@@ -611,7 +611,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			
 			/**  
 			 *
-			 * Fix button aligment issue comming from the gutenberg plugin (v9.3.0)
+			 * Fix button aligment issue comming from the gutenberg plugin (v9.3.0).
 			 */
 			$gtn_plugin_button_center_alignment = array(
 				'.wp-block-buttons.aligncenter' => array(
