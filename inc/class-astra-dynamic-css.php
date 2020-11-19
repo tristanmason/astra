@@ -687,8 +687,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right'  => 'auto',
 						'padding-left'  => '20px',
 						'padding-right' => '20px',
-						'width'         => astra_get_css_value( $site_content_width + 40, 'px' ),
 					),
+
+					'ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-cover__inner-container, .ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-cover__inner-container' => array(
+						'width' => astra_get_css_value( $site_content_width + 40, 'px' ), 
+					),
+					//
 					// Full Width / Stretched - No Sidebar.
 					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignfull' => array(
 						'margin-left'  => '0',
