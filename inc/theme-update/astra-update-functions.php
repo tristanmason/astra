@@ -379,3 +379,19 @@ function astra_gutenberg_core_blocks_design_compatibility() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply new Media & Text block padding CSS & not remove padding for #primary on mobile devices directly for existing users.
+ *
+ * @since 2.6.1
+ *
+ * @return void
+ */
+function astra_gutenberg_media_text_block_css_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['guntenberg-media-text-block-padding-css'] ) ) {
+		$theme_options['guntenberg-media-text-block-padding-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
