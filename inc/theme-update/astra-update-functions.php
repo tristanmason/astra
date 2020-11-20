@@ -383,7 +383,7 @@ function astra_gutenberg_core_blocks_design_compatibility() {
 /**
  * Do not apply new Media & Text block padding CSS & not remove padding for #primary on mobile devices directly for existing users.
  *
- * @since x.x.x
+ * @since 2.6.1
  *
  * @return void
  */
