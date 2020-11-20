@@ -701,6 +701,7 @@
                 "200",
                 "300",
                 "regular",
+                "500",
                 "600",
                 "700",
                 "800"
@@ -1316,6 +1317,66 @@
         }
     },
     {
+        "Big Shoulders Inline Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Inline Text": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Stencil Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Stencil Text": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Big Shoulders Text": {
             "variants": [
                 "100",
@@ -1835,6 +1896,8 @@
         "Caveat": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "handwriting"
@@ -3724,6 +3787,15 @@
         }
     },
     {
+        "Goldman": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Gorditas": {
             "variants": [
                 "regular",
@@ -4313,10 +4385,12 @@
         "Ibarra Real Nova": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "serif"
@@ -5351,6 +5425,14 @@
         }
     },
     {
+        "Libre Barcode EAN13 Text": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Libre Baskerville": {
             "variants": [
                 "regular",
@@ -5382,22 +5464,22 @@
         "Libre Franklin": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -9145,6 +9227,18 @@
         }
     },
     {
+        "Space Grotesk": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Space Mono": {
             "variants": [
                 "regular",
@@ -9476,6 +9570,22 @@
         }
     },
     {
+        "Syne Mono": {
+            "variants": [
+                "regular"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
+        "Syne Tactile": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Tajawal": {
             "variants": [
                 "200",
@@ -9725,6 +9835,21 @@
                 "900italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Trispace": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -10123,6 +10248,15 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Xanh Mono": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "monospace"
         }
     },
     {
