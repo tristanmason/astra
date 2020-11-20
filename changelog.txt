@@ -1,3 +1,6 @@
+v2.6.1
+- Improvement: Compatibility with the Gutenberg plugin.
+
 v2.6.0
 - New: Gradient color option for background control in customizer. ( https://wpastra.com/docs/new-color-controls-in-astra/ )
 - New: Partial refresh for Mobile Menu Label option in the customizer.

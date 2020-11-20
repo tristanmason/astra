@@ -608,6 +608,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			
+			/**  
+			 *
+			 * Fix button aligment issue comming from the gutenberg plugin (v9.3.0).
+			 */
+			$gtn_plugin_button_center_alignment = array(
+				'.wp-block-buttons.aligncenter' => array(
+					'justify-content' => 'center',
+				),
+			);
+			$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
+			
+
+
 			/*
 			* Fix the wide width issue in gutenberg
 			* check if the current user is existing user or new user.
@@ -674,6 +688,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding-left'  => '20px',
 						'padding-right' => '20px',
 					),
+
+					'.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-cover__inner-container, .ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-cover__inner-container' => array(
+						'width' => astra_get_css_value( $site_content_width + 40, 'px' ), 
+					),
+					
 					// Full Width / Stretched - No Sidebar.
 					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignfull' => array(
 						'margin-left'  => '0',
@@ -805,9 +824,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$mobile_screen_max_gb_css = array(
 					// Content | image | video inside Media & Text block, Cover block, Image inside cover block compatibility (max-width: mobile-breakpoint) CSS.
-					'.wp-block-media-text .wp-block-media-text__content' => array(
-						'padding' => '3em 2em',
-					),
 					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
 						'width' => 'unset',
 					),
@@ -826,8 +842,65 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				if ( ! self::gutenberg_media_text_block_css_compat() ) {
+					// Added this [! self::gutenberg_media_text_block_css_compat()] condition as we update the same selector CSS in gutenberg_media_text_block_css_compat() function with new padding: 8% 0; CSS for max-width: (mobile-breakpoint).
+					$mobile_screen_max_gb_css['.wp-block-media-text .wp-block-media-text__content'] = array(
+						'padding' => '3em 2em',
+					);
+				}
+
 				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
 				$parse_css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
+			}
+
+			if ( self::gutenberg_media_text_block_css_compat() ) {
+
+				/**
+				 * Remove #primary padding on mobile devices which compromises deigned layout.
+				 *
+				 * @since 2.6.1
+				 */
+				if ( is_singular() ) {
+
+					$remove_primary_padding_on_mobile_css = array(
+						'.ast-plain-container.ast-no-sidebar #primary' => array(
+							'padding' => 0,
+						),
+					);
+
+					/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
+					$parse_css .= astra_parse_css( $remove_primary_padding_on_mobile_css, '', astra_get_tablet_breakpoint() );
+				}
+
+				$media_text_block_padding_css = array(
+					// Media & Text block CSS compatibility (min-width: mobile-breakpoint) CSS.
+					'.entry-content .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content' => array(
+						'padding' => '0 8% 0 0',
+					),
+					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '0 0 0 8%',
+					),
+					'.ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-bottom-left > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-bottom-right > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-top-left > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-top-right > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-center-right > *, .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-center-left > *'  => array(
+						'margin' => 0,
+					),
+				);
+
+				/* Parse CSS from array() -> min-width: (mobile-breakpoint)px CSS */
+				$parse_css .= astra_parse_css( $media_text_block_padding_css, astra_get_mobile_breakpoint() );
+
+				$mobile_screen_media_text_block_css = array(
+					// Media & Text block padding CSS for (max-width: mobile-breakpoint) CSS.
+					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '8% 0',
+					),
+					'.wp-block-media-text .wp-block-media-text__media img' => array(
+						'width'     => 'auto',
+						'max-width' => '100%',
+					),
+				);
+
+				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
+				$parse_css .= astra_parse_css( $mobile_screen_media_text_block_css, '', astra_get_mobile_breakpoint() );
 			}
 
 			$static_layout_css = array(
@@ -2336,6 +2409,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-core-blocks-comp-css'] = isset( $astra_settings['guntenberg-core-blocks-comp-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_core_blocks_design_compatibility', $astra_settings['guntenberg-core-blocks-comp-css'] );
+		}
+
+		/**
+		 * Do not apply new Group, Column and Media & Text block CSS for existing users.
+		 *
+		 * CSS for adding spacing|padding support to Gutenberg Media-&-Text Block
+		 *
+		 * @since 2.6.1
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function gutenberg_media_text_block_css_compat() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['guntenberg-media-text-block-padding-css'] = isset( $astra_settings['guntenberg-media-text-block-padding-css'] ) ? false : true;
+			return apply_filters( 'astra_gutenberg_media_text_block_spacing_compatibility', $astra_settings['guntenberg-media-text-block-padding-css'] );
 		}
 	}
 }
