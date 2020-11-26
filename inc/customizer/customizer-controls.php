@@ -39,5 +39,4 @@ require $control_dir . '/customizer-link/class-astra-control-customizer-link.php
 require $control_dir . '/settings-group/class-astra-control-settings-group.php';
 require $control_dir . '/select/class-astra-control-select.php';
 require $control_dir . '/responsive-select/class-astra-control-responsive-select.php';
-//require $control_dir . '/html/class-astra-control-html-editor.php';
 // @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

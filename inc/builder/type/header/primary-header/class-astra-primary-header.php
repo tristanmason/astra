@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 3.0.0.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ define( 'ASTRA_PRIMARY_HEADER_URI', ASTRA_THEME_URI . 'inc/builder/type/header/p
 /**
  * Heading Initial Setup
  *
- * @since x.x.x
+ * @since 3.0.0
  */
 class Astra_Primary_Header {
 
