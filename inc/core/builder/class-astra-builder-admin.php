@@ -40,8 +40,6 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 			add_action( 'wp_ajax_ast-migrate-to-builder', array( $this, 'migrate_to_builder' ) );
 			add_action( 'astra_welcome_page_content', array( $this, 'announcement_astra_hf_builder' ), 1 );
 			add_action( 'astra_welcome_page_content', array( $this, 'migrate_to_builder_box' ), 5 );
@@ -138,24 +136,6 @@ if ( ! class_exists( 'Astra_Builder_Admin' ) ) {
 			$migrate = ( $migrate ) ? true : false;
 			astra_update_option( 'is-header-footer-builder', $migrate );
 			wp_send_json_success();
-		}
-
-		/**
-		 * Admin Scripts Callback
-		 */
-		public function enqueue_admin_scripts() {
-
-			// Scripts.
-			wp_enqueue_script( 'astra-builder-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/admin-settings.js', array( 'jquery' ), ASTRA_THEME_VERSION, false );
-
-			$options = array(
-				'ajax_nonce'         => wp_create_nonce( 'astra-builder-module-nonce' ),
-				'ajaxurl'            => admin_url( 'admin-ajax.php' ),
-				'old_header_footer'  => __( 'Use Old Header/Footer', 'astra' ),
-				'migrate_to_builder' => __( 'Use New Header/Footer Builder', 'astra' ),
-			);
-
-			wp_localize_script( 'astra-builder-admin-settings', 'astraBuilderModules', $options );
 		}
 
 	}
