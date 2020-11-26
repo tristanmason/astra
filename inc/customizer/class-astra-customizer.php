@@ -311,6 +311,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function register_setting_control( $config, $wp_customize ) {
 
+			if ( ! isset( $config['control'] ) ) {
+				return;
+			}
+
 			if ( 'ast-settings-group' === $config['control'] ) {
 				$callback = false;
 			} else {
@@ -384,7 +388,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
 		private function get_dependency_arr() {
-			return self::$dependency_arr;
+			return apply_filters( 'astra_customizer_required_dependency', self::$dependency_arr );
 		}
 
 		/**
@@ -401,7 +405,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Register Sections & Panels
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-register-sections-panels.php';
-
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-identity-configs.php';
@@ -615,6 +618,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-font-variant',
+				array(
+					'callback'          => 'Astra_Control_Font_Variant',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'number',
 				array(
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
@@ -795,6 +806,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								'google_fonts' => $string,
 							),
 							'group_modal_tmpl' => $tmpl,
+							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
+							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
