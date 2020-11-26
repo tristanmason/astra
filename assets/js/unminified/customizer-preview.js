@@ -1349,4 +1349,39 @@ function isJsonString( str ) {
 		astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'left', 'right' ] );
 	}
 
+	// Global custom event which triggers when partial refresh occurs.
+	wp.customize.bind('preview-ready', function () {
+
+		wp.customize.selectiveRefresh.bind('render-partials-response', function (response) {
+
+			if( response.contents.hasOwnProperty('astra-settings[footer-desktop-items]')
+				|| ( ! ( response.contents.hasOwnProperty('astra-settings[header-desktop-items]')
+					|| response.contents.hasOwnProperty('astra-settings[header-mobile-items]') ) ) ) {
+				return false;
+			}
+
+			setTimeout( function () {
+				document.dispatchEvent( new CustomEvent( "astLayoutWidthChanged",  { "detail": { 'response' : response } }) );
+			}, 10 );
+
+		});
+
+		wp.customize.selectiveRefresh.bind('partial-content-rendered', function (response) {
+
+			if( response.partial.id.includes("footer") ) {
+				return false;
+			}
+
+			sessionStorage.setItem('astPartialContentRendered', true);
+			document.dispatchEvent( new CustomEvent( "astPartialContentRendered",  { "detail": { 'response' : response } }) );
+
+		});
+
+		wp.customize.preview.bind( 'astPreviewDeviceChanged', function( device ) {
+			document.dispatchEvent( new CustomEvent( "astPreviewDeviceChanged",  { "detail": device }) );
+
+		} );
+
+	})
+
 } )( jQuery );

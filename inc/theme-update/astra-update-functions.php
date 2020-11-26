@@ -278,7 +278,7 @@ function astra_footer_widget_bg() {
 /**
  * Migrate Background control options to new array.
  *
- * @since 2.6.0
+ * @since 3.0.0
  *
  * @return void
  */
@@ -304,6 +304,7 @@ function astra_bg_control_migration() {
 				$theme_options[ $option_name ]['background-media'] = '';
 			}
 
+			error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
@@ -312,7 +313,7 @@ function astra_bg_control_migration() {
 /**
  * Migrate Background Responsive options to new array.
  *
- * @since 2.6.0
+ * @since 3.0.0
  *
  * @return void
  */
@@ -359,6 +360,7 @@ function astra_bg_responsive_control_migration() {
 				$theme_options[ $option_name ]['mobile']['background-media'] = '';
 			}
 
+			error_log( sprintf( 'Astra: Migrating Background Response Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
@@ -367,7 +369,7 @@ function astra_bg_responsive_control_migration() {
 /**
  * Do not apply new Group, Column and Media & Text block CSS for existing users.
  *
- * @since 2.6.0
+ * @since 3.0.0
  *
  * @return void
  */
@@ -376,6 +378,27 @@ function astra_gutenberg_core_blocks_design_compatibility() {
 
 	if ( ! isset( $theme_options['guntenberg-core-blocks-comp-css'] ) ) {
 		$theme_options['guntenberg-core-blocks-comp-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Header Footer builder - Migration compatibility.
+ *
+ * @since 3.0.0
+ *
+ * @return void
+ */
+function astra_header_builder_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
+		$theme_options['is-header-footer-builder'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+	if ( ! isset( $theme_options['header-footer-builder-notice'] ) ) {
+		$theme_options['header-footer-builder-notice'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

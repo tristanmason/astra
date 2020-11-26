@@ -142,6 +142,15 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    /* Common Style with new Header-Footer Builder Style */
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['frontend.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+
                     /* Compatibility */
                     {
                         expand: true,
@@ -465,6 +474,7 @@ module.exports = function (grunt) {
                         src: [
                             'inc/customizer/custom-controls/link/link.js',
                             'inc/customizer/custom-controls/typography/typography.js',
+                            'inc/customizer/custom-controls/typography/selectWoo.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
                     },
