@@ -751,7 +751,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * If transparent header is activated then it adds top 1.5em padding space, so this CSS will fix this issue.
 				 * This issue is only visible on responsive devices.
 				 *
-				 * @since 3.0.0
+				 * @since 2.6.0
 				 */
 				if ( is_singular() ) {
 

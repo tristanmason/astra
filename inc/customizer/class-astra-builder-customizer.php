@@ -6,6 +6,11 @@
  * @since 3.0.0
  */
 
+// No direct access, please.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Astra_Builder_Customizer.
  *

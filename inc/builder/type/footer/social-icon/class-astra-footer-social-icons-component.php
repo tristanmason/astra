@@ -16,34 +16,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR', ASTRA_THEME_DIR . 'inc/builder/type/footer/social-icon' );
 define( 'ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_URI', ASTRA_THEME_URI . 'inc/builder/type/footer/social-icon' );
 
-if ( ! class_exists( 'Astra_Footer_Social_Icons_Component' ) ) {
+/**
+ * Social Icons Initial Setup
+ *
+ * @since 3.0.0
+ */
+class Astra_Footer_Social_Icons_Component {
 
 	/**
-	 * Social Icons Initial Setup
-	 *
-	 * @since 3.0.0
+	 * Constructor function that initializes required actions and hooks
 	 */
-	class Astra_Footer_Social_Icons_Component {
+	public function __construct() {
 
-		/**
-		 * Constructor function that initializes required actions and hooks
-		 */
-		public function __construct() {
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		require_once ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR . '/class-astra-footer-social-icons-component-loader.php';
 
-			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require_once ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR . '/class-astra-footer-social-icons-component-loader.php';
-
-			// Include front end files.
-			if ( ! is_admin() ) {
-				require_once ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR . '/dynamic-css/dynamic.css.php';
-			}
-			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		// Include front end files.
+		if ( ! is_admin() ) {
+			require_once ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR . '/dynamic-css/dynamic.css.php';
 		}
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
-
-	/**
-	 *  Kicking this off by creating an object.
-	 */
-	new Astra_Footer_Social_Icons_Component();
-
 }
+
+/**
+ *  Kicking this off by creating an object.
+ */
+new Astra_Footer_Social_Icons_Component();
