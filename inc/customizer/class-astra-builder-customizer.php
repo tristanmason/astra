@@ -861,6 +861,14 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
 
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			require_once $header_components_path . '/woo-cart/class-astra-header-woo-cart-component.php';
+		}
+
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			require_once $header_components_path . '/edd-cart/class-astra-header-edd-cart-component.php';
+		}
+
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
@@ -922,6 +930,15 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
+
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';
+		}
+
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
+		}
+
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 

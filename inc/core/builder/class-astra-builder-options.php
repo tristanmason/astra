@@ -1255,5 +1255,19 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-label-line-height']    = '';
 	$defaults['mobile-header-label-font-size']      = '';
 
+	/**
+	 * Woo-Cart.
+	 */
+	$defaults['woo-header-cart-icon-style']  = 'none';
+	$defaults['woo-header-cart-icon-color']  = '';
+	$defaults['woo-header-cart-icon-radius'] = 3;
+
+	/**
+	 * EDD-Cart.
+	 */
+	$defaults['edd-header-cart-icon-style']  = 'none';
+	$defaults['edd-header-cart-icon-color']  = '';
+	$defaults['edd-header-cart-icon-radius'] = 3;
+
 	return $defaults;
 }

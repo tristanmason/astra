@@ -85,6 +85,27 @@ switch ( $component_slug ) {
 		</div>
 		<?php
 		break;
+
+	case 'woo-cart':
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			?>
+			<div class="ast-builder-layout-element site-header-focus-item ast-header-woo-cart" data-section="section-hb-woo-cart">
+				<?php do_action( 'astra_header_woo_cart' ); ?>
+			</div>
+			<?php
+		}
+		break;
+
+	case 'edd-cart':
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			?>
+			<div class="ast-builder-layout-element site-header-focus-item ast-header-edd-cart" data-section="section-hb-edd-cart">
+				<?php do_action( 'astra_header_edd_cart' ); ?>
+			</div>
+			<?php
+		}
+		break;
+	
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;
