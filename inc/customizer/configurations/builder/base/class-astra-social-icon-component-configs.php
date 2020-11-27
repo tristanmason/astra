@@ -375,8 +375,9 @@ class Astra_Social_Icon_Component_Configs {
 					'title'     => __( 'Hide on Desktop', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
+						'container_inclusive' => true,
+						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
 					),
 				);
 
@@ -393,8 +394,9 @@ class Astra_Social_Icon_Component_Configs {
 					'title'     => __( 'Hide on Tablet', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
+						'container_inclusive' => true,
+						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
 					),
 				);
 
@@ -411,8 +413,9 @@ class Astra_Social_Icon_Component_Configs {
 					'title'     => __( 'Hide on Mobile', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
+						'container_inclusive' => true,
+						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
 					),
 				);
 			}

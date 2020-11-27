@@ -371,8 +371,9 @@ class Astra_Button_Component_Configs {
 					'title'     => __( 'Hide on Desktop', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
+						'container_inclusive' => false,
+						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 				);
 
@@ -389,8 +390,9 @@ class Astra_Button_Component_Configs {
 					'title'     => __( 'Hide on Tablet', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
+						'container_inclusive' => false,
+						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 				);
 
@@ -407,8 +409,9 @@ class Astra_Button_Component_Configs {
 					'title'     => __( 'Hide on Mobile', 'astra' ),
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
+						'container_inclusive' => false,
+						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 				);
 			}
