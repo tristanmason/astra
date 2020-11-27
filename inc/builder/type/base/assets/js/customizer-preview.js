@@ -584,18 +584,18 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 						size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
 					) {
 						var dynamicStyle = '';
-						dynamicStyle += selector + ' .ast-divider-layout-horizontal {';
+						dynamicStyle += selector + '.ast-hb-divider-layout-horizontal {';
 						dynamicStyle += 'width: ' + size.desktop + '%' + ';';
 						dynamicStyle += '} ';
 		
 						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-						dynamicStyle += selector + ' .ast-divider-layout-horizontal {';
+						dynamicStyle += selector + '.ast-hb-divider-layout-horizontal {';
 						dynamicStyle += 'width: ' + size.tablet + '%' + ';';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 		
 						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-						dynamicStyle += selector + ' .ast-divider-layout-horizontal {';
+						dynamicStyle += selector + '.ast-hb-divider-layout-horizontal {';
 						dynamicStyle += 'width: ' + size.mobile + '%' + ';';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';

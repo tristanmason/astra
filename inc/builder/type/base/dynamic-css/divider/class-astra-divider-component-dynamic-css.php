@@ -72,9 +72,12 @@ class Astra_Divider_Component_Dynamic_CSS {
 					'padding-bottom'  => astra_get_css_value( $divider_size['desktop'], '%' ),
 				),
 
+				$selector . '.ast-hb-divider-layout-horizontal' => array(
+					'width'  => astra_get_css_value( $divider_size['desktop'], '%' ),
+				),
+
 				$selector . ' .ast-divider-layout-horizontal' => array(
 					'border-top-width'	   => astra_get_css_value( $divider_thickness['desktop'], 'px' ),
-					'width'  => astra_get_css_value( $divider_size['desktop'], '%' ),
 				),
 
 				$selector => array(
