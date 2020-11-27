@@ -85,6 +85,6 @@
     } );
 
 	// Advanced Visibility CSS Generation.
-	astra_builder_visibility_css( section, selector, 'flex' );
+	astra_builder_visibility_css( section, selector );
 
 } )( jQuery );

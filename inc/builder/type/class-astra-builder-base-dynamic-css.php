@@ -315,7 +315,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 * @param string $selector selector.
 		 * @return array
 		 */
-		public static function prepare_visibility_css( $section_id, $selector, $default_property ) {
+		public static function prepare_visibility_css( $section_id, $selector, $default_property = 'flex' ) {
 
 			$css_output_desktop = array();
 			$css_output_tablet = array();

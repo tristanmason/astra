@@ -491,7 +491,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
  * @param string selector Base Selector.
  * @param string default_property default CSS property.
  */
-function astra_builder_visibility_css( section, selector, default_property ) {
+function astra_builder_visibility_css( section, selector, default_property = 'flex' ) {
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
