@@ -14,6 +14,10 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	var selector = '.ast-header-search';
+	var section = 'section-header-search';
+
+	console.log( tablet_break_point );
+	console.log( mobile_break_point );
 
 	// Icon Color.
 	astra_css(
@@ -29,6 +33,57 @@
 		selector + ' .astra-search-icon',
 		'px'
 	);
+
+	// Header search visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
+		setting.bind( function( desktop_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! desktop_visible ) ? 'flex' : 'none';
+
+			// dynamicStyle +=  '@media (min-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-desktop .ast-header-search {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';				
+			// dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-desktop', dynamicStyle );
+		} );
+	} );
+	
+	// Header search visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-tablet]', function( setting ) {
+		setting.bind( function( tablet_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! tablet_visible ) ? 'flex' : 'none';
+
+			dynamicStyle +=  '@media (min-width: ' + mobile_break_point + 'px) and (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point .ast-header-search {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-tablet', dynamicStyle );
+		} );
+	} );
+
+	// Header search visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-mobile]', function( setting ) {
+		setting.bind( function( mobile_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! mobile_visible ) ? 'flex' : 'none';
+
+			dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point .ast-header-search {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-mobile', dynamicStyle );
+		} );
+	} );
 
 	// Icon Size.
 	wp.customize( 'astra-settings[header-search-icon-space]', function( value ) {

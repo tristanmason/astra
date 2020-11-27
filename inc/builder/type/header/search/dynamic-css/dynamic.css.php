@@ -42,6 +42,10 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = '.astra-hfb-header .site-header-section > .ast-header-search, .astra-hfb-header .ast-header-search';
+
+	$hide_on_desktop = astra_get_option( 'header-search-hide-desktop' );
+	$hide_on_tablet = astra_get_option( 'header-search-hide-tablet' );
+	$hide_on_mobile = astra_get_option( 'header-search-hide-mobile' );
 	
 	/**
 	 * Search CSS.
@@ -107,6 +111,8 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'flex' );
 
 	return $dynamic_css;
 }
