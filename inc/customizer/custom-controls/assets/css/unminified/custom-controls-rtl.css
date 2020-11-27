@@ -1973,6 +1973,14 @@ input[type="text"].select2-search__field {
   top: 3.5px;
 }
 
+.ast-responsive-color .ast-color-btn-reset-wrap {
+  left: 66px;
+}
+
+.ast-responsive-color .ast-responsive-btns {
+  top: 0;
+}
+
 @supports (-moz-appearance: none) {
   .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
     top: 5.5px;
@@ -3523,8 +3531,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  left: 0px;
-  top: 6px;
+  left: 0;
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {

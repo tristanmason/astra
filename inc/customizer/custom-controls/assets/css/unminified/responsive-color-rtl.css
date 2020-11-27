@@ -38,8 +38,8 @@
 
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  left: 0px;
-  top: 6px;
+  left: 0;
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
