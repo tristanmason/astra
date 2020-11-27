@@ -53,6 +53,7 @@
     } );
 
     var selector = '.ast-builder-layout-element .ast-site-identity';
+	var section = 'title_tagline';
 
     // Title Color.
     astra_css(
@@ -74,4 +75,7 @@
         'color',
         selector + ' .site-description'
     );
+
+    // Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( section, selector );
 } )( jQuery );
