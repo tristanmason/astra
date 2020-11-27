@@ -3254,16 +3254,17 @@ body .entry-content .wp-block-latest-posts li {
   width: 100%;
 }
 
-.ast-divider-layout-horizontal {
+.ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
   width: 100%;
 }
 
-.ast-header-divider-element {
-  height: 100%;
+.ast-fb-divider-layout-horizontal {
+  width: 100%;
 }
 
 .site-footer-section,
-.ast-footer-divider-element {
+.ast-footer-divider-element,
+.ast-header-divider-element {
   height: 100%;
 }
 
