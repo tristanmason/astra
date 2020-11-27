@@ -356,6 +356,73 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'    => Astra_Builder_Helper::$general_tab,
 					),
 
+					/**
+					 * Option: Hide on heading
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'Visibility', 'astra' ),
+						'priority' => 200,
+						'settings' => array(),
+					),
+
+					/**
+					 * Option: Hide on desktop
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
+						'type'      => 'control',
+						'control'   => 'checkbox',
+						'default'   => astra_get_option( 'header-hide-desktop' ),
+						'section'   => $_section,
+						'priority'  => 210,
+						'title'     => __( 'Hide on Desktop', 'astra' ),
+						'transport' => 'postMessage',
+						'partial'   => array(
+							'selector'        => '#ast-hf-menu-' . $index,
+							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						),
+					),
+
+					/**
+					 * Option: Hide on tablet
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
+						'type'      => 'control',
+						'control'   => 'checkbox',
+						'default'   => astra_get_option( 'header-hide-tablet' ),
+						'section'   => $_section,
+						'priority'  => 220,
+						'title'     => __( 'Hide on Tablet', 'astra' ),
+						'transport' => 'postMessage',
+						'partial'   => array(
+							'selector'        => '#ast-hf-menu-' . $index,
+							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						),
+					),
+
+					/**
+					 * Option: Hide on mobile
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
+						'type'      => 'control',
+						'control'   => 'checkbox',
+						'default'   => astra_get_option( 'header-hide-mobile' ),
+						'section'   => $_section,
+						'priority'  => 230,
+						'title'     => __( 'Hide on Mobile', 'astra' ),
+						'transport' => 'postMessage',
+						'partial'   => array(
+							'selector'        => '#ast-hf-menu-' . $index,
+							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						),
+					),
+
 					// Option: Typography Heading.
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-typography-styling-divider]',
