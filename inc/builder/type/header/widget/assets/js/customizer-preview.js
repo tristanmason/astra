@@ -10,6 +10,17 @@
 
 ( function( $ ) {
 
-	astra_builder_widget_css('header');
+	astra_builder_widget_css( 'header' );
+
+	for( var index = 1; index <= AstraBuilderWidgetData.num_of_header_widgets ; index++ ) {
+		( function( index ) {
+
+			var section = 'sidebar-widgets-header-widget-' + index;
+			var selector = '.header-widget-area[data-section="sidebar-widgets-header-widget-' + index + '"]';
+			// Advanced Visibility CSS Generation.
+			astra_builder_visibility_css( section, selector );
+
+		})( index );
+	}
 
 } )( jQuery );

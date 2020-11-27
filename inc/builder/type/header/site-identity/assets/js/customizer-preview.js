@@ -76,6 +76,8 @@
         selector + ' .site-description'
     );
 
+    var visibility_selector = '.ast-builder-layout-element[data-section="title_tagline"]';
+
     // Advanced Visibility CSS Generation.
-	astra_builder_visibility_css( section, selector );
+	astra_builder_visibility_css( section, visibility_selector );
 } )( jQuery );

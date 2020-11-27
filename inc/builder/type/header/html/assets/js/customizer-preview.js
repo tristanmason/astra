@@ -11,6 +11,19 @@
 ( function( $ ) {
 
     astra_builder_html_css( 'header', AstraBuilderHTMLData.header_html_count );
+
+    for( var index = 1; index <= AstraBuilderHTMLData.header_html_count ; index++ ) {
+		( function( index ) {
+
+            let selector = '.ast-header-html-' + index + '[data-section="section-hb-html-' + index + '"]';
+
+            let section = 'section-hb-html-' + index;
+        
+			// Advanced Visibility CSS Generation.
+			astra_builder_visibility_css( section, selector );
+
+		})( index );
+	}
     
 } )( jQuery );
 		
