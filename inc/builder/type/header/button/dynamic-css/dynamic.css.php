@@ -28,5 +28,17 @@ function astra_hb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	$dynamic_css .= Astra_Button_Component_Dynamic_CSS::astra_button_dynamic_css( 'header' );
 
+	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
+
+		if ( ! Astra_Builder_Helper::is_component_loaded( 'header', 'button-' . $index ) ) {
+			continue;
+		}
+
+		$_section = 'section-hb-button-' . $index;
+		$selector = '.ast-header-button-' . $index . '[data-section="section-hb-button-' . $index . '"]';
+
+		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
+	}
+
 	return $dynamic_css;
 }
