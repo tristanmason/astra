@@ -291,6 +291,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'   => '',
 					'type'      => 'control',
 					'transport' => 'postMessage',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[transparent-header-main-sep]', '>=', 1 ),
 					'control'   => 'ast-color',
 					'section'   => $_section,
 					'priority'  => 30,
@@ -311,18 +312,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
 
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-background-colors]',
-					'default'   => astra_get_option( 'transparent-header-background-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 35,
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(

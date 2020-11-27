@@ -3560,6 +3560,10 @@ input[type="text"].select2-search__field {
   top: 3.5px;
 }
 
+.ast-responsive-color .ast-color-btn-reset-wrap {
+  left: 66px;
+}
+
 @supports (-moz-appearance: none) {
   .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
     top: 5.5px;

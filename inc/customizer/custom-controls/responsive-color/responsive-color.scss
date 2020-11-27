@@ -73,6 +73,12 @@
 		}
 	}
 }
+.ast-responsive-color {
+	.ast-color-btn-reset-wrap {
+		right: 66px;
+	}
+}
+
 @supports (-moz-appearance:none) {
 	.ast-field-settings-modal {
 		.customize-control-ast-responsive-color {
