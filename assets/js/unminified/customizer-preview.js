@@ -436,7 +436,11 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 					// Remove old.
 
 					jQuery('#' + font_control).remove();
-					link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+					if( new_value === "inherit" ) {
+						link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+					} else {
+						link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '%3A' + new_value + '"  rel="stylesheet">';
+					}
 				}
 
 				// Concat and append new <style>.
