@@ -483,3 +483,65 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 	}
 
 }
+
+/**
+ * Apply Visibility CSS for the element
+ * 
+ * @param string section Section ID.
+ * @param string selector Base Selector.
+ * @param string default_property default CSS property.
+ */
+function astra_builder_visibility_css( section, selector, default_property ) {
+
+    var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+        
+    // Header search visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
+		setting.bind( function( desktop_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! desktop_visible ) ? default_property : 'none';
+
+			dynamicStyle += '.ast-desktop ' + selector + ' {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-desktop', dynamicStyle );
+		} );
+	} );
+	
+	// Header search visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-tablet]', function( setting ) {
+		setting.bind( function( tablet_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! tablet_visible ) ? default_property : 'none';
+
+			dynamicStyle +=  '@media (min-width: ' + mobile_break_point + 'px) and (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point ' + selector + ' {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-tablet', dynamicStyle );
+		} );
+	} );
+
+	// Header search visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-mobile]', function( setting ) {
+		setting.bind( function( mobile_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! mobile_visible ) ? default_property : 'none';
+
+			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point ' + selector + ' {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-mobile', dynamicStyle );
+		} );
+	} );
+}
