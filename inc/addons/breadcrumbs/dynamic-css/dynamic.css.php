@@ -26,6 +26,10 @@ add_filter( 'astra_dynamic_theme_css', 'astra_breadcrumb_section_dynamic_css' );
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
+		
+	if ( 'none' === $breadcrumb_position ) {
+		return $dynamic_css;
+	}
 
 	$dynamic_css .= astra_parse_css(
 		array(
@@ -57,10 +61,6 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'',
 		''
 	);
-
-	if ( 'none' === $breadcrumb_position ) {
-		return $dynamic_css;
-	}
 
 	/**
 	 * Set CSS Params
