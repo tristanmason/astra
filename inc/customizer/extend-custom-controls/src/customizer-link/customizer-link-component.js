@@ -33,7 +33,7 @@ const CustomizerLinkComponent = props => {
 	if (linked && link_text) {
 		linkHtml = <a href="#" onClick={() => {
 			onLinkClick();
-		}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
+		}} className="customizer-laink" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
 					  dangerouslySetInnerHTML={{
 						  __html: link_text
 					  }}>
@@ -42,6 +42,7 @@ const CustomizerLinkComponent = props => {
 
 	return <>
 		{linkHtml}
+		
 	</>;
 };
 
