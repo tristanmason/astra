@@ -111,7 +111,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-disable-page' ),
 					'type'     => 'control',
 					'section'  => $_section,
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
 					'title'    => __( 'Disable on Pages?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
@@ -125,7 +132,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-disable-posts' ),
 					'type'     => 'control',
 					'section'  => $_section,
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
 					'title'    => __( 'Disable on Posts?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
@@ -211,7 +225,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => $_section,
 					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
 					'priority' => 30.2,
 					'control'  => 'checkbox',
 				),

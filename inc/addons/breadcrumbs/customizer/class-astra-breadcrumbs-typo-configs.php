@@ -55,10 +55,16 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-breadcrumb',
 					'title'    => __( 'Typography', 'astra' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority' => 73,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$design_tab_config,
+					),
 				),
 
 				/*

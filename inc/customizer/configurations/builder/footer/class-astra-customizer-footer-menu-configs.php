@@ -259,12 +259,18 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-header-typography-styling-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-menu-slug]', '!=', '' ),
 					'section'  => $_section,
 					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 110,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'context'  => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-menu-slug]',
+							'operator' => '!=',
+							'value'    => '',
+						),
+					),
 				),
 
 				// Option Group: Menu Typography.

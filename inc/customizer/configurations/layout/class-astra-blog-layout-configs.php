@@ -138,7 +138,14 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'section'  => 'section-blog',
 					'default'  => astra_get_option( 'blog-meta' ),
 					'priority' => 50,
-					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+							'operator' => 'contains',
+							'value'    => 'title-meta',
+						),
+					),
 					'title'    => __( 'Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),

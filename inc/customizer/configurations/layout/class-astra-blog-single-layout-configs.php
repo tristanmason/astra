@@ -111,7 +111,14 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'default'  => astra_get_option( 'blog-single-meta' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', 'contains', 'single-title-meta' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+							'operator' => 'contains',
+							'value'    => 'single-title-meta',
+						),
+					),
 					'section'  => 'section-blog-single',
 					'priority' => 5,
 					'title'    => __( 'Meta', 'astra' ),

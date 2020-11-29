@@ -84,9 +84,16 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-edd-archive',
 					'default'  => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
 					'priority' => 31,
 					'title'    => __( 'Cart Button Text', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
 				),
 
 				/**
@@ -98,7 +105,14 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-edd-archive',
 					'default'  => astra_get_option( 'edd-archive-variable-button' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
 					'priority' => 31,
 					'title'    => __( 'Variable Product Button', 'astra' ),
 					'choices'  => array(
@@ -116,7 +130,14 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-edd-archive',
 					'default'  => astra_get_option( 'edd-archive-variable-button-text' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]', '==', 'button' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
 					'priority' => 31,
 					'title'    => __( 'Variable Product Button Text', 'astra' ),
 				),
@@ -160,7 +181,15 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'section'     => 'section-edd-archive',
 					'default'     => 1200,
 					'priority'    => 225,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[edd-archive-width]', '===', 'custom' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
+					),
+
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
 					'suffix'      => '',
