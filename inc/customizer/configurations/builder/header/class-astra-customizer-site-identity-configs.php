@@ -147,12 +147,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[logo-title-inline]',
 					'default'   => astra_get_option( 'logo-title-inline' ),
 					'type'      => 'control',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', true ),
-							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '==', true ),
+					'context'   => array(
+						'relation' => 'OR',
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+							'operator' => '==',
+							'value'    => true,
 						),
-						'operator'   => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
 					'control'   => 'checkbox',
 					'section'   => 'title_tagline',
@@ -178,13 +185,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 15,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-					'required' => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', true ),
-							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '==', true ),
+					'context'  => array(
+						'relation' => 'OR',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+							'operator' => '==',
+							'value'    => true,
 						),
-						'operator'   => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
 				),
 

@@ -356,6 +356,12 @@
 						// Each rule iteration
 						_.each(rules, function (rule, i) {
 
+							if ( 'relation' == i ) return;
+
+							if ( 'AND' == relation && false == displayed ) return;
+
+							if ( undefined === rule['setting'] ) return;
+
 							var result = false,
 								setting = getSetting(rule['setting']);
 

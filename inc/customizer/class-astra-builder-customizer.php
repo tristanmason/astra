@@ -54,14 +54,6 @@ final class Astra_Builder_Customizer {
 	private static $group_configs;
 
 	/**
-	 * Configs.
-	 *
-	 * @access private
-	 * @var object
-	 */
-	private static $dependency_arr;
-
-	/**
 	 * Removed Sections.
 	 *
 	 * @access private
@@ -104,7 +96,6 @@ final class Astra_Builder_Customizer {
 		add_action( 'init', array( $this, 'deregister_menu_locations_widgets' ), 999 );
 		add_action( 'customize_register', array( $this, 'prepare_customizer_javascript_configs' ) );
 		add_action( 'customize_register', array( $this, 'prepare_group_configs' ), 9 );
-		add_filter( 'astra_customizer_required_dependency', array( $this, 'update_customizer_control_dependency' ) );
 
 		add_action( 'customize_controls_print_footer_scripts', array( $this, 'builder_customizer_preview_styles' ) );
 
@@ -157,6 +148,31 @@ final class Astra_Builder_Customizer {
 				},
 			)
 		);
+
+
+		self::$contexts[ 'blogname'] = array(
+			Astra_Builder_Helper::$general_tab_config,
+			array(
+				'setting'    => ASTRA_THEME_SETTINGS . '[display-site-title]',
+				'operator'   => '==',
+				'value'      => true
+			)
+
+		);
+
+		self::$contexts['blogdescription'] =
+
+			array(
+				Astra_Builder_Helper::$general_tab_config,
+				array(
+					'setting'    => 	ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+					'operator'   => '==',
+					'value'      => 	true
+				)
+
+			);
+
+
 		// @codingStandardsIgnoreStart PHPCompatibility.FunctionDeclarations.NewClosure.Found
 
 	}
@@ -510,9 +526,6 @@ final class Astra_Builder_Customizer {
 			}
 		}
 
-		if ( false !== astra_get_prop( $config, 'required', false ) ) {
-			self::$dependency_arr[ astra_get_prop( $config, 'name' ) ] = astra_get_prop( $config, 'required' );
-		}
 
 		if( 'image' === $config['type'] ) {
 
@@ -615,21 +628,6 @@ final class Astra_Builder_Customizer {
 		self::$removed_sections[] = 'section-footer-group';
 		self::$removed_sections[] = 'section-footer-adv';
 
-	}
-
-	/**
-	 * Add Required dependency.
-	 *
-	 * @param array $dependency_arr dependency array.
-	 * @since 3.0.0
-	 * @return mixed
-	 */
-	public function update_customizer_control_dependency( $dependency_arr ) {
-
-		$required_arr                    = self::$dependency_arr;
-		$required_arr['blogname']        = array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', true );
-		$required_arr['blogdescription'] = array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '==', true );
-		return $required_arr;
 	}
 
 	/**

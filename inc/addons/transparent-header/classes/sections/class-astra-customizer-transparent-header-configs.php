@@ -630,14 +630,20 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'control'   => 'ast-color',
 						'title'     => __( 'Box Background Color', 'astra' ),
-						'required'  => array(
-							'conditions' => array(
-								array( ASTRA_THEME_SETTINGS . '[header-search-box-type]', '==', 'slide-search' ),
-								array( ASTRA_THEME_SETTINGS . '[header-search-box-type]', '==', 'search-box' ),
+						'context'   => array(
+							'relation' => 'OR',
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+								'operator' => '==',
+								'value'    => 'slide-search',
 							),
-							'operator'   => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+								'operator' => '==',
+								'value'    => 'search-box',
+							),
 						),
-						'context'   => Astra_Builder_Helper::$general_tab,
 					),
 					/**
 					 * Option: Transparent Header Builder - Widget Elements configs.
