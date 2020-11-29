@@ -124,9 +124,12 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'   => 'textarea',
 					'transport' => 'postMessage',
 					'section'   => 'section-footer-small',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', '==', array( 'custom' ) ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-section-1]',
+							'operator' => '==',
+							'value'    => array( 'custom' ),
 						),
 					),
 					'priority'  => 20,
@@ -186,7 +189,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'footer-sml-section-2-credit' ),
 					'section'   => 'section-footer-small',
 					'priority'  => 30,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-section-2]',
+							'operator' => '==',
+							'value'    => 'custom',
+						),
+					),
 					'title'     => __( 'Section 2 Custom Text', 'astra' ),
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-2',
@@ -229,7 +239,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'footer-sml-divider' ),
 					'section'     => 'section-footer-small',
 					'priority'    => 40,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'title'       => __( 'Border Size', 'astra' ),
 					'transport'   => 'postMessage',
 					'input_attrs' => array(
@@ -249,7 +266,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'   => '#7a7a7a',
 					'type'      => 'control',
 					'control'   => 'ast-color',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+					),
 					'priority'  => 45,
 					'title'     => __( 'Border Color', 'astra' ),
 					'transport' => 'postMessage',
@@ -288,7 +312,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -303,7 +334,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -368,7 +406,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'     => 'section-footer-adv',
 					'default'     => astra_get_option( 'footer-adv-border-width' ),
 					'priority'    => 40,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'title'       => __( 'Top Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -388,7 +433,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'default'   => astra_get_option( 'footer-adv-border-color' ),
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'priority'  => 45,
 				),
 			);

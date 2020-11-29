@@ -44,9 +44,12 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'         => 'ast-description',
 					'section'         => $_section,
 					'priority'        => 1,
-					'required'        => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+					'context'         => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
 						),
 					),
 					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
@@ -64,9 +67,12 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'        => 1,
 					'link_type'       => 'control',
 					'linked'          => ASTRA_THEME_SETTINGS . '[transparent-header-logo]',
-					'required'        => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+					'context'         => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
 						),
 					),
 					'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',

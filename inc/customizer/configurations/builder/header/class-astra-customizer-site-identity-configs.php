@@ -74,12 +74,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 16,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -94,12 +96,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 20,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-						'==',
-						true,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -193,12 +197,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 8,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Site Title Color.
@@ -239,12 +245,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'header-color-site-tagline' ),
 					'title'     => __( 'Tagline', 'astra' ),
 					'section'   => 'title_tagline',
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-						'==',
-						true,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**

@@ -66,7 +66,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-disable-archive' ),
 					'type'        => 'control',
 					'section'     => $_section,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
 					'title'       => __( 'Disable on 404, Search & Archives?', 'astra' ),
 					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
 					'priority'    => 25,
@@ -81,7 +88,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-disable-index' ),
 					'type'        => 'control',
 					'section'     => $_section,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
 					'title'       => __( 'Disable on Blog page?', 'astra' ),
 					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
 					'priority'    => 25,
@@ -96,7 +110,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-disable-latest-posts-index' ),
 					'type'        => 'control',
 					'section'     => $_section,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
 					'title'       => __( 'Disable on Latest Posts Page?', 'astra' ),
 					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
 					'priority'    => 25,
@@ -206,7 +227,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => $_section,
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+					'context'        => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
 					'priority'       => 30.1,
 					'title'          => __( 'Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -246,7 +274,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => $_section,
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-retina-logo]', '==', true ),
+					'context'        => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-retina-logo]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
 					'priority'       => 30.3,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -262,7 +297,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
 					'section'     => $_section,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
 					'priority'    => 30.4,
 					'title'       => __( 'Logo Width', 'astra' ),
 					'input_attrs' => array(

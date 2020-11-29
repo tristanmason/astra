@@ -380,7 +380,14 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'transport'      => 'postMessage',
 						'linked_choices' => true,
 						'priority'       => 40,
-						'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+						'context'        => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+								'operator' => '===',
+								'value'    => 'custom-button',
+							),
+						),
 						'default'        => astra_get_option( 'header-main-rt-trans-section-button-padding' ),
 						'title'          => __( 'Padding', 'astra' ),
 						'choices'        => array(

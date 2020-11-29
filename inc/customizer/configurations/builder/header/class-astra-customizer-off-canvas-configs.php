@@ -94,12 +94,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'left'  => __( 'Left', 'astra' ),
 						'right' => __( 'Right', 'astra' ),
 					),
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-						'==',
-						'off-canvas',
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+							'operator' => '==',
+							'value'    => 'off-canvas',
+						),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**

@@ -72,7 +72,15 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => 1200,
 					'priority'    => 50,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
+
+					),
 					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(

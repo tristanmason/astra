@@ -63,7 +63,14 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'section'     => 'section-blog-single',
 					'transport'   => 'postMessage',
 					'default'     => 1200,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-single-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
+					),
 					'priority'    => 5,
 					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',

@@ -103,10 +103,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'section'   => $_section,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[hba-header-separator]', '>=', 1 ),
 					'priority'  => 50,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[hba-header-separator]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+					),
 				),
 
 				// Section: Above Header Color & Backgroud Heading.
