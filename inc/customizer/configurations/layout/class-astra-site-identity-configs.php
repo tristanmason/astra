@@ -85,10 +85,13 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => false,
 					'priority'  => 5,
 					'transport' => 'postMessage',
-					'required'  => array(
-						'custom_logo',
-						'!=',
-						'',
+					'context'   => array(
+						array(
+							'setting'  => 'custom_logo',
+							'operator' => '!=',
+							'value'    => '',
+						),
+						Astra_Builder_Helper::$general_tab_config,
 					),
 					'partial'   => array(
 						'selector'            => '.site-branding',
@@ -106,7 +109,14 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => 'title_tagline',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
+					'context'        => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
+							'operator' => '!=',
+							'value'    => 0,
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
 					'priority'       => 5,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -129,11 +139,18 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => 'title_tagline',
 					'title'     => __( 'Different Logo For Mobile Devices?', 'astra' ),
 					'priority'  => 5,
-					'context'   => Astra_Builder_Helper::$mobile_general_tab,
-					'required'  => array(
-						'custom_logo',
-						'!=',
-						'',
+					'context'   => array(
+						array(
+							'setting'  => 'custom_logo',
+							'operator' => '!=',
+							'value'    => '',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => 'ast_selected_device',
+							'operator' => 'in',
+							'value'    => array( 'tablet', 'mobile' ),
+						),
 					),
 					'transport' => 'postMessage',
 					'partial'   => array(
@@ -151,12 +168,23 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'        => astra_get_option( 'mobile-header-logo' ),
 					'type'           => 'control',
 					'control'        => 'image',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
 					'section'        => 'title_tagline',
 					'priority'       => 5,
 					'title'          => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'context'        => Astra_Builder_Helper::$mobile_general_tab,
+					'context'        => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => 'ast_selected_device',
+							'operator' => 'in',
+							'value'    => array( 'tablet', 'mobile' ),
+						),
+					),
 				),
 
 				/**
@@ -280,12 +308,15 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 16,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
+
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+							'operator' => '==',
+							'value'    => true,
+						),
+						Astra_Builder_Helper::$design_tab_config,
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -313,12 +344,15 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 16,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+							'operator' => '==',
+							'value'    => true,
+						),
+						Astra_Builder_Helper::$design_tab_config,
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
+
 				),
 			);
 

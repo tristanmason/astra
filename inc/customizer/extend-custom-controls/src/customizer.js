@@ -241,12 +241,18 @@
 					return;
 				}
 
-				set_context(id, [
-					{
-						"setting": "ast_selected_tab",
-						"value": "general"
-					}
-				]);
+				let rules = AstraBuilderCustomizerData.contexts[id];
+				if( rules ) {
+					set_context(id, rules);
+				} else {
+					set_context(id, [
+						{
+							"setting": "ast_selected_tab",
+							"value": "general"
+						}
+					]);
+				}
+
 			});
 		},
 

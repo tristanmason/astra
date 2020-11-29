@@ -68,13 +68,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'default'   => astra_get_option( 'section-breadcrumb-typo' ),
 					'type'      => 'control',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Content', 'astra' ),
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'priority'  => 73,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$design_tab_config,
+					),
 				),
 
 				/**
