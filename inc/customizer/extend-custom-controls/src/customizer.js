@@ -362,8 +362,28 @@
 								}
 
 								switch (operator) {
+									case '>':
+										result = currentValue > comparedValue;
+										break;
+
+									case '<':
+										result = currentValue < comparedValue;
+										break;
+
+									case '>=':
+										result = currentValue >= comparedValue;
+										break;
+
+									case '<=':
+										result = currentValue <= comparedValue;
+										break;
+
 									case 'in':
-										result = 0 <= comparedValue.indexOf(currentValue);
+										result = 0 <= comparedValue.indexOf( currentValue );
+										break;
+
+									case 'contain':
+										result = 0 <= currentValue.indexOf( comparedValue );
 										break;
 
 									default:
@@ -386,7 +406,7 @@
 						return displayed;
 					};
 					var setActiveState = function () {
-						element.active.set(isDisplayed());
+						element._toggleActive( isDisplayed(), { duration: 0 } );
 					};
 					_.each(rules, function (rule, i) {
 
