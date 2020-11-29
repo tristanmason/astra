@@ -386,6 +386,10 @@
 										result = 0 <= currentValue.indexOf( comparedValue );
 										break;
 
+									case '!=':
+										result = comparedValue != currentValue;
+										break;
+
 									default:
 										result = comparedValue == currentValue;
 										break;
