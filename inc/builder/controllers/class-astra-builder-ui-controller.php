@@ -338,6 +338,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					</a>
 				<?php } ?>
 
+				<?php 
+					Astra_Header_Account_Component::account_menu_markup();
+				?>
+
 			</div>
 
 			<?php
