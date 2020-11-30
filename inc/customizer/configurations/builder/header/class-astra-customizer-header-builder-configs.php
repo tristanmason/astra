@@ -81,7 +81,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'divider-' . $index ] = $item;
-			Astra_Builder_Helper::$header_mobile_items[ 'divider-' . $index ]  = $item;		
+			Astra_Builder_Helper::$header_mobile_items[ 'divider-' . $index ]  = $item;     
 		}
 
 

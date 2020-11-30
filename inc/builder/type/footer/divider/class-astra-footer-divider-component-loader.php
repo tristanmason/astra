@@ -48,9 +48,9 @@ class Astra_Footer_Divider_Component_Loader {
 			'astra-footer-divider-customizer-preview-js',
 			'AstraBuilderDividerData',
 			array(
-				'footer_divider_count'  => Astra_Builder_Helper::$num_of_footer_divider,
-				'tablet_break_point' => astra_get_tablet_breakpoint(),
-				'mobile_break_point' => astra_get_mobile_breakpoint(),
+				'footer_divider_count' => Astra_Builder_Helper::$num_of_footer_divider,
+				'tablet_break_point'   => astra_get_tablet_breakpoint(),
+				'mobile_break_point'   => astra_get_mobile_breakpoint(),
 			)
 		);
 	}
