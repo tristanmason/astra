@@ -3310,6 +3310,22 @@ body .entry-content .wp-block-latest-posts li {
   flex-grow: 1;
 }
 
+/* Account Component */
+.ast-header-account-icon:before {
+  content: "\f110";
+  font: normal 20px/1 dashicons;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+}
+
+.ast-header-account-type-avatar .avatar {
+  display: inline;
+  border-radius: 100%;
+  max-width: 100%;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Text/HTML Widget.
@@ -4144,10 +4160,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 

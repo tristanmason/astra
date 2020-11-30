@@ -85,6 +85,15 @@ switch ( $component_slug ) {
 		</div>
 		<?php
 		break;
+
+	case 'account':
+		?>
+		<div class="ast-builder-layout-element site-header-focus-item ast-header-account" data-section="section-header-account">
+			<?php do_action( 'astra_header_account' ); ?>
+		</div>
+		<?php
+		break;
+	
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;

@@ -467,6 +467,11 @@ final class Astra_Builder_Helper {
 					'icon'    => 'search',
 					'section' => 'section-header-search',
 				),
+				'account' => array(
+					'name'    => __( 'Account', 'astra' ),
+					'icon'    => 'admin-users',
+					'section' => 'section-header-account',
+				),
 			)
 		);
 
@@ -487,6 +492,11 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Toggle Button', 'astra' ),
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-trigger',
+				),
+				'account' => array(
+					'name'    => __( 'Account', 'astra' ),
+					'icon'    => 'admin-users',
+					'section' => 'section-header-account',
 				),
 			)
 		);
