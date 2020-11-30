@@ -1,3 +1,29 @@
+v3.0.0-beta.1
+- New: Header Builder
+- Introducing a new visual Header Builder that gives a flexible and advanced header designing experience.
+- It offers different layers for header - Above Header, Primary Header, and Below Header.
+- You can drag-n-drop elements in different sections of the header. It gives you the freedom to place elements at any location in the header quickly.
+- It offers different essential header elements like Button, HTML, Widget, Social Icon, Search, Menu, etc. So that you can add all the required information easily with few clicks.
+- Get background and height options for Above, Below, and Primary header.
+- Spacing options for each element in the header.
+- You can design a completely different header for responsive devices with handy mobile header options.
+- Refer to a detailed comparison of features available with Astra free and Pro. ( https://wpastra.com/astra-free-vs-pro/ )
+
+- New: Footer Builder
+- Introducing a new visual Footer Builder that gives the ability to design unique footers for your website.
+- It offers different layers for the footer - Above Footer, Primary Footer, and Below Footer.
+- You can drag-n-drop elements in different sections of the footer. It gives you the freedom to place elements at any location in the footer quickly.
+-  It offers different essential footer elements like Copyright, Button, HTML, Widget, Social Icon, Search, Footer Menu, etc. So that you can add all the required information easily with few clicks.
+- It provides a flexible columns-based structure where you can select column count and column layouts. This lets you manage the footer look easily.
+- Create responsive layouts for the footer.
+- Spacing and alignment options for each element in the footer.
+- Refer to a detailed comparison of features available with Astra free and Pro. ( https://wpastra.com/astra-free-vs-pro/ )
+
+- Improvement: Improved Customizer
+- Experience faster loading customizer. Astra customizer is now upgraded with ReactJS that gives a quick and swift customizer experience.
+- For quick access and faster editing, customization options are segregated and served with two different tabs - General and Design.
+- Now get a faster customizer preview than before. Header and Footer sections will be partially refreshed on any change in the customizer.
+
 v2.6.1
 - Improvement: Compatibility with the Gutenberg plugin.
 
