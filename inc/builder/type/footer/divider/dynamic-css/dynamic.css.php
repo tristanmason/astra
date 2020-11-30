@@ -39,7 +39,7 @@ function astra_fb_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 		$alignment = astra_get_option( 'footer-divider-' . $index . '-alignment' );
 
-		$desktop_alignment = ( isset( $alignment['desktop'] ) ) ? $alignment['desktop'] : '';
+		$desktop_alignment = ( isset( $alignment['desktop'] ) ) ? $alignment['desktop'] : 'center';
 		$tablet_alignment  = ( isset( $alignment['tablet'] ) ) ? $alignment['tablet'] : '';
 		$mobile_alignment  = ( isset( $alignment['mobile'] ) ) ? $alignment['mobile'] : '';
 
