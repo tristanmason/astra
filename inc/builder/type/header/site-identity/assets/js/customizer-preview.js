@@ -15,7 +15,6 @@
 
 			if ( '1' == newval ) {
                 jQuery('.site-header').addClass( 'ast-has-mobile-header-logo' );
-                wp.customize.preview.send( 'refresh' );
             } else {
                 jQuery('.site-header').removeClass( 'ast-has-mobile-header-logo' );
             }
