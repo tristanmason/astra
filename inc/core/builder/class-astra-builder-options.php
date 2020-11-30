@@ -1188,6 +1188,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => 2,
 		);
 
+		$defaults[ 'footer-divider-' . $index . '-alignment' ] = array(
+			'desktop' => 'center',
+			'tablet'  => 'center',
+			'mobile'  => 'center',
+		);
+
 	}
 
 	// Divider header defaults.
