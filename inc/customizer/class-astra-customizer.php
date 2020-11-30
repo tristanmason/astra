@@ -61,16 +61,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public $control_types = array();
 
 		/**
-		 * Customizer Dependency Array.
-		 *
-		 * @access Private
-		 * @since 1.4.3
-		 * @var array
-		 */
-		private static $dependency_arr = array();
-
-
-		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -363,32 +353,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-			if ( false !== astra_get_prop( $config, 'required', false ) ) {
-				$this->update_dependency_arr( astra_get_prop( $config, 'name' ), astra_get_prop( $config, 'required' ) );
-			}
-
-		}
-
-		/**
-		 * Update dependency in the dependency array.
-		 *
-		 * @param String $key name of the Setting/Control for which the dependency is added.
-		 * @param Array  $dependency dependency of the $name Setting/Control.
-		 * @since 1.4.3
-		 * @return void
-		 */
-		private function update_dependency_arr( $key, $dependency ) {
-			self::$dependency_arr[ $key ] = $dependency;
-		}
-
-		/**
-		 * Get dependency Array.
-		 *
-		 * @since 1.4.3
-		 * @return Array Dependencies discovered when registering controls and settings.
-		 */
-		private function get_dependency_arr() {
-			return apply_filters( 'astra_customizer_required_dependency', self::$dependency_arr );
 		}
 
 		/**
@@ -812,7 +776,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
 						),
-						'config'     => $this->get_dependency_arr(),
 					)
 				)
 			);
