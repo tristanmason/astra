@@ -515,7 +515,7 @@ final class Astra_Builder_Helper {
 		}
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			self::$header_mobile_items['edd-cart'] = array(
-				'name'    => __( 'Cart', 'astra' ),
+				'name'    => __( 'EDD Cart', 'astra' ),
 				'icon'    => 'share',
 				'section' => 'section-header-edd-cart',
 			);
