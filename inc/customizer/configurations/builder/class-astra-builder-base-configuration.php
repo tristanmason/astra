@@ -173,8 +173,13 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_widget_options( $type = 'header' ) {
 		$html_config = array();
 
-		$no_of_widgets = 'header' === $type ? Astra_Builder_Helper::$num_of_header_widgets : Astra_Builder_Helper::$num_of_footer_widgets;
-
+		if ( 'footer' === $builder_type ) {
+			$class_obj        = Astra_Builder_Footer::get_instance();
+			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
+		} else {
+			$class_obj        = Astra_Builder_Header::get_instance();
+			$no_of_widgets = Astra_Builder_Helper::$num_of_footer_widgets;
+		}
 		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
@@ -394,6 +399,72 @@ final class Astra_Builder_Base_Configuration {
 							'right'  => __( 'Right', 'astra' ),
 						),
 						'transport' => 'postMessage',
+					)
+				);
+			}
+
+			if ( 'header' === $type ) {
+
+				$_configs = array_merge(
+					$_configs,
+					array(
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
+							'type'     => 'control',
+							'control'  => 'ast-heading',
+							'section'  => $_section,
+							'title'    => __( 'Visibility', 'astra' ),
+							'priority' => 300,
+							'settings' => array(),
+						),
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
+							'type'      => 'control',
+							'control'   => 'checkbox',
+							'default'   => astra_get_option( 'header-hide-desktop' ),
+							'section'   => $_section,
+							'priority'  => 310,
+							'title'     => __( 'Hide on Desktop', 'astra' ),
+							'transport' => 'postMessage',
+							'partial'   => array(
+								'selector'            => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								'render_callback' => function() {
+									dynamic_sidebar( $type . '-widget' . $index );
+								},
+							),
+						),
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
+							'type'      => 'control',
+							'control'   => 'checkbox',
+							'default'   => astra_get_option( 'header-hide-tablet' ),
+							'section'   => $_section,
+							'priority'  => 320,
+							'title'     => __( 'Hide on Tablet', 'astra' ),
+							'transport' => 'postMessage',
+							'partial'   => array(
+								'selector'            => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								'render_callback' => function() {
+									dynamic_sidebar( $type . '-widget-' . $index );
+								},
+							),
+						),
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
+							'type'      => 'control',
+							'control'   => 'checkbox',
+							'default'   => astra_get_option( 'header-hide-mobile' ),
+							'section'   => $_section,
+							'priority'  => 330,
+							'title'     => __( 'Hide on Mobile', 'astra' ),
+							'transport' => 'postMessage',
+							'partial'   => array(
+								'selector'            => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								'render_callback' => function() {
+									dynamic_sidebar( $type . '-widget-' . $index );
+								},
+							),
+						)
 					)
 				);
 			}
