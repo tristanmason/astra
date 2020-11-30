@@ -342,7 +342,117 @@
 							return api(settingName);
 					}
 				}
+
 				var initContext = function (element) {
+
+					const compareByOperator = function (rule) {
+
+						var result = false,
+							setting = getSetting(rule['setting']);
+
+						var operator = rule['operator'],
+							comparedValue = rule['value'],
+							currentValue = setting.get();
+						if (undefined == operator || '=' == operator) {
+							operator = '==';
+						}
+
+						switch (operator) {
+							case '>':
+								result = currentValue > comparedValue;
+								break;
+
+							case '<':
+								result = currentValue < comparedValue;
+								break;
+
+							case '>=':
+								result = currentValue >= comparedValue;
+								break;
+
+							case '<=':
+								result = currentValue <= comparedValue;
+								break;
+
+							case 'in':
+								result = 0 <= comparedValue.indexOf(currentValue);
+								break;
+
+							case 'contain':
+								result = 0 <= currentValue.indexOf(comparedValue);
+								break;
+
+							case '!=':
+								result = comparedValue != currentValue;
+								break;
+
+							default:
+								result = comparedValue == currentValue;
+								break;
+						}
+
+						return result;
+					}
+
+					const compareByRelation = function (relation, displayed, result) {
+
+						switch (relation) {
+							case 'OR':
+								displayed = displayed || result;
+								break;
+
+							default:
+								displayed = displayed && result;
+								break;
+						}
+
+						return displayed;
+					}
+
+					const getResultByRules = function (rules, relation, displayed) {
+
+						_.each(rules, function (rule, key) {
+
+							if ('relation' == key) return;
+
+							if ('AND' == relation && false == displayed) return;
+
+							if (undefined === rule['setting']) {
+
+								let tmp_relation = rule['relation'];
+								if (!tmp_relation) {
+									return;
+								}
+
+								displayed = getResultByRules(rule, tmp_relation, false);
+
+							} else {
+
+								var result = compareByOperator(rule);
+								displayed = compareByRelation(relation, displayed, result);
+							}
+
+						});
+
+						return displayed;
+
+					}
+
+					const bindSettings = function (rules) {
+						_.each(rules, function (rule, index) {
+
+							var setting = getSetting(rule['setting']);
+
+							if (undefined !== setting) {
+								setting.bind(setActiveState);
+							} else {
+								if (rule['relation']) {
+									bindSettings(rule);
+								}
+							}
+						});
+					}
+
 					var isDisplayed = function () {
 
 						var displayed = false,
@@ -353,88 +463,16 @@
 							displayed = true;
 						}
 
-						// Each rule iteration
-						_.each(rules, function (rule, key) {
-
-							if ( 'relation' == key ) return;
-
-							if ( 'AND' == relation && false == displayed ) return;
-
-							if ( undefined === rule['setting'] ) return;
-
-							var result = false,
-								setting = getSetting(rule['setting']);
-
-							if (undefined !== setting) {
-								var operator = rule['operator'],
-									comparedValue = rule['value'],
-									currentValue = setting.get();
-								if (undefined == operator || '=' == operator) {
-									operator = '==';
-								}
-
-								switch (operator) {
-									case '>':
-										result = currentValue > comparedValue;
-										break;
-
-									case '<':
-										result = currentValue < comparedValue;
-										break;
-
-									case '>=':
-										result = currentValue >= comparedValue;
-										break;
-
-									case '<=':
-										result = currentValue <= comparedValue;
-										break;
-
-									case 'in':
-										result = 0 <= comparedValue.indexOf( currentValue );
-										break;
-
-									case 'contain':
-										result = 0 <= currentValue.indexOf( comparedValue );
-										break;
-
-									case '!=':
-										result = comparedValue != currentValue;
-										break;
-
-									default:
-										result = comparedValue == currentValue;
-										break;
-								}
-							}
-
-							switch (relation) {
-								case 'OR':
-									displayed = displayed || result;
-									break;
-
-								default:
-									displayed = displayed && result;
-									break;
-							}
-						});
-
-						return displayed;
+						return getResultByRules(rules, relation, displayed);
+						;
 					};
+
 					var setActiveState = function () {
-						element._toggleActive( isDisplayed(), { duration: 0 } );
+						element._toggleActive(isDisplayed(), {duration: 0});
 					};
-					_.each(rules, function (rule, index) {
 
-						var setting = getSetting(rule['setting']);
+					bindSettings(rules);
 
-						if (undefined !== setting) {
-							setting.bind(setActiveState);
-						}
-					});
-
-
-					//element.active.validate = isDisplayed; // Todo: Remove it later.
 					setActiveState();
 				};
 				api.control(control_id, initContext);

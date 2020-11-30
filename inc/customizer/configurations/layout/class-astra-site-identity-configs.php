@@ -271,17 +271,20 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => astra_get_option( 'logo-title-inline' ),
 					'type'      => 'control',
 					'context'   => array(
-						'relation' => 'OR',
+						'relation' => 'AND',
 						Astra_Builder_Helper::$general_tab_config,
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'operator' => '==',
+								'value'    => true,
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'operator' => '==',
+								'value'    => true,
+							),
 						),
 					),
 					'control'   => 'checkbox',
@@ -321,14 +324,13 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 16,
-
 					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
 							'operator' => '==',
 							'value'    => true,
 						),
-						Astra_Builder_Helper::$design_tab_config,
 					),
 				),
 
@@ -345,28 +347,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'settings' => array(),
 				),
 
-				/**
-				 * Option: Header Site Title.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
-					'default'   => astra_get_option( 'site-title-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 16,
-					'context'   => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
-						),
-						Astra_Builder_Helper::$design_tab_config,
-					),
-
-				),
 			);
 
 

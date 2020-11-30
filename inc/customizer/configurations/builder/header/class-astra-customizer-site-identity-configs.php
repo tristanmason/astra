@@ -63,28 +63,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Header Site Title.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
-					'default'   => astra_get_option( 'site-title-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 16,
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
-
-				/**
 				 * Options: Site Tagline.
 				 */
 				array(
@@ -130,40 +108,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'display-site-title' ),
 					'section'   => 'title_tagline',
 					'title'     => __( 'Display Site Title', 'astra' ),
-					'priority'  => 7,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.site-branding',
-						'container_inclusive' => true,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
-					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
-				 * Option: Logo inline title.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[logo-title-inline]',
-					'default'   => astra_get_option( 'logo-title-inline' ),
-					'type'      => 'control',
-					'context'   => array(
-						'relation' => 'OR',
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-					'control'   => 'checkbox',
-					'section'   => 'title_tagline',
-					'title'     => __( 'Inline Logo & Site Title', 'astra' ),
 					'priority'  => 7,
 					'transport' => 'postMessage',
 					'partial'   => array(
