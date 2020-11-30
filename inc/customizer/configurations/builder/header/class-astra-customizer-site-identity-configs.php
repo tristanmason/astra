@@ -186,18 +186,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority' => 15,
 					'settings' => array(),
 					'context'  => array(
-						'relation' => 'OR',
+						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'operator' => '==',
+								'value'    => true,
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'operator' => '==',
+								'value'    => true,
+							),
 						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
+
 					),
 				),
 

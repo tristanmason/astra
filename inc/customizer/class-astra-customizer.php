@@ -730,7 +730,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Customizer Controls.
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 
-			$string       = $this->generate_font_dropdown();
+			$string = $this->generate_font_dropdown();
 
 			$tmpl = '<div class="ast-field-settings-modal">
 					<ul class="ast-fields-wrap">
