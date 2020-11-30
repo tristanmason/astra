@@ -90,46 +90,41 @@
 }
 
 /* Divider component */
-.ast-grid-section-center {
-	.ast-divider-wrapper {
-		margin: 0 auto;
-	}
+.ast-container[data-section="section-above-header-builder"],
+.ast-container[data-section="section-primary-header-builder"],
+.ast-container[data-section="section-below-header-builder"] {
+	position: relative;
 }
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-left,
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-center,
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-right,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-left,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-center,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-right,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-left,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-center,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-right {
+	position: relative;
+}
+
 .footer-widget-area.ast-footer-divider-element {
+	position: relative;
 	align-items: center;
 	height: 100%;
 	display: flex;
 }
-.ast-grid-right-section {
-	.ast-header-divider-element {
-		justify-content: flex-end;
-	}
+.ast-grid-right-section .ast-header-divider-element {
+	justify-content: flex-end;
 }
-.site-header-section-left,
-.ast-grid-right-section,
-.ast-grid-section-center {
-	.ast-header-divider-element {
-		min-width: 5%;
-	}
-}
-.ast-grid-section-center {
-	.ast-header-divider-element {
-		width: 100%;
-	}
-}
-
 .ast-hb-divider-layout-horizontal {
-	.ast-divider-layout-horizontal {
-		width: 100%;
-	}
-}
-.ast-fb-divider-layout-horizontal {
 	width: 100%;
 }
-.site-footer-section,
-.ast-footer-divider-element,
 .ast-header-divider-element {
-	height: 100%;
+	position: relative;
+}
+.ast-footer-divider-element,
+.site-footer-section {
+  height: 100%;
 }
 .footer-widget-area {
 	.ast-divider-wrapper {
@@ -137,10 +132,15 @@
 	}
 }
 
+.ast-divider-layout-vertical,
+.ast-divider-layout-horizontal {
+	position: absolute;
+}
+
 .ast-builder-layout-element {
 	align-items: center;
 	display: flex;
-	// height: 100%;
+	height: 100%;
 	.ast-footer-social-wrap {
 		.ast-builder-social-element {
 			&:first-child {
