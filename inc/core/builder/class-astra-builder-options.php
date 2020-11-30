@@ -521,11 +521,19 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => '',
 		);
 
+		$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+
 		/**
 		 * Submenu
 		 */
-		$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]  = true;
+		$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]  = false;
 		$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ] = '#eaeaea';
+		$defaults[ 'header-' . $_prefix . '-submenu-border' ]       = array(
+			'top'    => 2,
+			'bottom' => 0,
+			'left'   => 0,
+			'right'  => 0,
+		);
 
 		/**
 		 * Menu Stack on Mobile.
