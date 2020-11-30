@@ -474,7 +474,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 				'background-attachment' => 'scroll',
 			),
 			'tablet'  => array(
-				'background-color'      => 'rgba(0,0,0,0)',
+				'background-color'      => '',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
 				'background-position'   => 'center center',
@@ -482,7 +482,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 				'background-attachment' => 'scroll',
 			),
 			'mobile'  => array(
-				'background-color'      => 'rgba(0,0,0,0)',
+				'background-color'      => '',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
 				'background-position'   => 'center center',
@@ -499,8 +499,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$defaults[ 'header-' . $_prefix . '-h-bg-color-responsive' ] = array(
 			'desktop' => '',
-			'tablet'  => 'rgba(0,0,0,0)',
-			'mobile'  => 'rgba(0,0,0,0)',
+			'tablet'  => '',
+			'mobile'  => '',
 		);
 
 		$defaults[ 'header-' . $_prefix . '-h-color-responsive' ] = array(
