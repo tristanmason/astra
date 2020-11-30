@@ -508,7 +508,7 @@ final class Astra_Builder_Helper {
 
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			self::$header_mobile_items['woo-cart'] = array(
-				'name'    => __( 'Cart', 'astra' ),
+				'name'    => __( 'Woo Cart', 'astra' ),
 				'icon'    => 'share',
 				'section' => 'section-header-woo-cart',
 			);
