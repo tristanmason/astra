@@ -896,7 +896,7 @@ function astra_menu_anchor_class_for_nav_menus( $atts ) {
 	return $atts;
 }
 
-add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' );
+add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus', 11 );
 
 /**
  * Add CSS classes for all menu links inside WP Page Menu items.
