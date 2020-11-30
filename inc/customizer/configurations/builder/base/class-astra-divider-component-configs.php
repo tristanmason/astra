@@ -165,6 +165,19 @@ class Astra_Divider_Component_Configs {
 					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 
+				// Footer Background Color notice.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $_section,
+					'priority' => 41,
+					'label'    => '',
+					'help'     => sprintf( __( 'If the Divider don\'t seem to be visible please check if elements are added in the current %1$s row.', 'astra' ), $builder_type ),
+					'context'  => Astra_Builder_Helper::$design_tab,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]', '==', 'vertical' ),
+				),
+
 				/**
 				 * Option: divider Color.
 				 */
