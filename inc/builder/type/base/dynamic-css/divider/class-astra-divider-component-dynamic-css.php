@@ -49,9 +49,9 @@ class Astra_Divider_Component_Dynamic_CSS {
 			$divider_color = astra_get_option( $builder_type . '-divider-' . $index . '-color' );
 
 			$divider_thickness = astra_get_option( $builder_type . '-divider-' . $index . '-thickness' );
-			$divider_size = astra_get_option( $builder_type . '-divider-' . $index . '-size' );
+			$divider_size      = astra_get_option( $builder_type . '-divider-' . $index . '-size' );
 
-			$margin    = astra_get_option( $_section . '-margin' );
+			$margin = astra_get_option( $_section . '-margin' );
 
 			/**
 			 * Desktop CSS.
@@ -61,30 +61,30 @@ class Astra_Divider_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-divider-wrapper'       => array(
-					'border-style'     => $divider_style,
-					'border-color'     => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
+				$selector . ' .ast-divider-wrapper' => array(
+					'border-style' => $divider_style,
+					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
 				),
 
 				$selector . ' .ast-divider-layout-vertical' => array(
-					'border-right-width'	   => astra_get_css_value( $divider_thickness['desktop'], 'px' ),
-					'height'  => astra_get_css_value( $divider_size['desktop'], '%' ),
-					'padding-bottom'  => astra_get_css_value( $divider_size['desktop'], '%' ),
+					'border-right-width' => astra_get_css_value( $divider_thickness['desktop'], 'px' ),
+					'height'             => astra_get_css_value( $divider_size['desktop'], '%' ),
+					'padding-bottom'     => astra_get_css_value( $divider_size['desktop'], '%' ),
 				),
 
 				$selector . '.ast-hb-divider-layout-horizontal' => array(
-					'width'  => astra_get_css_value( $divider_size['desktop'], '%' ),
+					'width' => astra_get_css_value( $divider_size['desktop'], '%' ),
 				),
 				
 				$selector . '.ast-fb-divider-layout-horizontal .ast-divider-layout-horizontal' => array(
-					'width'  => astra_get_css_value( $divider_size['desktop'], '%' ),
+					'width' => astra_get_css_value( $divider_size['desktop'], '%' ),
 				),
 
 				$selector . ' .ast-divider-layout-horizontal' => array(
-					'border-top-width'	   => astra_get_css_value( $divider_thickness['desktop'], 'px' ),
+					'border-top-width' => astra_get_css_value( $divider_thickness['desktop'], 'px' ),
 				),
 
-				$selector => array(
+				$selector                           => array(
 					// Margin.
 					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -101,30 +101,30 @@ class Astra_Divider_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-divider-wrapper'       => array(
-					'border-style'     => $divider_style,
-					'border-color'     => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
+				$selector . ' .ast-divider-wrapper' => array(
+					'border-style' => $divider_style,
+					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
 				),
 
 				$selector . ' .ast-divider-layout-vertical' => array(
-					'border-right-width'	   => astra_get_css_value( $divider_thickness['tablet'], 'px' ),
-					'height'  => astra_get_css_value( $divider_size['tablet'], '%' ),
-					'padding-bottom'  => astra_get_css_value( $divider_size['tablet'], '%' ),
+					'border-right-width' => astra_get_css_value( $divider_thickness['tablet'], 'px' ),
+					'height'             => astra_get_css_value( $divider_size['tablet'], '%' ),
+					'padding-bottom'     => astra_get_css_value( $divider_size['tablet'], '%' ),
 				),
 
 				$selector . ' .ast-divider-layout-horizontal' => array(
-					'border-top-width'	   => astra_get_css_value( $divider_thickness['tablet'], 'px' ),
+					'border-top-width' => astra_get_css_value( $divider_thickness['tablet'], 'px' ),
 				),
 
 				$selector . '.ast-hb-divider-layout-horizontal' => array(
-					'width'  => astra_get_css_value( $divider_size['tablet'], '%' ),
+					'width' => astra_get_css_value( $divider_size['tablet'], '%' ),
 				),
 				
 				$selector . '.ast-fb-divider-layout-horizontal .ast-divider-layout-horizontal' => array(
-					'width'  => astra_get_css_value( $divider_size['tablet'], '%' ),
+					'width' => astra_get_css_value( $divider_size['tablet'], '%' ),
 				),
 
-				$selector                                => array(
+				$selector                           => array(
 					// Margin CSS.
 					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -141,30 +141,30 @@ class Astra_Divider_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-divider-wrapper'       => array(
-					'border-style'     => $divider_style,
-					'border-color'     => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
+				$selector . ' .ast-divider-wrapper' => array(
+					'border-style' => $divider_style,
+					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
 				),
 
 				$selector . ' .ast-divider-layout-vertical' => array(
-					'border-right-width'	   => astra_get_css_value( $divider_thickness['mobile'], 'px' ),
-					'height'  => astra_get_css_value( $divider_size['mobile'], '%' ),
-					'padding-bottom'  => astra_get_css_value( $divider_size['mobile'], '%' ),
+					'border-right-width' => astra_get_css_value( $divider_thickness['mobile'], 'px' ),
+					'height'             => astra_get_css_value( $divider_size['mobile'], '%' ),
+					'padding-bottom'     => astra_get_css_value( $divider_size['mobile'], '%' ),
 				),
 
 				$selector . ' .ast-divider-layout-horizontal' => array(
-					'border-top-width'	   => astra_get_css_value( $divider_thickness['mobile'], 'px' ),
+					'border-top-width' => astra_get_css_value( $divider_thickness['mobile'], 'px' ),
 				),
 
 				$selector . '.ast-hb-divider-layout-horizontal' => array(
-					'width'  => astra_get_css_value( $divider_size['mobile'], '%' ),
+					'width' => astra_get_css_value( $divider_size['mobile'], '%' ),
 				),
 				
 				$selector . '.ast-fb-divider-layout-horizontal .ast-divider-layout-horizontal' => array(
-					'width'  => astra_get_css_value( $divider_size['mobile'], '%' ),
+					'width' => astra_get_css_value( $divider_size['mobile'], '%' ),
 				),
 
-				$selector                                => array(
+				$selector                           => array(
 					// Margin CSS.
 					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

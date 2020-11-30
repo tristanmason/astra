@@ -1172,9 +1172,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	// Divider Footer defaults.
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_divider; $index++ ) {
 
-		$defaults[ 'footer-divider-' . $index . '-style' ] = 'solid';
+		$defaults[ 'footer-divider-' . $index . '-style' ]  = 'solid';
 		$defaults[ 'footer-divider-' . $index . '-layout' ] = 'horizontal';
-		$defaults[ 'footer-divider-' . $index . '-color' ] = '#3a3a3a';
+		$defaults[ 'footer-divider-' . $index . '-color' ]  = '#3a3a3a';
 
 		$defaults[ 'footer-divider-' . $index . '-size' ] = array(
 			'desktop' => 95,
@@ -1193,9 +1193,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	// Divider header defaults.
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
 
-		$defaults[ 'header-divider-' . $index . '-style' ] = 'solid';
+		$defaults[ 'header-divider-' . $index . '-style' ]  = 'solid';
 		$defaults[ 'header-divider-' . $index . '-layout' ] = 'vertical';
-		$defaults[ 'header-divider-' . $index . '-color' ] = '#3a3a3a';
+		$defaults[ 'header-divider-' . $index . '-color' ]  = '#3a3a3a';
 
 		$defaults[ 'header-divider-' . $index . '-size' ] = array(
 			'desktop' => 95,

@@ -36,10 +36,10 @@ class Astra_Divider_Component_Configs {
 		$divider_config = array();
 
 		if ( 'footer' === $builder_type ) {
-			$class_obj        = Astra_Builder_Footer::get_instance();
+			$class_obj         = Astra_Builder_Footer::get_instance();
 			$number_of_divider = Astra_Builder_Helper::$num_of_footer_divider;
 		} else {
-			$class_obj        = Astra_Builder_Header::get_instance();
+			$class_obj         = Astra_Builder_Header::get_instance();
 			$number_of_divider = Astra_Builder_Helper::$num_of_header_divider;
 		}
 
@@ -68,8 +68,8 @@ class Astra_Divider_Component_Configs {
 				),
 
 				/*
-                * Header Builder section - divider Component Configs.
-                */
+				* Header Builder section - divider Component Configs.
+				*/
 				array(
 					'name'     => $_section,
 					'type'     => 'section',
@@ -83,19 +83,19 @@ class Astra_Divider_Component_Configs {
 				 * Option: Position
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]',
-					'default'  => 'vertical',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => $_section,
-					'priority' => 30,
-					'title'    => __( 'Layout', 'astra' ),
-					'choices'  => array(
-						'horizontal'  => __( 'Horizontal', 'astra' ),
-						'vertical'    => __( 'Vertical', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]',
+					'default'   => 'vertical',
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 30,
+					'title'     => __( 'Layout', 'astra' ),
+					'choices'   => array(
+						'horizontal' => __( 'Horizontal', 'astra' ),
+						'vertical'   => __( 'Vertical', 'astra' ),
 					),
-					'transport'   => 'postMessage',
-					'partial'     => array(
+					'transport' => 'postMessage',
+					'partial'   => array(
 						'selector'        => '.ast-' . $builder_type . '-divider-' . $index,
 						'render_callback' => array( $class_obj, $builder_type . '_divider_' . $index ),
 					),
@@ -105,25 +105,25 @@ class Astra_Divider_Component_Configs {
 				 * Option:  Divider Style
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-style]',
-					'default'  => 'solid',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => $_section,
-					'priority' => 30,
-					'title'    => __( 'Style', 'astra' ),
-					'choices'  => array(
-						'solid'           	=> __( 'Solid', 'astra' ),
-						'dashed'       	=> __( 'Dashed', 'astra' ),
-						'dotted' 		=> __( 'Dotted', 'astra' ),
-						'double'   		=> __( 'Double', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-style]',
+					'default'   => 'solid',
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => $_section,
+					'priority'  => 30,
+					'title'     => __( 'Style', 'astra' ),
+					'choices'   => array(
+						'solid'  => __( 'Solid', 'astra' ),
+						'dashed' => __( 'Dashed', 'astra' ),
+						'dotted' => __( 'Dotted', 'astra' ),
+						'double' => __( 'Double', 'astra' ),
 					),
-					'transport'   => 'postMessage',
+					'transport' => 'postMessage',
 				),
 
 				// Section: Above Footer Border.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-thickness]',
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-thickness]',
 					'section'     => $_section,
 					'priority'    => 40,
 					'transport'   => 'postMessage',
@@ -145,7 +145,7 @@ class Astra_Divider_Component_Configs {
 
 				// Section: Above Footer Border.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-size]',
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-size]',
 					'section'     => $_section,
 					'priority'    => 40,
 					'transport'   => 'postMessage',
@@ -229,9 +229,9 @@ class Astra_Divider_Component_Configs {
 					'priority'  => 35,
 					'title'     => __( 'Alignment', 'astra' ),
 					'choices'   => array(
-						'flex-start'   => __( 'Left', 'astra' ),
-						'flex-end'  => __( 'Right', 'astra' ),
-						'center' => __( 'Center', 'astra' ),
+						'flex-start' => __( 'Left', 'astra' ),
+						'flex-end'   => __( 'Right', 'astra' ),
+						'center'     => __( 'Center', 'astra' ),
 					),
 					'transport' => 'postMessage',
 				);
@@ -240,7 +240,7 @@ class Astra_Divider_Component_Configs {
 			$divider_config[] = $_configs;
 		}
 
-		$divider_config    = call_user_func_array( 'array_merge', $divider_config + array( array() ) );
+		$divider_config = call_user_func_array( 'array_merge', $divider_config + array( array() ) );
 		$configurations = array_merge( $configurations, $divider_config );
 
 		return $configurations;

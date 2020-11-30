@@ -154,8 +154,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					if ( $index ) {
 						Astra_Builder_UI_Controller::render_divider_markup( str_replace( '_', '-', $func ) );
 					}
-				}
-
+				}           
 			}
 		}
 

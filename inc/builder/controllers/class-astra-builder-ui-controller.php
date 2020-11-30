@@ -139,9 +139,11 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			?>
 
 			<div class="ast-divider-wrapper ast-divider-layout-<?php echo esc_attr( $layout ); ?>">
-				<?php if ( is_customize_preview() ) {
+				<?php 
+				if ( is_customize_preview() ) {
 					self::render_customizer_edit_button();
-				} ?>
+				} 
+				?>
 				<div class="ast-builder-divider-element"></div>
 			</div>
 
