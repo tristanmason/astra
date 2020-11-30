@@ -3255,11 +3255,7 @@ body .entry-content .wp-block-latest-posts li {
   display: flex;
 }
 
-.ast-grid-right-section .ast-header-divider-element {
-  justify-content: flex-end;
-}
-
-.ast-hb-divider-layout-horizontal {
+.ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
   width: 100%;
 }
 
