@@ -173,7 +173,7 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_widget_options( $type = 'header' ) {
 		$html_config = array();
 
-		if ( 'footer' === $builder_type ) {
+		if ( 'footer' === $type ) {
 			$class_obj        = Astra_Builder_Footer::get_instance();
 			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
 		} else {
