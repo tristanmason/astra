@@ -354,9 +354,9 @@
 						}
 
 						// Each rule iteration
-						_.each(rules, function (rule, i) {
+						_.each(rules, function (rule, key) {
 
-							if ( 'relation' == i ) return;
+							if ( 'relation' == key ) return;
 
 							if ( 'AND' == relation && false == displayed ) return;
 
@@ -424,7 +424,7 @@
 					var setActiveState = function () {
 						element._toggleActive( isDisplayed(), { duration: 0 } );
 					};
-					_.each(rules, function (rule, i) {
+					_.each(rules, function (rule, index) {
 
 						var setting = getSetting(rule['setting']);
 
