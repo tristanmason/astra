@@ -407,6 +407,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
+			var link = '';
 
 			if ( new_value ) {
 
