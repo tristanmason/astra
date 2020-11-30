@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			 * @since  3.0.0
 			 * @var Array
 			 */
-			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $submenu_class, $stack_on_mobile_class ) );
+			$menu_classes = apply_filters( 'astra_menu_classes', array( 'ast-nav-menu', 'ast-account-nav-menu' ) );
 
 			$items_wrap  = '<nav ';
 			$items_wrap .= astra_attr(
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 				)
 			);
 			$items_wrap .= '>';
-			$items_wrap .= '<div class="main-navigation">';
+			$items_wrap .= '<div class="account-main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
 			$items_wrap .= '</nav>';
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			$fallback_menu_args = array(
 				'theme_location' => $theme_location,
 				'menu_id'        => 'ast-hf-account-menu',
-				'menu_class'     => 'main-navigation',
+				'menu_class'     => 'account-main-navigation',
 				'container'      => 'div',
 				'before'         => '<ul class="' . esc_attr( implode( ' ', $menu_classes ) ) . '">',
 				'after'          => '</ul>',
@@ -101,17 +101,17 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			if ( has_nav_menu( $theme_location ) ) {
 				wp_nav_menu(
 					array(
-						'menu_id'         => 'ast-hf-menu-' . $index,
+						'menu_id'         => 'ast-hf-account-menu',
 						'menu_class'      => esc_attr( implode( ' ', $menu_classes ) ),
 						'container'       => 'div',
-						'container_class' => 'main-header-bar-navigation',
+						'container_class' => 'account-main-header-bar-navigation',
 						'items_wrap'      => $items_wrap,
 						'theme_location'  => $theme_location,
 					)
 				);
 			} else {
 				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
-					echo '<div class="main-header-bar-navigation">';
+					echo '<div class="account-main-header-bar-navigation">';
 						echo '<nav ';
 						echo astra_attr(
 							'site-navigation',

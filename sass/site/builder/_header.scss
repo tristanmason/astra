@@ -184,6 +184,72 @@
 	}
 }
 
+/* menu */
+.ast-main-header-bar-alignment {
+	position: relative;
+}
+.ast-header-account-wrap.focus .ast-account-nav-menu,
+.ast-header-account-wrap:hover .ast-account-nav-menu {
+    right: auto;
+	left: 0;
+}
+
+.main-header-bar .main-header-bar-navigation .ast-account-nav-menu {
+    line-height: 1.45;
+}
+
+.ast-desktop .ast-account-nav-menu {
+    box-shadow: 0 4px 10px -2px rgba(0,0,0,.1);
+}
+
+.ast-account-nav-menu {
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+}
+
+.ast-account-nav-menu {
+    width: 240px;
+    background: #fff;
+    // left: -999em;
+    position: absolute;
+    top: 100%;
+    z-index: 99999;
+}
+.ast-account-nav-menu {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.ast-account-nav-menu {
+	top: 0px;
+}
+.ast-account-nav-menu .sub-menu {
+	margin-left: 0;
+}
+
+.ast-account-nav-menu .menu-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ast-account-nav-menu .menu-item {
+    position: relative;
+}
+
+.ast-account-nav-menu .menu-item .menu-link {
+    border-bottom-width: 1px;
+    border-color: #eaeaea;
+    border-style: solid;
+    padding: .9em 1em;
+    display: block;
+    word-wrap: break-word;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Text/HTML Widget.
@@ -1009,6 +1075,7 @@ body.admin-bar {
 		margin: 15px 20px;
 	}
 }
+
 
 /* Footer menu spacing between each menu items. */
 @media (min-width: $col-md ) {
