@@ -212,7 +212,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 * @since 2.5.4
 		 */
 		public static function check_numberic_values( $value ) {
-			return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
+			return ( is_numeric( $value ) ) ? $value : '';
 		}
 
 		/**
