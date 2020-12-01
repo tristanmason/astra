@@ -27,7 +27,8 @@
 				'astra-settings[header-' + prefix + '-font-family]',
 				selector + ' .menu-item > .menu-link'
 			);
-			astra_css(
+			astra_generate_font_weight_css(
+				'astra-settings[header-' + prefix + '-font-family]',
 				'astra-settings[header-' + prefix + '-font-weight]',
 				'font-weight',
 				selector + ' .menu-item > .menu-link'
