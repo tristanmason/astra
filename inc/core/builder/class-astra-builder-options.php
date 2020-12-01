@@ -843,9 +843,17 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
 
-		$defaults[ 'header-social-' . $index . '-space' ]        = '';
+		$defaults[ 'header-social-' . $index . '-space' ]        = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
 		$defaults[ 'header-social-' . $index . '-bg-space' ]     = '';
-		$defaults[ 'header-social-' . $index . '-size' ]         = 18;
+		$defaults[ 'header-social-' . $index . '-size' ]         = array(
+			'desktop' => 18,
+			'tablet'  => '',
+			'mobile'  => '',
+		);
 		$defaults[ 'header-social-' . $index . '-radius' ]       = '';
 		$defaults[ 'header-social-' . $index . '-color' ]        = '';
 		$defaults[ 'header-social-' . $index . '-h-color' ]      = '';
@@ -905,9 +913,17 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_social_icons; $index++ ) {
 
-		$defaults[ 'footer-social-' . $index . '-space' ]        = '';
+		$defaults[ 'footer-social-' . $index . '-space' ]        = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
 		$defaults[ 'footer-social-' . $index . '-bg-space' ]     = '';
-		$defaults[ 'footer-social-' . $index . '-size' ]         = 18;
+		$defaults[ 'footer-social-' . $index . '-size' ]         = array(
+			'desktop' => 18,
+			'tablet'  => '',
+			'mobile'  => '',
+		);
 		$defaults[ 'footer-social-' . $index . '-radius' ]       = '';
 		$defaults[ 'footer-social-' . $index . '-color' ]        = '';
 		$defaults[ 'footer-social-' . $index . '-h-color' ]      = '';
