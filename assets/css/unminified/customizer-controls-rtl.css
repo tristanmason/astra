@@ -94,10 +94,6 @@
 	color: red;
 }
 
-.control-section.ast-hide {
-	display: none !important;
-}
-
 /**
  * Typography Control Style
  */
@@ -218,10 +214,6 @@
 }
 .rtl .control-section-astra-pro h3 a:after {
     content: "\f341";
-}
-
-.ast-hide{
-	display: none !important;
 }
 
 
