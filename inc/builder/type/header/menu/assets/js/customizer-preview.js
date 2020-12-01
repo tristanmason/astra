@@ -101,9 +101,9 @@
 			);
 
 			// Menu - Normal Background
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu', 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu', 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu', 'mobile' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu, ' + selector + ' .sub-menu', 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', '.ast-header-break-point ' + selector + ' .main-header-menu, .ast-header-break-point ' + selector + ' .sub-menu', 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', '.ast-header-break-point ' + selector + ' .main-header-menu, .ast-header-break-point ' + selector + ' .sub-menu', 'mobile' );
 
 			// Menu - Hover Background
 			astra_color_responsive_css(
@@ -131,7 +131,7 @@
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-border]', function( setting ) {
 					setting.bind( function( border ) {
 
-						var dynamicStyle = '.ast-builder-menu-'+ index +' .main-header-menu .sub-menu, .ast-desktop .ast-builder-menu-'+ index +' .submenu-with-border .astra-full-megamenu-wrapper, .ast-desktop .ast-builder-menu-'+ index +' .submenu-with-border .astra-megamenu {';
+						var dynamicStyle = '.ast-builder-menu-'+ index +'  .sub-menu {';
 						dynamicStyle += 'border-top-width:'  + border.top + 'px;';
 						dynamicStyle += 'border-right-width:'  + border.right + 'px;';
 						dynamicStyle += 'border-left-width:'   + border.left + 'px;';

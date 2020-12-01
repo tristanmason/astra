@@ -161,7 +161,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 		);
 
-		$css_output_desktop[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' );
+		$css_output_desktop[ $selector . ' .main-header-menu ,' . $selector . ' .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' );
 
 		$mobile_selector = '.ast-builder-menu-' . $index;
 
@@ -216,7 +216,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 		);
 
-		$css_output_tablet[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' );
+		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .main-header-menu, .ast-header-break-point ' . $selector . ' .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' );
 
 		$css_output_mobile = array(
 
@@ -260,7 +260,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 		);
 
-		$css_output_mobile[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
+		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .main-header-menu, .ast-header-break-point ' . $selector . ' .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 		if ( true === $sub_menu_divider_toggle ) {
 
