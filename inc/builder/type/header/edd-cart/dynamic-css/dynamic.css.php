@@ -53,7 +53,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .ast-edd-header-cart-info-wrap' => array(
 			'color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
 		),
-		$selector . ' .ast-icon-shopping-cart' => array(
+		$selector . ' .ast-icon-shopping-cart'        => array(
 			'color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
 		),
 	);

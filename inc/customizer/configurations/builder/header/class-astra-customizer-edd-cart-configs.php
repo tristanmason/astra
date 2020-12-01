@@ -36,7 +36,8 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = 'section-header-edd-cart';
+		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
+
 		$defaults = Astra_Theme_Options::defaults();
 
 		$_configs = array(
@@ -52,17 +53,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'panel'    => 'panel-header-builder-group',
 			),
 
-			/**
-			 * Option: EDD Cart Tabs
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-header-edd-cart-tabs]',
-				'section'     => $_section,
-				'type'        => 'control',
-				'control'     => 'ast-builder-header-control',
-				'priority'    => 0,
-				'description' => '',
-			),
+			
 
 			/**
 			 * Option: Header cart total
