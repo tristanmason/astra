@@ -84,7 +84,7 @@ class Astra_Divider_Component_Configs {
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]',
-					'default'   => 'vertical',
+					'default'   => astra_get_option( $builder_type . '-divider-' . $index . '-layout' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'section'   => $_section,
@@ -106,7 +106,7 @@ class Astra_Divider_Component_Configs {
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-style]',
-					'default'   => 'solid',
+					'default'   => astra_get_option( $builder_type . '-divider-' . $index . '-style' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'section'   => $_section,
@@ -127,11 +127,7 @@ class Astra_Divider_Component_Configs {
 					'section'     => $_section,
 					'priority'    => 40,
 					'transport'   => 'postMessage',
-					'default'     => array(
-						'desktop' => 1,
-						'tablet'  => '',
-						'mobile'  => '',
-					),
+					'default'   => astra_get_option( $builder_type . '-divider-' . $index . '-thickness' ),
 					'title'       => __( 'Thickness (px)', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
@@ -149,11 +145,7 @@ class Astra_Divider_Component_Configs {
 					'section'     => $_section,
 					'priority'    => 40,
 					'transport'   => 'postMessage',
-					'default'     => array(
-						'desktop' => 50,
-						'tablet'  => '',
-						'mobile'  => '',
-					),
+					'default'   => astra_get_option( $builder_type . '-divider-' . $index . '-size' ),
 					'title'       => __( 'Size (%)', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
