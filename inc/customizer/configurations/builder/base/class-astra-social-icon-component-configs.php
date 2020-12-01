@@ -347,79 +347,6 @@ class Astra_Social_Icon_Component_Configs {
 				),
 			);
 
-			if ( 'header' === $builder_type ) {
-
-				/**
-				 * Option: Hide on heading
-				 */
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Visibility', 'astra' ),
-					'priority' => 200,
-					'settings' => array(),
-				);
-
-				/**
-				 * Option: Hide on desktop
-				 */
-				$_configs[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
-					'type'      => 'control',
-					'control'   => 'checkbox',
-					'default'   => astra_get_option( 'header-hide-desktop' ),
-					'section'   => $_section,
-					'priority'  => 210,
-					'title'     => __( 'Hide on Desktop', 'astra' ),
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
-						'container_inclusive' => true,
-						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
-					),
-				);
-
-				/**
-				 * Option: Hide on tablet
-				 */
-				$_configs[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
-					'type'      => 'control',
-					'control'   => 'checkbox',
-					'default'   => astra_get_option( 'header-hide-tablet' ),
-					'section'   => $_section,
-					'priority'  => 220,
-					'title'     => __( 'Hide on Tablet', 'astra' ),
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
-						'container_inclusive' => true,
-						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
-					),
-				);
-
-				/**
-				 * Option: Hide on mobile
-				 */
-				$_configs[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
-					'type'      => 'control',
-					'control'   => 'checkbox',
-					'default'   => astra_get_option( 'header-hide-mobile' ),
-					'section'   => $_section,
-					'priority'  => 230,
-					'title'     => __( 'Hide on Mobile', 'astra' ),
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
-						'container_inclusive' => true,
-						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
-					),
-				);
-			}
-
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-social-' . $index . '-alignment]',
@@ -437,6 +364,10 @@ class Astra_Social_Icon_Component_Configs {
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				);
+			}
+
+			if ( 'header' === $builder_type ) {
+				$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, '.ast-' . $builder_type . '-social-' . $index . '-wrap', $builder_type . '_social_' . $index );
 			}
 
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section, array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-label-toggle]', '===', true ) );

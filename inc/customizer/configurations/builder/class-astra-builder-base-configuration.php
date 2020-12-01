@@ -165,6 +165,94 @@ final class Astra_Builder_Base_Configuration {
 	}
 
 	/**
+	 * Prepare Visibility options.
+	 *
+	 * @param string $section_id section id.
+	 * @return array
+	 */
+	public static function prepare_visibility_tab( $_section, $selector, $function ) {
+
+		$class_obj        = Astra_Builder_Header::get_instance();
+
+		return array(
+
+			/**
+			 * Option: Hide on heading
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Visibility', 'astra' ),
+				'priority' => 200,
+				'settings' => array(),
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Hide on desktop
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'default'   => astra_get_option( 'header-hide-desktop' ),
+				'section'   => $_section,
+				'priority'  => 210,
+				'title'     => __( 'Hide on Desktop', 'astra' ),
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'            => $selector,
+					'container_inclusive' => false,
+					'render_callback'     => array( $class_obj, $function ),
+				),
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Hide on tablet
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'default'   => astra_get_option( 'header-hide-tablet' ),
+				'section'   => $_section,
+				'priority'  => 220,
+				'title'     => __( 'Hide on Tablet', 'astra' ),
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'            => $selector,
+					'container_inclusive' => false,
+					'render_callback'     => array( $class_obj, $function ),
+				),
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Hide on mobile
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'default'   => astra_get_option( 'header-hide-mobile' ),
+				'section'   => $_section,
+				'priority'  => 230,
+				'title'     => __( 'Hide on Mobile', 'astra' ),
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'            => $selector,
+					'container_inclusive' => false,
+					'render_callback'     => array( $class_obj, $function ),
+				),
+				'context'   => Astra_Builder_Helper::$general_tab,
+			)
+		);
+	}
+
+	/**
 	 * Prepare common options for the widgets by type.
 	 *
 	 * @param string $type type.
