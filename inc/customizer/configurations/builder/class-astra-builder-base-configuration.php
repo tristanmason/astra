@@ -427,11 +427,7 @@ final class Astra_Builder_Base_Configuration {
 							'title'     => __( 'Hide on Desktop', 'astra' ),
 							'transport' => 'postMessage',
 							'partial'   => array(
-								'selector'        => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
-								// @codingStandardsIgnoreStart PHPCompatibility.FunctionDeclarations.NewClosure.Found
-								'render_callback' => function() {
-									dynamic_sidebar( $type . '-widget' . $index );
-								},
+								'selector' => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
 							),
 						),
 						array(
@@ -444,10 +440,7 @@ final class Astra_Builder_Base_Configuration {
 							'title'     => __( 'Hide on Tablet', 'astra' ),
 							'transport' => 'postMessage',
 							'partial'   => array(
-								'selector'        => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
-								'render_callback' => function() {
-									dynamic_sidebar( $type . '-widget-' . $index );
-								},
+								'selector' => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
 							),
 						),
 						array(
@@ -460,10 +453,7 @@ final class Astra_Builder_Base_Configuration {
 							'title'     => __( 'Hide on Mobile', 'astra' ),
 							'transport' => 'postMessage',
 							'partial'   => array(
-								'selector'        => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
-								'render_callback' => function() {
-									dynamic_sidebar( $type . '-widget-' . $index );
-								},
+								'selector' => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
 							),
 						),
 					)
