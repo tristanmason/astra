@@ -55,7 +55,6 @@ final class Astra_Builder_Customizer {
 
 		$wp_customize->get_control( 'custom_logo' )->priority     = 2;
 		$wp_customize->get_control( 'blogname' )->priority        = 7;
-		$wp_customize->get_control( 'site_icon' )->priority       = 16;
 		$wp_customize->get_control( 'blogdescription' )->priority = 11;
 
 		$wp_customize->get_setting( 'custom_logo' )->transport     = 'postMessage';

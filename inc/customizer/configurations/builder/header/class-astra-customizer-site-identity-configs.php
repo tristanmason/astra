@@ -62,27 +62,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => '',
 				),
 
-				/**
-				 * Options: Site Tagline.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
-					'default'   => astra_get_option( 'site-tagline-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Tagline', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 20,
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
 
 				/**
 				 * Option: Divider
@@ -149,25 +128,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-title-color-group]',
-					'default'   => astra_get_option( 'site-identity-title-color-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
-					'section'   => 'title_tagline',
-					'transport' => 'postMessage',
-					'priority'  => 8,
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
-
 				// Option: Site Title Color.
 				array(
 					'name'      => 'header-color-site-title',
@@ -196,25 +156,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Option: Site Tagline Color.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-color-site-tagline]',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'priority'  => 9,
-					'default'   => astra_get_option( 'header-color-site-tagline' ),
-					'title'     => __( 'Tagline', 'astra' ),
-					'section'   => 'title_tagline',
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
+
 
 				/**
 				 * Option: Margin heading
