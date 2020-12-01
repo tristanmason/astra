@@ -73,7 +73,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Title', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
-					'priority'  => 16,
+					'priority'  => 18,
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-title]',
 						'==',
