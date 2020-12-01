@@ -3273,7 +3273,7 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-fb-divider-layout-vertical .ast-divider-layout-vertical,
-.ast-divider-layout-horizontal {
+.ast-fb-divider-layout-vertical .ast-divider-layout-horizontal {
   position: absolute;
 }
 
