@@ -281,6 +281,11 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'operator' => '==',
 							'value'    => true,
 						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
 					'priority'       => 30.3,
 					'title'          => __( 'Retina Logo', 'astra' ),

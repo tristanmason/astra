@@ -378,7 +378,7 @@
 								result = 0 <= comparedValue.indexOf(currentValue);
 								break;
 
-							case 'contain':
+							case 'contains':
 								result = 0 <= currentValue.indexOf(comparedValue);
 								break;
 
@@ -464,7 +464,7 @@
 						}
 
 						return getResultByRules(rules, relation, displayed);
-						;
+
 					};
 
 					var setActiveState = function () {
