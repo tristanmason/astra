@@ -1190,8 +1190,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$defaults[ 'footer-divider-' . $index . '-alignment' ] = array(
 			'desktop' => 'center',
-			'tablet'  => '',
-			'mobile'  => '',
+			'tablet'  => 'center',
+			'mobile'  => 'center',
 		);
 
 	}
