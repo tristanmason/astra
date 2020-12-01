@@ -44,8 +44,8 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$margin_selector = '.astra-hfb-header .site-header-section > .ast-header-search, .astra-hfb-header .ast-header-search';
 
 	$hide_on_desktop = astra_get_option( 'header-search-hide-desktop' );
-	$hide_on_tablet = astra_get_option( 'header-search-hide-tablet' );
-	$hide_on_mobile = astra_get_option( 'header-search-hide-mobile' );
+	$hide_on_tablet  = astra_get_option( 'header-search-hide-tablet' );
+	$hide_on_mobile  = astra_get_option( 'header-search-hide-mobile' );
 	
 	/**
 	 * Search CSS.

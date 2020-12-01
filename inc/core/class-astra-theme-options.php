@@ -206,9 +206,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'display-site-tagline'                 => 0,
 					'logo-title-inline'                    => 1,
 					// Search - visibility.
-					'header-hide-desktop'          => 0,
-					'header-hide-tablet'           => 0,
-					'header-hide-mobile'            => 0,
+					'header-hide-desktop'                  => 0,
+					'header-hide-tablet'                   => 0,
+					'header-hide-mobile'                   => 0,
 					// Header - Primary.
 					'disable-primary-nav'                  => false,
 					'header-layouts'                       => 'header-main-layout-1',

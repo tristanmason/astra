@@ -30,8 +30,8 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		return $dynamic_css;
 	}
 
-	$_section = 'title_tagline';
-	$selector = '.ast-builder-layout-element .ast-site-identity';
+	$_section            = 'title_tagline';
+	$selector            = '.ast-builder-layout-element .ast-site-identity';
 	$visibility_selector = '.ast-builder-layout-element[data-section="title_tagline"]';
 
 	$margin            = astra_get_option( $_section . '-margin' );

@@ -174,10 +174,10 @@ final class Astra_Builder_Base_Configuration {
 		$html_config = array();
 
 		if ( 'footer' === $type ) {
-			$class_obj        = Astra_Builder_Footer::get_instance();
+			$class_obj     = Astra_Builder_Footer::get_instance();
 			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
 		} else {
-			$class_obj        = Astra_Builder_Header::get_instance();
+			$class_obj     = Astra_Builder_Header::get_instance();
 			$no_of_widgets = Astra_Builder_Helper::$num_of_footer_widgets;
 		}
 		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
@@ -427,7 +427,8 @@ final class Astra_Builder_Base_Configuration {
 							'title'     => __( 'Hide on Desktop', 'astra' ),
 							'transport' => 'postMessage',
 							'partial'   => array(
-								'selector'            => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								'selector'        => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								// @codingStandardsIgnoreStart PHPCompatibility.FunctionDeclarations.NewClosure.Found
 								'render_callback' => function() {
 									dynamic_sidebar( $type . '-widget' . $index );
 								},
@@ -443,7 +444,7 @@ final class Astra_Builder_Base_Configuration {
 							'title'     => __( 'Hide on Tablet', 'astra' ),
 							'transport' => 'postMessage',
 							'partial'   => array(
-								'selector'            => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								'selector'        => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
 								'render_callback' => function() {
 									dynamic_sidebar( $type . '-widget-' . $index );
 								},
@@ -459,12 +460,12 @@ final class Astra_Builder_Base_Configuration {
 							'title'     => __( 'Hide on Mobile', 'astra' ),
 							'transport' => 'postMessage',
 							'partial'   => array(
-								'selector'            => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
+								'selector'        => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
 								'render_callback' => function() {
 									dynamic_sidebar( $type . '-widget-' . $index );
 								},
 							),
-						)
+						),
 					)
 				);
 			}

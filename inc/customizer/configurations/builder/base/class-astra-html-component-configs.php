@@ -204,7 +204,7 @@ class Astra_Html_Component_Configs {
 					'priority'  => 210,
 					'title'     => __( 'Hide on Desktop', 'astra' ),
 					'transport' => 'postMessage',
-					'partial'     => array(
+					'partial'   => array(
 						'selector'        => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback' => array( $class_obj, $builder_type . '_html_' . $index ),
 					),
@@ -222,7 +222,7 @@ class Astra_Html_Component_Configs {
 					'priority'  => 220,
 					'title'     => __( 'Hide on Tablet', 'astra' ),
 					'transport' => 'postMessage',
-					'partial'     => array(
+					'partial'   => array(
 						'selector'        => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback' => array( $class_obj, $builder_type . '_html_' . $index ),
 					),
@@ -240,7 +240,7 @@ class Astra_Html_Component_Configs {
 					'priority'  => 230,
 					'title'     => __( 'Hide on Mobile', 'astra' ),
 					'transport' => 'postMessage',
-					'partial'     => array(
+					'partial'   => array(
 						'selector'        => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback' => array( $class_obj, $builder_type . '_html_' . $index ),
 					),
