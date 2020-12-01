@@ -51,10 +51,10 @@ function astra_fb_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$css_output_desktop = array(
 			$selector => array(
 				'justify-content' => $desktop_alignment,
-				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
-				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
-				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
-				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+				'margin-top'      => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+				'margin-bottom'   => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+				'margin-left'     => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+				'margin-right'    => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 			),
 		);
 
@@ -62,10 +62,10 @@ function astra_fb_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			$selector => array(
 				'justify-content' => $tablet_alignment,
 				// Margin CSS.
-				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
-				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
-				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
-				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+				'margin-top'      => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+				'margin-bottom'   => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+				'margin-left'     => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+				'margin-right'    => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 			),
 		);
 
@@ -73,10 +73,10 @@ function astra_fb_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			$selector => array(
 				'justify-content' => $mobile_alignment,
 				// Margin CSS.
-				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
-				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
-				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
-				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+				'margin-top'      => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+				'margin-bottom'   => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+				'margin-left'     => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+				'margin-right'    => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 			),
 		);
 

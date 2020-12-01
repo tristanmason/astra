@@ -100,6 +100,19 @@ class Astra_Divider_Component_Configs {
 						'render_callback' => array( $class_obj, $builder_type . '_divider_' . $index ),
 					),
 				),
+
+				// Vertical divider notice.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $_section,
+					'priority' => 30,
+					'label'    => '',
+					/* translators: %1$s builder type param */
+					'help'     => sprintf( __( 'If the Divider don\'t seem to be visible please check if elements are added in the current %1$s row.', 'astra' ), $builder_type ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]', '==', 'vertical' ),
+				),
 				
 				/**
 				 * Option:  Divider Style
@@ -127,7 +140,7 @@ class Astra_Divider_Component_Configs {
 					'section'     => $_section,
 					'priority'    => 40,
 					'transport'   => 'postMessage',
-					'default'   => astra_get_option( $builder_type . '-divider-' . $index . '-thickness' ),
+					'default'     => astra_get_option( $builder_type . '-divider-' . $index . '-thickness' ),
 					'title'       => __( 'Thickness (px)', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
@@ -145,7 +158,7 @@ class Astra_Divider_Component_Configs {
 					'section'     => $_section,
 					'priority'    => 40,
 					'transport'   => 'postMessage',
-					'default'   => astra_get_option( $builder_type . '-divider-' . $index . '-size' ),
+					'default'     => astra_get_option( $builder_type . '-divider-' . $index . '-size' ),
 					'title'       => __( 'Size (%)', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
@@ -155,19 +168,6 @@ class Astra_Divider_Component_Configs {
 						'max'  => 100,
 					),
 					'context'     => Astra_Builder_Helper::$design_tab,
-				),
-
-				// Footer Background Color notice.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-description]',
-					'type'     => 'control',
-					'control'  => 'ast-description',
-					'section'  => $_section,
-					'priority' => 41,
-					'label'    => '',
-					'help'     => sprintf( __( 'If the Divider don\'t seem to be visible please check if elements are added in the current %1$s row.', 'astra' ), $builder_type ),
-					'context'  => Astra_Builder_Helper::$design_tab,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]', '==', 'vertical' ),
 				),
 
 				/**
