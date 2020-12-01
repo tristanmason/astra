@@ -546,17 +546,20 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'header-main-menu-label' ),
 					'section'   => 'section-primary-menu',
 					'context'   => array(
-						'relation' => 'OR',
+						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
-							'operator' => '!=',
-							'value'    => array( 'none' ),
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-							'operator' => '!=',
-							'value'    => array( '1' ),
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+								'operator' => '!=',
+								'value'    => array( 'none' ),
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+								'operator' => '!=',
+								'value'    => array( '1' ),
+							),
 						),
 					),
 					'priority'  => 40,

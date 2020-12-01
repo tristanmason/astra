@@ -636,17 +636,11 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'control'   => 'ast-color',
 						'title'     => __( 'Box Background Color', 'astra' ),
 						'context'   => array(
-							'relation' => 'OR',
 							Astra_Builder_Helper::$general_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
-								'operator' => '==',
-								'value'    => 'slide-search',
-							),
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
-								'operator' => '==',
-								'value'    => 'search-box',
+								'operator' => 'in',
+								'value'    => array( 'slide-search', 'search-box' ),
 							),
 						),
 					),

@@ -162,17 +162,20 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 30,
 					'title'     => __( 'Close Icon Color', 'astra' ),
 					'context'   => array(
-						'relation' => 'OR',
+						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-							'operator' => '==',
-							'value'    => 'off-canvas',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-							'operator' => '==',
-							'value'    => 'full-width',
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'off-canvas',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'full-width',
+							),
 						),
 					),
 				),
