@@ -132,6 +132,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
+			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
+
+
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
@@ -188,6 +191,36 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$this->set_default_context();
 
+		}
+
+		/**
+		 * Print Footer Scripts
+		 *
+		 * @since 1.0.0
+		 * @return void
+		 */
+		public function print_footer_scripts() {
+			$output  = '<script type="text/javascript">';
+			$output .= '
+	        	wp.customize.bind(\'ready\', function() {
+	            	wp.customize.control.each(function(ctrl, i) {
+	                	var desc = ctrl.container.find(".customize-control-description");
+	                	if( desc.length) {
+	                    	var title 		= ctrl.container.find(".customize-control-title");
+	                    	var li_wrapper 	= desc.closest("li");
+	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+	                    			return \'&#\'+i.charCodeAt(0)+\';\';
+								});
+	                    	desc.remove();
+	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                	}
+	            	});
+	        	});';
+
+			$output .= Astra_Fonts_Data::js();
+			$output .= '</script>';
+
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		/**
