@@ -17,21 +17,24 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
             mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
         // HTML color.
-        astra_css(
+        astra_color_responsive_css(
+			builder_type + '-html-' + index + '-color',
             'astra-settings[' + builder_type + '-html-' + index + 'color]',
             'color',
             selector + ' .ast-builder-html-element'
 		);
 		
 		// Link color.
-        astra_css(
+        astra_color_responsive_css(
+			builder_type + '-html-' + index + '-l-color',
             'astra-settings[' + builder_type + '-html-' + index + 'link-color]',
             'color',
             selector + ' .ast-builder-html-element a'
 		);
 		
 		// Link Hover color.
-        astra_css(
+        astra_color_responsive_css(
+			builder_type + '-html-' + index + '-l-h-color',
             'astra-settings[' + builder_type + '-html-' + index + 'link-h-color]',
             'color',
             selector + ' .ast-builder-html-element a:hover'
@@ -436,28 +439,32 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 		var selector = '.' + builder_type + '-widget-area[data-section="sidebar-widgets-' + builder_type + '-widget-' + index + '"]';
 
 		// Widget Content Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-color]',
 			'color',
 			selector + ' .' + builder_type + '-widget-area-inner'
 		);
 
 		// Widget Link Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-link-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-link-color]',
 			'color',
 			selector + ' .' + builder_type + '-widget-area-inner a'
 		);
 
 		// Widget Link Hover Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-link-h-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-link-h-color]',
 			'color',
 			selector + ' .' + builder_type + '-widget-area-inner a:hover'
 		);
 
 		// Widget Title Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-title-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-title-color]',
 			'color',
 			selector + ' .widget-title'

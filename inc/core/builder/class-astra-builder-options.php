@@ -436,6 +436,24 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$defaults[ 'header-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
+		$defaults[ 'header-html-' . $index . 'color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'header-html-' . $index . 'link-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'header-html-' . $index . 'link-h-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
 		/**
 		 * HTML Components - Typography.
 		 */
@@ -838,6 +856,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 18,
 	);
 
+	$defaults['header-search-icon-color'] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
 	/**
 	 * Header > Social Icon Defaults.
 	 */
@@ -1156,6 +1180,24 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
+		$defaults[ 'footer-html-' . $index . 'color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'footer-html-' . $index . 'link-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'footer-html-' . $index . 'link-h-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
 		$defaults[ 'font-size-section-fb-html-' . $index ] = array(
 			'desktop'      => 15,
 			'tablet'       => '',
@@ -1188,9 +1230,35 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	// Widget Header defaults.
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
 		
+		// Colors.
+		$defaults[ 'header-widget-' . $index . '-title-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'header-widget-' . $index . '-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'header-widget-' . $index . '-link-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'header-widget-' . $index . '-link-h-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
 		/**
 		 * Title Typography.
 		 */
+
 		$defaults[ 'header-widget-' . $index . '-font-family' ]    = 'inherit';
 		$defaults[ 'header-widget-' . $index . '-font-weight' ]    = 'inherit';
 		$defaults[ 'header-widget-' . $index . '-text-transform' ] = '';
@@ -1227,6 +1295,31 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'desktop' => 'left',
 			'tablet'  => 'center',
 			'mobile'  => 'center',
+		);
+
+		// Colors.
+		$defaults[ 'footer-widget-' . $index . '-title-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'footer-widget-' . $index . '-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'footer-widget-' . $index . '-link-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
+		$defaults[ 'footer-widget-' . $index . '-link-h-color' ] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
 		);
 		
 		/**

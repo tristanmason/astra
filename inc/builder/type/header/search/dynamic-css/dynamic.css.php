@@ -40,6 +40,10 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	$icon_size_mobile = ( isset( $icon_size ) && isset( $icon_size['mobile'] ) && ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : 20;
 
+	$icon_color_desktop = astra_get_prop( astra_get_option( 'header-search-icon-color' ), 'desktop' );
+	$icon_color_tablet  = astra_get_prop( astra_get_option( 'header-search-icon-color' ), 'tablet' );
+	$icon_color_mobile  = astra_get_prop( astra_get_option( 'header-search-icon-color' ), 'mobile' );
+
 	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = '.astra-hfb-header .site-header-section > .ast-header-search, .astra-hfb-header .ast-header-search';
 	
@@ -49,7 +53,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$css_output_desktop = array(
 
 		$selector . ' .astra-search-icon'         => array(
-			'color'     => esc_attr( astra_get_option( 'header-search-icon-color' ) ),
+			'color'     => esc_attr( $icon_color_desktop ),
 			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
 		$selector . ' .search-field::placeholder' => array(
@@ -70,6 +74,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$css_output_tablet = array(
 
 		$selector . ' .astra-search-icon' => array(
+			'color'     => esc_attr( $icon_color_tablet ),
 			'font-size' => astra_get_css_value( $icon_size_tablet, 'px' ),
 		),
 		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
@@ -87,6 +92,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$css_output_mobile = array(
 
 		$selector . ' .astra-search-icon' => array(
+			'color'     => esc_attr( $icon_color_mobile ),
 			'font-size' => astra_get_css_value( $icon_size_mobile, 'px' ),
 		),
 		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
