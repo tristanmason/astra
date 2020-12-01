@@ -526,6 +526,7 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
 
 			astra_add_dynamic_css( section + '-hide-tablet', dynamicStyle );
 		} );
+		
 	} );
 
 	// Header search visibility.
