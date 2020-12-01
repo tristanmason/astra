@@ -30,6 +30,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$title_setting_group_priority = 12;
+			} else {
+				$title_setting_group_priority = 9;
+			}
 
 			$_section = 'title_tagline';
 
@@ -279,7 +284,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'     => __( 'Title', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
-					'priority'  => 16,
+					'priority'  => $title_setting_group_priority,
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-title]',
 						'==',
@@ -312,7 +317,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'     => __( 'Tagline', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
-					'priority'  => 18,
+					'priority'  => 12,
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
 						'==',
