@@ -3258,6 +3258,10 @@ body .entry-content .wp-block-latest-posts li {
   width: 100%;
 }
 
+.ast-mobile-popup-content .ast-header-divider-element {
+  justify-content: center;
+}
+
 .ast-header-divider-element {
   position: relative;
 }
