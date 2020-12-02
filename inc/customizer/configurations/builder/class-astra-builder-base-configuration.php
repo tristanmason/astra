@@ -185,7 +185,7 @@ final class Astra_Builder_Base_Configuration {
 				'control'  => 'ast-heading',
 				'section'  => $_section,
 				'title'    => __( 'Visibility', 'astra' ),
-				'priority' => 200,
+				'priority' => 300,
 				'settings' => array(),
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
@@ -199,7 +199,7 @@ final class Astra_Builder_Base_Configuration {
 				'control'   => 'checkbox',
 				'default'   => astra_get_option( 'header-hide-desktop' ),
 				'section'   => $_section,
-				'priority'  => 210,
+				'priority'  => 310,
 				'title'     => __( 'Hide on Desktop', 'astra' ),
 				'transport' => 'postMessage',
 				'partial'   => array(
@@ -219,7 +219,7 @@ final class Astra_Builder_Base_Configuration {
 				'control'   => 'checkbox',
 				'default'   => astra_get_option( 'header-hide-tablet' ),
 				'section'   => $_section,
-				'priority'  => 220,
+				'priority'  => 320,
 				'title'     => __( 'Hide on Tablet', 'astra' ),
 				'transport' => 'postMessage',
 				'partial'   => array(
@@ -239,7 +239,7 @@ final class Astra_Builder_Base_Configuration {
 				'control'   => 'checkbox',
 				'default'   => astra_get_option( 'header-hide-mobile' ),
 				'section'   => $_section,
-				'priority'  => 230,
+				'priority'  => 330,
 				'title'     => __( 'Hide on Mobile', 'astra' ),
 				'transport' => 'postMessage',
 				'partial'   => array(
@@ -491,61 +491,12 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
+			
+
 			if ( 'header' === $type ) {
 
-				$_configs = array_merge(
-					$_configs,
-					array(
-						array(
-							'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
-							'type'     => 'control',
-							'control'  => 'ast-heading',
-							'section'  => $_section,
-							'title'    => __( 'Visibility', 'astra' ),
-							'priority' => 300,
-							'settings' => array(),
-						),
-						array(
-							'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
-							'type'      => 'control',
-							'control'   => 'checkbox',
-							'default'   => astra_get_option( 'header-hide-desktop' ),
-							'section'   => $_section,
-							'priority'  => 310,
-							'title'     => __( 'Hide on Desktop', 'astra' ),
-							'transport' => 'postMessage',
-							'partial'   => array(
-								'selector' => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
-							),
-						),
-						array(
-							'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
-							'type'      => 'control',
-							'control'   => 'checkbox',
-							'default'   => astra_get_option( 'header-hide-tablet' ),
-							'section'   => $_section,
-							'priority'  => 320,
-							'title'     => __( 'Hide on Tablet', 'astra' ),
-							'transport' => 'postMessage',
-							'partial'   => array(
-								'selector' => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
-							),
-						),
-						array(
-							'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
-							'type'      => 'control',
-							'control'   => 'checkbox',
-							'default'   => astra_get_option( 'header-hide-mobile' ),
-							'section'   => $_section,
-							'priority'  => 330,
-							'title'     => __( 'Hide on Mobile', 'astra' ),
-							'transport' => 'postMessage',
-							'partial'   => array(
-								'selector' => '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]',
-							),
-						),
-					)
-				);
+				$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]', '' ) );
+
 			}
 
 			$html_config[] = $_configs;
