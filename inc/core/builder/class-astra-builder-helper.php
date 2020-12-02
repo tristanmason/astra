@@ -84,6 +84,13 @@ final class Astra_Builder_Helper {
 	public static $num_of_footer_html;
 
 	/**
+	 *  No. Of. Footer divider.
+	 *
+	 * @var int
+	 */
+	public static $num_of_footer_divider;
+
+	/**
 	 *  No. Of. Header Widgets.
 	 *
 	 * @var int
@@ -117,6 +124,13 @@ final class Astra_Builder_Helper {
 	 * @var int
 	 */
 	public static $num_of_header_html;
+
+	/**
+	 *  No. Of. Header divider.
+	 *
+	 * @var int
+	 */
+	public static $num_of_header_divider;
 
 	/**
 	 *  No. Of. Footer Columns.
@@ -216,6 +230,9 @@ final class Astra_Builder_Helper {
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-social-icons'] : 1;
 		self::$num_of_footer_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-social-icons'] : 1;
+
+		self::$num_of_header_divider = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-divider'] : 0;
+		self::$num_of_footer_divider = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-divider'] : 0;
 
 		self::$num_of_footer_columns = defined( 'ASTRA_EXT_VER' ) ? apply_filters( 'astra_footer_column_count', 6 ) : 6;
 
@@ -516,6 +533,8 @@ final class Astra_Builder_Helper {
 				'footer-widget'       => 4,
 				'header-social-icons' => 1,
 				'footer-social-icons' => 1,
+				'header-divider'      => 0,
+				'footer-divider'      => 0,
 			)
 		);
 

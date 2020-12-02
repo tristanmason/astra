@@ -85,6 +85,7 @@ switch ( $component_slug ) {
 		</div>
 		<?php
 		break;
+
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;
