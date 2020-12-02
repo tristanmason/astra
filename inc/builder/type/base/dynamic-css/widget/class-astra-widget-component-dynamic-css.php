@@ -115,11 +115,11 @@ class Astra_Widget_Component_Dynamic_CSS {
 			);
 
 			/* Parse CSS from array() */
-			$css_output     = astra_parse_css( $css_output_desktop );
-			$css_output    .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
-			$css_output    .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+			$css_output  = astra_parse_css( $css_output_desktop );
+			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
-			if( 'header' === $builder_type ) {
+			if ( 'header' === $builder_type ) {
 				$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
 			}
 			
