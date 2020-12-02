@@ -410,11 +410,7 @@
 					}
 
 					const getResultByRules = function (rules, relation, displayed) {
-
-						if(element.id == 'astra-settings[site-title-typography]' ) {
-							console.log(rules);
-						}
-
+						
 						_.each(rules, function (rule, key) {
 
 							if ('relation' == key) return;
