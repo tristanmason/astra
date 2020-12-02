@@ -381,32 +381,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Footer Widgets Layout Layout
-				 */
-				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-adv]',
-					'type'    => 'control',
-					'control' => 'ast-radio-image',
-					'default' => astra_get_option( 'footer-adv' ),
-					'title'   => __( 'Layout', 'astra' ),
-					'section' => 'section-footer-adv',
-					'choices' => array(
-						'disabled' => array(
-							'label' => __( 'Disable', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
-						),
-						'layout-4' => array(
-							'label' => __( 'Layout 4', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4' ),
-						),
-					),
-					'partial' => array(
-						'selector'            => '.footer-adv .ast-container',
-						'container_inclusive' => false,
-					),
-				),
-
-				/**
 				 * Option: Footer Top Border
 				 */
 				array(
@@ -462,6 +436,34 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$config = array(
+
+					/**
+					 * Option: Footer Widgets Layout Layout
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[footer-adv]',
+						'type'     => 'control',
+						'priority' => 0,
+						'control'  => 'ast-radio-image',
+						'default'  => astra_get_option( 'footer-adv' ),
+						'title'    => __( 'Layout', 'astra' ),
+						'section'  => 'section-footer-adv',
+						'choices'  => array(
+							'disabled' => array(
+								'label' => __( 'Disable', 'astra' ),
+								'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
+							),
+							'layout-4' => array(
+								'label' => __( 'Layout 4', 'astra' ),
+								'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4' ),
+							),
+						),
+						'partial'  => array(
+							'selector'            => '.footer-adv .ast-container',
+							'container_inclusive' => false,
+						),
+					),
+
 					/**
 					 * Option: Divider
 					 */
