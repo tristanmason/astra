@@ -11,17 +11,5 @@
 ( function( $ ) {
 
 	astra_builder_social_css( 'header', astraBuilderHeaderSocial.header_social_count );
-
-	for( var index = 1; index <= astraBuilderHeaderSocial.header_social_count ; index++ ) {
-		( function( index ) {
-
-			var selector = '.ast-builder-layout-element[data-section="section-hb-social-icons-' + index + '"]';
-			var section = 'section-hb-social-icons-' + index;
-		
-			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, selector );
-
-		})( index );
-	}
 	
 } )( jQuery );

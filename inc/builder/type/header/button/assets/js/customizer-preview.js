@@ -12,16 +12,5 @@
 
 	astra_builder_button_css( 'header', AstraBuilderButtonData.header_button_count );
 
-	for( var index = 1; index <= AstraBuilderButtonData.header_button_count ; index++ ) {
-		( function( index ) {
-
-			var section = 'section-hb-button-' + index;
-			var selector = '.ast-header-button-' + index + '[data-section="section-hb-button-' + index + '"]';
-			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, selector );
-
-		})( index );
-	}
-
 } )( jQuery );
 		
