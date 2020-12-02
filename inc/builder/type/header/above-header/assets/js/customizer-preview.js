@@ -20,20 +20,20 @@
 				var dynamicStyle = '';
 				dynamicStyle += '.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner {';
 				dynamicStyle += 'min-height: ' + size.desktop + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-desktop .ast-above-header-bar .main-header-menu > .menu-item {';
 				dynamicStyle += 'height: ' + size.desktop + 'px;';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 				dynamicStyle += '.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner {';
 				dynamicStyle += 'min-height: ' + size.tablet + 'px;';
-				dynamicStyle += 'height: ' + size.tablet + 'px;';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 				dynamicStyle += '.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner {';
 				dynamicStyle += 'min-height: ' + size.mobile + 'px;';
-				dynamicStyle += 'height: ' + size.mobile + 'px;';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
