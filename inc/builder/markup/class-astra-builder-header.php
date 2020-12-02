@@ -106,11 +106,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					self::$methods[] = 'header_social_' . $index;
 				}
 
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
-					add_action( 'astra_header_widget_' . $index, array( $this, 'header_widget_' . $index ) );
-					self::$methods[] = 'header_widget_' . $index;
-				}
-
 				add_action( 'astra_mobile_site_identity', array( $this, 'site_identity' ) );
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );
 				add_action( 'astra_header_woo_cart', array( $this, 'header_woo_cart' ) );
@@ -148,12 +143,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
 					if ( $index ) {
 						Astra_Builder_UI_Controller::render_social_icon( 'header', $index );
-					}
-				} elseif ( 0 === strpos( $func, 'header_widget_' ) ) {
-					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
-
-					if ( $index ) {
-						dynamic_sidebar( 'header-widget-' . $index );
 					}
 				}
 			}

@@ -36,7 +36,9 @@ switch ( $component_slug ) {
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-1">
 			<div class="footer-widget-area-inner site-info-inner">
-			<?php do_action( 'astra_footer_widget_1' ); ?>
+				<?php
+				dynamic_sidebar( 'footer-widget-1' );
+				?>
 			</div>
 		</aside>
 		<?php
@@ -46,7 +48,9 @@ switch ( $component_slug ) {
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-2">
 			<div class="footer-widget-area-inner site-info-inner">
-				<?php do_action( 'astra_footer_widget_2' ); ?>
+				<?php
+				dynamic_sidebar( 'footer-widget-2' );
+				?>
 			</div>
 		</aside>
 		<?php
@@ -56,7 +60,9 @@ switch ( $component_slug ) {
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-3">
 			<div class="footer-widget-area-inner site-info-inner">
-				<?php do_action( 'astra_footer_widget_3' ); ?>
+				<?php
+				dynamic_sidebar( 'footer-widget-3' );
+				?>
 			</div>
 		</aside>
 		<?php
@@ -66,7 +72,9 @@ switch ( $component_slug ) {
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-4">
 			<div class="footer-widget-area-inner site-info-inner">
-				<?php do_action( 'astra_footer_widget_4' ); ?>
+				<?php
+				dynamic_sidebar( 'footer-widget-4' );
+				?>
 			</div>
 		</aside>
 		<?php

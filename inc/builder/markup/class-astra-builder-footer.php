@@ -77,11 +77,6 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 				self::$methods[] = 'footer_social_' . $index;
 			}
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
-				add_action( 'astra_footer_widget_' . $index, array( $this, 'footer_widget_' . $index ) );
-				self::$methods[] = 'footer_widget_' . $index;
-			}
-
 			// Navigation menu.
 			add_action( 'astra_footer_menu', array( $this, 'footer_menu' ) );
 		}
@@ -109,12 +104,6 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 
 					if ( $index ) {
 						Astra_Builder_UI_Controller::render_social_icon( 'footer', $index );
-					}
-				} elseif ( 0 === strpos( $func, 'footer_widget_' ) ) {
-					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
-
-					if ( $index ) {
-						dynamic_sidebar( 'footer-widget-' . $index );
 					}
 				}
 			}
