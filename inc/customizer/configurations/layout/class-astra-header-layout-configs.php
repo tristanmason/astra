@@ -547,7 +547,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'context'   => array(
 						'relation' => 'AND',
-						Astra_Builder_Helper::$design_tab_config,
+						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab,
 						array(
 							'relation' => 'OR',
 							array(
@@ -586,9 +586,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority' => 42,
 					'context'  => array(
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-menu-style]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
 							'operator' => '!=',
-							'value'    => 'no-toggle',
+							'value'    => true,
 						),
 					),
 					'choices'  => array(
@@ -708,7 +708,3 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 
 
 new Astra_Header_Layout_Configs();
-
-
-
-
