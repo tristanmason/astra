@@ -568,8 +568,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 						dynamicStyle += '} ';
 						
 						astra_add_dynamic_css( builder_type + '-divider-' + index + '-thickness', dynamicStyle );
-					} else {
-						wp.customize.preview.send( 'refresh' );
 					}
 				} );
 			} );
@@ -618,8 +616,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 						astra_add_dynamic_css( builder_type + '-divider-' + index + '-size', dynamicStyle );
-					} else {
-						wp.customize.preview.send( 'refresh' );
 					}
 				} );
 			} );
