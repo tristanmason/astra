@@ -262,8 +262,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 					if ( Astra_Builder_Helper::is_component_loaded( 'header', 'menu-' . $index ) && ! empty( $menu_animation_enable ) ) {
 						$menu_animation = 'is_animated';
-					} else {
-						continue;
+						break;
 					}
 				}           
 			} else {
