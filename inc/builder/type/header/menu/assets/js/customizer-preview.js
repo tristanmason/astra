@@ -76,7 +76,7 @@
 				'astra-menu-h-color-preview',
 				'astra-settings[header-' + prefix + '-h-color-responsive]',
 				'color',
-				selector + ' .menu-item:hover > .menu-link'
+				selector + ' .menu-item:hover > .menu-link, ' + selector + ' .inline-on-mobile .menu-item:hover > .ast-menu-toggle'
 			);
 
 			// Menu Toggle -  Color
@@ -99,20 +99,20 @@
 				'astra-menu-active-color-preview',
 				'astra-settings[header-' + prefix + '-a-color-responsive]',
 				'color',
-				selector + ' .menu-item.current-menu-item > .menu-link'
+				selector + ' .menu-item.current-menu-item > .menu-link, ' + selector + ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle'
 			);
 
 			// Menu - Normal Background
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu', 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu', 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu', 'mobile' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu, ' + selector + ' .main-header-menu .sub-menu', 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu, ' + selector + ' .main-header-menu .sub-menu', 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + ' .main-header-menu, ' + selector + ' .main-header-menu .sub-menu', 'mobile' );
 
 			// Menu - Hover Background
 			astra_color_responsive_css(
 				'astra-menu-bg-preview',
 				'astra-settings[header-' + prefix + '-h-bg-color-responsive]',
 				'background',
-				selector + ' .menu-item:hover > .menu-link'
+				selector + ' .menu-item:hover > .menu-link, ' + selector + ' .inline-on-mobile .menu-item:hover > .ast-menu-toggle'
 			);
 
 			// Menu - Active Background
@@ -120,7 +120,7 @@
 				'astra-builder',
 				'astra-settings[header-' + prefix + '-a-bg-color-responsive]',
 				'background',
-				selector + ' .menu-item.current-menu-item > .menu-link'
+				selector + ' .menu-item.current-menu-item > .menu-link, ' + selector + ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle'
 			);
 
 		/**
