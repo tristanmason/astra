@@ -84,7 +84,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'color'      => esc_attr( $header_cart_icon_color ),
 			),
 			// Fill icon Color.
-			'.ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count,.ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-edd-header-cart-info-wrap' => array(
+			'.ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count,.ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-edd-header-cart-info-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-icon-shopping-cart' => array(
 				'background-color' => esc_attr( $header_cart_icon_color ),
 				'color'            => esc_attr( $cart_h_color ),
 			),
