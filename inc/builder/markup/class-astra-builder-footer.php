@@ -263,36 +263,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		public function footer_html_4() {
 			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-4' );
 		}
-
-		/**
-		 * Render Widget 1.
-		 */
-		public function footer_widget_1() {
-			dynamic_sidebar( 'footer-widget-1' );
-		}
-
-		/**
-		 * Render Widget 2.
-		 */
-		public function footer_widget_2() {
-			dynamic_sidebar( 'footer-widget-2' );
-		}
-
-		/**
-		 * Render Widget 3.
-		 */
-		public function footer_widget_3() {
-			dynamic_sidebar( 'footer-widget-3' );
-		}
-
-		/**
-		 * Render Widget 4.
-		 */
-		public function footer_widget_4() {
-			dynamic_sidebar( 'footer-widget-4' );
-		}
-
-
+		
 		/**
 		 * Render Menu.
 		 */
