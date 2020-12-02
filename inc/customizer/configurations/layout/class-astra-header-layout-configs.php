@@ -538,7 +538,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Mobile Menu Label
+				 * Option: Mobile Menu Label.
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-main-menu-label]',
