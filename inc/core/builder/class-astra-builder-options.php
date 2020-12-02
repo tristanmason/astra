@@ -81,9 +81,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hb-header-main-layout-width'] = 'content';
 	$defaults['hb-header-height']            = array(
 		'desktop' => 50,
-		'tablet' => '',
-		'mobile' => ''
-	);;
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
 	$defaults['hb-header-main-sep']          = 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
 	$defaults['hb-header-main-menu-align']   = 'inline';
@@ -144,8 +145,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hba-header-layout']                  = 'above-header-layout-1';
 	$defaults['hba-header-height']                  = array(
 		'desktop' => 50,
-		'tablet' => '',
-		'mobile' => ''
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['hba-header-separator']               = 1;
 	$defaults['hba-header-bottom-border-color']     = '#eaeaea';
@@ -226,12 +227,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Above Header Defaults.
 	 */
-	$defaults['hbb-header-layout']              = 'below-header-layout-1';
-	$defaults['hbb-header-height']              = array(
+	$defaults['hbb-header-layout'] = 'below-header-layout-1';
+	$defaults['hbb-header-height'] = array(
 		'desktop' => 60,
-		'tablet' => '',
-		'mobile' => ''
-	);;
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
 	$defaults['hbb-header-separator']           = 1;
 	$defaults['hbb-header-bottom-border-color'] = '#eaeaea';
 	$defaults['hbb-header-bg-obj-responsive']   = array(

@@ -42,7 +42,7 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	// Header Height.
 	$hba_header_height_desktop = ( isset( $hba_header_height['desktop'] ) && ! empty( $hba_header_height['desktop'] ) ) ? $hba_header_height['desktop'] : '';
 	$hba_header_height_tablet  = ( isset( $hba_header_height['tablet'] ) && ! empty( $hba_header_height['tablet'] ) ) ? $hba_header_height['tablet'] : '';
-	$hba_header_height_mobile  = ( isset( $hba_header_height['mobile'] ) && ! empty( $hba_header_height['mobile'] ) ) ? $icon_size['mobile'] : '';
+	$hba_header_height_mobile  = ( isset( $hba_header_height['mobile'] ) && ! empty( $hba_header_height['mobile'] ) ) ? $hba_header_height['mobile'] : '';
 
 	// Spacing CSS options.
 	$hba_header_spacing = astra_get_option( 'hba-header-spacing' );
