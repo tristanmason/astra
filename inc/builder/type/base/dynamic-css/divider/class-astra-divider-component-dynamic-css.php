@@ -105,6 +105,10 @@ class Astra_Divider_Component_Dynamic_CSS {
 					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
 				),
 
+				'.ast-mobile-popup-content ' . $selector . ' .ast-divider-wrapper' => array(
+					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
+				),
+
 				$selector . ' .ast-divider-layout-vertical' => array(
 					'border-right-width' => astra_get_css_value( $divider_thickness['tablet'], 'px' ),
 					'height'             => astra_get_css_value( $divider_size['tablet'], '%' ),
@@ -141,6 +145,10 @@ class Astra_Divider_Component_Dynamic_CSS {
 				 */
 				$selector . ' .ast-divider-wrapper' => array(
 					'border-style' => $divider_style,
+					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
+				),
+
+				'.ast-mobile-popup-content ' . $selector . ' .ast-divider-wrapper' => array(
 					'border-color' => astra_get_option( $builder_type . '-divider-' . $index . '-color' ),
 				),
 

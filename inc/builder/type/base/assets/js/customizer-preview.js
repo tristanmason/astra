@@ -510,7 +510,7 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 		astra_css(
 			'astra-settings[' + builder_type + '-divider-' + index + '-color]',
 			'border-color',
-			selector + ' .ast-divider-wrapper'
+			selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper'
 		);
 
 		( function ( index ) {
