@@ -3231,10 +3231,7 @@ body .entry-content .wp-block-latest-posts li {
 /* Divider component */
 .ast-container[data-section="section-above-header-builder"],
 .ast-container[data-section="section-primary-header-builder"],
-.ast-container[data-section="section-below-header-builder"] {
-  position: relative;
-}
-
+.ast-container[data-section="section-below-header-builder"],
 .ast-container[data-section="section-above-header-builder"] .site-header-above-section-left,
 .ast-container[data-section="section-above-header-builder"] .site-header-above-section-center,
 .ast-container[data-section="section-above-header-builder"] .site-header-above-section-right,

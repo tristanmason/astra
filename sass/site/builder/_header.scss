@@ -92,9 +92,7 @@
 /* Divider component */
 .ast-container[data-section="section-above-header-builder"],
 .ast-container[data-section="section-primary-header-builder"],
-.ast-container[data-section="section-below-header-builder"] {
-	position: relative;
-}
+.ast-container[data-section="section-below-header-builder"],
 .ast-container[data-section="section-above-header-builder"] .site-header-above-section-left,
 .ast-container[data-section="section-above-header-builder"] .site-header-above-section-center,
 .ast-container[data-section="section-above-header-builder"] .site-header-above-section-right,
@@ -112,11 +110,15 @@
 	align-items: center;
 	display: flex;
 }
-.ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
-	width: 100%;
+.ast-hb-divider-layout-horizontal {
+	.ast-divider-layout-horizontal {
+		width: 100%;
+	}
 }
-.ast-mobile-popup-content .ast-header-divider-element {
-    justify-content: center;
+.ast-mobile-popup-content {
+	.ast-header-divider-element {
+		justify-content: center;
+	}
 }
 .ast-header-divider-element {
 	position: relative;
@@ -132,9 +134,11 @@
 	}
 }
 
-.ast-fb-divider-layout-vertical .ast-divider-layout-vertical,
-.ast-fb-divider-layout-vertical .ast-divider-layout-horizontal {
-	position: absolute;
+.ast-fb-divider-layout-vertical {
+	.ast-divider-layout-vertical,
+	.ast-divider-layout-horizontal {
+		position: absolute;
+	}
 }
 
 .ast-builder-layout-element {
