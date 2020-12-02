@@ -57,7 +57,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
 		$selector . ' .search-field::placeholder' => array(
-			'color' => esc_attr( astra_get_option( 'header-search-icon-color' ) ),
+			'color' => esc_attr( $icon_color_desktop ),
 		),
 		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
 			'margin-right' => astra_get_css_value( $icon_size_desktop - 10, 'px' ),
