@@ -254,7 +254,22 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
 
 			// Submenu Container Animation.
-			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				
+				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
+
+					$menu_animation_enable = astra_get_option( 'header-menu' . $index . '-submenu-container-animation' );
+					
+					if ( Astra_Builder_Helper::is_component_loaded( 'header', 'menu-' . $index ) && ! empty( $menu_animation_enable ) ) {
+						$menu_animation = 'is_animated';
+					} else {
+						continue;
+					}
+				}           
+			} else {
+				$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			} 
+
 
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
