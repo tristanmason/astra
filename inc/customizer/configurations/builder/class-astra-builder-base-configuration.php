@@ -172,7 +172,7 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	public static function prepare_visibility_tab( $_section, $selector, $function ) {
 
-		$class_obj        = Astra_Builder_Header::get_instance();
+		$class_obj = Astra_Builder_Header::get_instance();
 
 		return array(
 
@@ -187,7 +187,7 @@ final class Astra_Builder_Base_Configuration {
 				'title'    => __( 'Visibility', 'astra' ),
 				'priority' => 300,
 				'settings' => array(),
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -248,7 +248,7 @@ final class Astra_Builder_Base_Configuration {
 					'render_callback'     => array( $class_obj, $function ),
 				),
 				'context'   => Astra_Builder_Helper::$general_tab,
-			)
+			),
 		);
 	}
 

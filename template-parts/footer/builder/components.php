@@ -46,7 +46,7 @@ switch ( $component_slug ) {
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-2">
 			<div class="footer-widget-area-inner site-info-inner">
-			 	<?php do_action( 'astra_footer_widget_2' ); ?>
+				<?php do_action( 'astra_footer_widget_2' ); ?>
 			</div>
 		</aside>
 		<?php
