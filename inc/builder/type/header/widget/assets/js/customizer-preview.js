@@ -18,7 +18,7 @@
 			var section = 'sidebar-widgets-header-widget-' + index;
 			var selector = '.header-widget-area[data-section="sidebar-widgets-header-widget-' + index + '"]';
 			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, selector );
+			astra_builder_visibility_css( section, selector, 'block' );
 
 		})( index );
 	}

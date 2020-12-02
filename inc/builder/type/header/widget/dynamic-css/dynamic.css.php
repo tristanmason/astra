@@ -37,7 +37,7 @@ function astra_hb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		$_section = 'sidebar-widgets-header-widget-' . $index;
 		$selector = '.header-widget-area[data-section="sidebar-widgets-header-widget-' . $index . '"]';
 
-		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
+		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
 	}
 
 	return $dynamic_css;
