@@ -14,7 +14,14 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	var selector = '.ast-header-search';
-	var section = 'section-header-search';
+    var section = 'section-header-search';
+    
+    // Icon Color.	
+	astra_css(	
+		'astra-settings[header-search-icon-color]',	
+		'color',	
+		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 	
+	);
 
 	// Icon Size.
 	wp.customize( 'astra-settings[header-search-icon-space]', function( value ) {
