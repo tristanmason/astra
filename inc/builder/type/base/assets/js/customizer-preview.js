@@ -23,7 +23,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
             'color',
             selector + ' .ast-builder-html-element'
 		);
-		
+
 		// Link color.
         astra_color_responsive_css(
 			builder_type + '-html-' + index + '-l-color',
@@ -31,7 +31,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
             'color',
             selector + ' .ast-builder-html-element a'
 		);
-		
+
 		// Link Hover color.
         astra_color_responsive_css(
 			builder_type + '-html-' + index + '-l-h-color',
@@ -175,7 +175,6 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 			} );
 		})(index);
 	}
-
 }
 
 /**
@@ -203,28 +202,28 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			'fill',
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element svg'
 		);
-		
+
 		astra_color_responsive_css(
 			context + '-soc-label-color',
 			'astra-settings[' + builder_type + '-social-' + index + '-color]',
 			'color',
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element .social-item-label'
 		);
-		
+
 		astra_color_responsive_css(
 			context + '-soc-color-h',
 			'astra-settings[' + builder_type + '-social-' + index + '-h-color]',
 			'color',
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover'
 		);
-		
+
 		astra_color_responsive_css(
 			context + '-soc-label-color-h',
 			'astra-settings[' + builder_type + '-social-' + index + '-h-color]',
 			'color',
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label'
 		);
-		
+
 		astra_color_responsive_css(
 			context + '-soc-svg-color-h',
 			'astra-settings[' + builder_type + '-social-' + index + '-h-color]',
@@ -239,7 +238,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			'background-color',
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element'
 		);
-		
+
 		astra_color_responsive_css(
 			context + '-soc-bg-color-h',
 			'astra-settings[' + builder_type + '-social-' + index + '-bg-h-color]',

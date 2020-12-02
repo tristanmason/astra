@@ -13,19 +13,34 @@
 	var tablet_break_point    = AstraBuilderPrimaryHeaderData.tablet_break_point || 768,
 		mobile_break_point    = AstraBuilderPrimaryHeaderData.mobile_break_point || 544;
 
-	// Header Height.
-	astra_css(
-		'astra-settings[hb-header-height]',
-		'min-height',
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap',
-		'px'
-	);
-	astra_css(
-		'astra-settings[hb-header-height]',
-		'height',
-		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item',
-		'px'
-	);
+	wp.customize( 'astra-settings[hb-header-height]', function( value ) {
+		value.bind( function( size ) {
+
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += 'min-height: ' + size.desktop + 'px;';
+				dynamicStyle += 'height: ' + size.desktop + 'px;';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += 'min-height: ' + size.tablet + 'px;';
+				dynamicStyle += 'height: ' + size.tablet + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += 'min-height: ' + size.mobile + 'px;';
+				dynamicStyle += 'height: ' + size.mobile + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( 'hb-header-height', dynamicStyle );
+			}
+		} );
+	} );
 
 	// Primary Header - Layout > Content Width.
 	wp.customize( 'astra-settings[hb-header-main-layout-width]', function( setting ) {
