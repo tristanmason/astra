@@ -472,14 +472,14 @@ final class Astra_Builder_Helper {
 
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			self::$header_desktop_items['woo-cart'] = array(
-				'name'    => __( 'Woo Cart', 'astra' ),
+				'name'    => __( 'Cart', 'astra' ),
 				'icon'    => 'share',
 				'section' => 'section-header-woo-cart',
 			);
 		}
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			self::$header_desktop_items['edd-cart'] = array(
-				'name'    => __( 'EDD Cart', 'astra' ),
+				'name'    => __( 'Cart', 'astra' ),
 				'icon'    => 'share',
 				'section' => 'section-header-edd-cart',
 			);
