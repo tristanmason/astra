@@ -150,7 +150,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'name'     => $_section,
 					'type'     => 'section',
 					'priority' => 5,
-					'title'    => __( 'Woo Cart', 'astra-addon' ),
+					'title'    => __( 'Woocommerce Cart', 'astra-addon' ),
 					'panel'    => 'panel-header-builder-group',
 				),
 
