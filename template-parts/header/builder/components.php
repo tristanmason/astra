@@ -85,15 +85,6 @@ switch ( $component_slug ) {
 		</div>
 		<?php
 		break;
-	
-	case 'divider-1':
-		$layout_class = astra_get_option( 'header-divider-1-layout' );
-		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-divider-element ast-header-divider-1 ast-hb-divider-layout-<?php echo esc_attr( $layout_class ); ?>" data-section="section-hb-divider-1">
-			<?php do_action( 'astra_header_divider_1' ); ?>
-		</div>
-		<?php
-		break;
 
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
