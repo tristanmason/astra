@@ -167,7 +167,9 @@ final class Astra_Builder_Base_Configuration {
 	/**
 	 * Prepare Visibility options.
 	 *
-	 * @param string $section_id section id.
+	 * @param string $_section section id.
+	 * @param string $selector section selector.
+	 * @param string $function callback function name.
 	 * @return array
 	 */
 	public static function prepare_visibility_tab( $_section, $selector, $function ) {
