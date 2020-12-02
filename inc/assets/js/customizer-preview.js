@@ -141,36 +141,3 @@ function astra_builder_advanced_css( section, selector ) {
     } );
 
 }
-
-/**
- * Apply Typography CSS for the element
- * 
- * @param string section Section ID.
- * @param string selector Base Selector.
- */
-function astra_builder_typography_css( section, selector ) {
-
-    astra_generate_outside_font_family_css(
-        'astra-settings[font-family-' + section + ']',
-        selector
-    );
-    astra_css(
-        'astra-settings[font-weight-' + section + ']',
-		'font-weight',
-		selector
-	);
-    astra_css(
-        'astra-settings[text-transform-' + section + ']',
-        'text-transform',
-        selector
-    );
-    astra_responsive_font_size(
-        'astra-settings[font-size-' + section + ']',
-        selector
-    );
-    astra_css(
-        'astra-settings[line-height-' + section + ']',
-        'line-height',
-        selector
-    );
-}
