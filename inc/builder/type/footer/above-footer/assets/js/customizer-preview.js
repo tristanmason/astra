@@ -44,6 +44,14 @@
 		'px'
 	);
 
+	// Inner Spacing.
+	astra_css(
+		'astra-settings[hba-inner-spacing]',
+		'grid-row-gap',
+		selector + ' .ast-builder-grid-row',
+		'px'
+	);
+
 	// Border Color.
 
 	astra_css(

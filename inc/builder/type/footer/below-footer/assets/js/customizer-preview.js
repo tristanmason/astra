@@ -37,6 +37,14 @@
 		'px'
 	);
 
+	// Inner Spacing.
+	astra_css(
+		'astra-settings[hbb-inner-spacing]',
+		'grid-row-gap',
+		selector + ' .ast-builder-grid-row',
+		'px'
+	);
+
 	// Border Top width.
 	astra_css(
 		'astra-settings[hbb-footer-separator]',
