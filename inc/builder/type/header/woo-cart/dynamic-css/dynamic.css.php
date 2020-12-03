@@ -47,7 +47,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
 			'color' => $icon_color,
 		),
-		$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-woo-header-cart-info-wrap, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
+		$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
 			'color'        => $icon_color,
 			'border-color' => $icon_color,
 		),
