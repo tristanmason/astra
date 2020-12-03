@@ -58,6 +58,18 @@
 			});
 		});
 
+
+		/**
+		 * Trigger on different-mobile-logo change.
+		 */
+		api('astra-settings[different-mobile-logo]', function (value) {
+			value.bind(function (checked) {
+				if( ! checked ) {
+					api.control('astra-settings[mobile-header-logo]').container.find('.remove-button').click();
+				}
+			});
+		});
+
 		/**
 		 * Pass data to previewer when device changed.
 		 */
