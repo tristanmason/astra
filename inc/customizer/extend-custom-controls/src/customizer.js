@@ -82,8 +82,10 @@
 				if (isExpanded) {
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
+					$('#sub-accordion-panel-' + panel.id + ' li').show();
 				} else {
 
+					$('#sub-accordion-panel-' + panel.id + ' li').hide();
 					// Setting general context when collapsed.
 					api.state('astra-customizer-tab').set('general');
 
