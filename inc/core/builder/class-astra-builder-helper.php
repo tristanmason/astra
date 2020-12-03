@@ -535,10 +535,13 @@ final class Astra_Builder_Helper {
 			'footer-divider'      => 0,
 		);
 
-		$component_keys_count = array_merge( $component_keys_count, apply_filters(
-			'astra_builder_elements_count',
-			$component_keys_count
-		) );
+		$component_keys_count = array_merge(
+			$component_keys_count,
+			apply_filters(
+				'astra_builder_elements_count',
+				$component_keys_count
+			) 
+		);
 
 		// Buttons.
 		$component_keys_count['header-button'] = ( 10 >= $component_keys_count['header-button'] ) ? $component_keys_count['header-button'] : 10;
