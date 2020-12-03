@@ -20962,21 +20962,17 @@ var SocialComponent = function SocialComponent(props) {
     'items': [{
       'id': 'facebook',
       'enabled': true,
-      'source': 'icon',
       'url': '',
       'color': '#557dbc',
       'background': 'transparent',
-      'width': 24,
       'icon': 'facebook',
       'label': 'Facebook'
     }, {
       'id': 'twitter',
       'enabled': true,
-      'source': 'icon',
       'url': '',
       'color': '#7acdee',
       'background': 'transparent',
-      'width': 24,
       'icon': 'twitter',
       'label': 'Twitter'
     }]
@@ -21152,15 +21148,6 @@ var SocialComponent = function SocialComponent(props) {
     }));
   };
 
-  var onDragStart = function onDragStart() {
-    var dropzones = document.querySelectorAll('.ahfb-builder-area');
-    var i;
-
-    for (i = 0; i < dropzones.length; ++i) {
-      dropzones[i].classList.add('ahfb-dragging-dropzones');
-    }
-  };
-
   var onDragStop = function onDragStop() {
     var dropzones = document.querySelectorAll('.ahfb-builder-area');
     var i;
@@ -21201,27 +21188,9 @@ var SocialComponent = function SocialComponent(props) {
     }, itemIndex);
   };
 
-  var _onChangeIcon = function onChangeIcon(value, itemIndex) {
-    saveArrayUpdate({
-      icon: value
-    }, itemIndex);
-  };
-
   var _onChangeURL = function onChangeURL(value, itemIndex) {
     saveArrayUpdate({
       url: value
-    }, itemIndex);
-  };
-
-  var _onChangeWidth = function onChangeWidth(value, itemIndex) {
-    saveArrayUpdate({
-      width: value
-    }, itemIndex);
-  };
-
-  var _onChangeSource = function onChangeSource(value, itemIndex) {
-    saveArrayUpdate({
-      source: value
     }, itemIndex);
   };
 
@@ -21262,11 +21231,9 @@ var SocialComponent = function SocialComponent(props) {
       var newItem = {
         'id': itemControl,
         'enabled': true,
-        'source': 'icon',
         'url': '',
         'color': itemLabel[0].color,
         'background': itemLabel[0].background,
-        'width': 24,
         'icon': itemControl,
         'label': itemLabel[0].label
       };
@@ -21391,17 +21358,8 @@ var SocialComponent = function SocialComponent(props) {
       onChangeLabel: function onChangeLabel(label, itemIndex) {
         return _onChangeLabel(label, itemIndex);
       },
-      onChangeSource: function onChangeSource(source, itemIndex) {
-        return _onChangeSource(source, itemIndex);
-      },
-      onChangeWidth: function onChangeWidth(width, itemIndex) {
-        return _onChangeWidth(width, itemIndex);
-      },
       onChangeURL: function onChangeURL(url, itemIndex) {
         return _onChangeURL(url, itemIndex);
-      },
-      onChangeIcon: function onChangeIcon(icon, itemIndex) {
-        return _onChangeIcon(icon, itemIndex);
       },
       key: item.id,
       index: index,

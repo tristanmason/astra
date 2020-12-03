@@ -14,22 +14,18 @@ const SocialComponent = props => {
 			{
 				'id': 'facebook',
 				'enabled': true,
-				'source': 'icon',
 				'url': '',
 				'color': '#557dbc',
 				'background': 'transparent',
-				'width': 24,
 				'icon': 'facebook',
 				'label': 'Facebook',
 			},
 			{
 				'id': 'twitter',
 				'enabled': true,
-				'source': 'icon',
 				'url': '',
 				'color': '#7acdee',
 				'background': 'transparent',
-				'width': 24,
 				'icon': 'twitter',
 				'label': 'Twitter',
 			}
@@ -111,15 +107,6 @@ const SocialComponent = props => {
 		});
 	};
 
-	const onDragStart = () => {
-		let dropzones = document.querySelectorAll('.ahfb-builder-area');
-		let i;
-
-		for (i = 0; i < dropzones.length; ++i) {
-			dropzones[i].classList.add('ahfb-dragging-dropzones');
-		}
-	};
-
 	const onDragStop = () => {
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
 		let i;
@@ -161,27 +148,9 @@ const SocialComponent = props => {
 		}, itemIndex);
 	};
 
-	const onChangeIcon = (value, itemIndex) => {
-		saveArrayUpdate({
-			icon: value
-		}, itemIndex);
-	};
-
 	const onChangeURL = (value, itemIndex) => {
 		saveArrayUpdate({
 			url: value
-		}, itemIndex);
-	};
-
-	const onChangeWidth = (value, itemIndex) => {
-		saveArrayUpdate({
-			width: value
-		}, itemIndex);
-	};
-
-	const onChangeSource = (value, itemIndex) => {
-		saveArrayUpdate({
-			source: value
 		}, itemIndex);
 	};
 
@@ -221,11 +190,9 @@ const SocialComponent = props => {
 			let newItem = {
 				'id': itemControl,
 				'enabled': true,
-				'source': 'icon',
 				'url': '',
 				'color': itemLabel[0].color,
 				'background': itemLabel[0].background,
-				'width': 24,
 				'icon': itemControl,
 				'label': itemLabel[0].label
 			};
@@ -324,10 +291,7 @@ const SocialComponent = props => {
 					return <ItemComponent removeItem={remove => removeItem(remove)}
 										  toggleEnabled={(enable, itemIndex) => toggleEnableItem(enable, itemIndex)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
-										  onChangeSource={(source, itemIndex) => onChangeSource(source, itemIndex)}
-										  onChangeWidth={(width, itemIndex) => onChangeWidth(width, itemIndex)}
 										  onChangeURL={(url, itemIndex) => onChangeURL(url, itemIndex)}
-										  onChangeIcon={(icon, itemIndex) => onChangeIcon(icon, itemIndex)}
 										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
 
 				})}
