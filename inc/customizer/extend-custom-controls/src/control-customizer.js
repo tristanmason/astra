@@ -88,7 +88,14 @@
 			}
 
 			let id = ( 'desktop' === new_device ) ? 'astra-settings[header-desktop-items]' : 'astra-settings[header-mobile-items]';
-			api(id).set( { ...api(id).get(), ...[], flag: !api(id).get().flag } );
+
+			let api_id = api(id);
+
+			if( 'undefined' == typeof api_id ) {
+				return ;
+			}
+
+			api(id).set( { ...api_id.get(), ...[], flag: !api_id.get().flag } );
 
 		});
 
