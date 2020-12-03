@@ -224,7 +224,6 @@ final class Astra_Builder_Helper {
 		// Todo: Update filter on menu support.
 		// defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;.
 
-
 		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;
 
@@ -556,6 +555,10 @@ final class Astra_Builder_Helper {
 		// Social Icons.
 		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
 		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
+
+		// Divider.
+		$component_keys_count['header-divider'] = ( 10 >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : 10;
+		$component_keys_count['footer-divider'] = ( 10 >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : 10;
 
 		return $component_keys_count;
 	}
