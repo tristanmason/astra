@@ -30,6 +30,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$title_setting_group_priority = 12;
+			} else {
+				$title_setting_group_priority = 9;
+			}
 
 			$_section = 'title_tagline';
 
@@ -279,7 +284,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'     => __( 'Title', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
-					'priority'  => 16,
+					'priority'  => $title_setting_group_priority,
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-title]',
 						'==',
@@ -305,23 +310,22 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Header Site Title.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
-					'default'   => astra_get_option( 'site-title-typography' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+					'default'   => astra_get_option( 'site-tagline-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
+					'title'     => __( 'Tagline', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
-					'priority'  => 16,
+					'priority'  => 12,
 					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
+						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
 						'==',
 						true,
 					),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
-
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
@@ -375,7 +379,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					)
 				);
 			}
-
 
 			$configurations = array_merge( $configurations, $_configs );
 			return $configurations;
