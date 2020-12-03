@@ -95,7 +95,7 @@
 				return ;
 			}
 
-			api(id).set( { ...api_id.get(), ...[], flag: !api_id.get().flag } );
+			api_id.set( { ...api_id.get(), ...[], flag: !api_id.get().flag } );
 
 		});
 
