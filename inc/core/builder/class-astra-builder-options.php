@@ -605,7 +605,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hba-footer-layout'] = array(
 		'desktop' => '2-equal',
 		'tablet'  => '2-equal',
-		'mobile'  => '2-equal',
+		'mobile'  => 'full',
 	);
 
 	/**
@@ -769,7 +769,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hb-footer-layout']              = array(
 		'desktop' => '3-equal',
 		'tablet'  => '3-equal',
-		'mobile'  => '3-equal',
+		'mobile'  => 'full',
 	);
 
 	$defaults['hb-footer-main-sep']       = 1;
