@@ -45,11 +45,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$css_output_desktop = array(
 
 		$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
-			'color' => $icon_color,
+			'color' => $theme_color,
 		),
 		$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
-			'color'        => $icon_color,
-			'border-color' => $icon_color,
+			'color'        => $theme_color,
+			'border-color' => $theme_color,
 		),
 		$selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after'  => array(
 			'color'            => esc_attr( $theme_h_color ),
@@ -60,6 +60,15 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( 'none' != $header_cart_icon_style ) {
 
 		$header_cart_icon = array(
+
+			$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
+				'color' => $icon_color,
+			),
+			$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
+				'color'        => $icon_color,
+				'border-color' => $icon_color,
+			),
+
 			// Default icon colors.
 			'.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after, .ast-site-header-cart .ast-addon-cart-wrap .count' => array(
 				'border-color' => esc_attr( $icon_color ),

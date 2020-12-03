@@ -36,6 +36,7 @@
 				buttons.addClass( 'ast-edd-menu-cart-' + icon_style );
 				var dynamicStyle = '.ast-edd-site-header-cart a, .ast-edd-site-header-cart a *{ transition: all 0s; } ';
 				astra_add_dynamic_css( 'edd-header-cart-icon-style', dynamicStyle );
+				wp.customize.preview.send( 'refresh' );
 		} );
 	} );
 
