@@ -486,17 +486,23 @@ final class Astra_Builder_Helper {
 				),
 			)
 		);
-
+		
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
+
+			$woo_cart_name = class_exists( 'Easy_Digital_Downloads' ) ? __( 'Woo Cart', 'astra' ) : __( 'Cart', 'astra' );
+
 			self::$header_desktop_items['woo-cart'] = array(
-				'name'    => __( 'Cart', 'astra' ),
+				'name'    => $woo_cart_name,
 				'icon'    => 'share',
 				'section' => 'section-header-woo-cart',
 			);
 		}
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+
+			$edd_cart_name = class_exists( 'Astra_Woocommerce' ) ? __( 'EDD Cart', 'astra' ) : __( 'Cart', 'astra' );
+
 			self::$header_desktop_items['edd-cart'] = array(
-				'name'    => __( 'Cart', 'astra' ),
+				'name'    => $edd_cart_name,
 				'icon'    => 'share',
 				'section' => 'section-header-edd-cart',
 			);
@@ -525,14 +531,14 @@ final class Astra_Builder_Helper {
 
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			self::$header_mobile_items['woo-cart'] = array(
-				'name'    => __( 'Cart', 'astra' ),
+				'name'    => $woo_cart_name,
 				'icon'    => 'share',
 				'section' => 'section-header-woo-cart',
 			);
 		}
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			self::$header_mobile_items['edd-cart'] = array(
-				'name'    => __( 'Cart', 'astra' ),
+				'name'    => $edd_cart_name,
 				'icon'    => 'share',
 				'section' => 'section-header-edd-cart',
 			);
