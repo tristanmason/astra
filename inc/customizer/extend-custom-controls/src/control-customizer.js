@@ -64,8 +64,10 @@
 		 */
 		api('astra-settings[different-mobile-logo]', function (value) {
 			value.bind(function (checked) {
-				if( ! checked ) {
-					api.control('astra-settings[mobile-header-logo]').container.find('.remove-button').click();
+
+				let ctrl = api.control('astra-settings[mobile-header-logo]');
+				if( ! checked && ctrl ) {
+					ctrl.container.find('.remove-button').click();
 				}
 			});
 		});
