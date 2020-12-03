@@ -56,6 +56,11 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 							'operator' => '===',
 							'value'    => 'custom-button',
 						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
 					),
 
 				),
@@ -78,6 +83,11 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 							'operator' => '===',
 							'value'    => 'custom-button',
 						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
 					),
 				),
 				/**
@@ -98,6 +108,11 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
 							'operator' => '===',
 							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
 						),
 					),
 				),
@@ -184,6 +199,11 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
 							'operator' => '===',
 							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
 						),
 					),
 				),
@@ -323,6 +343,11 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
 							'operator' => '===',
 							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
 						),
 					),
 					'default'        => astra_get_option( 'header-main-rt-section-button-padding' ),
