@@ -88,8 +88,10 @@
 
 				} else {
 
+					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
+
 				}
 
 				resizePreviewer();
