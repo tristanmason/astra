@@ -935,15 +935,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
-
-		if ( class_exists( 'Astra_Woocommerce' ) ) {
-			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';
-		}
-
-		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
-			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
-		}
-
+		
 		require_once $header_config_path . '/class-astra-header-divider-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
