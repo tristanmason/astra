@@ -4,11 +4,6 @@
 
 	var expandedSection = [];
 
-	const context_less_sections = [ 'section-colors-body', 'section-colors-content', 'section-buttons',
-		'section-typography', 'section-body-typo', 'section-content-typo', 'sidebar-widgets-header-widget-', 'sidebar-widgets-footer-widget-',
-		'sidebar-widgets-sidebar-', 'sidebar-widgets-ast-widgets', 'static_front_page',
-		'custom_css', 'menu_locations', 'nav_menu'
-	];
 
 	/**
 	 * Resize Preview Frame when show / hide Builder.
@@ -214,7 +209,7 @@
 		setControlContextBySection: function (section) {
 
 			// Skip setting context when no tabs added inside section.
-			if( expandedSection.includes(section.id) || context_less_sections.includes(section.id)  ) {
+			if( expandedSection.includes(section.id) ) {
 				return ;
 			}
 

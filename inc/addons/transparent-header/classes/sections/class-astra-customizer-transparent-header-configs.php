@@ -341,7 +341,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'control'     => 'ast-slider',
 					'section'     => $_section,
-					'priority'    => 30,
+					'priority'    => 32,
 					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -361,7 +361,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'section'   => $_section,
-					'priority'  => 30,
+					'priority'  => 31,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
 					'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
