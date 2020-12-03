@@ -80,14 +80,13 @@
 				});
 
 				if (isExpanded) {
+
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
-					$('#sub-accordion-panel-' + panel.id + ' li').show();
-				} else {
 
-					$('#sub-accordion-panel-' + panel.id + ' li').hide();
-					// Setting general context when collapsed.
-					api.state('astra-customizer-tab').set('general');
+					$('#sub-accordion-panel-' + panel.id + ' li.control-section').hide();
+
+				} else {
 
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
@@ -569,10 +568,6 @@
 			section.expanded.bind(function (isExpanded) {
 				// Lazy Loaded Context.
 				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
-				if ( ! isExpanded ) {
-					// Setting general context when collapsed.
-					api.state('astra-customizer-tab').set('general');
-				}
 
 				var customizer_section = api.section(section.id);
 				set_context_by_url_params();
