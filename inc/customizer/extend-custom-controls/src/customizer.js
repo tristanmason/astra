@@ -350,6 +350,10 @@
 						var result = false,
 							setting = getSetting(rule['setting']);
 
+						if( 'undefined' == typeof setting ) {
+							return false;
+						}
+
 						var operator = rule['operator'],
 							comparedValue = rule['value'],
 							currentValue = setting.get();
@@ -410,7 +414,7 @@
 					}
 
 					const getResultByRules = function (rules, relation, displayed) {
-						
+
 						_.each(rules, function (rule, key) {
 
 							if ('relation' == key) return;
