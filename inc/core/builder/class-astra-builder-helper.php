@@ -556,7 +556,7 @@ final class Astra_Builder_Helper {
 		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
 		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
 
-		// Social Icons.
+		// Dividers.
 		$component_keys_count['header-divider'] = ( 10 >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : 10;
 		$component_keys_count['footer-divider'] = ( 10 >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : 10;
 
