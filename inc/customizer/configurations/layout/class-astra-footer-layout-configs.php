@@ -131,6 +131,11 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'operator' => '==',
 							'value'    => array( 'custom' ),
 						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
 					),
 					'priority'  => 20,
 					'title'     => __( 'Section 1 Custom Text', 'astra' ),
@@ -272,6 +277,11 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
 							'operator' => '>=',
 							'value'    => 1,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
 						),
 					),
 					'priority'  => 45,
