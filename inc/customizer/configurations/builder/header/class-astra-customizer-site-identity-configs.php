@@ -63,26 +63,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Header Site Title.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
-					'default'   => astra_get_option( 'site-title-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 16,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
-					),
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
 				 * Options: Site Tagline.
 				 */
 				array(
@@ -172,7 +152,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
 					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 15,
+					'priority' => 11,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
 					'required' => array(
