@@ -10,6 +10,17 @@
 
 ( function( $ ) {
 
+    wp.customize( 'astra-settings[different-mobile-logo]', function ( value ) {
+        value.bind( function ( newval ) {
+
+			if ( '1' == newval ) {
+                jQuery('.site-header').addClass( 'ast-has-mobile-header-logo' );
+            } else {
+                jQuery('.site-header').removeClass( 'ast-has-mobile-header-logo' );
+            }
+        } );
+	} );
+
 	// Margin.
     wp.customize( 'astra-settings[title_tagline-margin]', function( value ) {
 		value.bind( function( margin ) {
