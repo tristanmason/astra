@@ -112,6 +112,7 @@ class Astra_Divider_Component_Configs {
 					/* translators: %1$s builder type param */
 					'help'     => sprintf( __( 'If the Divider don\'t seem to be visible please check if elements are added in the current %1$s row.', 'astra' ), $builder_type ),
 					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]',
 							'operator' => '==',
