@@ -49,7 +49,7 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 		$selector . ' .ast-builder-grid-row' => array(
 			'align-items'     => astra_get_option( 'hbb-footer-vertical-alignment' ),
 			'grid-column-gap' => astra_get_css_value( $inner_spacing, 'px' ),
-			'grid-column-row' => astra_get_css_value( $inner_spacing, 'px' ),
+			'grid-row-gap'    => astra_get_css_value( $inner_spacing, 'px' ),
 		),
 
 	);
