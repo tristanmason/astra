@@ -882,8 +882,8 @@
     z-index: 10;
 }
 
-.ahfb-builder-mode-footer .ahfb-builder-area .ahfb-builder-item {
-    width: 100%;
+.ahfb-builder-mode-footer .ahfb-builder-drop {
+    justify-content: center;
 }
 
 .ahfb-builder-area .ahfb-builder-item-add-icon {
