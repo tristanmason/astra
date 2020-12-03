@@ -16,7 +16,8 @@ const SocialComponent = props => {
 				'enabled': true,
 				'source': 'icon',
 				'url': '',
-				'imageid': '',
+				'color': '#557dbc',
+				'background': 'transparent',
 				'width': 24,
 				'icon': 'facebook',
 				'label': 'Facebook',
@@ -26,7 +27,8 @@ const SocialComponent = props => {
 				'enabled': true,
 				'source': 'icon',
 				'url': '',
-				'imageid': '',
+				'color': '#7acdee',
+				'background': 'transparent',
 				'width': 24,
 				'icon': 'twitter',
 				'label': 'Twitter',
@@ -46,32 +48,32 @@ const SocialComponent = props => {
 	let defaultParams = {
 		'group': 'social_item_group',
 		'options': [
-			{value: 'facebook', label: __('Facebook', 'astra')},
-			{value: 'twitter', label: __('Twitter', 'astra')},
-			{value: 'instagram', label: __('Instagram', 'astra')},
-			{value: 'youtube', label: __('YouTube', 'astra')},
-			{value: 'facebook_group', label: __('Facebook Group', 'astra')},
-			{value: 'vimeo', label: __('Vimeo', 'astra')},
-			{value: 'pinterest', label: __('Pinterest', 'astra')},
-			{value: 'linkedin', label: __('Linkedin', 'astra')},
-			{value: 'medium', label: __('Medium', 'astra')},
-			{value: 'wordpress', label: __('WordPress', 'astra')},
-			{value: 'reddit', label: __('Reddit', 'astra')},
-			{value: 'patreon', label: __('Patreon', 'astra')},
-			{value: 'github', label: __('GitHub', 'astra')},
-			{value: 'dribbble', label: __('Dribbble', 'astra')},
-			{value: 'behance', label: __('Behance', 'astra')},
-			{value: 'vk', label: __('VK', 'astra')},
-			{value: 'xing', label: __('Xing', 'astra')},
-			{value: 'rss', label: __('RSS', 'astra')},
-			{value: 'email', label: __('Email', 'astra')},
-			{value: 'phone', label: __('Phone', 'astra')},
-			{value: 'whatsapp', label: __('WhatsApp', 'astra')},
-			{value: 'google_reviews', label: __('Google Reviews', 'astra')},
-			{value: 'telegram', label: __('Telegram', 'astra')},
-			{value: 'yelp', label: __('Yelp', 'astra')},
-			{value: 'trip_advisor', label: __('Trip Advisor', 'astra')},
-			{value: 'imdb', label: __('IMDB', 'astra')},
+			{value: 'facebook', label: __('Facebook', 'astra'), color: '#557dbc', background: 'transparent'},
+			{value: 'twitter', label: __('Twitter', 'astra'), color: '#7acdee', background: 'transparent'},
+			{value: 'instagram', label: __('Instagram', 'astra'), color: '#292929', background: 'transparent'},
+			{value: 'youtube', label: __('YouTube', 'astra'), color: '#e96651', background: 'transparent'},
+			{value: 'facebook_group', label: __('Facebook Group', 'astra'), color: '#3D87FB', background: 'transparent'},
+			{value: 'vimeo', label: __('Vimeo', 'astra'), color: '#8ecfde', background: 'transparent'},
+			{value: 'pinterest', label: __('Pinterest', 'astra'), color: '#ea575a', background: 'transparent'},
+			{value: 'linkedin', label: __('Linkedin', 'astra'), color: '#1c86c6', background: 'transparent'},
+			{value: 'medium', label: __('Medium', 'astra'), color: '#292929', background: 'transparent'},
+			{value: 'wordpress', label: __('WordPress', 'astra'), color: '#464646', background: 'transparent'},
+			{value: 'reddit', label: __('Reddit', 'astra'), color: '#FC471E', background: 'transparent'},
+			{value: 'patreon', label: __('Patreon', 'astra'), color: '#e65c4b', background: 'transparent'},
+			{value: 'github', label: __('GitHub', 'astra'), color: '#24292e', background: 'transparent'},
+			{value: 'dribbble', label: __('Dribbble', 'astra'), color: '#d77ea6', background: 'transparent'},
+			{value: 'behance', label: __('Behance', 'astra'), color: '#1B64F6', background: 'transparent'},
+			{value: 'vk', label: __('VK', 'astra'), color: '#5382b6', background: 'transparent'},
+			{value: 'xing', label: __('Xing', 'astra'), color: '#0A5C5D', background: 'transparent'},
+			{value: 'rss', label: __('RSS', 'astra'), color: '#f09124', background: 'transparent'},
+			{value: 'email', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
+			{value: 'phone', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
+			{value: 'whatsapp', label: __('WhatsApp', 'astra'), color: '#5BBA67', background: 'transparent'},
+			{value: 'google_reviews', label: __('Google Reviews', 'astra'), color: '#dc4e41', background: 'transparent'},
+			{value: 'telegram', label: __('Telegram', 'astra'), color: '#229CCE', background: 'transparent'},
+			{value: 'yelp', label: __('Yelp', 'astra'), color: '#af0606', background: 'transparent'},
+			{value: 'trip_advisor', label: __('Trip Advisor', 'astra'), color: '#00aa6c', background: 'transparent'},
+			{value: 'imdb', label: __('IMDB', 'astra'), color: '#000000', background: 'transparent'},
 		].sort((a, b) => {
 			if (a.value < b.value) {
 				return -1;
@@ -171,12 +173,6 @@ const SocialComponent = props => {
 		}, itemIndex);
 	};
 
-	const onChangeAttachment = (value, itemIndex) => {
-		saveArrayUpdate({
-			imageid: value
-		}, itemIndex);
-	};
-
 	const onChangeWidth = (value, itemIndex) => {
 		saveArrayUpdate({
 			width: value
@@ -227,7 +223,8 @@ const SocialComponent = props => {
 				'enabled': true,
 				'source': 'icon',
 				'url': '',
-				'imageid': '',
+				'color': itemLabel[0].color,
+				'background': itemLabel[0].background,
 				'width': 24,
 				'icon': itemControl,
 				'label': itemLabel[0].label
@@ -330,7 +327,6 @@ const SocialComponent = props => {
 										  onChangeSource={(source, itemIndex) => onChangeSource(source, itemIndex)}
 										  onChangeWidth={(width, itemIndex) => onChangeWidth(width, itemIndex)}
 										  onChangeURL={(url, itemIndex) => onChangeURL(url, itemIndex)}
-										  onChangeAttachment={(imageid, itemIndex) => onChangeAttachment(imageid, itemIndex)}
 										  onChangeIcon={(icon, itemIndex) => onChangeIcon(icon, itemIndex)}
 										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
 
