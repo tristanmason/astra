@@ -89,8 +89,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog-single',
-					'priority' => 5,
+					'priority' => 5.1,
 					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
