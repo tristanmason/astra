@@ -51,23 +51,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 
 		/**
-		 * Removed Sections.
-		 *
-		 * @access private
-		 * @var object
-		 */
-		private static $removed_sections;
-
-		/**
-		 * Removed Sections.
-		 *
-		 * @access private
-		 * @var object
-		 */
-		private static $removed_panels;
-
-
-		/**
 		 * Instance
 		 *
 		 * @access private
