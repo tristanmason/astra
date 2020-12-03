@@ -1077,7 +1077,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['off-canvas-close-color']            = '#3a3a3a';
 	$defaults['mobile-header-type']                = 'off-canvas';
 
-	$defaults['footer-menu-layout'] = 'horizontal';
+	$defaults['footer-menu-layout'] = array(
+		'desktop' => 'horizontal',
+		'tablet'  => 'vertical',
+		'mobile'  => 'vertical',
+	);
 
 	$defaults['footer-menu-bg-obj-responsive'] = array(
 		'desktop' => array(
