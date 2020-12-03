@@ -235,7 +235,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'priority'       => 30,
+					'priority'       => 30.1,
 					'title'          => __( 'Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'partial'        => array(
@@ -261,7 +261,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'priority' => 30,
+					'priority' => 30.2,
 					'control'  => 'checkbox',
 				),
 
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'priority'       => 30,
+					'priority'       => 30.3,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
@@ -310,7 +310,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'priority'    => 30,
+					'priority'    => 30.4,
 					'title'       => __( 'Logo Width', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 50,
@@ -327,7 +327,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => $_section,
-					'priority' => 30,
+					'priority' => 30.5,
 					'settings' => array(),
 				),
 
