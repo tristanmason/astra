@@ -14,7 +14,7 @@ if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 	$row = get_query_var( 'row' );
 }
 
-if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
+if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 
 	$option  = ( 'above' === $row ) ? 'hba' : ( ( 'below' === $row ) ? 'hbb' : 'hb' );
 	$columns = astra_get_option( $option . '-footer-column' );
