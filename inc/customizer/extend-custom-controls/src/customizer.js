@@ -571,6 +571,11 @@
 				// Lazy Loaded Context.
 				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
+				if ( ! isExpanded ) {
+					// Setting general context when collapsed.
+					api.state('astra-customizer-tab').set('general');
+				}
+
 				var customizer_section = api.section(section.id);
 				set_context_by_url_params();
 
