@@ -47,9 +47,9 @@ class Astra_Footer_Menu_Component {
 
 		// Menu Layout.
 		$desktop_menu_layout_class = '';
-		$tablet_menu_layout_class = '';
-		$mobile_menu_layout_class = '';
-		$menu_layout       = astra_get_option( 'footer-menu-layout' );
+		$tablet_menu_layout_class  = '';
+		$mobile_menu_layout_class  = '';
+		$menu_layout               = astra_get_option( 'footer-menu-layout' );
 
 		$desktop_menu_layout = ( isset( $menu_layout['desktop'] ) ) ? $menu_layout['desktop'] : '';
 		$tablet_menu_layout  = ( isset( $menu_layout['tablet'] ) ) ? $menu_layout['tablet'] : '';
