@@ -943,8 +943,12 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     bottom: auto;
 }
 
-.ahfb-builder-group .ahfb-builder-area:nth-child(3) .ahfb-builder-add-item.center-on-left .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(4) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(5) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder {
+.ahfb-builder-group .ahfb-builder-area:nth-child(3) .ahfb-builder-add-item.center-on-left .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(4) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder, .ahfb-builder-group .ahfb-builder-area:nth-child(5) .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder, .ahfb-builder-group.ast-grid-row-layout-3-cwide .ahfb-builder-area-3 .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder {
     right: -20% !important;
+}
+
+.ahfb-builder-group.ast-grid-row-layout-6-equal .ahfb-builder-area-6 .ahfb-builder-add-item .components-popover.ahfb-popover-add-builder {
+    right: -35% !important;
 }
 
 #customize-control-astra-settings-header-mobile-items .components-popover.ahfb-popover-add-builder[data-x-axis="center"] {
@@ -1350,9 +1354,10 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     height: 49px;
 }
 
-#customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg {
-    width: 50px;
-    height: 49px;
+#customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg,
+#customize-control-astra-settings-header-trigger-icon svg {
+    width: 52px;
+    height: 50px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button-group {
@@ -1669,11 +1674,12 @@ button.components-button.ahfb-sorter-item-expand {
     box-shadow: unset;
 }
 
-.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg rect, .ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg path, .ahfb-icon-set svg {
+.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg rect, .ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary svg path, .ahfb-icon-set svg,
+#customize-control-astra-settings-header-trigger-icon span.ahfb-svg-iconset.svg-baseline svg path, span.ahfb-svg-iconset.svg-baseline svg circle {
     fill: rgb(160 174 192);
 }
 
-.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg rect, .ahfb-radio-icon-control  .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg path, .active-radio .ahfb-icon-set svg, .active-radio .ahfb-icon-set svg {
+.ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg rect, .ahfb-radio-icon-control  .components-button-group.ahfb-radio-container-control .components-button.is-tertiary.active-radio svg path, .active-radio .ahfb-icon-set svg, .active-radio .ahfb-icon-set svg, #customize-control-astra-settings-header-trigger-icon input:checked + .ast-radio-img-svg svg path, #customize-control-astra-settings-header-trigger-icon input:checked + .ast-radio-img-svg svg circle {
     fill: #007cba;
 }
 
