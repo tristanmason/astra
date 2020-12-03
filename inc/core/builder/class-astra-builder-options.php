@@ -1307,9 +1307,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Woo-Cart.
 	 */
 	$defaults['woo-header-cart-icon-style']  = 'none';
-	$defaults['woo-header-cart-icon-color']  = '';
+	$defaults['header-woo-cart-icon-color']  = '#0274be';
 	$defaults['woo-header-cart-icon-radius'] = 3;
-
+	
 	/**
 	 * EDD-Cart.
 	 */

@@ -35,6 +35,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$header_cart_icon_radius = astra_get_option( 'woo-header-cart-icon-radius' );
 	$cart_h_color            = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
+	$theme_color             = astra_get_option( 'theme-color' );
+	$theme_h_color = astra_get_foreground_color( $theme_color );
+	
 	$header_cart_icon        = '';
 	/**
 	 * Woo Cart CSS.
@@ -49,8 +52,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'border-color' => $icon_color,
 		),
 		$selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after'  => array(
-			'color'            => esc_attr( $cart_h_color ),
-			'background-color' => esc_attr( $icon_color ),
+			'color'            => esc_attr( $theme_h_color ),
+			'background-color' => esc_attr( $theme_color ),
 		),
 	);
 

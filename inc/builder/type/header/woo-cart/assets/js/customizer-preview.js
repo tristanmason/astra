@@ -44,6 +44,7 @@
 			buttons.addClass( 'ast-menu-cart-' + icon_style );
 			var dynamicStyle = '.ast-site-header-cart a, .ast-site-header-cart a *{ transition: all 0s; } ';
 			astra_add_dynamic_css( 'woo-header-cart-icon-style', dynamicStyle );
+			wp.customize.preview.send( 'refresh' );
 		} );
 	} );
 
