@@ -59,12 +59,12 @@ class Astra_Footer_Menu_Component {
 			$desktop_menu_layout_class = 'astra-footer-' . esc_attr( $desktop_menu_layout ) . '-menu';
 		}
 
-		if ( ! empty( $tablet_menu_layout_class ) ) {
-			$tablet_menu_layout_class_class = 'astra-footer-tablet-' . esc_attr( $tablet_menu_layout_class ) . '-menu';
+		if ( ! empty( $tablet_menu_layout ) ) {
+			$tablet_menu_layout_class = 'astra-footer-tablet-' . esc_attr( $tablet_menu_layout ) . '-menu';
 		}
 
-		if ( ! empty( $mobile_menu_layout_class ) ) {
-			$mobile_menu_layout_class_class = 'astra-footer-mobile-' . esc_attr( $mobile_menu_layout_class ) . '-menu';
+		if ( ! empty( $mobile_menu_layout ) ) {
+			$mobile_menu_layout_class = 'astra-footer-mobile-' . esc_attr( $mobile_menu_layout ) . '-menu';
 		}
 
 		/**
