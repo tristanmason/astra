@@ -729,6 +729,35 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'priority'  => 11,
 						'title'     => __( 'Background Color', 'astra' ),
 					),
+
+					/**
+					 * Option: Transparent Header Builder - Divider Elements configs.
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-divider-colors-group]',
+						'default'   => '',
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Divider', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 65,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Search Color.
+					array(
+						'name'      => 'transparent-header-divider-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-divider-colors-group]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 5,
+						'title'     => __( 'Color', 'astra' ),
+						'context'   => Astra_Builder_Helper::$general_tab,
+					),
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
