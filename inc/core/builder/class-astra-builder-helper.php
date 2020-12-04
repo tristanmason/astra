@@ -518,20 +518,25 @@ final class Astra_Builder_Helper {
 	 */
 	public static function get_component_count_by_key() {
 
-		$component_keys_count = apply_filters(
-			'astra_builder_elements_count',
-			array(
-				'header-button'       => 2,
-				'footer-button'       => 2,
-				'header-html'         => 2,
-				'footer-html'         => 2,
-				'header-menu'         => 2,
-				'header-widget'       => 4,
-				'footer-widget'       => 4,
-				'header-social-icons' => 1,
-				'footer-social-icons' => 1,
-				'header-divider'      => 0,
-				'footer-divider'      => 0,
+		$component_keys_count = array(
+			'header-button'       => 2,
+			'footer-button'       => 2,
+			'header-html'         => 2,
+			'footer-html'         => 2,
+			'header-menu'         => 2,
+			'header-widget'       => 4,
+			'footer-widget'       => 4,
+			'header-social-icons' => 1,
+			'footer-social-icons' => 1,
+			'header-divider'      => 0,
+			'footer-divider'      => 0,
+		);
+
+		$component_keys_count = array_merge(
+			$component_keys_count,
+			apply_filters(
+				'astra_builder_elements_count',
+				$component_keys_count
 			)
 		);
 
@@ -553,6 +558,10 @@ final class Astra_Builder_Helper {
 		// Social Icons.
 		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
 		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
+
+		// Divider.
+		$component_keys_count['header-divider'] = ( 10 >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : 10;
+		$component_keys_count['footer-divider'] = ( 10 >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : 10;
 
 		return $component_keys_count;
 	}
