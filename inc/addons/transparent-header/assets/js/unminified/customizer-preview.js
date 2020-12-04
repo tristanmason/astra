@@ -33,15 +33,12 @@
 	wp.customize( 'astra-settings[transparent-header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
-			// Adding this partial refresh for Border Width & following Border color in case of Transparent header when new HFB is enabled,
-			// because in new HFB we are targeting border-bottom to last header row (where in old header we target only primary header as transparent header), as here multiple dependencies will come like transparent header device enabled check, border width, border color, last header row handling. 
-			// That's why to avoid here multiple conditions refreshing the customizer preview directly when new Header Builder is active.
 			if( isAstraHFBuilderActive ) {
 
 				var selector = '';
-				var DisplayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
+				var displayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
 
-				switch( DisplayOn ) {
+				switch( displayOn ) {
 					case 'both':
 						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
@@ -84,9 +81,9 @@
 			if( isAstraHFBuilderActive ) {
 
 				var selector = '';
-				var DisplayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
+				var displayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
 
-				switch( DisplayOn ) {
+				switch( displayOn ) {
 					case 'both':
 						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
