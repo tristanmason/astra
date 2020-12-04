@@ -4,11 +4,6 @@
 
 	var expandedSection = [];
 
-	const context_less_sections = [ 'section-colors-body', 'section-colors-content', 'section-buttons',
-		'section-typography', 'section-body-typo', 'section-content-typo', 'sidebar-widgets-header-widget-', 'sidebar-widgets-footer-widget-',
-		'sidebar-widgets-sidebar-', 'sidebar-widgets-ast-widgets', 'static_front_page',
-		'custom_css', 'menu_locations', 'nav_menu'
-	];
 
 	/**
 	 * Resize Preview Frame when show / hide Builder.
@@ -80,15 +75,18 @@
 				});
 
 				if (isExpanded) {
+
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
+
+					$('#sub-accordion-panel-' + panel.id + ' li.control-section').hide();
+
 				} else {
 
-					// Setting general context when collapsed.
 					api.state('astra-customizer-tab').set('general');
-
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
+
 				}
 
 				resizePreviewer();
@@ -211,7 +209,7 @@
 		setControlContextBySection: function (section) {
 
 			// Skip setting context when no tabs added inside section.
-			if( expandedSection.includes(section.id) || context_less_sections.includes(section.id)  ) {
+			if( expandedSection.includes(section.id) ) {
 				return ;
 			}
 
@@ -241,12 +239,18 @@
 					return;
 				}
 
-				set_context(id, [
-					{
-						"setting": "ast_selected_tab",
-						"value": "general"
-					}
-				]);
+				let rules = AstraBuilderCustomizerData.contexts[id];
+				if( rules ) {
+					set_context(id, rules);
+				} else {
+					set_context(id, [
+						{
+							"setting": "ast_selected_tab",
+							"value": "general"
+						}
+					]);
+				}
+
 			});
 		},
 
@@ -336,7 +340,121 @@
 							return api(settingName);
 					}
 				}
+
 				var initContext = function (element) {
+
+					const compareByOperator = function (rule) {
+
+						var result = false,
+							setting = getSetting(rule['setting']);
+
+						if( 'undefined' == typeof setting ) {
+							return false;
+						}
+
+						var operator = rule['operator'],
+							comparedValue = rule['value'],
+							currentValue = setting.get();
+						if (undefined == operator || '=' == operator) {
+							operator = '==';
+						}
+
+						switch (operator) {
+							case '>':
+								result = currentValue > comparedValue;
+								break;
+
+							case '<':
+								result = currentValue < comparedValue;
+								break;
+
+							case '>=':
+								result = currentValue >= comparedValue;
+								break;
+
+							case '<=':
+								result = currentValue <= comparedValue;
+								break;
+
+							case 'in':
+								result = 0 <= comparedValue.indexOf(currentValue);
+								break;
+
+							case 'contains':
+								result = 0 <= currentValue.indexOf(comparedValue);
+								break;
+
+							case '!=':
+								result = comparedValue != currentValue;
+								break;
+
+							default:
+								result = comparedValue == currentValue;
+								break;
+						}
+
+						return result;
+					}
+
+					const compareByRelation = function (relation, displayed, result) {
+
+						switch (relation) {
+							case 'OR':
+								displayed = displayed || result;
+								break;
+
+							default:
+								displayed = displayed && result;
+								break;
+						}
+
+						return displayed;
+					}
+
+					const getResultByRules = function (rules, relation, displayed) {
+
+						_.each(rules, function (rule, key) {
+
+							if ('relation' == key) return;
+
+							if ('AND' == relation && false == displayed) return;
+
+							if (undefined === rule['setting']) {
+
+								let tmp_relation = rule['relation'];
+								if (!tmp_relation) {
+									return;
+								}
+
+								displayed = getResultByRules(rule, tmp_relation, false);
+
+							} else {
+
+								var result = compareByOperator(rule);
+								displayed = compareByRelation(relation, displayed, result);
+							}
+
+						});
+
+						return displayed;
+
+					}
+
+					const bindSettings = function (rules) {
+						_.each(rules, function (rule, index) {
+
+							var setting = getSetting(rule['setting']);
+
+							if (undefined !== setting) {
+								setting.bind(setActiveState);
+							} else {
+								if (rule['relation']) {
+									bindSettings(rule);
+								}
+							}
+						});
+					}
+
 					var isDisplayed = function () {
 
 						var displayed = false,
@@ -347,58 +465,16 @@
 							displayed = true;
 						}
 
-						// Each rule iteration
-						_.each(rules, function (rule, i) {
+						return getResultByRules(rules, relation, displayed);
 
-							var result = false,
-								setting = getSetting(rule['setting']);
-
-							if (undefined !== setting) {
-								var operator = rule['operator'],
-									comparedValue = rule['value'],
-									currentValue = setting.get();
-								if (undefined == operator || '=' == operator) {
-									operator = '==';
-								}
-
-								switch (operator) {
-									case 'in':
-										result = 0 <= comparedValue.indexOf(currentValue);
-										break;
-
-									default:
-										result = comparedValue == currentValue;
-										break;
-								}
-							}
-
-							switch (relation) {
-								case 'OR':
-									displayed = displayed || result;
-									break;
-
-								default:
-									displayed = displayed && result;
-									break;
-							}
-						});
-
-						return displayed;
 					};
+
 					var setActiveState = function () {
-						element.active.set(isDisplayed());
+						element._toggleActive(isDisplayed(), {duration: 0});
 					};
-					_.each(rules, function (rule, i) {
 
-						var setting = getSetting(rule['setting']);
+					bindSettings(rules);
 
-						if (undefined !== setting) {
-							setting.bind(setActiveState);
-						}
-					});
-
-
-					//element.active.validate = isDisplayed; // Todo: Remove it later.
 					setActiveState();
 				};
 				api.control(control_id, initContext);
@@ -485,6 +561,7 @@
 			section.expanded.bind(function (isExpanded) {
 				// Lazy Loaded Context.
 				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+
 				if ( ! isExpanded ) {
 					// Setting general context when collapsed.
 					api.state('astra-customizer-tab').set('general');

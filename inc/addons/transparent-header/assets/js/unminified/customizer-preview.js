@@ -161,6 +161,7 @@
 	/**
 	 * Transparent Header > Elements preview styles.
 	 */
+	astra_css( 'astra-settings[transparent-header-divider-color]', 'border-color', '.ast-theme-transparent-header .ast-header-divider-element .ast-divider-wrapper' );
 	astra_css( 'astra-settings[transparent-header-html-text-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' );
 	astra_css( 'astra-settings[transparent-header-html-link-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element a' );
 	astra_css( 'astra-settings[transparent-header-html-link-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element a:hover' );
