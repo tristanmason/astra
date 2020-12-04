@@ -10,6 +10,8 @@
 
 ( function( $ ) {
 
+	var isAstraHFBuilderActive    = AstraBuilderTransparemtData.is_astra_hf_builder_active || false;
+
 	/**
 	 * Transparent Logo Width
 	 */
@@ -31,6 +33,13 @@
 	wp.customize( 'astra-settings[transparent-header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
+			// Adding this partial refresh for Border Width & following Border color in case of Transparent header when new HFB is enabled,
+			// because in new HFB we are targeting border-bottom to last header row (where in old header we target only primary header as transparent header), as here multiple dependencies will come like transparent header device enabled check, border width, border color, last header row handling. 
+			// That's why to avoid here multiple conditions refreshing the customizer preview directly when new Header Builder is active.
+			if( isAstraHFBuilderActive ) {
+				wp.customize.preview.send( 'refresh' );
+			}
+
 			var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
 
 			dynamicStyle += 'body.ast-theme-transparent-header.ast-desktop .main-header-bar {';
@@ -47,7 +56,7 @@
 	 */
 	wp.customize( 'astra-settings[transparent-header-main-sep-color]', function( value ) {
 		value.bind( function( color ) {
-			if (color == '') {
+			if (color == '' || isAstraHFBuilderActive) {
 				wp.customize.preview.send( 'refresh' );
 			}
 
