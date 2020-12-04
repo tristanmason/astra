@@ -58,15 +58,15 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: EDD Archive Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
-					'type'     => 'control',
-					'control'  => 'ast-sortable',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-product-structure' ),
-					'priority' => 30,
-					'title'    => __( 'Product Structure', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+					'type'        => 'control',
+					'control'     => 'ast-sortable',
+					'section'     => 'section-edd-archive',
+					'default'     => astra_get_option( 'edd-archive-product-structure' ),
+					'priority'    => 30,
+					'title'       => __( 'Product Structure', 'astra' ),
 					'description' => __( 'The Image option cannot be sortable if the Product Style is selected to the List Style ', 'astra' ),
-					'choices'  => array(
+					'choices'     => array(
 						'image'      => __( 'Image', 'astra' ),
 						'category'   => __( 'Category', 'astra' ),
 						'title'      => __( 'Title', 'astra' ),
