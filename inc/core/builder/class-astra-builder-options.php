@@ -1441,16 +1441,20 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']  = 'none';
-	$defaults['woo-header-cart-icon-color']  = '';
-	$defaults['woo-header-cart-icon-radius'] = 3;
-
+	$defaults['woo-header-cart-icon-style']    = 'none';
+	$defaults['header-woo-cart-icon-color']    = '#0274be';
+	$defaults['woo-header-cart-icon-radius']   = 3;
+	$defaults['woo-header-cart-total-display'] = true;
+	$defaults['woo-header-cart-title-display'] = true;
+	
 	/**
 	 * EDD-Cart.
 	 */
-	$defaults['edd-header-cart-icon-style']  = 'none';
-	$defaults['edd-header-cart-icon-color']  = '';
-	$defaults['edd-header-cart-icon-radius'] = 3;
+	$defaults['edd-header-cart-icon-style']    = 'none';
+	$defaults['edd-header-cart-icon-color']    = '';
+	$defaults['edd-header-cart-icon-radius']   = 3;
+	$defaults['edd-header-cart-total-display'] = true;
+	$defaults['edd-header-cart-title-display'] = true;
 
 	return $defaults;
 }

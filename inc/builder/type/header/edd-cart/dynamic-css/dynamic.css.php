@@ -43,15 +43,15 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$css_output_desktop = array(
 
 		$selector . ' .ast-edd-cart-menu-wrap .count' => array(
-			'color'        => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
-			'border-color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+			'color'        => $theme_color,
+			'border-color' => $theme_color,
 		),
 		$selector . ' .ast-edd-cart-menu-wrap .count:after' => array(
-			'color'        => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
-			'border-color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+			'color'        => $theme_color,
+			'border-color' => $theme_color,
 		),
-		$selector . ' .ast-edd-header-cart-info-wrap' => array(
-			'color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+		$selector . ' .ast-icon-shopping-cart'        => array(
+			'color' => $theme_color,
 		),
 	);
 
@@ -64,13 +64,26 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		 * Header Cart Icon colors
 		 */
 		$header_cart_icon = array(
+
+			$selector . ' .ast-edd-cart-menu-wrap .count' => array(
+				'color'        => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+				'border-color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+			),
+			$selector . ' .ast-edd-cart-menu-wrap .count:after' => array(
+				'color'        => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+				'border-color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+			),
+			$selector . ' .ast-icon-shopping-cart'        => array(
+				'color' => esc_attr( astra_get_option( 'edd-header-cart-icon-color' ) ),
+			),
+
 			// Default icon colors.
 			'.ast-edd-cart-menu-wrap .count, .ast-edd-cart-menu-wrap .count:after' => array(
 				'border-color' => esc_attr( $header_cart_icon_color ),
 				'color'        => esc_attr( $header_cart_icon_color ),
 			),
 			// Outline icon hover colors.
-			'.ast-edd-cart-menu-wrap:hover .count' => array(
+			'.ast-edd-cart-menu-wrap:hover .count'        => array(
 				'color'            => esc_attr( $cart_h_color ),
 				'background-color' => esc_attr( $header_cart_icon_color ),
 			),
@@ -80,8 +93,12 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'border'     => '1px solid ' . $header_cart_icon_color,
 				'color'      => esc_attr( $header_cart_icon_color ),
 			),
+			// Outline Info colors.
+			$selector . ' .ast-menu-cart-outline .ast-edd-header-cart-info-wrap' => array(
+				'color' => esc_attr( $header_cart_icon_color ),
+			),
 			// Fill icon Color.
-			'.ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count,.ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-edd-header-cart-info-wrap' => array(
+			'.ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count,.ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-edd-header-cart-info-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-icon-shopping-cart' => array(
 				'background-color' => esc_attr( $header_cart_icon_color ),
 				'color'            => esc_attr( $cart_h_color ),
 			),

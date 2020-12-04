@@ -36,7 +36,8 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = 'section-header-edd-cart';
+		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
+
 		$defaults = Astra_Theme_Options::defaults();
 
 		$_configs = array(
@@ -50,18 +51,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority' => 5,
 				'title'    => __( 'EDD Cart', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
-			),
-
-			/**
-			 * Option: EDD Cart Tabs
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-header-edd-cart-tabs]',
-				'section'     => $_section,
-				'type'        => 'control',
-				'control'     => 'ast-builder-header-control',
-				'priority'    => 0,
-				'description' => '',
 			),
 
 			/**
@@ -134,9 +123,15 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Color', 'astra' ),
 				'transport' => 'postMessage',
 				'section'   => $_section,
-				'required'  => array( ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]', '!=', 'none' ),
+				'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'priority'  => 45,
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -148,7 +143,14 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'        => 'control',
 				'transport'   => 'postMessage',
 				'section'     => $_section,
-				'required'    => array( ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]', '!=', 'none' ),
+				'context'     => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'control'     => 'ast-slider',
 				'priority'    => 47,
@@ -157,10 +159,24 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 200,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 			
 		);
+		
+		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$_edd_configs = array(
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-edd-cart-tabs]',
+					'section'     => $_section,
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				),
+			);
+
+			$configurations = array_merge( $configurations, $_edd_configs );
+		}
 
 		return array_merge( $configurations, $_configs );
 	}

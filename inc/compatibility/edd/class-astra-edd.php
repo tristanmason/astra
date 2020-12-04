@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function header_cart_icon_markup() {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
 				return;
 			}
 
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 
 			// Theme's default icon with cart title and cart total.
-			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'edd' ) ) ) {
 				// Cart Total or Cart Title enable then only add markup.
 				if ( $cart_title_display || $cart_total_display ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function header_cart_icon_class( $classes ) {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
 				return;
 			}
 
@@ -700,7 +700,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				),
 
 				'.ast-edd-site-header-cart a:focus, .ast-edd-site-header-cart a:hover, .ast-edd-site-header-cart .current-menu-item a' => array(
-					'color' => esc_attr( $link_color ),
+					'color' => esc_attr( $text_color ),
 				),
 
 				'.ast-edd-cart-menu-wrap .count, .ast-edd-cart-menu-wrap .count:after' => array(

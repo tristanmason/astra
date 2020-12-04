@@ -35,34 +35,11 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
+		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
 
-		$_section = 'section-header-woo-cart';
 		$defaults = Astra_Theme_Options::defaults();
 
 		$_configs = array(
-
-			/**
-			* Woo Cart section
-			*/
-			array(
-				'name'     => $_section,
-				'type'     => 'section',
-				'priority' => 5,
-				'title'    => __( 'Woo Cart', 'astra' ),
-				'panel'    => 'panel-header-builder-group',
-			),
-
-			/**
-			 * Woo Cart Tabs
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-header-woo-cart-tabs]',
-				'section'     => $_section,
-				'type'        => 'control',
-				'control'     => 'ast-builder-header-control',
-				'priority'    => 0,
-				'description' => '',
-			),
 
 			/**
 			 * Option: Header cart total
@@ -134,10 +111,16 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-color',
 				'transport' => 'postMessage',
 				'title'     => __( 'Color', 'astra' ),
-				'required'  => array( ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]', '!=', 'none' ),
+				'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'section'   => $_section,
 				'priority'  => 45,
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 			
 			/**
@@ -149,7 +132,14 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'        => 'control',
 				'transport'   => 'postMessage',
 				'section'     => $_section,
-				'required'    => array( ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]', '!=', 'none' ),
+				'context'     => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'control'     => 'ast-slider',
 				'priority'    => 45,
@@ -158,11 +148,58 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 200,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 		);
 
-		return array_merge( $configurations, $_configs );
+		$configurations = array_merge( $configurations, $_configs );
+		
+		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$_configs = array(
+				/**
+				* Woo Cart section
+				*/
+				array(
+					'name'     => $_section,
+					'type'     => 'section',
+					'priority' => 5,
+					'title'    => __( 'Woocommerce Cart', 'astra-addon' ),
+					'panel'    => 'panel-header-builder-group',
+				),
+
+				/**
+				 * Woo Cart Tabs
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-woo-cart-tabs]',
+					'section'     => $_section,
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				),
+			);
+
+		} else {
+			$_configs = array(
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-cart-icon-divider]',
+					'section'  => $_section,
+					'title'    => __( 'Header Cart Icon', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 30,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
+				),
+			);
+		}
+
+		$configurations = array_merge( $configurations, $_configs );
+
+		return $configurations;
 	}
 }
 

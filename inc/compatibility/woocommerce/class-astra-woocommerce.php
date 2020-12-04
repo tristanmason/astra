@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function header_cart_icon_markup() {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
 				return;
 			}
 
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			// Theme's default icon with cart title and cart total.
-			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				// Cart Total or Cart Title enable then only add markup.
 				if ( $cart_title_display || $cart_total_display ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -191,7 +191,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function header_cart_icon_class( $classes ) {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
 				return;
 			}
 
