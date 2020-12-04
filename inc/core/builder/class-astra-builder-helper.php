@@ -28,6 +28,16 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config context general tab config.
+	 *
+	 * @var string[][]
+	 */
+	public static $general_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'general',
+	);
+
+	/**
 	 * Config context design tab.
 	 *
 	 * @var string[][]
@@ -37,6 +47,16 @@ final class Astra_Builder_Helper {
 			'setting' => 'ast_selected_tab',
 			'value'   => 'design',
 		),
+	);
+
+	/**
+	 * Config context design tab.
+	 *
+	 * @var string[][]
+	 */
+	public static $design_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'design',
 	);
 
 	/**
