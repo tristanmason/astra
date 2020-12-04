@@ -203,11 +203,6 @@ final class Astra_Builder_Base_Configuration {
 				'priority'  => 310,
 				'title'     => __( 'Hide on Desktop', 'astra' ),
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => $selector,
-					'container_inclusive' => false,
-					'render_callback'     => array( $class_obj, $function ),
-				),
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
@@ -223,11 +218,6 @@ final class Astra_Builder_Base_Configuration {
 				'priority'  => 320,
 				'title'     => __( 'Hide on Tablet', 'astra' ),
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => $selector,
-					'container_inclusive' => false,
-					'render_callback'     => array( $class_obj, $function ),
-				),
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
@@ -243,11 +233,6 @@ final class Astra_Builder_Base_Configuration {
 				'priority'  => 330,
 				'title'     => __( 'Hide on Mobile', 'astra' ),
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => $selector,
-					'container_inclusive' => false,
-					'render_callback'     => array( $class_obj, $function ),
-				),
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 		);
