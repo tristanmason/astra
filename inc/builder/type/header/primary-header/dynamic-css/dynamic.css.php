@@ -30,17 +30,23 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	$parse_css = '';
 
 	$hb_header_height = astra_get_option( 'hb-header-height' );
+	
+	// Header Height.
+	$hb_header_height_desktop = ( isset( $hb_header_height['desktop'] ) && ! empty( $hb_header_height['desktop'] ) ) ? $hb_header_height['desktop'] : '';
+	$hb_header_height_tablet  = ( isset( $hb_header_height['tablet'] ) && ! empty( $hb_header_height['tablet'] ) ) ? $hb_header_height['tablet'] : '';
+	$hb_header_height_mobile  = ( isset( $hb_header_height['mobile'] ) && ! empty( $hb_header_height['mobile'] ) ) ? $hb_header_height['mobile'] : '';
+
 
 	$common_css_output = array(
 		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
-			'min-height' => astra_get_css_value( $hb_header_height, 'px' ),
+			'min-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item' => array(
-			'height'     => astra_get_css_value( $hb_header_height, 'px' ),
+			'height'     => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 			'align-self' => 'center',
 		),
 		'.ast-desktop .ast-primary-header-bar .ast-header-woo-cart, .ast-desktop .ast-primary-header-bar .ast-header-edd-cart' => array(
-			'line-height' => astra_get_css_value( $hb_header_height, 'px' ),
+			'line-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 	);
 
@@ -107,9 +113,15 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$tablet_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'tablet' ),
+		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+			'min-height' => astra_get_css_value( $hb_header_height_tablet, 'px' ),
+		),
 	);
 	$mobile_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'mobile' ),
+		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+			'min-height' => astra_get_css_value( $hb_header_height_mobile, 'px' ),
+		),
 	);
 
 	/* Parse CSS from array() */

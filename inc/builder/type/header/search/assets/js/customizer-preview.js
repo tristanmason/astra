@@ -16,7 +16,8 @@
 	var selector = '.ast-header-search';
 
 	// Icon Color.
-	astra_css(
+	astra_color_responsive_css(
+		'header-search-icon-color',
 		'astra-settings[header-search-icon-color]',
 		'color',
 		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 

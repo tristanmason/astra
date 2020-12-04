@@ -67,7 +67,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'    => 30,
 					'title'       => __( 'Height', 'astra' ),
 					'type'        => 'control',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 30,
