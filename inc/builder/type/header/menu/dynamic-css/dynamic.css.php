@@ -291,7 +291,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			);
 		} else {
 
-			$css_output_desktop['.ast-builder-menu .menu-item .sub-menu .menu-link'] = array(
+			$css_output_desktop[ '.ast-builder-menu-' . $index . ' .menu-item .sub-menu .menu-link' ] = array(
 				'border-style' => 'none',
 			);
 			$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
