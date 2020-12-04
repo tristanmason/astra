@@ -97,6 +97,9 @@
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( 'section-primary-header-builder', '.ast-desktop .ast-primary-header-bar, .ast-header-break-point .ast-primary-header-bar' );
 
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( 'section-primary-header-builder', '.ast-primary-header-bar', 'block' );
+
 	// Advanced CSS for Header Builder - Margin.
 	wp.customize( 'astra-settings[section-header-builder-layout-margin]', function( value ) {
         value.bind( function( margin ) {
