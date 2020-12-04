@@ -228,9 +228,15 @@ class Astra_Social_Icon_Component_Configs {
 					'title'     => __( 'Colors', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-type]', '==', 'custom' ),
 					'priority'  => 9,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-type]',
+							'operator' => '==',
+							'value'    => 'custom',
+						),
+					),
 				),
 
 				/**
@@ -366,7 +372,17 @@ class Astra_Social_Icon_Component_Configs {
 				);
 			}
 
-			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section, array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-label-toggle]', '===', true ) );
+			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
+				$_section,
+				array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-label-toggle]',
+						'operator' => '===',
+						'value'    => true,
+					),
+				)  
+			);
 
 			$social_configs[] = $_configs;
 		}

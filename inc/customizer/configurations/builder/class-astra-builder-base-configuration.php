@@ -134,9 +134,8 @@ final class Astra_Builder_Base_Configuration {
 				'title'     => __( 'Text Typography', 'astra' ),
 				'section'   => $section_id,
 				'transport' => 'postMessage',
-				'required'  => $required_condition,
 				'priority'  => 16,
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 			),
 
 			/**
