@@ -30,7 +30,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-
 			$_section = 'title_tagline';
 
 			$_configs = array(
@@ -383,7 +382,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			);
 
-
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				array_push(
@@ -436,7 +434,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					)
 				);
 			}
-
 
 			$configurations = array_merge( $configurations, $_configs );
 			return $configurations;

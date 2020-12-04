@@ -62,7 +62,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => '',
 				),
 
-
 				/**
 				 * Option: Divider
 				 */
@@ -106,7 +105,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
 					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 15,
+					'priority' => 11,
 					'settings' => array(),
 					'context'  => array(
 						'relation' => 'AND',
