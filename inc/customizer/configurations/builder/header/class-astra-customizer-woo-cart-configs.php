@@ -111,7 +111,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-color',
 				'transport' => 'postMessage',
 				'title'     => __( 'Color', 'astra' ),
-				'context'  => array(
+				'context'   => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
@@ -132,7 +132,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'        => 'control',
 				'transport'   => 'postMessage',
 				'section'     => $_section,
-				'context'  => array(
+				'context'     => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',

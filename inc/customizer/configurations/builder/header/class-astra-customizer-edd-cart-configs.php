@@ -123,7 +123,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Color', 'astra' ),
 				'transport' => 'postMessage',
 				'section'   => $_section,
-				'context'  => array(
+				'context'   => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
@@ -143,7 +143,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'        => 'control',
 				'transport'   => 'postMessage',
 				'section'     => $_section,
-				'context'  => array(
+				'context'     => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
