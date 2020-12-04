@@ -53,14 +53,14 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'border-bottom-style' => 'solid',
 		),
 		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
-			'min-height' => $hbb_header_height,
+			'min-height' => astra_get_css_value( $hbb_header_height, 'px' ),
 		),
 		'.ast-desktop .ast-below-header-bar .main-header-menu > .menu-item' => array(
-			'height'     => $hbb_header_height,
+			'height'     => astra_get_css_value( $hbb_header_height, 'px' ),
 			'align-self' => 'center',
 		),
 		'.ast-desktop .ast-below-header-bar .ast-header-woo-cart, .ast-desktop .ast-below-header-bar .ast-header-edd-cart' => array(
-			'line-height' => $hbb_header_height,
+			'line-height' => astra_get_css_value( $hbb_header_height, 'px' ),
 		),
 	);
 
