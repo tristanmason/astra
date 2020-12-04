@@ -188,22 +188,7 @@ final class Astra_Builder_Base_Configuration {
 				'title'    => __( 'Visibility', 'astra' ),
 				'priority' => 300,
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Hide on desktop
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
-				'type'      => 'control',
-				'control'   => 'checkbox',
-				'default'   => '',
-				'section'   => $_section,
-				'priority'  => 310,
-				'title'     => __( 'Hide on Desktop', 'astra' ),
-				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'context'     => Astra_Builder_Helper::$responsive_devices,
 			),
 
 			/**
@@ -218,7 +203,7 @@ final class Astra_Builder_Base_Configuration {
 				'priority'  => 320,
 				'title'     => __( 'Hide on Tablet', 'astra' ),
 				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'context'     => Astra_Builder_Helper::$tablet_device,
 			),
 
 			/**
@@ -233,7 +218,7 @@ final class Astra_Builder_Base_Configuration {
 				'priority'  => 330,
 				'title'     => __( 'Hide on Mobile', 'astra' ),
 				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'context'     => Astra_Builder_Helper::$mobile_device,
 			),
 		);
 	}
