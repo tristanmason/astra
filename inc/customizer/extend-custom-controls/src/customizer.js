@@ -436,8 +436,6 @@
 
 						});
 
-
-
 						return displayed;
 
 					}
@@ -466,8 +464,6 @@
 							relation = 'AND';
 							displayed = true;
 						}
-
-
 
 						return getResultByRules(rules, relation, displayed);
 
