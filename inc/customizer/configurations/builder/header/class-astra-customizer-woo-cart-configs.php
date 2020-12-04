@@ -111,10 +111,16 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-color',
 				'transport' => 'postMessage',
 				'title'     => __( 'Color', 'astra' ),
-				'required'  => array( ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]', '!=', 'none' ),
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'section'   => $_section,
 				'priority'  => 45,
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 			
 			/**
@@ -126,7 +132,14 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'        => 'control',
 				'transport'   => 'postMessage',
 				'section'     => $_section,
-				'required'    => array( ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]', '!=', 'none' ),
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'control'     => 'ast-slider',
 				'priority'    => 45,
@@ -135,7 +148,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 200,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 		);
 
