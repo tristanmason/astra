@@ -74,4 +74,7 @@
 		} );
 	} );
 
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
+
 } )( jQuery );

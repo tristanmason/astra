@@ -109,6 +109,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$css_output  = astra_parse_css( $css_output_desktop );
 	$css_output .= $header_cart_icon;
 
+	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
+
 	$dynamic_css .= $css_output;
 
 	return $dynamic_css;
