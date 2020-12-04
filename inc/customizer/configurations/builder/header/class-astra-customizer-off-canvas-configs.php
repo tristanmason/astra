@@ -94,12 +94,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'left'  => __( 'Left', 'astra' ),
 						'right' => __( 'Right', 'astra' ),
 					),
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-						'==',
-						'off-canvas',
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+							'operator' => '==',
+							'value'    => 'off-canvas',
+						),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -159,14 +161,23 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 30,
 					'title'     => __( 'Close Icon Color', 'astra' ),
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[mobile-header-type]', '==', 'off-canvas' ),
-							array( ASTRA_THEME_SETTINGS . '[mobile-header-type]', '==', 'full-width' ),
+					'context'   => array(
+						'relation' => 'AND',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'off-canvas',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'full-width',
+							),
 						),
-						'operator'   => 'OR',
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

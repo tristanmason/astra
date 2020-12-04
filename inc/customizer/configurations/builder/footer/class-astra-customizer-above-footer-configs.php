@@ -196,13 +196,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-top-border-color]',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hba-footer-top-border-color' ),
-					'required'  => array( ASTRA_THEME_SETTINGS . '[hba-footer-separator]', '>=', 1 ),
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'section'   => $_section,
 					'priority'  => 50,
 					'title'     => __( 'Border Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[hba-footer-separator]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+					),
 				),
 
 				// Section: Above Footer Color & Backgroud Heading.
