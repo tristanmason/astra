@@ -188,20 +188,12 @@
 .ast-main-header-bar-alignment {
 	position: relative;
 }
-.ast-header-account-wrap.focus .ast-account-nav-menu,
-.ast-header-account-wrap:hover .ast-account-nav-menu {
-    right: auto;
-	left: 0;
-}
-
 .main-header-bar .main-header-bar-navigation .ast-account-nav-menu {
     line-height: 1.45;
 }
-
 .ast-desktop .ast-account-nav-menu {
     box-shadow: 0 4px 10px -2px rgba(0,0,0,.1);
 }
-
 .ast-account-nav-menu {
     border-top-width: 0;
     border-bottom-width: 0;
@@ -209,11 +201,10 @@
     border-left-width: 0;
     border-style: solid;
 }
-
 .ast-account-nav-menu {
     width: 240px;
     background: #fff;
-    // left: -999em;
+    left: -999em;
     position: absolute;
     top: 100%;
     z-index: 99999;
@@ -223,17 +214,22 @@
     margin: 0;
     padding-left: 0;
 }
-
 .ast-account-nav-menu {
 	top: 0px;
 }
-// .ast-account-nav-menu .sub-menu {
-// 	margin-left: 0;
-// }
 .ast-account-nav-menu .sub-menu {
-	left: 100%;
     right: auto;
-    top: 0;
+	top: 0;
+	margin-left: 0;
+}
+.ast-header-account-wrap.focus .ast-account-nav-menu,
+.ast-header-account-wrap:hover .ast-account-nav-menu {
+    right: auto;
+	left: 0;
+}
+.ast-account-nav-menu .menu-item.focus > .sub-menu,
+.ast-account-nav-menu .menu-item:hover > .sub-menu {
+	left: 100%;
 }
 
 .ast-account-nav-menu .menu-item {

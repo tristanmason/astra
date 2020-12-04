@@ -3331,12 +3331,6 @@ body .entry-content .wp-block-latest-posts li {
   position: relative;
 }
 
-.ast-header-account-wrap.focus .ast-account-nav-menu,
-.ast-header-account-wrap:hover .ast-account-nav-menu {
-  left: auto;
-  right: 0;
-}
-
 .main-header-bar .main-header-bar-navigation .ast-account-nav-menu {
   line-height: 1.45;
 }
@@ -3356,6 +3350,7 @@ body .entry-content .wp-block-latest-posts li {
 .ast-account-nav-menu {
   width: 240px;
   background: #fff;
+  right: -999em;
   position: absolute;
   top: 100%;
   z-index: 99999;
@@ -3372,9 +3367,20 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-account-nav-menu .sub-menu {
-  right: 100%;
   left: auto;
   top: 0;
+  margin-right: 0;
+}
+
+.ast-header-account-wrap.focus .ast-account-nav-menu,
+.ast-header-account-wrap:hover .ast-account-nav-menu {
+  left: auto;
+  right: 0;
+}
+
+.ast-account-nav-menu .menu-item.focus > .sub-menu,
+.ast-account-nav-menu .menu-item:hover > .sub-menu {
+  right: 100%;
 }
 
 .ast-account-nav-menu .menu-item {
