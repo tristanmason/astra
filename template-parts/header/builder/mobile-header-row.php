@@ -14,7 +14,7 @@ if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 	$row = get_query_var( 'row' );
 }
 
-if ( Astra_Builder_helper::is_row_empty( $row, 'header', 'mobile' ) ) {
+if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'mobile' ) ) {
 
 	$customizer_editor_row        = 'section-' . esc_attr( $row ) . '-header-builder';
 	$is_transparent_header_enable = astra_get_option( 'transparent-header-enable' );
