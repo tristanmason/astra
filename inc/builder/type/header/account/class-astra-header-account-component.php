@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			 * @since  3.0.0
 			 * @var Array
 			 */
-			$menu_classes = apply_filters( 'astra_menu_classes', array( 'ast-nav-menu', 'ast-account-nav-menu' ) );
+			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu' ) );
 
 			$items_wrap  = '<nav ';
 			$items_wrap .= astra_attr(

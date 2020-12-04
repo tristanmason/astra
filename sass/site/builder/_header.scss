@@ -227,8 +227,13 @@
 .ast-account-nav-menu {
 	top: 0px;
 }
+// .ast-account-nav-menu .sub-menu {
+// 	margin-left: 0;
+// }
 .ast-account-nav-menu .sub-menu {
-	margin-left: 0;
+	left: 100%;
+    right: auto;
+    top: 0;
 }
 
 .ast-account-nav-menu .menu-item {
@@ -249,7 +254,28 @@
     display: block;
     word-wrap: break-word;
 }
+.ast-account-nav-menu {
+	.menu-item.menu-item-has-children>.menu-link:after {
+		position: absolute;
+		right: 1em;
+		top: 50%;
+		transform: translate(0,-50%) rotate(270deg);
+	}    
+}
 
+.ast-account-nav-menu {
+	.menu-item-has-children>.menu-link:after {
+		content: "\e900";
+		display: inline-block;
+		font-family: Astra;
+		font-size: 9px;
+		font-size: .6rem;
+		font-weight: 700;
+		text-rendering: auto;
+		margin-left: 10px;
+		line-height: normal;
+	}
+}
 /**
  * AST HF Builder - Widgets related CSS.
  * Text/HTML Widget.
