@@ -38,16 +38,16 @@
 			// That's why to avoid here multiple conditions refreshing the customizer preview directly when new Header Builder is active.
 			if( isAstraHFBuilderActive ) {
 				wp.customize.preview.send( 'refresh' );
+			} else {
+
+				var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
+
+				dynamicStyle += 'body.ast-theme-transparent-header.ast-desktop .main-header-bar {';
+				dynamicStyle += 'border-bottom-width: ' + border + 'px';
+				dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'transparent-header-main-sep', dynamicStyle );
 			}
-
-			var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
-
-			dynamicStyle += 'body.ast-theme-transparent-header.ast-desktop .main-header-bar {';
-			dynamicStyle += 'border-bottom-width: ' + border + 'px';
-			dynamicStyle += '}';
-
-			astra_add_dynamic_css( 'transparent-header-main-sep', dynamicStyle );
-
 		} );
 	} );
 
@@ -60,7 +60,7 @@
 				wp.customize.preview.send( 'refresh' );
 			}
 
-			if ( color ) {
+			if ( color && ! isAstraHFBuilderActive ) {
 
 				var dynamicStyle = ' body.ast-theme-transparent-header.ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-color: ' + color + '; } ';
