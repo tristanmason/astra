@@ -19,6 +19,9 @@
 		var selector = '.ast-builder-menu-' + index;
 		var section = 'section-hb-menu-' + index;
 
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector );
+
 		/**
 		 * Typography CSS.
 		 */
@@ -128,9 +131,6 @@
 		 */
 
 			(function (index) {
-
-				// Advanced Visibility CSS Generation.
-				astra_builder_visibility_css( section, selector );
 
 				// Menu 1 > Sub Menu Border Size.
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-border]', function( setting ) {
