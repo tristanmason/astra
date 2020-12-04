@@ -178,12 +178,18 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hb-footer-main-sep-color' ),
 					'type'      => 'control',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[hb-footer-main-sep]', '>=', 1 ),
 					'control'   => 'ast-color',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Border Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[hb-footer-main-sep]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+					),
 				),
 
 				// Option: Primary Footer color and background divider.
@@ -238,7 +244,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'     => astra_get_option( 'hb-inner-spacing' ),
 					'title'       => __( 'Inner Column Spacing', 'astra' ),
 					'type'        => 'control',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
