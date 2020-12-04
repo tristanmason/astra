@@ -49,8 +49,14 @@ class Astra_Social_Component_Dynamic_CSS {
 			$icon_size       = astra_get_option( $builder_type . '-social-' . $index . '-size' );
 			$icon_radius     = astra_get_option( $builder_type . '-social-' . $index . '-radius' );
 
-			$icon_spacing    = ( isset( $icon_spacing ) && ! empty( $icon_spacing ) ) ? $icon_spacing / 2 : '';
-			$icon_size       = ( isset( $icon_size ) && ! empty( $icon_size ) ) ? $icon_size : '';
+			$icon_spacing_desktop = ( isset( $icon_spacing['desktop'] ) && ! empty( $icon_spacing['desktop'] ) ) ? $icon_spacing['desktop'] / 2 : '';
+			$icon_spacing_tablet  = ( isset( $icon_spacing['tablet'] ) && ! empty( $icon_spacing['tablet'] ) ) ? $icon_spacing['tablet'] / 2 : '';
+			$icon_spacing_mobile  = ( isset( $icon_spacing['mobile'] ) && ! empty( $icon_spacing['mobile'] ) ) ? $icon_spacing['mobile'] / 2 : '';
+
+			$icon_size_desktop = ( isset( $icon_size['desktop'] ) && ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : '';
+			$icon_size_tablet  = ( isset( $icon_size['tablet'] ) && ! empty( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : '';
+			$icon_size_mobile  = ( isset( $icon_size['mobile'] ) && ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : '';
+
 			$icon_radius     = ( isset( $icon_radius ) && ! empty( $icon_radius ) ) ? $icon_radius : '';
 			$icon_bg_spacing = ( isset( $icon_bg_spacing ) && ! empty( $icon_bg_spacing ) ) ? $icon_bg_spacing : '';
 
@@ -84,8 +90,8 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				$selector . ' .ast-builder-social-element' => array(
 					// Icon Spacing.
-					'margin-left'   => astra_get_css_value( $icon_spacing, 'px' ),
-					'margin-right'  => astra_get_css_value( $icon_spacing, 'px' ),
+					'margin-left'   => astra_get_css_value( $icon_spacing_desktop, 'px' ),
+					'margin-right'  => astra_get_css_value( $icon_spacing_desktop, 'px' ),
 
 					// Icon Background Space.
 					'padding'       => astra_get_css_value( $icon_bg_spacing, 'px' ),
@@ -96,8 +102,8 @@ class Astra_Social_Component_Dynamic_CSS {
 				$selector . ' .ast-builder-social-element svg' => array(
 
 					// Icon Size.
-					'width'  => astra_get_css_value( $icon_size, 'px' ),
-					'height' => astra_get_css_value( $icon_size, 'px' ),
+					'width'  => astra_get_css_value( $icon_size_desktop, 'px' ),
+					'height' => astra_get_css_value( $icon_size_desktop, 'px' ),
 				),
 				$selector . ' .ast-social-icon-image-wrap' => array(
 
@@ -133,7 +139,18 @@ class Astra_Social_Component_Dynamic_CSS {
 			 * Social_icons CSS.
 			 */
 			$css_output_tablet = array(
-				$selector => array(
+				$selector . ' .ast-builder-social-element svg' => array(
+
+					// Icon Size.
+					'width'  => astra_get_css_value( $icon_size_tablet, 'px' ),
+					'height' => astra_get_css_value( $icon_size_tablet, 'px' ),
+				),
+				$selector . ' .ast-builder-social-element' => array(
+					// Icon Spacing.
+					'margin-left'  => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+					'margin-right' => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+				),
+				$selector                                  => array(
 					// Margin CSS.
 					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -162,7 +179,18 @@ class Astra_Social_Component_Dynamic_CSS {
 			 * Social_icons CSS.
 			 */
 			$css_output_mobile = array(
-				$selector => array(
+				$selector . ' .ast-builder-social-element svg' => array(
+
+					// Icon Size.
+					'width'  => astra_get_css_value( $icon_size_mobile, 'px' ),
+					'height' => astra_get_css_value( $icon_size_mobile, 'px' ),
+				),
+				$selector . ' .ast-builder-social-element' => array(
+					// Icon Spacing.
+					'margin-left'  => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-right' => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+				),
+				$selector                                  => array(
 					// Margin CSS.
 					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

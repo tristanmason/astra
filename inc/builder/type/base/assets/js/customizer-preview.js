@@ -17,21 +17,24 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 			mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;	
 
         // HTML color.
-        astra_css(
+        astra_color_responsive_css(
+			builder_type + '-html-' + index + '-color',
             'astra-settings[' + builder_type + '-html-' + index + 'color]',
             'color',
             selector + ' .ast-builder-html-element'
 		);
 
 		// Link color.
-        astra_css(
+        astra_color_responsive_css(
+			builder_type + '-html-' + index + '-l-color',
             'astra-settings[' + builder_type + '-html-' + index + 'link-color]',
             'color',
             selector + ' .ast-builder-html-element a'
 		);
 
 		// Link Hover color.
-        astra_css(
+        astra_color_responsive_css(
+			builder_type + '-html-' + index + '-l-h-color',
             'astra-settings[' + builder_type + '-html-' + index + 'link-h-color]',
             'color',
             selector + ' .ast-builder-html-element a:hover'
@@ -255,22 +258,6 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover'
 		);
 
-		// Icon Size - Height.
-		astra_css(
-			'astra-settings[' + builder_type + '-social-' + index + '-size]',
-			'height',
-			selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element svg',
-			'px'
-		);
-
-		// Icon Size - Width.
-		astra_css(
-			'astra-settings[' + builder_type + '-social-' + index + '-size]',
-			'width',
-			selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element svg',
-			'px'
-		);
-
 		// Icon Background Space.
 		astra_css(
 			'astra-settings[' + builder_type + '-social-' + index + '-bg-space]',
@@ -300,19 +287,71 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 
 		// Icon Spacing.
 		(function( index ) {
+			// Icon Size.
+			wp.customize( 'astra-settings[' + builder_type + '-social-' + index + '-size]', function( value ) {
+				value.bind( function( size ) {
+
+					if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+						var dynamicStyle = '';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element svg {';
+						dynamicStyle += 'height: ' + size.desktop + 'px;';
+						dynamicStyle += 'width: ' + size.desktop + 'px;';
+						dynamicStyle += '} ';
+
+						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element svg {';
+						dynamicStyle += 'height: ' + size.tablet + 'px;';
+						dynamicStyle += 'width: ' + size.tablet + 'px;';
+						dynamicStyle += '} ';
+						dynamicStyle += '} ';
+
+						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element svg {';
+						dynamicStyle += 'height: ' + size.mobile + 'px;';
+						dynamicStyle += 'width: ' + size.mobile + 'px;';
+						dynamicStyle += '} ';
+						dynamicStyle += '} ';
+
+						astra_add_dynamic_css( builder_type + '-social-' + index + '-size', dynamicStyle );
+					}
+				} );
+			} );
+
+
 			// Icon Space.
 			wp.customize( 'astra-settings[' + builder_type + '-social-' + index + '-space]', function( value ) {
 				value.bind( function( spacing ) {
-					if( '' !== spacing ) {
-						var space = spacing/2;
-						var dynamicStyle = '';
-							dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element {';
-							dynamicStyle += 'margin-left: ' + space + 'px;';
-							dynamicStyle += 'margin-right: ' + space + 'px;';
+					var space = '';
+					var dynamicStyle = '';
+					if ( spacing.desktop != '' ) {
+						space = spacing.desktop/2;
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element {';
+						dynamicStyle += 'margin-left: ' + space + 'px;';
+						dynamicStyle += 'margin-right: ' + space + 'px;';
 						dynamicStyle += '} ';
-
-						astra_add_dynamic_css( builder_type + '-social-icons-icon-space-toggle-button', dynamicStyle );
 					}
+					
+					if ( spacing.tablet != '' ) {
+						space = spacing.tablet/2;
+						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element {';
+						dynamicStyle += 'margin-left: ' + space + 'px;';
+						dynamicStyle += 'margin-right: ' + space + 'px;';
+						dynamicStyle += '} ';
+						dynamicStyle += '} ';
+					}
+
+					if ( spacing.mobile != '' ) {
+						space = spacing.mobile/2;
+						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element {';
+						dynamicStyle += 'margin-left: ' + space + 'px;';
+						dynamicStyle += 'margin-right: ' + space + 'px;';
+						dynamicStyle += '} ';
+						dynamicStyle += '} ';
+					}
+
+					astra_add_dynamic_css( builder_type + '-social-icons-icon-space-toggle-button', dynamicStyle );
 				} );
 			} );
 
@@ -419,28 +458,32 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 		var section = 'sidebar-widgets-header-widget-' + index;
 
 		// Widget Content Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-color]',
 			'color',
 			selector + ' .' + builder_type + '-widget-area-inner'
 		);
 
 		// Widget Link Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-link-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-link-color]',
 			'color',
 			selector + ' .' + builder_type + '-widget-area-inner a'
 		);
 
 		// Widget Link Hover Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-link-h-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-link-h-color]',
 			'color',
 			selector + ' .' + builder_type + '-widget-area-inner a:hover'
 		);
 
 		// Widget Title Color.
-		astra_css(
+		astra_color_responsive_css(
+			builder_type + '-widget-' + index + '-title-color',
 			'astra-settings[' + builder_type + '-widget-' + index + '-title-color]',
 			'color',
 			selector + ' .widget-title'
@@ -518,21 +561,6 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
-        
-    // Header search visibility.
-	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
-		setting.bind( function( desktop_visible ) {
-
-			var dynamicStyle = '';
-			var is_hidden = ( ! desktop_visible ) ? default_property : 'none';
-
-			dynamicStyle += '.ast-desktop ' + selector + ' {';
-			dynamicStyle += 'display: ' + is_hidden + ';';
-			dynamicStyle += '} ';
-
-			astra_add_dynamic_css( section + '-hide-desktop', dynamicStyle );
-		} );
-	} );
 	
 	// Header search visibility.
 	wp.customize( 'astra-settings[' + section + '-hide-tablet]', function( setting ) {
