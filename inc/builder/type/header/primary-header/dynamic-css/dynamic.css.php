@@ -39,6 +39,9 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 			'height'     => astra_get_css_value( $hb_header_height, 'px' ),
 			'align-self' => 'center',
 		),
+		'.ast-desktop .ast-primary-header-bar .ast-header-woo-cart' => array(
+			'line-height' => astra_get_css_value( $hb_header_height, 'px' ),
+		),
 	);
 
 	$parse_css .= astra_parse_css( $common_css_output );
