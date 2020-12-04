@@ -113,12 +113,18 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hb-header-main-sep-color' ),
 					'type'      => 'control',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[hb-header-main-sep]', '>=', 1 ),
 					'control'   => 'ast-color',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[hb-header-main-sep]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+					),
 				),
 
 				// Option: Primary Header color and background divider.

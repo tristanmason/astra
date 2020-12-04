@@ -6,9 +6,6 @@ export const astFontFamilyControl = wp.customize.astraControl.extend( {
 		ReactDOM.render( <FontFamilyComponent control={ control } />, control.container[0] );
 	},
 	ready: function() {
-		setTimeout(function () {
-			AstTypography.init();
-		}, 250 )
-
+		AstTypography.init();
 	}
 } );

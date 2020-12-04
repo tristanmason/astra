@@ -184,15 +184,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'      => 'control',
 						'control'   => 'ast-color',
 						'transport' => 'postMessage',
-						'required'  => array(
-							ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
-							'==',
-							true,
-						),
 						'title'     => __( 'Divider Color', 'astra' ),
 						'section'   => $_section,
 						'priority'  => 40,
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'context'   => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						),
 					),
 
 					// Option: Menu Stack on Mobile Checkbox.
