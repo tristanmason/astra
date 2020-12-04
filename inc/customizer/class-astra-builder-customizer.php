@@ -330,7 +330,15 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
-		
+
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';
+		}
+
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
+		}
+
 		require_once $header_config_path . '/class-astra-header-divider-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
@@ -358,64 +366,6 @@ final class Astra_Builder_Customizer {
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
-	/**
-	 * Prepare context.
-	 *
-	 * @return mixed|void
-	 */
-	public static function get_contexts() {
-		// Return contexts.
-		return apply_filters( 'astra_customizer_context', self::$contexts );
-	}
-
-	/**
-	 * Prepare choices.
-	 *
-	 * @return mixed|void
-	 */
-	public static function get_choices() {
-		// Return contexts.
-		return apply_filters( 'astra_customizer_choices', self::$choices );
-	}
-
-	/**
-	 * Prepare javascript configs.
-	 *
-	 * @return mixed|void
-	 */
-	public static function get_js_configs() {
-
-		// Return contexts.
-		return apply_filters( 'astra_javascript_configurations', self::$js_configs );
-
-	}
-
-	/**
-	 * Add customizer script.
-	 *
-	 * @since 3.0.0
-	 */
-	public function enqueue_customizer_scripts() {
-
-		// Localize variables for Dev mode > Customizer JS.
-		wp_localize_script(
-			SCRIPT_DEBUG ? 'astra-custom-control-react-script' : 'astra-custom-control-script',
-			'AstraBuilderCustomizerData',
-			array(
-				'contexts'   => self::get_contexts(),
-				'choices'    => self::get_choices(),
-				'js_configs' => self::get_js_configs(),
-			)
-		);
-
-		// Enqueue Builder CSS.
-		wp_enqueue_style(
-			'ahfb-customizer-style',
-			ASTRA_THEME_URI . 'inc/assets/css/ast-builder-customizer.css',
-			array( 'wp-components' ),
-			ASTRA_THEME_VERSION
-		);
-	}
 	/**
 	 * Register Woocommerce controls for new and old Header Builder.
 	 *

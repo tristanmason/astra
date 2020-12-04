@@ -123,9 +123,15 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Color', 'astra' ),
 				'transport' => 'postMessage',
 				'section'   => $_section,
-				'required'  => array( ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]', '!=', 'none' ),
+				'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'priority'  => 45,
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -137,7 +143,14 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'        => 'control',
 				'transport'   => 'postMessage',
 				'section'     => $_section,
-				'required'    => array( ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]', '!=', 'none' ),
+				'context'     => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'control'     => 'ast-slider',
 				'priority'    => 47,
@@ -146,7 +159,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 200,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 			
 		);

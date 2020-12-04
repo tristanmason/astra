@@ -80,10 +80,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['hb-header-main-layout-width'] = 'content';
 	$defaults['hb-header-height']            = array(
-		'desktop' => 50,
+		'desktop' => 70,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
+
 	$defaults['hb-header-main-sep']          = 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
 	$defaults['hb-header-main-menu-align']   = 'inline';
@@ -1441,7 +1442,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Woo-Cart.
 	 */
 	$defaults['woo-header-cart-icon-style']    = 'none';
-	$defaults['header-woo-cart-icon-color']    = '#0274be';
+	$defaults['header-woo-cart-icon-color']    = '';
 	$defaults['woo-header-cart-icon-radius']   = 3;
 	$defaults['woo-header-cart-total-display'] = true;
 	$defaults['woo-header-cart-title-display'] = true;
