@@ -28,6 +28,16 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config context general tab config.
+	 *
+	 * @var string[][]
+	 */
+	public static $general_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'general',
+	);
+
+	/**
 	 * Config context design tab.
 	 *
 	 * @var string[][]
@@ -37,6 +47,16 @@ final class Astra_Builder_Helper {
 			'setting' => 'ast_selected_tab',
 			'value'   => 'design',
 		),
+	);
+
+	/**
+	 * Config context design tab.
+	 *
+	 * @var string[][]
+	 */
+	public static $design_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'design',
 	);
 
 	/**
@@ -84,6 +104,13 @@ final class Astra_Builder_Helper {
 	public static $num_of_footer_html;
 
 	/**
+	 *  No. Of. Footer divider.
+	 *
+	 * @var int
+	 */
+	public static $num_of_footer_divider;
+
+	/**
 	 *  No. Of. Header Widgets.
 	 *
 	 * @var int
@@ -117,6 +144,13 @@ final class Astra_Builder_Helper {
 	 * @var int
 	 */
 	public static $num_of_header_html;
+
+	/**
+	 *  No. Of. Header divider.
+	 *
+	 * @var int
+	 */
+	public static $num_of_header_divider;
 
 	/**
 	 *  No. Of. Footer Columns.
@@ -210,12 +244,14 @@ final class Astra_Builder_Helper {
 		// Todo: Update filter on menu support.
 		// defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;.
 
-
 		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-social-icons'] : 1;
 		self::$num_of_footer_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-social-icons'] : 1;
+
+		self::$num_of_header_divider = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-divider'] : 0;
+		self::$num_of_footer_divider = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-divider'] : 0;
 
 		self::$num_of_footer_columns = defined( 'ASTRA_EXT_VER' ) ? apply_filters( 'astra_footer_column_count', 6 ) : 6;
 
@@ -504,19 +540,26 @@ final class Astra_Builder_Helper {
 	 */
 	public static function get_component_count_by_key() {
 
-		$component_keys_count = apply_filters(
-			'astra_builder_elements_count',
-			array(
-				'header-button'       => 2,
-				'footer-button'       => 2,
-				'header-html'         => 2,
-				'footer-html'         => 2,
-				'header-menu'         => 2,
-				'header-widget'       => 4,
-				'footer-widget'       => 4,
-				'header-social-icons' => 1,
-				'footer-social-icons' => 1,
-			)
+		$component_keys_count = array(
+			'header-button'       => 2,
+			'footer-button'       => 2,
+			'header-html'         => 2,
+			'footer-html'         => 2,
+			'header-menu'         => 2,
+			'header-widget'       => 4,
+			'footer-widget'       => 4,
+			'header-social-icons' => 1,
+			'footer-social-icons' => 1,
+			'header-divider'      => 0,
+			'footer-divider'      => 0,
+		);
+
+		$component_keys_count = array_merge(
+			$component_keys_count,
+			apply_filters(
+				'astra_builder_elements_count',
+				$component_keys_count
+			) 
 		);
 
 		// Buttons.
@@ -537,6 +580,10 @@ final class Astra_Builder_Helper {
 		// Social Icons.
 		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
 		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
+
+		// Divider.
+		$component_keys_count['header-divider'] = ( 10 >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : 10;
+		$component_keys_count['footer-divider'] = ( 10 >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : 10;
 
 		return $component_keys_count;
 	}

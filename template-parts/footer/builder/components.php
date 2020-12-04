@@ -104,6 +104,16 @@ switch ( $component_slug ) {
 			<?php
 		break;
 
+	case 'divider-1':
+		$layout_class = astra_get_option( 'footer-divider-1-layout' );
+		?>
+		<div class="footer-widget-area widget-area site-footer-focus-item ast-footer-divider-element ast-footer-divider-1 ast-fb-divider-layout-<?php echo esc_attr( $layout_class ); ?>" data-section="section-fb-divider-1">
+			<?php do_action( 'astra_footer_divider_1' ); ?>
+		</div>
+		<?php
+		break;
+	
+
 	default:
 		do_action( 'astra_render_footer_components', $component_slug );
 		break;
