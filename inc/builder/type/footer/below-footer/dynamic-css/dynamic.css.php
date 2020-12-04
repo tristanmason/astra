@@ -42,9 +42,9 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$content_width           = astra_get_option( 'site-content-width' );
 	$inner_spacing           = astra_get_option( 'hbb-inner-spacing' );
 
-	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) && ! empty( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
-	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) && ! empty( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
-	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) && ! empty( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
+	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
+	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
+	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
 
 	$css_output_desktop = array(
 
