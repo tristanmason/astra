@@ -65,6 +65,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'edd-archive-product-structure' ),
 					'priority' => 30,
 					'title'    => __( 'Product Structure', 'astra' ),
+					'description' => __( 'The Image option cannot be sortable if the Product Style is selected to the List Style ', 'astra' ),
 					'choices'  => array(
 						'image'      => __( 'Image', 'astra' ),
 						'category'   => __( 'Category', 'astra' ),
