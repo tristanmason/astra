@@ -79,7 +79,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Primary Header Defaults.
 	 */
 	$defaults['hb-header-main-layout-width'] = 'content';
-	$defaults['hb-header-height']            = 50;
+	$defaults['hb-header-height']            = 70;
 	$defaults['hb-header-main-sep']          = 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
 	$defaults['hb-header-main-menu-align']   = 'inline';
@@ -1310,6 +1310,24 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-label-text-transform'] = '';
 	$defaults['mobile-header-label-line-height']    = '';
 	$defaults['mobile-header-label-font-size']      = '';
+
+	/**
+	 * Woo-Cart.
+	 */
+	$defaults['woo-header-cart-icon-style']    = 'none';
+	$defaults['header-woo-cart-icon-color']    = '#0274be';
+	$defaults['woo-header-cart-icon-radius']   = 3;
+	$defaults['woo-header-cart-total-display'] = true;
+	$defaults['woo-header-cart-title-display'] = true;
+	
+	/**
+	 * EDD-Cart.
+	 */
+	$defaults['edd-header-cart-icon-style']    = 'none';
+	$defaults['edd-header-cart-icon-color']    = '';
+	$defaults['edd-header-cart-icon-radius']   = 3;
+	$defaults['edd-header-cart-total-display'] = true;
+	$defaults['edd-header-cart-title-display'] = true;
 
 	return $defaults;
 }
