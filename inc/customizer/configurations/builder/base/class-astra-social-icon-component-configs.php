@@ -121,7 +121,7 @@ class Astra_Social_Icon_Component_Configs {
 					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-space' ),
 					'title'       => __( 'Icon Spacing', 'astra' ),
 					'type'        => 'control',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -161,7 +161,7 @@ class Astra_Social_Icon_Component_Configs {
 					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
 					'title'       => __( 'Icon Size', 'astra' ),
 					'type'        => 'control',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,

@@ -46,12 +46,24 @@ class Astra_Html_Component_Dynamic_CSS {
 			$margin    = astra_get_option( $_section . '-margin' );
 			$font_size = astra_get_option( 'font-size-' . $_section );
 
+			$text_color_desktop = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'color' ), 'desktop' );
+			$text_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'color' ), 'tablet' );
+			$text_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'color' ), 'mobile' );
+
+			$link_color_desktop = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'link-color' ), 'desktop' );
+			$link_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'link-color' ), 'tablet' );
+			$link_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'link-color' ), 'mobile' );
+
+			$link_h_color_desktop = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'link-h-color' ), 'desktop' );
+			$link_h_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'link-h-color' ), 'tablet' );
+			$link_h_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-html-' . $index . 'link-h-color' ), 'mobile' );
+
 			$selector = ( 'header' === $builder_type ) ? '.ast-header-html-' . $index : '.footer-widget-area[data-section="section-fb-html-' . $index . '"]';
 
 			$css_output_desktop = array(
 
 				$selector . ' .ast-builder-html-element' => array(
-					'color'     => astra_get_option( $builder_type . '-html-' . $index . 'color' ),
+					'color'     => $text_color_desktop,
 					// Typography.
 					'font-size' => astra_responsive_font( $font_size, 'desktop' ),
 				),
@@ -66,12 +78,12 @@ class Astra_Html_Component_Dynamic_CSS {
 
 				// Link Color.
 				$selector . ' a'                         => array(
-					'color' => astra_get_option( $builder_type . '-html-' . $index . 'link-color' ),
+					'color' => $link_color_desktop,
 				),
 
 				// Link Hover Color.
 				$selector . ' a:hover'                   => array(
-					'color' => astra_get_option( $builder_type . '-html-' . $index . 'link-h-color' ),
+					'color' => $link_h_color_desktop,
 				),
 			);
 
@@ -82,6 +94,7 @@ class Astra_Html_Component_Dynamic_CSS {
 			$css_output_tablet = array(
 
 				$selector . ' .ast-builder-html-element' => array(
+					'color'     => $text_color_tablet,
 					// Typography.
 					'font-size' => astra_responsive_font( $font_size, 'tablet' ),
 				),
@@ -93,6 +106,16 @@ class Astra_Html_Component_Dynamic_CSS {
 					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
 					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 				),
+
+				// Link Color.
+				$selector . ' a'                         => array(
+					'color' => $link_color_tablet,
+				),
+
+				// Link Hover Color.
+				$selector . ' a:hover'                   => array(
+					'color' => $link_h_color_tablet,
+				),
 			);
 			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 
@@ -100,6 +123,7 @@ class Astra_Html_Component_Dynamic_CSS {
 			$css_output_mobile = array(
 
 				$selector . ' .ast-builder-html-element' => array(
+					'color'     => $text_color_mobile,
 					// Typography.
 					'font-size' => astra_responsive_font( $font_size, 'mobile' ),
 				),
@@ -110,6 +134,16 @@ class Astra_Html_Component_Dynamic_CSS {
 					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
 					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+				),
+
+				// Link Color.
+				$selector . ' a'                         => array(
+					'color' => $link_color_mobile,
+				),
+
+				// Link Hover Color.
+				$selector . ' a:hover'                   => array(
+					'color' => $link_h_color_mobile,
 				),
 			);
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );

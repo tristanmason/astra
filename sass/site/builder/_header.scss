@@ -362,6 +362,13 @@
 		}
 	}
 }
+.main-header-bar,
+.ast-above-header,
+.ast-below-header {
+	.main-header-bar-navigation {
+		height: 100%;
+	}
+}
 .ast-nav-menu {
 	.sub-menu {
 		line-height: 1.45;

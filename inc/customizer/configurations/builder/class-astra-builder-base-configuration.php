@@ -262,60 +262,87 @@ final class Astra_Builder_Base_Configuration {
 					'title'    => __( 'Widget Colors', 'astra' ),
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
+					'default'   => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Colors', 'astra' ),
+					'section'   => $_section,
+					'transport' => 'postMessage',
+					'priority'  => 7,
+				),
+
 				/**
 				 * Option: Widget title color.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-title-color]',
-					'default'   => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 7,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Title', 'astra' ),
+					'name'       => $type . '-widget-' . $index . '-title-color',
+					'default'    => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
+					'title'      => __( 'Title', 'astra' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 1,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
 				),
 
 				/**
 				 * Option: Widget Color.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color]',
-					'default'   => astra_get_option( $type . '-widget-' . $index . '-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 8,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Content', 'astra' ),
+					'name'       => $type . '-widget-' . $index . '-color',
+					'default'    => astra_get_option( $type . '-widget-' . $index . '-color' ),
+					'title'      => __( 'Content', 'astra' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 2,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
 				),
 
 				/**
 				 * Option: Widget link color.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color]',
-					'default'   => astra_get_option( $type . '-widget-' . $index . '-link-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 9,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Link', 'astra' ),
+					'name'       => $type . '-widget-' . $index . '-link-color',
+					'default'    => astra_get_option( $type . '-widget-' . $index . '-link-color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 3,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'title'      => __( 'Link', 'astra' ),
 				),
 
 				/**
 				 * Option: Widget link color.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-h-color]',
-					'default'   => astra_get_option( $type . '-widget-' . $index . '-link-h-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 10,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Link Hover', 'astra' ),
+					'name'       => $type . '-widget-' . $index . '-link-h-color',
+					'default'    => astra_get_option( $type . '-widget-' . $index . '-link-h-color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 1,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Hover', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'title'      => __( 'Link Hover', 'astra' ),
 				),
 
 				// Option: Widget heading.

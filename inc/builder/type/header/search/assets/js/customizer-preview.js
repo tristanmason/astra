@@ -15,12 +15,21 @@
 
 	var selector = '.ast-header-search';
     var section = 'section-header-search';
-    
-    // Icon Color.	
-	astra_css(	
-		'astra-settings[header-search-icon-color]',	
-		'color',	
-		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 	
+
+	// Icon Color.
+	astra_color_responsive_css(
+		'header-search-icon-color',
+		'astra-settings[header-search-icon-color]',
+		'color',
+		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 
+	);
+
+	// Icon Size.
+	astra_css(
+		'astra-settings[header-search-icon-space]',
+		'font-size',
+		selector + ' .astra-search-icon',
+		'px'
 	);
 
 	// Icon Size.
