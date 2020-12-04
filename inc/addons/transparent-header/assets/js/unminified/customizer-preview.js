@@ -37,7 +37,28 @@
 			// because in new HFB we are targeting border-bottom to last header row (where in old header we target only primary header as transparent header), as here multiple dependencies will come like transparent header device enabled check, border width, border color, last header row handling. 
 			// That's why to avoid here multiple conditions refreshing the customizer preview directly when new Header Builder is active.
 			if( isAstraHFBuilderActive ) {
-				wp.customize.preview.send( 'refresh' );
+
+				var selector = '';
+				var DisplayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
+
+				switch( DisplayOn ) {
+					case 'both':
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+					break;
+					case 'desktop':
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+					break;
+					case 'mobile':
+						selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+					break;
+				}
+
+				var dynamicStyle = selector + '{';
+				dynamicStyle += 'border-bottom-width: ' + border + 'px';
+				dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'transparent-header-main-sep', dynamicStyle );
+
 			} else {
 
 				var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
@@ -56,11 +77,33 @@
 	 */
 	wp.customize( 'astra-settings[transparent-header-main-sep-color]', function( value ) {
 		value.bind( function( color ) {
-			if (color == '' || isAstraHFBuilderActive) {
+			if (color == '') {
 				wp.customize.preview.send( 'refresh' );
 			}
 
-			if ( color && ! isAstraHFBuilderActive ) {
+			if( isAstraHFBuilderActive ) {
+
+				var selector = '';
+				var DisplayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
+
+				switch( DisplayOn ) {
+					case 'both':
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+					break;
+					case 'desktop':
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+					break;
+					case 'mobile':
+						selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+					break;
+				}
+
+				var dynamicStyle = selector + '{';
+				dynamicStyle += 'border-bottom-color: ' + color;
+				dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'transparent-header-main-sep-color', dynamicStyle );
+			} else {
 
 				var dynamicStyle = ' body.ast-theme-transparent-header.ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-color: ' + color + '; } ';
