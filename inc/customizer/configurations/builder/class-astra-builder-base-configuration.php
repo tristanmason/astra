@@ -167,11 +167,9 @@ final class Astra_Builder_Base_Configuration {
 	 * Prepare Visibility options.
 	 *
 	 * @param string $_section section id.
-	 * @param string $selector section selector.
-	 * @param string $function callback function name.
 	 * @return array
 	 */
-	public static function prepare_visibility_tab( $_section, $selector, $function ) {
+	public static function prepare_visibility_tab( $_section ) {
 
 		$class_obj = Astra_Builder_Header::get_instance();
 
@@ -466,7 +464,7 @@ final class Astra_Builder_Base_Configuration {
 
 			if ( 'header' === $type ) {
 
-				$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, '.' . $type . '-widget-area[section="sidebar-widgets-header-widget-' . $index . '"]', '' ) );
+				$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section ) );
 
 			}
 

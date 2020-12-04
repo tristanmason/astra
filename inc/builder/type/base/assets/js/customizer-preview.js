@@ -518,21 +518,6 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
-        
-    // Header search visibility.
-	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
-		setting.bind( function( desktop_visible ) {
-
-			var dynamicStyle = '';
-			var is_hidden = ( ! desktop_visible ) ? default_property : 'none';
-
-			dynamicStyle += '.ast-desktop ' + selector + ' {';
-			dynamicStyle += 'display: ' + is_hidden + ';';
-			dynamicStyle += '} ';
-
-			astra_add_dynamic_css( section + '-hide-desktop', dynamicStyle );
-		} );
-	} );
 	
 	// Header search visibility.
 	wp.customize( 'astra-settings[' + section + '-hide-tablet]', function( setting ) {
