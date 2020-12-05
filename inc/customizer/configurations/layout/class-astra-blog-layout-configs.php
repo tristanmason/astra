@@ -179,7 +179,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					 * Option: Blog / Archive Tabs.
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-blog-archive-tabs]',
+						'name'        => 'section-blog-ast-context-tabs',
 						'section'     => 'section-blog',
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',

@@ -64,7 +64,7 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-' . $builder_type . '-social-icon-tabs-' . $index . ']',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -381,7 +381,7 @@ class Astra_Social_Icon_Component_Configs {
 						'operator' => '===',
 						'value'    => true,
 					),
-				)  
+				)
 			);
 
 			$social_configs[] = $_configs;
