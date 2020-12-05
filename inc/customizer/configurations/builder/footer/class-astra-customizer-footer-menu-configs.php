@@ -99,7 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 20,
 					'title'     => __( 'Layout', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-responsive-select',
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.footer-widget-area[data-section="section-footer-menu"] nav',
