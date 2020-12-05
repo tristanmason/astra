@@ -164,6 +164,64 @@ final class Astra_Builder_Base_Configuration {
 	}
 
 	/**
+	 * Prepare Visibility options.
+	 *
+	 * @param string $_section section id.
+	 * @return array
+	 */
+	public static function prepare_visibility_tab( $_section ) {
+
+		$class_obj = Astra_Builder_Header::get_instance();
+
+		return array(
+
+			/**
+			 * Option: Hide on heading
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Visibility', 'astra' ),
+				'priority' => 300,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$responsive_devices,
+			),
+
+			/**
+			 * Option: Hide on tablet
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'default'   => '',
+				'section'   => $_section,
+				'priority'  => 320,
+				'title'     => __( 'Hide on Tablet', 'astra' ),
+				'transport' => 'postMessage',
+				'context'   => Astra_Builder_Helper::$tablet_device,
+			),
+
+			/**
+			 * Option: Hide on mobile
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'default'   => '',
+				'section'   => $_section,
+				'priority'  => 330,
+				'title'     => __( 'Hide on Mobile', 'astra' ),
+				'transport' => 'postMessage',
+				'context'   => Astra_Builder_Helper::$mobile_device,
+			),
+		);
+	}
+
+	/**
 	 * Prepare common options for the widgets by type.
 	 *
 	 * @param string $type type.
@@ -172,8 +230,13 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_widget_options( $type = 'header' ) {
 		$html_config = array();
 
-		$no_of_widgets = 'header' === $type ? Astra_Builder_Helper::$num_of_header_widgets : Astra_Builder_Helper::$num_of_footer_widgets;
-
+		if ( 'footer' === $type ) {
+			$class_obj     = Astra_Builder_Footer::get_instance();
+			$no_of_widgets = Astra_Builder_Helper::$num_of_footer_widgets;
+		} else {
+			$class_obj     = Astra_Builder_Header::get_instance();
+			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
+		}
 		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
@@ -422,6 +485,14 @@ final class Astra_Builder_Base_Configuration {
 						'transport' => 'postMessage',
 					)
 				);
+			}
+
+			
+
+			if ( 'header' === $type ) {
+
+				$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section ) );
+
 			}
 
 			$html_config[] = $_configs;

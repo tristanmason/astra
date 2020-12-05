@@ -193,7 +193,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'context'        => Astra_Builder_Helper::$design_tab,
 				),
+				
 			);
+
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 			$wp_customize->remove_control( 'astra-settings[divider-section-site-identity-logo]' );
 

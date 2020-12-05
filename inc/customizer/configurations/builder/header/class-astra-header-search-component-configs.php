@@ -150,7 +150,10 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				),
 				'context'        => Astra_Builder_Helper::$design_tab,
 			),
+
 		);
+
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 		return array_merge( $configurations, $_configs );
 	}

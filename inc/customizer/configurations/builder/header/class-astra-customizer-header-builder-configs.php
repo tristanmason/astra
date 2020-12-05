@@ -306,7 +306,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 						'below'   => true,
 					),
 				),
-				'context'     => Astra_Builder_Helper::$mobile_device,
+				'context'     => Astra_Builder_Helper::$responsive_devices,
 			),
 
 			/**
