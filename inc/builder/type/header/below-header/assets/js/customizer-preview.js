@@ -77,4 +77,7 @@
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( 'section-below-header-builder', '.ast-below-header.ast-below-header-bar' );
 
+    // Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( 'section-below-header-builder', '.ast-below-header-bar', 'block' );
+
 } )( jQuery );

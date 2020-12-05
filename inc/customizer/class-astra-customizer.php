@@ -34,6 +34,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private static $contexts;
 
 		/**
+		 * Tabful sections.
+		 *
+		 * @access private
+		 * @var object
+		 */
+		private static $tabbed_sections = array();
+
+		/**
 		 * Choices.
 		 *
 		 * @access private
@@ -173,6 +181,26 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			$this->set_default_context();
+			$this->prepare_tabbed_sections();
+
+		}
+
+		/**
+		 * Prepare tabbed sections for dynamic controls to optimize frontend JS calls.
+		 */
+		private function prepare_tabbed_sections() {
+
+			if ( ! isset( self::$js_configs['controls'] ) ) {
+				return;
+			}
+
+			foreach ( self::$js_configs['controls'] as $section_id => $controls ) {
+				$tab_id        = $section_id . '-ast-context-tabs';
+				$control_names = wp_list_pluck( $controls, 'name' );
+				if ( in_array( $tab_id, $control_names, true ) ) {
+					array_push( self::$tabbed_sections, $section_id );
+				}
+			}
 
 		}
 
@@ -679,7 +707,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Return contexts.
 			return apply_filters( 'astra_javascript_configurations', self::$js_configs );
+		}
 
+		/**
+		 * Prepare tabbed sections.
+		 *
+		 * @return mixed|void
+		 */
+		public static function get_tabbed_sections() {
+
+			// Return contexts.
+			return apply_filters( 'astra_customizer_tabbed_sections', self::$tabbed_sections );
 		}
 
 		/**
@@ -694,9 +732,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				SCRIPT_DEBUG ? 'astra-custom-control-react-script' : 'astra-custom-control-script',
 				'AstraBuilderCustomizerData',
 				array(
-					'contexts'   => self::get_contexts(),
-					'choices'    => self::get_choices(),
-					'js_configs' => self::get_js_configs(),
+					'contexts'        => self::get_contexts(),
+					'choices'         => self::get_choices(),
+					'js_configs'      => self::get_js_configs(),
+					'tabbed_sections' => self::get_tabbed_sections(),
 				)
 			);
 

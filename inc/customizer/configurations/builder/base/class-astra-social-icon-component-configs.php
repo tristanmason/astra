@@ -64,7 +64,7 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-' . $builder_type . '-social-icon-tabs-' . $index . ']',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -372,6 +372,10 @@ class Astra_Social_Icon_Component_Configs {
 				);
 			}
 
+			if ( 'header' === $builder_type ) {
+				$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
+			}
+			
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
 				$_section,
 				array(
@@ -381,7 +385,7 @@ class Astra_Social_Icon_Component_Configs {
 						'operator' => '===',
 						'value'    => true,
 					),
-				)  
+				)
 			);
 
 			$social_configs[] = $_configs;

@@ -14,6 +14,7 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	var selector = '.ast-header-search';
+    var section = 'section-header-search';
 
 	// Icon Color.
 	astra_color_responsive_css(
@@ -98,5 +99,8 @@
             }
         } );
     } );
+
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( section, selector );
 
 } )( jQuery );

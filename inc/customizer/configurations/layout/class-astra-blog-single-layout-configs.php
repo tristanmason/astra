@@ -154,7 +154,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					 * Option: Blog / Archive Tabs.
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-single-post-tabs]',
+						'name'        => 'section-blog-single-ast-context-tabs',
 						'section'     => 'section-blog-single',
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',
