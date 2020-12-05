@@ -166,7 +166,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_edd_configs = array(
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-edd-cart-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
