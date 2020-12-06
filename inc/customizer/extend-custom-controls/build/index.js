@@ -9583,6 +9583,7 @@ var ColorPaletteComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ColorPaletteComponent, [{
     key: "handleChangeComplete",
     value: function handleChangeComplete(color, key) {
+      console.log(color);
       var value;
 
       if (typeof color === 'string' || color instanceof String) {

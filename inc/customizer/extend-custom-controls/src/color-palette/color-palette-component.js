@@ -18,6 +18,7 @@ class ColorPaletteComponent extends Component {
 	}
 
 	handleChangeComplete( color, key ) {
+		console.log(color);
 		let value;
 
 		if ( typeof color === 'string' || color instanceof String ) {
