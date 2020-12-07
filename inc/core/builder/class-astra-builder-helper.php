@@ -538,7 +538,7 @@ final class Astra_Builder_Helper {
 
 			self::$header_desktop_items['woo-cart'] = array(
 				'name'    => $woo_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-woo-cart',
 			);
 		}
@@ -548,7 +548,7 @@ final class Astra_Builder_Helper {
 
 			self::$header_desktop_items['edd-cart'] = array(
 				'name'    => $edd_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-edd-cart',
 			);
 		}
@@ -577,14 +577,14 @@ final class Astra_Builder_Helper {
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			self::$header_mobile_items['woo-cart'] = array(
 				'name'    => $woo_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-woo-cart',
 			);
 		}
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			self::$header_mobile_items['edd-cart'] = array(
 				'name'    => $edd_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-edd-cart',
 			);
 		}
