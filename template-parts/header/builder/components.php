@@ -46,10 +46,10 @@ switch ( $component_slug ) {
 		<?php
 		break;
 
-	case 'menu-3':
+	case 'menu-mobile':
 		?>
-		<div class="ast-builder-menu-3 ast-builder-menu ast-builder-menu-2-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-3">
-			<?php do_action( 'astra_header_menu_3' ); ?>
+		<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-2-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-mobile">
+			<?php do_action( 'astra_header_menu_mobile' ); ?>
 		</div>
 		<?php
 		break;
