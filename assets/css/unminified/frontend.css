@@ -2385,8 +2385,6 @@ body {
 }
 
 .main-navigation {
-  -js-display: inline-flex;
-  display: inline-flex;
   height: 100%;
 }
 
@@ -2637,10 +2635,6 @@ body {
 
 .ast-button-wrap .menu-toggle:focus {
   outline: thin dotted;
-}
-
-.main-header-bar-navigation {
-  flex: 1;
 }
 
 .header-main-layout-1 .ast-main-header-bar-alignment {
@@ -3389,8 +3383,6 @@ body .entry-content .wp-block-latest-posts li {
  * Social Widget.
  */
 .ast-builder-social-element {
-  -js-display: inline-flex;
-  display: inline-flex;
   line-height: 1;
   color: #3a3a3a;
   background: transparent;
