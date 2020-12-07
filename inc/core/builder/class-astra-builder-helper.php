@@ -268,7 +268,7 @@ final class Astra_Builder_Helper {
 
 		self::$num_of_header_menu = 3;
 		// Todo: Update filter on menu support.
-		// defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 3;.
+		// defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 3;
 
 		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;

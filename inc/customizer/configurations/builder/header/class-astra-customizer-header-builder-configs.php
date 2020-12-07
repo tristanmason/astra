@@ -112,7 +112,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				Astra_Builder_Helper::$header_desktop_items[ 'menu-' . $index ] = $item;
 			}
 			
-			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ]  = $item;
+			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ] = $item;
 		}
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
