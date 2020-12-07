@@ -260,7 +260,7 @@ final class Astra_Builder_Customizer {
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
-
+		require_once $header_components_path . '/mobile-menu/class-astra-mobile-menu-component.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 

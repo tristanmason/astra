@@ -117,6 +117,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
 
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
+
+				add_action( 'astra_header_menu_mobile', array( $this, 'header_mobile_menu_markup' ) );
 			}
 
 			add_action( 'astra_site_identity', array( $this, 'site_identity' ) );
@@ -458,7 +460,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
 		}
-
+		/**
+		 *  Call Mobile Menu Markup.
+		 */
+		public function header_mobile_menu_markup() {
+			Astra_Mobile_Menu_Component::menu_markup();
+		}
+		
 		/**
 		 * Defines all constants
 		 *

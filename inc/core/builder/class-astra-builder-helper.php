@@ -550,6 +550,11 @@ final class Astra_Builder_Helper {
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-trigger',
 				),
+				'mobile-menu' => array(
+					'name'    => __( 'Mobile menu', 'astra' ),
+					'icon'    => 'menu-alt',
+					'section' => 'section-header-mobile-menu',
+				),
 			)
 		);
 		self::$is_header_footer_builder_active = self::is_header_footer_builder_active();
