@@ -58,7 +58,7 @@ class Astra_Divider_Component_Configs {
 				 * Option: Header Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -120,7 +120,7 @@ class Astra_Divider_Component_Configs {
 						),
 					),
 				),
-				
+
 				/**
 				 * Option:  Divider Style
 				 */
@@ -230,7 +230,7 @@ class Astra_Divider_Component_Configs {
 				),
 
 			);
-			
+
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-divider-' . $index . '-alignment]',

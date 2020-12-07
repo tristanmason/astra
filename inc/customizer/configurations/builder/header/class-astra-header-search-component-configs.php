@@ -56,7 +56,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[hs-search-tabs]',
+				'name'        => $_section . '-ast-context-tabs',
 				'section'     => $_section,
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',

@@ -4739,6 +4739,16 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
   width: 235px;
 }
 
+.ast-header-search .ast-search-menu-icon.slide-search .search-submit, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-submit {
+  position: unset;
+}
+
+.ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
+  -js-display: flex;
+  display: flex;
+  align-items: center;
+}
+
 .ast-search-icon {
   z-index: 4;
   position: relative;

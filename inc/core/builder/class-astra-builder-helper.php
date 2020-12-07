@@ -266,9 +266,7 @@ final class Astra_Builder_Helper {
 		self::$num_of_header_html = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-html'] : 2;
 		self::$num_of_footer_html = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-html'] : 2;
 
-		self::$num_of_header_menu = 2;
-		// Todo: Update filter on menu support.
-		// defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;.
+		self::$num_of_header_menu = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;
 
 		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;
@@ -538,7 +536,7 @@ final class Astra_Builder_Helper {
 
 			self::$header_desktop_items['woo-cart'] = array(
 				'name'    => $woo_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-woo-cart',
 			);
 		}
@@ -548,7 +546,7 @@ final class Astra_Builder_Helper {
 
 			self::$header_desktop_items['edd-cart'] = array(
 				'name'    => $edd_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-edd-cart',
 			);
 		}
@@ -577,14 +575,14 @@ final class Astra_Builder_Helper {
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			self::$header_mobile_items['woo-cart'] = array(
 				'name'    => $woo_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-woo-cart',
 			);
 		}
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			self::$header_mobile_items['edd-cart'] = array(
 				'name'    => $edd_cart_name,
-				'icon'    => 'share',
+				'icon'    => 'cart',
 				'section' => 'section-header-edd-cart',
 			);
 		}
@@ -622,7 +620,7 @@ final class Astra_Builder_Helper {
 			apply_filters(
 				'astra_builder_elements_count',
 				$component_keys_count
-			) 
+			)
 		);
 
 		// Buttons.
