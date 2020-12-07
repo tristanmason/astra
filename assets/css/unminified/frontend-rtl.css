@@ -3238,8 +3238,6 @@ body .entry-content .wp-block-latest-posts li {
 .footer-widget-area.ast-footer-divider-element {
   position: relative;
   align-items: center;
-  -js-display: flex;
-  display: flex;
 }
 
 .ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
@@ -3271,8 +3269,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-builder-layout-element {
   align-items: center;
-  -js-display: flex;
-  display: flex;
 }
 
 .ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:first-child {
@@ -3284,8 +3280,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-builder-grid-row.ast-grid-center-col-layout-only {
-  -js-display: flex;
-  display: flex;
   height: 100%;
   justify-content: center;
 }
@@ -3295,8 +3289,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .site-header-section {
-  -js-display: flex;
-  display: flex;
   height: 100%;
   min-height: 0;
   align-items: center;
@@ -3319,8 +3311,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .site-header-section .ast-builder-menu {
-  -js-display: flex;
-  display: flex;
   align-items: center;
 }
 
@@ -3430,8 +3420,6 @@ body .entry-content .wp-block-latest-posts li {
   width: 17px;
   height: 17px;
   transition: none;
-  -js-display: flex;
-  display: flex;
 }
 
 .ahfb-svg-iconset svg > * {

@@ -194,6 +194,15 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			wp_enqueue_script( 'astra-transparent-header-customizer-preview-js', ASTRA_THEME_TRANSPARENT_HEADER_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+			// Localize variables for further JS.
+			wp_localize_script(
+				'astra-transparent-header-customizer-preview-js',
+				'AstraBuilderTransparemtData',
+				array(
+					'is_astra_hf_builder_active' => Astra_Builder_Helper::$is_header_footer_builder_active,
+				)
+			);
 		}
 	}
 }
