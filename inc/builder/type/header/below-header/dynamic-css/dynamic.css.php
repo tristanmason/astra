@@ -63,6 +63,9 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'height'     => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 			'align-self' => 'center',
 		),
+		'.ast-desktop .ast-below-header-bar .ast-header-woo-cart, .ast-desktop .ast-below-header-bar .ast-header-edd-cart' => array(
+			'line-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
+		),
 	);
 
 	$parse_css .= astra_parse_css( $common_css_output );
@@ -110,6 +113,8 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$parent_selector = '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header';
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-below-header-bar', 'block' );
 
 	return $dynamic_css;
 }

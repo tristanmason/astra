@@ -60,11 +60,37 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config Tablet device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $tablet_device = array(
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
+			'value'    => array( 'tablet' ),
+		),
+	);
+
+	/**
 	 * Config Mobile device context.
 	 *
 	 * @var string[][]
 	 */
 	public static $mobile_device = array(
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
+			'value'    => array( 'mobile' ),
+		),
+	);
+
+	/**
+	 * Config Mobile device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $responsive_devices = array(
 		array(
 			'setting'  => 'ast_selected_device',
 			'operator' => 'in',
@@ -503,8 +529,29 @@ final class Astra_Builder_Helper {
 				),
 			)
 		);
+		
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
 
-		self::$header_mobile_items             = apply_filters(
+			$woo_cart_name = class_exists( 'Easy_Digital_Downloads' ) ? __( 'Woo Cart', 'astra' ) : __( 'Cart', 'astra' );
+
+			self::$header_desktop_items['woo-cart'] = array(
+				'name'    => $woo_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-woo-cart',
+			);
+		}
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+
+			$edd_cart_name = class_exists( 'Astra_Woocommerce' ) ? __( 'EDD Cart', 'astra' ) : __( 'Cart', 'astra' );
+
+			self::$header_desktop_items['edd-cart'] = array(
+				'name'    => $edd_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-edd-cart',
+			);
+		}
+
+		self::$header_mobile_items = apply_filters(
 			'astra_header_mobile_items',
 			array(
 				'logo'           => array(
@@ -524,6 +571,22 @@ final class Astra_Builder_Helper {
 				),
 			)
 		);
+
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			self::$header_mobile_items['woo-cart'] = array(
+				'name'    => $woo_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-woo-cart',
+			);
+		}
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			self::$header_mobile_items['edd-cart'] = array(
+				'name'    => $edd_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-edd-cart',
+			);
+		}
+
 		self::$is_header_footer_builder_active = self::is_header_footer_builder_active();
 
 		add_filter( 'astra_addon_list', array( $this, 'deprecate_old_header_and_footer' ) );

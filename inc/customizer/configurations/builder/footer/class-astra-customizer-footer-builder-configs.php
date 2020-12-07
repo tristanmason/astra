@@ -144,7 +144,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-footer-tabs]',
+				'name'        => 'section-footer-builder-layout-ast-context-tabs',
 				'section'     => 'section-footer-builder-layout',
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',

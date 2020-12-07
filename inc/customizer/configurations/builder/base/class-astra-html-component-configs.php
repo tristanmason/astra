@@ -53,7 +53,7 @@ class Astra_Html_Component_Configs {
 				 * Option: Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -219,6 +219,10 @@ class Astra_Html_Component_Configs {
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				);
+			}
+
+			if ( 'header' === $builder_type ) {
+				$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
 			}
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section );
