@@ -28,6 +28,16 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config context general tab config.
+	 *
+	 * @var string[][]
+	 */
+	public static $general_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'general',
+	);
+
+	/**
 	 * Config context design tab.
 	 *
 	 * @var string[][]
@@ -40,11 +50,47 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config context design tab.
+	 *
+	 * @var string[][]
+	 */
+	public static $design_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'design',
+	);
+
+	/**
+	 * Config Tablet device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $tablet_device = array(
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
+			'value'    => array( 'tablet' ),
+		),
+	);
+
+	/**
 	 * Config Mobile device context.
 	 *
 	 * @var string[][]
 	 */
 	public static $mobile_device = array(
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
+			'value'    => array( 'mobile' ),
+		),
+	);
+
+	/**
+	 * Config Mobile device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $responsive_devices = array(
 		array(
 			'setting'  => 'ast_selected_device',
 			'operator' => 'in',
