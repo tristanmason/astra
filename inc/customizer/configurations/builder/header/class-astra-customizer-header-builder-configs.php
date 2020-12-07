@@ -94,6 +94,9 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				case 2:
 					$name = __( 'Secondary Menu', 'astra' );
 					break;
+				case 3:
+					$name = __( 'Mobile Menu', 'astra' );
+					break;
 				default:
 					$name = __( 'Menu ', 'astra' ) . $index;
 					break;
@@ -105,7 +108,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section' => 'section-hb-menu-' . $index,
 			);
 
-			Astra_Builder_Helper::$header_desktop_items[ 'menu-' . $index ] = $item;
+			if ( 3 !== $index ) {
+				Astra_Builder_Helper::$header_desktop_items[ 'menu-' . $index ] = $item;
+			}
+			
 			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ]  = $item;
 		}
 

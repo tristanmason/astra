@@ -75,7 +75,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 				( 'primary' === $args->theme_location ||
 				'above_header_menu' === $args->theme_location ||
 				'secondary_menu' === $args->theme_location ||
-				'below_header_menu' === $args->theme_location )
+				'below_header_menu' === $args->theme_location || 'mobile_menu' === $args->theme_location )
 				) {
 					if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
 						$item_output = $this->menu_arrow_button_markup( $item_output, $item );

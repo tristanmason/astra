@@ -51,6 +51,9 @@ class Astra_Header_Menu_Component {
 			case 2:
 				$theme_location = 'secondary_menu';
 				break;
+			case 3:
+				$theme_location = 'mobile_menu';
+				break;
 			default:
 				$theme_location = 'menu_' . $index;
 				break;

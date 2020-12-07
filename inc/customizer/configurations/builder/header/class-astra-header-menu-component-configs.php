@@ -47,6 +47,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					case 2:
 						$edit_menu_title = __( 'Secondary Menu', 'astra' );
 						break;
+					case 3:
+						$edit_menu_title = __( 'Mobile Menu', 'astra' );
+						break;
 					default:
 						$edit_menu_title = __( 'Menu ', 'astra' ) . $index;
 						break;

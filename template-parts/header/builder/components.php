@@ -46,6 +46,14 @@ switch ( $component_slug ) {
 		<?php
 		break;
 
+	case 'menu-3':
+		?>
+		<div class="ast-builder-menu-3 ast-builder-menu ast-builder-menu-2-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-3">
+			<?php do_action( 'astra_header_menu_3' ); ?>
+		</div>
+		<?php
+		break;
+
 	case 'html-1':
 		?>
 		<div class="ast-builder-layout-element site-header-focus-item ast-header-html-1" data-section="section-hb-html-1">
