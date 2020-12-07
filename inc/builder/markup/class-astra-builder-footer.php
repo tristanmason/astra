@@ -275,7 +275,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		public function footer_html_4() {
 			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-4' );
 		}
-
+		
 		/**
 		 * Render Menu.
 		 */
