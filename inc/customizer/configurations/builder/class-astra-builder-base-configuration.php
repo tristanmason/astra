@@ -169,14 +169,14 @@ final class Astra_Builder_Base_Configuration {
 	 * @param string $_section section id.
 	 * @return array
 	 */
-	public static function prepare_visibility_tab( $_section ) {
+	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
 
 		$class_obj = Astra_Builder_Header::get_instance();
 
-		return array(
+		$configs = array(
 
 			/**
-			 * Option: Hide on heading
+			 * Option: Hide on Heading
 			 */
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
@@ -186,7 +186,7 @@ final class Astra_Builder_Base_Configuration {
 				'title'    => __( 'Visibility', 'astra' ),
 				'priority' => 300,
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$responsive_general_tab,
+				'context'  => ( 'footer' === $builder_type ) ? Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
 			),
 
 			/**
@@ -219,6 +219,28 @@ final class Astra_Builder_Base_Configuration {
 				'context'   => Astra_Builder_Helper::$mobile_general_tab,
 			),
 		);
+
+		if ( 'footer' === $builder_type ) {
+			$footer_configs = array(
+				/**
+				 * Option: Hide on desktop
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'default'   => '',
+					'section'   => $_section,
+					'priority'  => 320,
+					'title'     => __( 'Hide on Desktop', 'astra' ),
+					'transport' => 'postMessage',
+					'context'   => Astra_Builder_Helper::$desktop_general_tab,
+				),
+			);
+			$configs = array_merge( $configs, $footer_configs );
+		}
+
+		return $configs;
 	}
 
 	/**
@@ -487,13 +509,7 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
-			
-
-			if ( 'header' === $type ) {
-
-				$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section ) );
-
-			}
+			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, 'footer' ) );
 
 			$html_config[] = $_configs;
 		}
