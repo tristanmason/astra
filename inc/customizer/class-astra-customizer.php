@@ -1084,6 +1084,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'sanitize_callback' => '',
 				)
 			);
+			Astra_Customizer_Control_Base::add_control(
+				'ast-color-palette',
+				array(
+					'callback'          => 'Astra_Control_Color_Palette',
+					'sanitize_callback' => '',
+				)
+			);
 
 			/**
 			 * Helper files

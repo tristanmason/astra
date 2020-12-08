@@ -29,8 +29,18 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-			$_configs = array(
-
+			$_configs = array(				
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[global-color-palette]',
+					'type'     => 'control',
+					'control'  => 'ast-color-palette',
+					'section'  => 'section-colors-body',
+					'priority' => 5,
+					'description' => 'Allows you to add predefined color palette',
+					'title'    => __( 'Palette', 'astra' ),
+					
+					'settings' => array(),
+				),
 				/**
 				 * Option: Text Color
 				 */
@@ -93,7 +103,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => 'section-colors-body',
 					'priority' => 20,
 					'settings' => array(),
-				),
+				),				
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
