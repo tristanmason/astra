@@ -10,6 +10,6 @@
 
 ( function( $ ) {
 
-	astra_builder_widget_css('header');
+	astra_builder_widget_css( 'header' );
 
 } )( jQuery );

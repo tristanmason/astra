@@ -84,8 +84,8 @@ function astra_builder_advanced_css( section, selector ) {
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
                 dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
-                dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['desktop-unit'] + ';';
-                dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['desktop-unit'] + ';';
+                dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
+                dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
@@ -93,8 +93,8 @@ function astra_builder_advanced_css( section, selector ) {
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
                 dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
-                dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['desktop-unit'] + ';';
-                dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['desktop-unit'] + ';';
+                dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
+                dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
                 astra_add_dynamic_css( section + '-padding-toggle-button', dynamicStyle );
@@ -122,8 +122,8 @@ function astra_builder_advanced_css( section, selector ) {
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
-                dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
-                dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['desktop-unit'] + ';';
+                dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['tablet-unit'] + ';';
+                dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['tablet-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
@@ -131,8 +131,8 @@ function astra_builder_advanced_css( section, selector ) {
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
-                dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';
-                dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
+                dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['mobile-unit'] + ';';
+                dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['mobile-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
                 astra_add_dynamic_css( section + '-margin-toggle-button', dynamicStyle );
