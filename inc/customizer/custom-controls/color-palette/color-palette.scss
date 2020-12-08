@@ -1,6 +1,32 @@
-.ast-color-picker-palette-1 .color-button-wrap {
-    right: 50px;
+.ast-color-picker-palette-1 .color-button-wrap  {
+    right: 166px;
 }
-.ast-color-picker-palette-1 {
-    display: none;
+.ast-color-picker-palette-2 .color-button-wrap  {
+    right: 126px;
 }
+.ast-color-picker-palette-3 .color-button-wrap  {
+    right:86px;
+}
+.ast-color-picker-palette-4 .color-button-wrap  {
+    right: 46px;
+}
+.ast-color-picker-palette-5 .color-button-wrap  {
+    right: 5px;
+}
+.ast-color-palette2-wrap{
+    .ast-color-picker-palette-1 .color-button-wrap  {        top:50px;    }
+    .ast-color-picker-palette-2 .color-button-wrap  {        top:50px;    }
+    .ast-color-picker-palette-3 .color-button-wrap  {        top:50px;    }
+    .ast-color-picker-palette-4 .color-button-wrap  {        top:50px;    }
+    .ast-color-picker-palette-5 .color-button-wrap  {        top:50px;    }
+}
+// .ast-color-palette1-wrap .color-button-wrap,.ast-color-palette2-wrap .color-button-wrap {
+//     display: unset; 
+//     position: unset;
+//     right: unset;
+//     top: unset;
+// }
+// .ast-color-palette-inline  {
+//     display: inline-block;
+//     margin-right: 10px;
+// }

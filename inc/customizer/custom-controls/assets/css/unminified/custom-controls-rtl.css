@@ -235,6 +235,46 @@
   background-color: #1e8cbe;
 }
 
+.ast-color-picker-palette-1 .color-button-wrap {
+  left: 166px;
+}
+
+.ast-color-picker-palette-2 .color-button-wrap {
+  left: 126px;
+}
+
+.ast-color-picker-palette-3 .color-button-wrap {
+  left: 86px;
+}
+
+.ast-color-picker-palette-4 .color-button-wrap {
+  left: 46px;
+}
+
+.ast-color-picker-palette-5 .color-button-wrap {
+  left: 5px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-1 .color-button-wrap {
+  top: 50px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-2 .color-button-wrap {
+  top: 50px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-3 .color-button-wrap {
+  top: 50px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-4 .color-button-wrap {
+  top: 50px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-5 .color-button-wrap {
+  top: 50px;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -891,6 +931,46 @@
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   background-color: #1e8cbe;
+}
+
+.ast-color-picker-palette-1 .color-button-wrap {
+  left: 166px;
+}
+
+.ast-color-picker-palette-2 .color-button-wrap {
+  left: 126px;
+}
+
+.ast-color-picker-palette-3 .color-button-wrap {
+  left: 86px;
+}
+
+.ast-color-picker-palette-4 .color-button-wrap {
+  left: 46px;
+}
+
+.ast-color-picker-palette-5 .color-button-wrap {
+  left: 5px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-1 .color-button-wrap {
+  top: 20px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-2 .color-button-wrap {
+  top: 20px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-3 .color-button-wrap {
+  top: 20px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-4 .color-button-wrap {
+  top: 20px;
+}
+
+.ast-color-palette2-wrap .ast-color-picker-palette-5 .color-button-wrap {
+  top: 20px;
 }
 
  /** Remove Button Color */
@@ -1554,6 +1634,26 @@ input[type="text"].select2-search__field {
 
 .ast-link-open-in-new-tab-wrapper {
   margin: 10px 0;
+}
+
+.ast-color-picker-palette-1 .color-button-wrap {
+  left: 166px;
+}
+
+.ast-color-picker-palette-2 .color-button-wrap {
+  left: 126px;
+}
+
+.ast-color-picker-palette-3 .color-button-wrap {
+  left: 86px;
+}
+
+.ast-color-picker-palette-4 .color-button-wrap {
+  left: 46px;
+}
+
+.ast-color-picker-palette-5 .color-button-wrap {
+  left: 5px;
 }
 
 .customize-control-ast-radio-image label {
@@ -3141,6 +3241,26 @@ input[type="text"].select2-search__field {
 
 .ast-link-open-in-new-tab-wrapper {
   margin: 10px 0;
+}
+
+.ast-color-picker-palette-1 .color-button-wrap {
+  left: 166px;
+}
+
+.ast-color-picker-palette-2 .color-button-wrap {
+  left: 126px;
+}
+
+.ast-color-picker-palette-3 .color-button-wrap {
+  left: 86px;
+}
+
+.ast-color-picker-palette-4 .color-button-wrap {
+  left: 46px;
+}
+
+.ast-color-picker-palette-5 .color-button-wrap {
+  left: 5px;
 }
 
 .customize-control-ast-radio-image label {
