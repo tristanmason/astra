@@ -176,6 +176,8 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			);
 
 			$configurations = array_merge( $configurations, $_edd_configs );
+
+			$configurations = array_merge( $configurations, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 		}
 
 		return array_merge( $configurations, $_configs );

@@ -20,8 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 final class Astra_Builder_Customizer {
 
-
-
 	/**
 	 * Constructor
 	 *
