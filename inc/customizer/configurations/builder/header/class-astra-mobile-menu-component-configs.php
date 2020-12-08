@@ -113,40 +113,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Option: Sub-Menu Border.
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-border]',
-					'default'        => astra_get_option( 'header-mobile-menu-submenu-border' ),
-					'type'           => 'control',
-					'control'        => 'ast-border',
-					'transport'      => 'postMessage',
-					'section'        => $_section,
-					'linked_choices' => true,
-					'priority'       => 15,
-					'title'          => __( 'Submenu Container Border', 'astra' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'bottom' => __( 'Bottom', 'astra' ),
-						'left'   => __( 'Left', 'astra' ),
-					),
-					'context'        => Astra_Builder_Helper::$design_tab,
-				),
-
-				// Option: Submenu Container Border Color.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-b-color]',
-					'default'   => astra_get_option( 'header-mobile-menu-submenu-b-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'default'   => '',
-					'title'     => __( 'Border Color', 'astra' ),
-					'section'   => $_section,
-					'priority'  => 20,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Option: Submenu Divider Checkbox.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
