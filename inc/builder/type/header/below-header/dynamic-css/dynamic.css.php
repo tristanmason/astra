@@ -67,6 +67,9 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'height'     => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 			'align-self' => 'center',
 		),
+		'.ast-desktop .ast-below-header-bar .ast-header-woo-cart, .ast-desktop .ast-below-header-bar .ast-header-edd-cart' => array(
+			'line-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
+		),
 	);
 
 	$parse_css .= astra_parse_css( $common_css_output );
