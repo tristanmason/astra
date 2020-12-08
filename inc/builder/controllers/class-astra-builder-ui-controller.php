@@ -268,7 +268,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					self::render_customizer_edit_button();
 				}
 				?>
-
 				<div
 					<?php
 					echo astra_attr(
@@ -282,7 +281,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<?php astra_logo(); ?>
 				</div>
 			</div>
-
 			<!-- .site-branding -->
 			<?php
 		}
