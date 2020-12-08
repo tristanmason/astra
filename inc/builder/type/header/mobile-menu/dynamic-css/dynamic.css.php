@@ -30,7 +30,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		return $dynamic_css;
 	}
 
-	$_section = 'section-hb-menu-mobile';
+	$_section = 'section-header-mobile-menu';
 
 	$selector = '#astra-mobile-menu';
 

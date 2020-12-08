@@ -324,6 +324,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-divider-component-configs.php';
+		require_once $header_config_path . '/class-astra-mobile-menu-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 

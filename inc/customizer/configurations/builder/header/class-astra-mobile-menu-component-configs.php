@@ -33,9 +33,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$html_config = array();
-
-            $_section = 'section-hb-menu-mobile';
+            $_section = 'section-header-mobile-menu';
 
             $_configs = array(
 
@@ -498,10 +496,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
                 ),
             );
 
-            $_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
-
-			$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-			$configurations = array_merge( $configurations, $html_config );
+			$configurations = array_merge( $configurations, $_configs );
 
 			return $configurations;
 		}
