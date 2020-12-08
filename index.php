@@ -16,6 +16,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
 get_header(); ?>
 <?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
 
