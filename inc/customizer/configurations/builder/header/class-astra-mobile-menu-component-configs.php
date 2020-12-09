@@ -88,31 +88,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
-				/**
-				 * Option: Submenu Container Animation
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-container-animation]',
-					'default'   => astra_get_option( 'header-mobile-menu-submenu-container-animation' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 31,
-					'title'     => __( 'Container Animation', 'astra' ),
-					'choices'   => array(
-						''           => __( 'Default', 'astra' ),
-						'slide-down' => __( 'Slide Down', 'astra' ),
-						'slide-up'   => __( 'Slide Up', 'astra' ),
-						'fade'       => __( 'Fade', 'astra' ),
-					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'        => '#ast-hf-menu-' . $index,
-						'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
-					),
-				),
-
 				// Option: Submenu Divider Checkbox.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
