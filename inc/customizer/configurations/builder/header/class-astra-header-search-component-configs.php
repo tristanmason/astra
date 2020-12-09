@@ -56,7 +56,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[hs-search-tabs]',
+				'name'        => $_section . '-ast-context-tabs',
 				'section'     => $_section,
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
@@ -68,15 +68,30 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			 * Option: Search Color.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-search-icon-color]',
-				'default'   => '',
+				'name'      => ASTRA_THEME_SETTINGS . '[header-search-icon-color-parent]',
+				'default'   => astra_get_option( 'header-search-icon-color-parent' ),
 				'type'      => 'control',
-				'section'   => $_section,
-				'priority'  => 8,
-				'transport' => 'postMessage',
-				'control'   => 'ast-color',
+				'control'   => 'ast-settings-group',
 				'title'     => __( 'Icon Color', 'astra' ),
+				'section'   => $_section,
+				'transport' => 'postMessage',
+				'priority'  => 8,
 				'context'   => Astra_Builder_Helper::$design_tab,
+			),
+
+			array(
+				'name'       => 'header-search-icon-color',
+				'default'    => astra_get_option( 'header-search-icon-color' ),
+				'type'       => 'sub-control',
+				'parent'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-parent]',
+				'section'    => $_section,
+				'priority'   => 1,
+				'transport'  => 'postMessage',
+				'control'    => 'ast-responsive-color',
+				'responsive' => true,
+				'rgba'       => true,
+				'title'      => __( 'Icon Color', 'astra' ),
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -135,7 +150,10 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				),
 				'context'        => Astra_Builder_Helper::$design_tab,
 			),
+
 		);
+
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 		return array_merge( $configurations, $_configs );
 	}

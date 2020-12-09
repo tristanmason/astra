@@ -17,6 +17,10 @@
 
 		var prefix = 'menu' + index;
 		var selector = '.ast-builder-menu-' + index;
+		var section = 'section-hb-menu-' + index;
+
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector );
 
 		/**
 		 * Typography CSS.
@@ -278,7 +282,7 @@
 				wp.customize( 'astra-settings[header-menu'+ index +'-menu-stack-on-mobile]', function( setting ) {
 					setting.bind( function( stack ) {
 
-						var menu_div = jQuery( '#ast-mobile-header #ast-hf-menu-'+ index  );
+						var menu_div = jQuery( '#ast-mobile-header #ast-hf-menu-'+ index + ' .main-header-menu'  );
 						menu_div.removeClass('inline-on-mobile');
 						menu_div.removeClass('stack-on-mobile');
 

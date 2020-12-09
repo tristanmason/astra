@@ -58,7 +58,7 @@ class Astra_Divider_Component_Configs {
 				 * Option: Header Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -111,9 +111,16 @@ class Astra_Divider_Component_Configs {
 					'label'    => '',
 					/* translators: %1$s builder type param */
 					'help'     => sprintf( __( 'If the Divider don\'t seem to be visible please check if elements are added in the current %1$s row.', 'astra' ), $builder_type ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]', '==', 'vertical' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-divider-' . $index . '-layout]',
+							'operator' => '==',
+							'value'    => 'vertical',
+						),
+					),
 				),
-				
+
 				/**
 				 * Option:  Divider Style
 				 */
@@ -223,7 +230,7 @@ class Astra_Divider_Component_Configs {
 				),
 
 			);
-			
+
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-divider-' . $index . '-alignment]',

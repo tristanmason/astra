@@ -2072,38 +2072,6 @@ textarea,
   font-weight: normal;
 }
 
-/*----------  Elements ----------*/
-/**
- * 2 - Social Follow
- */
-.ast-social-icons {
-  list-style-type: none;
-  margin: 0;
-}
-
-.ast-social-icons li {
-  display: inline-block;
-  padding-right: 15px;
-}
-
-.ast-social-icons li:last-child {
-  padding-right: 0;
-}
-
-.ast-social-icons a {
-  display: block;
-}
-
-.ast-social-icons i {
-  font-style: normal;
-  font-family: fontawesome;
-  font-weight: normal;
-}
-
-.ast-social-icons i:before {
-  font-weight: normal;
-}
-
 /*----------  Media ----------*/
 .single .entry-content .gallery {
   margin-left: -10px;
@@ -2385,8 +2353,6 @@ body {
 }
 
 .main-navigation {
-  -js-display: inline-flex;
-  display: inline-flex;
   height: 100%;
 }
 
@@ -2637,10 +2603,6 @@ body {
 
 .ast-button-wrap .menu-toggle:focus {
   outline: thin dotted;
-}
-
-.main-header-bar-navigation {
-  flex: 1;
 }
 
 .header-main-layout-1 .ast-main-header-bar-alignment {
