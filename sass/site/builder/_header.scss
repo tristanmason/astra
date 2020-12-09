@@ -1050,6 +1050,169 @@ body.admin-bar {
 	}
 }
 
+// Woo Header Cart Icon.
+.ast-site-header-cart{
+	.cart-container{
+			transition: all 0.2s linear;
+			*{
+				transition: all 0s linear;
+			}
+
+	}
+	.ast-woo-header-cart-info-wrap{
+		padding: 0 2px;
+		font-weight: 600;
+		line-height: 2.7;
+    	display: inline-block;
+	}
+	i.astra-icon{
+		font-size: 20px;
+		font-size: 1.3em;
+		font-style: normal;
+		font-weight: normal;
+		position: relative;
+    	padding: 0 2px;
+
+		&:before{
+    		font-family: 'Astra';
+    	}
+
+    	&.no-cart-total{
+    		&:after{
+    			display: none;
+    		}
+    	}
+    	&:after{
+    		content: attr(data-cart-total);
+			position: absolute;
+			font-style: normal;
+			top: -10px;
+			right: -12px;
+			font-weight: bold;
+			box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.3);
+			font-size: 11px;
+			padding-left: 0px;
+			padding-right: 2px;
+			line-height: 17px;
+			letter-spacing: -.5px;
+			height: 18px;
+			min-width: 18px;
+			border-radius: 99px;
+			text-align: center;
+			z-index: 1;
+    	}
+	}
+	&.ast-menu-cart-outline,
+	&.ast-menu-cart-fill{
+		.ast-cart-menu-wrap{
+			line-height: 1.8;
+		}
+	}
+	&.ast-menu-cart-fill{
+		i.astra-icon{
+			font-size: 1.1em;
+		}
+	}
+}
+li.woocommerce-custom-menu-item{
+	.ast-site-header-cart{
+		i.astra-icon{
+			&:after{
+				padding-left: 2px;
+			}
+		}
+	}
+}
+
+.ast-icon-shopping-cart {
+	&:before{
+		 content: "\f07a";
+	}
+}
+.ast-icon-shopping-bag {
+	&:before{
+		 content: "\f290";
+	}
+}
+.ast-icon-shopping-basket {
+	&:before{
+		 content: "\f291";
+	}
+}
+
+
+// Remove Cart Total & Title for responsive devices.
+.ast-header-break-point{
+	&.ast-header-custom-item-outside{
+		.ast-woo-header-cart-info-wrap{
+			display: none;
+		}
+	}
+}
+
+// EDD Header Cart Icon.
+.ast-edd-site-header-cart{
+	.ast-edd-cart-container{
+			transition: all 0.2s linear;
+			*{
+				transition: all 0s linear;
+			}
+
+	}
+	.ast-edd-header-cart-info-wrap{
+		padding: 0 2px;
+		font-weight: 600;
+		line-height: 2.7;
+    	display: inline-block;
+	}
+	&.ast-edd-menu-cart-outline,
+	&.ast-edd-menu-cart-fill{
+		.ast-edd-cart-menu-wrap{
+			line-height: 1.8;
+		}
+	}
+	&.ast-edd-menu-cart-fill{
+		span.astra-icon{
+			font-size: 1.1em;
+		}
+	}
+}
+li.edd-custom-menu-item{
+	.ast-edd-site-header-cart{
+		span.astra-icon{
+			&:after{
+				padding-left: 2px;
+			}
+		}
+	}
+}
+
+.ast-icon-shopping-cart {
+	&:before{
+		 content: "\f07a";
+	}
+}
+.ast-icon-shopping-bag {
+	&:before{
+		 content: "\f290";
+	}
+}
+.ast-icon-shopping-basket {
+	&:before{
+		 content: "\f291";
+	}
+}
+
+
+// Remove Cart Total & Title for responsive devices.
+.ast-header-break-point{
+	&.ast-header-custom-item-outside{
+		.ast-edd-header-cart-info-wrap{
+			display: none;
+		}
+	}
+}
+
 /* Footer menu spacing between each menu items. */
 @media (min-width: $col-md ) {
 	.footer-nav-wrap {

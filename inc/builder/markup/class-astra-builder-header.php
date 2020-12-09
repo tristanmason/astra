@@ -294,7 +294,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function above_header() {
 
-
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				get_template_part(
@@ -309,9 +308,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				set_query_var( 'row', 'above' );
 				get_template_part( 'template-parts/header/builder/header', 'row' );
 			}
-
-
-
 		}
 
 		/**
