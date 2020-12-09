@@ -1,49 +1,67 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import { Component } from '@wordpress/element';
 
+class SelectComponent extends Component {
 
-const SelectComponent = props => {
+	constructor( props ) {
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+		super( props );
 
-	const onSelectChange = (value) => {
-		setPropsValue(value);
-		props.control.setting.set(value);
-	};
+		let value = this.props.control.setting.get()
 
-	const {
-		label,
-		name,
-		choices
-	} = props.control.params;
+		this.state = {
+			value
+		};
 
-	let htmlLabel = null;
-
-	if (label) {
-		htmlLabel = <span className="customize-control-title">{label}</span>;
+		this.onSelectChange = this.onSelectChange.bind(this);
 	}
 
-	let optionsHtml = Object.entries(choices).map(key => {
-		let html = <option key={key[0]} value={key[0]}>{key[1]}</option>;
-		return html;
-	});
+	onSelectChange() {
+		this.updateValues( event.target.value )
+	}
 
-	return <>
-		{htmlLabel}
-		<div className="customize-control-content">
-			<select className="ast-select-input" data-name={name} data-value={props_value} value={props_value}
-					onChange={() => {
-						onSelectChange(event.target.value);
-					}}>
-				{optionsHtml}
-			</select>
-		</div>
-	</>;
+	render() {
 
-};
+		const {
+			label,
+			name,
+			choices
+		} = this.props.control.params
+
+		let htmlLabel = null;
+
+		if ( label ) {
+			htmlLabel = <span className="customize-control-title">{ label }</span>;
+		}
+
+		let optionsHtml = Object.entries( choices ).map( ( key ) => {
+
+			var html = (
+				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
+			);
+			return html;
+		} );
+
+		return (
+			<>
+				{ htmlLabel }
+				<div className="customize-control-content">
+					<select className="ast-select-input" data-name={ name } data-value={ this.state.value } value={ this.state.value } onChange={ () => { this.onSelectChange() } } >
+						{ optionsHtml }
+					</select>
+				</div>
+			</>
+		);
+	}
+
+	updateValues( updateState ) {
+		this.setState( { value : updateState } )
+		this.props.control.setting.set( updateState );
+	}
+}
 
 SelectComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( SelectComponent );
+export default SelectComponent;

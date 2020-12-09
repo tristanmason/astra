@@ -154,7 +154,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'             => 'section-separator',
 					'type'             => 'section',
-					'ast_type'         => 'ast-section-separator',
 					'priority'         => 70,
 					'section_callback' => 'Astra_WP_Customize_Separator',
 				),
@@ -362,6 +361,16 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'priority' => 10,
 					'title'    => __( 'Transparent Header Button', 'astra' ),
 					'section'  => 'section-header-button',
+				),
+
+				/**
+				 * Widget Areas Section
+				 */
+				array(
+					'name'     => 'section-widget-areas',
+					'type'     => 'section',
+					'priority' => 55,
+					'title'    => __( 'Widget Areas', 'astra' ),
 				),
 
 			);
