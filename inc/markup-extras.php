@@ -390,10 +390,9 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 *
 	 * @since 1.0.0
 	 * @param  string $option   Search Option name.
-	 * @param  string $device   Device name.
 	 * @return mixed Search HTML structure created.
 	 */
-	function astra_get_search( $option = '', $device = '' ) {
+	function astra_get_search( $option = '' ) {
 		ob_start();
 		?>
 		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" role="search" tabindex="-1">
@@ -407,7 +406,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 		<?php
 		$search_html = ob_get_clean();
 
-		return apply_filters( 'astra_get_search', $search_html, $option, $device );
+		return apply_filters( 'astra_get_search', $search_html, $option );
 	}
 }
 
@@ -1011,7 +1010,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$mobile_header_brakpoint = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? astra_get_tablet_breakpoint() : astra_get_option( 'mobile-header-breakpoint', 921 );
+		$mobile_header_brakpoint = astra_get_option( 'mobile-header-breakpoint', 921 );
 		return absint( apply_filters( 'astra_header_break_point', $mobile_header_brakpoint ) );
 	}
 }
@@ -1074,7 +1073,6 @@ function astra_get_header_classes() {
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
 		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
-		$builder_menu_mobile_target    = astra_get_option( 'header-builder-menu-toggle-target', 'icon' );
 
 	if ( '' !== $submenu_container_animation ) {
 		$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
@@ -1109,11 +1107,7 @@ function astra_get_header_classes() {
 		$classes[] = 'ast-hide-custom-menu-mobile';
 	}
 
-	if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-		$classes[] = 'ast-builder-menu-toggle-' . $builder_menu_mobile_target;
-	} else {
-		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
-	}
+	$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
 
 	$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 

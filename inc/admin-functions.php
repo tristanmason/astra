@@ -23,44 +23,14 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 	function astra_register_menu_locations() {
 
 		/**
-		 * Primary Menus
+		 * Menus
 		 */
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'astra' ),
-			)
-		);
-
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
-			/**
-			 * Register the Secondary & Mobile menus.
-			 */
-			register_nav_menus(
-				array(
-					'secondary_menu' => __( 'Secondary Menu', 'astra' ),
-				)
-			);
-
-
-			for ( $index = 3; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
-				register_nav_menus(
-					array(
-						'menu_' . $index => __( 'Menu ', 'astra' ) . $index,
-					)
-				);
-			}       
-		}
-
-		/**
-		 * Footer Menus
-		 */
-		register_nav_menus(
-			array(
+				'primary'     => __( 'Primary Menu', 'astra' ),
 				'footer_menu' => __( 'Footer Menu', 'astra' ),
 			)
 		);
-
 	}
 }
 

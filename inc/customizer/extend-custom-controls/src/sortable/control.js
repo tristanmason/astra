@@ -9,7 +9,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		'use strict';
 
-		let control = this;
+		var control = this;
 
 		// Set the sortable container.
 		control.sortableContainer = control.container.find( 'ul.sortable' ).first();
@@ -41,8 +41,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		'use strict';
 
-		let control = this,
-		choices = control.params.choices,
+		var control = this,
 		newValue = [];
 
 		this.sortableContainer.find( 'li' ).each( function() {

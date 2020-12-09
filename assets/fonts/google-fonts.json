@@ -587,12 +587,8 @@
         "Arimo": {
             "variants": [
                 "regular",
-                "500",
-                "600",
-                "700",
                 "italic",
-                "500italic",
-                "600italic",
+                "700",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -1867,15 +1863,6 @@
                 "regular"
             ],
             "category": "display"
-        }
-    },
-    {
-        "Castoro": {
-            "variants": [
-                "regular",
-                "italic"
-            ],
-            "category": "serif"
         }
     },
     {
@@ -4662,18 +4649,14 @@
         "Josefin Slab": {
             "variants": [
                 "100",
-                "200",
-                "300",
-                "regular",
-                "500",
-                "600",
-                "700",
                 "100italic",
-                "200italic",
+                "300",
                 "300italic",
+                "regular",
                 "italic",
-                "500italic",
+                "600",
                 "600italic",
+                "700",
                 "700italic"
             ],
             "category": "serif"
@@ -4871,20 +4854,10 @@
     {
         "Karla": {
             "variants": [
-                "200",
-                "300",
                 "regular",
-                "500",
-                "600",
-                "700",
-                "800",
-                "200italic",
-                "300italic",
                 "italic",
-                "500italic",
-                "600italic",
-                "700italic",
-                "800italic"
+                "700",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -6657,14 +6630,6 @@
     },
     {
         "Nanum Pen Script": {
-            "variants": [
-                "regular"
-            ],
-            "category": "handwriting"
-        }
-    },
-    {
-        "Nerko One": {
             "variants": [
                 "regular"
             ],
@@ -9726,31 +9691,6 @@
                 "regular"
             ],
             "category": "sans-serif"
-        }
-    },
-    {
-        "Texturina": {
-            "variants": [
-                "100",
-                "200",
-                "300",
-                "regular",
-                "500",
-                "600",
-                "700",
-                "800",
-                "900",
-                "100italic",
-                "200italic",
-                "300italic",
-                "italic",
-                "500italic",
-                "600italic",
-                "700italic",
-                "800italic",
-                "900italic"
-            ],
-            "category": "serif"
         }
     },
     {
