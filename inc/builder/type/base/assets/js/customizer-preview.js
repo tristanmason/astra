@@ -665,6 +665,9 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 			selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper'
 		);
 
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector );
+
 		( function ( index ) {
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-layout]', function ( value ) {
 				value.bind( function ( newval ) {

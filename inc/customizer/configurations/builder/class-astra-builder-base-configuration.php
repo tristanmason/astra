@@ -167,6 +167,7 @@ final class Astra_Builder_Base_Configuration {
 	 * Prepare Visibility options.
 	 *
 	 * @param string $_section section id.
+	 * @param string $builder_type Builder Type.
 	 * @return array
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
@@ -237,7 +238,7 @@ final class Astra_Builder_Base_Configuration {
 					'context'   => Astra_Builder_Helper::$desktop_general_tab,
 				),
 			);
-			$configs = array_merge( $configs, $footer_configs );
+			$configs        = array_merge( $configs, $footer_configs );
 		}
 
 		return $configs;

@@ -152,9 +152,7 @@ class Astra_Html_Component_Dynamic_CSS {
 
 			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 
-			if ( 'header' === $builder_type ) {
-				$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
-			}
+			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
 		}
 
 		return $generated_css;
