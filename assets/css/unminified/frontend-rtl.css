@@ -2072,38 +2072,6 @@ textarea,
   font-weight: normal;
 }
 
-/*----------  Elements ----------*/
-/**
- * 2 - Social Follow
- */
-.ast-social-icons {
-  list-style-type: none;
-  margin: 0;
-}
-
-.ast-social-icons li {
-  display: inline-block;
-  padding-left: 15px;
-}
-
-.ast-social-icons li:last-child {
-  padding-left: 0;
-}
-
-.ast-social-icons a {
-  display: block;
-}
-
-.ast-social-icons i {
-  font-style: normal;
-  font-family: fontawesome;
-  font-weight: normal;
-}
-
-.ast-social-icons i:before {
-  font-weight: normal;
-}
-
 /*----------  Media ----------*/
 .single .entry-content .gallery {
   margin-right: -10px;
