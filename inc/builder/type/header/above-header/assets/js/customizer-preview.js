@@ -22,7 +22,7 @@
 				dynamicStyle += 'min-height: ' + size.desktop + 'px;';
 				dynamicStyle += '} ';
 				dynamicStyle += '.ast-desktop .ast-above-header-bar .main-header-menu > .menu-item {';
-				dynamicStyle += 'height: ' + size.desktop + 'px;';
+				dynamicStyle += 'line-height: ' + size.desktop + 'px;';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
