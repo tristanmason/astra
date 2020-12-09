@@ -42,13 +42,16 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$content_width           = astra_get_option( 'site-content-width' );
 	$inner_spacing           = astra_get_option( 'hbb-inner-spacing' );
 
+	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
+	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
+	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
 
 	$css_output_desktop = array(
 
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
 		$selector . ' .ast-builder-grid-row' => array(
 			'align-items'     => astra_get_option( 'hbb-footer-vertical-alignment' ),
-			'grid-column-gap' => astra_get_css_value( $inner_spacing, 'px' ),
+			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
 		),
 
 	);
@@ -66,11 +69,19 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 
 	$css_output_tablet = array(
 
-		$selector => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),
+		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),
+		$selector . ' .ast-builder-grid-row' => array(
+			'grid-column-gap' => astra_get_css_value( $inner_spacing_tablet, 'px' ),
+			'grid-row-gap'    => astra_get_css_value( $inner_spacing_tablet, 'px' ),
+		),
 	);
 	$css_output_mobile = array(
 
-		$selector => astra_get_responsive_background_obj( $footer_bg, 'mobile' ),
+		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'mobile' ),
+		$selector . ' .ast-builder-grid-row' => array(
+			'grid-column-gap' => astra_get_css_value( $inner_spacing_mobile, 'px' ),
+			'grid-row-gap'    => astra_get_css_value( $inner_spacing_mobile, 'px' ),
+		),
 	);
 
 	if ( isset( $footer_width ) && 'content' === $footer_width ) {

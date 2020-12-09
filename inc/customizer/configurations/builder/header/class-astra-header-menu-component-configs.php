@@ -58,7 +58,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Header Builder Tabs
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+						'name'        => $_section . '-ast-context-tabs',
 						'section'     => $_section,
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',
@@ -184,15 +184,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'      => 'control',
 						'control'   => 'ast-color',
 						'transport' => 'postMessage',
-						'required'  => array(
-							ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
-							'==',
-							true,
-						),
 						'title'     => __( 'Divider Color', 'astra' ),
 						'section'   => $_section,
 						'priority'  => 40,
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'context'   => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						),
 					),
 
 					// Option: Menu Stack on Mobile Checkbox.
@@ -510,6 +512,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'        => Astra_Builder_Helper::$design_tab,
 					),
 				);
+
+				$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 				$html_config[] = $_configs;
 			}
