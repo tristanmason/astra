@@ -54,7 +54,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Header Builder - Mobile Defaults.
 	 */
 	$defaults['header-mobile-items'] = array(
-		'popup'   => array( 'popup_content' => array( 'menu-1' ) ),
+		'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
 		'above'   =>
 			array(
 				'above_left'   => array(),
