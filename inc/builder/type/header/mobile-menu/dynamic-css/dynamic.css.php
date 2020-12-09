@@ -32,7 +32,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$_section = 'section-header-mobile-menu';
 
-	$selector = '.ast-builder-menu-mobile';
+	$selector = '.ast-builder-menu-mobile .main-navigation';
 
 	// Theme color.
 	$theme_color = astra_get_option( 'theme-color' );
@@ -118,7 +118,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		$selector                                          => array(
 			'font-size' => astra_get_font_css_value( $menu_font_size_tablet, $menu_font_size_tablet_unit ),
 		),
-		$selector . ' .main-navigation .main-header-menu .menu-item > .menu-link' => array(
+		$selector . ' .main-header-menu .menu-item > .menu-link' => array(
 			'color'          => $menu_resp_color_tablet,
 			'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
 			'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'tablet' ),
@@ -206,28 +206,41 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	if ( true === $sub_menu_divider_toggle ) {
 
-		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
+		$css_output_common[ $selector . ' .menu-item .sub-menu .menu-link' ]                       = array(
 			'border-bottom-width' => '1px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
-		$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link']    = array(
+		$css_output_common[ $selector . ' .menu-item .sub-menu .menu-item:last-child .menu-link' ] = array(
 			'border-style' => 'none',
 		);
-		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
+
+		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ]                                = array(
 			'border-bottom-width' => '1px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
-		$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link']    = array(
+		$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link'] = array(
+			'border-style' => 'none',
+		);
+		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ]                                = array(
+			'border-bottom-width' => '1px',
+			'border-color'        => $sub_menu_divider_color,
+			'border-style'        => 'solid',
+		);
+		$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link'] = array(
 			'border-style' => 'none',
 		);
 	} else {
 
-		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
+		$css_output_common[ '.ast-builder-menu-' . $index . ' .menu-item .sub-menu .menu-link' ] = array(
 			'border-style' => 'none',
 		);
-		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
+
+		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ] = array(
+			'border-style' => 'none',
+		);
+		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ] = array(
 			'border-style' => 'none',
 		);
 	}
