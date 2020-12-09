@@ -14,7 +14,7 @@ if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 	$row = get_query_var( 'row' );
 }
 
-if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
+if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 
 	$option  = ( 'above' === $row ) ? 'hba' : ( ( 'below' === $row ) ? 'hbb' : 'hb' );
 	$columns = astra_get_option( $option . '-footer-column' );
@@ -30,6 +30,11 @@ if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
 		if ( is_customize_preview() ) {
 			Astra_Builder_UI_Controller::render_grid_row_customizer_edit_button( 'Footer', $row );
 		}
+
+		/**
+		 * Astra Render before Site container of Footer.
+		 */
+		do_action( "astra_footer_{$row}_container_before" );
 		?>
 		<div class="site-container">
 			<div class="ast-builder-footer-grid-columns site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap ast-builder-grid-row">
@@ -44,6 +49,12 @@ if ( Astra_Builder_helper::is_footer_row_empty( $row ) ) {
 			<?php } ?>
 			</div>
 		</div>
+		<?php
+		/**
+		 * Astra Render before Site container of Footer.
+		 */
+		do_action( "astra_footer_{$row}_container_after" );
+		?>
 	</div>
 </div>
 <?php } ?>

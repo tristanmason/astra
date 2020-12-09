@@ -103,6 +103,15 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 		}
 
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_divider; $index++ ) {
+
+			self::$footer_items[ 'divider-' . $index ] = array(
+				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_divider ) ? 'Divider' : 'Divider ' . $index,
+				'icon'    => 'minus',
+				'section' => 'section-fb-divider-' . $index,
+			);
+		}
+
 		$zone_base = array( 'above', 'primary', 'below' );
 
 		foreach ( $zone_base as $key => $base ) {
@@ -135,7 +144,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-footer-tabs]',
+				'name'        => 'section-footer-builder-layout-ast-context-tabs',
 				'section'     => 'section-footer-builder-layout',
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',

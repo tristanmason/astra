@@ -50,7 +50,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Header Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-above-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -67,7 +67,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'    => 30,
 					'title'       => __( 'Height', 'astra' ),
 					'type'        => 'control',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 30,
@@ -103,10 +103,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'section'   => $_section,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[hba-header-separator]', '>=', 1 ),
 					'priority'  => 50,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[hba-header-separator]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+					),
 				),
 
 				// Section: Above Header Color & Backgroud Heading.
@@ -136,6 +142,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 			return array_merge( $configurations, $_configs );
 		}
