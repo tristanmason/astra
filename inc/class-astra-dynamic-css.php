@@ -2926,18 +2926,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding-left: 2px;
 			}
 			
-			.ast-icon-shopping-cart:before {
-				content: "\f07a";
-			}
-			
-			.ast-icon-shopping-bag:before {
-				content: "\f290";
-			}
-			
-			.ast-icon-shopping-basket:before {
-				content: "\f291";
-			}
-			
 			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
 				display: none;
 			}
