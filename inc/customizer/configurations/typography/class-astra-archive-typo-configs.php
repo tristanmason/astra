@@ -43,7 +43,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 135,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -58,7 +57,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 140,
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(
@@ -70,7 +68,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 140,
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -161,3 +158,5 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 }
 
 new Astra_Archive_Typo_Configs();
+
+

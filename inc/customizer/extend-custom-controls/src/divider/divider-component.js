@@ -1,49 +1,61 @@
 import PropTypes from 'prop-types';
 
-import {Fragment} from '@wordpress/element';
+import { Component, Fragment } from '@wordpress/element';
 
-const DividerComponent = props => {
+class DividerComponent extends Component {
 
-	const {
-		caption,
-		separator,
-		label,
-		description
-	} = props.control.params;
+	render() {
 
-	let separatorHtml = null;
-	let captionHtml = null;
-	let labelHtml = null;
-	let descriptionHtml = null;
+        const {
+            caption,
+            separator,
+            label,
+            description
+        } = this.props.control.params
 
-	if (false !== separator) {
-		separatorHtml = <hr/>;
+        let separatorHtml   = null;
+        let captionHtml     = null;
+        let labelHtml       = null;
+        let descriptionHtml = null;
+
+        if( separator ){
+            separatorHtml = <hr />;
+        }
+
+        if( caption ){
+            captionHtml =  <span className="customize-control-caption">{ caption }</span>;
+        }
+
+        if( label ){
+            labelHtml = <span className="customize-control-title">{ label }</span>;
+        }
+
+        if( description ){
+            descriptionHtml = <span className="description customize-control-description">{ description }</span>;
+        }
+
+		return (
+			<Fragment>
+
+                { captionHtml }
+
+                { separatorHtml }
+
+                <label className="customizer-text">
+
+                    { labelHtml }
+
+                    { descriptionHtml }
+
+                </label>
+
+			</Fragment>
+		);
 	}
-
-	if (caption) {
-		captionHtml = <span className="customize-control-caption">{caption}</span>;
-	}
-
-	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
-	}
-
-	if (description) {
-		descriptionHtml = <span className="description customize-control-description">{description}</span>;
-	}
-
-	return <Fragment>
-		{captionHtml}
-		{separatorHtml}
-		<label className="customizer-text">
-			{labelHtml}
-			{descriptionHtml}
-		</label>
-	</Fragment>;
-};
+} 
 
 DividerComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( DividerComponent );
+export default DividerComponent; 

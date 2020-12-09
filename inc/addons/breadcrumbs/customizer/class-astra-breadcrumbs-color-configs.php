@@ -58,7 +58,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority' => 72,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/*
@@ -74,7 +73,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'priority'  => 72,
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(

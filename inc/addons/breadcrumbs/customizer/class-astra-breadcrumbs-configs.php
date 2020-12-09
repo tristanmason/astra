@@ -38,31 +38,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				'breadcrumb-list'
 			);
 
-			$_section = 'section-breadcrumb';
-
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-				$positions = array(
-					'none'                                 => __( 'None', 'astra' ),
-					'astra_header_primary_container_after' => __( 'Inside Header', 'astra' ),
-					'astra_header_after'                   => __( 'After Header', 'astra' ),
-					'astra_entry_top'                      => __( 'Before Title', 'astra' ),
-				);
-			} else {
-				$positions = array(
-					'none'                      => __( 'None', 'astra' ),
-					'astra_masthead_content'    => __( 'Inside Header', 'astra' ),
-					'astra_header_markup_after' => __( 'After Header', 'astra' ),
-					'astra_entry_top'           => __( 'Before Title', 'astra' ),
-				);
-			}
-
 			$_configs = array(
 
 				/*
 				 * Breadcrumb
 				 */
 				array(
-					'name'               => $_section,
+					'name'               => 'section-breadcrumb',
 					'type'               => 'section',
 					'priority'           => 20,
 					'title'              => __( 'Breadcrumb', 'astra' ),
@@ -88,17 +70,52 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 					'default'  => 'none',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'title'    => __( 'Position', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'priority' => 5,
-					'choices'  => $positions,
+					'choices'  => array(
+						'none'                      => __( 'None', 'astra' ),
+						'astra_masthead_content'    => __( 'Inside Header', 'astra' ),
+						'astra_header_markup_after' => __( 'After Header', 'astra' ),
+						'astra_entry_top'           => __( 'Before Title', 'astra' ),
+					),
 					'partial'  => array(
 						'selector'            => '.ast-breadcrumbs-wrapper .ast-breadcrumbs .trail-items',
 						'container_inclusive' => false,
 					),
-					'context'  => Astra_Builder_Helper::$general_tab,
+				),
+
+				/**
+				 * Option: Breadcrumb Source
+				 */
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
+					'default'         => 'default',
+					'section'         => 'section-breadcrumb',
+					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'title'           => __( 'Breadcrumb Source', 'astra' ),
+					'type'            => 'control',
+					'control'         => 'select',
+					'priority'        => 10,
+					'choices'         => $breadcrumb_source_list,
+					'active_callback' => array( $this, 'is_third_party_breadcrumb_active' ),
+				),
+
+				/**
+				 * Option: Breadcrumb Separator
+				 */
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
+					'type'            => 'control',
+					'control'         => 'text',
+					'section'         => 'section-breadcrumb',
+					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
+					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'priority'        => 15,
+					'title'           => __( 'Separator', 'astra' ),
+					'active_callback' => array( $this, 'is_selected_breadcrumb_active' ),
 				),
 
 				/**
@@ -108,12 +125,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-home-page]',
 					'default'  => astra_get_option( 'breadcrumb-disable-home-page' ),
 					'type'     => 'control',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Home Page?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -123,13 +139,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page]',
 					'default'     => astra_get_option( 'breadcrumb-disable-blog-posts-page' ),
 					'type'        => 'control',
-					'section'     => $_section,
+					'section'     => 'section-breadcrumb',
 					'description' => __( 'Latest posts page or when any page is selected as blog page', 'astra' ),
 					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'       => __( 'Disable on Blog / Posts Page?', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
-					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -139,12 +154,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-search]',
 					'default'  => astra_get_option( 'breadcrumb-disable-search' ),
 					'type'     => 'control',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Search?', 'astra' ),
 					'priority' => 30,
 					'control'  => 'checkbox',
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -154,12 +168,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-archive]',
 					'default'  => astra_get_option( 'breadcrumb-disable-archive' ),
 					'type'     => 'control',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Archive?', 'astra' ),
 					'priority' => 35,
 					'control'  => 'checkbox',
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -169,12 +182,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-page]',
 					'default'  => astra_get_option( 'breadcrumb-disable-single-page' ),
 					'type'     => 'control',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Single Page?', 'astra' ),
 					'priority' => 40,
 					'control'  => 'checkbox',
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -184,12 +196,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-post]',
 					'default'  => astra_get_option( 'breadcrumb-disable-single-post' ),
 					'type'     => 'control',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Single Post?', 'astra' ),
 					'priority' => 45,
 					'control'  => 'checkbox',
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -199,13 +210,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-singular]',
 					'default'     => astra_get_option( 'breadcrumb-disable-singular' ),
 					'type'        => 'control',
-					'section'     => $_section,
+					'section'     => 'section-breadcrumb',
 					'description' => __( 'All Pages, All Posts, All Attachments', 'astra' ),
 					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'       => __( 'Disable on Singular?', 'astra' ),
 					'priority'    => 50,
 					'control'     => 'checkbox',
-					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -215,12 +225,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-404-page]',
 					'default'  => astra_get_option( 'breadcrumb-disable-404-page' ),
 					'type'     => 'control',
-					'section'  => $_section,
+					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on 404 Page?', 'astra' ),
 					'priority' => 55,
 					'control'  => 'checkbox',
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -229,7 +238,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
 					'default'   => 'left',
-					'section'   => $_section,
+					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'     => __( 'Alignment', 'astra' ),
@@ -241,22 +250,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'center' => __( 'Center', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 * Option: breadcrumb Section Spacing
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-spacing-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Spacing', 'astra' ),
-					'priority' => 82,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -268,7 +261,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',
-					'priority'       => 83,
+					'priority'       => 70,
 					'title'          => __( 'Spacing', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
@@ -279,75 +272,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'required'       => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'section'        => $_section,
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'section'        => 'section-breadcrumb',
 				),
 			);
-
-
-			if ( $this->is_third_party_breadcrumb_active() ) {
-
-				array_push(
-					$_configs,
-					/**
-					* Option: Breadcrumb Source
-					*/
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
-						'default'  => 'default',
-						'section'  => $_section,
-						'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-						'title'    => __( 'Breadcrumb Source', 'astra' ),
-						'type'     => 'control',
-						'control'  => 'select',
-						'priority' => 10,
-						'choices'  => $breadcrumb_source_list,
-						'context'  => Astra_Builder_Helper::$general_tab,
-					)
-				);
-			}
-
-			if ( $this->is_selected_breadcrumb_active() ) {
-
-				array_push(
-					$_configs,
-					/**
-					 * Option: Breadcrumb Separator
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
-						'type'     => 'control',
-						'control'  => 'text',
-						'section'  => $_section,
-						'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
-						'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-						'priority' => 15,
-						'title'    => __( 'Separator', 'astra' ),
-						'context'  => Astra_Builder_Helper::$general_tab,
-					)
-				);
-			}
-
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
-				array_push(
-					$_configs,
-					/**
-					 * Option: Breadcrumb Tabs.
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-breadcrumb-tabs]',
-						'section'     => $_section,
-						'type'        => 'control',
-						'control'     => 'ast-builder-header-control',
-						'priority'    => 0,
-						'description' => '',
-						'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					)
-				);
-
-			}
-
 
 			return array_merge( $configurations, $_configs );
 

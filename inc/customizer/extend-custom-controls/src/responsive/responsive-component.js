@@ -1,138 +1,171 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import { Component } from '@wordpress/element';
 
-const ResponsiveComponent = props => {
+class ResponsiveComponent extends Component {
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	constructor( props ) {
 
-	const onInputChange = (device) => {
-		let updateState = {
-			...props_value
+		super( props );
+
+		let value = this.props.control.setting.get();
+
+		this.state = {
+			value: value,
 		};
-		updateState[device] = event.target.value;
-		props.control.setting.set(updateState);
-		setPropsValue(updateState);
-	};
 
-	const onSelectChange = (device) => {
+		this.renderInputHtml = this.renderInputHtml.bind(this);
+		this.onInputChange = this.onInputChange.bind(this);
+		this.onSelectChange = this.onSelectChange.bind(this);
+	}
+
+	onInputChange( device ) {
+
 		let updateState = {
-			...props_value
-		};
-		updateState[`${device}-unit`] = event.target.value;
-		props.control.setting.set(updateState);
-		setPropsValue(updateState);
-	};
+			...this.state.value
+		}
 
-	const renderInputHtml = (device, active = '', resp = true) => {
+		updateState[ device ]  = event.target.value;
+
+		this.updateValues( updateState );
+	}
+
+	onSelectChange( device ) {
+
+		let updateState = {
+			...this.state.value
+		}
+
+		updateState[ `${ device }-unit` ]  = event.target.value;
+
+		this.updateValues( updateState );
+	}
+
+	renderInputHtml( device, active='', resp=true ) {
+
 		const {
-			units
-		} = props.control.params;
-		let disabled = false;
+			units,
+		} = this.props.control.params
 
-		if (1 === units.length) {
+		var disabled = false;
+
+		if ( 1 === units.length ) {
 			disabled = true;
 		}
 
-		let optionsHtml = Object.keys(units).map(key => {
-			let html = <option key={key} value={key}>{units[key]}</option>;
+		let optionsHtml = Object.keys( units ).map( ( key ) => {
+
+			var html = (
+				<option key={ key } value={ key } >{ units[ key ] }</option>
+			);
 			return html;
-		});
+		} );
 
-		if (false === resp) {
-			return <>
-				<input key={device + 'input'} data-id={device}
-					   className={`ast-responsive-input ast-non-reponsive ${device} ${active}`} type="number"
-					   value={props_value[device]} onChange={() => {
-					onInputChange(device);
-				}}/>
-				<select key={device + 'select'} value={props_value[`${device}-unit`]}
-						className={`ast-responsive-select ${device}`} data-id={`${device}-unit`} disabled={disabled}
-						onChange={() => {
-							onSelectChange(device);
-						}}>
-					{optionsHtml}
+		if ( false === resp ) {
+
+			return (
+				<>
+					<input key={ device + 'input' } data-id={ device } className={ `ast-responsive-input ast-non-reponsive ${ device } ${ active }` } type="number" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+					<select key={ device + 'select' } value={ this.state.value[`${ device }-unit`] } className={ `ast-responsive-select ${ device }` } data-id={ `${ device }-unit` } disabled={ disabled } onChange={ () => { this.onSelectChange( device ) } } >
+						{ optionsHtml }
+					</select>
+				</>
+			);
+		}
+		return (
+			<>
+				<input  key={ device + 'input' } data-id={ device } className={ `ast-responsive-input ${ device } ${ active }` } type="number" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
+				<select key={ device + 'select' } value={ this.state.value[`${ device }-unit`] } className={ `ast-responsive-select ${ device }` } data-id={ `${ device }-unit` } disabled={ disabled } onChange={ () => { this.onSelectChange( device ) } } >
+					{ optionsHtml }
 				</select>
-			</>;
+			</>
+		);
+
+	}
+	render() {
+
+		const {
+			description,
+			label,
+			responsive,
+		} = this.props.control.params
+
+		let labelHtml = null;
+		let responsiveHtml = null;
+		let descriptionHtml = null;
+		let inputHtml = null;
+		let inputResponsiveHtml = null;
+
+		if ( label ) {
+
+			labelHtml = <span className="customize-control-title">{ label }</span>;
+
+			if ( responsive ) {
+
+				responsiveHtml = (
+					<ul key={ 'ast-resp-ul' } className="ast-responsive-btns">
+						<li key={ 'desktop' } className="desktop active">
+							<button type="button" className="preview-desktop" data-device="desktop">
+								<i className="dashicons dashicons-desktop"></i>
+							</button>
+						</li>
+						<li key={ 'tablet' } className="tablet">
+							<button type="button" className="preview-tablet" data-device="tablet">
+								<i className="dashicons dashicons-tablet"></i>
+							</button>
+						</li>
+						<li key={ 'mobile' } className="mobile">
+							<button type="button" className="preview-mobile" data-device="mobile">
+								<i className="dashicons dashicons-smartphone"></i>
+							</button>
+						</li>
+					</ul>
+				);
+
+			}
 		}
 
-		return <>
-			<input key={device + 'input'} data-id={device} className={`ast-responsive-input ${device} ${active}`}
-				   type="number" value={props_value[device]} onChange={() => {
-				onInputChange(device);
-			}}/>
-			<select key={device + 'select'} value={props_value[`${device}-unit`]}
-					className={`ast-responsive-select ${device}`} data-id={`${device}-unit`} disabled={disabled}
-					onChange={() => {
-						onSelectChange(device);
-					}}>
-				{optionsHtml}
-			</select>
-		</>;
-	};
+		if ( description ) {
 
-	const {
-		description,
-		label,
-		responsive
-	} = props.control.params;
-	let labelHtml = null;
-	let responsiveHtml = null;
-	let descriptionHtml = null;
-	let inputHtml = null;
-
-	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
-
-		if (responsive) {
-			responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-btns">
-				<li key={'desktop'} className="desktop active">
-					<button type="button" className="preview-desktop" data-device="desktop">
-						<i className="dashicons dashicons-desktop"></i>
-					</button>
-				</li>
-				<li key={'tablet'} className="tablet">
-					<button type="button" className="preview-tablet" data-device="tablet">
-						<i className="dashicons dashicons-tablet"></i>
-					</button>
-				</li>
-				<li key={'mobile'} className="mobile">
-					<button type="button" className="preview-mobile" data-device="mobile">
-						<i className="dashicons dashicons-smartphone"></i>
-					</button>
-				</li>
-			</ul>;
+			descriptionHtml = <span className="description customize-control-description">{ description }</span>
 		}
+
+		if ( responsive ) {
+
+			inputHtml = (
+				<>
+					{ this.renderInputHtml( 'desktop', 'active' ) }
+					{ this.renderInputHtml( 'tablet' ) }
+					{ this.renderInputHtml( 'mobile' ) }
+				</>
+			);
+		} else {
+			inputHtml = (
+				<>
+					{ this.renderInputHtml( 'desktop', 'active', false ) }
+				</>
+			);
+		}
+		return (
+			<label key={ 'customizer-text' } className="customizer-text" >
+				{ labelHtml }
+				{ responsiveHtml }
+				{ descriptionHtml }
+
+				<div className="input-wrapper ast-responsive-wrapper">
+					{ inputHtml }
+				</div>
+			</label>
+		);
 	}
 
-	if (description) {
-		descriptionHtml = <span className="description customize-control-description">{description}</span>;
+	updateValues( updateState ) {
+		this.setState( { value : updateState } )
+		this.props.control.setting.set( updateState );
 	}
-
-	if (responsive) {
-		inputHtml = <>
-			{renderInputHtml('desktop', 'active')}
-			{renderInputHtml('tablet')}
-			{renderInputHtml('mobile')}
-		</>;
-	} else {
-		inputHtml = <>
-			{renderInputHtml('desktop', 'active', false)}
-		</>;
-	}
-
-	return <label key={'customizer-text'} className="customizer-text">
-		{labelHtml}
-		{responsiveHtml}
-		{descriptionHtml}
-		<div className="input-wrapper ast-responsive-wrapper">
-			{inputHtml}
-		</div>
-	</label>;
-
-};
+}
 
 ResponsiveComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( ResponsiveComponent );
+export default ResponsiveComponent;

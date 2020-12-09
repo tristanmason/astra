@@ -1,7 +1,7 @@
 /**
  * Extending Customizer Control wp.customize.Control.
  *
- * @since 2.6.0
+ * @since x.x.x
  */
 export const coreControl = wp.customize.astraControl = wp.customize.Control.extend( {
 	/**
@@ -17,12 +17,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 * @constructs wp.customize.Control
 	 * @augments   wp.customize.Class
 	 *
-	 * @since 2.6.0
+	 * @since x.x.x
 	 *
 	 * @return {void}
 	 */
 	initialize: function( id, options ) {
-		let control = this,
+		var control = this,
 			args    = options || {};
 
 		args.params = args.params || {};
@@ -45,12 +45,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since 2.6.0
+	 * @since x.x.x
 	 *
 	 * @returns {void}
 	 */
 	ready: function() {
-		let control = this;
+		var control = this;
 		wp.customize.Control.prototype.ready.call( control );
 		control.deferred.embedded.done();
 	},
@@ -62,12 +62,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since 2.6.0
+	 * @since x.x.x
 	 *
 	 * @returns {void}
 	 */
 	embed: function() {
-		let control   = this,
+		var control   = this,
 			sectionId = control.section();
 
 		if ( ! sectionId ) {
@@ -93,12 +93,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since 2.6.0
+	 * @since x.x.x
 	 *
 	 * @returns {void}
 	 */
 	actuallyEmbed: function() {
-		let control = this;
+		var control = this;
 		if ( 'resolved' === control.deferred.embedded.state() ) {
 			return;
 		}
@@ -111,13 +111,13 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since 2.6.0
+	 * @since x.x.x
 	 *
 	 * @param {Object}   [params] - Params object.
 	 * @param {Function} [params.completeCallback] - Optional callback function when focus has completed.
 	 */
 	focus: function( params ) {
-		let control = this;
+		var control = this;
 		control.actuallyEmbed();
 		wp.customize.Control.prototype.focus.call( control, params );
 	},
