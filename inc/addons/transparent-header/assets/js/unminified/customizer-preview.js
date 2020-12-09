@@ -232,4 +232,22 @@
 	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-bg-h-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 
+	/** 
+	 * Mobile menu - Transparent CSS
+	 */
+
+	// Menu.
+	astra_color_responsive_css( 'transparent-header-mobile-menu-colors', 'astra-settings[transparent-mobile-menu-color-responsive]', 'color', '.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .ast-menu-toggle' );
+
+	astra_color_responsive_css( 'transparent-header-mobile-menu-bg', 'astra-settings[transparent-mobile-menu-bg-color-responsive]', 'background-color', '.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu' );
+
+	astra_color_responsive_css( 'transparent-header-mobile-menu-hover-colors', 'astra-settings[transparent-mobile-menu-h-color-responsive]', 'color', '.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item:hover > .ast-menu-toggle' );
+
+	// SubMenu
+	astra_color_responsive_css( 'transparent-header-mobile-submenu-bg', 'astra-settings[transparent-mobile-submenu-bg-color-responsive]', 'background-color', '.ast-header-break-point.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu' );
+
+	astra_color_responsive_css( 'transparent-header-mobile-submenu-color', 'astra-settings[transparent-mobile-submenu-color-responsive]', 'color', '.astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item .menu-link, .astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item > .ast-menu-toggle' );
+
+	astra_color_responsive_css( 'transparent-header-mobile-submenu-hover-color', 'astra-settings[transparent-mobile-submenu-h-color-responsive]', 'color', '.astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item:hover .menu-link, .astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item:hover > .ast-menu-toggle' );
+
 } )( jQuery );

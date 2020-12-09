@@ -2087,6 +2087,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
 				$divider_color = astra_get_option( 'transparent-header-divider-color' );
+				
+				/**
+				 * Mobile menu - Transparent Header.
+				 */
+
+				$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-mobile-menu-bg-color-responsive' ), 'tablet' );
+				$transparent_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-mobile-menu-color-responsive' ), 'tablet' );
+				$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-mobile-menu-h-color-responsive' ), 'tablet' );
+			
+				$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-mobile-menu-bg-color-responsive' ), 'mobile' );
+				$transparent_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-mobile-menu-color-responsive' ), 'mobile' );
+				$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-mobile-menu-h-color-responsive' ), 'mobile' );
+
+				$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-color-responsive' ), 'tablet' );
+				$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-h-color-responsive' ), 'tablet' );
+				$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-bg-color-responsive' ), 'tablet' );
+
+				$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-color-responsive' ), 'mobile' );
+				$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-h-color-responsive' ), 'mobile' );
+				$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-bg-color-responsive' ), 'mobile' );
 
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
@@ -2159,6 +2179,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['tablet'] ),
 					),
+					// Mobile Menu.
+					'.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .ast-menu-toggle' => array(
+						'color' => $transparent_menu_color_tablet,
+					),
+					'.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item:hover > .ast-menu-toggle' => array(
+						'color' => $transparent_menu_h_color_tablet,
+					),
+					'.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu' => array(
+						'background-color' => $transparent_menu_bg_color_tablet,
+					),
+					// Mobile Submenu.
+					'.astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item .menu-link, .astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item > .ast-menu-toggle' => array(
+						'color' => $transparent_sub_menu_color_tablet,
+					),
+					'.astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item:hover .menu-link, .astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item:hover > .ast-menu-toggle' => array(
+						'color' => $transparent_sub_menu_h_color_tablet,
+					),
+					'.ast-header-break-point.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu' => array(
+						'background-color' => $transparent_sub_menu_bg_color_tablet,
+					),
 				);
 
 				$parse_css .= astra_parse_css( $transparent_header_builder_tablet_css, '', astra_get_tablet_breakpoint() );
@@ -2178,6 +2218,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['mobile'] ),
+					),
+					// Mobile Menu.
+					'.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .ast-menu-toggle' => array(
+						'color' => $transparent_menu_color_mobile,
+					),
+					'.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item:hover > .ast-menu-toggle' => array(
+						'color' => $transparent_menu_h_color_mobile,
+					),
+					'.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu' => array(
+						'background-color' => $transparent_menu_bg_color_mobile,
+					),
+					// Mobile Submenu.
+					'.astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item .menu-link, .astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item > .ast-menu-toggle' => array(
+						'color' => $transparent_sub_menu_color_mobile,
+					),
+					'.astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item:hover .menu-link, .astra-hfb-header.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu .menu-item:hover > .ast-menu-toggle' => array(
+						'color' => $transparent_sub_menu_h_color_mobile,
+					),
+					'.ast-header-break-point.ast-theme-transparent-header.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .sub-menu' => array(
+						'background-color' => $transparent_sub_menu_bg_color_mobile,
 					),
 				);
 
