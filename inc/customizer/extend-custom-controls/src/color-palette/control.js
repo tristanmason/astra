@@ -2,7 +2,7 @@ import ColorPaletteComponent from './color-palette.js';
 
 export const colorPaletteControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
-		let control = this;
+		let control = this;		
 		ReactDOM.render(  <ColorPaletteComponent control={ control } />, control.container[0] );
 	},
 	ready : function() {

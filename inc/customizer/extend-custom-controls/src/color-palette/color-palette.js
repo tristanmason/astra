@@ -13,6 +13,7 @@ const ColorPaletteComponent = props => {
 	let value = props.control.setting.get();
 
 	let defaultValue = props.control.params.default;
+console.log(defaultValue);
 
 	const {		
 		label,
@@ -76,7 +77,7 @@ const ColorPaletteComponent = props => {
 				...pattern1[index]
 			}
 			
-			pattern1_index['color']= value
+			pattern1_index= value
 			pattern1[index] = pattern1_index
 			obj['pattern1'] = pattern1
 		}else if(patterntype == "pattern2"){
@@ -87,7 +88,7 @@ const ColorPaletteComponent = props => {
 				...pattern2[index]
 			}
 			
-			pattern2_index['color']= value
+			pattern2_index= value
 			pattern2[index] = pattern2_index
 			obj['pattern2'] = pattern2
 		}
@@ -102,16 +103,16 @@ console.log(state);
 			<div className="ast-color-palette1-wrap">
 				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
 					<AstraColorPickerControl
-						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[0]['color'] : ''}
+						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[0] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',0)}
 						backgroundType = { 'color' }
 						allowGradient={ false }
-						allowImage={ false }					
+						allowImage={ false }											
 					/>
 				</div>
 				<div className="ast-color-picker-palette-2 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[1]['color'] : ''}
+						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[1] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',1)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -120,7 +121,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-3 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[2]['color'] : ''}
+						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[2] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',2)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -129,7 +130,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-4 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[3]['color'] : ''}
+						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[3] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',3)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -138,7 +139,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-5 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern1 && state.pattern1 ?  state.pattern1[4]['color']  : ''}
+						color={undefined !== state.pattern1 && state.pattern1 ?  state.pattern1[4]  : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',4)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -153,7 +154,7 @@ console.log(state);
 		<div className="ast-color-palette2-wrap">			
 				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
 					<AstraColorPickerControl
-						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[0]['color'] : ''}
+						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[0] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',0)}
 						backgroundType = { 'color' }
 						allowGradient={ false }
@@ -162,7 +163,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-2 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[1]['color'] : ''}
+						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[1] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',1)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -171,7 +172,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-3 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[2]['color'] : ''}
+						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[2] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',2)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -180,7 +181,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-4 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[3]['color'] : ''}
+						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[3] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',3)}
 						backgroundType={'color'}
 						allowGradient={false}
@@ -189,7 +190,7 @@ console.log(state);
 				</div>
 				<div className="ast-color-picker-palette-5 ast-color-palette-inline" >
 					<AstraColorPickerControl 
-						color={undefined !== state.pattern2 && state.pattern2 ?  state.pattern2[4]['color']  : ''}
+						color={undefined !== state.pattern2 && state.pattern2 ?  state.pattern2[4]  : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',4)}
 						backgroundType={'color'}
 						allowGradient={false}

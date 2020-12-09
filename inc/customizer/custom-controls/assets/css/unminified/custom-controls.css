@@ -236,27 +236,27 @@
 }
 
 .ast-color-picker-palette-1 .color-button-wrap {
-  right: 166px;
+  right: 142px;
 }
 
 .ast-color-picker-palette-2 .color-button-wrap {
-  right: 126px;
+  right: 105px;
 }
 
 .ast-color-picker-palette-3 .color-button-wrap {
-  right: 86px;
+  right: 67px;
 }
 
 .ast-color-picker-palette-4 .color-button-wrap {
-  right: 46px;
+  right: 29px;
 }
 
 .ast-color-picker-palette-5 .color-button-wrap {
-  right: 5px;
+  right: -7px;
 }
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette-type {
-  width: 30%;
+  width: 32%;
   display: block;
 }
 
