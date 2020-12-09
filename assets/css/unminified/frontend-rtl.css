@@ -2059,38 +2059,6 @@ textarea,
   font-weight: normal;
 }
 
-/*----------  Elements ----------*/
-/**
- * 2 - Social Follow
- */
-.ast-social-icons {
-  list-style-type: none;
-  margin: 0;
-}
-
-.ast-social-icons li {
-  display: inline-block;
-  padding-left: 15px;
-}
-
-.ast-social-icons li:last-child {
-  padding-left: 0;
-}
-
-.ast-social-icons a {
-  display: block;
-}
-
-.ast-social-icons i {
-  font-style: normal;
-  font-family: fontawesome;
-  font-weight: normal;
-}
-
-.ast-social-icons i:before {
-  font-weight: normal;
-}
-
 /*----------  Media ----------*/
 .single .entry-content .gallery {
   margin-right: -10px;
@@ -2372,8 +2340,6 @@ body {
 }
 
 .main-navigation {
-  -js-display: inline-flex;
-  display: inline-flex;
   height: 100%;
 }
 
@@ -2624,10 +2590,6 @@ body {
 
 .ast-button-wrap .menu-toggle:focus {
   outline: thin dotted;
-}
-
-.main-header-bar-navigation {
-  flex: 1;
 }
 
 .header-main-layout-1 .ast-main-header-bar-alignment {
@@ -3225,8 +3187,6 @@ body .entry-content .wp-block-latest-posts li {
 .footer-widget-area.ast-footer-divider-element {
   position: relative;
   align-items: center;
-  -js-display: flex;
-  display: flex;
 }
 
 .ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
@@ -3258,8 +3218,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-builder-layout-element {
   align-items: center;
-  -js-display: flex;
-  display: flex;
 }
 
 .ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:first-child {
@@ -3271,8 +3229,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-builder-grid-row.ast-grid-center-col-layout-only {
-  -js-display: flex;
-  display: flex;
   height: 100%;
   justify-content: center;
 }
@@ -3282,8 +3238,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .site-header-section {
-  -js-display: flex;
-  display: flex;
   height: 100%;
   min-height: 0;
   align-items: center;
@@ -3306,8 +3260,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .site-header-section .ast-builder-menu {
-  -js-display: flex;
-  display: flex;
   align-items: center;
 }
 
@@ -3386,8 +3338,6 @@ body .entry-content .wp-block-latest-posts li {
  * Social Widget.
  */
 .ast-builder-social-element {
-  -js-display: inline-flex;
-  display: inline-flex;
   line-height: 1;
   color: #3a3a3a;
   background: transparent;
@@ -3417,8 +3367,6 @@ body .entry-content .wp-block-latest-posts li {
   width: 17px;
   height: 17px;
   transition: none;
-  -js-display: flex;
-  display: flex;
 }
 
 .ahfb-svg-iconset svg > * {
