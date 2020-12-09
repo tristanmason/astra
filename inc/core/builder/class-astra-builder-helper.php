@@ -103,7 +103,7 @@ final class Astra_Builder_Helper {
 	 *
 	 * @var string[][]
 	 */
-	public static $mobile_general_tab = array(
+	public static $responsive_general_tab = array(
 		array(
 			'setting' => 'ast_selected_tab',
 			'value'   => 'general',
@@ -112,6 +112,40 @@ final class Astra_Builder_Helper {
 			'setting'  => 'ast_selected_device',
 			'operator' => 'in',
 			'value'    => array( 'tablet', 'mobile' ),
+		),
+	);
+
+	/**
+	 * Config Tablet device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $tablet_general_tab = array(
+		array(
+			'setting' => 'ast_selected_tab',
+			'value'   => 'general',
+		),
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => '==',
+			'value'    => 'tablet',
+		),
+	);
+
+	/**
+	 * Config Mobile device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $mobile_general_tab = array(
+		array(
+			'setting' => 'ast_selected_tab',
+			'value'   => 'general',
+		),
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => '==',
+			'value'    => 'mobile',
 		),
 	);
 
