@@ -2198,7 +2198,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::get_single_post_comment_css() );
 			}
 			
-			if( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
+			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
@@ -2854,14 +2854,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 		
 		/** 
-		* Load static card(EDD/Woo) CSS.
-		*
-		* @since 3.0.0
-		* @return string static css for Woocommerce and EDD card.
-		*/
+		 * Load static card(EDD/Woo) CSS.
+		 *
+		 * @since 3.0.0
+		 * @return string static css for Woocommerce and EDD card.
+		 */
 		public static function load_cart_static_css() {
 
-			return'
+			return '
 			.ast-site-header-cart .cart-container {
 				transition: all 0.2s linear;
 			}
@@ -2887,7 +2887,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			
 			.ast-site-header-cart i.astra-icon:before {
-				font-family: 'Astra';
+				font-family: \'Astra\';
 			}
 			
 			.ast-site-header-cart i.astra-icon.no-cart-total:after {
@@ -2983,8 +2983,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			
 			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap {
 				display: none;
-			}
-			';
+			}';
 		}
 	}
 }
