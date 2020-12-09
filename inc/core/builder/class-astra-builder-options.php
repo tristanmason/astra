@@ -1438,25 +1438,25 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-label-line-height']    = '';
 	$defaults['mobile-header-label-font-size']      = '';
 
-	/**	
+	/** 
 	 * Global Color Palette.
 	 */
-	$defaults['global-color-palette'] = array (
-		"pattern1" => array(
-			array("color"=>"#442288"),
-			array("color"=>"#6CA2EA"),
-			array("color"=>"#B5D33D"),
-			array("color"=>"#FED23F"),
-			array("color"=>"#EB7D5B"),
+	$defaults['global-color-palette'] = array(
+		'pattern1'    => array(
+			array( 'color' => '#442288' ),
+			array( 'color' => '#6CA2EA' ),
+			array( 'color' => '#B5D33D' ),
+			array( 'color' => '#FED23F' ),
+			array( 'color' => '#EB7D5B' ),
 		),
-		"pattern2" => array(
-			array("color"=>"#CD5C5C"),
-			array("color"=>"#F08080"),
-			array("color"=>"#FA8072"),
-			array("color"=>"#E9967A"),
-			array("color"=>"#FFA07A"),
+		'pattern2'    => array(
+			array( 'color' => '#CD5C5C' ),
+			array( 'color' => '#F08080' ),
+			array( 'color' => '#FA8072' ),
+			array( 'color' => '#E9967A' ),
+			array( 'color' => '#FFA07A' ),
 		),
-		"patterntype"=>"pattern1"
+		'patterntype' => 'pattern1',
 	);
 	/**
 	 * Woo-Cart.
