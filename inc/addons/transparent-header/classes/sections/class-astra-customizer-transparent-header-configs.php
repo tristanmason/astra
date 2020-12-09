@@ -825,6 +825,140 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'title'     => __( 'Color', 'astra' ),
 						'context'   => Astra_Builder_Helper::$general_tab,
 					),
+					/**
+					 * Mobile menu - Transparent Header Configs.
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-menu]',
+						'default'   => astra_get_option( 'transparent-header-colors-mobile-menu' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Mobile Menu', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'priority'  => 35,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+	
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-submenu]',
+						'default'   => astra_get_option( 'transparent-header-colors-mobile-submenu' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Mobile Submenu', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'priority'  => 35,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					/**
+					 * Option: Primary Menu Color
+					 */
+					array(
+						'name'       => 'transparent-mobile-menu-color-responsive',
+						'default'    => astra_get_option( 'transparent-mobile-menu-color-responsive' ),
+						'type'       => 'sub-control',
+						'priority'   => 2,
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-menu]',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Normal', 'astra' ),
+						'title'      => __( 'Link / Text Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
+
+					/**
+					 * Option: Menu Background Color
+					 */
+					array(
+						'name'       => 'transparent-mobile-menu-bg-color-responsive',
+						'default'    => astra_get_option( 'transparent-mobile-menu-bg-color-responsive' ),
+						'type'       => 'sub-control',
+						'priority'   => 3,
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-menu]',
+						'section'    => 'section-transparent-header',
+						'transport'  => 'postMessage',
+						'control'    => 'ast-responsive-color',
+						'tab'        => __( 'Normal', 'astra' ),
+						'title'      => __( 'Background Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
+
+					/**
+					 * Option: Menu Hover Color
+					 */
+					array(
+						'name'       => 'transparent-mobile-menu-h-color-responsive',
+						'default'    => astra_get_option( 'transparent-mobile-menu-h-color-responsive' ),
+						'type'       => 'sub-control',
+						'priority'   => 3,
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-menu]',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Hover', 'astra' ),
+						'title'      => __( 'Link Active / Hover Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
+
+					/**
+					 * Option: Sub menu text color.
+					 */
+					array(
+						'name'       => 'transparent-mobile-submenu-color-responsive',
+						'default'    => astra_get_option( 'transparent-mobile-submenu-color-responsive' ),
+						'type'       => 'sub-control',
+						'priority'   => 3,
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-submenu]',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Normal', 'astra' ),
+						'title'      => __( 'Link / Text Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
+
+					/**
+					 * Option: Sub menu background color.
+					 */
+					array(
+						'name'       => 'transparent-mobile-submenu-bg-color-responsive',
+						'default'    => astra_get_option( 'transparent-mobile-submenu-bg-color-responsive' ),
+						'type'       => 'sub-control',
+						'priority'   => 4,
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-submenu]',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Normal', 'astra' ),
+						'title'      => __( 'Background Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
+
+					/**
+					 * Option: Sub menu active hover color.
+					 */
+					array(
+						'name'       => 'transparent-mobile-submenu-h-color-responsive',
+						'default'    => astra_get_option( 'transparent-mobile-submenu-h-color-responsive' ),
+						'type'       => 'sub-control',
+						'priority'   => 3,
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-mobile-submenu]',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Hover', 'astra' ),
+						'title'      => __( 'Link Active / Hover Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
