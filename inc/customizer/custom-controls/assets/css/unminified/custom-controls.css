@@ -2050,6 +2050,10 @@ input[type="text"].select2-search__field {
   min-height: 385px;
 }
 
+.ast-field-settings-modal .components-angle-picker-control .components-flex__block {
+  min-width: auto;
+}
+
 .customize-control-ast-slider .wrapper {
   position: relative;
   display: -webkit-box;
