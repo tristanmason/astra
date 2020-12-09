@@ -77,7 +77,7 @@ class Astra_Header_Menu_Component {
 		 * @since  3.0.0
 		 * @var Array
 		 */
-		$menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $submenu_class, $stack_on_mobile_class ) );
+		$menu_classes = apply_filters( 'astra_' . $theme_location . '_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $submenu_class, $stack_on_mobile_class ) );
 
 		$items_wrap  = '<nav ';
 		$items_wrap .= astra_attr(

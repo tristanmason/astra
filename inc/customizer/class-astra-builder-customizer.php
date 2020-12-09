@@ -20,8 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 final class Astra_Builder_Customizer {
 
-
-
 	/**
 	 * Constructor
 	 *
@@ -30,6 +28,7 @@ final class Astra_Builder_Customizer {
 	public function __construct() {
 
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
+		add_action( 'customize_register', array( $this, 'woo_header_configs' ), 2 );
 
 		if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			return;
@@ -261,6 +260,14 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
 
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			require_once $header_components_path . '/woo-cart/class-astra-header-woo-cart-component.php';
+		}
+
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			require_once $header_components_path . '/edd-cart/class-astra-header-edd-cart-component.php';
+		}
+
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
@@ -323,6 +330,15 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
+
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';
+		}
+
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
+		}
+
 		require_once $header_config_path . '/class-astra-header-divider-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
@@ -347,6 +363,27 @@ final class Astra_Builder_Customizer {
 		require_once $footer_config_path . '/class-astra-footer-button-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-widget-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-divider-component-configs.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+	}
+
+	/**
+	 * Register Woocommerce controls for new and old Header Builder.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @since 3.0.0
+	 */
+	public function woo_header_configs( $wp_customize ) {
+		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		$header_config_path = ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/header';
+
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';
+		}
+
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
+		}
+
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }
