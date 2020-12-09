@@ -17303,6 +17303,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/astra-color-picker-control */ "./src/common/astra-color-picker-control.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -17316,60 +17318,21 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var ColorPaletteComponent = function ColorPaletteComponent(props) {
-  // console.log(props);
   var value = props.control.setting.get();
   var defaultValue = props.control.params.default;
   var _props$control$params = props.control.params,
       label = _props$control$params.label,
       description = _props$control$params.description;
 
-  var _ref = value ? Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])(props.control.setting.get()) : Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
-    pattern1: [{
-      color: "#3b9e3b"
-    }, {
-      color: "#a74848"
-    }, {
-      color: "#eeee22"
-    }, {
-      color: "#1e73be"
-    }, {
-      color: "#8224e3"
-    }],
-    pattern2: [{
-      palette1: "blue"
-    }, {
-      palette2: "red"
-    }, {
-      palette3: "black"
-    }, {
-      palette4: "orange"
-    }, {
-      palette5: "yellow"
-    }]
-  }),
+  var _ref = value ? Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])(props.control.setting.get()) : Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])(defaultValue),
       _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref, 2),
       state = _ref2[0],
-      setState = _ref2[1]; // const [state, setState] = useState({
-  // 	pattern1: [
-  // 		{  color: "#3b9e3b" },
-  // 		{  color: "#a74848"	},
-  // 		{  color: "#eeee22"	},
-  // 		{  color: "#1e73be"	},
-  // 		{  color: "#8224e3"	},
-  // 	   ],
-  // 	pattern2: [
-  // 	{  palette1: "blue" },
-  // 	{  palette2: "red"	},
-  // 	{  palette3: "black"	},
-  // 	{  palette4: "orange"	},
-  // 	{  palette5: "yellow"	},
-  // 	]
-  // });
-
+      setState = _ref2[1];
 
   var labelHtml = null;
-  var descriptionHtml = null; // console.log(state.pattern1[0]['palette1']);
+  var descriptionHtml = null;
 
   if (label) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
@@ -17383,6 +17346,14 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     }, description);
   } // console.log(props);
 
+
+  var handleSelectChange = function handleSelectChange(value) {
+    var obj = _objectSpread({}, state);
+
+    obj['patterntype'] = value;
+    setState(obj);
+    props.control.setting.set(obj);
+  };
 
   var handleChangeComplete = function handleChangeComplete(color, patterntype, index) {
     var value;
@@ -17409,6 +17380,14 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       pattern1_index['color'] = value;
       pattern1[index] = pattern1_index;
       obj['pattern1'] = pattern1;
+    } else if (patterntype == "pattern2") {
+      var pattern2 = _objectSpread({}, obj.pattern2);
+
+      var pattern2_index = _objectSpread({}, pattern2[index]);
+
+      pattern2_index['color'] = value;
+      pattern2[index] = pattern2_index;
+      obj['pattern2'] = pattern2;
     }
 
     setState(obj);
@@ -17416,7 +17395,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   };
 
   console.log(state);
-  var palettehtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  var pattern1html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-palette1-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-picker-palette-1 ast-color-palette-inline"
@@ -17468,14 +17447,15 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     backgroundType: 'color',
     allowGradient: false,
     allowImage: false
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }))));
+  var pattern2html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-palette2-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-picker-palette-1 ast-color-palette-inline"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     color: undefined !== state.pattern2 && state.pattern2 ? state.pattern2[0]['color'] : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
-      return handleChangeComplete(color, 'pallete2');
+      return handleChangeComplete(color, 'pattern2', 0);
     },
     backgroundType: 'color',
     allowGradient: false,
@@ -17485,7 +17465,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     color: undefined !== state.pattern2 && state.pattern2 ? state.pattern2[1]['color'] : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
-      return handleChangeComplete(color, 'pallete2');
+      return handleChangeComplete(color, 'pattern2', 1);
     },
     backgroundType: 'color',
     allowGradient: false,
@@ -17495,7 +17475,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     color: undefined !== state.pattern2 && state.pattern2 ? state.pattern2[2]['color'] : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
-      return handleChangeComplete(color, 'pallete2');
+      return handleChangeComplete(color, 'pattern2', 2);
     },
     backgroundType: 'color',
     allowGradient: false,
@@ -17505,7 +17485,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     color: undefined !== state.pattern2 && state.pattern2 ? state.pattern2[3]['color'] : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
-      return handleChangeComplete(color, 'pallete2');
+      return handleChangeComplete(color, 'pattern2', 3);
     },
     backgroundType: 'color',
     allowGradient: false,
@@ -17515,15 +17495,30 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     color: undefined !== state.pattern2 && state.pattern2 ? state.pattern2[4]['color'] : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
-      return handleChangeComplete(color, 'pallete2');
+      return handleChangeComplete(color, 'pattern2', 4);
     },
     backgroundType: 'color',
     allowGradient: false,
     allowImage: false
-  }))));
+  })));
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
     className: "customizer-text"
-  }, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, palettehtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, descriptionHtml));
+  }, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["SelectControl"], {
+    className: "ast-color-palette-type",
+    value: state.patterntype,
+    options: [{
+      label: 'Pattern 1',
+      value: 'pattern1'
+    }, {
+      label: 'Pattern 2',
+      value: 'pattern2'
+    }],
+    onChange: function onChange(value) {
+      return handleSelectChange(value);
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-color-palette-wrapper"
+  }, state.patterntype == "pattern1" && pattern1html, state.patterntype == "pattern2" && pattern2html), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, descriptionHtml));
 };
 
 ColorPaletteComponent.propTypes = {

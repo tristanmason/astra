@@ -6,9 +6,10 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 import {useState} from 'react';
 
+import { SelectControl } from '@wordpress/components';
 
 const ColorPaletteComponent = props => {
-// console.log(props);
+
 	let value = props.control.setting.get();
 
 	let defaultValue = props.control.params.default;
@@ -18,55 +19,15 @@ const ColorPaletteComponent = props => {
 		description
 	} = props.control.params;
 
-	const [state, setState] = (value) ? useState(props.control.setting.get()) : useState({
-		pattern1: [
-			
-			{  color: "#3b9e3b" },
-			{  color: "#a74848"	},
-			{  color: "#eeee22"	},
-			{  color: "#1e73be"	},
-			{  color: "#8224e3"	},
-			
-		   ],
-		pattern2: [
+	const [state, setState] = (value) ? useState(props.control.setting.get()) : useState(defaultValue);
 		
-			{  color: "blue" },
-			{  color: "red"	},
-			{  color: "black"	},
-			{  color: "orange"	},
-			{  color: "yellow"	},
-		
-		]
-
-	});
-		// const [state, setState] = useState({
-		// 	pattern1: [
-				
-		// 		{  color: "#3b9e3b" },
-		// 		{  color: "#a74848"	},
-		// 		{  color: "#eeee22"	},
-		// 		{  color: "#1e73be"	},
-		// 		{  color: "#8224e3"	},
-				
-		// 	   ],
-		// 	pattern2: [
-			
-		// 	{  palette1: "blue" },
-		// 	{  palette2: "red"	},
-		// 	{  palette3: "black"	},
-		// 	{  palette4: "orange"	},
-		// 	{  palette5: "yellow"	},
-			
-		// 	]
-	
-		// });
 	
 
 	let labelHtml = null;
 	let descriptionHtml = null;
 
 	
-// console.log(state.pattern1[0]['palette1']);
+
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
@@ -76,6 +37,14 @@ const ColorPaletteComponent = props => {
 	}
 	// console.log(props);
 
+	const handleSelectChange = (value) => {
+		let obj = {
+			...state
+		};
+		obj['patterntype'] = value
+		setState(obj)
+		props.control.setting.set( obj );
+	}
 	const handleChangeComplete = ( color,patterntype,index ) => {
 		
 		let value;
@@ -127,7 +96,8 @@ const ColorPaletteComponent = props => {
 		props.control.setting.set( obj );
 	};
 console.log(state);
-	var palettehtml = (
+
+	var pattern1html = (
 		<Fragment>		
 			<div className="ast-color-palette1-wrap">
 				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
@@ -176,8 +146,11 @@ console.log(state);
 					/>
 				</div>
 			</div>
-			
-			<div className="ast-color-palette2-wrap">
+		</Fragment>
+	)
+
+	var pattern2html = (
+		<div className="ast-color-palette2-wrap">			
 				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
 					<AstraColorPickerControl
 						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[0]['color'] : ''}
@@ -223,17 +196,31 @@ console.log(state);
 						allowImage={false}
 					/>
 				</div>
-			</div>
-			
-		</Fragment>
+		</div>
 	)
 	return <Fragment>
 		
 		<label className="customizer-text">
 			{ labelHtml }
 		</label>
-		<div>
-			{ palettehtml }
+
+		<SelectControl 
+			className="ast-color-palette-type"
+			value={state.patterntype}
+			options={ [
+				{ label: 'Pattern 1', value: 'pattern1' },
+				{ label: 'Pattern 2', value: 'pattern2' },
+			] }
+		 	onChange={ value => handleSelectChange(value) }
+		/>
+		
+		<div className="ast-color-palette-wrapper">			
+			{state.patterntype ==  "pattern1" && (
+				pattern1html
+			)}
+			{state.patterntype ==  "pattern2" && (
+				pattern2html
+			)}
 		</div>
 		<label>
 			{ descriptionHtml }	

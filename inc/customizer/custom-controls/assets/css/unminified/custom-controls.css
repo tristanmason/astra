@@ -255,24 +255,18 @@
   right: 5px;
 }
 
-.ast-color-palette2-wrap .ast-color-picker-palette-1 .color-button-wrap {
-  top: 50px;
+#customize-control-astra-settings-global-color-palette .ast-color-palette-type {
+  width: 30%;
+  display: block;
 }
 
-.ast-color-palette2-wrap .ast-color-picker-palette-2 .color-button-wrap {
-  top: 50px;
+.ast-color-palette-wrapper .color-button-wrap {
+  top: 35px;
 }
 
-.ast-color-palette2-wrap .ast-color-picker-palette-3 .color-button-wrap {
-  top: 50px;
-}
-
-.ast-color-palette2-wrap .ast-color-picker-palette-4 .color-button-wrap {
-  top: 50px;
-}
-
-.ast-color-palette2-wrap .ast-color-picker-palette-5 .color-button-wrap {
-  top: 50px;
+#customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
+  margin-left: 0;
+  margin-right: 5px;
 }
 
  /** Remove Button Color */
