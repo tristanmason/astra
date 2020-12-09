@@ -325,19 +325,6 @@ th {
 /*!
  * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  */
-.ast-container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.ast-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 @media (min-width: 544px) {
   .ast-container {
     max-width: 100%;
@@ -362,14 +349,14 @@ th {
   }
 }
 
-.ast-container-fluid {
+.ast-container-fluid, .ast-container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.ast-container-fluid::after {
+.ast-container-fluid::after, .ast-container::after {
   content: "";
   display: table;
   clear: both;
