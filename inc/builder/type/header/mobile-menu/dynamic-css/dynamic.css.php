@@ -233,7 +233,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		);
 	} else {
 
-		$css_output_common[ '.ast-builder-menu-' . $index . ' .menu-item .sub-menu .menu-link' ] = array(
+		$css_output_common[ '.ast-builder-menu-mobile .menu-item .sub-menu .menu-link' ] = array(
 			'border-style' => 'none',
 		);
 
