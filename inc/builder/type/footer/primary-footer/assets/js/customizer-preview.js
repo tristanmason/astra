@@ -119,6 +119,6 @@
 	astra_builder_advanced_css( 'section-footer-builder-layout', '.astra-hfb-header .ast-main-footer-wrap' );
 
 	// Advanced Visibility CSS Generation.
-	astra_builder_visibility_css( section, selector, 'block' );
+	astra_builder_visibility_css( section, selector, 'grid' );
 
 } )( jQuery );

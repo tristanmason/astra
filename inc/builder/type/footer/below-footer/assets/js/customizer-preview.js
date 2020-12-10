@@ -122,6 +122,6 @@
 	astra_builder_advanced_css( section, selector );
 
 	// Advanced Visibility CSS Generation.
-	astra_builder_visibility_css( section, selector, 'block' );
+	astra_builder_visibility_css( section, selector, 'grid' );
 
 } )( jQuery );
