@@ -296,7 +296,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-
 						Astra_Builder_Helper::$general_tab_config,
 					),
 				),

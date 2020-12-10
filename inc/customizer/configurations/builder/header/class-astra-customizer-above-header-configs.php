@@ -127,30 +127,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Group Option: Above Header Background styling.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-header-background-styling]',
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 70,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Option: Above Header Background styling.
 				array(
 					'name'      => 'hba-header-bg-obj-responsive',
-					'parent'    => ASTRA_THEME_SETTINGS . '[hba-header-background-styling]',
-					'type'      => 'sub-control',
+					'type'      => 'control',
 					'section'   => $_section,
 					'control'   => 'ast-responsive-background',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hba-header-bg-obj-responsive' ),
 					'title'     => __( 'Color & Image', 'astra' ),
-					'priority'  => 5,
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'priority'  => 70,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
