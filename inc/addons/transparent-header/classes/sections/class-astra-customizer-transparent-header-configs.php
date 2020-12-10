@@ -362,7 +362,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[transparent-header-main-sep]', '>=', 1 ),
 					'control'   => 'ast-color',
 					'section'   => $_section,
-					'priority'  => 31,
+					'priority'  => 32,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
 					'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
