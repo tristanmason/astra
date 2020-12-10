@@ -421,7 +421,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					 * Option: Breadcrumb Tabs.
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-breadcrumb-tabs]',
+						'name'        => $_section . '-ast-context-tabs',
 						'section'     => $_section,
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',

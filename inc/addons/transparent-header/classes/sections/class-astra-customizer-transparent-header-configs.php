@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						),
 					),
 					'priority'       => 30.1,
-					'title'          => __( 'Logo', 'astra' ),
+					'title'          => __( 'Logooo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'partial'        => array(
 						'selector'            => '.ast-replace-site-logo-transparent .site-branding .site-logo-img',
@@ -436,7 +436,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 * Option: Header Builder Tabs
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-transparent-header-tabs]',
+						'name'        => $_section . '-ast-context-tabs',
 						'section'     => $_section,
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',
