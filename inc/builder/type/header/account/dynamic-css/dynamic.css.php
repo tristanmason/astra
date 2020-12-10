@@ -50,6 +50,12 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$margin          = astra_get_option( 'header-account-margin' );
 	$margin_selector = '.ast-header-account-wrap';
+
+	// Menu.
+	$menu_divider_toggle = astra_get_option( 'header-account-menu-item-border' );
+	$menu_divider_color  = astra_get_option( 'header-account-menu-item-b-color' );
+
+	$menu_divider_color = ( true === $menu_divider_toggle ) ? $menu_divider_color : '';
 	
 	/**
 	 * account CSS.
@@ -105,6 +111,45 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 		),
 	);
+
+	if ( true === $menu_divider_toggle ) {
+		// Menu Divider.
+		$css_output_desktop[ $selector . ' .menu-item .menu-link' ]                       = array(
+			'border-bottom-width' => '1px',
+			'border-color'        => $menu_divider_color,
+			'border-style'        => 'solid',
+		);
+		$css_output_desktop[ $selector . ' .menu-item:last-child > .menu-link' ] = array(
+			'border-style' => 'none',
+		);
+		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ] = array(
+			'border-bottom-width' => '1px',
+			'border-color'        => $menu_divider_color,
+			'border-style'        => 'solid',
+		);
+		$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link']    = array(
+			'border-style' => 'none',
+		);
+		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ] = array(
+			'border-bottom-width' => '1px',
+			'border-color'        => $menu_divider_color,
+			'border-style'        => 'solid',
+		);
+		$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link']    = array(
+			'border-style' => 'none',
+		);
+	} else {
+
+		$css_output_desktop[$selector . ' .menu-item .menu-link'] = array(
+			'border-style' => 'none',
+		);
+		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ] = array(
+			'border-style' => 'none',
+		);
+		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ] = array(
+			'border-style' => 'none',
+		);
+	}
 
 	/* Parse CSS from array() */
 	$css_output  = astra_parse_css( $css_output_desktop );

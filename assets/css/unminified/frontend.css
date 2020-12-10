@@ -3318,6 +3318,8 @@ body .entry-content .wp-block-latest-posts li {
   font-weight: normal;
   text-decoration: inherit;
   text-align: center;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .ast-header-account-type-avatar .avatar {
@@ -3420,6 +3422,15 @@ body .entry-content .wp-block-latest-posts li {
   text-rendering: auto;
   margin-left: 10px;
   line-height: normal;
+}
+
+.ast-header-account-wrap .menu-item:last-child > .menu-link {
+  border-style: none;
+}
+
+.main-header-menu .menu-link,
+.main-header-menu > a {
+  transition: all .2s linear;
 }
 
 /**

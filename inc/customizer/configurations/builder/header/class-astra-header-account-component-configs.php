@@ -197,87 +197,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Primary Header Button Colors Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-menu-heading]',
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'section'  => $_section,
-				'title'    => __( 'Menu', 'astra' ),
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: menu Container Animation
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-animation]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'select',
-				'section'   => $_section,
-				'title'     => __( 'Container Animation', 'astra' ),
-				'choices'   => array(
-					''           => __( 'Default', 'astra' ),
-					'slide-down' => __( 'Slide Down', 'astra' ),
-					'slide-up'   => __( 'Slide Up', 'astra' ),
-					'fade'       => __( 'Fade', 'astra' ),
-				),
-				'context'   => Astra_Builder_Helper::$general_tab,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'        => '#ast-hf-menu-' . $index,
-					'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
-				),
-			),
-
-			// Option: Submenu Divider Checkbox.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'checkbox',
-				'section'   => $_section,
-				'priority'  => 35,
-				'title'     => __( 'Item Divider', 'astra' ),
-				'context'   => Astra_Builder_Helper::$general_tab,
-				'transport' => 'postMessage',
-			),
-
-			// Option: Submenu item Border Color.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-b-color]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'transport' => 'postMessage',
-				'required'  => array(
-					ASTRA_THEME_SETTINGS . '[header-account-submenu-item-border]',
-					'==',
-					true,
-				),
-				'title'     => __( 'Divider Color', 'astra' ),
-				'section'   => $_section,
-				'priority'  => 40,
-				'context'   => Astra_Builder_Helper::$general_tab,
-			),
-
-			// Option: Menu Stack on Mobile Checkbox.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-stack-on-mobile]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'checkbox',
-				'section'   => $_section,
-				'priority'  => 41,
-				'title'     => __( 'Stack on Mobile', 'astra' ),
-				'context'   => Astra_Builder_Helper::$general_tab,
-				'transport' => 'postMessage',
-			),
-
-			/**
 			 * Option: Log Out view
 			 */
 			array(
@@ -427,6 +346,74 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Icon Color', 'astra' ),
+				'context'   => Astra_Builder_Helper::$design_tab,
+			),			
+
+			/**
+			 * Option: Primary Header Button Colors Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-menu-heading]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Menu', 'astra' ),
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: menu Container Animation
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-animation]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'select',
+				'section'   => $_section,
+				'title'     => __( 'Container Animation', 'astra' ),
+				'choices'   => array(
+					''           => __( 'Default', 'astra' ),
+					'slide-down' => __( 'Slide Down', 'astra' ),
+					'slide-up'   => __( 'Slide Up', 'astra' ),
+					'fade'       => __( 'Fade', 'astra' ),
+				),
+				'context'   => Astra_Builder_Helper::$design_tab,
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-header-account-wrap',
+					'render_callback' => array( Astra_Builder_Header::get_instance(), 'header_account' ),
+				),
+			),
+
+			// Option: Submenu Divider Checkbox.
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'section'   => $_section,
+				'priority'  => 35,
+				'title'     => __( 'Item Divider', 'astra' ),
+				'context'   => Astra_Builder_Helper::$design_tab,
+				'transport' => 'postMessage',
+			),
+
+			// Option: Submenu item Border Color.
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-b-color]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'ast-color',
+				'transport' => 'postMessage',
+				'required'  => array(
+					ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
+					'==',
+					true,
+				),
+				'title'     => __( 'Divider Color', 'astra' ),
+				'section'   => $_section,
+				'priority'  => 40,
 				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 

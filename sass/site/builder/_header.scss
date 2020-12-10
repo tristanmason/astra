@@ -174,6 +174,8 @@
 	font-weight: normal;
 	text-decoration: inherit;
 	text-align: center;
+	display: inline-block;
+    vertical-align: middle;
 }
 
 .ast-header-account-type-avatar {
@@ -260,7 +262,7 @@
 }
 
 .ast-account-nav-menu {
-	.menu-item-has-children>.menu-link:after {
+	.menu-item-has-children > .menu-link:after {
 		content: "\e900";
 		display: inline-block;
 		font-family: Astra;
@@ -272,6 +274,17 @@
 		line-height: normal;
 	}
 }
+.ast-header-account-wrap {
+	.menu-item:last-child > .menu-link {
+		border-style: none;
+	}
+}
+
+.main-header-menu .menu-link, 
+.main-header-menu > a {
+	transition: all .2s linear;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Text/HTML Widget.
