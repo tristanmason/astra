@@ -2893,7 +2893,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				font-family: \'Astra\';
 			}
 			
-			.ast-site-header-cart i.astra-icon.no-cart-total:after {
+			.ast-site-header-cart i.astra-icon.no-cart-total:after,
+			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap,
+			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
 				display: none;
 			}
 			
@@ -2917,30 +2919,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				z-index: 1;
 			}
 			
-			.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap {
+			.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
+			ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
 				line-height: 1.8;
 			}
 			
-			.ast-site-header-cart.ast-menu-cart-fill i.astra-icon {
-				font-size: 1.1em;
-			}
-			
-			li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after {
-				padding-left: 2px;
-			}
-			
-			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
-				display: none;
-			}
-					
-			.ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
-				line-height: 1.8;
-			}
-			
+			.ast-site-header-cart.ast-menu-cart-fill i.astra-icon,
 			.ast-edd-site-header-cart.ast-edd-menu-cart-fill span.astra-icon {
 				font-size: 1.1em;
 			}
 			
+			li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 			li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 				padding-left: 2px;
 			}
@@ -2956,10 +2945,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-icon-shopping-basket:before {
 				content: "\f291";
 			}
-			
-			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap {
-				display: none;
-			}';
+			';
 		}
 	}
 }
