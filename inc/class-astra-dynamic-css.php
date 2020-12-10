@@ -1148,7 +1148,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
-					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover , input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
@@ -1353,7 +1353,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-transform'   => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
-					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
@@ -2197,6 +2197,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( is_singular() && comments_open() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::get_single_post_comment_css() );
 			}
+			
+			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
+			}
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
 		}
@@ -2847,6 +2851,101 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				margin-top: 2em;
 				margin-bottom: 2em;
 			  }';
-		}   
+		}
+		
+		/** 
+		 * Load static card(EDD/Woo) CSS.
+		 *
+		 * @since 3.0.0
+		 * @return string static css for Woocommerce and EDD card.
+		 */
+		public static function load_cart_static_css() {
+
+			return '
+			.ast-site-header-cart .cart-container,
+			.ast-edd-site-header-cart .ast-edd-cart-container {
+				transition: all 0.2s linear;
+			}
+			
+			.ast-site-header-cart .cart-container *,
+			.ast-edd-site-header-cart .ast-edd-cart-container * {
+				transition: all 0s linear;
+			}
+			
+			.ast-site-header-cart .ast-woo-header-cart-info-wrap,
+			.ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
+				padding: 0 2px;
+				font-weight: 600;
+				line-height: 2.7;
+				display: inline-block;
+			}
+			
+			.ast-site-header-cart i.astra-icon {
+				font-size: 20px;
+				font-size: 1.3em;
+				font-style: normal;
+				font-weight: normal;
+				position: relative;
+				padding: 0 2px;
+			}
+			
+			.ast-site-header-cart i.astra-icon:before {
+				font-family: \'Astra\';
+			}
+			
+			.ast-site-header-cart i.astra-icon.no-cart-total:after,
+			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap,
+			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
+				display: none;
+			}
+			
+			.ast-site-header-cart i.astra-icon:after {
+				content: attr(data-cart-total);
+				position: absolute;
+				font-style: normal;
+				top: -10px;
+				right: -12px;
+				font-weight: bold;
+				box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+				font-size: 11px;
+				padding-left: 0px;
+				padding-right: 2px;
+				line-height: 17px;
+				letter-spacing: -.5px;
+				height: 18px;
+				min-width: 18px;
+				border-radius: 99px;
+				text-align: center;
+				z-index: 1;
+			}
+			
+			.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
+			ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
+				line-height: 1.8;
+			}
+			
+			.ast-site-header-cart.ast-menu-cart-fill i.astra-icon,
+			.ast-edd-site-header-cart.ast-edd-menu-cart-fill span.astra-icon {
+				font-size: 1.1em;
+			}
+			
+			li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
+			li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
+				padding-left: 2px;
+			}
+			
+			.ast-icon-shopping-cart:before {
+				content: "\f07a";
+			}
+			
+			.ast-icon-shopping-bag:before {
+				content: "\f290";
+			}
+			
+			.ast-icon-shopping-basket:before {
+				content: "\f291";
+			}
+			';
+		}
 	}
 }
