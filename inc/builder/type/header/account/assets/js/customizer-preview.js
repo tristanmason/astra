@@ -29,6 +29,51 @@
 		selector + ' ul '
 	);
 
+	// Menu - Normal Color
+	astra_color_responsive_css(
+		'astra-account-menu-color-preview',
+		'astra-settings[header-account-menu-color-responsive]',
+		'color',
+		selector + ' .main-header-menu .menu-item > .menu-link'
+	);
+
+	// Menu - Hover Color
+	astra_color_responsive_css(
+		'astra-account-menu-h-color-preview',
+		'astra-settings[header-account-menu-h-color-responsive]',
+		'color',
+		selector + ' .menu-item:hover > .menu-link'
+	);
+
+	// Menu - Active Color
+	astra_color_responsive_css(
+		'astra-account-menu-active-color-preview',
+		'astra-settings[header-account-menu-a-color-responsive]',
+		'color',
+		selector + ' .menu-item.current-menu-item > .menu-link'
+	);
+
+	// Menu - Normal Background
+	astra_apply_responsive_background_css( 'astra-settings[header-account-menu-bg-obj-responsive]', selector + ' .main-header-menu', 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[header-account-menu-bg-obj-responsive]', selector + ' .main-header-menu', 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[header-account-menu-bg-obj-responsive]', selector + ' .main-header-menu', 'mobile' );
+
+	// Menu - Hover Background
+	astra_color_responsive_css(
+		'astra-account-menu-bg-preview',
+		'astra-settings[header-account-menu-h-bg-color-responsive]',
+		'background',
+		selector + ' .menu-item:hover > .menu-link'
+	);
+
+	// Menu - Active Background
+	astra_color_responsive_css(
+		'astra-account-menu',
+		'astra-settings[header-account-menu-a-bg-color-responsive]',
+		'background',
+		selector + ' .menu-item.current-menu-item > .menu-link'
+	);
+
 	// Icon Size.
 	wp.customize( 'astra-settings[header-account-icon-size]', function( value ) {
 		value.bind( function( size ) {
