@@ -54,22 +54,39 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	// Menu.
 	$menu_divider_toggle = astra_get_option( 'header-account-menu-item-border' );
 	$menu_divider_color  = astra_get_option( 'header-account-menu-item-b-color' );
+	$menu_container_border     = astra_get_option( 'header-account-menu-container-border' );
 
 	$menu_divider_color = ( true === $menu_divider_toggle ) ? $menu_divider_color : '';
+
+	$menu_container_border_top = ( isset( $menu_container_border ) && ! empty( $menu_container_border['top'] ) ) ? $menu_container_border['top'] : 0;
+
+	$menu_container_border_bottom = ( isset( $menu_container_border ) && ! empty( $menu_container_border['bottom'] ) ) ? $menu_container_border['bottom'] : 0;
+
+	$menu_container_border_right = ( isset( $menu_container_border ) && ! empty( $menu_container_border['right'] ) ) ? $menu_container_border['right'] : 0;
+
+	$menu_container_border_left = ( isset( $menu_container_border ) && ! empty( $menu_container_border['left'] ) ) ? $menu_container_border['left'] : 0;
 	
 	/**
 	 * account CSS.
 	 */
 	$css_output_desktop = array(
 
-		$selector . ' .ast-header-account-icon:before'         => array(
+		$selector . ' .ast-header-account-icon:before' => array(
 			'color'     => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
 			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
-		$selector . ' .ast-header-account-type-avatar .avatar'         => array(
+		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_desktop, 'px' ),
 		),
-		$margin_selector                          => array(
+		$selector . ' ul'                     => array(
+			'border-top-width'    => astra_get_css_value( $menu_container_border_top, 'px' ),
+			'border-bottom-width' => astra_get_css_value( $menu_container_border_bottom, 'px' ),
+			'border-right-width'  => astra_get_css_value( $menu_container_border_right, 'px' ),
+			'border-left-width'   => astra_get_css_value( $menu_container_border_left, 'px' ),
+			'border-color'        => esc_attr( astra_get_option( 'header-account-menu-container-b-color' ) ),
+			'border-style'        => 'solid',
+		),
+		$margin_selector                               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -83,10 +100,10 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-icon:before' => array(
 			'font-size' => astra_get_css_value( $icon_size_tablet, 'px' ),
 		),
-		$selector . ' .ast-header-account-type-avatar .avatar'         => array(
+		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_tablet, 'px' ),
 		),
-		$margin_selector                  => array(
+		$margin_selector                               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -100,10 +117,10 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-icon:before' => array(
 			'font-size' => astra_get_css_value( $icon_size_mobile, 'px' ),
 		),
-		$selector . ' .ast-header-account-type-avatar .avatar'         => array(
+		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_mobile, 'px' ),
 		),
-		$margin_selector                  => array(
+		$margin_selector                               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
@@ -114,7 +131,7 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	if ( true === $menu_divider_toggle ) {
 		// Menu Divider.
-		$css_output_desktop[ $selector . ' .menu-item .menu-link' ]                       = array(
+		$css_output_desktop[ $selector . ' .menu-item .menu-link' ]              = array(
 			'border-bottom-width' => '1px',
 			'border-color'        => $menu_divider_color,
 			'border-style'        => 'solid',
@@ -127,20 +144,20 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'border-color'        => $menu_divider_color,
 			'border-style'        => 'solid',
 		);
-		$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link']    = array(
+		$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link']                           = array(
 			'border-style' => 'none',
 		);
-		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ] = array(
+		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ]            = array(
 			'border-bottom-width' => '1px',
 			'border-color'        => $menu_divider_color,
 			'border-style'        => 'solid',
 		);
-		$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link']    = array(
+		$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child > .menu-link']                           = array(
 			'border-style' => 'none',
 		);
 	} else {
 
-		$css_output_desktop[$selector . ' .menu-item .menu-link'] = array(
+		$css_output_desktop[ $selector . ' .menu-item .menu-link' ] = array(
 			'border-style' => 'none',
 		);
 		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' ] = array(
