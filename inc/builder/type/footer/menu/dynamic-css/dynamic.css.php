@@ -34,7 +34,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$selector = '#astra-footer-menu';
 
-    $visibility_selector = '.footer-widget-area[data-section="section-footer-menu"]';
+	$visibility_selector = '.footer-widget-area[data-section="section-footer-menu"]';
 
 	// Menu.
 	$menu_resp_color           = astra_get_option( 'footer-menu-color-responsive' );

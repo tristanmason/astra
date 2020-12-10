@@ -495,7 +495,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 		);
 
 		// Advanced Visibility CSS Generation.
-		astra_builder_visibility_css( section, selector );
+		astra_builder_visibility_css( section, selector, 'block' );
 
 		(function (index) {
 			wp.customize( 'astra-settings[sidebar-widgets-' + builder_type + '-widget-' + index + '-margin]', function( value ) {
