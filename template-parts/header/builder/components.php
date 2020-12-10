@@ -92,6 +92,7 @@ switch ( $component_slug ) {
 			<?php do_action( 'astra_header_account' ); ?>
 		</div>
 		<?php
+		break;
 		
 	case 'woo-cart':
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
