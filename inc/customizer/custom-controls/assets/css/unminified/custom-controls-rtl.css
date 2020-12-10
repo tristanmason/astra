@@ -2713,12 +2713,8 @@ input[type="text"].select2-search__field {
   min-height: 385px;
 }
 
-.ast-field-settings-modal .components-angle-picker-control .components-input-control__container {
-  width: 80%;
-}
-
-.ast-field-settings-modal .components-angle-picker-control .components-flex__item {
-  margin-left: 0;
+.ast-field-settings-modal .components-angle-picker-control .components-flex__block {
+  min-width: auto;
 }
 
 .customize-control-ast-slider .wrapper {
