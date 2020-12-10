@@ -464,6 +464,27 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
+			// Option - Menu Space.
+			array(
+				'name'           => ASTRA_THEME_SETTINGS . '[header-account-menu-spacing]',
+				'default'        => astra_get_option( 'header-account-menu-spacing' ),
+				'type'           => 'control',
+				'control'        => 'ast-responsive-spacing',
+				'transport'      => 'postMessage',
+				'section'        => $_section,
+				'priority'       => 210,
+				'title'          => __( 'Menu Space', 'astra' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
+				),
+				'context'        => Astra_Builder_Helper::$design_tab,
+			),
+
 			/**
 			 * Option: Margin Space
 			 */

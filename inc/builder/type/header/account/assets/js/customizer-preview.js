@@ -157,6 +157,39 @@
 		} );
 	} );
 	
+	// Menu Spacing.
+	wp.customize( 'astra-settings[header-account-menu-spacing]', function( value ) {
+		value.bind( function( padding ) {
+			var dynamicStyle = '';
+			dynamicStyle += '.ast-header-account-wrap .menu-item .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point .ast-header-account-wrap .menu-item .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point .ast-header-account-wrap .menu-item .menu-link {';
+			dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
+			dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( 'header-account-menu-spacing', dynamicStyle );
+		} );
+	} );
+
 	// Margin.
     wp.customize( 'astra-settings[header-account-margin]', function( value ) {
         value.bind( function( margin ) {

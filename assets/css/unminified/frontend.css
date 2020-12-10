@@ -3428,9 +3428,15 @@ body .entry-content .wp-block-latest-posts li {
   border-style: none;
 }
 
-.main-header-menu .menu-link,
-.main-header-menu > a {
+.ast-account-nav-menu .menu-link,
+.ast-account-nav-menu > a {
   transition: all .2s linear;
+}
+
+.ast-desktop .ast-primary-header-bar .main-header-menu.ast-account-nav-menu > .menu-item,
+.ast-desktop .ast-above-header-bar .main-header-menu.ast-account-nav-menu > .menu-item,
+.ast-desktop .ast-below-header-bar .main-header-menu.ast-account-nav-menu > .menu-item {
+  height: auto;
 }
 
 /**

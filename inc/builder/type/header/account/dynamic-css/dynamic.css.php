@@ -65,6 +65,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$menu_container_border_right = ( isset( $menu_container_border ) && ! empty( $menu_container_border['right'] ) ) ? $menu_container_border['right'] : 0;
 
 	$menu_container_border_left = ( isset( $menu_container_border ) && ! empty( $menu_container_border['left'] ) ) ? $menu_container_border['left'] : 0;
+
+	// Spacing.
+	$menu_spacing = astra_get_option( 'header-account-menu-spacing' );
 	
 	/**
 	 * account CSS.
@@ -86,6 +89,13 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'border-color'        => esc_attr( astra_get_option( 'header-account-menu-container-b-color' ) ),
 			'border-style'        => 'solid',
 		),
+		$selector . ' .ast-account-nav-menu .menu-item .menu-link'       => array(
+			// 'color'          => $menu_resp_color_desktop,
+			'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
+			'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
+			'padding-left'   => astra_responsive_spacing( $menu_spacing, 'left', 'desktop' ),
+			'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ),
+		),
 		$margin_selector                               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
@@ -103,6 +113,13 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_tablet, 'px' ),
 		),
+		$selector . ' .ast-account-nav-menu .menu-item .menu-link' => array(
+			// 'color'          => $menu_resp_color_tablet,
+			'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'tablet' ),
+			'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'tablet' ),
+			'padding-left'   => astra_responsive_spacing( $menu_spacing, 'left', 'tablet' ),
+			'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ),
+		),
 		$margin_selector                               => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
@@ -119,6 +136,13 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_mobile, 'px' ),
+		),
+		$selector . ' .ast-account-nav-menu .menu-item .menu-link' => array(
+			// 'color'          => $menu_resp_color_mobile,
+			'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'mobile' ),
+			'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'mobile' ),
+			'padding-left'   => astra_responsive_spacing( $menu_spacing, 'left', 'mobile' ),
+			'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'mobile' ),
 		),
 		$margin_selector                               => array(
 			// Margin CSS.
