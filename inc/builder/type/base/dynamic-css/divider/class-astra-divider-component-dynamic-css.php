@@ -44,6 +44,8 @@ class Astra_Divider_Component_Dynamic_CSS {
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-divider-' . $index : 'section-fb-divider-' . $index;
 
 			$selector = ( 'header' === $builder_type ) ? '.ast-header-divider-' . $index : '.footer-widget-area[data-section="section-fb-divider-' . $index . '"]';
+
+			$display_prop = ( 'header' === $builder_type ) ? 'flex' : 'block';
 			
 			$divider_style = astra_get_option( $builder_type . '-divider-' . $index . '-style' );
 			$divider_color = astra_get_option( $builder_type . '-divider-' . $index . '-color' );
@@ -185,7 +187,7 @@ class Astra_Divider_Component_Dynamic_CSS {
 
 			$generated_css .= $css_output;
 
-			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
+			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, $display_prop );
 		}
 
 		return $generated_css;

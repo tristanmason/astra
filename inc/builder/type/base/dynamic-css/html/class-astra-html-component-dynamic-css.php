@@ -60,6 +60,8 @@ class Astra_Html_Component_Dynamic_CSS {
 
 			$selector = ( 'header' === $builder_type ) ? '.ast-header-html-' . $index : '.footer-widget-area[data-section="section-fb-html-' . $index . '"]';
 
+			$display_prop = ( 'header' === $builder_type ) ? 'flex' : 'block';
+
 			$css_output_desktop = array(
 
 				$selector . ' .ast-builder-html-element' => array(
@@ -152,7 +154,7 @@ class Astra_Html_Component_Dynamic_CSS {
 
 			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 
-			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
+			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, $display_prop );
 		}
 
 		return $generated_css;
