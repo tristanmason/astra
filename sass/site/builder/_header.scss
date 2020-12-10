@@ -11,7 +11,7 @@
 	grid-column-gap: 50px;
 }
 .ast-builder-grid-row.ast-grid-center-col-layout {
-	grid-template-columns: 1fr auto 1fr;
+	grid-template-columns: 1fr 0.2fr 1fr;
 }
 .ast-builder-grid-row-6-equal {
 	.ast-builder-grid-row {
@@ -88,10 +88,62 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Divider component */
+.ast-container[data-section="section-above-header-builder"],
+.ast-container[data-section="section-primary-header-builder"],
+.ast-container[data-section="section-below-header-builder"],
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-left,
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-center,
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-right,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-left,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-center,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-right,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-left,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-center,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-right {
+	position: relative;
+}
+
+.footer-widget-area.ast-footer-divider-element {
+	position: relative;
+	align-items: center;
+	display: flex;
+}
+.ast-hb-divider-layout-horizontal {
+	.ast-divider-layout-horizontal {
+		width: 100%;
+	}
+}
+.ast-mobile-popup-content {
+	.ast-header-divider-element {
+		justify-content: center;
+	}
+}
+.ast-header-divider-element {
+	position: relative;
+}
+.site-footer-section,
+.ast-fb-divider-layout-vertical.ast-footer-divider-element,
+.ast-hb-divider-layout-vertical.ast-header-divider-element {
+  height: 100%;
+}
+.footer-widget-area {
+	.ast-divider-wrapper {
+		display: inline-block;
+	}
+}
+
+.ast-fb-divider-layout-vertical {
+	.ast-divider-layout-vertical,
+	.ast-divider-layout-horizontal {
+		position: absolute;
+	}
+}
+
 .ast-builder-layout-element {
 	align-items: center;
 	display: flex;
-	height: 100%;
 	.ast-footer-social-wrap {
 		.ast-builder-social-element {
 			&:first-child {
@@ -433,6 +485,13 @@
 				}
 			}
 		}
+	}
+}
+.main-header-bar,
+.ast-above-header,
+.ast-below-header {
+	.main-header-bar-navigation {
+		height: 100%;
 	}
 }
 .ast-nav-menu {
@@ -1111,11 +1170,173 @@ body.admin-bar {
 
 .ast-mobile-popup-content,
 .ast-mobile-header-content {
-	.ast-builder-layout-element:not(.ast-builder-menu) {
+	.ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
 		margin: 15px 20px;
 	}
 }
 
+// Woo Header Cart Icon.
+.ast-site-header-cart{
+	.cart-container{
+			transition: all 0.2s linear;
+			*{
+				transition: all 0s linear;
+			}
+
+	}
+	.ast-woo-header-cart-info-wrap{
+		padding: 0 2px;
+		font-weight: 600;
+		line-height: 2.7;
+    	display: inline-block;
+	}
+	i.astra-icon{
+		font-size: 20px;
+		font-size: 1.3em;
+		font-style: normal;
+		font-weight: normal;
+		position: relative;
+    	padding: 0 2px;
+
+		&:before{
+    		font-family: 'Astra';
+    	}
+
+    	&.no-cart-total{
+    		&:after{
+    			display: none;
+    		}
+    	}
+    	&:after{
+    		content: attr(data-cart-total);
+			position: absolute;
+			font-style: normal;
+			top: -10px;
+			right: -12px;
+			font-weight: bold;
+			box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.3);
+			font-size: 11px;
+			padding-left: 0px;
+			padding-right: 2px;
+			line-height: 17px;
+			letter-spacing: -.5px;
+			height: 18px;
+			min-width: 18px;
+			border-radius: 99px;
+			text-align: center;
+			z-index: 1;
+    	}
+	}
+	&.ast-menu-cart-outline,
+	&.ast-menu-cart-fill{
+		.ast-cart-menu-wrap{
+			line-height: 1.8;
+		}
+	}
+	&.ast-menu-cart-fill{
+		i.astra-icon{
+			font-size: 1.1em;
+		}
+	}
+}
+li.woocommerce-custom-menu-item{
+	.ast-site-header-cart{
+		i.astra-icon{
+			&:after{
+				padding-left: 2px;
+			}
+		}
+	}
+}
+
+.ast-icon-shopping-cart {
+	&:before{
+		 content: "\f07a";
+	}
+}
+.ast-icon-shopping-bag {
+	&:before{
+		 content: "\f290";
+	}
+}
+.ast-icon-shopping-basket {
+	&:before{
+		 content: "\f291";
+	}
+}
+
+
+// Remove Cart Total & Title for responsive devices.
+.ast-header-break-point{
+	&.ast-header-custom-item-outside{
+		.ast-woo-header-cart-info-wrap{
+			display: none;
+		}
+	}
+}
+
+// EDD Header Cart Icon.
+.ast-edd-site-header-cart{
+	.ast-edd-cart-container{
+			transition: all 0.2s linear;
+			*{
+				transition: all 0s linear;
+			}
+
+	}
+	.ast-edd-header-cart-info-wrap{
+		padding: 0 2px;
+		font-weight: 600;
+		line-height: 2.7;
+    	display: inline-block;
+	}
+	&.ast-edd-menu-cart-outline,
+	&.ast-edd-menu-cart-fill{
+		.ast-edd-cart-menu-wrap{
+			line-height: 1.8;
+		}
+	}
+	&.ast-edd-menu-cart-fill{
+		span.astra-icon{
+			font-size: 1.1em;
+		}
+	}
+}
+li.edd-custom-menu-item{
+	.ast-edd-site-header-cart{
+		span.astra-icon{
+			&:after{
+				padding-left: 2px;
+			}
+		}
+	}
+}
+
+.ast-icon-shopping-cart {
+	&:before{
+		 content: "\f07a";
+	}
+}
+.ast-icon-shopping-bag {
+	&:before{
+		 content: "\f290";
+	}
+}
+.ast-icon-shopping-basket {
+	&:before{
+		 content: "\f291";
+	}
+}
+
+
+// Remove Cart Total & Title for responsive devices.
+.ast-header-break-point{
+	&.ast-header-custom-item-outside{
+		.ast-edd-header-cart-info-wrap{
+			display: none;
+		}
+	}
+}
 
 /* Footer menu spacing between each menu items. */
 @media (min-width: $col-md ) {
