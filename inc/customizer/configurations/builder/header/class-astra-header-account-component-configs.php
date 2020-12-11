@@ -276,10 +276,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'icon' => __( 'Icon', 'astra' ),
 				),
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'        => '.ast-header-account',
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
-				),
 			),
 
 			/**
@@ -294,15 +290,36 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'  => 20,
 				'title'     => __( 'Text', 'astra' ),
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'        => '.ast-header-account',
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
-				),
 				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '===',
 						'value'    => 'text',
+					),
+					Astra_Builder_Helper::$general_tab_config,
+				),
+			),
+
+			/**
+			 * Option: Click action type
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-action]',
+				'default'   => 'link',
+				'type'      => 'control',
+				'control'   => 'select',
+				'section'   => $_section,
+				'title'     => __( 'Click Action', 'astra' ),
+				'choices'   => array(
+					'link' => __( 'Link', 'astra' ),
+					'login' => __( 'Login Form', 'astra' ),
+				),
+				'transport' => 'postMessage',
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '!=',
+						'value'    => 'none',
 					),
 					Astra_Builder_Helper::$general_tab_config,
 				),
@@ -324,6 +341,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '!=',
 						'value'    => 'none',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-action]',
+						'operator' => '==',
+						'value'    => 'link',
 					),
 					Astra_Builder_Helper::$general_tab_config,
 				),

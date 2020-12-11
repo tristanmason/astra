@@ -339,6 +339,16 @@ var main_header_masthead = document.getElementById('masthead');
 
 			AstraToggleSetup();
 		}
+
+		var header_account_trigger =  document.querySelectorAll( '.ast-header-account-wrap' )[0];
+
+		header_account_trigger.onclick = function() {
+			// var login_popup =  document.getElementById( 'wp-auth-check-wrap' );
+
+			// login_popup.classList.remove( 'hidden' );
+
+		};
+		
 	}
 
 	window.addEventListener( 'load', function() {

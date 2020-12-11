@@ -298,6 +298,17 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$new_tab = '';
 			$link_rel = '';
 
+			// echo wp_login_url();
+
+			// $args = array(
+			// 	'echo'            => true,
+			// 	'redirect'        => get_permalink( get_the_ID() ),
+			// 	'remember'        => true,
+			// 	'value_remember'  => true,
+			//   );
+			 
+			//   return wp_login_form( $args );
+
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
 			}
@@ -309,15 +320,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				if ( is_customize_preview() ) {
 					self::render_customizer_edit_button();
 				}
-
-				// $args = array(
-				// 	'echo'            => true,
-				// 	'redirect'        => get_permalink( get_the_ID() ),
-				// 	'remember'        => true,
-				// 	'value_remember'  => true,
-				//   );
-				 
-				//   return wp_login_form( $args );
 
 				?>
 
@@ -379,14 +381,25 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<?php
 					$logged_out_style = astra_get_option( 'header-account-logout-style' );
 					$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
+					$action_type = astra_get_option( 'header-account-logout-action' );
+					$screen = get_current_screen();
 
-					$account_link = astra_get_option( 'header-account-logout-link' );
+					if( 'link' === $action_type ) {
+						$account_link = astra_get_option( 'header-account-logout-link' );
 
-					$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+						$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
 
-					$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+						
+						$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
+					} else {
+						// wp_enqueue_style( 'wp-auth-check' );
+						// wp_enqueue_script( 'wp-auth-check' );
+				
+						// add_action( 'admin_print_footer_scripts', 'wp_auth_check_html', 5 );
+						// add_action( 'wp_print_footer_scripts', 'wp_auth_check_html', 5 );
+					}
 					
-					$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
 					?>
 
 					<a class="ast-header-account-type-<?php echo $logged_out_style; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
@@ -396,6 +409,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 							<span class="ast-header-account-text"><?php echo $logged_out_text; ?></span>
 						<?php } ?>
 					</a>
+
 				<?php } ?>
 
 			</div>
