@@ -42,8 +42,10 @@ class Astra_Widget_Component_Dynamic_CSS {
 			}
 
 			$_section = 'sidebar-widgets-' . $builder_type . '-widget-' . $index;
+
 			$selector = '.' . $builder_type . '-widget-area[data-section="sidebar-widgets-' . $builder_type . '-widget-' . $index . '"]';
-			$margin   = astra_get_option( $_section . '-margin' );
+
+			$margin = astra_get_option( $_section . '-margin' );
 
 			$title_font_size   = astra_get_option( $builder_type . '-widget-' . $index . '-font-size' );
 			$content_font_size = astra_get_option( $builder_type . '-widget-' . $index . '-content-font-size' );
@@ -151,11 +153,10 @@ class Astra_Widget_Component_Dynamic_CSS {
 			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
-			if ( 'header' === $builder_type ) {
-				$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
-			}
+			$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
 			
 			$generated_css .= $css_output;
+			
 		}
 
 		return $generated_css;
