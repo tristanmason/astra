@@ -981,11 +981,11 @@ final class Astra_Builder_Helper {
 	/**
 	 * Check if component placed on the builder.
 	 *
-	 * @param string  $builder_type builder type.
 	 * @param integer $component_id component id.
+	 * @param string  $builder_type builder type.
 	 * @return bool
 	 */
-	public static function is_component_loaded( $builder_type = 'header', $component_id ) {
+	public static function is_component_loaded( $component_id, $builder_type = 'header' ) {
 
 		$loaded_components = array();
 

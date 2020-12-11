@@ -49,10 +49,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		/**
 		 * Prepare Social Icon HTML.
 		 *
-		 * @param string $builder_type the type of the builder.
 		 * @param string $index The Index of the social icon.
+		 * @param string $builder_type the type of the builder.
 		 */
-		public static function render_social_icon( $builder_type = 'header', $index ) {
+		public static function render_social_icon( $index, $builder_type = 'header' ) {
 			$items      = astra_get_option( $builder_type . '-social-icons-' . $index );
 			$items      = isset( $items['items'] ) ? $items['items'] : array();
 			$show_label = astra_get_option( $builder_type . '-social-' . $index . '-label-toggle' );
@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * @param string $builder_type the type of the builder.
 		 * @param string $index The Index of the button.
 		 */
-		public static function render_button( $builder_type = 'header', $index ) {
+		public static function render_button( $index, $builder_type = 'header' ) {
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
