@@ -362,7 +362,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				<?php } ?>
 
 				<?php 
+				if( 'menu' === $link_type ) {
 					Astra_Header_Account_Component::account_menu_markup();
+				}
 				?>
 
 			</div>

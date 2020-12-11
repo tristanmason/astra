@@ -193,7 +193,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'link_type' => 'section',
 				'linked'    => 'menu_locations',
 				'link_text' => __( 'Configure Menu from Here.', 'astra' ),
-				'required'  => array( ASTRA_THEME_SETTINGS . '[header-account-link-type]', '==', 'menu' ),
+				'required'  => array( ASTRA_THEME_SETTINGS . '[header-account-link-type]', '===', 'menu' ),
 			),
 
 			/**
