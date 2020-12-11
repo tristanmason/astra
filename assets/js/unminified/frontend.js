@@ -125,21 +125,57 @@ var main_header_masthead = document.getElementById('masthead');
 ( function() {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' );
+	var cart_flyout = document.getElementById( 'astra-mobile-cart-drawer' );
 	var menu_click_listeners = {};
-
+	
 	if ( undefined !== main_header_masthead && null !== main_header_masthead ) {
 
 		var mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 	}
 
 	var mobileHeaderType = '';
+
+	/**
+	 * Opens the Cart Flyout.
+	 */
+	cartFlyoutOpen = function ( event ) {
+
+		event.preventDefault();
+		
+		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
+
+			cart_flyout.classList.add( 'active' );
+		}
+	}
+
+	/**
+	 * Closes the Cart Flyout.
+	 */
+	cartFlyoutClose = function ( event ) {
+
+		event.preventDefault();
+		
+		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
+
+			cart_flyout.classList.remove( 'active' );
+		}
+	}
+
 	if ( undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
 
 		mobileHeaderType = mobileHeader.dataset.type;
+
+		// Mobile Header Cart Flyout.
+		var woo_cart = mobileHeader.querySelector( '.ast-header-woo-cart' );
+		var cart_close = document.querySelector( '.astra-cart-drawer-close' );
+
+		woo_cart.addEventListener("click", cartFlyoutOpen, false);
+		cart_close.addEventListener("click", cartFlyoutClose, false);
+
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
-
+	
 	/**
 	 * Updates the header type.
 	 */
@@ -314,6 +350,7 @@ var main_header_masthead = document.getElementById('masthead');
 				if ( event.keyCode === 27 ) {
 					event.preventDefault();
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
+					cart_flyout.classList.remove( 'active' );
 					updateTrigger();
 				}
 			});
@@ -326,6 +363,9 @@ var main_header_masthead = document.getElementById('masthead');
 				if ( target === modal ) {
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
 					updateTrigger();
+				}
+				if ( target === cart_flyout ) {
+					cart_flyout.classList.remove( 'active' );
 				}
 			});
 			AstraToggleSetup();

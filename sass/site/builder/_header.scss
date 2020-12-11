@@ -1249,13 +1249,13 @@ li.edd-custom-menu-item{
     -webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	&.open-right {
-		width: 300px;
+		width: 80%;
 		height: 100%;
 		left: 100%;
-		top: 0;
-		-ms-transform: translate3d(-150px, 0, 0);
-		-webkit-transform: translate3d(-150px, 0, 0);
-		transform: translate3d(-150px, 0, 0);
+		top: 46px;
+		-ms-transform: translate3d(-0%, 0, 0);
+		-webkit-transform: translate3d(-0%, 0, 0);
+		transform: translate3d(-0%, 0, 0);
 	}
 	.astra-mobile-cart-drawer-inner {
 		display: -webkit-box;
@@ -1277,7 +1277,7 @@ li.edd-custom-menu-item{
 		padding: 1rem;
 	}
 	&.active {
-		transform: translate3d(-300px, 0, 0);
+		transform: translate3d(-100%, 0, 0);
 		visibility: visible;
 	}
 	.astra-cart-drawer-header {

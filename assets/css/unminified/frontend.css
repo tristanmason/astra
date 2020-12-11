@@ -4383,11 +4383,11 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 }
 
 .astra-cart-drawer.open-right {
-  width: 300px;
+  width: 80%;
   height: 100%;
   left: 100%;
-  top: 0;
-  transform: translate3d(-150px, 0, 0);
+  top: 46px;
+  transform: translate3d(0%, 0, 0);
 }
 
 .astra-cart-drawer .astra-mobile-cart-drawer-inner {
@@ -4404,7 +4404,7 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 }
 
 .astra-cart-drawer.active {
-  transform: translate3d(-300px, 0, 0);
+  transform: translate3d(-100%, 0, 0);
   visibility: visible;
 }
 
