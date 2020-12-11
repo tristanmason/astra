@@ -631,8 +631,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css( $footer_css_output );
 			}
-			
-			/**  
+
+			/**
 			 *
 			 * Fix button aligment issue comming from the gutenberg plugin (v9.3.0).
 			 */
@@ -711,9 +711,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 
 					'.ast-plain-container.ast-no-sidebar .entry-content .alignwide .wp-block-cover__inner-container, .ast-plain-container.ast-no-sidebar .entry-content .alignfull .wp-block-cover__inner-container' => array(
-						'width' => astra_get_css_value( $site_content_width + 40, 'px' ), 
+						'width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 					),
-					
+
 					// Full Width / Stretched - No Sidebar.
 					'.ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-group.alignfull' => array(
 						'margin-left'  => '0',
@@ -2193,11 +2193,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// trim white space for faster page loading.
 			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
-			
+
 			if ( is_singular() && comments_open() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::get_single_post_comment_css() );
 			}
-			
+
 			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
@@ -2587,149 +2587,149 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 		/**
 		 * Load single post comment default CSS.
-		 * 
+		 *
 		 * @since 3.0.0
 		 */
 		public static function get_single_post_comment_css() {
 			return '.comments-count-wrapper {
 				padding: 2em 0;
 			  }
-			  
+
 			  .comments-count-wrapper .comments-title {
 				font-weight: normal;
 				word-wrap: break-word;
 			  }
-			  
+
 			  .ast-comment-list {
 				margin: 0;
 				word-wrap: break-word;
 				padding-bottom: 0.5em;
 				list-style: none;
 			  }
-			  
+
 			  .ast-comment-list li {
 				list-style: none;
 			  }
-			  
+
 			  .ast-comment-list li.depth-1 .ast-comment,
 			  .ast-comment-list li.depth-2 .ast-comment {
 				border-bottom: 1px solid #eeeeee;
 			  }
-			  
+
 			  .ast-comment-list .children {
 				margin-left: 2em;
 			  }
-			  
+
 			  @media (max-width: 992px) {
 				.ast-comment-list .children {
 				  margin-left: 1em;
 				}
 			  }
-			  
+
 			  .ast-comment-list .comment-respond {
 				padding: 1em 0;
 				border-bottom: 1px solid #eeeeee;
 			  }
-			  
+
 			  .ast-comment-list .comment-respond .comment-reply-title {
 				margin-top: 0;
 				padding-top: 0;
 			  }
-			  
+
 			  .ast-comment-list .comment-respond p {
 				margin-bottom: .5em;
 			  }
-			  
+
 			  .ast-comment-list #cancel-comment-reply-link {
 				white-space: nowrap;
 				font-size: 15px;
 				font-size: 1rem;
 				margin-left: 1em;
 			  }
-			  
+
 			  .ast-comment-list .ast-comment-edit-reply-wrap {
 				-js-display: flex;
 				display: flex;
 				justify-content: flex-end;
 			  }
-			  
+
 			  .ast-comment-list .ast-edit-link {
 				flex: 1;
 			  }
-			  
+
 			  .ast-comment-list .comment-awaiting-moderation {
 				margin-bottom: 0;
 			  }
-			  
+
 			  .ast-comment {
 				padding: 1em 0;
 			  }
-			  
+
 			  .ast-comment-avatar-wrap {
 				float: left;
 				clear: right;
 				margin-right: 1.33333em;
 			  }
-			  
+
 			  .ast-comment-avatar-wrap img {
 				border-radius: 50%;
 			  }
-			  
+
 			  .ast-comment-meta-wrap {
 				float: left;
 				clear: right;
 				padding: 0 0 1.33333em;
 			  }
-			  
+
 			  .ast-comment-content {
 				clear: both;
 			  }
-			  
+
 			  .ast-comment-cite-wrap {
 				text-align: left;
 			  }
-			  
+
 			  .ast-comment-cite-wrap cite {
 				font-style: normal;
 			  }
-			  
+
 			  .comment-reply-title {
 				padding-top: 1em;
 				font-weight: normal;
 				line-height: 1.65;
 			  }
-			  
+
 			  .ast-comment-meta {
 				margin-bottom: 0.5em;
 			  }
-			  
+
 			  .ast-comment-time .timendate,
 			  .ast-comment-time .reply {
 				margin-right: 0.5em;
 			  }
-			  
+
 			  .comments-area {
 				border-top: 1px solid #eeeeee;
 				margin-top: 2em;
 			  }
-			  
+
 			  .comments-area .comment-form-comment {
 				width: 100%;
 				border: none;
 				margin: 0;
 				padding: 0;
 			  }
-			  
+
 			  .comments-area .comment-notes,
 			  .comments-area .comment-textarea,
 			  .comments-area .form-allowed-tags {
 				margin-bottom: 1.5em;
 			  }
-			  
+
 			  .comments-area .form-submit {
 				margin-bottom: 0;
 			  }
-			  
+
 			  .comments-area textarea#comment,
 			  .comments-area .ast-comment-formwrap input[type="text"] {
 				width: 100%;
@@ -2737,84 +2737,80 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				vertical-align: middle;
 				margin-bottom: 10px;
 			  }
-			  
+
 			  .comments-area .no-comments {
 				margin-top: 0.5em;
 				margin-bottom: 0.5em;
 			  }
-			  
+
 			  .comments-area p.logged-in-as {
 				margin-bottom: 1em;
 			  }
-			  
+
 			  .comments-area #wp-comment-cookies-consent {
 				margin-right: 10px;
 			  }
-			  
+
 			  .ast-separate-container .comments-count-wrapper {
 				background-color: #fff;
 				padding: 2em 6.67em 0;
 			  }
-			  
+
 			  @media (max-width: 1200px) {
 				.ast-separate-container .comments-count-wrapper {
 				  padding: 2em 3.34em;
 				}
 			  }
-			  
+
 			  .ast-separate-container .comments-area {
 				border-top: 0;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list {
 				padding-bottom: 0;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list li {
 				background-color: #fff;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list li.depth-1 {
 				padding: 4em 6.67em;
 				margin-bottom: 2em;
 			  }
-			  
+
 			  @media (max-width: 1200px) {
 				.ast-separate-container .ast-comment-list li.depth-1 {
 				  padding: 3em 3.34em;
 				}
 			  }
-			  
-			  .ast-separate-container .ast-comment-list li.depth-1 .ast-comment {
-				border-bottom: 0;
-			  }
-			  
+
 			  .ast-separate-container .ast-comment-list li.depth-1 .children li {
 				padding-bottom: 0;
 				padding-top: 0;
 				margin-bottom: 0;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list li.depth-1 .ast-comment,
 			  .ast-separate-container .ast-comment-list li.depth-2 .ast-comment {
 				border-bottom: 0;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list .comment-respond {
 				padding-top: 0;
 				padding-bottom: 1em;
 				background-color: transparent;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list .pingback p {
 				margin-bottom: 0;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list .bypostauthor {
 				padding: 2em;
 				margin-bottom: 1em;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list .bypostauthor .bypostauthor {
 				background: transparent;
 				margin-bottom: 0;
@@ -2822,29 +2818,29 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding-bottom: 0;
 				padding-top: 0;
 			  }
-			  
+
 			  .ast-separate-container .ast-comment-list .bypostauthor li {
 				background: transparent;
 				margin-bottom: 0;
 				padding: 0 0 0 2em;
 			  }
-			  
+
 			  .ast-separate-container .comment-respond {
 				background-color: #fff;
 				padding: 4em 6.67em;
 				border-bottom: 0;
 			  }
-			  
+
 			  @media (max-width: 1200px) {
 				.ast-separate-container .comment-respond {
 				  padding: 3em 2.34em;
 				}
 			  }
-			  
+
 			  .ast-separate-container .comment-reply-title {
 				padding-top: 0;
 			  }
-			  
+
 			  .ast-page-builder-template .comments-area {
 				padding-left: 20px;
 				padding-right: 20px;
@@ -2852,8 +2848,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				margin-bottom: 2em;
 			  }';
 		}
-		
-		/** 
+
+		/**
 		 * Load static card(EDD/Woo) CSS.
 		 *
 		 * @since 3.0.0
@@ -2866,12 +2862,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-edd-site-header-cart .ast-edd-cart-container {
 				transition: all 0.2s linear;
 			}
-			
+
 			.ast-site-header-cart .cart-container *,
 			.ast-edd-site-header-cart .ast-edd-cart-container * {
 				transition: all 0s linear;
 			}
-			
+
 			.ast-site-header-cart .ast-woo-header-cart-info-wrap,
 			.ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
 				padding: 0 2px;
@@ -2879,7 +2875,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				line-height: 2.7;
 				display: inline-block;
 			}
-			
+
 			.ast-site-header-cart i.astra-icon {
 				font-size: 20px;
 				font-size: 1.3em;
@@ -2888,17 +2884,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				position: relative;
 				padding: 0 2px;
 			}
-			
+
 			.ast-site-header-cart i.astra-icon:before {
 				font-family: \'Astra\';
 			}
-			
+
 			.ast-site-header-cart i.astra-icon.no-cart-total:after,
 			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap,
 			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
 				display: none;
 			}
-			
+
 			.ast-site-header-cart i.astra-icon:after {
 				content: attr(data-cart-total);
 				position: absolute;
@@ -2918,30 +2914,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				text-align: center;
 				z-index: 1;
 			}
-			
+
 			.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
 			ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
 				line-height: 1.8;
 			}
-			
+
 			.ast-site-header-cart.ast-menu-cart-fill i.astra-icon,
 			.ast-edd-site-header-cart.ast-edd-menu-cart-fill span.astra-icon {
 				font-size: 1.1em;
 			}
-			
+
 			li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 			li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 				padding-left: 2px;
 			}
-			
+
 			.ast-icon-shopping-cart:before {
 				content: "\f07a";
 			}
-			
+
 			.ast-icon-shopping-bag:before {
 				content: "\f290";
 			}
-			
+
 			.ast-icon-shopping-basket:before {
 				content: "\f291";
 			}
