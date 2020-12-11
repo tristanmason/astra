@@ -138,24 +138,52 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Profile Link type
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-link-type]',
-				'default'   => 'default',
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+				'default'   => 'link',
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
 				'title'     => __( 'Profile Action', 'astra' ),
 				'choices'   => array(
-					'default' => __( 'Default Link', 'astra' ),
-					'custom'  => __( 'Custom Link', 'astra' ),
-					'menu'    => __( 'Navigation Menu', 'astra' ),
+					'link' => __( 'Link', 'astra' ),
+					'menu'    => __( 'Menu', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'partial'   => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-				'required'  => array( ASTRA_THEME_SETTINGS . '[header-account-type]', '!=', 'default' ),
 			),
+
+			/**
+			 * Option: Profile Link type
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-link-type]',
+				'default'   => 'default',
+				'type'      => 'control',
+				'control'   => 'select',
+				'section'   => $_section,
+				'title'     => __( 'Link Type', 'astra' ),
+				'choices'   => array(
+					'default' => __( 'Default', 'astra' ),
+					'custom'  => __( 'Custom', 'astra' ),
+				),
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
+				'context'        => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
+						'operator' => '!=',
+						'value'    => 'default',
+					),
+				),
+			),
+
 
 			/**
 			* Option: Account Log In Link
@@ -166,14 +194,15 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,
-				'title'     => __( 'Link', 'astra' ),
+				'title'     => __( 'Enter URL', 'astra' ),
 				'transport' => 'postMessage',
-				'required'  => array(
-					'conditions' => array(
-						array( ASTRA_THEME_SETTINGS . '[header-account-link-type]', '==', 'custom' ),
-						array( ASTRA_THEME_SETTINGS . '[header-account-type]', '==', 'default' ),
+				'context'        => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '!=',
+						'value'    => 'menu',
 					),
-					'operator'   => 'OR',
 				),
 				'partial'   => array(
 					'selector'        => '.ast-header-account',
@@ -193,7 +222,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'link_type' => 'section',
 				'linked'    => 'menu_locations',
 				'link_text' => __( 'Configure Menu from Here.', 'astra' ),
-				'required'  => array( ASTRA_THEME_SETTINGS . '[header-account-link-type]', '===', 'menu' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '==',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$general_tab_config,
+				),
 			),
 
 			/**
@@ -214,7 +250,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-				'default'   => 'text',
+				'default'   => 'none',
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -247,7 +283,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-				'required'  => array( ASTRA_THEME_SETTINGS . '[header-account-logout-style]', '==', 'text' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '===',
+						'value'    => 'text',
+					),
+					Astra_Builder_Helper::$general_tab_config,
+				),
 			),
 
 			/**
@@ -261,7 +304,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'title'     => __( 'Link', 'astra' ),
 				'transport' => 'postMessage',
-				'required'  => array( ASTRA_THEME_SETTINGS . '[header-account-logout-style]', '!=', 'none' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+					Astra_Builder_Helper::$general_tab_config,
+				),
 			),
 
 			/**
@@ -275,8 +325,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'    => __( 'Avatar', 'astra' ),
 				'priority' => 1,
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-				'required' => array( ASTRA_THEME_SETTINGS . '[header-account-login-style]', '==', 'avatar' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '===',
+						'value'    => 'avatar',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			/**
@@ -287,17 +343,23 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'     => $_section,
 				'priority'    => 2,
 				'transport'   => 'postMessage',
-				'default'     => '',
+				'default'     => '40',
 				'title'       => __( 'Image Width', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-responsive-slider',
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
-					'max'  => 200,
+					'max'  => 100,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
-				'required'    => array( ASTRA_THEME_SETTINGS . '[header-account-login-style]', '==', 'avatar' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '===',
+						'value'    => 'avatar',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			/**
@@ -311,7 +373,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'    => __( 'Icon', 'astra' ),
 				'priority' => 3,
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '===',
+						'value'    => 'icon',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			/**
@@ -331,7 +400,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '===',
+						'value'    => 'icon',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			/**
@@ -346,7 +422,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Icon Color', 'astra' ),
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '===',
+						'value'    => 'icon',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			), 
 			/**
 			 * Option: Primary Header Button Colors Divider
@@ -358,108 +441,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'  => $_section,
 				'title'    => __( 'Menu', 'astra' ),
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
-
-			/**
-			 * Option: menu Container Animation
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-animation]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'select',
-				'section'   => $_section,
-				'title'     => __( 'Container Animation', 'astra' ),
-				'choices'   => array(
-					''           => __( 'Default', 'astra' ),
-					'slide-down' => __( 'Slide Down', 'astra' ),
-					'slide-up'   => __( 'Slide Up', 'astra' ),
-					'fade'       => __( 'Fade', 'astra' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'        => '.ast-header-account-wrap',
-					'render_callback' => array( Astra_Builder_Header::get_instance(), 'header_account' ),
-				),
-			),
-
-			// Option: Sub-Menu Border.
-			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[header-account-menu-container-border]',
-				'default'        => '',
-				'type'           => 'control',
-				'control'        => 'ast-border',
-				'transport'      => 'postMessage',
-				'section'        => $_section,
-				'linked_choices' => true,
-				'priority'       => 15,
-				'title'          => __( 'Container Border', 'astra' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
-					'bottom' => __( 'Bottom', 'astra' ),
-					'left'   => __( 'Left', 'astra' ),
-				),
-				'context'        => Astra_Builder_Helper::$design_tab,
-			),
-
-			// Option: Submenu Container Border Color.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-b-color]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'transport' => 'postMessage',
-				'default'   => '',
-				'title'     => __( 'Border Color', 'astra' ),
-				'section'   => $_section,
-				'priority'  => 20,
-				'context'   => Astra_Builder_Helper::$design_tab,
-			),
-
-			// Option: Submenu Divider Checkbox.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'checkbox',
-				'section'   => $_section,
-				'priority'  => 35,
-				'title'     => __( 'Item Divider', 'astra' ),
-				'context'   => Astra_Builder_Helper::$design_tab,
-				'transport' => 'postMessage',
-			),
-
-			// Option: Submenu item Border Color.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-b-color]',
-				'default'   => '',
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'transport' => 'postMessage',
-				'required'  => array(
-					ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
-					'==',
-					true,
-				),
-				'title'     => __( 'Divider Color', 'astra' ),
-				'section'   => $_section,
-				'priority'  => 40,
-				'context'   => Astra_Builder_Helper::$design_tab,
-			),
-
-			// Option: Menu Color Divider.
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors-divider]',
-				'section'  => $_section,
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'title'    => __( 'Colors', 'astra' ),
-				'priority' => 80,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option Group: Menu Color.
@@ -467,11 +456,18 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
-				'title'     => __( 'Menu', 'astra' ),
+				'title'     => __( 'Colors', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 90,
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			// Option: Menu Color.
@@ -488,7 +484,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'responsive' => true,
 				'rgba'       => true,
 				'priority'   => 7,
-				'context'    => Astra_Builder_Helper::$general_tab,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			// Option: Background Color.
@@ -578,29 +581,24 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'    => Astra_Builder_Helper::$general_tab,
 			),
 
-			// Option: Typography Heading.
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-menu-header-typography-styling-divider]',
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'section'  => $_section,
-				'title'    => __( 'Typography', 'astra' ),
-				'priority' => 110,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
-
 			// Option Group: Menu Typography.
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-header-menu-typography]',
 				'default'   => '',
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
-				'title'     => __( 'Menu', 'astra' ),
+				'title'     => __( 'Typography', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
-				'priority'  => 120,
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'priority'  => 91,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			// Option: Menu Font Family.
@@ -699,6 +697,132 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'           => Astra_Builder_Helper::$general_tab,
 			),
 
+			// Option: Submenu Divider Checkbox.
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'section'   => $_section,
+				'priority'  => 99,
+				'title'     => __( 'Item Divider', 'astra' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
+				'transport' => 'postMessage',
+			),
+
+			// Option: Submenu item Border Color.
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-item-b-color]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'ast-color',
+				'transport' => 'postMessage',
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
+				'title'     => __( 'Divider Color', 'astra' ),
+				'section'   => $_section,
+				'priority'  => 100,
+			),
+
+			// Option: Sub-Menu Border.
+			array(
+				'name'           => ASTRA_THEME_SETTINGS . '[header-account-menu-container-border]',
+				'default'        => '',
+				'type'           => 'control',
+				'control'        => 'ast-border',
+				'transport'      => 'postMessage',
+				'section'        => $_section,
+				'linked_choices' => true,
+				'priority'       => 101,
+				'title'          => __( 'Container Border', 'astra' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
+				),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
+			),
+
+			// Option: Submenu Container Border Color.
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-b-color]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'ast-color',
+				'transport' => 'postMessage',
+				'default'   => '',
+				'title'     => __( 'Border Color', 'astra' ),
+				'section'   => $_section,
+				'priority'  => 102,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
+			),
+
+			/**
+			 * Option: menu Container Animation
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-animation]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'select',
+				'section'   => $_section,
+				'priority'  => 105,
+				'title'     => __( 'Container Animation', 'astra' ),
+				'choices'   => array(
+					''           => __( 'Default', 'astra' ),
+					'slide-down' => __( 'Slide Down', 'astra' ),
+					'slide-up'   => __( 'Slide Up', 'astra' ),
+					'fade'       => __( 'Fade', 'astra' ),
+				),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-header-account-wrap',
+					'render_callback' => array( Astra_Builder_Header::get_instance(), 'header_account' ),
+				),
+			),
+
+
 			/**
 			 * Option: Margin heading
 			 */
@@ -731,7 +855,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '===',
+						'value'    => 'menu',
+					),
+					Astra_Builder_Helper::$design_tab_config,
+				),
 			),
 
 			/**
