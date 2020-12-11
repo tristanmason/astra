@@ -260,7 +260,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 					$menu_animation_enable = astra_get_option( 'header-menu' . $index . '-submenu-container-animation' );
 
-					if ( Astra_Builder_Helper::is_component_loaded( 'menu-' . $index, 'header' ) && ! empty( $menu_animation_enable ) ) {
+					if ( Astra_Builder_Helper::is_component_loaded( 'header', 'menu-' . $index ) && ! empty( $menu_animation_enable ) ) {
 						$menu_animation = 'is_animated';
 						break;
 					}
