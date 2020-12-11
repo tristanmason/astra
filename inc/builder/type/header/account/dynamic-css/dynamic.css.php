@@ -162,7 +162,7 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
-	$css_output_desktop[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' );
+	$css_output_desktop[ $selector . ' .ast-account-nav-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' );
 
 	$css_output_tablet = array(
 
@@ -199,7 +199,7 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
-	$css_output_tablet[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' );
+	$css_output_tablet[ $selector . ' .ast-account-nav-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' );
 
 	$css_output_mobile = array(
 
@@ -236,7 +236,7 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
-	$css_output_mobile[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
+	$css_output_mobile[ $selector . ' .ast-account-nav-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 	if ( true === $menu_divider_toggle ) {
 		// Menu Divider.

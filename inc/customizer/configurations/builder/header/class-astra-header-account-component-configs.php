@@ -491,21 +491,24 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'    => Astra_Builder_Helper::$general_tab,
 			),
 
-			// Option: Menu Background image, color.
+			// Option: Background Color.
 			array(
 				'name'       => 'header-account-menu-bg-obj-responsive',
-				'default'    => '',
+				'default'    => astra_get_option( 'header-account-menu-bg-obj-responsive' ),
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
-				'control'    => 'ast-responsive-background',
-				'section'    => $_section,
+				'control'    => 'ast-responsive-color',
 				'transport'  => 'postMessage',
-				'tab'        => __( 'Normal', 'astra' ),
-				'data_attrs' => array( 'name' => 'header-account-menu-bg-obj-responsive' ),
+				'section'    => $_section,
 				'title'      => __( 'Background Color', 'astra' ),
-				'priority'   => 9,
+				'tab'        => __( 'Normal', 'astra' ),
+				'responsive' => true,
+				'rgba'       => true,
+				'priority'   => 8,
 				'context'    => Astra_Builder_Helper::$general_tab,
 			),
+
+
 
 			// Option: Menu Hover Color.
 			array(
@@ -527,7 +530,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Menu Hover Background Color.
 			array(
 				'name'       => 'header-account-menu-h-bg-color-responsive',
-				'default'    => '',
+				'default'    => astra_get_option( 'header-account-menu-h-bg-color-responsive' ),
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'title'      => __( 'Background Color', 'astra' ),
@@ -544,7 +547,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Active Menu Color.
 			array(
 				'name'       => 'header-account-menu-a-color-responsive',
-				'default'    => '',
+				'default'    => astra_get_option( 'header-account-menu-a-color-responsive' ),
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'section'    => $_section,
@@ -561,7 +564,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Active Menu Background Color.
 			array(
 				'name'       => 'header-account-menu-a-bg-color-responsive',
-				'default'    => '',
+				'default'    => astra_get_option( 'header-account-menu-a-bg-color-responsive' ),
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'control'    => 'ast-responsive-color',
