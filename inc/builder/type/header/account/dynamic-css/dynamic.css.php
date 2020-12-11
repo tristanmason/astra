@@ -96,6 +96,20 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$menu_resp_bg_color_active_desktop = ( isset( $menu_resp_bg_color_active['desktop'] ) ) ? $menu_resp_bg_color_active['desktop'] : '';
 	$menu_resp_bg_color_active_tablet  = ( isset( $menu_resp_bg_color_active['tablet'] ) ) ? $menu_resp_bg_color_active['tablet'] : '';
 	$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
+
+	// Typography.
+	$menu_font_family    = astra_get_option( 'header-account-menu-font-family' );
+	$menu_font_size      = astra_get_option( 'header-account-menu-font-size' );
+	$menu_font_weight    = astra_get_option( 'header-account-menu-font-weight' );
+	$menu_text_transform = astra_get_option( 'header-account-menu-text-transform' );
+	$menu_line_height    = astra_get_option( 'header-account-menu-line-height' );
+
+	$menu_font_size_desktop      = ( isset( $menu_font_size['desktop'] ) ) ? $menu_font_size['desktop'] : '';
+	$menu_font_size_tablet       = ( isset( $menu_font_size['tablet'] ) ) ? $menu_font_size['tablet'] : '';
+	$menu_font_size_mobile       = ( isset( $menu_font_size['mobile'] ) ) ? $menu_font_size['mobile'] : '';
+	$menu_font_size_desktop_unit = ( isset( $menu_font_size['desktop-unit'] ) ) ? $menu_font_size['desktop-unit'] : '';
+	$menu_font_size_tablet_unit  = ( isset( $menu_font_size['tablet-unit'] ) ) ? $menu_font_size['tablet-unit'] : '';
+	$menu_font_size_mobile_unit  = ( isset( $menu_font_size['mobile-unit'] ) ) ? $menu_font_size['mobile-unit'] : '';
 	
 	/**
 	 * account CSS.
@@ -139,6 +153,13 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'color'      => $menu_resp_color_active_desktop,
 			'background' => $menu_resp_bg_color_active_desktop,
 		),
+		$selector . ' .ast-account-nav-menu .menu-link'   => array(
+			'font-family'    => astra_get_font_family( $menu_font_family ),
+			'font-weight'    => esc_attr( $menu_font_weight ),
+			'font-size'      => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
+			'line-height'    => esc_attr( $menu_line_height ),
+			'text-transform' => esc_attr( $menu_text_transform ),
+		),
 	);
 
 	$css_output_desktop[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' );
@@ -173,6 +194,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 		),
+		$selector  . ' .ast-account-nav-menu .menu-link'        => array(
+			'font-size' => astra_get_font_css_value( $menu_font_size_tablet, $menu_font_size_tablet_unit ),
+		),
 	);
 
 	$css_output_tablet[ $selector . ' .main-header-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' );
@@ -206,6 +230,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+		),
+		$selector  . ' .ast-account-nav-menu .menu-link'        => array(
+			'font-size' => astra_get_font_css_value( $menu_font_size_mobile, $menu_font_size_mobile_unit ),
 		),
 	);
 

@@ -15,6 +15,38 @@
 
 	var selector = '.ast-header-account-wrap';
 
+	// Menu Typography.
+	astra_generate_outside_font_family_css(
+		'astra-settings[header-account-menu-font-family]',
+		selector + ' .ast-account-nav-menu .menu-link'
+	);
+	astra_generate_font_weight_css(
+		'astra-settings[header-account-menu-font-family]',
+		'astra-settings[header-account-menu-font-weight]',
+		'font-weight',
+		selector + ' .ast-account-nav-menu .menu-link'
+	);
+	astra_css(
+		'astra-settings[header-account-menu-text-transform]',
+		'text-transform',
+		selector + ' .ast-account-nav-menu .menu-link'
+	);
+	astra_responsive_font_size(
+		'astra-settings[header-account-menu-font-size]',
+		selector + ' .ast-account-nav-menu .menu-link'
+	);
+	astra_css(
+		'astra-settings[header-account-menu-line-height]',
+		'line-height',
+		selector + ' .ast-account-nav-menu .menu-link'
+	);
+	astra_css(
+		'astra-settings[header-account-menu-letter-spacing]',
+		'letter-spacing',
+		selector + ' .ast-account-nav-menu .menu-link',
+		'px'
+	);
+
 	// Icon Color.
 	astra_css(
 		'astra-settings[header-account-icon-color]',
