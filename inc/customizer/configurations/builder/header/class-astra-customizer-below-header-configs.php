@@ -129,7 +129,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Below Header Background styling.
 				array(
-					'name'      => 'hbb-header-bg-obj-responsive',
+					'name'      => ASTRA_THEME_SETTINGS . '[hbb-header-bg-obj-responsive]',
 					'type'      => 'control',
 					'section'   => $_section,
 					'control'   => 'ast-responsive-background',
