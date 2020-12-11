@@ -1235,7 +1235,8 @@ li.edd-custom-menu-item{
 
 /** Cart CSS */
 .ast-header-break-point {
-	&.ast-woocommerce-cart-menu.astra-hfb-header {
+	&.ast-woocommerce-cart-menu.astra-hfb-header,
+	&.astra-hfb-header {
 		.ast-site-header-cart {
 			padding: 0;
 		}
