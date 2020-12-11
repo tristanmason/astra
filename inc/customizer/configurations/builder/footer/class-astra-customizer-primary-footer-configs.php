@@ -206,7 +206,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Sub Option: Footer Background.
 				array(
-					'name'       => 'hb-footer-bg-obj-responsive',
+					'name'       => ASTRA_THEME_SETTINGS . '[hb-footer-bg-obj-responsive]',
 					'section'    => $_section,
 					'type'       => 'control',
 					'control'    => 'ast-responsive-background',

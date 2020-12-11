@@ -226,7 +226,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Below Footer Background styling.
 				array(
-					'name'      => 'hbb-footer-bg-obj-responsive',
+					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-bg-obj-responsive]',
 					'type'      => 'control',
 					'section'   => $_section,
 					'control'   => 'ast-responsive-background',
