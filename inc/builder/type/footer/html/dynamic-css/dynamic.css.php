@@ -30,7 +30,7 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
 
-		if ( ! Astra_Builder_Helper::is_component_loaded( 'html-' . $index, 'footer' ) ) {
+		if ( ! Astra_Builder_Helper::is_component_loaded( 'footer', 'html-' . $index ) ) {
 			continue;
 		}
 

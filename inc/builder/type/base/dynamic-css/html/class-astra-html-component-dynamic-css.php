@@ -37,7 +37,7 @@ class Astra_Html_Component_Dynamic_CSS {
 
 		for ( $index = 1; $index <= $number_of_html; $index++ ) {
 
-			if ( ! Astra_Builder_Helper::is_component_loaded( 'html-' . $index, $builder_type ) ) {
+			if ( ! Astra_Builder_Helper::is_component_loaded( $builder_type, 'html-' . $index ) ) {
 				continue;
 			}
 
