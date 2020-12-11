@@ -244,8 +244,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		/**
 		 * Prepare Button HTML.
 		 *
-		 * @param string $builder_type the type of the builder.
 		 * @param string $index The Index of the button.
+		 * @param string $builder_type the type of the builder.
 		 */
 		public static function render_button( $index, $builder_type = 'header' ) {
 			if ( is_customize_preview() ) {
