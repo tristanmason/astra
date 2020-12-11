@@ -280,6 +280,12 @@ return array(
 		),
 	),
 	array(
+		'Andika New Basic' => array(
+			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Angkor' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -2704,6 +2710,12 @@ return array(
 		),
 	),
 	array(
+		'JetBrains Mono' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
+			'category' => 'monospace', 
+		),
+	),
+	array(
 		'Jim Nightshade' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -3071,6 +3083,12 @@ return array(
 	),
 	array(
 		'Lancelot' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Langar' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),

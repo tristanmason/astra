@@ -67,7 +67,7 @@ final class Astra_Builder_Customizer {
 			array(
 				'selector'            => '.site-branding',
 				'container_inclusive' => true,
-				'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+				'render_callback'     => 'Astra_Builder_Header::site_identity',
 			)
 		);
 

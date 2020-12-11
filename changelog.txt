@@ -54,6 +54,11 @@ v3.0.0-beta.1
 - For quick access and faster editing, customization options are segregated and served with two different tabs - General and Design.
 - Now get a faster customizer preview than before. Header and Footer sections will be partially refreshed on any change in the customizer.
 
+v2.6.2
+- Fix: Gradient Color control UI compatibility with WordPress 5.6.
+- Fix: Background Image control UI compatibility with WordPress 5.6.
+- Fix: Fatal error on changing the value of some controls in Customizer - compatibility with PHP 8.0.
+
 v2.6.1
 - Improvement: Compatibility with the Gutenberg plugin.
 
