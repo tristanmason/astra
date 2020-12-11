@@ -1339,3 +1339,28 @@ body.admin-bar .astra-cart-drawer {
 		z-index: 999;
 	}
 }
+/** Cart CSS */
+.ast-header-break-point {
+	&.ast-woocommerce-cart-menu.astra-hfb-header,
+	&.astra-hfb-header {
+		.ast-site-header-cart {
+			padding: 0;
+		}
+		.ast-cart-menu-wrap {
+			width: 2em;
+			height: 2em;
+			font-size: 1.4em;
+			line-height: 2;
+			vertical-align: middle;
+			text-align: right;
+		}
+	}
+	.ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
+		width: 2em;
+		height: 2em;
+		font-size: 1.4em;
+		line-height: 2;
+		vertical-align: middle;
+		text-align: right;
+	}
+}
