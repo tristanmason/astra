@@ -105,7 +105,34 @@ switch ( $component_slug ) {
 			<?php
 		}
 		break;
-	
+	case 'widget-1':
+		?>
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
+			<?php
+			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
+				Astra_Builder_UI_Controller::render_customizer_edit_button();
+			}
+			?>
+			<div class="header-widget-area-inner site-info-inner">
+				<?php dynamic_sidebar( 'header-widget-1' ); ?>
+			</div>
+		</aside>
+		<?php
+		break;
+	case 'widget-2':
+		?>
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2">
+			<?php
+			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
+				Astra_Builder_UI_Controller::render_customizer_edit_button();
+			}
+			?>
+			<div class="header-widget-area-inner site-info-inner">
+				<?php dynamic_sidebar( 'header-widget-2' ); ?>
+			</div>
+		</aside>
+		<?php
+		break;
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;

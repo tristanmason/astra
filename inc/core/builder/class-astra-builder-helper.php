@@ -319,7 +319,7 @@ final class Astra_Builder_Helper {
 
 		self::$num_of_header_menu = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;
 
-		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
+		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 2;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-social-icons'] : 1;
