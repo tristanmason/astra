@@ -4376,7 +4376,7 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
   visibility: hidden;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  z-index: 999;
+  z-index: 9999;
   background-color: #fff;
   transition: all 0.5s ease;
   transform: translate3d(0, 0, 0);
@@ -4386,7 +4386,7 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
   width: 80%;
   height: 100%;
   left: 100%;
-  top: 46px;
+  top: 0px;
   transform: translate3d(0%, 0, 0);
 }
 
@@ -4438,6 +4438,33 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 .astra-cart-drawer .astra-cart-drawer-content {
   -moz-flex: 1 0 auto;
   flex: 1 0 auto;
+}
+
+body.admin-bar .astra-cart-drawer {
+  top: 46px;
+}
+
+.astra-mobile-cart-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.ast-mobile-cart-active body.astra-hfb-header {
+  overflow: hidden;
+}
+
+.ast-mobile-cart-active .astra-mobile-cart-overlay {
+  opacity: 1;
+  cursor: pointer;
+  visibility: visible;
+  z-index: 999;
 }
 
 /*----------  Header  ----------*/

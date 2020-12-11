@@ -145,6 +145,7 @@ var main_header_masthead = document.getElementById('masthead');
 		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
 
 			cart_flyout.classList.add( 'active' );
+			document.documentElement.classList.add( 'ast-mobile-cart-active' );
 		}
 	}
 
@@ -158,6 +159,7 @@ var main_header_masthead = document.getElementById('masthead');
 		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
 
 			cart_flyout.classList.remove( 'active' );
+			document.documentElement.classList.remove( 'ast-mobile-cart-active' );
 		}
 	}
 
@@ -351,6 +353,7 @@ var main_header_masthead = document.getElementById('masthead');
 					event.preventDefault();
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
 					cart_flyout.classList.remove( 'active' );
+					document.documentElement.classList.remove( 'ast-mobile-cart-active' );
 					updateTrigger();
 				}
 			});
@@ -360,12 +363,15 @@ var main_header_masthead = document.getElementById('masthead');
 
 				var target = event.target;
 				var modal = document.querySelector( '.ast-mobile-popup-drawer.active .ast-mobile-popup-overlay' );
+				var cart_modal = document.querySelector( '.ast-mobile-cart-active .astra-mobile-cart-overlay' );
+
 				if ( target === modal ) {
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
 					updateTrigger();
 				}
-				if ( target === cart_flyout ) {
+				if ( target === cart_modal ) {
 					cart_flyout.classList.remove( 'active' );
+					document.documentElement.classList.remove( 'ast-mobile-cart-active' );
 				}
 			});
 			AstraToggleSetup();

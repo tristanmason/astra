@@ -1240,7 +1240,7 @@ li.edd-custom-menu-item{
     visibility: hidden;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
-    z-index: 999;
+    z-index: 9999;
     background-color: #fff;
     -ms-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
@@ -1252,7 +1252,7 @@ li.edd-custom-menu-item{
 		width: 80%;
 		height: 100%;
 		left: 100%;
-		top: 46px;
+		top: 0px;
 		-ms-transform: translate3d(-0%, 0, 0);
 		-webkit-transform: translate3d(-0%, 0, 0);
 		transform: translate3d(-0%, 0, 0);
@@ -1312,5 +1312,30 @@ li.edd-custom-menu-item{
 		-moz-flex: 1 0 auto;
 		-ms-flex: 1 0 auto;
 		flex: 1 0 auto;
+	}
+}
+body.admin-bar .astra-cart-drawer {
+	top: 46px;
+}
+.astra-mobile-cart-overlay {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+.ast-mobile-cart-active {
+	body.astra-hfb-header {
+		overflow: hidden;
+	}
+	.astra-mobile-cart-overlay {
+		opacity: 1;
+		cursor: pointer;
+		visibility: visible;
+		z-index: 999;
 	}
 }
