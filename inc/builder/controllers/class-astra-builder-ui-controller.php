@@ -298,39 +298,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$new_tab = '';
 			$link_rel = '';
 
-			$account_type = astra_get_option( 'header-account-type' );
-
-			$login_profile_type = astra_get_option( 'header-account-login-style' );
-
-			$action_type = astra_get_option( 'header-account-action-type' );
-			
-			if( 'link' === $action_type ) {
-
-				$account_link = $is_logged_in ? astra_get_option( 'header-account-login-link' ) : astra_get_option( 'header-account-logout-link' );
-
-				$link_type = astra_get_option( 'header-account-link-type' );
-
-				$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
-
-				$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
-
-				if ( 'default' !== $account_type && 'link' === $action_type && 'default' === $link_type ) {
-					$account_link['new_tab'] = 'target="_self"';
-					if ( 'woocommerce' == $account_type ) {
-						$account_link['url'] = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
-					} elseif ( 'learndash' === $account_type ) {
-					} elseif ( 'lifterlms' === $account_type ) {
-						$account_link['url'] = llms_get_page_url( 'myaccount' );
-					} elseif ( 'edd' === $account_type ) {
-					}
-				}
-				
-				$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
-			}
-
-			$logged_out_style = astra_get_option( 'header-account-logout-style' );
-			$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
-
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
 			}
@@ -345,6 +312,40 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				?>
 
 				<?php if ( $is_logged_in ) { ?>
+
+					<?php 
+
+					$account_type = astra_get_option( 'header-account-type' );
+
+					$login_profile_type = astra_get_option( 'header-account-login-style' );
+
+					$action_type = astra_get_option( 'header-account-action-type' );
+
+					if( 'link' === $action_type ) {
+
+						$account_link = $is_logged_in ? astra_get_option( 'header-account-login-link' ) : astra_get_option( 'header-account-logout-link' );
+
+						$link_type = astra_get_option( 'header-account-link-type' );
+
+						$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+
+						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+
+						if ( 'default' !== $account_type && 'link' === $action_type && 'default' === $link_type ) {
+							$account_link['new_tab'] = 'target="_self"';
+							if ( 'woocommerce' == $account_type ) {
+								$account_link['url'] = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
+							} elseif ( 'learndash' === $account_type ) {
+							} elseif ( 'lifterlms' === $account_type ) {
+								$account_link['url'] = llms_get_page_url( 'myaccount' );
+							} elseif ( 'edd' === $account_type ) {
+							}
+						}
+						
+						$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
+					}
+
+					?>
 					<a class="ast-header-account-type-<?php echo $login_profile_type; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 
 						<?php if ( 'avatar' === $login_profile_type ) { ?>
@@ -364,8 +365,21 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					}
 					?>
 				<?php } elseif ( 'none' !== $logged_out_style ) { ?>
-					<a class="ast-header-account-type-<?php echo $logged_out_style; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 
+					<?php
+					$logged_out_style = astra_get_option( 'header-account-logout-style' );
+					$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
+
+					$account_link = astra_get_option( 'header-account-logout-link' );
+
+					$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+
+					$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+					
+					$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
+					?>
+
+					<a class="ast-header-account-type-<?php echo $logged_out_style; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 						<?php if ( 'icon' === $logged_out_style ) { ?>
 							<span class="ast-header-account-icon"></span>
 						<?php } elseif ( 'text' === $logged_out_style ) { ?>
