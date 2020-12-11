@@ -309,6 +309,16 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				if ( is_customize_preview() ) {
 					self::render_customizer_edit_button();
 				}
+
+				// $args = array(
+				// 	'echo'            => true,
+				// 	'redirect'        => get_permalink( get_the_ID() ),
+				// 	'remember'        => true,
+				// 	'value_remember'  => true,
+				//   );
+				 
+				//   return wp_login_form( $args );
+
 				?>
 
 				<?php if ( $is_logged_in ) { ?>
