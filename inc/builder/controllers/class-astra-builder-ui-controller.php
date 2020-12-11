@@ -292,7 +292,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_mobile_cart_flyout_markup() {
 			?>
-			<div id="astra-mobile-cart-drawer" class="astra-cart-drawer">
+			<div id="astra-mobile-cart-drawer" class="astra-cart-drawer open-right">
 				<div class="astra-mobile-cart-drawer-inner">
 
 					<div class="astra-cart-drawer-header">
@@ -306,7 +306,13 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						Shopping Cart
 						</div>
 					</div>
-					<div class="astra-cart-drawer-content"></div>
+					<div class="astra-cart-drawer-content"> 
+						<?php
+							if ( class_exists( 'Astra_Woocommerce' ) ) {
+								the_widget( 'WC_Widget_Cart', 'title=' );
+							}
+						?>
+					</div>
 				</div>
 			</div>
 			<?php

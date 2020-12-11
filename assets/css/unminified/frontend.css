@@ -4369,6 +4369,77 @@ li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
   }
 }
 
+/** Mobile Header Cart Flyout */
+.astra-cart-drawer {
+  position: fixed;
+  display: block;
+  visibility: hidden;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 999;
+  background-color: #fff;
+  transition: all 0.5s ease;
+  transform: translate3d(0, 0, 0);
+}
+
+.astra-cart-drawer.open-right {
+  width: 300px;
+  height: 100%;
+  left: 100%;
+  top: 0;
+  transform: translate3d(-150px, 0, 0);
+}
+
+.astra-cart-drawer .astra-mobile-cart-drawer-inner {
+  display: -moz-flex;
+  -js-display: flex;
+  display: flex;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+}
+
+.astra-cart-drawer.active {
+  transform: translate3d(-300px, 0, 0);
+  visibility: visible;
+}
+
+.astra-cart-drawer .astra-cart-drawer-header {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0 1rem 1rem;
+  padding: 0 0 0.675rem;
+}
+
+.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 1rem;
+  color: #ababab;
+  line-height: 1.675rem;
+  z-index: 10;
+  background-color: transparent;
+  border: 0;
+  text-align: left;
+  font-size: 1em;
+  text-decoration: underline;
+  font-family: "apercu-italic","Roboto",sans-serif;
+  font-weight: normal;
+}
+
+.astra-cart-drawer .astra-cart-drawer-content {
+  -moz-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header
