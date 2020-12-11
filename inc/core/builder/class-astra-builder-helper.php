@@ -917,28 +917,6 @@ final class Astra_Builder_Helper {
 	}
 
 	/**
-	 * Check if Zone is empty.
-	 *
-	 * @param string $row row.
-	 * @param string $builder_type the type of the builder.
-	 * @param string $zone Zone.
-	 * @return bool
-	 */
-	public static function is_zone_empty( $row = 'primary', $builder_type = 'header', $zone ) {
-		$sides    = true;
-		$elements = astra_get_option( $builder_type . '-desktop-items' );
-		if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
-
-			if ( isset( $elements[ $row ][ $row . '_' . $zone ] ) &&
-			is_array( $elements[ $row ][ $row . '_' . $zone ] ) && ! empty( $elements[ $row ][ $row . '_' . $zone ] ) ) {
-
-				$sides = false;
-			}
-		}
-		return $sides;
-	}
-
-	/**
 	 * Check if Footer Zone is empty.
 	 *
 	 * @param string $row row.
