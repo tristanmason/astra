@@ -42,8 +42,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 			'min-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item' => array(
-			'height'     => astra_get_css_value( $hb_header_height_desktop, 'px' ),
-			'align-self' => 'center',
+			'line-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-primary-header-bar .ast-header-woo-cart, .ast-desktop .ast-primary-header-bar .ast-header-edd-cart' => array(
 			'line-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),

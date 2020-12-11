@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
 					'title'    => __( 'Colors and Border', 'astra' ),
-					'priority' => 17,
+					'priority' => 1,
 					'settings' => array(),
 				),
 				/**

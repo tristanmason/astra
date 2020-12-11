@@ -964,6 +964,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
     width: 300px;
+    max-height: 340px;
 }
 
 .ahfb-popover-builder-list {
