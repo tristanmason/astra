@@ -117,6 +117,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
 
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
+
+				// Load Cart Flyout Markup on Footer.
+				add_action( 'wp_footer', array( $this, 'mobile_cart_flyout' ) );
 			}
 
 			add_action( 'astra_site_identity', array( $this, 'site_identity' ) );
@@ -453,6 +456,14 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
+		}
+
+		/**
+		 *  Call Mobile Cart Flyout UI.
+		 */
+		public function mobile_cart_flyout() {
+
+			Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
 		}
 
 		/**
