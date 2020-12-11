@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Header background overlay color
 				 */
 				array(
-					'name'       => 'transparent-header-bg-color-responsive',
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
 					'default'    => $defaults['transparent-header-bg-color-responsive'],
 					'section'    => 'section-transparent-header',
 					'type'       => 'control',
