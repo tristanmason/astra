@@ -294,33 +294,39 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$is_logged_in = is_user_logged_in();
 
+			$link_href = '';
+			$new_tab = '';
+			$link_rel = '';
+
 			$account_type = astra_get_option( 'header-account-type' );
 
 			$login_profile_type = astra_get_option( 'header-account-login-style' );
 
-			$account_link = $is_logged_in ? astra_get_option( 'header-account-login-link' ) : astra_get_option( 'header-account-logout-link' );
-
 			$action_type = astra_get_option( 'header-account-action-type' );
+			
+			if( 'link' === $action_type ) {
 
-			$link_type = astra_get_option( 'header-account-link-type' );
+				$account_link = $is_logged_in ? astra_get_option( 'header-account-login-link' ) : astra_get_option( 'header-account-logout-link' );
 
-			$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+				$link_type = astra_get_option( 'header-account-link-type' );
 
-			$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+				$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
 
-			if ( 'default' !== $account_type && 'link' === $action_type && 'default' === $link_type ) {
-				$link_rel                = '';
-				$account_link['new_tab'] = 'target="_self"';
-				if ( 'woocommerce' == $account_type ) {
-					$account_link['url'] = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
-				} elseif ( 'learndash' === $account_type ) {
-				} elseif ( 'lifterlms' === $account_type ) {
-					$account_link['url'] = llms_get_page_url( 'myaccount' );
-				} elseif ( 'edd' === $account_type ) {
+				$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+
+				if ( 'default' !== $account_type && 'link' === $action_type && 'default' === $link_type ) {
+					$account_link['new_tab'] = 'target="_self"';
+					if ( 'woocommerce' == $account_type ) {
+						$account_link['url'] = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
+					} elseif ( 'learndash' === $account_type ) {
+					} elseif ( 'lifterlms' === $account_type ) {
+						$account_link['url'] = llms_get_page_url( 'myaccount' );
+					} elseif ( 'edd' === $account_type ) {
+					}
 				}
+				
+				$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
 			}
-
-			$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
 
 			$logged_out_style = astra_get_option( 'header-account-logout-style' );
 			$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
@@ -352,6 +358,11 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						<?php } ?>
 						
 					</a>
+					<?php 
+					if( 'menu' === $action_type ) {
+						Astra_Header_Account_Component::account_menu_markup();
+					}
+					?>
 				<?php } elseif ( 'none' !== $logged_out_style ) { ?>
 					<a class="ast-header-account-type-<?php echo $logged_out_style; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 
@@ -362,12 +373,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						<?php } ?>
 					</a>
 				<?php } ?>
-
-				<?php 
-				if( 'menu' === $action_type ) {
-					Astra_Header_Account_Component::account_menu_markup();
-				}
-				?>
 
 			</div>
 
