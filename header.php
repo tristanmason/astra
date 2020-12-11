@@ -43,17 +43,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	?>
 >
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?></a>
+	<?php 
+	astra_header_before(); 
 
-	<?php astra_header_before(); ?>
+	astra_header(); 
 
-	<?php astra_header(); ?>
+	astra_header_after();
 
-	<?php astra_header_after(); ?>
-
-	<?php astra_content_before(); ?>
-
+	astra_content_before(); 
+	?>
 	<div id="content" class="site-content">
-
 		<div class="ast-container">
-
 		<?php astra_content_top(); ?>
