@@ -196,13 +196,28 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'title'     => __( 'Enter URL', 'astra' ),
 				'transport' => 'postMessage',
-				'context'        => array(
+				'context'  => array(
+					'relation' => 'AND',
 					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
-						'operator' => '!=',
-						'value'    => 'menu',
+						'operator' => '==',
+						'value'    => 'link',
 					),
+					array(
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
+							'operator' => '==',
+							'value'    => 'default',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-link-type]',
+							'operator' => '==',
+							'value'    => 'custom',
+						),
+					),
+
 				),
 				'partial'   => array(
 					'selector'        => '.ast-header-account',
