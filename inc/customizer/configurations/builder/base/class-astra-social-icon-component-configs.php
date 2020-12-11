@@ -372,9 +372,7 @@ class Astra_Social_Icon_Component_Configs {
 				);
 			}
 
-			if ( 'header' === $builder_type ) {
-				$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
-			}
+			$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 			
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
 				$_section,

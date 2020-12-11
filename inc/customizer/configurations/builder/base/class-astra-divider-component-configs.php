@@ -249,6 +249,8 @@ class Astra_Divider_Component_Configs {
 				);
 			}
 
+			$divider_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
+
 			$divider_config[] = $_configs;
 		}
 

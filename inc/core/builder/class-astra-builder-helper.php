@@ -116,6 +116,23 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config Desktop device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $desktop_general_tab = array(
+		array(
+			'setting' => 'ast_selected_tab',
+			'value'   => 'general',
+		),
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => '==',
+			'value'    => 'desktop',
+		),
+	);
+
+	/**
 	 * Config Tablet device context.
 	 *
 	 * @var string[][]

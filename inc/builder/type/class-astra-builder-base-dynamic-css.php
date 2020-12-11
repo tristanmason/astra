@@ -322,8 +322,15 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			$css_output_tablet  = array();
 			$css_output_mobile  = array();
 
-			$hide_tablet = ( ! astra_get_option( $section_id . '-hide-tablet' ) ) ? $default_property : 'none';
-			$hide_mobile = ( ! astra_get_option( $section_id . '-hide-mobile' ) ) ? $default_property : 'none';
+			$hide_desktop = ( ! astra_get_option( $section_id . '-hide-desktop' ) ) ? $default_property : 'none';
+			$hide_tablet  = ( ! astra_get_option( $section_id . '-hide-tablet' ) ) ? $default_property : 'none';
+			$hide_mobile  = ( ! astra_get_option( $section_id . '-hide-mobile' ) ) ? $default_property : 'none';
+
+			$css_output_desktop = array(
+				$selector => array(
+					'display' => $hide_desktop,
+				),
+			);
 
 			$css_output_tablet = array(
 				'.ast-header-break-point ' . $selector => array(
@@ -338,7 +345,8 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array() */
-			$css_output  = astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+			$css_output  = astra_parse_css( $css_output_desktop );
+			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 			return $css_output;
