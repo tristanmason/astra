@@ -305,9 +305,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					</div>
 					<div class="astra-cart-drawer-content"> 
 						<?php
-							if ( class_exists( 'Astra_Woocommerce' ) ) {
-								the_widget( 'WC_Widget_Cart', 'title=' );
-							}
+						if ( class_exists( 'Astra_Woocommerce' ) ) {
+							the_widget( 'WC_Widget_Cart', 'title=' );
+						}
 						?>
 					</div>
 				</div>
