@@ -244,11 +244,8 @@ class Astra_Social_Component_Dynamic_CSS {
 
 			$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 
-			if ( 'header' === $builder_type ) {
-
-				$visibility_selector = '.ast-builder-layout-element[data-section="section-hb-social-icons-' . $index . '"]';
-				$css_output         .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
-			}
+			$visibility_selector = '.ast-builder-layout-element[data-section="' . $_section . '"]';
+			$css_output         .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
 
 			$generated_css .= $css_output;
 		}

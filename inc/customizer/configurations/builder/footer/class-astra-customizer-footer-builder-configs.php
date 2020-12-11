@@ -170,25 +170,6 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
-			/**
-			 * Option: Header Builder
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-footer]',
-				'section'     => 'section-footer-builder',
-				'type'        => 'control',
-				'control'     => 'ast-builder-header-control',
-				'priority'    => 20,
-				'description' => '',
-				'context'     => array(
-					array(
-						'setting'  => 'ast_selected_tab',
-						'operator' => 'in',
-						'value'    => array( 'general', 'design' ),
-					),
-				),
-			),
-
 			// Group Option: Global Footer Background styling.
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-bg-obj-responsive]',
