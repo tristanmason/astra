@@ -3371,6 +3371,62 @@ body .entry-content .wp-block-latest-posts li {
   vertical-align: middle;
 }
 
+#ast-hb-account-login {
+  max-height: 556px;
+}
+
+#ast-hb-account-login-wrap #ast-hb-account-login-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: .7;
+  z-index: 1000010;
+}
+
+#ast-hb-account-login-wrap #ast-hb-account-login {
+  position: fixed;
+  left: 50%;
+  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: 0px;
+  max-height: 560px;
+  width: 380px;
+  margin: 0 0 0 -190px;
+  background-color: #f1f1f1;
+  z-index: 1000011;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#ast-hb-account-login-wrap .ast-hb-login-header .ast-hb-login-close {
+  background: 0 0;
+  border: 0;
+  font-size: 24px;
+  line-height: 1;
+  padding: .4em;
+  color: inherit;
+  -js-display: flex;
+  display: flex;
+  box-shadow: none;
+}
+
+#ast-hb-account-login-wrap .ast-hb-login-header {
+  -js-display: flex;
+  display: flex;
+  justify-content: flex-end;
+  min-height: calc(1.2em + 24px);
+}
+
+#ast-hb-account-login-wrap #ast-hb-account-login-form {
+  height: 100%;
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .ast-header-account-type-avatar .avatar {
   display: inline;
   border-radius: 100%;

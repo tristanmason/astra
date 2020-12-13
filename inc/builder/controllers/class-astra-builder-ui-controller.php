@@ -382,7 +382,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$logged_out_style = astra_get_option( 'header-account-logout-style' );
 					$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
 					$action_type = astra_get_option( 'header-account-logout-action' );
-					$screen = get_current_screen();
+					// $screen = get_current_screen();
 
 					if( 'link' === $action_type ) {
 						$account_link = astra_get_option( 'header-account-logout-link' );
@@ -409,6 +409,21 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 							<span class="ast-header-account-text"><?php echo $logged_out_text; ?></span>
 						<?php } ?>
 					</a>
+
+					<div id="ast-hb-account-login-wrap" class="hidden" style="">
+						<div id="ast-hb-account-login-bg"></div>
+						<div id="ast-hb-account-login">
+							<div class="ast-hb-login-header">
+								<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="Close popup">
+									<span class="ast-svg-iconset">
+										<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									</span>
+								</button>
+							</div>
+							<div id="ast-hb-account-login-form" class="">
+							</div>
+						</div>
+					</div>
 
 				<?php } ?>
 
