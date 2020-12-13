@@ -298,17 +298,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$new_tab = '';
 			$link_rel = '';
 
-			// echo wp_login_url();
-
-			// $args = array(
-			// 	'echo'            => true,
-			// 	'redirect'        => get_permalink( get_the_ID() ),
-			// 	'remember'        => true,
-			// 	'value_remember'  => true,
-			//   );
-			 
-			//   return wp_login_form( $args );
-
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
 			}
@@ -379,6 +368,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				<?php } elseif ( 'none' !== $logged_out_style ) { ?>
 
 					<?php
+					$logged_out_style_class = '';
 					$logged_out_style = astra_get_option( 'header-account-logout-style' );
 					$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
 					$action_type = astra_get_option( 'header-account-logout-action' );
@@ -392,7 +382,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
 						
 						$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
-					} else {
+					} elseif( 'login' === $action_type ) {
+
+						$logged_out_style_class = 'ast-header-account-type-' . $logged_out_style . ' header-account-enable-login-popup';
 						// wp_enqueue_style( 'wp-auth-check' );
 						// wp_enqueue_script( 'wp-auth-check' );
 				
@@ -401,30 +393,43 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					}
 					
 					?>
-
-					<a class="ast-header-account-type-<?php echo $logged_out_style; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
+					
+					<a class="ast-header-account-type-<?php echo $logged_out_style_class; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 						<?php if ( 'icon' === $logged_out_style ) { ?>
 							<span class="ast-header-account-icon"></span>
 						<?php } elseif ( 'text' === $logged_out_style ) { ?>
 							<span class="ast-header-account-text"><?php echo $logged_out_text; ?></span>
 						<?php } ?>
 					</a>
-
-					<div id="ast-hb-account-login-wrap" class="hidden" style="">
-						<div id="ast-hb-account-login-bg"></div>
-						<div id="ast-hb-account-login">
-							<div class="ast-hb-login-header">
-								<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="Close popup">
-									<span class="ast-svg-iconset">
-										<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-									</span>
-								</button>
-							</div>
-							<div id="ast-hb-account-login-form" class="">
+					
+					<?php if( 'login' === $action_type ) { ?>
+						<div id="ast-hb-account-login-wrap" class="hidden ast-hb-account-login-wrapper" style="">
+							<div id="ast-hb-account-login-bg"></div>
+							<div id="ast-hb-account-login">
+								<div class="ast-hb-login-header">
+									<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="Close popup">
+										<span class="ast-svg-iconset">
+											<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										</span>
+									</button>
+								</div>
+								<div class="ast-hb-login-body">
+									<div id="ast-hb-account-login-form">
+										<?php
+											$args = array(
+												'echo'            => true,
+												'redirect'        => get_permalink( get_the_ID() ),
+												'remember'        => true,
+												'value_remember'  => true,
+											);
+										
+											return wp_login_form( $args );
+										?>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-
+					<?php } ?>
 				<?php } ?>
 
 			</div>

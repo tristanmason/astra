@@ -341,13 +341,18 @@ var main_header_masthead = document.getElementById('masthead');
 		}
 
 		var header_account_trigger =  document.querySelectorAll( '.ast-header-account-wrap' )[0];
+		var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
+		var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
 
-		header_account_trigger.onclick = function() {
-			// var login_popup =  document.getElementById( 'wp-auth-check-wrap' );
-
-			// login_popup.classList.remove( 'hidden' );
-
-		};
+		if ( login_popup.classList.contains( 'hidden' ) ) {
+			header_account_trigger.onclick = function() {
+				login_popup.classList.remove( 'hidden' );
+			};
+		} else {
+			header_account__close_trigger.onclick = function() {
+				login_popup.classList.add( 'hidden' );
+			};
+		}
 		
 	}
 
