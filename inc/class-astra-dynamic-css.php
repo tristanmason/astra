@@ -2086,7 +2086,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_color   = astra_get_option( 'transparent-header-button-bg-color' );
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
-				$divider_color = astra_get_option( 'transparent-header-divider-color' );
+				$divider_color      = astra_get_option( 'transparent-header-divider-color' );
 				$account_icon_color = astra_get_option( 'transparent-account-icon-color' );
 
 				// Menu colors.
@@ -2096,6 +2096,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$account_menu_resp_bg_color_hover  = astra_get_option( 'transparent-account-menu-h-bg-color-responsive' );
 				$account_menu_resp_color_active    = astra_get_option( 'transparent-account-menu-a-color-responsive' );
 				$account_menu_resp_bg_color_active = astra_get_option( 'transparent-account-menu-a-bg-color-responsive' );
+
+				$account_menu_resp_color_desktop = ( isset( $account_menu_resp_color['desktop'] ) ) ? $account_menu_resp_color['desktop'] : '';
+				$account_menu_resp_color_tablet  = ( isset( $account_menu_resp_color['tablet'] ) ) ? $account_menu_resp_color['tablet'] : '';
+				$account_menu_resp_color_mobile  = ( isset( $account_menu_resp_color['mobile'] ) ) ? $account_menu_resp_color['mobile'] : '';
+			
+				$account_menu_resp_bg_color_desktop = ( isset( $account_menu_resp_bg_color['desktop'] ) ) ? $account_menu_resp_bg_color['desktop'] : '';
+				$account_menu_resp_bg_color_tablet  = ( isset( $account_menu_resp_bg_color['tablet'] ) ) ? $account_menu_resp_bg_color['tablet'] : '';
+				$account_menu_resp_bg_color_mobile  = ( isset( $account_menu_resp_bg_color['mobile'] ) ) ? $account_menu_resp_bg_color['mobile'] : '';
+			
+				$account_menu_resp_color_hover_desktop = ( isset( $account_menu_resp_color_hover['desktop'] ) ) ? $account_menu_resp_color_hover['desktop'] : '';
+				$account_menu_resp_color_hover_tablet  = ( isset( $account_menu_resp_color_hover['tablet'] ) ) ? $account_menu_resp_color_hover['tablet'] : '';
+				$account_menu_resp_color_hover_mobile  = ( isset( $account_menu_resp_color_hover['mobile'] ) ) ? $account_menu_resp_color_hover['mobile'] : '';
+
+				$account_menu_resp_bg_color_hover_desktop = ( isset( $account_menu_resp_bg_color_hover['desktop'] ) ) ? $account_menu_resp_bg_color_hover['desktop'] : '';
+				$account_menu_resp_bg_color_hover_tablet  = ( isset( $account_menu_resp_bg_color_hover['tablet'] ) ) ? $account_menu_resp_bg_color_hover['tablet'] : '';
+				$account_menu_resp_bg_color_hover_mobile  = ( isset( $account_menu_resp_bg_color_hover['mobile'] ) ) ? $account_menu_resp_bg_color_hover['mobile'] : '';
+
+				$account_menu_resp_color_active_desktop = ( isset( $account_menu_resp_color_active['desktop'] ) ) ? $account_menu_resp_color_active['desktop'] : '';
+				$account_menu_resp_color_active_tablet  = ( isset( $account_menu_resp_color_active['tablet'] ) ) ? $account_menu_resp_color_active['tablet'] : '';
+				$account_menu_resp_color_active_mobile  = ( isset( $account_menu_resp_color_active['mobile'] ) ) ? $account_menu_resp_color_active['mobile'] : '';
+
+				$account_menu_resp_bg_color_active_desktop = ( isset( $account_menu_resp_bg_color_active['desktop'] ) ) ? $account_menu_resp_bg_color_active['desktop'] : '';
+				$account_menu_resp_bg_color_active_tablet  = ( isset( $account_menu_resp_bg_color_active['tablet'] ) ) ? $account_menu_resp_bg_color_active['tablet'] : '';
+				$account_menu_resp_bg_color_active_mobile  = ( isset( $account_menu_resp_bg_color_active['mobile'] ) ) ? $account_menu_resp_bg_color_active['mobile'] : '';
 				
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
@@ -2148,22 +2172,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-divider-element .ast-divider-wrapper'         => array(
 						'border-color' => esc_attr( $divider_color ),
 					),
-					'.ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
 						'fill' => esc_attr( $account_icon_color ),
 					),
-					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
-						'color' => esc_attr( $account_menu_resp_color['desktop'] ),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color_desktop ),
 					),
-					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
-						'color'      => $account_menu_resp_color_hover['desktop'],
-						'background' => $account_menu_resp_bg_color_hover['desktop'],
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover_desktop,
+						'background' => $account_menu_resp_bg_color_hover_desktop,
 					),
-					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
-						'color'      => $account_menu_resp_color_active['desktop'],
-						'background' => $account_menu_resp_bg_color_active['desktop'],
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active_desktop,
+						'background' => $account_menu_resp_bg_color_active_desktop,
 					),
-					'.ast-theme-transparent-header .account-main-navigation ul' => array(
-						'background'    => $account_menu_resp_bg_color['desktop'],
+					'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation ul' => array(
+						'background' => $account_menu_resp_bg_color_desktop,
 					),
 				);
 
@@ -2186,18 +2210,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'fill' => esc_attr( $social_hover_color['tablet'] ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
-						'color' => esc_attr( $account_menu_resp_color['tablet'] ),
+						'color' => esc_attr( $account_menu_resp_color_tablet ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
-						'color'      => $account_menu_resp_color_hover['tablet'],
-						'background' => $account_menu_resp_bg_color_hover['tablet'],
+						'color'      => $account_menu_resp_color_hover_tablet,
+						'background' => $account_menu_resp_bg_color_hover_tablet,
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
-						'color'      => $account_menu_resp_color_active['tablet'],
-						'background' => $account_menu_resp_bg_color_active['tablet'],
+						'color'      => $account_menu_resp_color_active_tablet,
+						'background' => $account_menu_resp_bg_color_active_tablet,
 					),
 					'.ast-theme-transparent-header .account-main-navigation ul' => array(
-						'background'    => $account_menu_resp_bg_color['tablet'],
+						'background' => $account_menu_resp_bg_color_tablet,
 					),
 				);
 
@@ -2220,18 +2244,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'fill' => esc_attr( $social_hover_color['mobile'] ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
-						'color' => esc_attr( $account_menu_resp_color['mobile'] ),
+						'color' => esc_attr( $account_menu_resp_color_mobile ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
-						'color'      => $account_menu_resp_color_hover['mobile'],
-						'background' => $account_menu_resp_bg_color_hover['mobile'],
+						'color'      => $account_menu_resp_color_hover_mobile,
+						'background' => $account_menu_resp_bg_color_hover_mobile,
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
-						'color'      => $account_menu_resp_color_active['mobile'],
-						'background' => $account_menu_resp_bg_color_active['mobile'],
+						'color'      => $account_menu_resp_color_active_mobile,
+						'background' => $account_menu_resp_bg_color_active_mobile,
 					),
 					'.ast-theme-transparent-header .account-main-navigation ul' => array(
-						'background'    => $account_menu_resp_bg_color['mobile'],
+						'background' => $account_menu_resp_bg_color_mobile,
 					),
 				);
 

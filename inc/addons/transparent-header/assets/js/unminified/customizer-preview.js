@@ -285,6 +285,6 @@
 		'astra-settings[transparent-account-menu-a-bg-color-responsive]',
 		'background',
 		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item.current-menu-item > .menu-link'
-		);
+	);
 
 } )( jQuery );

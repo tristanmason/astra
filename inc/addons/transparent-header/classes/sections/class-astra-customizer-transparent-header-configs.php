@@ -837,7 +837,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 								'operator' => '===',
 								'value'    => 'icon',
 							),
-						)
+						),
 					),
 
 					// Option: Search Color.
@@ -870,7 +870,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 								'operator' => '===',
 								'value'    => 'menu',
 							),
-						)
+						),
 					),
 
 					// Option: Menu Color.

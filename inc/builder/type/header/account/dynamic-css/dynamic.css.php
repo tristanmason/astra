@@ -170,8 +170,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'line-height'    => esc_attr( $menu_line_height ),
 			'text-transform' => esc_attr( $menu_text_transform ),
 		),
-		$selector . ' .account-main-navigation ul' => array(
-			'background'    => $menu_resp_bg_color_desktop,
+		$selector . ' .account-main-navigation ul'      => array(
+			'background' => $menu_resp_bg_color_desktop,
 		),
 	);
 
@@ -209,8 +209,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-account-nav-menu .menu-link' => array(
 			'font-size' => astra_get_font_css_value( $menu_font_size_tablet, $menu_font_size_tablet_unit ),
 		),
-		$selector . ' .account-main-navigation ul' => array(
-			'background'    => $menu_resp_bg_color_tablet,
+		$selector . ' .account-main-navigation ul'      => array(
+			'background' => $menu_resp_bg_color_tablet,
 		),
 	);
 
@@ -248,8 +248,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-account-nav-menu .menu-link' => array(
 			'font-size' => astra_get_font_css_value( $menu_font_size_mobile, $menu_font_size_mobile_unit ),
 		),
-		$selector . ' .account-main-navigation ul' => array(
-			'background'    => $menu_resp_bg_color_mobile,
+		$selector . ' .account-main-navigation ul'      => array(
+			'background' => $menu_resp_bg_color_mobile,
 		),
 	);
 
