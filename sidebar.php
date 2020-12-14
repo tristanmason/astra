@@ -27,11 +27,8 @@ echo '<div ';
 	?>
 
 	<div class="sidebar-main" <?php echo apply_filters( 'astra_sidebar_data_attrs', '', $sidebar ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-
 		<?php astra_sidebars_before(); ?>
-
 		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
-
 			<?php dynamic_sidebar( $sidebar ); ?>
 
 		<?php endif; ?>

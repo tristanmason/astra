@@ -319,7 +319,7 @@ final class Astra_Builder_Helper {
 
 		self::$num_of_header_menu = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;
 
-		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
+		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 2;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-social-icons'] : 1;
@@ -841,7 +841,6 @@ final class Astra_Builder_Helper {
 			}
 		}
 		?>
-
 		<div id="ast-mobile-popup-wrapper">
 			<div id="ast-mobile-popup" class="ast-mobile-popup-drawer <?php echo esc_attr( $side_class ); ?>">
 			<div class="ast-mobile-popup-overlay"></div>

@@ -108,7 +108,6 @@
 .footer-widget-area.ast-footer-divider-element {
 	position: relative;
 	align-items: center;
-	display: flex;
 }
 .ast-hb-divider-layout-horizontal {
 	.ast-divider-layout-horizontal {
@@ -143,7 +142,6 @@
 
 .ast-builder-layout-element {
 	align-items: center;
-	display: flex;
 	.ast-footer-social-wrap {
 		.ast-builder-social-element {
 			&:first-child {
@@ -164,7 +162,6 @@
 	}
 }
 .site-header-section {
-	display: flex;
 	height: 100%;
 	min-height: 0;
 	align-items: center;
@@ -183,7 +180,6 @@
 		}
 	}
 	.ast-builder-menu {
-		display: flex;
 		align-items: center;
 	}
 }
@@ -271,7 +267,6 @@
  * Social Widget.
  */
 .ast-builder-social-element {
-	display: inline-flex;
 	line-height: 1;
 	color: #3a3a3a;
 	background: transparent;
@@ -296,7 +291,6 @@
 		width: 17px;
 		height: 17px;
 		transition: none;
-		display: flex;
 		>* {
 			transition: none;
 		}
@@ -782,180 +776,8 @@ body.admin-bar {
 		padding-right: 5.5em;
 	}
 }
-/* Social Icons Official CSS */
-.header-social-inner-wrap.ast-social-color-type-official,
-.footer-social-inner-wrap.ast-social-color-type-official {
-	.ast-twitter,
-	.ast-twitter .social-item-label {
-        background: transparent;
-		color: #7acdee;
-	}
-	.ast-instagram,
-	.ast-instagram .social-item-label {
-		background: transparent;
-		color: #292929;
-	}
-	.ast-linkedin,
-	.ast-linkedin .social-item-label {
-		background: transparent;
-		color: #1c86c6;
-	}
-	.ast-facebook_group,
-	.ast-facebook_group .social-item-label {
-        background: transparent;
-		color: #3D87FB;
-	}
-	.ast-discord,
-	.ast-discord .social-item-label {
-		background: transparent;
-		color: #7187D4;
-	}
-	.ast-pinterest,
-	.ast-pinterest .social-item-label {
-		background: transparent;
-		color: #ea575a;
-	}
-	.ast-dribbble,
-	.ast-dribbble .social-item-label {
-		background: transparent;
-		color: #d77ea6;
-	}
-	.ast-behance,
-	.ast-behance .social-item-label {
-		background: transparent;
-		color: #1B64F6;
-	}
-	.ast-medium,
-	.ast-medium .social-item-label {
-		background: transparent;
-		color: #292929;
-	}
-	.ast-patreon,
-	.ast-patreon .social-item-label {
-		background: transparent;
-		color: #e65c4b;
-	}
-	.ast-vk,
-	.ast-vk .social-item-label {
-		background: transparent;
-		color: #5382b6;
-	}
-	.ast-reddit,
-	.ast-reddit .social-item-label {
-		background: transparent;
-		color: #FC471E;
-	}
-	.ast-youtube,
-	.ast-youtube .social-item-label {
-		background: transparent;
-		color: #e96651;
-	}
-	.ast-vimeo,
-	.ast-vimeo .social-item-label {
-		background: transparent;
-		color: #8ecfde;
-	}
-	.ast-rss,
-	.ast-rss .social-item-label {
-		background: transparent;
-		color: #f09124;
-	}
-	.ast-whatsapp,
-	.ast-whatsapp .social-item-label {
-		background: transparent;
-		color: #5BBA67;
-	}
-	.ast-viber,
-	.ast-viber .social-item-label {
-		background: transparent;
-		color: #7F509E;
-	}
-	.ast-telegram,
-	.ast-telegram .social-item-label {
-		background: transparent;
-		color: #229CCE;
-	}
-	.ast-xing,
-	.ast-xing .social-item-label {
-		background: transparent;
-		color: #0A5C5D;
-	}
-	.ast-weibo,
-	.ast-weibo .social-item-label {
-		background: transparent;
-		color: #E41C34;
-	}
-	.ast-tumblr,
-	.ast-tumblr .social-item-label {
-		background: transparent;
-		color: #314255;
-	}
-	.ast-qq,
-	.ast-qq .social-item-label {
-		background: transparent;
-		color: #487FC8;
-	}
-	.ast-wechat,
-	.ast-wechat .social-item-label {
-		background: transparent;
-		color: #2DC121;
-	}
-	.ast-phone,
-	.ast-phone .social-item-label {
-		background: transparent;
-		color: inherit;
-	}
-	.ast-strava,
-	.ast-strava .social-item-label {
-		background: transparent;
-		color: #2DC121;
-	}
-	.ast-email,
-	.ast-email .social-item-label {
-		background: transparent;
-		color: #ea4335;
-	}
-	.ast-github,
-	.ast-github .social-item-label {
-		background: transparent;
-		color: #24292e;
-	}
-	.ast-google_reviews,
-	.ast-google_reviews .social-item-label {
-		background: transparent;
-		color: #dc4e41;
-	}
-	.ast-wordpress,
-	.ast-wordpress .social-item-label {
-		background: transparent;
-		color: #464646;
-	}
-	.ast-yelp,
-	.ast-yelp .social-item-label {
-		background: transparent;
-		color: #af0606;
-	}
-	.ast-facebook,
-	.ast-facebook .social-item-label {
-		color: #557dbc;
-		background: transparent;
-	}
-	.ast-imdb,
-	.ast-imdb .social-item-label {
-		color: #000000;
-		background: #F5C518;
-	}
-	.ast-trip_advisor,
-	.ast-trip_advisor .social-item-label {
-		color: #000000;
-		background: #00aa6c;
-	}
-	.ast-builder-social-element {
-		svg {
-			fill: currentColor;
-		}
-	}
-}
+
+
 @media screen and (max-width: 921px) {
 	.ast-mobile-popup-drawer {
 		.main-header-bar-navigation {
@@ -1050,169 +872,6 @@ body.admin-bar {
 	}
 }
 
-// Woo Header Cart Icon.
-.ast-site-header-cart{
-	.cart-container{
-			transition: all 0.2s linear;
-			*{
-				transition: all 0s linear;
-			}
-
-	}
-	.ast-woo-header-cart-info-wrap{
-		padding: 0 2px;
-		font-weight: 600;
-		line-height: 2.7;
-    	display: inline-block;
-	}
-	i.astra-icon{
-		font-size: 20px;
-		font-size: 1.3em;
-		font-style: normal;
-		font-weight: normal;
-		position: relative;
-    	padding: 0 2px;
-
-		&:before{
-    		font-family: 'Astra';
-    	}
-
-    	&.no-cart-total{
-    		&:after{
-    			display: none;
-    		}
-    	}
-    	&:after{
-    		content: attr(data-cart-total);
-			position: absolute;
-			font-style: normal;
-			top: -10px;
-			right: -12px;
-			font-weight: bold;
-			box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.3);
-			font-size: 11px;
-			padding-left: 0px;
-			padding-right: 2px;
-			line-height: 17px;
-			letter-spacing: -.5px;
-			height: 18px;
-			min-width: 18px;
-			border-radius: 99px;
-			text-align: center;
-			z-index: 1;
-    	}
-	}
-	&.ast-menu-cart-outline,
-	&.ast-menu-cart-fill{
-		.ast-cart-menu-wrap{
-			line-height: 1.8;
-		}
-	}
-	&.ast-menu-cart-fill{
-		i.astra-icon{
-			font-size: 1.1em;
-		}
-	}
-}
-li.woocommerce-custom-menu-item{
-	.ast-site-header-cart{
-		i.astra-icon{
-			&:after{
-				padding-left: 2px;
-			}
-		}
-	}
-}
-
-.ast-icon-shopping-cart {
-	&:before{
-		 content: "\f07a";
-	}
-}
-.ast-icon-shopping-bag {
-	&:before{
-		 content: "\f290";
-	}
-}
-.ast-icon-shopping-basket {
-	&:before{
-		 content: "\f291";
-	}
-}
-
-
-// Remove Cart Total & Title for responsive devices.
-.ast-header-break-point{
-	&.ast-header-custom-item-outside{
-		.ast-woo-header-cart-info-wrap{
-			display: none;
-		}
-	}
-}
-
-// EDD Header Cart Icon.
-.ast-edd-site-header-cart{
-	.ast-edd-cart-container{
-			transition: all 0.2s linear;
-			*{
-				transition: all 0s linear;
-			}
-
-	}
-	.ast-edd-header-cart-info-wrap{
-		padding: 0 2px;
-		font-weight: 600;
-		line-height: 2.7;
-    	display: inline-block;
-	}
-	&.ast-edd-menu-cart-outline,
-	&.ast-edd-menu-cart-fill{
-		.ast-edd-cart-menu-wrap{
-			line-height: 1.8;
-		}
-	}
-	&.ast-edd-menu-cart-fill{
-		span.astra-icon{
-			font-size: 1.1em;
-		}
-	}
-}
-li.edd-custom-menu-item{
-	.ast-edd-site-header-cart{
-		span.astra-icon{
-			&:after{
-				padding-left: 2px;
-			}
-		}
-	}
-}
-
-.ast-icon-shopping-cart {
-	&:before{
-		 content: "\f07a";
-	}
-}
-.ast-icon-shopping-bag {
-	&:before{
-		 content: "\f290";
-	}
-}
-.ast-icon-shopping-basket {
-	&:before{
-		 content: "\f291";
-	}
-}
-
-
-// Remove Cart Total & Title for responsive devices.
-.ast-header-break-point{
-	&.ast-header-custom-item-outside{
-		.ast-edd-header-cart-info-wrap{
-			display: none;
-		}
-	}
-}
-
 /* Footer menu spacing between each menu items. */
 @media (min-width: $col-md ) {
 	.footer-nav-wrap {
@@ -1230,5 +889,31 @@ li.edd-custom-menu-item{
 				padding: 0 0.5em;
 			}
 		}
+	}
+}
+
+/** Cart CSS */
+.ast-header-break-point {
+	&.ast-woocommerce-cart-menu.astra-hfb-header,
+	&.astra-hfb-header {
+		.ast-site-header-cart {
+			padding: 0;
+		}
+		.ast-cart-menu-wrap {
+			width: 2em;
+			height: 2em;
+			font-size: 1.4em;
+			line-height: 2;
+			vertical-align: middle;
+			text-align: right;
+		}
+	}
+	.ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
+		width: 2em;
+		height: 2em;
+		font-size: 1.4em;
+		line-height: 2;
+		vertical-align: middle;
+		text-align: right;
 	}
 }
