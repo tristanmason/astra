@@ -26,10 +26,6 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_mobile_menu_dynamic_css', 11 );
  */
 function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'header', 'mobile-menu' ) ) {
-		return $dynamic_css;
-	}
-
 	$_section = 'section-header-mobile-menu';
 
 	$selector = '.ast-builder-menu-mobile .main-navigation';
@@ -256,6 +252,6 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
-	
+
 	return $dynamic_css;
 }
