@@ -256,6 +256,6 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
-
+	
 	return $dynamic_css;
 }

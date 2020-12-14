@@ -47,11 +47,7 @@ class Astra_Mobile_Menu_Component {
 
 		$theme_location        = 'mobile_menu';
 		$submenu_class         = apply_filters( 'secondary_submenu_border_class', ' submenu-with-border' );
-		$stack_on_mobile_class = 'inline-on-mobile';
-
-		if ( astra_get_option( 'header-mobile-menu-menu-stack-on-mobile' ) ) {
-			$stack_on_mobile_class = 'stack-on-mobile';
-		}
+		$stack_on_mobile_class = 'stack-on-mobile';
 
 		// Menu Animation.
 		$menu_animation = astra_get_option( 'header-mobile-menu-submenu-container-animation' );

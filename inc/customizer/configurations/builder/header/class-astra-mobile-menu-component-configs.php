@@ -107,19 +107,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Option: Menu Stack on Mobile Checkbox.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-stack-on-mobile]',
-					'default'   => astra_get_option( 'header-mobile-menu-menu-stack-on-mobile' ),
-					'type'      => 'control',
-					'control'   => 'checkbox',
-					'section'   => $_section,
-					'priority'  => 41,
-					'title'     => __( 'Stack Layout', 'astra' ),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-				),
-
 				/**
 				 * Option: Margin Space
 				 */

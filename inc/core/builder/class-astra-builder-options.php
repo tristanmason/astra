@@ -1521,10 +1521,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'right'  => 0,
 	);
 
-		/**
-		 * Menu Stack on Mobile.
-		*/
-	$defaults['header-mobile-menu-menu-stack-on-mobile'] = true;
 		
 		/**
 		 * Menu - Typography.

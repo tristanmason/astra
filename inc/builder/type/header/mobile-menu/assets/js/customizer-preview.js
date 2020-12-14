@@ -274,23 +274,6 @@
 
                 } );
             } );
-
-            // Stack on Mobile CSS
-            wp.customize( 'astra-settings[header-mobile-menu-menu-stack-on-mobile]', function( setting ) {
-                setting.bind( function( stack ) {
-
-                    var menu_div = jQuery( '#ast-mobile-header #ast-hf-mobile-menu .main-header-menu'  );
-                    menu_div.removeClass('inline-on-mobile');
-                    menu_div.removeClass('stack-on-mobile');
-
-                    if ( false === stack ) {
-                        menu_div.addClass('inline-on-mobile');
-                    } else {
-                        menu_div.addClass('stack-on-mobile');
-                    }
-                } );
-            } );
-
         })();
 
 
@@ -300,22 +283,6 @@
             'border-color',
             selector + ' li.menu-item .sub-menu '
         );
-
-        // Stack on Mobile CSS
-        wp.customize( 'astra-settings[header-mobile-menu-menu-stack-on-mobile]', function( setting ) {
-            setting.bind( function( stack ) {
-
-                var menu_div = jQuery( '#ast-mobile-header #ast-hf-mobile-menu.main-header-menu'  );
-                menu_div.removeClass('inline-on-mobile');
-                menu_div.removeClass('stack-on-mobile');
-
-                if ( false === stack ) {
-                    menu_div.addClass('inline-on-mobile');
-                } else {
-                    menu_div.addClass('stack-on-mobile');
-                }
-            } );
-        } );
 
 	// Transparent header > Submenu link hover color.
 	astra_color_responsive_css( 'astra-builder-transparent-submenu', 'astra-settings[transparent-submenu-h-color-responsive]', 'color', '.ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-item:hover > .menu-link' );
