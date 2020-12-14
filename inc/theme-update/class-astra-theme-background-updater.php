@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			),
 			'3.0.0-beta.2' => array(
 				'astra_header_builder_compatibility',
-				'astra_icons_svg_compatibility'
+				'astra_icons_svg_compatibility',
 			),
 		);
 
