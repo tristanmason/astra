@@ -115,7 +115,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'checkbox',
 					'section'   => $_section,
 					'priority'  => 41,
-					'title'     => __( 'Stack on Mobile', 'astra' ),
+					'title'     => __( 'Stack Layout', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				),
