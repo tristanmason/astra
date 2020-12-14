@@ -53,7 +53,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => $_section,
 					'type'     => 'section',
-					'title'    => __( 'Mobile menu', 'astra' ),
+					'title'    => __( 'Mobile Menu', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
 					'priority' => 40,
 				),
