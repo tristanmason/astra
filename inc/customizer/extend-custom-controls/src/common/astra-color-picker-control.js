@@ -55,7 +55,12 @@ class AstraColorPickerControl extends Component {
 		} = this.props
 		
 		const toggleVisible = () => {
-			var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');	
+			var element =  document.getElementById("ast-color-palette-hidden");
+			if (typeof(element) != 'undefined' && element != null)
+			{
+				var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');	
+				this.setState( { colorPalette:Object.values(JSON.parse(custompalette))  } );
+			}			
 			
 			if ( refresh === true ) {
 				this.setState( { refresh: false } );
@@ -64,7 +69,6 @@ class AstraColorPickerControl extends Component {
 			}
 
 			this.setState( { isVisible: true } );
-			this.setState( { colorPalette:Object.values(JSON.parse(custompalette))  } );
 
 		};
 
