@@ -170,6 +170,18 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
+			/**
+			 * Option: Footer Builder
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[builder-footer]',
+				'section'     => 'section-footer-builder',
+				'type'        => 'control',
+				'control'     => 'ast-builder-header-control',
+				'priority'    => 20,
+				'description' => '',
+			),
+
 			// Group Option: Global Footer Background styling.
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-bg-obj-responsive]',
