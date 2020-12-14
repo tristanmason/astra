@@ -17,7 +17,7 @@
     var section = 'section-header-mobile-menu';
 
     // Advanced Visibility CSS Generation.
-    astra_builder_visibility_css( section, selector );
+    astra_builder_visibility_css( section, selector, 'block' );
 
     /**
      * Typography CSS.

@@ -253,5 +253,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$dynamic_css .= $css_output;
 
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
+
 	return $dynamic_css;
 }
