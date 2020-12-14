@@ -2088,26 +2088,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$divider_color = astra_get_option( 'transparent-header-divider-color' );
 				
-				/**
-				 * Mobile menu - Transparent Header.
-				 */
-
-				$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-mobile-menu-bg-color-responsive' ), 'tablet' );
-				$transparent_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-mobile-menu-color-responsive' ), 'tablet' );
-				$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-mobile-menu-h-color-responsive' ), 'tablet' );
-			
-				$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-mobile-menu-bg-color-responsive' ), 'mobile' );
-				$transparent_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-mobile-menu-color-responsive' ), 'mobile' );
-				$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-mobile-menu-h-color-responsive' ), 'mobile' );
-
-				$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-color-responsive' ), 'tablet' );
-				$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-h-color-responsive' ), 'tablet' );
-				$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-bg-color-responsive' ), 'tablet' );
-
-				$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-color-responsive' ), 'mobile' );
-				$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-h-color-responsive' ), 'mobile' );
-				$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-mobile-submenu-bg-color-responsive' ), 'mobile' );
-
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
 						'color' => esc_attr( $html_text_color ),
