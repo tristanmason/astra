@@ -32,13 +32,7 @@
           @include make-col-span($i, $columns);
         }
       }
-      @each $modifier in (pull, push, offset) {
-        @for $i from 0 through $columns {
-          .ast-col-#{$breakpoint}-#{$modifier}-#{$i} {
-            @include make-col-modifier($modifier, $i, $columns)
-          }
-        }
-      }
+      
     }
   }
 }
