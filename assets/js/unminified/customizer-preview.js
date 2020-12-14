@@ -407,6 +407,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
+			var link = '';
 
 			if ( new_value ) {
 
@@ -436,7 +437,11 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 					// Remove old.
 
 					jQuery('#' + font_control).remove();
-					link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+					if( new_value === "inherit" ) {
+						link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+					} else {
+						link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '%3A' + new_value + '"  rel="stylesheet">';
+					}
 				}
 
 				// Concat and append new <style>.
@@ -623,7 +628,8 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[ast-header-responsive-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .astra-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .astra-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .astra-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
+				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px; width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;  width: ' + logo_width['tablet'] + 'px;} #masthead .site-logo-img img { max-height: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px; width: ' + logo_width['mobile'] + 'px;}' +
+			    '#masthead .site-logo-img img { max-height: ' + logo_width['mobile'] + 'px; } .astra-logo-svg{width: ' + logo_width['mobile'] + 'px !important; } }';
 				astra_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
 				var mobileLogoStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } @media( max-width: 768px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; }  @media( max-width: 544px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }';
 				astra_add_dynamic_css( 'mobile-header-logo-width', mobileLogoStyle );
@@ -944,11 +950,11 @@ function isJsonString( str ) {
 	// Check if anchors should be loaded in the CSS for headings.
 	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
 		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
-		astra_css('astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+		astra_generate_font_weight_css( 'astra-settings[headings-font-family]', 'astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a' );
 		astra_css('astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
 	} else {
 		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
-		astra_css('astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+		astra_generate_font_weight_css( 'astra-settings[headings-font-family]', 'astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a' );
 		astra_css('astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
 	}
 
@@ -1256,7 +1262,7 @@ function isJsonString( str ) {
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-title]', '.site-title, .site-title a' );
 
 	// Site Title - Font Weight
-	astra_css( 'astra-settings[font-weight-site-title]', 'font-weight', '.site-title, .site-title a' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-site-title]', 'astra-settings[font-weight-site-title]', 'font-weight', '.site-title, .site-title a' );
 
 	// Site Title - Font Size
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title, .site-title a' );
@@ -1267,12 +1273,11 @@ function isJsonString( str ) {
 	// Site Title - Text Transform
 	astra_css( 'astra-settings[text-transform-site-title]', 'text-transform', '.site-title, .site-title a' );
 
-
 	// Site tagline - Font family
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-tagline]', '.site-header .site-description' );
 
 	// Site Tagline - Font Weight
-	astra_css( 'astra-settings[font-weight-site-tagline]', 'font-weight', '.site-header .site-description' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-site-tagline]', 'astra-settings[font-weight-site-tagline]', 'font-weight', '.site-header .site-description' );
 
 	// Site Tagline - Font Size
 	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );

@@ -765,7 +765,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
 
-				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+				echo '<div class="main-header-bar-navigation ast-flex-1 ast-header-custom-item ast-flex ast-justify-content-flex-end">';
 				/**
 				 * Fires before the Primary Header Menu navigation.
 				 * Disable Primary Menu is checked
@@ -854,7 +854,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			} else {
 
 				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
-					echo '<div class="main-header-bar-navigation">';
+					echo '<div class="main-header-bar-navigation ast-flex-1">';
 						echo '<nav ';
 						echo astra_attr(
 							'site-navigation',
@@ -897,7 +897,7 @@ function astra_menu_anchor_class_for_nav_menus( $atts ) {
 	return $atts;
 }
 
-add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' );
+add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus', 11 );
 
 /**
  * Add CSS classes for all menu links inside WP Page Menu items.

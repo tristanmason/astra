@@ -55,7 +55,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+				'name'        => $_section . '-ast-context-tabs',
 				'section'     => $_section,
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
@@ -172,7 +172,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-toggle-btn-color' ),
 				'type'      => 'control',
 				'control'   => 'ast-color',
-				'title'     => __( 'Icon Color', 'astra' ),
+				'title'     => __( 'Color', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,
@@ -191,12 +191,14 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,
-				'required'  => array(
-					ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
-					'==',
-					'fill',
+				'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+						'operator' => '==',
+						'value'    => 'fill',
+					),
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -218,12 +220,14 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'required'       => array(
-					ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
-					'==',
-					'outline',
+				'context'        => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+						'operator' => '==',
+						'value'    => 'outline',
+					),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -238,12 +242,14 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 65,
-				'required'  => array(
-					ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
-					'==',
-					'outline',
+				'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+						'operator' => '==',
+						'value'    => 'outline',
+					),
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -259,17 +265,19 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'priority'    => 70,
 				'suffix'      => '',
 				'transport'   => 'postMessage',
-				'required'    => array(
-					ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
-					'!=',
-					'minimal',
-				),
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
 					'max'  => 100,
 				),
-				'context'     => Astra_Builder_Helper::$design_tab,
+				'context'     => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+						'operator' => '!=',
+						'value'    => 'minimal',
+					),
+				),
 			),
 
 			// Option Group: Trigger Typography.
@@ -282,12 +290,14 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 70,
-				'required'  => array(
-					ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
-					'!=',
-					'',
+				'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
+						'operator' => '!=',
+						'value'    => '',
+					),
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 
 			// Option: Trigger Font Size.

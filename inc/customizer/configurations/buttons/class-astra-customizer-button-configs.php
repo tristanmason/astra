@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
 					'title'    => __( 'Colors and Border', 'astra' ),
-					'priority' => 17,
+					'priority' => 1,
 					'settings' => array(),
 				),
 				/**
@@ -255,7 +255,14 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'title'    => __( 'Header Button', 'astra' ),
 						'settings' => array(),
 						'priority' => 40,
-						'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+						'context'  => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+								'operator' => '===',
+								'value'    => 'custom-button',
+							),
+						),
 					),
 					/**
 					 * Group: Transparent Header Button Colors Group
@@ -269,7 +276,14 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 40,
-						'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+						'context'   => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+								'operator' => '===',
+								'value'    => 'custom-button',
+							),
+						),
 					),
 					/**
 					 * Group: Transparent Header Button Border Group
@@ -283,7 +297,14 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 40,
-						'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+						'context'   => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+								'operator' => '===',
+								'value'    => 'custom-button',
+							),
+						),
 					),
 
 					/**
@@ -359,7 +380,14 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'transport'      => 'postMessage',
 						'linked_choices' => true,
 						'priority'       => 40,
-						'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+						'context'        => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+								'operator' => '===',
+								'value'    => 'custom-button',
+							),
+						),
 						'default'        => astra_get_option( 'header-main-rt-trans-section-button-padding' ),
 						'title'          => __( 'Padding', 'astra' ),
 						'choices'        => array(
