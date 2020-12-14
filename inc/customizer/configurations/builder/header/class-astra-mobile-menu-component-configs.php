@@ -74,20 +74,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
-				/**
-				 * Option: Primary Header Button Colors Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Submenu', 'astra' ),
-					'settings' => array(),
-					'priority' => 30,
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-
 				// Option: Submenu Divider Checkbox.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
