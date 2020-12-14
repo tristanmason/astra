@@ -634,7 +634,7 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Account', 'astra' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
-				)
+				),
 			)
 		);
 
