@@ -95,13 +95,19 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu';
 
-	
-	$menu_spacing_mobile_top = astra_responsive_spacing( $menu_spacing, 'top', 'mobile' );
-	$menu_spacing_mobile_top = ( isset( $menu_spacing_mobile_top ) && ! empty( $menu_spacing_mobile_top ) ) ? $menu_spacing_mobile_top : 0;
-
 	$menu_spacing_tablet_top = astra_responsive_spacing( $menu_spacing, 'top', 'tablet' );
 	$menu_spacing_tablet_top = ( isset( $menu_spacing_tablet_top ) && ! empty( $menu_spacing_tablet_top ) ) ? $menu_spacing_tablet_top : 0;
 
+	$menu_spacing_mobile_top = astra_responsive_spacing( $menu_spacing, 'top', 'mobile' );
+	
+
+	if ( isset( $menu_spacing_mobile_top ) && '' === $menu_spacing_mobile_top && isset( $menu_spacing_tablet_top ) && '' !== $menu_spacing_tablet_top && 0 !== $menu_spacing_tablet_top ) {
+		
+		$menu_spacing_mobile_top = $menu_spacing_tablet_top;
+	}
+	
+	$menu_spacing_mobile_top = ( isset( $menu_spacing_mobile_top ) && ! empty( $menu_spacing_mobile_top ) ) ? $menu_spacing_mobile_top : 0;
+	
 	$css_output_common = array(
 
 		$selector . ' .menu-item > .menu-link' => array(
