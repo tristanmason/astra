@@ -511,6 +511,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'  => 'ast-heading',
 				'section'  => $_section,
 				'title'    => __( 'Menu', 'astra' ),
+				'priority'  => 6,
 				'settings' => array(),
 				'context'  => array(
 					array(
@@ -530,7 +531,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'     => __( 'Colors', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
-				'priority'  => 90,
+				'priority'  => 7,
 				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',

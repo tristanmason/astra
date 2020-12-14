@@ -300,6 +300,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$logout_preview = astra_get_option( 'header-account-logout-preview' );
 			$is_customizer = is_customize_preview();
 
+
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
 			}
@@ -314,7 +315,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 				?>
 
-				<?php if ( $is_logged_in && ( ! $logout_preview && 'none' !== $logged_out_style && $is_customizer ) ) { ?>
+				<?php if ( $is_logged_in && ( ( ! $logout_preview && $is_customizer ) || ( $logout_preview && ! $is_customizer ) ) ) { ?>
 
 					<?php 
 
@@ -413,8 +414,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 												'redirect'        => get_permalink( get_the_ID() ),
 												'remember'        => true,
 												'value_remember'  => true,
-											);
-										
+											);										
 											return wp_login_form( $args );
 										?>
 									</div>

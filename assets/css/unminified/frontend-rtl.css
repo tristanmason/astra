@@ -3430,10 +3430,13 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-header-account-link.ast-account-action-link,
 .ast-header-account-link.ast-account-action-login,
-.ast-header-break-point .ast-header-account-link,
-.ast-header-account-link.customize-unpreviewable {
+.ast-header-break-point .ast-header-account-link {
   cursor: pointer;
   pointer-events: all;
+}
+
+.ast-header-account-link.ast-account-action-login.customize-unpreviewable {
+  cursor: pointer;
 }
 
 .ast-header-break-point .ast-main-header-bar-alignment,
