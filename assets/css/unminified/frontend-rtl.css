@@ -3303,6 +3303,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   text-align: left;
 }
 
+.ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu {
+  background-color: transparent;
+}
+
+.ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu .sub-menu {
+  background-color: transparent;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header

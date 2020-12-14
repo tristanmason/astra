@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
 
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'        => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
 
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
 
@@ -238,8 +238,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
-						'container_inclusive' => true,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'container_inclusive' => false,
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
 
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
 
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
 

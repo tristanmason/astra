@@ -2,6 +2,7 @@ v3.0.0-beta.2
 - New: Visibility options - Now user can hide few options as per devices.
 - New: Divider Element - Horizontal & Vertical Divider for both Header and Footer
 - New: WooCommerce Cart and EDD Cart Element for Header
+- New: Added new Mobile Menu element.
 - Improvement: Faster Customizer experience with respect to Design/General Tab change.
 - Improvement: Ability to add any number Elements in Header and Footer using a filter from child theme.
 - Improvement: Loaded animation CSS only when needed.
@@ -53,6 +54,11 @@ v3.0.0-beta.1
 - Experience faster loading customizer. Astra customizer is now upgraded with ReactJS that gives a quick and swift customizer experience.
 - For quick access and faster editing, customization options are segregated and served with two different tabs - General and Design.
 - Now get a faster customizer preview than before. Header and Footer sections will be partially refreshed on any change in the customizer.
+
+v2.6.2
+- Fix: Gradient Color control UI compatibility with WordPress 5.6.
+- Fix: Background Image control UI compatibility with WordPress 5.6.
+- Fix: Fatal error on changing the value of some controls in Customizer - compatibility with PHP 8.0.
 
 v2.6.1
 - Improvement: Compatibility with the Gutenberg plugin.
