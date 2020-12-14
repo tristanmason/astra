@@ -6,7 +6,8 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 import {useState} from 'react';
 
-import { SelectControl } from '@wordpress/components';
+import { SelectControl,Dashicon } from '@wordpress/components';
+
 
 const ColorPaletteComponent = props => {
 
@@ -103,7 +104,8 @@ const ColorPaletteComponent = props => {
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',0)}
 						backgroundType = { 'color' }
 						allowGradient={ false }
-						allowImage={ false }											
+						allowImage={ false }	
+						disablePalette = { true }										
 					/>
 				</div>
 				<div className="ast-color-picker-palette-2 ast-color-palette-inline" >
@@ -112,7 +114,8 @@ const ColorPaletteComponent = props => {
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',1)}
 						backgroundType={'color'}
 						allowGradient={false}
-						allowImage={false}					
+						allowImage={false}		
+						disablePalette = { true }
 					/>
 				</div>
 				<div className="ast-color-picker-palette-3 ast-color-palette-inline" >
@@ -121,7 +124,8 @@ const ColorPaletteComponent = props => {
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',2)}
 						backgroundType={'color'}
 						allowGradient={false}
-						allowImage={false}					
+						allowImage={false}
+						disablePalette = { true }
 					/>
 				</div>
 				<div className="ast-color-picker-palette-4 ast-color-palette-inline" >
@@ -131,6 +135,7 @@ const ColorPaletteComponent = props => {
 						backgroundType={'color'}
 						allowGradient={false}
 						allowImage={false}
+						disablePalette = { true }
 					/>
 				</div>
 				<div className="ast-color-picker-palette-5 ast-color-palette-inline" >
@@ -140,6 +145,7 @@ const ColorPaletteComponent = props => {
 						backgroundType={'color'}
 						allowGradient={false}
 						allowImage={false}
+						disablePalette = { true }
 					/>
 				</div>
 			</div>
@@ -197,12 +203,45 @@ const ColorPaletteComponent = props => {
 		</div>
 	)
 
+	const renderOperationButtons = () => {
+		return <span className="customize-control-title">
+				<>
+					<div className="ast-color-btn-reset-wrap">
+						<button
+							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+							disabled={JSON.stringify(state) === JSON.stringify(defaultValue)} onClick={e => {
+							e.preventDefault();
+							let value = JSON.parse(JSON.stringify(defaultValue));
+
+							if (undefined === value || '' === value) {
+								value = '';
+								wp.customize.previewer.refresh();
+							}
+
+							resetValue(value);
+						}}>
+						<Dashicon icon='image-rotate' style={{
+							width: 12,
+							height: 12,
+							fontSize: 12
+						}}/>
+						</button>
+					</div>
+				</>
+			</span>;
+	};
+
+	const resetValue = (value) => {		
+		setState(value);
+		props.control.setting.set(value);
+	};
+
 	return <Fragment>
 		
 		<label className="customizer-text">
 			{ labelHtml }
 		</label>
-
+		{renderOperationButtons()}
 		<SelectControl 
 			className="ast-color-palette-type"
 			value={state.patterntype}

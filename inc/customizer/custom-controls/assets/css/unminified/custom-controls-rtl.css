@@ -260,13 +260,17 @@
   display: block;
 }
 
-.ast-color-palette-wrapper .color-button-wrap {
-  top: 36px;
-}
-
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
   margin-right: 0;
   margin-left: 5px;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-color-btn-reset-wrap {
+  right: 60px;
+}
+
+.ast-color-palette-wrapper .color-button-wrap {
+  top: 36px;
 }
 
  /** Remove Button Color */
@@ -957,13 +961,17 @@
   display: block;
 }
 
-.ast-color-palette-wrapper .color-button-wrap {
-  top: 36px;
-}
-
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
   margin-right: 0;
   margin-left: 5px;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-color-btn-reset-wrap {
+  right: 60px;
+}
+
+.ast-color-palette-wrapper .color-button-wrap {
+  top: 36px;
 }
 
  /** Remove Button Color */

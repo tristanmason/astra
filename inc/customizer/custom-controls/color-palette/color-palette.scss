@@ -14,15 +14,21 @@
     right: -7px;
 }
 
-#customize-control-astra-settings-global-color-palette .ast-color-palette-type{
-    width: 34%;
-    display: block;
+#customize-control-astra-settings-global-color-palette {
+    
+    .ast-color-palette-type{
+       width: 34%;
+       display: block;
+    }
+    .astra-color-picker-wrap {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+    .ast-color-btn-reset-wrap {
+        left: 60px;
+    }
 }
 
 .ast-color-palette-wrapper .color-button-wrap {   
     top: 36px;
-}
-#customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
-    margin-left: 0;
-    margin-right: 5px;
 }
