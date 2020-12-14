@@ -86,7 +86,6 @@
 					$section.addClass('ahfb-' + builder + '-builder-active');
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-					debugger;
 					if( 'header' === builder ) {
 						$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
 					} else {
