@@ -104,7 +104,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$css_output_common = array(
 
-		$selector => array(
+		$selector . ' .menu-item > .menu-link' => array(
 			'font-family'    => astra_get_font_family( $menu_font_family ),
 			'font-weight'    => esc_attr( $menu_font_weight ),
 			'line-height'    => esc_attr( $menu_line_height ),
