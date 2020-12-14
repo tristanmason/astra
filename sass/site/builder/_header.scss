@@ -276,9 +276,15 @@
     background-color: transparent;
     vertical-align: middle;
 }
-.header-account-enable-login-popup {
-	cursor: pointer;
+.ast-header-account-link {
+	pointer-events: none;
 }
+.ast-account-action-link,
+.ast-account-action-login {
+	cursor: pointer;
+	pointer-events: all;
+}
+
 #ast-hb-account-login-wrap .ast-hb-login-header {
     display: flex;
     justify-content: flex-end;

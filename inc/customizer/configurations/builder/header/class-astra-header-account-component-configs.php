@@ -184,7 +184,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 			),
 
-
 			/**
 			* Option: Account Log In Link
 			*/

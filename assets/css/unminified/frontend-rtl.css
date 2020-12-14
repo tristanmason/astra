@@ -3424,8 +3424,14 @@ body .entry-content .wp-block-latest-posts li {
   vertical-align: middle;
 }
 
-.header-account-enable-login-popup {
+.ast-header-account-link {
+  pointer-events: none;
+}
+
+.ast-account-action-link,
+.ast-account-action-login {
   cursor: pointer;
+  pointer-events: all;
 }
 
 #ast-hb-account-login-wrap .ast-hb-login-header {
