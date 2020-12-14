@@ -313,7 +313,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 				?>
 
-				<?php if ( $is_logged_in && ( ( ! $logout_preview && $is_customizer ) || ( $logout_preview && ! $is_customizer ) ) ) { ?>
+				<?php if ( $is_logged_in && ( ( ! $logout_preview && $is_customizer ) || ( ! $is_customizer ) ) ) { ?>
 
 					<?php 
 

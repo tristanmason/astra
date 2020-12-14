@@ -1556,5 +1556,32 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['edd-header-cart-total-display'] = true;
 	$defaults['edd-header-cart-title-display'] = true;
 
+	/**
+	 * Account element.
+	*/
+	$defaults['header-account-type']    = 'default';
+	$defaults['header-account-login-style']    = 'icon';
+	$defaults['header-account-action-type']   = 'link';
+	$defaults['header-account-link-type'] = 'default';
+	$defaults['header-account-logout-style'] = 'none';
+	$defaults['header-account-logged-out-text'] = __( 'Log In', 'astra' );
+	$defaults['header-account-logout-action'] = 'link';
+	$defaults['header-account-image-width'] = array(
+		'desktop' => '40',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-account-icon-size'] = array(
+		'desktop' => 18,
+		'tablet'  => 18,
+		'mobile'  => 18,
+	);
+
+	$defaults['header-account-icon-color'] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
 	return $defaults;
 }

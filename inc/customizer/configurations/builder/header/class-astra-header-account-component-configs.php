@@ -80,7 +80,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type]',
-				'default'   => 'default',
+				'default'    => astra_get_option( 'header-account-type' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -110,7 +110,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-				'default'   => 'icon',
+				'default'    => astra_get_option( 'header-account-login-style' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -131,7 +131,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
-				'default'   => 'link',
+				'default'    => astra_get_option( 'header-account-action-type' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -152,7 +152,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-link-type]',
-				'default'   => 'default',
+				'default'    => astra_get_option( 'header-account-link-type' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -173,6 +173,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'operator' => '!=',
 						'value'    => 'default',
 					),
+					
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '==',
+						'value'    => 'menu',
+					),
 				),
 			),
 
@@ -181,7 +187,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-login-link]',
-				'default'   => astra_get_option( 'header-account-login-link' ),
+				'default'   => '',
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,
@@ -256,7 +262,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-				'default'   => 'none',
+				'default'    => astra_get_option( 'header-account-logout-style' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -301,7 +307,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text]',
-				'default'   => __( 'Log In', 'astra' ),
+				'default'    => astra_get_option( 'header-account-logged-out-text' ),
 				'type'      => 'control',
 				'control'   => 'text',
 				'section'   => $_section,
@@ -326,7 +332,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-action]',
-				'default'   => 'link',
+				'default'    => astra_get_option( 'header-account-logout-action' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
@@ -355,7 +361,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-link]',
-				'default'   => astra_get_option( 'header-account-logout-link' ),
+				'default'   => '',
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,
@@ -405,7 +411,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'     => $_section,
 				'priority'    => 2,
 				'transport'   => 'postMessage',
-				'default'     => '40',
+				'default'    => astra_get_option( 'header-account-image-width' ),
 				'title'       => __( 'Image Width', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-responsive-slider',
@@ -453,7 +459,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'     => $_section,
 				'priority'    => 4,
 				'transport'   => 'postMessage',
-				'default'     => $defaults['header-search-icon-space'],
+				'default'     => $defaults['header-account-icon-size'],
 				'title'       => __( 'Icon Size', 'astra' ),
 				'type'        => 'control',
 				'control'     => 'ast-responsive-slider',
@@ -477,7 +483,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-icon-color]',
-				'default'   => '',
+				'default'     => $defaults['header-account-icon-color'],
 				'type'      => 'control',
 				'section'   => $_section,
 				'priority'  => 5,
@@ -560,7 +566,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Background Color.
 			array(
 				'name'       => 'header-account-menu-bg-obj-responsive',
-				'default'    => astra_get_option( 'header-account-menu-bg-obj-responsive' ),
+				'default'    => '',
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'control'    => 'ast-responsive-color',
@@ -596,7 +602,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Menu Hover Background Color.
 			array(
 				'name'       => 'header-account-menu-h-bg-color-responsive',
-				'default'    => astra_get_option( 'header-account-menu-h-bg-color-responsive' ),
+				'default'    => '',
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'title'      => __( 'Background Color', 'astra' ),
@@ -613,7 +619,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Active Menu Color.
 			array(
 				'name'       => 'header-account-menu-a-color-responsive',
-				'default'    => astra_get_option( 'header-account-menu-a-color-responsive' ),
+				'default'    => '',
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'section'    => $_section,
@@ -630,7 +636,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Active Menu Background Color.
 			array(
 				'name'       => 'header-account-menu-a-bg-color-responsive',
-				'default'    => astra_get_option( 'header-account-menu-a-bg-color-responsive' ),
+				'default'    => '',
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-account-menu-colors]',
 				'type'       => 'sub-control',
 				'control'    => 'ast-responsive-color',
@@ -839,7 +845,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'ast-color',
 				'transport' => 'postMessage',
-				'default'   => '',
 				'title'     => __( 'Border Color', 'astra' ),
 				'section'   => $_section,
 				'priority'  => 102,
