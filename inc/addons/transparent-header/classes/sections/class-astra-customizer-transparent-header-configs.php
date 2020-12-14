@@ -822,6 +822,39 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 
 					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'default'   => astra_get_option( 'transparent-account-colors' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Account', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 65,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+								'operator' => '===',
+								'value'    => 'icon',
+							),
+						)
+					),
+
+					// Option: Search Color.
+					array(
+						'name'      => 'transparent-account-icon-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 5,
+						'title'     => __( 'Icon Color', 'astra' ),
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
 						'default'   => astra_get_option( 'transparent-account-menu-colors' ),
 						'type'      => 'control',

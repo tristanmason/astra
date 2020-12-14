@@ -232,6 +232,13 @@
 	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-bg-h-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 
+	// Icon Color.
+	astra_css(
+		'astra-settings[transparent-account-icon-color]',
+		'fill',
+		'.ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
+	);
+	
 	// Menu - Normal Color
 	astra_color_responsive_css(
 		'transparent-astra-account-menu-color-preview',

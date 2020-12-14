@@ -123,6 +123,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg path, ' . $selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
 			'fill' => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
 		),
+		'.ast-mobile-popup-content ' . $selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-mobile-popup-content ' . $selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
+			'fill' => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
+		),
 		$selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg' => array(
 			'height' => astra_get_css_value( $icon_size_desktop, 'px' ),
 			'width'  => astra_get_css_value( $icon_size_desktop, 'px' ),

@@ -2087,6 +2087,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
 				$divider_color = astra_get_option( 'transparent-header-divider-color' );
+				$account_icon_color = astra_get_option( 'transparent-account-icon-color' );
 
 				// Menu colors.
 				$account_menu_resp_color           = astra_get_option( 'transparent-account-menu-color-responsive' );
@@ -2146,6 +2147,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-divider-element .ast-divider-wrapper'         => array(
 						'border-color' => esc_attr( $divider_color ),
+					),
+					'.ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
+						'fill' => esc_attr( $account_icon_color ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
 						'color' => esc_attr( $account_menu_resp_color['desktop'] ),
