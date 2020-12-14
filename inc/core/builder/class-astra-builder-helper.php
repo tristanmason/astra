@@ -620,6 +620,11 @@ final class Astra_Builder_Helper {
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-trigger',
 				),
+				'mobile-menu'    => array(
+					'name'    => __( 'Mobile Menu', 'astra' ),
+					'icon'    => 'menu-alt',
+					'section' => 'section-header-mobile-menu',
+				),
 			)
 		);
 
@@ -841,7 +846,6 @@ final class Astra_Builder_Helper {
 			}
 		}
 		?>
-
 		<div id="ast-mobile-popup-wrapper">
 			<div id="ast-mobile-popup" class="ast-mobile-popup-drawer <?php echo esc_attr( $side_class ); ?>">
 			<div class="ast-mobile-popup-overlay"></div>
@@ -917,28 +921,6 @@ final class Astra_Builder_Helper {
 	}
 
 	/**
-	 * Check if Zone is empty.
-	 *
-	 * @param string $row row.
-	 * @param string $builder_type the type of the builder.
-	 * @param string $zone Zone.
-	 * @return bool
-	 */
-	public static function is_zone_empty( $row = 'primary', $builder_type = 'header', $zone ) {
-		$sides    = true;
-		$elements = astra_get_option( $builder_type . '-desktop-items' );
-		if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
-
-			if ( isset( $elements[ $row ][ $row . '_' . $zone ] ) &&
-			is_array( $elements[ $row ][ $row . '_' . $zone ] ) && ! empty( $elements[ $row ][ $row . '_' . $zone ] ) ) {
-
-				$sides = false;
-			}
-		}
-		return $sides;
-	}
-
-	/**
 	 * Check if Footer Zone is empty.
 	 *
 	 * @param string $row row.
@@ -981,11 +963,11 @@ final class Astra_Builder_Helper {
 	/**
 	 * Check if component placed on the builder.
 	 *
-	 * @param string  $builder_type builder type.
 	 * @param integer $component_id component id.
+	 * @param string  $builder_type builder type.
 	 * @return bool
 	 */
-	public static function is_component_loaded( $builder_type = 'header', $component_id ) {
+	public static function is_component_loaded( $component_id, $builder_type = 'header' ) {
 
 		$loaded_components = array();
 

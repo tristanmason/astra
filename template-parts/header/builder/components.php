@@ -16,7 +16,7 @@ switch ( $component_slug ) {
 
 	case 'logo':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item" data-section="title_tagline">
+		<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
 			<?php do_action( 'astra_site_identity' ); ?>
 		</div>
 		<?php
@@ -24,7 +24,7 @@ switch ( $component_slug ) {
 
 	case 'button-1':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-button-1" data-section="section-hb-button-1">
+		<div class="ast-builder-layout-element ast-flex site-header-focus-item ast-header-button-1" data-section="section-hb-button-1">
 			<?php do_action( 'astra_header_button_1' ); ?>
 		</div>
 		<?php
@@ -32,7 +32,7 @@ switch ( $component_slug ) {
 
 	case 'menu-1':
 		?>
-		<div class="ast-builder-menu-1 ast-builder-menu ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-1">
+		<div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-menu-1">
 			<?php do_action( 'astra_header_menu_1' ); ?>
 		</div>
 		<?php
@@ -40,15 +40,23 @@ switch ( $component_slug ) {
 
 	case 'menu-2':
 		?>
-		<div class="ast-builder-menu-2 ast-builder-menu ast-builder-menu-2-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-2">
+		<div class="ast-builder-menu-2 ast-builder-menu ast-flex ast-builder-menu-2-focus-item ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-menu-2">
 			<?php do_action( 'astra_header_menu_2' ); ?>
+		</div>
+		<?php
+		break;
+
+	case 'mobile-menu':
+		?>
+		<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-header-mobile-menu">
+			<?php do_action( 'astra_header_menu_mobile' ); ?>
 		</div>
 		<?php
 		break;
 
 	case 'html-1':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-html-1" data-section="section-hb-html-1">
+		<div class="ast-builder-layout-element ast-flex site-header-focus-item ast-header-html-1" data-section="section-hb-html-1">
 			<?php do_action( 'astra_header_html_1' ); ?>
 		</div>
 		<?php
@@ -56,7 +64,7 @@ switch ( $component_slug ) {
 
 	case 'html-2':
 		?>
-			<div class="ast-builder-layout-element site-header-focus-item ast-header-html-2" data-section="section-hb-html-2">
+			<div class="ast-builder-layout-element ast-flex site-header-focus-item ast-header-html-2" data-section="section-hb-html-2">
 				<?php do_action( 'astra_header_html_2' ); ?>
 			</div>
 			<?php
@@ -64,7 +72,7 @@ switch ( $component_slug ) {
 
 	case 'search':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item ast-header-search" data-section="section-header-search">
+		<div class="ast-builder-layout-element ast-flex site-header-focus-item ast-header-search" data-section="section-header-search">
 			<?php do_action( 'astra_header_search', $args['device'] ); ?>
 		</div>
 		<?php
@@ -72,7 +80,7 @@ switch ( $component_slug ) {
 
 	case 'social-icons-1':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item" data-section="section-hb-social-icons-1">
+		<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-social-icons-1">
 			<?php do_action( 'astra_header_social_1' ); ?>
 		</div>
 		<?php
@@ -80,7 +88,7 @@ switch ( $component_slug ) {
 
 	case 'mobile-trigger':
 		?>
-		<div class="ast-builder-layout-element site-header-focus-item" data-section="section-header-mobile-trigger">
+		<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-header-mobile-trigger">
 			<?php do_action( 'astra_header_mobile_trigger' ); ?>
 		</div>
 		<?php

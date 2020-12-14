@@ -24,14 +24,14 @@ class Astra_Button_Component_Configs {
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
+	 * @param Array  $configurations Configurations.
 	 * @param string $builder_type Builder Type.
 	 * @param string $section Section.
 	 *
-	 * @param Array  $configurations Configurations.
 	 * @since 3.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
-	public static function register_configuration( $builder_type = 'header', $section = 'section-hb-button-', $configurations ) {
+	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-button-' ) {
 
 		if ( 'footer' === $builder_type ) {
 			$class_obj        = Astra_Builder_Footer::get_instance();
