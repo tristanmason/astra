@@ -41,11 +41,8 @@
 		let builder = panel.id.includes("-header-") ? 'header' : 'footer';
 		var section = api.section('section-' + builder + '-builder');
 
-		if( 'header' === builder ) {
-			$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
-		} else {
-			$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
-		}
+
+
 
 
 		if (section) {
@@ -88,6 +85,13 @@
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+
+					debugger;
+					if( 'header' === builder ) {
+						$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					} else {
+						$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+					}
 
 				} else {
 
