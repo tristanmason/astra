@@ -28,6 +28,9 @@
 		} else {
 			api.previewer.container.css('bottom', '');
 		}
+
+		$section.css( 'overflow', 'visible' );
+		$footer.css( 'overflow', 'visible' );
 	}
 
 	/**
@@ -37,6 +40,12 @@
 
 		let builder = panel.id.includes("-header-") ? 'header' : 'footer';
 		var section = api.section('section-' + builder + '-builder');
+
+		if( 'header' === builder ) {
+			$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+		} else {
+			$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+		}
 
 
 		if (section) {
@@ -78,14 +87,9 @@
 					expandedPanel = panel.id;
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
-
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-					$('.control-section.ahfb-' + builder + '-builder-active').css( 'overflow', 'visible' );
-
 				} else {
-
-					$('.control-section.ahfb-' + builder + '-builder-active').css( 'overflow', 'hidden' );
 
 					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
