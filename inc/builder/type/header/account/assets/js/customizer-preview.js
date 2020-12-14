@@ -50,8 +50,8 @@
 	// Icon Color.
 	astra_css(
 		'astra-settings[header-account-icon-color]',
-		'color',
-		selector + ' .ast-header-account-icon:before'
+		'fill',
+		selector + ' svg path'
 	);
 
 	// Menu - Border Color.
@@ -115,19 +115,22 @@
 				size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
 			) {
 				var dynamicStyle = '';
-				dynamicStyle += selector + ' .ast-header-account-icon:before {';
-				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
+				dynamicStyle += selector + ' .ahfb-svg-iconset svg {';
+				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
+				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += selector + ' .ast-header-account-icon:before {';
-				dynamicStyle += 'font-size: ' + size.tablet + 'px' + ';';
+				dynamicStyle += selector + ' .ahfb-svg-iconset svg {';
+				dynamicStyle += 'height: ' + size.tablet + 'px' + ';';
+				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += selector + ' .ast-header-account-icon:before {';
-				dynamicStyle += 'font-size: ' + size.mobile + 'px' + ';';
+				dynamicStyle += selector + ' .ahfb-svg-iconset svg {';
+				dynamicStyle += 'height: ' + size.mobile + 'px' + ';';
+				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 				astra_add_dynamic_css( 'header-account-icon-size', dynamicStyle );

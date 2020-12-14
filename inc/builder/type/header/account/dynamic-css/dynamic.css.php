@@ -116,9 +116,12 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	 */
 	$css_output_desktop = array(
 
-		$selector . ' .ast-header-account-icon:before' => array(
-			'color'     => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
-			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
+		$selector . ' .ahfb-svg-iconset svg path' => array(
+			'fill'     => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
+		),
+		$selector . ' .ahfb-svg-iconset svg' => array(
+			'height' => astra_get_css_value( $icon_size_desktop, 'px' ),
+			'width' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_desktop, 'px' ),
@@ -166,8 +169,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$css_output_tablet = array(
 
-		$selector . ' .ast-header-account-icon:before' => array(
-			'font-size' => astra_get_css_value( $icon_size_tablet, 'px' ),
+		$selector . ' .ahfb-svg-iconset svg' => array(
+			'height' => astra_get_css_value( $icon_size_tablet, 'px' ),
+			'width' => astra_get_css_value( $icon_size_tablet, 'px' ),
 		),
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_tablet, 'px' ),
@@ -203,8 +207,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$css_output_mobile = array(
 
-		$selector . ' .ast-header-account-icon:before' => array(
-			'font-size' => astra_get_css_value( $icon_size_mobile, 'px' ),
+		$selector . ' .ahfb-svg-iconset svg' => array(
+			'height' => astra_get_css_value( $icon_size_mobile, 'px' ),
+			'width' => astra_get_css_value( $icon_size_mobile, 'px' ),
 		),
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_mobile, 'px' ),

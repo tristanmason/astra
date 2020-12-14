@@ -349,15 +349,14 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					?>
 					<a class="ast-header-account-type-<?php echo $login_profile_type; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 
-						<?php if ( 'avatar' === $login_profile_type ) { ?>
+						<?php if ( 'avatar' === $login_profile_type ) {
 
-							<?php echo get_avatar( get_current_user_id() ); ?>
+							echo get_avatar( get_current_user_id() );
 
-						<?php } else { ?>
+						} else { 
+							echo Astra_Builder_UI_Controller::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-							<span class="ast-header-account-icon"></span>
-
-						<?php } ?>
+						} ?>
 						
 					</a>
 					<?php 
@@ -396,14 +395,14 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					
 					<a class="ast-header-account-type-<?php echo $logged_out_style_class; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 						<?php if ( 'icon' === $logged_out_style ) { ?>
-							<span class="ast-header-account-icon"></span>
+							<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php } elseif ( 'text' === $logged_out_style ) { ?>
 							<span class="ast-header-account-text"><?php echo $logged_out_text; ?></span>
 						<?php } ?>
 					</a>
 					
 					<?php if( 'login' === $action_type ) { ?>
-						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper" style="">
+						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper">
 							<div id="ast-hb-account-login-bg"></div>
 							<div id="ast-hb-account-login">
 								<div class="ast-hb-login-header">

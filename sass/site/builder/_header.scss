@@ -219,14 +219,9 @@
 }
 
 /* Account Component */
-.ast-header-account-icon:before {
-	content: "\f110";
-	font: normal 20px/1 dashicons;
-	font-style: normal;
-	font-weight: normal;
-	text-decoration: inherit;
-	text-align: center;
-	display: inline-block;
+.ast-header-account-type-icon {
+	display: inline-flex;
+    align-self: center;
     vertical-align: middle;
 }
 #ast-hb-account-login {
