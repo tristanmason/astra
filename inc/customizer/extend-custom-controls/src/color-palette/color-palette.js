@@ -13,7 +13,6 @@ const ColorPaletteComponent = props => {
 	let value = props.control.setting.get();
 
 	let defaultValue = props.control.params.default;
-console.log(defaultValue);
 
 	const {		
 		label,
@@ -21,7 +20,6 @@ console.log(defaultValue);
 	} = props.control.params;
 
 	const [state, setState] = (value) ? useState(props.control.setting.get()) : useState(defaultValue);
-		
 	
 
 	let labelHtml = null;
@@ -36,7 +34,6 @@ console.log(defaultValue);
 	if (description) {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
-	// console.log(props);
 
 	const handleSelectChange = (value) => {
 		let obj = {
@@ -96,7 +93,6 @@ console.log(defaultValue);
 		setState(obj)
 		props.control.setting.set( obj );
 	};
-console.log(state);
 
 	var pattern1html = (
 		<Fragment>		
@@ -152,6 +148,7 @@ console.log(state);
 
 	var pattern2html = (
 		<div className="ast-color-palette2-wrap">			
+		
 				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
 					<AstraColorPickerControl
 						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[0] : ''}
@@ -199,6 +196,7 @@ console.log(state);
 				</div>
 		</div>
 	)
+
 	return <Fragment>
 		
 		<label className="customizer-text">
@@ -223,6 +221,7 @@ console.log(state);
 				pattern2html
 			)}
 		</div>
+		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
 		<label>
 			{ descriptionHtml }	
 		</label>

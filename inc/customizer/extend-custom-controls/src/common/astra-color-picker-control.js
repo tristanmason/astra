@@ -25,6 +25,7 @@ class AstraColorPickerControl extends Component {
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
+			colorPalette:"",
 		};
 	}
 
@@ -44,21 +45,29 @@ class AstraColorPickerControl extends Component {
 			isVisible,
 			supportGradient,
 			backgroundType,
+			colorPalette
 		} = this.state
 
 		const {
 			allowGradient,
-			allowImage,
-			customClass
+			allowImage
 		} = this.props
-
+		
 		const toggleVisible = () => {
+			var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');			
+			var custompalette_array = $.map(JSON.parse(custompalette), function(value, index) {
+				return [value];
+			});
+
 			if ( refresh === true ) {
 				this.setState( { refresh: false } );
 			} else {
 				this.setState( { refresh: true } );
 			}
+
 			this.setState( { isVisible: true } );
+			this.setState( { colorPalette:custompalette_array  } );
+
 		};
 
 		const toggleClose = () => {
@@ -105,8 +114,8 @@ class AstraColorPickerControl extends Component {
 		let finalpaletteColors = [];
 		let count = 0;
 
-		const defaultColorPalette = [...astColorPalette.colors];
-
+		var defaultColorPalette = (undefined !== colorPalette  && colorPalette &&  "" !== colorPalette ) ? [...colorPalette]  : [...astColorPalette.colors] ;
+		
 		defaultColorPalette.forEach( singleColor => {
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: count + '_' + singleColor } );
@@ -117,7 +126,7 @@ class AstraColorPickerControl extends Component {
 
 		return (
 			<>
-				<div className={"color-button-wrap " + (this.props.customClass ? this.props.customClass  : '')} >
+				<div className="color-button-wrap">
 					<Button className={ isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
 						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&
 						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
