@@ -37,7 +37,7 @@ class Astra_Divider_Component_Dynamic_CSS {
 
 		for ( $index = 1; $index <= $number_of_divider; $index++ ) {
 
-			if ( ! Astra_Builder_Helper::is_component_loaded( $builder_type, 'divider-' . $index ) ) {
+			if ( ! Astra_Builder_Helper::is_component_loaded( 'divider-' . $index, $builder_type ) ) {
 				continue;
 			}
 
@@ -184,6 +184,8 @@ class Astra_Divider_Component_Dynamic_CSS {
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 			$generated_css .= $css_output;
+
+			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
 		}
 
 		return $generated_css;

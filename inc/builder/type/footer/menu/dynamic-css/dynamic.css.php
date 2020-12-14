@@ -26,13 +26,15 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_footer_menu_dynamic_css', 11 );
  */
 function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'footer', 'menu' ) ) {
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'menu', 'footer' ) ) {
 		return $dynamic_css;
 	}
 
 	$_section = 'section-footer-menu';
 
 	$selector = '#astra-footer-menu';
+
+	$visibility_selector = '.footer-widget-area[data-section="section-footer-menu"]';
 
 	// Menu.
 	$menu_resp_color           = astra_get_option( 'footer-menu-color-responsive' );
@@ -237,6 +239,8 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector, 'block' );
 
 	return $dynamic_css;
 }

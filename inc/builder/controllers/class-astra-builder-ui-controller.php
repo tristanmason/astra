@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * @param bool   $base if the baseline class should be added.
 		 */
 		public static function fetch_svg_icon( $icon = '', $base = true ) {
-			$output = '<span class="ahfb-svg-iconset' . ( $base ? ' svg-baseline' : '' ) . '">';
+			$output = '<span class="ahfb-svg-iconset ast-inline-flex' . ( $base ? ' svg-baseline' : '' ) . '">';
 
 			if ( ! self::$ast_svgs ) {
 				ob_start();
@@ -49,10 +49,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		/**
 		 * Prepare Social Icon HTML.
 		 *
-		 * @param string $builder_type the type of the builder.
 		 * @param string $index The Index of the social icon.
+		 * @param string $builder_type the type of the builder.
 		 */
-		public static function render_social_icon( $builder_type = 'header', $index ) {
+		public static function render_social_icon( $index, $builder_type = 'header' ) {
 			$items      = astra_get_option( $builder_type . '-social-icons-' . $index );
 			$items      = isset( $items['items'] ) ? $items['items'] : array();
 			$show_label = astra_get_option( $builder_type . '-social-' . $index . '-label-toggle' );
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 								break;
 						}
 
-						echo '<a href="' . esc_url( $link ) . '"' . esc_attr( $show_label ? ' aria-label=' . $item['label'] . '' : '' ) . ' ' . ( 'phone' === $item['id'] || 'email' === $item['id'] ? '' : 'target="_blank" rel="noopener noreferrer" ' ) . 'class="ast-builder-social-element ast-' . esc_attr( $item['id'] ) . ' ' . esc_attr( $builder_type ) . '-social-item">';
+						echo '<a href="' . esc_url( $link ) . '"' . esc_attr( $show_label ? ' aria-label=' . $item['label'] . '' : '' ) . ' ' . ( 'phone' === $item['id'] || 'email' === $item['id'] ? '' : 'target="_blank" rel="noopener noreferrer" ' ) . 'style="--color: ' . esc_attr( ! empty( $item['color'] ) ? $item['color'] : '#3a3a3a' ) . '; --background-color: ' . esc_attr( ! empty( $item['background'] ) ? $item['background'] : 'transparent' ) . ';" class="ast-builder-social-element ast-inline-flex ast-' . esc_attr( $item['id'] ) . ' ' . esc_attr( $builder_type ) . '-social-item">';
 						echo self::fetch_svg_icon( $item['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 						if ( $show_label ) {
@@ -244,10 +244,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		/**
 		 * Prepare Button HTML.
 		 *
-		 * @param string $builder_type the type of the builder.
 		 * @param string $index The Index of the button.
+		 * @param string $builder_type the type of the builder.
 		 */
-		public static function render_button( $builder_type = 'header', $index ) {
+		public static function render_button( $index, $builder_type = 'header' ) {
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
@@ -268,7 +268,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					self::render_customizer_edit_button();
 				}
 				?>
-
 				<div
 					<?php
 					echo astra_attr(
@@ -282,7 +281,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<?php astra_logo(); ?>
 				</div>
 			</div>
-
 			<!-- .site-branding -->
 			<?php
 		}

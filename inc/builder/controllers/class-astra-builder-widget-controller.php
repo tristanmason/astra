@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 
 			// Register Footer Widgets.
 			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
-				$this->register_sidebar( 'footer', $index );
+				$this->register_sidebar( $index, 'footer' );
 			}
 
 			// Register Header Widgets.
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 
 			if ( $header_widgets_count ) {
 				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
-					$this->register_sidebar( 'header', $index );
+					$this->register_sidebar( $index, 'header' );
 				}
 			}
 		}
@@ -95,10 +95,10 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 		/**
 		 * Register widget for the builder.
 		 *
-		 * @param string  $builder_type builder type.
 		 * @param integer $index index of widget.
+		 * @param string  $builder_type builder type.
 		 */
-		public function register_sidebar( $builder_type = 'header', $index ) {
+		public function register_sidebar( $index, $builder_type = 'header' ) {
 			register_sidebar(
 				apply_filters(
 					'astra_' . $builder_type . '_widget_' . $index . 'args',

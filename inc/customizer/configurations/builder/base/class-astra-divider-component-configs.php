@@ -24,14 +24,14 @@ class Astra_Divider_Component_Configs {
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
+	 * @param Array  $configurations Configurations.
 	 * @param string $builder_type Builder Type.
 	 * @param string $section Section.
 	 *
-	 * @param Array  $configurations Configurations.
 	 * @since x.x.x
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
-	public static function register_configuration( $builder_type = 'header', $section = 'section-hb-divider-', $configurations ) {
+	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-divider-' ) {
 
 		$divider_config = array();
 
@@ -248,6 +248,8 @@ class Astra_Divider_Component_Configs {
 					'transport' => 'postMessage',
 				);
 			}
+
+			$divider_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$divider_config[] = $_configs;
 		}
