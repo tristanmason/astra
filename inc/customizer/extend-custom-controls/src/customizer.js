@@ -28,8 +28,6 @@
 		} else {
 			api.previewer.container.css('bottom', '');
 		}
-		$section.css( 'overflow', 'visible' );
-		$footer.css( 'overflow', 'visible' );
 	}
 
 	/**
@@ -83,12 +81,15 @@
 
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
+					$('.control-section.ahfb-' + builder + '-builder-active').css( 'overflow', 'visible' );
+
 				} else {
+
+					$('.control-section.ahfb-' + builder + '-builder-active').css( 'overflow', 'hidden' );
 
 					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
-
 				}
 
 				resizePreviewer();

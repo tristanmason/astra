@@ -460,7 +460,7 @@
     width: auto;
     padding: 0;
     max-height: 60%;
-    overflow: auto !important;
+    overflow: auto;
     transition: all 0.2s;
     transform: translateY(100%);
     backface-visibility: hidden;
