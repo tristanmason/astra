@@ -27,6 +27,10 @@ add_filter( 'astra_dynamic_theme_css', 'astra_below_header_row_setting', 11 );
 function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$parse_css = '';
+	
+	if ( ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'mobile' ) ) {
+		return $dynamic_css;
+	}
 
 	// Common CSS options.
 	$hbb_header_height  = astra_get_option( 'hbb-header-height' );
@@ -60,8 +64,7 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'min-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-below-header-bar .main-header-menu > .menu-item' => array(
-			'height'     => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
-			'align-self' => 'center',
+			'line-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-below-header-bar .ast-header-woo-cart, .ast-desktop .ast-below-header-bar .ast-header-edd-cart' => array(
 			'line-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),

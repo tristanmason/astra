@@ -361,9 +361,16 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'section'   => $_section,
-					'priority'  => 31,
+					'priority'  => 32,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-main-sep]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					),
 				),
 
 				/**
@@ -378,18 +385,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority' => 32,
 					'settings' => array(),
 					'context'  => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-background-colors]',
-					'default'   => astra_get_option( 'transparent-header-background-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 35,
-					'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
 
 				array(
@@ -436,7 +431,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 * Option: Header Builder Tabs
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-transparent-header-tabs]',
+						'name'        => $_section . '-ast-context-tabs',
 						'section'     => $_section,
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',

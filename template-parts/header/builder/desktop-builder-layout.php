@@ -6,7 +6,6 @@
  */
 
 ?>
-
 <div id="ast-desktop-header">
 	<?php
 		astra_main_header_bar_top();

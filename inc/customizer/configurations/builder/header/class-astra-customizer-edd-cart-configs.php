@@ -61,7 +61,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'default'   => astra_get_option( 'edd-header-cart-total-display' ),
 				'type'      => 'control',
 				'section'   => $_section,
-				'title'     => __( 'Display Cart Totals', 'astra' ),
+				'title'     => __( 'Display Cart Total', 'astra' ),
 				'priority'  => 50,
 				'transport' => 'postMessage',
 				'partial'   => array(

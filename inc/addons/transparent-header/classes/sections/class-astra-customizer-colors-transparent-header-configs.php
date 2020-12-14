@@ -49,16 +49,16 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Header background overlay color
 				 */
 				array(
-					'name'       => 'transparent-header-bg-color-responsive',
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
 					'default'    => $defaults['transparent-header-bg-color-responsive'],
 					'section'    => 'section-transparent-header',
-					'type'       => 'sub-control',
-					'priority'   => 1,
-					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-background-colors]',
+					'type'       => 'control',
+					'priority'   => 35,
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Overlay Color', 'astra' ),
+					'title'      => __( 'Background Overlay', 'astra' ),
+					'context'    => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					'responsive' => true,
 					'rgba'       => true,
 				),

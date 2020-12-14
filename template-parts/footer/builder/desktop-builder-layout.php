@@ -9,7 +9,6 @@
  */
 
 ?>
-
 <footer
 <?php
 echo astra_attr(
@@ -47,4 +46,3 @@ echo astra_attr(
 		astra_footer_content_bottom();
 	?>
 </footer><!-- #colophon -->
-

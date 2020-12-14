@@ -139,27 +139,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Group Option: Header Background.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hb-header-background-group]',
-					'default'   => astra_get_option( 'hb-header-background-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 7,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Sub Option: Header Background.
 				array(
-					'name'       => 'hb-header-bg-obj-responsive',
-					'parent'     => ASTRA_THEME_SETTINGS . '[hb-header-background-group]',
+					'name'       => ASTRA_THEME_SETTINGS . '[hb-header-bg-obj-responsive]',
 					'section'    => $_section,
-					'type'       => 'sub-control',
+					'type'       => 'control',
 					'control'    => 'ast-responsive-background',
 					'transport'  => 'postMessage',
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'priority'   => 7,
 					'data_attrs' => array(
 						'name' => 'hb-header-bg-obj-responsive',
 					),

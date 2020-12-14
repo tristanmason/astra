@@ -224,30 +224,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Group Option: Below Footer Background styling.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-background-styling]',
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 70,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Option: Below Footer Background styling.
 				array(
-					'name'      => 'hbb-footer-bg-obj-responsive',
-					'parent'    => ASTRA_THEME_SETTINGS . '[hbb-footer-background-styling]',
-					'type'      => 'sub-control',
+					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-bg-obj-responsive]',
+					'type'      => 'control',
 					'section'   => $_section,
 					'control'   => 'ast-responsive-background',
 					'transport' => 'postMessage',
 					'default'   => $defaults['hbb-footer-bg-obj-responsive'],
 					'title'     => __( 'Color & Image', 'astra' ),
-					'priority'  => 5,
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'priority'  => 70,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -272,6 +259,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, 'footer' ) );
 
 			return array_merge( $configurations, $_configs );
 		}

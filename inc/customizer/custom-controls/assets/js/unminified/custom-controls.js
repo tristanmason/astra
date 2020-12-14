@@ -17721,7 +17721,8 @@ var colorControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    // 'use strict';
+    'use strict';
+
     var control = this;
     jQuery(document).mouseup(function (e) {
       var container = jQuery(control.container);
@@ -17847,8 +17848,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
           colorPalette = _this$state.colorPalette;
       var _this$props = this.props,
           allowGradient = _this$props.allowGradient,
-          allowImage = _this$props.allowImage,
-          customClass = _this$props.customClass;
+          allowImage = _this$props.allowImage;
 
       var toggleVisible = function toggleVisible() {
         var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');
@@ -17925,7 +17925,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         count++;
       });
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
-        className: "color-button-wrap " + (this.props.customClass ? this.props.customClass : '')
+        className: "color-button-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["Button"], {
         className: isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate',
         onClick: function onClick() {
@@ -23607,19 +23607,17 @@ var SocialComponent = function SocialComponent(props) {
     'items': [{
       'id': 'facebook',
       'enabled': true,
-      'source': 'icon',
       'url': '',
-      'imageid': '',
-      'width': 24,
+      'color': '#557dbc',
+      'background': 'transparent',
       'icon': 'facebook',
       'label': 'Facebook'
     }, {
       'id': 'twitter',
       'enabled': true,
-      'source': 'icon',
       'url': '',
-      'imageid': '',
-      'width': 24,
+      'color': '#7acdee',
+      'background': 'transparent',
       'icon': 'twitter',
       'label': 'Twitter'
     }]
@@ -23630,82 +23628,134 @@ var SocialComponent = function SocialComponent(props) {
     'group': 'social_item_group',
     'options': [{
       value: 'facebook',
-      label: __('Facebook', 'astra')
+      label: __('Facebook', 'astra'),
+      color: '#557dbc',
+      background: 'transparent'
     }, {
       value: 'twitter',
-      label: __('Twitter', 'astra')
+      label: __('Twitter', 'astra'),
+      color: '#7acdee',
+      background: 'transparent'
     }, {
       value: 'instagram',
-      label: __('Instagram', 'astra')
+      label: __('Instagram', 'astra'),
+      color: '#292929',
+      background: 'transparent'
     }, {
       value: 'youtube',
-      label: __('YouTube', 'astra')
+      label: __('YouTube', 'astra'),
+      color: '#e96651',
+      background: 'transparent'
     }, {
       value: 'facebook_group',
-      label: __('Facebook Group', 'astra')
+      label: __('Facebook Group', 'astra'),
+      color: '#3D87FB',
+      background: 'transparent'
     }, {
       value: 'vimeo',
-      label: __('Vimeo', 'astra')
+      label: __('Vimeo', 'astra'),
+      color: '#8ecfde',
+      background: 'transparent'
     }, {
       value: 'pinterest',
-      label: __('Pinterest', 'astra')
+      label: __('Pinterest', 'astra'),
+      color: '#ea575a',
+      background: 'transparent'
     }, {
       value: 'linkedin',
-      label: __('Linkedin', 'astra')
+      label: __('Linkedin', 'astra'),
+      color: '#1c86c6',
+      background: 'transparent'
     }, {
       value: 'medium',
-      label: __('Medium', 'astra')
+      label: __('Medium', 'astra'),
+      color: '#292929',
+      background: 'transparent'
     }, {
       value: 'wordpress',
-      label: __('WordPress', 'astra')
+      label: __('WordPress', 'astra'),
+      color: '#464646',
+      background: 'transparent'
     }, {
       value: 'reddit',
-      label: __('Reddit', 'astra')
+      label: __('Reddit', 'astra'),
+      color: '#FC471E',
+      background: 'transparent'
     }, {
       value: 'patreon',
-      label: __('Patreon', 'astra')
+      label: __('Patreon', 'astra'),
+      color: '#e65c4b',
+      background: 'transparent'
     }, {
       value: 'github',
-      label: __('GitHub', 'astra')
+      label: __('GitHub', 'astra'),
+      color: '#24292e',
+      background: 'transparent'
     }, {
       value: 'dribbble',
-      label: __('Dribbble', 'astra')
+      label: __('Dribbble', 'astra'),
+      color: '#d77ea6',
+      background: 'transparent'
     }, {
       value: 'behance',
-      label: __('Behance', 'astra')
+      label: __('Behance', 'astra'),
+      color: '#1B64F6',
+      background: 'transparent'
     }, {
       value: 'vk',
-      label: __('VK', 'astra')
+      label: __('VK', 'astra'),
+      color: '#5382b6',
+      background: 'transparent'
     }, {
       value: 'xing',
-      label: __('Xing', 'astra')
+      label: __('Xing', 'astra'),
+      color: '#0A5C5D',
+      background: 'transparent'
     }, {
       value: 'rss',
-      label: __('RSS', 'astra')
+      label: __('RSS', 'astra'),
+      color: '#f09124',
+      background: 'transparent'
     }, {
       value: 'email',
-      label: __('Email', 'astra')
+      label: __('Email', 'astra'),
+      color: '#ea4335',
+      background: 'transparent'
     }, {
       value: 'phone',
-      label: __('Phone', 'astra')
+      label: __('Phone', 'astra'),
+      color: 'inherit',
+      background: 'transparent'
     }, {
       value: 'whatsapp',
-      label: __('WhatsApp', 'astra')
+      label: __('WhatsApp', 'astra'),
+      color: '#5BBA67',
+      background: 'transparent'
     }, {
       value: 'google_reviews',
-      label: __('Google Reviews', 'astra')
+      label: __('Google Reviews', 'astra'),
+      color: '#dc4e41',
+      background: 'transparent'
     }, {
       value: 'telegram',
-      label: __('Telegram', 'astra')
+      label: __('Telegram', 'astra'),
+      color: '#229CCE',
+      background: 'transparent'
     }, {
       value: 'yelp',
-      label: __('Yelp', 'astra')
+      label: __('Yelp', 'astra'),
+      color: '#af0606',
+      background: 'transparent'
     }, {
       value: 'trip_advisor',
-      label: __('Trip Advisor', 'astra')
+      label: __('Trip Advisor', 'astra'),
+      color: '#00aa6c',
+      background: 'transparent'
     }, {
       value: 'imdb',
-      label: __('IMDB', 'astra')
+      label: __('IMDB', 'astra'),
+      color: '#000000',
+      background: 'transparent'
     }].sort(function (a, b) {
       if (a.value < b.value) {
         return -1;
@@ -23741,15 +23791,6 @@ var SocialComponent = function SocialComponent(props) {
     props.control.setting.set(_objectSpread(_objectSpread(_objectSpread({}, props.control.setting.get()), value), {}, {
       flag: !props.control.setting.get().flag
     }));
-  };
-
-  var onDragStart = function onDragStart() {
-    var dropzones = document.querySelectorAll('.ahfb-builder-area');
-    var i;
-
-    for (i = 0; i < dropzones.length; ++i) {
-      dropzones[i].classList.add('ahfb-dragging-dropzones');
-    }
   };
 
   var onDragStop = function onDragStop() {
@@ -23792,33 +23833,9 @@ var SocialComponent = function SocialComponent(props) {
     }, itemIndex);
   };
 
-  var _onChangeIcon = function onChangeIcon(value, itemIndex) {
-    saveArrayUpdate({
-      icon: value
-    }, itemIndex);
-  };
-
   var _onChangeURL = function onChangeURL(value, itemIndex) {
     saveArrayUpdate({
       url: value
-    }, itemIndex);
-  };
-
-  var _onChangeAttachment = function onChangeAttachment(value, itemIndex) {
-    saveArrayUpdate({
-      imageid: value
-    }, itemIndex);
-  };
-
-  var _onChangeWidth = function onChangeWidth(value, itemIndex) {
-    saveArrayUpdate({
-      width: value
-    }, itemIndex);
-  };
-
-  var _onChangeSource = function onChangeSource(value, itemIndex) {
-    saveArrayUpdate({
-      source: value
     }, itemIndex);
   };
 
@@ -23859,10 +23876,9 @@ var SocialComponent = function SocialComponent(props) {
       var newItem = {
         'id': itemControl,
         'enabled': true,
-        'source': 'icon',
         'url': '',
-        'imageid': '',
-        'width': 24,
+        'color': itemLabel[0].color,
+        'background': itemLabel[0].background,
         'icon': itemControl,
         'label': itemLabel[0].label
       };
@@ -23987,20 +24003,8 @@ var SocialComponent = function SocialComponent(props) {
       onChangeLabel: function onChangeLabel(label, itemIndex) {
         return _onChangeLabel(label, itemIndex);
       },
-      onChangeSource: function onChangeSource(source, itemIndex) {
-        return _onChangeSource(source, itemIndex);
-      },
-      onChangeWidth: function onChangeWidth(width, itemIndex) {
-        return _onChangeWidth(width, itemIndex);
-      },
       onChangeURL: function onChangeURL(url, itemIndex) {
         return _onChangeURL(url, itemIndex);
-      },
-      onChangeAttachment: function onChangeAttachment(imageid, itemIndex) {
-        return _onChangeAttachment(imageid, itemIndex);
-      },
-      onChangeIcon: function onChangeIcon(icon, itemIndex) {
-        return _onChangeIcon(icon, itemIndex);
       },
       key: item.id,
       index: index,

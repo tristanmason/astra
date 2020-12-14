@@ -170,6 +170,9 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section ) );
+
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, 'footer' ) );
+
 		return array_merge( $configurations, $_configs );
 	}
 }

@@ -24,13 +24,13 @@ class Astra_Social_Icon_Component_Configs {
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
+	 * @param Array  $configurations Configurations.
 	 * @param string $builder_type Builder Type.
 	 * @param string $section Section slug.
-	 * @param Array  $configurations Configurations.
 	 * @since 3.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
-	public static function register_configuration( $builder_type = 'header', $section = 'section-hb-social-icons-', $configurations ) {
+	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-social-icons-' ) {
 
 		$social_configs = array();
 
@@ -372,9 +372,7 @@ class Astra_Social_Icon_Component_Configs {
 				);
 			}
 
-			if ( 'header' === $builder_type ) {
-				$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
-			}
+			$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 			
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
 				$_section,

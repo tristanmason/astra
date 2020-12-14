@@ -40,10 +40,8 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
             selector + ' .ast-builder-html-element a:hover'
 		);
 		
-		if( 'header' === builder_type ) {
-			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, selector );
-		}
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector, 'block' );
 
         // Margin.
 		wp.customize( 'astra-settings[' + section + '-margin]', function( value ) {
@@ -106,7 +104,6 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
 		var prefix = 'button' + index;
 		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
-		var visibility_selector = '.ast-header-button-' + index + '[data-section="section-hb-button-' + index + '"]';
 
 		// Button Text Color.
 		astra_color_responsive_css(
@@ -167,10 +164,8 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		// Advanced CSS Generation.
 		astra_builder_advanced_css( section, selector + ' .ast-custom-button' );
 
-		if( 'header' === builder_type ) {
-			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, visibility_selector );
-		}
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector, 'block' );
 
 		(function (index) {
 			wp.customize( 'astra-settings[' + builder_type + '-button'+ index +'-border-size]', function( setting ) {
@@ -205,7 +200,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 		let selector = '.ast-' + builder_type + '-social-' + index + '-wrap';
 		let section = ( 'header' === builder_type ) ? 'section-hb-social-icons-' + index : 'section-fb-social-icons-' + index;
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
-		var visibility_selector = '.ast-builder-layout-element[data-section="section-hb-social-icons-' + index + '"]';
+		var visibility_selector = '.ast-builder-layout-element[data-section="' + section + '"]';
 
 		// Icon Color.
 		astra_color_responsive_css(
@@ -280,10 +275,8 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			selector
 		);
 
-		if( 'header' === builder_type ) {
-			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, visibility_selector );
-		}
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, visibility_selector, 'block' );
 
 		// Icon Spacing.
 		(function( index ) {
@@ -455,7 +448,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 
 		var selector = '.' + builder_type + '-widget-area[data-section="sidebar-widgets-' + builder_type + '-widget-' + index + '"]';
 
-		var section = 'sidebar-widgets-header-widget-' + index;
+		var section = 'sidebar-widgets-' + builder_type + '-widget-' + index;
 
 		// Widget Content Color.
 		astra_color_responsive_css(
@@ -501,10 +494,8 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 			selector + ' .' + builder_type + '-widget-area-inner'
 		);
 
-		if( 'header' === builder_type ) {
-			// Advanced Visibility CSS Generation.
-			astra_builder_visibility_css( section, selector, 'block' );
-		}
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector, 'block' );
 
 		(function (index) {
 			wp.customize( 'astra-settings[sidebar-widgets-' + builder_type + '-widget-' + index + '-margin]', function( value ) {
@@ -544,6 +535,35 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 					}
 				} );
 			} );
+			
+			if ( 'footer' === builder_type ) {
+
+				wp.customize( 'astra-settings[footer-widget-alignment-' + index + ']', function( value ) {
+					value.bind( function( alignment ) {
+						if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
+							var dynamicStyle = '';
+							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
+							dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
+							dynamicStyle += '} ';
+			
+							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
+							dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
+							dynamicStyle += '} ';
+							dynamicStyle += '} ';
+			
+							dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
+							dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
+							dynamicStyle += '} ';
+							dynamicStyle += '} ';
+			
+							astra_add_dynamic_css( 'footer-widget-alignment-' + index, dynamicStyle );
+						}
+					} );
+				} );			
+			
+			}
 		})(index);
 
 	}
@@ -560,9 +580,25 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 function astra_builder_visibility_css( section, selector, default_property = 'flex' ) {
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
-        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
-	
-	// Header search visibility.
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+		
+	// Header Desktop visibility.
+	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
+		setting.bind( function( desktop_visible ) {
+
+			var dynamicStyle = '';
+			var is_hidden = ( ! desktop_visible ) ? default_property : 'none';
+
+			dynamicStyle += selector + ' {';
+			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-hide-desktop', dynamicStyle );
+		} );
+
+	} );
+
+	// Header Tablet visibility.
 	wp.customize( 'astra-settings[' + section + '-hide-tablet]', function( setting ) {
 		setting.bind( function( tablet_visible ) {
 
@@ -580,7 +616,7 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
 		
 	} );
 
-	// Header search visibility.
+	// Header Mobile visibility.
 	wp.customize( 'astra-settings[' + section + '-hide-mobile]', function( setting ) {
 		setting.bind( function( mobile_visible ) {
 
@@ -628,6 +664,9 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 			'border-color',
 			selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper'
 		);
+
+		// Advanced Visibility CSS Generation.
+		astra_builder_visibility_css( section, selector );
 
 		( function ( index ) {
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-layout]', function ( value ) {

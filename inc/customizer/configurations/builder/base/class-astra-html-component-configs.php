@@ -24,14 +24,14 @@ class Astra_Html_Component_Configs {
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
+	 * @param Array  $configurations Configurations.
 	 * @param string $builder_type Builder Type.
 	 * @param string $section Section.
 	 *
-	 * @param Array  $configurations Configurations.
 	 * @since 3.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
-	public static function register_configuration( $builder_type = 'header', $section = 'section-hb-html-', $configurations ) {
+	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-html-' ) {
 
 		$html_config = array();
 
@@ -221,9 +221,7 @@ class Astra_Html_Component_Configs {
 				);
 			}
 
-			if ( 'header' === $builder_type ) {
-				$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
-			}
+			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section );
 
