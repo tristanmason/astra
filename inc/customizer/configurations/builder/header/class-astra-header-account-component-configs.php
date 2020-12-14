@@ -275,6 +275,33 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'icon' => __( 'Icon', 'astra' ),
 				),
 				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
+			),
+
+			// Option: Logged out options preview.
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-preview]',
+				'default'   => '',
+				'type'      => 'control',
+				'control'   => 'checkbox',
+				'section'   => $_section,
+				'priority'  => 200,
+				'title'     => __( 'Preview', 'astra' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
 			),
 
 			/**
@@ -297,6 +324,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					),
 					Astra_Builder_Helper::$general_tab_config,
 				),
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
 			),
 
 			/**
@@ -311,7 +342,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'     => __( 'Click Action', 'astra' ),
 				'choices'   => array(
 					'link' => __( 'Link', 'astra' ),
-					'login' => __( 'Login Form', 'astra' ),
+					'login' => __( 'Login Popup', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'context'  => array(
@@ -321,6 +352,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'value'    => 'none',
 					),
 					Astra_Builder_Helper::$general_tab_config,
+				),
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
 			),
 

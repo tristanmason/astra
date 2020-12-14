@@ -297,6 +297,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$link_href = '';
 			$new_tab = '';
 			$link_rel = '';
+			$logout_preview = astra_get_option( 'header-account-logout-preview' );
+			$is_customizer = is_customize_preview();
 
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
@@ -306,13 +308,13 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			<div class="ast-header-account-wrap">
 				<?php
-				if ( is_customize_preview() ) {
+				if ( $is_customizer ) {
 					self::render_customizer_edit_button();
 				}
 
 				?>
 
-				<?php if ( $is_logged_in ) { ?>
+				<?php if ( $is_logged_in && ( ! $logout_preview && 'none' !== $logged_out_style && $is_customizer ) ) { ?>
 
 					<?php 
 
@@ -366,7 +368,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						Astra_Header_Account_Component::account_menu_markup();
 					}
 					?>
-				<?php } elseif ( 'none' !== $logged_out_style ) { ?>
+				<?php } elseif ( ( 'none' !== $logged_out_style ) && ( ( ! $is_logged_in ) || ( $is_logged_in && $logout_preview && $is_customizer ) ) ) { ?>
 
 					<?php
 					$logged_out_style_class = '';
