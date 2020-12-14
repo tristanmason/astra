@@ -154,6 +154,10 @@ var main_header_masthead = document.getElementById('masthead');
 
 		var current_cart = event.currentTarget.cart_type;
 
+		if ( 'woocommerce' === current_cart && document.body.classList.contains('woocommerce-cart') ) {
+			return;
+		}
+		
 		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
 			
 			cart_flyout.classList.add( 'active' );
