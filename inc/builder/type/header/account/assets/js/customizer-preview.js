@@ -85,10 +85,13 @@
 		selector + ' .menu-item.current-menu-item > .menu-link'
 	);
 
-	// Menu - Normal Background
-	astra_apply_responsive_background_css( 'astra-settings[header-account-menu-bg-obj-responsive]', selector + ' .ast-account-nav-menu', 'desktop' );
-	astra_apply_responsive_background_css( 'astra-settings[header-account-menu-bg-obj-responsive]', selector + ' .ast-account-nav-menu', 'tablet' );
-	astra_apply_responsive_background_css( 'astra-settings[header-account-menu-bg-obj-responsive]', selector + ' .ast-account-nav-menu', 'mobile' );
+	// Menu - Hover Background
+	astra_color_responsive_css(
+		'astra-account-menu-bg-preview',
+		'astra-settings[header-account-menu-bg-obj-responsive]',
+		'background',
+		selector + ' .account-main-navigation ul'
+	);
 
 	// Menu - Hover Background
 	astra_color_responsive_css(
