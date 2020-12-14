@@ -146,7 +146,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'     => __( 'Profile Action', 'astra' ),
 				'choices'   => array(
 					'link' => __( 'Link', 'astra' ),
-					'menu'    => __( 'Menu', 'astra' ),
+					'menu' => __( 'Menu', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'partial'   => array(
@@ -174,7 +174,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-				'context'        => array(
+				'context'   => array(
 					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
@@ -195,7 +195,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'title'     => __( 'Enter URL', 'astra' ),
 				'transport' => 'postMessage',
-				'context'  => array(
+				'context'   => array(
 					'relation' => 'AND',
 					Astra_Builder_Helper::$general_tab_config,
 					array(
@@ -236,7 +236,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'link_type' => 'section',
 				'linked'    => 'menu_locations',
 				'link_text' => __( 'Configure Menu from Here.', 'astra' ),
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '==',
@@ -288,14 +288,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'checkbox',
 				'section'   => $_section,
-				'priority'  => 200,
 				'title'     => __( 'Preview', 'astra' ),
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '!=',
 						'value'    => 'none',
 					),
+					Astra_Builder_Helper::$general_tab_config,
 				),
 				'transport' => 'postMessage',
 				'partial'   => array(
@@ -313,10 +313,9 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'text',
 				'section'   => $_section,
-				'priority'  => 20,
 				'title'     => __( 'Text', 'astra' ),
 				'transport' => 'postMessage',
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '===',
@@ -341,11 +340,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'title'     => __( 'Click Action', 'astra' ),
 				'choices'   => array(
-					'link' => __( 'Link', 'astra' ),
+					'link'  => __( 'Link', 'astra' ),
 					'login' => __( 'Login Popup', 'astra' ),
 				),
 				'transport' => 'postMessage',
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '!=',
@@ -370,7 +369,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'title'     => __( 'Link', 'astra' ),
 				'transport' => 'postMessage',
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '!=',
@@ -423,7 +422,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'step' => 1,
 					'max'  => 100,
 				),
-				'context'  => array(
+				'context'     => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 						'operator' => '===',
@@ -471,7 +470,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'  => array(
+				'context'     => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 						'operator' => '===',
@@ -493,7 +492,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Icon Color', 'astra' ),
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 						'operator' => '===',
@@ -511,7 +510,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'  => 'ast-heading',
 				'section'  => $_section,
 				'title'    => __( 'Menu', 'astra' ),
-				'priority'  => 6,
+				'priority' => 6,
 				'settings' => array(),
 				'context'  => array(
 					array(
@@ -532,7 +531,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 7,
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -556,7 +555,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'responsive' => true,
 				'rgba'       => true,
 				'priority'   => 7,
-				'context'  => array(
+				'context'    => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -663,7 +662,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 91,
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -778,7 +777,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'   => $_section,
 				'priority'  => 99,
 				'title'     => __( 'Item Divider', 'astra' ),
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -796,7 +795,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'ast-color',
 				'transport' => 'postMessage',
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-menu-item-border]',
 						'operator' => '==',
@@ -831,7 +830,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'  => array(
+				'context'        => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -852,7 +851,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'     => __( 'Border Color', 'astra' ),
 				'section'   => $_section,
 				'priority'  => 102,
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -879,7 +878,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'slide-up'   => __( 'Slide Up', 'astra' ),
 					'fade'       => __( 'Fade', 'astra' ),
 				),
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',
@@ -893,7 +892,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'render_callback' => array( Astra_Builder_Header::get_instance(), 'header_account' ),
 				),
 			),
-
 
 			/**
 			 * Option: Margin heading
@@ -927,7 +925,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'  => array(
+				'context'        => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '===',

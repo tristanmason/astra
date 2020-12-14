@@ -294,11 +294,11 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$is_logged_in = is_user_logged_in();
 
-			$link_href = '';
-			$new_tab = '';
-			$link_rel = '';
+			$link_href      = '';
+			$new_tab        = '';
+			$link_rel       = '';
 			$logout_preview = astra_get_option( 'header-account-logout-preview' );
-			$is_customizer = is_customize_preview();
+			$is_customizer  = is_customize_preview();
 
 
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
@@ -354,18 +354,20 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					?>
 					<a class="<?php echo $link_classes; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 
-						<?php if ( 'avatar' === $login_profile_type ) {
+						<?php 
+						if ( 'avatar' === $login_profile_type ) {
 
 							echo get_avatar( get_current_user_id() );
 
 						} else { 
-							echo Astra_Builder_UI_Controller::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-						} ?>
+						} 
+						?>
 						
 					</a>
 					<?php 
-					if( 'menu' === $action_type ) {
+					if ( 'menu' === $action_type ) {
 						Astra_Header_Account_Component::account_menu_markup();
 					}
 					?>
@@ -373,9 +375,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					<?php
 					$logged_out_style_class = '';
-					$logged_out_style = astra_get_option( 'header-account-logout-style' );
-					$logged_out_text  = astra_get_option( 'header-account-logged-out-text' );
-					$action_type = astra_get_option( 'header-account-logout-action' );
+					$logged_out_style       = astra_get_option( 'header-account-logout-style' );
+					$logged_out_text        = astra_get_option( 'header-account-logged-out-text' );
+					$action_type            = astra_get_option( 'header-account-logout-action' );
 					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
 
 					$account_link = astra_get_option( 'header-account-logout-link' );
@@ -389,20 +391,20 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					
 					<a class="<?php echo $logged_out_style_class; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
 						<?php if ( 'icon' === $logged_out_style ) { ?>
-							<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<?php echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php } elseif ( 'text' === $logged_out_style ) { ?>
 							<span class="ast-header-account-text"><?php echo $logged_out_text; ?></span>
 						<?php } ?>
 					</a>
 					
-					<?php if( 'login' === $action_type ) { ?>
+					<?php if ( 'login' === $action_type ) { ?>
 						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper">
 							<div id="ast-hb-account-login-bg"></div>
 							<div id="ast-hb-account-login">
 								<div class="ast-hb-login-header">
 									<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="Close popup">
 										<span class="ast-svg-iconset">
-											<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+											<?php echo self::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 										</span>
 									</button>
 								</div>
@@ -410,13 +412,13 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 									<div id="ast-hb-account-login-form">
 										<?php
 											$args = array(
-												'echo'            => true,
-												'redirect'        => get_permalink( get_the_ID() ),
-												'remember'        => true,
-												'value_remember'  => true,
-											);										
+												'echo'     => true,
+												'redirect' => get_permalink( get_the_ID() ),
+												'remember' => true,
+												'value_remember' => true,
+											);                                      
 											return wp_login_form( $args );
-										?>
+											?>
 									</div>
 								</div>
 							</div>
