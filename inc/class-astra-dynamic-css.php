@@ -2087,6 +2087,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
 				$divider_color = astra_get_option( 'transparent-header-divider-color' );
+
+				// Menu colors.
+				$account_menu_resp_color           = astra_get_option( 'transparent-account-menu-color-responsive' );
+				$account_menu_resp_bg_color        = astra_get_option( 'transparent-account-menu-bg-obj-responsive' );
+				$account_menu_resp_color_hover     = astra_get_option( 'transparent-account-menu-h-color-responsive' );
+				$account_menu_resp_bg_color_hover  = astra_get_option( 'transparent-account-menu-h-bg-color-responsive' );
+				$account_menu_resp_color_active    = astra_get_option( 'transparent-account-menu-a-color-responsive' );
+				$account_menu_resp_bg_color_active = astra_get_option( 'transparent-account-menu-a-bg-color-responsive' );
 				
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
@@ -2139,6 +2147,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-divider-element .ast-divider-wrapper'         => array(
 						'border-color' => esc_attr( $divider_color ),
 					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color['desktop'] ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover['desktop'],
+						'background' => $account_menu_resp_bg_color_hover['desktop'],
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active['desktop'],
+						'background' => $account_menu_resp_bg_color_active['desktop'],
+					),
+					'.ast-theme-transparent-header .account-main-navigation ul' => array(
+						'background'    => $account_menu_resp_bg_color['desktop'],
+					),
 				);
 
 				$parse_css .= astra_parse_css( $transparent_header_builder_desktop_css );
@@ -2159,6 +2181,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['tablet'] ),
 					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color['tablet'] ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover['tablet'],
+						'background' => $account_menu_resp_bg_color_hover['tablet'],
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active['tablet'],
+						'background' => $account_menu_resp_bg_color_active['tablet'],
+					),
+					'.ast-theme-transparent-header .account-main-navigation ul' => array(
+						'background'    => $account_menu_resp_bg_color['tablet'],
+					),
 				);
 
 				$parse_css .= astra_parse_css( $transparent_header_builder_tablet_css, '', astra_get_tablet_breakpoint() );
@@ -2178,6 +2214,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover['mobile'],
+						'background' => $account_menu_resp_bg_color_hover['mobile'],
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active['mobile'],
+						'background' => $account_menu_resp_bg_color_active['mobile'],
+					),
+					'.ast-theme-transparent-header .account-main-navigation ul' => array(
+						'background'    => $account_menu_resp_bg_color['mobile'],
 					),
 				);
 

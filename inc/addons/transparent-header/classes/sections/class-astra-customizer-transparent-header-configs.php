@@ -818,7 +818,135 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'priority'  => 5,
 						'title'     => __( 'Color', 'astra' ),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'default'   => astra_get_option( 'transparent-account-menu-colors' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Account Menu', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 66,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+								'operator' => '===',
+								'value'    => 'menu',
+							),
+						)
+					),
+
+					// Option: Menu Color.
+					array(
+						'name'       => 'transparent-account-menu-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Normal', 'astra' ),
+						'section'    => 'section-transparent-header',
+						'title'      => __( 'Link / Text Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 7,
+						'context'    => array(
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+								'operator' => '===',
+								'value'    => 'menu',
+							),
+							Astra_Builder_Helper::$design_tab,
+						),
+					),
+
+					// Option: Background Color.
+					array(
+						'name'       => 'transparent-account-menu-bg-obj-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'section'    => 'section-transparent-header',
+						'title'      => __( 'Background Color', 'astra' ),
+						'tab'        => __( 'Normal', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 8,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Menu Hover Color.
+					array(
+						'name'       => 'transparent-account-menu-h-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'tab'        => __( 'Hover', 'astra' ),
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'title'      => __( 'Link Color', 'astra' ),
+						'section'    => 'section-transparent-header',
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 19,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Menu Hover Background Color.
+					array(
+						'name'       => 'transparent-account-menu-h-bg-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'title'      => __( 'Background Color', 'astra' ),
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Hover', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 21,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Active Menu Color.
+					array(
+						'name'       => 'transparent-account-menu-a-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Active', 'astra' ),
+						'title'      => __( 'Link Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 31,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Active Menu Background Color.
+					array(
+						'name'       => 'transparent-account-menu-a-bg-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'section'    => 'section-transparent-header',
+						'title'      => __( 'Background Color', 'astra' ),
+						'tab'        => __( 'Active', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 33,
+						'context'    => Astra_Builder_Helper::$design_tab,
 					),
 				);
 
