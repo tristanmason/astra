@@ -254,8 +254,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 		/**
 		 * Render account icon.
-		 *
-		 * @param  string $device Device name.
 		 */
 		public function header_account() {
 			Astra_Builder_UI_Controller::render_account();

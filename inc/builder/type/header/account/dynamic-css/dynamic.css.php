@@ -112,11 +112,11 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$menu_font_size_mobile_unit  = ( isset( $menu_font_size['mobile-unit'] ) ) ? $menu_font_size['mobile-unit'] : '';
 	
 	/**
-	 * account CSS.
+	 * Account CSS.
 	 */
 	$css_output_desktop = array(
 
-		$selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg path' => array(
+		$selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg path, ' . $selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
 			'fill' => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
 		),
 		$selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg' => array(

@@ -51,7 +51,7 @@
 	astra_css(
 		'astra-settings[header-account-icon-color]',
 		'fill',
-		selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path'
+		selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path, ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
 	);
 
 	// Menu - Border Color.
