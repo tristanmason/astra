@@ -2087,7 +2087,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
 				$divider_color = astra_get_option( 'transparent-header-divider-color' );
-				
+
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
 						'color' => esc_attr( $html_text_color ),
@@ -2396,7 +2396,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'-webkit-font-smoothing'  => 'antialiased',
 						'-moz-osx-font-smoothing' => 'grayscale',
 					),
-					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after ' => array(
+					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
 						'content'                 => '"\e900"',
 						'display'                 => 'inline-block',
 						'font-family'             => 'Astra',

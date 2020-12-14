@@ -331,31 +331,6 @@
 	display: grid;
 	align-content: center;
 }
-/**
- * AST HF Builder - Widgets related CSS.
- * Header Nav and Submenu compatibility CSS.
- */
-.site-header-focus-item {
-	.main-header-bar-navigation {
-		.menu-item-has-children {
-			>.menu-link {
-				&:after {
-					content: "\e900";
-					display: inline-block;
-					font-family: 'Astra';
-					font-size: 9px;
-					font-size: .6rem;
-					font-weight: bold;
-					text-rendering: auto;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-					margin-left: 10px;
-					line-height: normal;
-				}
-			}
-		}
-	}
-}
 .main-header-bar,
 .ast-above-header,
 .ast-below-header {
