@@ -340,19 +340,19 @@ var main_header_masthead = document.getElementById('masthead');
 			AstraToggleSetup();
 		}
 
-		var header_account_trigger =  document.querySelectorAll( '.ast-header-account-wrap' )[0];
+		var header_account_trigger =  document.querySelectorAll( '.header-account-enable-login-popup' )[0];
 		var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
 		var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
-
-		if ( login_popup.classList.contains( 'hidden' ) ) {
-			header_account_trigger.onclick = function() {
+		
+		header_account_trigger.onclick = function() {
+			if ( login_popup.classList.contains( 'hidden' ) ) {
 				login_popup.classList.remove( 'hidden' );
-			};
-		} else {
-			header_account__close_trigger.onclick = function() {
-				login_popup.classList.add( 'hidden' );
-			};
-		}
+			}
+		};
+
+		header_account__close_trigger.onclick = function() {
+			login_popup.classList.add( 'hidden' );
+		};
 		
 	}
 
