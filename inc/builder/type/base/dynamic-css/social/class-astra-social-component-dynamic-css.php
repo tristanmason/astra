@@ -38,7 +38,7 @@ class Astra_Social_Component_Dynamic_CSS {
 
 		for ( $index = 1; $index <= $number_of_social_icons; $index++ ) {
 
-			if ( ! Astra_Builder_Helper::is_component_loaded( $builder_type, 'social-icons-' . $index ) ) {
+			if ( ! Astra_Builder_Helper::is_component_loaded( 'social-icons-' . $index, $builder_type ) ) {
 				continue;
 			}
 			$social_css_flag = true;
