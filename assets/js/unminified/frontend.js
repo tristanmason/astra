@@ -340,17 +340,19 @@ var main_header_masthead = document.getElementById('masthead');
 			AstraToggleSetup();
 		}
 
-		var header_account_trigger =  document.querySelectorAll( '.header-account-enable-login-popup' )[0];
+		var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' )[0];
 		var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
 		var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
 		
-		header_account_trigger.onclick = function() {
+		header_account_trigger.onclick = function( event ) {
+			event.preventDefault();
 			if ( ! login_popup.classList.contains( 'show' ) ) {
-				login_popup.classList.add( 'show' );				
+				login_popup.classList.add( 'show' );
 			}
 		};
 
-		header_account__close_trigger.onclick = function() {
+		header_account__close_trigger.onclick = function( event ) {
+			event.preventDefault();
 			login_popup.classList.remove( 'show' );
 		};
 		

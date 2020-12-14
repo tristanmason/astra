@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 					)
 				);
 			} else {
-				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
+				echo '<div class="ast-hf-account-menu-wrap ast-main-header-bar-alignment">';
 					echo '<div class="account-main-header-bar-navigation">';
 						echo '<nav ';
 						echo astra_attr(

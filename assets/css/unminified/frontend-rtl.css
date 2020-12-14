@@ -3428,10 +3428,19 @@ body .entry-content .wp-block-latest-posts li {
   pointer-events: none;
 }
 
-.ast-account-action-link,
-.ast-account-action-login {
+.ast-header-account-link.ast-account-action-link,
+.ast-header-account-link.ast-account-action-login {
   cursor: pointer;
   pointer-events: all;
+}
+
+.ast-header-break-point .ast-header-account-link {
+  pointer-events: all;
+}
+
+.ast-header-break-point .ast-hf-account-menu-wrap,
+.ast-header-break-point .ast-hb-account-login-wrapper {
+  display: none;
 }
 
 #ast-hb-account-login-wrap .ast-hb-login-header {

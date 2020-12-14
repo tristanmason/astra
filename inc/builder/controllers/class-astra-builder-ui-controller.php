@@ -375,7 +375,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$action_type = astra_get_option( 'header-account-logout-action' );
 					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
 
-					// if( 'link' === $action_type ) {
 					$account_link = astra_get_option( 'header-account-logout-link' );
 
 					$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
@@ -383,7 +382,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
 					
 					$link_href = 'href="' . esc_url( do_shortcode( $account_link['url'] ) ) . '"';
-					// }
 					?>
 					
 					<a class="<?php echo $logged_out_style_class; ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo $link_href . ' ' . $new_tab . ' ' . $link_rel; ?> >
