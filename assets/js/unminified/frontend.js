@@ -345,13 +345,13 @@ var main_header_masthead = document.getElementById('masthead');
 		var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
 		
 		header_account_trigger.onclick = function() {
-			if ( login_popup.classList.contains( 'hidden' ) ) {
-				login_popup.classList.remove( 'hidden' );
+			if ( ! login_popup.classList.contains( 'show' ) ) {
+				login_popup.classList.add( 'show' );				
 			}
 		};
 
 		header_account__close_trigger.onclick = function() {
-			login_popup.classList.add( 'hidden' );
+			login_popup.classList.remove( 'show' );
 		};
 		
 	}

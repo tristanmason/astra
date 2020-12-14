@@ -403,7 +403,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					</a>
 					
 					<?php if( 'login' === $action_type ) { ?>
-						<div id="ast-hb-account-login-wrap" class="hidden ast-hb-account-login-wrapper" style="">
+						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper" style="">
 							<div id="ast-hb-account-login-bg"></div>
 							<div id="ast-hb-account-login">
 								<div class="ast-hb-login-header">
