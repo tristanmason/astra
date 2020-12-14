@@ -510,7 +510,7 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
-			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, 'footer' ) );
+			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, $type ) );
 
 			$html_config[] = $_configs;
 		}

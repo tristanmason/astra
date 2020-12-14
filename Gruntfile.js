@@ -281,6 +281,10 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/style.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/frontend-rtl.css',
+                        dest: 'assets/css/minified/frontend.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
                         dest: 'assets/css/minified/extend-customizer.min-rtl.css',
                     },

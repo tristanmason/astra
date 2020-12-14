@@ -256,10 +256,11 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/widget/class-astra-header-widget-component.php';
 		require_once $header_components_path . '/mobile-trigger/class-astra-mobile-trigger.php';
 		require_once $header_components_path . '/divider/class-astra-header-divider-component.php';
+		require_once $header_components_path . '/mobile-menu/class-astra-mobile-menu-component.php';
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
-
+		
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			require_once $header_components_path . '/woo-cart/class-astra-header-woo-cart-component.php';
 		}
@@ -340,6 +341,7 @@ final class Astra_Builder_Customizer {
 		}
 
 		require_once $header_config_path . '/class-astra-header-divider-component-configs.php';
+		require_once $header_config_path . '/class-astra-mobile-menu-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 

@@ -2087,7 +2087,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
 				$divider_color = astra_get_option( 'transparent-header-divider-color' );
-
+				
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
 						'color' => esc_attr( $html_text_color ),

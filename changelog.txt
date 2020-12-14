@@ -2,6 +2,7 @@ v3.0.0-beta.2
 - New: Visibility options - Now user can hide few options as per devices.
 - New: Divider Element - Horizontal & Vertical Divider for both Header and Footer
 - New: WooCommerce Cart and EDD Cart Element for Header
+- New: Added new Mobile Menu element.
 - Improvement: Faster Customizer experience with respect to Design/General Tab change.
 - Improvement: Ability to add any number Elements in Header and Footer using a filter from child theme.
 - Improvement: Loaded animation CSS only when needed.

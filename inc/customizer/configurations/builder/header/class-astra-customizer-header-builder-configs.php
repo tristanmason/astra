@@ -106,7 +106,8 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'menu-' . $index ] = $item;
-			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ]  = $item;
+
+			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ] = $item;
 		}
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
@@ -155,6 +156,18 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 0,
+				'description' => '',
+			),
+
+			/**
+			 * Option: Header Builder
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[builder-header]',
+				'section'     => 'section-header-builder',
+				'type'        => 'control',
+				'control'     => 'ast-builder-header-control',
+				'priority'    => 40,
 				'description' => '',
 			),
 

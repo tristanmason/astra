@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		public function toggle_button( $item_output, $item, $depth, $args ) {
 
-			$menu_locations = array( 'primary', 'above_header_menu', 'secondary_menu', 'below_header_menu' );
+			$menu_locations = array( 'primary', 'above_header_menu', 'secondary_menu', 'below_header_menu', 'mobile_menu' );
 
 			for ( $index = 3; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 				array_push( $menu_locations, 'menu_' . $index );    
