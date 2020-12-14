@@ -224,10 +224,10 @@
     align-self: center;
     vertical-align: middle;
 }
-#ast-hb-account-login {
+.ast-hb-account-login {
 	max-height: 556px;
 }
-#ast-hb-account-login-wrap #ast-hb-account-login-bg {
+.ast-hb-account-login-wrapper .ast-hb-account-login-bg {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -238,7 +238,7 @@
 	z-index: 1000010;
 	transition: all 0.3s;
 }
-#ast-hb-account-login-wrap #ast-hb-account-login {
+.ast-hb-account-login-wrapper .ast-hb-account-login {
     position: fixed;
     left: 50%;
     overflow: hidden;
@@ -253,7 +253,7 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.3);
 }
 
-#ast-hb-account-login-wrap .ast-hb-login-header .ast-hb-login-close {
+.ast-hb-account-login-wrapper .ast-hb-login-header .ast-hb-login-close {
     background: 0 0;
     border: 0;
     font-size: 24px;
@@ -263,13 +263,13 @@
     display: flex;
     box-shadow: none;
 }
-#ast-hb-account-login-wrap #ast-hb-account-login-form {
+.ast-hb-account-login-wrapper #ast-hb-account-login-form {
 	padding-left: 30px;
     padding-right: 30px;
 }
 
-#ast-hb-account-login-wrap #loginform input[type=text],
-#ast-hb-account-login-wrap #loginform input[type=password] {
+.ast-hb-account-login-wrapper #loginform input[type=text],
+.ast-hb-account-login-wrapper #loginform input[type=password] {
 	width: 100%;
     max-width: 100%;
     border: 1px solid;
@@ -294,7 +294,7 @@
 	display: none;
 }
 
-#ast-hb-account-login-wrap .ast-hb-login-header {
+.ast-hb-account-login-wrapper .ast-hb-login-header {
     display: flex;
     justify-content: flex-end;
     min-height: calc(1.2em + 24px);
@@ -305,12 +305,12 @@
 .ast-header-account-wrap .ast-hb-account-login-wrapper.show {
     visibility: visible;
 }
-.ast-hb-account-login-wrapper #ast-hb-account-login {
+.ast-hb-account-login-wrapper .ast-hb-account-login {
 	transform: scale(0.7);
 	opacity: 0;
 	transition: all 0.3s;
 }
-.ast-hb-account-login-wrapper.show #ast-hb-account-login {
+.ast-hb-account-login-wrapper.show .ast-hb-account-login {
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
@@ -343,27 +343,20 @@
     box-shadow: 0 4px 10px -2px rgba(0,0,0,.1);
 }
 .ast-account-nav-menu {
+	width: 240px;
+    background: #fff;
+    left: -999em;
+    position: absolute;
+	top: 0px;
+	z-index: 99999;
+	list-style: none;
+    margin: 0;
+    padding-left: 0;
     border-top-width: 0;
     border-bottom-width: 0;
     border-right-width: 0;
     border-left-width: 0;
     border-style: solid;
-}
-.ast-account-nav-menu {
-    width: 240px;
-    background: #fff;
-    left: -999em;
-    position: absolute;
-    top: 100%;
-    z-index: 99999;
-}
-.ast-account-nav-menu {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-}
-.ast-account-nav-menu {
-	top: 0px;
 }
 .ast-account-nav-menu .sub-menu {
     right: auto;
