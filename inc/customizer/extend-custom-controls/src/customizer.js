@@ -79,6 +79,8 @@
 					control.container.trigger('init');
 				});
 
+
+
 				if (isExpanded) {
 
 					expandedPanel = panel.id;
@@ -93,6 +95,9 @@
 					}
 
 				} else {
+
+					$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
 
 					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
