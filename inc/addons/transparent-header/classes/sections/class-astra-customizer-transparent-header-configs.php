@@ -425,7 +425,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 * Option: Header Builder Tabs
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[builder-transparent-header-tabs]',
+						'name'        => $_section . '-ast-context-tabs',
 						'section'     => $_section,
 						'type'        => 'control',
 						'control'     => 'ast-builder-header-control',

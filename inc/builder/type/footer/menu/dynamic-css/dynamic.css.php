@@ -34,6 +34,8 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$selector = '#astra-footer-menu';
 
+	$visibility_selector = '.footer-widget-area[data-section="section-footer-menu"]';
+
 	// Menu.
 	$menu_resp_color           = astra_get_option( 'footer-menu-color-responsive' );
 	$menu_resp_bg_color        = astra_get_option( 'footer-menu-bg-obj-responsive' );
@@ -237,6 +239,8 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector, 'block' );
 
 	return $dynamic_css;
 }

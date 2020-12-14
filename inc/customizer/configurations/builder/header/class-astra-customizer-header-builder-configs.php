@@ -160,18 +160,6 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Header Builder
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-header]',
-				'section'     => 'section-header-builder',
-				'type'        => 'control',
-				'control'     => 'ast-builder-header-control',
-				'priority'    => 40,
-				'description' => '',
-			),
-
-			/**
 			 * Option: Header Desktop Items.
 			 */
 			array(

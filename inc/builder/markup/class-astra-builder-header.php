@@ -180,7 +180,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			// Before header markup.
 			do_action( 'astra_header_markup_before' );
 			?>
-
 			<header
 				<?php
 				echo astra_attr(
@@ -192,17 +191,16 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				);
 				?>
 			>
+				<?php 
+				astra_masthead_top();
 
-				<?php astra_masthead_top(); ?>
+				astra_masthead();
 
-				<?php astra_masthead(); ?>
-
-				<?php astra_masthead_bottom(); ?>
-
-				<?php do_action( 'astra_sticky_header_markup' ); ?>
-
-				<?php do_action( 'astra_bottom_header_after_markup' ); ?>
-
+				astra_masthead_bottom();
+				
+				do_action( 'astra_sticky_header_markup' );
+				do_action( 'astra_bottom_header_after_markup' ); 
+				?>
 			</header><!-- #masthead -->
 
 			<?php

@@ -224,7 +224,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Above Footer Background styling.
 				array(
-					'name'      => 'hba-footer-bg-obj-responsive',
+					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-bg-obj-responsive]',
 					'type'      => 'control',
 					'section'   => $_section,
 					'control'   => 'ast-responsive-background',
@@ -257,6 +257,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, 'footer' ) );
 
 			return array_merge( $configurations, $_configs );
 		}

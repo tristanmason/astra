@@ -31,7 +31,8 @@ class Astra_Social_Component_Dynamic_CSS {
 	 */
 	public static function astra_social_dynamic_css( $builder_type = 'header' ) {
 
-		$generated_css = '';
+		$generated_css   = '';
+		$social_css_flag = false;
 
 		$number_of_social_icons = ( 'header' === $builder_type ) ? Astra_Builder_Helper::$num_of_header_social_icons : Astra_Builder_Helper::$num_of_footer_social_icons;
 
@@ -40,9 +41,9 @@ class Astra_Social_Component_Dynamic_CSS {
 			if ( ! Astra_Builder_Helper::is_component_loaded( $builder_type, 'social-icons-' . $index ) ) {
 				continue;
 			}
-
-			$selector = '.ast-' . $builder_type . '-social-' . $index . '-wrap';
-			$_section = ( 'header' === $builder_type ) ? 'section-hb-social-icons-' . $index : 'section-fb-social-icons-' . $index;
+			$social_css_flag = true;
+			$selector        = '.ast-' . $builder_type . '-social-' . $index . '-wrap';
+			$_section        = ( 'header' === $builder_type ) ? 'section-hb-social-icons-' . $index : 'section-fb-social-icons-' . $index;
 
 			$icon_spacing    = astra_get_option( $builder_type . '-social-' . $index . '-space' );
 			$icon_bg_spacing = astra_get_option( $builder_type . '-social-' . $index . '-bg-space' );
@@ -120,9 +121,9 @@ class Astra_Social_Component_Dynamic_CSS {
 			);
 
 			if ( 'custom' === $color_type || is_customize_preview() ) {
-				$css_output_desktop[ $selector . ' .ast-builder-social-element svg' ]['fill']                 = $social_icons_color_desktop;
-				$css_output_desktop[ $selector . ' .ast-builder-social-element .social-item-label' ]['color'] = $social_icons_color_desktop;
-				$css_output_desktop[ $selector . ' .ast-builder-social-element' ]['background']               = $social_icons_bg_color_desktop;
+				$css_output_desktop[ $selector . ' .ast-social-color-type-custom svg' ]['fill']                 = $social_icons_color_desktop;
+				$css_output_desktop[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_color_desktop;
+				$css_output_desktop[ $selector . ' .ast-builder-social-element' ]['background']                 = $social_icons_bg_color_desktop;
 
 				$css_output_desktop[ $selector . ' .ast-builder-social-element:hover' ]                             = array(
 					// Hover.
@@ -160,8 +161,8 @@ class Astra_Social_Component_Dynamic_CSS {
 			);
 
 			if ( 'custom' === $color_type || is_customize_preview() ) {
-				$css_output_tablet[ $selector . ' .ast-builder-social-element svg' ]['fill']                 = $social_icons_color_tablet;
-				$css_output_tablet[ $selector . ' .ast-builder-social-element .social-item-label' ]['color'] = $social_icons_color_tablet;
+				$css_output_tablet[ $selector . ' .ast-social-color-type-custom svg' ]['fill']                 = $social_icons_color_tablet;
+				$css_output_tablet[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_color_tablet;
 
 				$css_output_tablet[ $selector . ' .ast-builder-social-element' ]['background'] = $social_icons_bg_color_tablet;
 
@@ -200,8 +201,8 @@ class Astra_Social_Component_Dynamic_CSS {
 			);
 
 			if ( 'custom' === $color_type || is_customize_preview() ) {
-				$css_output_mobile[ $selector . ' .ast-builder-social-element svg' ]['fill']                 = $social_icons_color_mobile;
-				$css_output_mobile[ $selector . ' .ast-builder-social-element .social-item-label' ]['color'] = $social_icons_color_mobile;
+				$css_output_mobile[ $selector . ' .ast-social-color-type-custom svg' ]['fill']                 = $social_icons_color_mobile;
+				$css_output_mobile[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_color_mobile;
 
 				$css_output_mobile[ $selector . ' .ast-builder-social-element' ]['background'] = $social_icons_bg_color_mobile;
 
@@ -243,16 +244,34 @@ class Astra_Social_Component_Dynamic_CSS {
 
 			$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 
-			if ( 'header' === $builder_type ) {
-
-				$visibility_selector = '.ast-builder-layout-element[data-section="section-hb-social-icons-' . $index . '"]';
-				$css_output         .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
-			}
+			$visibility_selector = '.ast-builder-layout-element[data-section="' . $_section . '"]';
+			$css_output         .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
 
 			$generated_css .= $css_output;
 		}
+		if ( $social_css_flag ) {
+			$generated_css .= self::get_social_static_css();
+		}
 
 		return $generated_css;
+	}
+
+	/**
+	 * Load Social default css.
+	 * 
+	 * @since 3.0.0
+	 */
+	public static function get_social_static_css() {
+		return '
+		/* Social Icons Official CSS */
+		.ast-social-color-type-official .ast-builder-social-element, .ast-social-color-type-official .social-item-label {
+			color: var(--color);
+			background-color: var(--background-color);
+		}
+		.header-social-inner-wrap.ast-social-color-type-official .ast-builder-social-element svg,
+		.footer-social-inner-wrap.ast-social-color-type-official .ast-builder-social-element svg {
+		  fill: currentColor;
+		}';
 	}
 }
 

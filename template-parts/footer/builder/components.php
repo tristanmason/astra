@@ -18,7 +18,7 @@ switch ( $component_slug ) {
 
 	case 'copyright':
 		?>
-			<div class="ast-builder-layout-element site-footer-focus-item ast-footer-copyright" data-section="section-footer-builder">
+			<div class="ast-builder-layout-element ast-flex site-footer-focus-item ast-footer-copyright" data-section="section-footer-builder">
 				<?php do_action( 'astra_footer_copyright' ); ?>
 			</div>
 		<?php
@@ -26,7 +26,7 @@ switch ( $component_slug ) {
 
 	case 'social-icons-1':
 		?>
-			<div class="ast-builder-layout-element site-footer-focus-item" data-section="section-fb-social-icons-1">
+			<div class="ast-builder-layout-element ast-flex site-footer-focus-item" data-section="section-fb-social-icons-1">
 				<?php do_action( 'astra_footer_social_1' ); ?>
 			</div>
 		<?php
@@ -107,7 +107,7 @@ switch ( $component_slug ) {
 	case 'divider-1':
 		$layout_class = astra_get_option( 'footer-divider-1-layout' );
 		?>
-		<div class="footer-widget-area widget-area site-footer-focus-item ast-footer-divider-element ast-footer-divider-1 ast-fb-divider-layout-<?php echo esc_attr( $layout_class ); ?>" data-section="section-fb-divider-1">
+		<div class="footer-widget-area widget-area ast-flex site-footer-focus-item ast-footer-divider-element ast-footer-divider-1 ast-fb-divider-layout-<?php echo esc_attr( $layout_class ); ?>" data-section="section-fb-divider-1">
 			<?php do_action( 'astra_footer_divider_1' ); ?>
 		</div>
 		<?php
