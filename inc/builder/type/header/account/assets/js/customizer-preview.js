@@ -51,7 +51,7 @@
 	astra_css(
 		'astra-settings[header-account-icon-color]',
 		'fill',
-		selector + ' svg path'
+		selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path'
 	);
 
 	// Menu - Border Color.
@@ -115,20 +115,20 @@
 				size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
 			) {
 				var dynamicStyle = '';
-				dynamicStyle += selector + ' .ahfb-svg-iconset svg {';
+				dynamicStyle += selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg {';
 				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += selector + ' .ahfb-svg-iconset svg {';
+				dynamicStyle += selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg {';
 				dynamicStyle += 'height: ' + size.tablet + 'px' + ';';
 				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += selector + ' .ahfb-svg-iconset svg {';
+				dynamicStyle += selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg {';
 				dynamicStyle += 'height: ' + size.mobile + 'px' + ';';
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
