@@ -280,13 +280,12 @@
 	pointer-events: none;
 }
 .ast-header-account-link.ast-account-action-link,
-.ast-header-account-link.ast-account-action-login {
+.ast-header-account-link.ast-account-action-login,
+.ast-header-break-point .ast-header-account-link {
 	cursor: pointer;
 	pointer-events: all;
 }
-.ast-header-break-point .ast-header-account-link {
-	pointer-events: all;
-}
+.ast-header-break-point .ast-main-header-bar-alignment,
 .ast-header-break-point .ast-hf-account-menu-wrap,
 .ast-header-break-point .ast-hb-account-login-wrapper {
 	display: none;
