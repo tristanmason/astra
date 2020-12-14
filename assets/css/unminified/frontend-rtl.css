@@ -3860,10 +3860,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   opacity: 0.5;
 }
 
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
-  opacity: 0.5;
-}
-
 .ast-header-search .ast-search-menu-icon .search-form .search-field::placeholder {
   opacity: 0.5;
 }
@@ -3929,6 +3925,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   line-height: 2;
   vertical-align: middle;
   text-align: left;
+}
+
+.ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu {
+  background-color: transparent;
+}
+
+.ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu .sub-menu {
+  background-color: transparent;
 }
 
 /*----------  Header  ----------*/
