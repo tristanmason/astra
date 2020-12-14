@@ -3467,7 +3467,7 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-hb-account-login-wrapper.show .ast-hb-account-login {
-  transform: scale(1);
+  transform: scale(1) translateY(-50%);
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
@@ -3533,14 +3533,11 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-account-nav-menu .menu-item {
+  position: relative;
   -js-display: flex;
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
-
-.ast-account-nav-menu .menu-item {
-  position: relative;
 }
 
 .ast-account-nav-menu .menu-item .menu-link {
