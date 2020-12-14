@@ -50,14 +50,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			$account_choices['woocommerce'] = __( 'Woo Commerce', 'astra' );
 		}
 
-		if ( class_exists( 'SFWD_LMS' ) ) {
-			$account_choices['learndash'] = __( 'Learndash', 'astra' );
-		}
-
-		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
-			$account_choices['edd'] = __( 'EDD', 'astra' );
-		}
-
 		$_configs = array(
 
 			/*

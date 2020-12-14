@@ -337,12 +337,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						$account_link['new_tab'] = 'target="_self"';
 						if ( 'woocommerce' == $account_type ) {
 							$account_link['url'] = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
-						} elseif ( 'learndash' === $account_type ) {
-							$account_link['url'] = '#';
 						} elseif ( 'lifterlms' === $account_type ) {
 							$account_link['url'] = llms_get_page_url( 'myaccount' );
-						} elseif ( 'edd' === $account_type ) {
-							$account_link['url'] = '#';
 						}
 					}
 					
