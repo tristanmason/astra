@@ -306,6 +306,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						if ( class_exists( 'Astra_Woocommerce' ) ) {
 							the_widget( 'WC_Widget_Cart', 'title=' );
 						}
+						if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+							the_widget( 'edd_cart_widget', 'title=' );
+						}
 						?>
 					</div>
 				</div>

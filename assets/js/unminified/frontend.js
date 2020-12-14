@@ -126,6 +126,16 @@ var main_header_masthead = document.getElementById('masthead');
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' );
 	var cart_flyout = document.getElementById( 'astra-mobile-cart-drawer' );
+	var woo_data = '';
+	var edd_data = '';
+
+	if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
+
+		woo_data = cart_flyout.querySelector( '.widget_shopping_cart.woocommerce' );
+		edd_data = cart_flyout.querySelector( '.widget_edd_cart_widget' );
+		
+	}
+
 	var menu_click_listeners = {};
 	
 	if ( undefined !== main_header_masthead && null !== main_header_masthead ) {
@@ -139,13 +149,27 @@ var main_header_masthead = document.getElementById('masthead');
 	 * Opens the Cart Flyout.
 	 */
 	cartFlyoutOpen = function ( event ) {
-
-		event.preventDefault();
 		
-		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
+		event.preventDefault();
 
+		var current_cart = event.currentTarget.cart_type;
+
+		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
+			
 			cart_flyout.classList.add( 'active' );
 			document.documentElement.classList.add( 'ast-mobile-cart-active' );
+			if ( undefined !== edd_data && '' !== edd_data && null !== edd_data ) {
+				edd_data.style.display = 'block';
+				if ( 'woocommerce' === current_cart ) {
+					edd_data.style.display = 'none';
+				}
+			}
+			if ( undefined !== woo_data && '' !== woo_data && null !== woo_data ) {
+				woo_data.style.display = 'block';
+				if ( 'edd' === current_cart ) {
+					woo_data.style.display = 'none';
+				}
+			}
 		}
 	}
 
@@ -160,6 +184,7 @@ var main_header_masthead = document.getElementById('masthead');
 
 			cart_flyout.classList.remove( 'active' );
 			document.documentElement.classList.remove( 'ast-mobile-cart-active' );
+
 		}
 	}
 
@@ -169,9 +194,14 @@ var main_header_masthead = document.getElementById('masthead');
 
 		// Mobile Header Cart Flyout.
 		var woo_cart = mobileHeader.querySelector( '.ast-header-woo-cart' );
+		var edd_cart = mobileHeader.querySelector( '.ast-header-edd-cart' );
 		var cart_close = document.querySelector( '.astra-cart-drawer-close' );
 
 		woo_cart.addEventListener("click", cartFlyoutOpen, false);
+		edd_cart.addEventListener("click", cartFlyoutOpen, false);
+		woo_cart.cart_type = 'woocommerce';
+		edd_cart.cart_type = 'edd';
+
 		cart_close.addEventListener("click", cartFlyoutClose, false);
 
 	}
