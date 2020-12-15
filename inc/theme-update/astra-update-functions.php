@@ -1362,6 +1362,13 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 				'tablet'  => 'full',
 				'mobile'  => 'full',
 			);
+			$items  = array(
+				'above_1' => array( 'widget-1' ),
+				'above_2' => array(),
+				'above_3' => array(),
+				'above_4' => array(),
+				'above_5' => array(),
+			);
 			break;
 
 		case 'layout-2':
@@ -1370,6 +1377,13 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 				'desktop' => '2-equal',
 				'tablet'  => '2-equal',
 				'mobile'  => '2-equal',
+			);
+			$items  = array(
+				'above_1' => array( 'widget-1' ),
+				'above_2' => array( 'widget-2' ),
+				'above_3' => array(),
+				'above_4' => array(),
+				'above_5' => array(),
 			);
 			break;
 
@@ -1380,6 +1394,13 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 				'tablet'  => 'full',
 				'mobile'  => 'full',
 			);
+			$items  = array(
+				'above_1' => array( 'widget-1' ),
+				'above_2' => array( 'widget-2' ),
+				'above_3' => array( 'widget-3' ),
+				'above_4' => array(),
+				'above_5' => array(),
+			);
 			break;
 
 		case 'layout-4':
@@ -1389,6 +1410,13 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 				'tablet'  => 'full',
 				'mobile'  => 'full',
 			);
+			$items  = array(
+				'above_1' => array( 'widget-1' ),
+				'above_2' => array( 'widget-2' ),
+				'above_3' => array( 'widget-3' ),
+				'above_4' => array( 'widget-4' ),
+				'above_5' => array(),
+			);
 			break;
 
 		case 'layout-5':
@@ -1397,6 +1425,13 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 				'desktop' => '5-equal',
 				'tablet'  => 'full',
 				'mobile'  => 'full',
+			);
+			$items  = array(
+				'above_1' => array( 'widget-1' ),
+				'above_2' => array( 'widget-2' ),
+				'above_3' => array( 'widget-3' ),
+				'above_4' => array( 'widget-4' ),
+				'above_5' => array( 'widget-5' ),
 			);
 			break;
 
@@ -1408,11 +1443,19 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 				'tablet'  => 'full',
 				'mobile'  => 'full',
 			);
+			$items  = array(
+				'above_1' => array( 'widget-1' ),
+				'above_2' => array( 'widget-2' ),
+				'above_3' => array( 'widget-3' ),
+				'above_4' => array(),
+				'above_5' => array(),
+			);
 			break;
 	}
 
-	$theme_options['hba-footer-column'] = $column;
-	$theme_options['hba-footer-layout'] = $layout;
+	$theme_options['hba-footer-column']             = $column;
+	$theme_options['hba-footer-layout']             = $layout;
+	$theme_options['footer-desktop-items']['above'] = $items;
 	
 	return array(
 		'theme_options' => $theme_options,
