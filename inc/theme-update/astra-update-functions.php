@@ -406,7 +406,9 @@ function astra_header_builder_compatibility() {
 }
 
 function astra_header_builder_migration() {
-		/**
+	
+
+	/**
 	 * All theme options.
 	 */
 	$theme_options = get_option( 'astra-settings', array() );
@@ -471,89 +473,74 @@ function astra_header_builder_migration() {
 	 */
 	switch ( $primary_header_layout ) {
 		case 'header-main-layout-1':
-			$theme_options['header-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_left'         => array(),
-						'above_left_center'  => array(),
-						'above_center'       => array(),
-						'above_right_center' => array(),
-						'above_right'        => array(),
-					),
-				'primary' =>
-					array(
-						'primary_left'         => array( 'logo' ),
-						'primary_left_center'  => array(),
-						'primary_center'       => array(),
-						'primary_right_center' => array(),
-						'primary_right'        => ( ! empty( $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
-					),
-				'below'   =>
-					array(
-						'below_left'         => array(),
-						'below_left_center'  => array(),
-						'below_center'       => array(),
-						'below_right_center' => array(),
-						'below_right'        => array(),
-					),
+			$theme_options['header-desktop-items']['above']   = array(
+				'above_left'         => array(),
+				'above_left_center'  => array(),
+				'above_center'       => array(),
+				'above_right_center' => array(),
+				'above_right'        => array(),
+			);
+			$theme_options['header-desktop-items']['primary'] = array(
+				'primary_left'         => array( 'logo' ),
+				'primary_left_center'  => array(),
+				'primary_center'       => array(),
+				'primary_right_center' => array(),
+				'primary_right'        => ( ( '' !== $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
+			);
+			$theme_options['header-desktop-items']['below']   = array(
+				'below_left'         => array(),
+				'below_left_center'  => array(),
+				'below_center'       => array(),
+				'below_right_center' => array(),
+				'below_right'        => array(),
 			);
 			break;
 
 		case 'header-main-layout-2':
-			$theme_options['header-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_left'         => array(),
-						'above_left_center'  => array(),
-						'above_center'       => array(),
-						'above_right_center' => array(),
-						'above_right'        => array(),
-					),
-				'primary' =>
-					array(
-						'primary_left'         => array(),
-						'primary_left_center'  => array(),
-						'primary_center'       => array( 'logo' ),
-						'primary_right_center' => array(),
-						'primary_right'        => array(),
-					),
-				'below'   =>
-					array(
-						'below_left'         => array(),
-						'below_left_center'  => array(),
-						'below_center'       => ( ! empty( $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
-						'below_right_center' => array(),
-						'below_right'        => array(),
-					),
+			$theme_options['header-desktop-items']['above']   = array(
+				'above_left'         => array(),
+				'above_left_center'  => array(),
+				'above_center'       => array(),
+				'above_right_center' => array(),
+				'above_right'        => array(),
+			);
+			$theme_options['header-desktop-items']['primary'] = array(
+				'primary_left'         => array(),
+				'primary_left_center'  => array(),
+				'primary_center'       => array( 'logo' ),
+				'primary_right_center' => array(),
+				'primary_right'        => array(),
+			);
+			$theme_options['header-desktop-items']['below']   = array(
+				'below_left'         => array(),
+				'below_left_center'  => array(),
+				'below_center'       => ( ( '' !== $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
+				'below_right_center' => array(),
+				'below_right'        => array(),
 			);
 			break;
 
 		case 'header-main-layout-3':
-			$theme_options['header-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_left'         => array(),
-						'above_left_center'  => array(),
-						'above_center'       => array(),
-						'above_right_center' => array(),
-						'above_right'        => array(),
-					),
-				'primary' =>
-					array(
-						'primary_left'         => ( ! empty( $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
-						'primary_left_center'  => array(),
-						'primary_center'       => array(),
-						'primary_right_center' => array(),
-						'primary_right'        => array( 'logo' ),
-					),
-				'below'   =>
-					array(
-						'below_left'         => array(),
-						'below_left_center'  => array(),
-						'below_center'       => array(),
-						'below_right_center' => array(),
-						'below_right'        => array(),
-					),
+			$theme_options['header-desktop-items']['above']   = array(
+				'above_left'         => array(),
+				'above_left_center'  => array(),
+				'above_center'       => array(),
+				'above_right_center' => array(),
+				'above_right'        => array(),
+			);
+			$theme_options['header-desktop-items']['primary'] = array(
+				'primary_left'         => ( ( '' !== $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
+				'primary_left_center'  => array(),
+				'primary_center'       => array(),
+				'primary_right_center' => array(),
+				'primary_right'        => array( 'logo' ),
+			);
+			$theme_options['header-desktop-items']['below']   = array(
+				'below_left'         => array(),
+				'below_left_center'  => array(),
+				'below_center'       => array(),
+				'below_right_center' => array(),
+				'below_right'        => array(),
 			);
 			break;
 	}
@@ -561,52 +548,43 @@ function astra_header_builder_migration() {
 	// Header : Primary Header - Mobile Layout.
 	$mobile_layout = astra_get_option( 'header-main-menu-align' );
 	if ( 'stack' === $mobile_layout ) {
-		$theme_options['header-mobile-items'] = array(
-			'popup' => array(
-				'popup_content' => ( ! empty( $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ),
-				'above'         =>
-					array(
-						'above_left'   => array(),
-						'above_center' => array(),
-						'above_right'  => array(),
-					),
-				'primary'       =>
-					array(
-						'primary_left'   => array(),
-						'primary_center' => array( 'logo' ),
-						'primary_right'  => array(),
-					),
-				'below'         =>
-					array(
-						'below_left'   => array(),
-						'below_center' => ( ! empty( $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
-						'below_right'  => array(),
-					),
-			),
+		$theme_options['header-mobile-items']['popup'] = array( 'popup_content' => ( ( '' !== $new_menu_item ) ) ? array( 'menu-1', $new_menu_item ) : array( 'menu-1' ) );
+		$theme_options['header-mobile-items']['above'] = array(
+			'above_left'   => array(),
+			'above_center' => array(),
+			'above_right'  => array(),
+		);
+		
+		$theme_options['header-mobile-items']['primary'] = array(
+			'primary_left'   => array(),
+			'primary_center' => array( 'logo' ),
+			'primary_right'  => array(),
+		);
+
+		$theme_options['header-mobile-items']['below'] = array(
+			'below_left'   => array(),
+			'below_center' => ( ( '' !== $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
+			'below_right'  => array(),
 		);
 	} else {
-		$theme_options['header-mobile-items'] = array(
-			'popup' => array(
-				'popup_content' => ( ! empty( $new_menu_item_mobile ) ) ? array( 'menu-1', $new_menu_item_mobile ) : array( 'menu-1' ),
-				'above'         =>
-					array(
-						'above_left'   => array(),
-						'above_center' => array(),
-						'above_right'  => array(),
-					),
-				'primary'       =>
-					array(
-						'primary_left'   => array( 'logo' ),
-						'primary_center' => array(),
-						'primary_right'  => ( ! empty( $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
-					),
-				'below'         =>
-					array(
-						'below_left'   => array(),
-						'below_center' => array(),
-						'below_right'  => array(),
-					),
-			),
+
+		$theme_options['header-mobile-items']['popup'] = array( 'popup_content' => ( ( '' !== $new_menu_item_mobile ) ) ? array( 'menu-1', $new_menu_item_mobile ) : array( 'menu-1' ) );
+		$theme_options['header-mobile-items']['above'] = array(
+			'above_left'   => array(),
+			'above_center' => array(),
+			'above_right'  => array(),
+		);
+		
+		$theme_options['header-mobile-items']['primary'] = array(
+			'primary_left'   => array( 'logo' ),
+			'primary_center' => array(),
+			'primary_right'  => ( ( '' !== $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
+		);
+
+		$theme_options['header-mobile-items']['below'] = array(
+			'below_left'   => array(),
+			'below_center' => array(),
+			'below_right'  => array(),
 		);
 	}
 
@@ -888,6 +866,7 @@ function astra_header_builder_migration() {
 	$theme_options['hbb-footer-top-border-color'] = $theme_options['footer-sml-divider-color'];
 
 	update_option( 'astra-settings', $theme_options );
+
 }
 
 /**
