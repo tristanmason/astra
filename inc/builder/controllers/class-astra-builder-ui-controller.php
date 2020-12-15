@@ -384,7 +384,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						$link_rel = ( ! empty( $login_link['link_rel'] ) ? 'rel="' . esc_attr( $login_link['link_rel'] ) . '"' : '' );
 					}
 										
-					$link_href = 'href="' . esc_url( $link_url ) . '"';
+					$link_href = 'href=' . esc_url( $link_url ) . '';
 					?>
 					<a class="<?php echo esc_attr( $logged_out_style_class ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
 						<?php if ( 'icon' === $logged_out_style ) { ?>

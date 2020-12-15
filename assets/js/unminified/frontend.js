@@ -349,6 +349,7 @@ var main_header_masthead = document.getElementById('masthead');
 			
 			header_account_trigger.onclick = function( event ) {
 				event.preventDefault();
+				event.stopPropagation();
 				if ( ! login_popup.classList.contains( 'show' ) ) {
 					login_popup.classList.add( 'show' );
 				}
