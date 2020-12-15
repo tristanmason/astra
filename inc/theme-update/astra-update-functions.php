@@ -396,12 +396,12 @@ function astra_header_builder_compatibility() {
 	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
 		$theme_options['is-header-footer-builder'] = false;
 		update_option( 'astra-settings', $theme_options );
-		// astra_header_builder_migration();
+		astra_header_builder_migration();
 	}
 	if ( ! isset( $theme_options['header-footer-builder-notice'] ) ) {
 		$theme_options['header-footer-builder-notice'] = false;
 		update_option( 'astra-settings', $theme_options );
-		// astra_header_builder_migration();
+		astra_header_builder_migration();
 	}
 }
 
@@ -490,7 +490,7 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements 
 	// Header : Primary Header - Layout.
 	$primary_header_layout = $theme_options['header-layouts'];
 
-	 // Header : Primary Header - Last Menu Item.
+	// Header : Primary Header - Last Menu Item.
 	$last_menu_item                = $theme_options['header-main-rt-section'];
 	$last_menu_item_mobile_flag    = $theme_options['hide-custom-menu-mobile'];
 	$last_menu_item_mobile_outside = $theme_options['header-display-outside-menu'];
