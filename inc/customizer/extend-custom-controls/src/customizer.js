@@ -494,6 +494,7 @@
 
 					bindSettings(rules);
 
+					element.active.validate = isDisplayed;
 					setActiveState();
 				};
 				api.control(control_id, initContext);
