@@ -41,10 +41,6 @@
 		let builder = panel.id.includes("-header-") ? 'header' : 'footer';
 		var section = api.section('section-' + builder + '-builder');
 
-
-
-
-
 		if (section) {
 
 			var $section = section.contentContainer,
