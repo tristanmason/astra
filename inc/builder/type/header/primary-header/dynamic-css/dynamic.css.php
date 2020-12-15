@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_primary_header_breakpoint_style', 
  */
 function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! is_customize_preview() && ( ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'mobile' ) ) ) {
+	if ( ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'mobile' ) ) {
 		return $dynamic_css;
 	}
 

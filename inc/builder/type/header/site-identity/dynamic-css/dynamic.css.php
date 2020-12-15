@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_site_identity_dynamic_css' );
  */
 function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'logo', 'header' ) ) {
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'logo', 'header' ) ) {
 		return $dynamic_css;
 	}
 

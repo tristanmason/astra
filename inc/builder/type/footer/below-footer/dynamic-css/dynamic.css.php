@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_below_footer_dynamic_css' );
  */
 function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! is_customize_preview() && ! ( Astra_Builder_Helper::is_footer_row_empty( 'below' ) ) ) {
+	if ( ! ( Astra_Builder_Helper::is_footer_row_empty( 'below' ) ) ) {
 		return $dynamic_css;
 	}
 

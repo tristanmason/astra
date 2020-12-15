@@ -28,7 +28,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 
-		if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'menu-' . $index, 'header' ) ) {
+		if ( ! Astra_Builder_Helper::is_component_loaded( 'menu-' . $index, 'header' ) ) {
 			continue;
 		}
 

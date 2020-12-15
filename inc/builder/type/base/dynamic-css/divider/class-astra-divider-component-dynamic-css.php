@@ -37,7 +37,7 @@ class Astra_Divider_Component_Dynamic_CSS {
 
 		for ( $index = 1; $index <= $number_of_divider; $index++ ) {
 
-			if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'divider-' . $index, $builder_type ) ) {
+			if ( Astra_Builder_Helper::is_component_loaded( 'divider-' . $index, $builder_type ) ) {
 				continue;
 			}
 

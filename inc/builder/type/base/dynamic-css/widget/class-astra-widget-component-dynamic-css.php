@@ -37,7 +37,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 
 		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
 
-			if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, $builder_type ) ) {
+			if ( ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, $builder_type ) ) {
 				continue;
 			}
 

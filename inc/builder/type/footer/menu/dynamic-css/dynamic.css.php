@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_footer_menu_dynamic_css', 11 );
  */
 function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'menu', 'footer' ) ) {
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'menu', 'footer' ) ) {
 		return $dynamic_css;
 	}
 

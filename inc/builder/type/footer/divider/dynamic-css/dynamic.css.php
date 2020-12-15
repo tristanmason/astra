@@ -30,7 +30,7 @@ function astra_fb_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_divider; $index++ ) {
 
-		if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'divider-' . $index, 'footer' ) ) {
+		if ( ! Astra_Builder_Helper::is_component_loaded( 'divider-' . $index, 'footer' ) ) {
 			continue;
 		}
 
