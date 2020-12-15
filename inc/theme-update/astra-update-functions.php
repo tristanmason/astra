@@ -432,6 +432,8 @@ function astra_header_builder_migration() {
 	$options = astra_above_header_builder_migration( $options['theme_options'], $options['used_elements'] );
 
 	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'] );
+	
+	$options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'] );
 
 	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'] );
 
@@ -1328,6 +1330,90 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 	$theme_options['hbb-footer-top-border-color']  = $theme_options['footer-sml-divider-color'];
 	$theme_options['hbb-footer-bg-obj-responsive'] = $theme_options['footer-bg-obj'];
 
+	return array(
+		'theme_options' => $theme_options,
+		'used_elements' => $used_elements,
+	);
+}
+
+/**
+ * Header Footer builder - Migration of Footer Widgets.
+ *
+ * @since 3.0.0
+ * @param array $theme_options Theme options.
+ * @param array $used_elements Used Elements array.
+ * @return array
+ */
+function astra_footer_widgets_migration( $theme_options, $used_elements ) {
+
+	$footer_widget_layouts = $theme_options['footer-adv'];
+	$column                = 2;
+	$layout                = array(
+		'desktop' => '2-equal',
+		'tablet'  => '2-equal',
+		'mobile'  => 'full',
+	);
+
+	switch ( $footer_widget_layouts ) {
+		case 'layout-1':
+			$column = '1';
+			$layout = array(
+				'desktop' => 'full',
+				'tablet'  => 'full',
+				'mobile'  => 'full',
+			);
+			break;
+
+		case 'layout-2':
+			$column = '2';
+			$layout = array(
+				'desktop' => '2-equal',
+				'tablet'  => '2-equal',
+				'mobile'  => '2-equal',
+			);
+			break;
+
+		case 'layout-3':
+			$column = '3';
+			$layout = array(
+				'desktop' => '3-equal',
+				'tablet'  => 'full',
+				'mobile'  => 'full',
+			);
+			break;
+
+		case 'layout-4':
+			$column = '4';
+			$layout = array(
+				'desktop' => '4-equal',
+				'tablet'  => 'full',
+				'mobile'  => 'full',
+			);
+			break;
+
+		case 'layout-5':
+			$column = '5';
+			$layout = array(
+				'desktop' => '5-equal',
+				'tablet'  => 'full',
+				'mobile'  => 'full',
+			);
+			break;
+
+		case 'layout-6':
+		case 'layout-7':
+			$column = '3';
+			$layout = array(
+				'desktop' => '3-lheavy',
+				'tablet'  => 'full',
+				'mobile'  => 'full',
+			);
+			break;
+	}
+
+	$theme_options['hba-footer-column'] = $column;
+	$theme_options['hba-footer-layout'] = $layout;
+	
 	return array(
 		'theme_options' => $theme_options,
 		'used_elements' => $used_elements,
