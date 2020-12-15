@@ -1323,9 +1323,10 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 			break;
 	}
 
-	$theme_options['hb-footer-layout-width']      = $theme_options['footer-layout-width'];
-	$theme_options['hbb-footer-separator']        = $theme_options['footer-sml-divider'];
-	$theme_options['hbb-footer-top-border-color'] = $theme_options['footer-sml-divider-color'];
+	$theme_options['hb-footer-layout-width']       = $theme_options['footer-layout-width'];
+	$theme_options['hbb-footer-separator']         = $theme_options['footer-sml-divider'];
+	$theme_options['hbb-footer-top-border-color']  = $theme_options['footer-sml-divider-color'];
+	$theme_options['hbb-footer-bg-obj-responsive'] = $theme_options['footer-bg-obj'];
 
 	return array(
 		'theme_options' => $theme_options,
