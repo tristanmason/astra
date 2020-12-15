@@ -830,7 +830,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 65,
-						'context'  => array(
+						'context'   => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
 								'relation' => 'OR',
@@ -844,7 +844,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 									'operator' => '===',
 									'value'    => 'icon',
 								),
-							)
+							),
 						),
 					),
 

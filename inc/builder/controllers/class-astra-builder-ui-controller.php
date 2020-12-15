@@ -295,8 +295,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$link_href      = '';
 			$new_tab        = '';
 			$link_rel       = '';
-			$account_link 	= '';
-			$link_url		= '';
+			$account_link   = '';
+			$link_url       = '';
 			$logout_preview = astra_get_option( 'header-account-logout-preview' );
 			$is_customizer  = is_customize_preview();
 
@@ -334,7 +334,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						} elseif ( 'lifterlms' === $account_type ) {
 							$link_url = llms_get_page_url( 'myaccount' );
 						}
-					} else if ( '' !== $account_link && '' !== $account_link['url'] ) {
+					} elseif ( '' !== $account_link && '' !== $account_link['url'] ) {
 
 						$link_url = $account_link['url'];
 						
@@ -379,7 +379,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
 						$link_url = $login_link['url'];
-						$new_tab = ( $login_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+						$new_tab  = ( $login_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
 
 						$link_rel = ( ! empty( $login_link['link_rel'] ) ? 'rel="' . esc_attr( $login_link['link_rel'] ) . '"' : '' );
 					}

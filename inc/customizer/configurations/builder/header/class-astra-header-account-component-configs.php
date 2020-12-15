@@ -455,7 +455,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'operator' => '===',
 							'value'    => 'icon',
 						),
-					)
+					),
 				),
 			),
 
@@ -476,7 +476,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'  => array(
+				'context'     => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -490,7 +490,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'operator' => '===',
 							'value'    => 'icon',
 						),
-					)
+					),
 				),
 			),
 
@@ -506,7 +506,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Icon Color', 'astra' ),
-				'context'  => array(
+				'context'   => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -520,7 +520,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'operator' => '===',
 							'value'    => 'icon',
 						),
-					)
+					),
 				),
 			), 
 			/**
