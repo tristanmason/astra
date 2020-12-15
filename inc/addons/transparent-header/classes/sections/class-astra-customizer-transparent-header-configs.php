@@ -815,7 +815,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				$_configs = array_merge( $_configs, $_old_content_configs );
 			}
 
-			if( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
 
 				$pro_divider_transparent_config = array(
 					/**
