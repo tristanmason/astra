@@ -635,8 +635,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header
-			<?php
+		<header <?php
 				echo astra_attr(
 					'header',
 					array(
@@ -677,8 +676,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div
-			<?php
+			<div <?php
 				echo astra_attr(
 					'site-identity',
 					array(
@@ -973,8 +971,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer
-			<?php
+		<footer <?php
 				echo astra_attr(
 					'footer',
 					array(

@@ -180,8 +180,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			// Before header markup.
 			do_action( 'astra_header_markup_before' );
 			?>
-			<header
-				<?php
+			<header <?php
 				echo astra_attr(
 					'header',
 					array(

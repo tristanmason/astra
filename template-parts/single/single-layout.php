@@ -27,8 +27,7 @@
 
 	<?php astra_single_header_after(); ?>
 
-	<div class="entry-content clear" 
-	<?php
+	<div class="entry-content clear" <?php
 				echo astra_attr(
 					'article-entry-content-single-layout',
 					array(
