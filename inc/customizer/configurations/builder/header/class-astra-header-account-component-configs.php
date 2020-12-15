@@ -76,24 +76,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Select Account
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type]',
-				'default'   => astra_get_option( 'header-account-type' ),
-				'type'      => 'control',
-				'control'   => 'select',
-				'section'   => $_section,
-				'title'     => __( 'Select Account', 'astra' ),
-				'choices'   => $account_choices,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'        => '.ast-header-account',
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
-				),
-			),
-
-			/**
 			 * Option: Log In view
 			 */
 			array(
@@ -101,6 +83,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => $_section,
+				'priority' => 2,
 				'title'    => __( 'Logged In Options', 'astra' ),
 				'settings' => array(),
 			),
@@ -114,6 +97,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
+				'priority' => 3,
 				'title'     => __( 'Profile Type', 'astra' ),
 				'choices'   => array(
 					'icon'   => __( 'Icon', 'astra' ),
@@ -136,6 +120,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'select',
 				'section'   => $_section,
 				'title'     => __( 'Profile Action', 'astra' ),
+				'priority' => 4,
 				'choices'   => array(
 					'link' => __( 'Link', 'astra' ),
 					'menu' => __( 'Menu', 'astra' ),
@@ -156,6 +141,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
+				'priority' => 5,
 				'title'     => __( 'Link Type', 'astra' ),
 				'choices'   => array(
 					'default' => __( 'Default', 'astra' ),
@@ -192,6 +178,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'ast-link',
 				'section'   => $_section,
 				'title'     => __( 'Enter URL', 'astra' ),
+				'priority' => 6,
 				'transport' => 'postMessage',
 				'context'   => array(
 					'relation' => 'AND',
@@ -234,6 +221,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'link_type' => 'section',
 				'linked'    => 'menu_locations',
 				'link_text' => __( 'Configure Menu from Here.', 'astra' ),
+				'priority' => 7,
 				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
@@ -267,6 +255,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'select',
 				'section'   => $_section,
 				'title'     => __( 'Profile Type', 'astra' ),
+				'priority' => 201,
 				'choices'   => array(
 					'none' => __( 'None', 'astra' ),
 					'text' => __( 'Text', 'astra' ),
@@ -287,6 +276,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'checkbox',
 				'section'   => $_section,
 				'title'     => __( 'Preview', 'astra' ),
+				'priority' => 202,
 				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -312,6 +302,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'text',
 				'section'   => $_section,
 				'title'     => __( 'Text', 'astra' ),
+				'priority' => 203,
 				'transport' => 'postMessage',
 				'context'   => array(
 					array(
@@ -342,6 +333,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'login' => __( 'Login Popup', 'astra' ),
 				),
 				'transport' => 'postMessage',
+				'priority' => 204,
 				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -366,6 +358,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'ast-link',
 				'section'   => $_section,
 				'title'     => __( 'Link', 'astra' ),
+				'priority' => 205,
 				'transport' => 'postMessage',
 				'context'   => array(
 					array(
@@ -979,6 +972,24 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'        => Astra_Builder_Helper::$design_tab,
 			),
 		);
+
+		if(  count( $account_choices ) > 1 ) {
+			$_configs[] =  array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type]',
+				'default'   => astra_get_option( 'header-account-type' ),
+				'type'      => 'control',
+				'control'   => 'select',
+				'section'   => $_section,
+				'priority'  => 1,
+				'title'     => __( 'Select Account', 'astra' ),
+				'choices'   => $account_choices,
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
+			);
+		}
 
 		return array_merge( $configurations, $_configs );
 	}
