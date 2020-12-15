@@ -501,7 +501,7 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements 
 
 	switch ( $last_menu_item ) {
 		case 'search':
-			$new_menu_item = 'search';
+			$new_menu_item                           = 'search';
 			$theme_options['header-search-box-type'] = $theme_options['header-main-rt-section-search-box-type'];
 			break;
 
@@ -698,37 +698,37 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu3-submenu-item-border']         = $theme_options['above-header-submenu-item-border'];
 			$theme_options['header-menu3-submenu-item-b-color']        = $theme_options['above-header-submenu-item-b-color'];
 
-			$theme_options['header-menu3-color-responsive'] = $theme_options['above-header-menu-text-color-responsive'];
+			$theme_options['header-menu3-color-responsive']  = $theme_options['above-header-menu-text-color-responsive'];
 			$theme_options['header-menu3-bg-obj-responsive'] = $theme_options['above-header-menu-bg-obj-responsive'];
 
-			$theme_options['header-menu3-h-color-responsive'] = $theme_options['above-header-menu-text-hover-color-responsive'];
+			$theme_options['header-menu3-h-color-responsive']    = $theme_options['above-header-menu-text-hover-color-responsive'];
 			$theme_options['header-menu3-h-bg-color-responsive'] = $theme_options['above-header-menu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu3-a-color-responsive'] = $theme_options['above-header-current-menu-text-color-responsive'];
+			$theme_options['header-menu3-a-color-responsive']    = $theme_options['above-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
 
 			// Menu 3 - Submenu.
-			$theme_options['header-menu3-submenu-color-responsive'] = $theme_options['above-header-submenu-text-color-responsive'];
+			$theme_options['header-menu3-submenu-color-responsive']    = $theme_options['above-header-submenu-text-color-responsive'];
 			$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
 
-			$theme_options['header-menu3-submenu-h-color-responsive'] = $theme_options['above-header-submenu-hover-color-responsive'];
+			$theme_options['header-menu3-submenu-h-color-responsive']    = $theme_options['above-header-submenu-hover-color-responsive'];
 			$theme_options['header-menu3-submenu-h-bg-color-responsive'] = $theme_options['above-header-submenu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu3-submenu-a-color-responsive'] = $theme_options['above-header-submenu-active-color-responsive'];
+			$theme_options['header-menu3-submenu-a-color-responsive']    = $theme_options['above-header-submenu-active-color-responsive'];
 			$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
 			break;
 
 		case 'search':
 			if ( ! in_array( $used_elements, 'search' ) ) {
-				$new_above_header_section_1_item = 'search';
+				$new_above_header_section_1_item         = 'search';
 				$theme_options['header-search-box-type'] = $theme_options['above-header-section-1-search-box-type'];
 			}
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-1' ) ) {
-				$new_above_header_section_1_item = 'html-1';
-				$theme_options['header-html-1']  = $theme_options['above-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-2' ) ) {
+				$new_above_header_section_1_item = 'html-2';
+				$theme_options['header-html-2']  = $theme_options['above-header-section-1-html'];
 			}
 			
 			break;
@@ -768,37 +768,37 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu3-submenu-item-border']         = $theme_options['above-header-submenu-item-border'];
 			$theme_options['header-menu3-submenu-item-b-color']        = $theme_options['above-header-submenu-item-b-color'];
 
-			$theme_options['header-menu3-color-responsive'] = $theme_options['above-header-menu-text-color-responsive'];
+			$theme_options['header-menu3-color-responsive']  = $theme_options['above-header-menu-text-color-responsive'];
 			$theme_options['header-menu3-bg-obj-responsive'] = $theme_options['above-header-menu-bg-obj-responsive'];
 
-			$theme_options['header-menu3-h-color-responsive'] = $theme_options['above-header-menu-text-hover-color-responsive'];
+			$theme_options['header-menu3-h-color-responsive']    = $theme_options['above-header-menu-text-hover-color-responsive'];
 			$theme_options['header-menu3-h-bg-color-responsive'] = $theme_options['above-header-menu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu3-a-color-responsive'] = $theme_options['above-header-current-menu-text-color-responsive'];
+			$theme_options['header-menu3-a-color-responsive']    = $theme_options['above-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
 
 			// Menu 2 - Submenu.
-			$theme_options['header-menu3-submenu-color-responsive'] = $theme_options['above-header-submenu-text-color-responsive'];
+			$theme_options['header-menu3-submenu-color-responsive']    = $theme_options['above-header-submenu-text-color-responsive'];
 			$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
 
-			$theme_options['header-menu3-submenu-h-color-responsive'] = $theme_options['above-header-submenu-hover-color-responsive'];
+			$theme_options['header-menu3-submenu-h-color-responsive']    = $theme_options['above-header-submenu-hover-color-responsive'];
 			$theme_options['header-menu3-submenu-h-bg-color-responsive'] = $theme_options['above-header-submenu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu3-submenu-a-color-responsive'] = $theme_options['above-header-submenu-active-color-responsive'];
+			$theme_options['header-menu3-submenu-a-color-responsive']    = $theme_options['above-header-submenu-active-color-responsive'];
 			$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
 			break;
 
 		case 'search':
 			if ( ! in_array( $used_elements, 'search' ) ) {
-				$new_above_header_section_2_item = 'search';
+				$new_above_header_section_2_item         = 'search';
 				$theme_options['header-search-box-type'] = $theme_options['above-header-section-2-search-box-type'];
 			}
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-1' ) ) {
-				$new_above_header_section_2_item = 'html-1';
-				$theme_options['header-html-1']  = $theme_options['above-header-section-2-html'];
+			if ( ! in_array( $used_elements, 'html-2' ) ) {
+				$new_above_header_section_2_item = 'html-2';
+				$theme_options['header-html-2']  = $theme_options['above-header-section-2-html'];
 			}
 			
 			break;
@@ -900,37 +900,37 @@ function astra_below_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu2-submenu-item-border']         = $theme_options['below-header-submenu-item-border'];
 			$theme_options['header-menu2-submenu-item-b-color']        = $theme_options['below-header-submenu-item-b-color'];
 
-			$theme_options['header-menu2-color-responsive'] = $theme_options['below-header-menu-text-color-responsive'];
+			$theme_options['header-menu2-color-responsive']  = $theme_options['below-header-menu-text-color-responsive'];
 			$theme_options['header-menu2-bg-obj-responsive'] = $theme_options['below-header-menu-bg-obj-responsive'];
 
-			$theme_options['header-menu2-h-color-responsive'] = $theme_options['below-header-menu-text-hover-color-responsive'];
+			$theme_options['header-menu2-h-color-responsive']    = $theme_options['below-header-menu-text-hover-color-responsive'];
 			$theme_options['header-menu2-h-bg-color-responsive'] = $theme_options['below-header-menu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu2-a-color-responsive'] = $theme_options['below-header-current-menu-text-color-responsive'];
+			$theme_options['header-menu2-a-color-responsive']    = $theme_options['below-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
 
 			// Menu 2 - Submenu.
-			$theme_options['header-menu2-submenu-color-responsive'] = $theme_options['below-header-submenu-text-color-responsive'];
+			$theme_options['header-menu2-submenu-color-responsive']    = $theme_options['below-header-submenu-text-color-responsive'];
 			$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
 
-			$theme_options['header-menu2-submenu-h-color-responsive'] = $theme_options['below-header-submenu-hover-color-responsive'];
+			$theme_options['header-menu2-submenu-h-color-responsive']    = $theme_options['below-header-submenu-hover-color-responsive'];
 			$theme_options['header-menu2-submenu-h-bg-color-responsive'] = $theme_options['below-header-submenu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu2-submenu-a-color-responsive'] = $theme_options['below-header-submenu-active-color-responsive'];
+			$theme_options['header-menu2-submenu-a-color-responsive']    = $theme_options['below-header-submenu-active-color-responsive'];
 			$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
 			break;
 
 		case 'search':
 			if ( ! in_array( $used_elements, 'search' ) ) {
-				$new_below_header_section_1_item = 'search';
+				$new_below_header_section_1_item         = 'search';
 				$theme_options['header-search-box-type'] = $theme_options['below-header-section-1-search-box-type'];
 			}
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-1' ) ) {
-				$new_below_header_section_1_item = 'html-1';
-				$theme_options['header-html-1']  = $theme_options['below-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-3' ) ) {
+				$new_below_header_section_1_item = 'html-3';
+				$theme_options['header-html-3']  = $theme_options['below-header-section-1-html'];
 			}
 			
 			break;
@@ -970,37 +970,37 @@ function astra_below_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu2-submenu-item-border']         = $theme_options['below-header-submenu-item-border'];
 			$theme_options['header-menu2-submenu-item-b-color']        = $theme_options['below-header-submenu-item-b-color'];
 
-			$theme_options['header-menu2-color-responsive'] = $theme_options['below-header-menu-text-color-responsive'];
+			$theme_options['header-menu2-color-responsive']  = $theme_options['below-header-menu-text-color-responsive'];
 			$theme_options['header-menu2-bg-obj-responsive'] = $theme_options['below-header-menu-bg-obj-responsive'];
 
-			$theme_options['header-menu2-h-color-responsive'] = $theme_options['below-header-menu-text-hover-color-responsive'];
+			$theme_options['header-menu2-h-color-responsive']    = $theme_options['below-header-menu-text-hover-color-responsive'];
 			$theme_options['header-menu2-h-bg-color-responsive'] = $theme_options['below-header-menu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu2-a-color-responsive'] = $theme_options['below-header-current-menu-text-color-responsive'];
+			$theme_options['header-menu2-a-color-responsive']    = $theme_options['below-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
 
 			// Menu 2 - Submenu.
-			$theme_options['header-menu2-submenu-color-responsive'] = $theme_options['below-header-submenu-text-color-responsive'];
+			$theme_options['header-menu2-submenu-color-responsive']    = $theme_options['below-header-submenu-text-color-responsive'];
 			$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
 
-			$theme_options['header-menu2-submenu-h-color-responsive'] = $theme_options['below-header-submenu-hover-color-responsive'];
+			$theme_options['header-menu2-submenu-h-color-responsive']    = $theme_options['below-header-submenu-hover-color-responsive'];
 			$theme_options['header-menu2-submenu-h-bg-color-responsive'] = $theme_options['below-header-submenu-bg-hover-color-responsive'];
 
-			$theme_options['header-menu2-submenu-a-color-responsive'] = $theme_options['below-header-submenu-active-color-responsive'];
+			$theme_options['header-menu2-submenu-a-color-responsive']    = $theme_options['below-header-submenu-active-color-responsive'];
 			$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
 			break;
 
 		case 'search':
 			if ( ! in_array( $used_elements, 'search' ) ) {
-				$new_below_header_section_2_item = 'search';
+				$new_below_header_section_2_item         = 'search';
 				$theme_options['header-search-box-type'] = $theme_options['below-header-section-2-search-box-type'];
 			}
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-1' ) ) {
-				$new_below_header_section_2_item = 'html-1';
-				$theme_options['header-html-1']  = $theme_options['below-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-3' ) ) {
+				$new_below_header_section_2_item = 'html-3';
+				$theme_options['header-html-3']  = $theme_options['below-header-section-2-html'];
 			}
 			
 			break;
