@@ -12,7 +12,8 @@
 
 <?php astra_entry_before(); ?>
 
-<article <?php
+<article 
+<?php
 		echo astra_attr(
 			'article-content',
 			array(
@@ -43,7 +44,8 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content clear" <?php
+	<div class="entry-content clear" 
+	<?php
 				echo astra_attr(
 					'article-entry-content',
 					array(

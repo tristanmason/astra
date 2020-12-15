@@ -187,23 +187,24 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			?>
 			<main id="main" class="site-main">
 				<?php 
-					if ( have_posts() ) :
-						do_action( 'astra_template_parts_content_top' );
+				if ( have_posts() ) :
+					do_action( 'astra_template_parts_content_top' );
 
-						while ( have_posts() ) :
-							the_post();
+					while ( have_posts() ) :
+						the_post();
 
-							if ( true == $is_page ) {
-								do_action( 'astra_page_template_parts_content' );
-							} else {
-								do_action( 'astra_template_parts_content' );
-							}
+						if ( true == $is_page ) {
+							do_action( 'astra_page_template_parts_content' );
+						} else {
+							do_action( 'astra_template_parts_content' );
+						}
 
 						endwhile;
-						do_action( 'astra_template_parts_content_bottom' );
+					do_action( 'astra_template_parts_content_bottom' );
 					else :
 						do_action( 'astra_template_parts_content_none' );
-					endif; ?>
+					endif; 
+					?>
 			</main><!-- #main -->
 			<?php
 		}

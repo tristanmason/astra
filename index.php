@@ -35,7 +35,6 @@ get_header(); ?>
 		?>
 
 	</div><!-- #primary -->
-	
 <?php 
 if ( astra_page_layout() == 'right-sidebar' ) :
 
