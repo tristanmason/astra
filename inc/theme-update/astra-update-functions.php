@@ -435,10 +435,202 @@ function astra_header_builder_migration() {
 
 	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'] );
 
+	$options = astra_sticky_header_builder_migration( $options['theme_options'] );
+
 	$theme_options = $options['theme_options'];
 
 	update_option( 'astra-settings', $theme_options );
 
+}
+
+/**
+ * Header Footer builder - Migration of Sticky Header.
+ *
+ * @since 3.0.0
+ * @param array $theme_options Theme options.
+ * @return array
+ */
+function astra_sticky_header_builder_migration( $theme_options ) {
+
+	// Menu.
+	$is_menu_in_primary = false;
+	$is_menu_in_above   = false;
+	$is_menu_in_below   = false;
+
+	foreach ( $theme_options['header-desktop-items']['primary'] as $zone ) {
+		if ( false !== array_search( 'menu-1', $zone ) ) {
+			$is_menu_in_primary = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		if ( false !== array_search( 'menu-1', $zone ) ) {
+			$is_menu_in_above = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		if ( false !== array_search( 'menu-1', $zone ) ) {
+			$is_menu_in_below = true;
+		}
+	}
+
+	if ( $is_menu_in_primary ) {
+
+		// Menu.
+
+		// Normal.
+		$theme_options['sticky-header-menu1-color-responsive']  = $theme_options['sticky-header-menu-color-responsive'];
+		$theme_options['sticky-header-menu1-bg-obj-responsive'] = $theme_options['sticky-header-menu-bg-color-responsive'];
+
+		// Hover.
+		$theme_options['sticky-header-menu1-h-color-responsive']    = $theme_options['sticky-header-menu-h-color-responsive'];
+		$theme_options['sticky-header-menu1-h-bg-color-responsive'] = $theme_options['sticky-header-menu-h-a-bg-color-responsive'];
+
+		// Active.
+		$theme_options['sticky-header-menu1-a-color-responsive']    = $theme_options['sticky-header-menu-h-color-responsive'];
+		$theme_options['sticky-header-menu1-a-bg-color-responsive'] = $theme_options['sticky-header-menu-h-a-bg-color-responsive'];
+
+		// Submenu.
+
+		// Normal.
+		$theme_options['sticky-header-menu1-submenu-color-responsive']    = $theme_options['sticky-header-submenu-color-responsive'];
+		$theme_options['sticky-header-menu1-submenu-bg-color-responsive'] = $theme_options['sticky-header-submenu-bg-color-responsive'];
+
+		// Hover.
+		$theme_options['sticky-header-menu1-submenu-h-color-responsive']    = $theme_options['sticky-header-submenu-h-color-responsive'];
+		$theme_options['sticky-header-menu1-submenu-h-bg-color-responsive'] = $theme_options['sticky-header-submenu-h-a-bg-color-responsive'];
+
+		// Active.
+		$theme_options['sticky-header-menu1-submenu-a-color-responsive']    = $theme_options['sticky-header-submenu-h-color-responsive'];
+		$theme_options['sticky-header-menu1-submenu-a-bg-color-responsive'] = $theme_options['sticky-header-submenu-h-a-bg-color-responsive'];
+
+		// Mega menu.
+
+		// Normal.
+		$theme_options['sticky-header-menu1-header-megamenu-heading-color'] = $theme_options['sticky-primary-header-megamenu-heading-color'];
+
+		// Hover.
+		$theme_options['sticky-header-menu1-header-megamenu-heading-h-color'] = $theme_options['sticky-primary-header-megamenu-heading-h-color'];
+	}
+
+	if ( $is_menu_in_above ) {
+
+		// Menu.
+
+		// Normal.
+		$theme_options['sticky-header-menu3-color-responsive']  = $theme_options['sticky-above-header-menu-color-responsive'];
+		$theme_options['sticky-header-menu3-bg-obj-responsive'] = $theme_options['sticky-above-header-menu-bg-color-responsive'];
+
+		// Hover.
+		$theme_options['sticky-header-menu3-h-color-responsive']    = $theme_options['sticky-above-header-menu-h-color-responsive'];
+		$theme_options['sticky-header-menu3-h-bg-color-responsive'] = $theme_options['sticky-above-header-menu-h-a-bg-color-responsive'];
+
+		// Active.
+		$theme_options['sticky-header-menu3-a-color-responsive']    = $theme_options['sticky-above-header-menu-h-color-responsive'];
+		$theme_options['sticky-header-menu3-a-bg-color-responsive'] = $theme_options['sticky-above-header-menu-h-a-bg-color-responsive'];
+
+		// Submenu.
+
+		// Normal.
+		$theme_options['sticky-header-menu3-submenu-color-responsive']  = $theme_options['sticky-above-header-submenu-color-responsive'];
+		$theme_options['sticky-header-menu3-submenu-bg-obj-responsive'] = $theme_options['sticky-above-header-submenu-bg-color-responsive'];
+
+		// Hover.
+		$theme_options['sticky-header-menu3-submenu-h-color-responsive']    = $theme_options['sticky-above-header-submenu-h-color-responsive'];
+		$theme_options['sticky-header-menu3-submenu-h-bg-color-responsive'] = $theme_options['sticky-above-header-submenu-h-a-bg-color-responsive'];
+
+		// Active.
+		$theme_options['sticky-header-menu3-submenu-a-color-responsive']    = $theme_options['sticky-above-header-submenu-h-color-responsive'];
+		$theme_options['sticky-header-menu3-submenu-a-bg-color-responsive'] = $theme_options['sticky-above-header-submenu-h-a-bg-color-responsive'];
+
+		// Mega menu.
+
+		// Normal.
+		$theme_options['sticky-header-menu3-header-megamenu-heading-color'] = $theme_options['sticky-above-header-megamenu-heading-color'];
+
+		// Hover.
+		$theme_options['sticky-header-menu3-header-megamenu-heading-h-color'] = $theme_options['sticky-above-header-megamenu-heading-h-color'];
+
+	}
+
+	if ( $is_menu_in_below ) {
+
+		// Menu.
+
+		// Normal.
+		$theme_options['sticky-header-menu2-color-responsive']  = $theme_options['sticky-below-header-menu-color-responsive'];
+		$theme_options['sticky-header-menu2-bg-obj-responsive'] = $theme_options['sticky-below-header-menu-bg-color-responsive'];
+
+		// Hover.
+		$theme_options['sticky-header-menu2-h-color-responsive']    = $theme_options['sticky-below-header-menu-h-color-responsive'];
+		$theme_options['sticky-header-menu2-h-bg-color-responsive'] = $theme_options['sticky-below-header-menu-h-a-bg-color-responsive'];
+
+		// Active.
+		$theme_options['sticky-header-menu2-a-color-responsive']    = $theme_options['sticky-below-header-menu-h-color-responsive'];
+		$theme_options['sticky-header-menu2-a-bg-color-responsive'] = $theme_options['sticky-below-header-menu-h-a-bg-color-responsive'];
+
+		// Submenu.
+
+		// Normal.
+		$theme_options['sticky-header-menu2-submenu-color-responsive']  = $theme_options['sticky-below-header-submenu-color-responsive'];
+		$theme_options['sticky-header-menu2-submenu-bg-obj-responsive'] = $theme_options['sticky-below-header-submenu-bg-color-responsive'];
+
+		// Hover.
+		$theme_options['sticky-header-menu2-submenu-h-color-responsive']    = $theme_options['sticky-below-header-submenu-h-color-responsive'];
+		$theme_options['sticky-header-menu2-submenu-h-bg-color-responsive'] = $theme_options['sticky-below-header-submenu-h-a-bg-color-responsive'];
+
+		// Active.
+		$theme_options['sticky-header-menu2-submenu-a-color-responsive']    = $theme_options['sticky-below-header-submenu-h-color-responsive'];
+		$theme_options['sticky-header-menu2-submenu-a-bg-color-responsive'] = $theme_options['sticky-below-header-submenu-h-a-bg-color-responsive'];
+
+		// Mega menu.
+
+		// Normal.
+		$theme_options['sticky-header-menu2-header-megamenu-heading-color'] = $theme_options['sticky-below-header-megamenu-heading-color'];
+
+		// Hover.
+		$theme_options['sticky-header-menu2-header-megamenu-heading-h-color'] = $theme_options['sticky-below-header-megamenu-heading-h-color'];
+	}
+
+	// Sticky Site Title.
+
+	// Normal.
+	$theme_options['sticky-header-builder-site-title-color'] = $theme_options['sticky-header-color-site-title-responsive']['desktop'];
+
+	// Hover.
+	$theme_options['sticky-header-builder-site-title-h-color'] = $theme_options['sticky-header-color-h-site-title-responsive']['desktop'];
+
+	// Sticky Site Tagline.
+	$theme_options['sticky-header-builder-site-tagline-color'] = $theme_options['sticky-header-color-site-tagline-responsive']['desktop'];
+
+	// Sticky Above/Below Header HTML.
+	$is_html_in_above = false;
+	$is_html_in_below = false;
+
+	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		if ( false !== array_search( 'html-3', $zone ) ) {
+			$is_html_in_above = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		if ( false !== array_search( 'html-2', $zone ) ) {
+			$is_html_in_below = true;
+		}
+	}
+
+	if ( $is_html_in_above ) {
+
+		$theme_options['sticky-header-html-3color'] = $theme_options['sticky-above-header-content-section-text-color-responsive'];
+
+	}
+	if ( $is_html_in_below ) {
+
+		$theme_options['sticky-header-html-2color'] = $theme_options['sticky-below-header-content-section-text-color-responsive'];
+
+	}
+	
+	return array(
+		'theme_options' => $theme_options,
+	);
 }
 
 /**
@@ -490,7 +682,7 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements 
 	// Header : Primary Header - Layout.
 	$primary_header_layout = $theme_options['header-layouts'];
 
-	 // Header : Primary Header - Last Menu Item.
+	// Header : Primary Header - Last Menu Item.
 	$last_menu_item                = $theme_options['header-main-rt-section'];
 	$last_menu_item_mobile_flag    = $theme_options['hide-custom-menu-mobile'];
 	$last_menu_item_mobile_outside = $theme_options['header-display-outside-menu'];
