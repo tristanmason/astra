@@ -116,8 +116,18 @@ class AstraColorPickerControl extends Component {
 		let finalpaletteColors = [];
 		let count = 0;
 
-		var defaultColorPalette = (undefined !== colorPalette  && colorPalette &&  "" !== colorPalette ) ? [...colorPalette]  : [...astColorPalette.colors] ;
-		
+		var colorpalettevalue = this.props.defautColorPalette;
+				
+		var defaultColorPalette;
+		if(undefined !== colorPalette  && colorPalette &&  "" !== colorPalette ){
+			 defaultColorPalette = [...colorPalette] 
+		}else{
+			if (typeof(colorpalettevalue) != 'undefined' && colorpalettevalue != null)	{
+				defaultColorPalette = colorpalettevalue[colorpalettevalue.patterntype];			
+			}else{
+				defaultColorPalette = [...astColorPalette.colors]
+			}
+		}
 		defaultColorPalette.forEach( singleColor => {
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: count + '_' + singleColor } );
