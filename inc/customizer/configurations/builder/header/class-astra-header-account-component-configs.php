@@ -353,7 +353,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-link]',
-				'default'   => '',
+				'default'   => astra_get_option( 'header-account-logout-link' ),
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,

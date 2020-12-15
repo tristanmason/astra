@@ -1583,5 +1583,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => '',
 	);
 
+	$defaults[ 'header-account-logout-link' ]    = array(
+		'url'      => esc_url( get_site_url() . '/wp-admin' ),
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
+
 	return $defaults;
 }
