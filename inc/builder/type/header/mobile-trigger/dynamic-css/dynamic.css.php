@@ -37,13 +37,13 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 	$off_canvas_close_color = astra_get_option( 'off-canvas-close-color', $theme_color );
 	$trigger_bg             = astra_get_option( 'mobile-header-toggle-btn-bg-color', $theme_color );
 	$trigger_border_width   = astra_get_option( 'mobile-header-toggle-btn-border-size' );
-	$trigger_border_color   = astra_get_option( 'mobile-header-toggle-border-color', $theme_color );
+	$trigger_border_color   = astra_get_option( 'mobile-header-toggle-border-color', $trigger_bg );
 	$trigger_border_radius  = astra_get_option( 'mobile-header-toggle-border-radius' );
 	$font_size              = astra_get_option( 'mobile-header-label-font-size' );
 	$style                  = astra_get_option( 'mobile-header-toggle-btn-style' );
 	$default                = '#ffffff';
 
-	if ( 'outline' === $style ) {
+	if ( 'fill' !== $style ) {
 		$default = $theme_color;
 	}
 
