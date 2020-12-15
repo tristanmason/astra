@@ -1431,6 +1431,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove {
     color: #556068;
+    box-shadow: none;
 }
 
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand:focus, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove:focus {
