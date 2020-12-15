@@ -10,7 +10,7 @@
 
 ?>
 <?php astra_entry_before(); ?>
-<article 
+<article
 <?php
 		echo astra_attr(
 			'article-blog',
