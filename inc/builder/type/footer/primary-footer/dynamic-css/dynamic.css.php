@@ -26,6 +26,10 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_primary_footer_dynamic_css' );
  */
 function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	if ( ! is_customize_preview() && ! ( Astra_Builder_Helper::is_footer_row_empty( 'primary' ) ) ) {
+		return $dynamic_css;
+	}
+
 	$global_footer_bg = astra_get_option( 'footer-bg-obj-responsive' );
 
 	$css_output_desktop = array(

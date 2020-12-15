@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_edd_cart_dynamic_css' );
  */
 function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+	if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
 		return $dynamic_css;
 	}
 
