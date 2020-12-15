@@ -1456,6 +1456,34 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 	$theme_options['hba-footer-column']             = $column;
 	$theme_options['hba-footer-layout']             = $layout;
 	$theme_options['footer-desktop-items']['above'] = $items;
+
+	$theme_options['hba-footer-separator']         = $theme_options['footer-adv-border-width'];
+	$theme_options['hba-footer-top-border-color']  = $theme_options['footer-adv-border-color'];
+	$theme_options['hba-footer-bg-obj-responsive'] = $theme_options['footer-adv-bg-obj'];
+	$theme_options['section-above-footer-builder-padding'] = $theme_options['footer-adv-area-padding'];
+
+	for ( $i = 1; $i <= $column; $i++ ) {
+		$theme_options[ 'footer-widget-' . $i . '-title-color' ]        = array(
+			'desktop' => $theme_options['footer-adv-wgt-title-color'],
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+		$theme_options[ 'footer-widget-' . $i . '-color' ]        = array(
+			'desktop' => $theme_options['footer-adv-text-color'],
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+		$theme_options[ 'footer-widget-' . $i . '-link-color' ]   = array(
+			'desktop' => $theme_options['footer-adv-link-color'],
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+		$theme_options[ 'footer-widget-' . $i . '-link-h-color' ] = array(
+			'desktop' => $theme_options['footer-adv-link-h-color'],
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+	}
 	
 	return array(
 		'theme_options' => $theme_options,
