@@ -17182,6 +17182,7 @@ var DividerComponent = function DividerComponent(props) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
       className: "customize-control-title"
     }, label);
+    separatorHtml = null;
   }
 
   if (description) {
