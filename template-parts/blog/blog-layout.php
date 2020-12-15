@@ -13,7 +13,8 @@
 <div <?php astra_blog_layout_class( 'blog-layout-1' ); ?>>
 	<div class="post-content ast-col-md-12">
 		<?php astra_blog_post_thumbnail_and_title_order(); ?>
-		<div class="entry-content clear" <?php
+		<div class="entry-content clear" 
+		<?php
 				echo astra_attr(
 					'article-entry-content-blog-layout',
 					array(

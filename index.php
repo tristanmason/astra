@@ -31,7 +31,8 @@ get_header(); ?>
 
 		astra_pagination();
 
-		astra_primary_content_bottom(); ?>
+		astra_primary_content_bottom(); 
+		?>
 
 	</div><!-- #primary -->
 	

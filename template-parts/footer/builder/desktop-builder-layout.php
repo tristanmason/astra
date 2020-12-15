@@ -9,7 +9,8 @@
  */
 
 ?>
-<footer <?php 
+<footer 
+<?php 
 echo astra_attr(
 	'footer',
 	array(

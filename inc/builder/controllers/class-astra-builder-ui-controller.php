@@ -267,14 +267,15 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					self::render_customizer_edit_button();
 				}
 				?>
-				<div <?php
+				<div 
+				<?php
 					echo astra_attr(
 						'site-identity',
 						array(
 							'class' => 'ast-site-identity',
 						)
 					);
-					?>
+				?>
 				>
 					<?php astra_logo(); ?>
 				</div>
