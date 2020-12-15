@@ -82,19 +82,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-single-width]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog-single',
-					'priority' => 5.1,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
 				 * Option: Display Post Structure
 				 */
 				array(
