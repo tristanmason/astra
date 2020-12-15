@@ -830,13 +830,21 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 65,
-						'context'   => array(
+						'context'  => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-								'operator' => '===',
-								'value'    => 'icon',
-							),
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '===',
+									'value'    => 'icon',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+									'operator' => '===',
+									'value'    => 'icon',
+								),
+							)
 						),
 					),
 
