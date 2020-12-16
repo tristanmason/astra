@@ -3314,7 +3314,6 @@ body .entry-content .wp-block-latest-posts li {
 .ast-hb-account-login-wrapper .ast-hb-account-login {
   position: fixed;
   left: 50%;
-  overflow: hidden;
   top: 50%;
   padding: 35px;
   bottom: 0px;
@@ -3382,6 +3381,7 @@ body .entry-content .wp-block-latest-posts li {
   transform: scale(0.7);
   opacity: 0;
   transition: all 0.3s;
+  overflow: auto;
 }
 
 .ast-header-account-wrap .ast-hb-account-login-wrapper {
@@ -3401,6 +3401,7 @@ body .entry-content .wp-block-latest-posts li {
 .ast-hb-login-body {
   height: 100%;
   position: relative;
+  line-height: 1.5;
 }
 
 .ast-header-account-type-avatar .avatar {
