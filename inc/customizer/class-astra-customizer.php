@@ -57,7 +57,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static $js_configs;
 
-
 		/**
 		 * Instance
 		 *
@@ -595,7 +594,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-
 			if ( 'image' === $config['type'] ) {
 				$this->prepare_preload_controls( $config );
 			}
@@ -641,7 +639,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			} else {
 				$wp_customize->add_control( astra_get_prop( $config, 'name' ), $config );
 			}
-
 		}
 
 		/**
@@ -805,13 +802,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 		}
 
-
-
-
-
-
-
-
 		/**
 		 * Include Customizer Configuration files.
 		 *
@@ -849,8 +839,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
-
-
 
 		/**
 		 * Register custom section and panel.
