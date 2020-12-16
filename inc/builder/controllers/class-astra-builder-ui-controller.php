@@ -352,11 +352,11 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					// Menu Animation.
 					$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
 					if ( 'menu' == $action_type && ! empty( $menu_animation ) ) {
-						$submenu_class .= 'astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
+						$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 					}
 
 					?>
-					<div class="ast-header-account-inner-wrap <?php echo esc_attr( $submenu_class ); ?>">
+					<div class="ast-header-account-inner-wrap<?php echo esc_attr( $submenu_class ); ?>">
 						<a class="<?php echo esc_attr( $link_classes ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
 
 							<?php 
