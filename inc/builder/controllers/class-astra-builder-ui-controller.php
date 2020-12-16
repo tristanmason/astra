@@ -327,7 +327,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					$account_link = astra_get_option( 'header-account-login-link' );
 
-					if ( 'default' !== $account_type && 'default' === $link_type ) {
+					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
 						$new_tab = 'target="_self"';
 						if ( 'woocommerce' == $account_type ) {
 							$link_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
@@ -349,10 +349,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					$submenu_class = '';
 
-					// Menu Animation.
-					$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
-					if ( 'menu' == $action_type && ! empty( $menu_animation ) ) {
-						$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
+					if ( 'menu' == $action_type && defined( 'ASTRA_EXT_VER' ) ) {
+						// Menu Animation.
+						$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
+						$submenu_class =  ( ! empty( $menu_animation ) ) ? ( ' astra-menu-animation-' . esc_attr( $menu_animation ) ) : '';
 					}
 
 					?>
@@ -371,7 +371,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 							?>
 						</a>
 						<?php 
-						if ( 'menu' === $action_type ) {
+						if ( defined( 'ASTRA_EXT_VER' ) && 'menu' === $action_type ) {
 							Astra_Header_Account_Component::account_menu_markup();
 						}
 						?>
@@ -400,7 +400,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 							<?php echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php } ?>
 					</a>
-					<?php if ( 'login' === $action_type ) { ?>
+					<?php if ( defined( 'ASTRA_EXT_VER' ) && 'login' === $action_type ) { ?>
 						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper">
 							<div class="ast-hb-account-login-bg"></div>
 							<div class="ast-hb-account-login">
