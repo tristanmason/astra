@@ -1578,10 +1578,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 18,
 	);
 
-	$defaults['header-account-icon-color'] = array(
-		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
+	$defaults['header-account-icon-color'] = '';
+
+	$defaults['header-account-login-link'] = array(
+		'url'      => '',
+		'new_tab'  => false,
+		'link_rel' => '',
 	);
 
 	$defaults['header-account-logout-link'] = array(
@@ -1589,6 +1591,17 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'new_tab'  => false,
 		'link_rel' => '',
 	);
+
+	$defaults['header-account-logout-text-font-size'] = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	$defaults['header-account-logout-text-color'] = '';
 
 	return $defaults;
 }

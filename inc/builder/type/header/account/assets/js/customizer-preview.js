@@ -54,6 +54,19 @@
 		selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path, ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle, .ast-mobile-popup-content' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-mobile-popup-content ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
 	);
 
+	// Text size.
+	astra_responsive_font_size(
+		'astra-settings[header-account-logout-text-font-size]',
+		selector + ' .ast-header-account-text'
+	);
+
+	// Text size.
+	astra_css(
+		'astra-settings[header-account-logout-text-color]',
+		'color',
+		selector + ' .ast-header-account-text, .ast-mobile-popup-content ' + selector + ' .ast-header-account-text'
+	);
+
 	// Menu - Border Color.
 	astra_css(
 		'astra-settings[header-account-menu-container-b-color]',

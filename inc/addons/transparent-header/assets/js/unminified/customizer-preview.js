@@ -238,6 +238,13 @@
 		'fill',
 		'.ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
 	);
+
+	// logged out text Color.
+	astra_css(
+		'astra-settings[transparent-account-logout-text-color]',
+		'color',
+		'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text'
+	);
 	
 	// Menu - Normal Color
 	astra_color_responsive_css(

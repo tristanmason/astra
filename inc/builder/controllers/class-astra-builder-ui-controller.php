@@ -292,13 +292,14 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$is_logged_in = is_user_logged_in();
 
-			$link_href      = '';
-			$new_tab        = '';
-			$link_rel       = '';
-			$account_link   = '';
-			$link_url       = '';
-			$logout_preview = astra_get_option( 'header-account-logout-preview' );
-			$is_customizer  = is_customize_preview();
+			$link_href        = '';
+			$new_tab          = '';
+			$link_rel         = '';
+			$account_link     = '';
+			$link_url         = '';
+			$logout_preview   = astra_get_option( 'header-account-logout-preview' );
+			$is_customizer    = is_customize_preview();
+			$logged_out_style = astra_get_option( 'header-account-logout-style' );
 
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
@@ -327,7 +328,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					$account_link = astra_get_option( 'header-account-login-link' );
 
-					if ( 'default' !== $account_type && 'default' === $link_type ) {
+					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
 						$new_tab = 'target="_self"';
 						if ( 'woocommerce' == $account_type ) {
 							$link_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
@@ -349,10 +350,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					$submenu_class = '';
 
-					// Menu Animation.
-					$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
-					if ( 'menu' == $action_type && ! empty( $menu_animation ) ) {
-						$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
+					if ( 'menu' == $action_type && defined( 'ASTRA_EXT_VER' ) ) {
+						// Menu Animation.
+						$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
+						$submenu_class  = ( ! empty( $menu_animation ) ) ? ( ' astra-menu-animation-' . esc_attr( $menu_animation ) ) : '';
 					}
 
 					?>
@@ -371,7 +372,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 							?>
 						</a>
 						<?php 
-						if ( 'menu' === $action_type ) {
+						if ( defined( 'ASTRA_EXT_VER' ) && 'menu' === $action_type ) {
 							Astra_Header_Account_Component::account_menu_markup();
 						}
 						?>
@@ -380,11 +381,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					<?php
 					$logged_out_style_class = '';
-					$logged_out_style       = astra_get_option( 'header-account-logout-style' );
 					$action_type            = astra_get_option( 'header-account-logout-action' );
 					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
-
-					$login_link = astra_get_option( 'header-account-logout-link' );
+					$logged_out_text        = astra_get_option( 'header-account-logged-out-text' );
+					$login_link             = astra_get_option( 'header-account-logout-link' );
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
 						$link_url = $login_link['url'];
@@ -398,9 +398,11 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<a class="<?php echo esc_attr( $logged_out_style_class ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
 						<?php if ( 'icon' === $logged_out_style ) { ?>
 							<?php echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php } elseif ( 'text' === $logged_out_style ) { ?>	
+							<span class="ast-header-account-text"><?php echo esc_attr( $logged_out_text ); ?></span>
 						<?php } ?>
 					</a>
-					<?php if ( 'login' === $action_type ) { ?>
+					<?php if ( defined( 'ASTRA_EXT_VER' ) && 'login' === $action_type ) { ?>
 						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper">
 							<div class="ast-hb-account-login-bg"></div>
 							<div class="ast-hb-account-login">

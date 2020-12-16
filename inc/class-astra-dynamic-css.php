@@ -2086,8 +2086,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_color   = astra_get_option( 'transparent-header-button-bg-color' );
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
-				$divider_color      = astra_get_option( 'transparent-header-divider-color' );
-				$account_icon_color = astra_get_option( 'transparent-account-icon-color' );
+				$divider_color                = astra_get_option( 'transparent-header-divider-color' );
+				$account_icon_color           = astra_get_option( 'transparent-account-icon-color' );
+				$account_loggedout_text_color = astra_get_option( 'transparent-account-logout-text-color' );
 
 				// Menu colors.
 				$account_menu_resp_color           = astra_get_option( 'transparent-account-menu-color-responsive' );
@@ -2188,6 +2189,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation ul' => array(
 						'background' => $account_menu_resp_bg_color_desktop,
+					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text' => array(
+						'color' => $account_loggedout_text_color,
 					),
 				);
 

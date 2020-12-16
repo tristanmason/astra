@@ -791,6 +791,71 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'priority'  => 11,
 						'title'     => __( 'Background Color', 'astra' ),
 					),
+
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'default'   => astra_get_option( 'transparent-account-colors' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Account', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 65,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '===',
+									'value'    => 'icon',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+									'operator' => '!=',
+									'value'    => 'none',
+								),
+							),
+						),
+					),
+
+					// Option: Search Color.
+					array(
+						'name'      => 'transparent-account-icon-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 5,
+						'title'     => __( 'Icon Color', 'astra' ),
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					/**
+					* Option: account logged out Color.
+					*/
+					array(
+						'name'      => 'transparent-account-logout-text-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'type'      => 'sub-control',
+						'section'   => $_section,
+						'priority'  => 6,
+						'transport' => 'postMessage',
+						'control'   => 'ast-color',
+						'section'   => 'section-transparent-header',
+						'title'     => __( 'Logged Out Text Color', 'astra' ),
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+								'operator' => '===',
+								'value'    => 'text',
+							),
+						),
+					),
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
@@ -817,7 +882,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 			if ( defined( 'ASTRA_EXT_VER' ) ) {
 
-				$pro_divider_transparent_config = array(
+				$pro_elements_transparent_config = array(
 					/**
 					 * Option: Transparent Header Builder - Divider Elements configs.
 					 */
@@ -829,7 +894,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'title'     => __( 'Divider', 'astra' ),
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
-						'priority'  => 65,
+						'priority'  => 64,
 						'context'   => Astra_Builder_Helper::$design_tab,
 					),
 
@@ -844,47 +909,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'priority'  => 5,
 						'title'     => __( 'Color', 'astra' ),
-						'context'   => Astra_Builder_Helper::$design_tab,
-					),
-
-					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
-						'default'   => astra_get_option( 'transparent-account-colors' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Account', 'astra' ),
-						'section'   => 'section-transparent-header',
-						'transport' => 'postMessage',
-						'priority'  => 65,
-						'context'   => array(
-							Astra_Builder_Helper::$design_tab_config,
-							array(
-								'relation' => 'OR',
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-									'operator' => '===',
-									'value'    => 'icon',
-								),
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-									'operator' => '===',
-									'value'    => 'icon',
-								),
-							),
-						),
-					),
-
-					// Option: Search Color.
-					array(
-						'name'      => 'transparent-account-icon-color',
-						'default'   => '',
-						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
-						'type'      => 'sub-control',
-						'control'   => 'ast-color',
-						'section'   => 'section-transparent-header',
-						'transport' => 'postMessage',
-						'priority'  => 5,
-						'title'     => __( 'Icon Color', 'astra' ),
 						'context'   => Astra_Builder_Helper::$design_tab,
 					),
 
@@ -1017,7 +1041,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 				);
 
-				$_configs = array_merge( $_configs, $pro_divider_transparent_config );
+				$_configs = array_merge( $_configs, $pro_elements_transparent_config );
 			}
 
 			return array_merge( $configurations, $_configs );
