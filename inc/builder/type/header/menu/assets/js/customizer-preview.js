@@ -307,6 +307,19 @@
 					} );
 				} );
 
+				// Sub Menu - Top Offset.
+				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-top-offset]', function( value ) {
+					value.bind( function( margin ) {
+
+						var dynamicStyle = '.ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-builder-menu-' + index + ' li.menu-item .astra-full-megamenu-wrapper {';
+						dynamicStyle += 'margin-top: ' + margin + 'px';
+						dynamicStyle += '}';
+
+						astra_add_dynamic_css( 'header-menu'+ index +'-submenu-top-offset', dynamicStyle );
+
+					} );
+				} );
+
 			})(index);
 
 

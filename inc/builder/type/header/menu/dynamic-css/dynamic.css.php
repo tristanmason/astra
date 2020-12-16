@@ -42,9 +42,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		// Sub Menu.
 		$sub_menu_border         = astra_get_option( 'header-' . $_prefix . '-submenu-border' );
-		$sub_menu_border_radius         = astra_get_option( 'header-' . $_prefix . '-submenu-border-radius' );
 		$sub_menu_divider_toggle = astra_get_option( 'header-' . $_prefix . '-submenu-item-border' );
 		$sub_menu_divider_color  = astra_get_option( 'header-' . $_prefix . '-submenu-item-b-color' );
+		$sub_menu_border_radius  = astra_get_option( 'header-' . $_prefix . '-submenu-border-radius' );
+		$sub_menu_top_offset     = astra_get_option( 'header-' . $_prefix . '-submenu-top-offset' );
 
 		// Menu.
 		$menu_resp_color           = astra_get_option( 'header-' . $_prefix . '-color-responsive' );
@@ -102,7 +103,11 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$sub_menu_border_left = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['left'] ) ) ? $sub_menu_border['left'] : 0;
 
+		// Border-Radius.
 		$sub_menu_border_radius = ! empty( $sub_menu_border_radius ) ? $sub_menu_border_radius : 0;
+
+		// Top offset position.
+		$sub_menu_top_offset = ! empty( $sub_menu_top_offset ) ? $sub_menu_top_offset : 0;
 
 		// Margin.
 		$margin          = astra_get_option( $_section . '-margin' );
@@ -151,6 +156,9 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'border-color'        => esc_attr( astra_get_option( 'header-' . $_prefix . '-submenu-b-color', $theme_color ) ),
 				'border-style'        => 'solid',
 				'border-radius'       => astra_get_css_value( $sub_menu_border_radius, 'px' ),
+			),
+			$selector . ' .sub-menu, ' . $selector . ' .astra-full-megamenu-wrapper' => array(
+				'margin-top'       => astra_get_css_value( $sub_menu_top_offset, 'px' ),
 			),
 			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
 				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
