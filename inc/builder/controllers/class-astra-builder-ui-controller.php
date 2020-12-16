@@ -347,25 +347,35 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					$link_classes = 'ast-header-account-link ast-header-account-type-' . $login_profile_type . ' ast-account-action-' . $action_type;
 
-					?>
-					<a class="<?php echo esc_attr( $link_classes ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
+					$submenu_class = '';
 
-						<?php 
-						if ( 'avatar' === $login_profile_type ) {
-
-							echo get_avatar( get_current_user_id() );
-
-						} else { 
-							echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-						} 
-						?>
-					</a>
-					<?php 
-					if ( 'menu' === $action_type ) {
-						Astra_Header_Account_Component::account_menu_markup();
+					// Menu Animation.
+					$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
+					if ( 'menu' == $action_type && ! empty( $menu_animation ) ) {
+						$submenu_class .= 'astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 					}
+
 					?>
+					<div class="ast-header-account-inner-wrap <?php echo esc_attr( $submenu_class ); ?>">
+						<a class="<?php echo esc_attr( $link_classes ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
+
+							<?php 
+							if ( 'avatar' === $login_profile_type ) {
+
+								echo get_avatar( get_current_user_id() );
+
+							} else { 
+								echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+							} 
+							?>
+						</a>
+						<?php 
+						if ( 'menu' === $action_type ) {
+							Astra_Header_Account_Component::account_menu_markup();
+						}
+						?>
+					</div>
 				<?php } elseif ( ( 'none' !== $logged_out_style ) && ( ( ! $is_logged_in ) || ( $is_logged_in && $logout_preview && $is_customizer ) ) ) { ?>
 
 					<?php

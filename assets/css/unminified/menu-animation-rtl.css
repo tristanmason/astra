@@ -37,6 +37,21 @@
   display: flex;
 }
 
+.ast-desktop .astra-menu-animation-slide-up.ast-header-account-inner-wrap .ast-account-nav-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5em);
+  transition: visibility .2s ease, transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-up.ast-header-account-inner-wrap.focus .ast-account-nav-menu,
+.ast-desktop .astra-menu-animation-slide-up.ast-header-account-inner-wrap:hover .ast-account-nav-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu .sub-menu {
@@ -64,6 +79,21 @@
   display: flex;
 }
 
+.ast-desktop .astra-menu-animation-slide-down.ast-header-account-inner-wrap .ast-account-nav-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5em);
+  transition: visibility .2s ease, transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-down.ast-header-account-inner-wrap.focus .ast-account-nav-menu,
+.ast-desktop .astra-menu-animation-slide-down.ast-header-account-inner-wrap:hover .ast-account-nav-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
 .ast-desktop .astra-menu-animation-fade > .menu-item > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu,
 .ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu .sub-menu {
@@ -87,4 +117,17 @@
 .ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
   -js-display: flex;
   display: flex;
+}
+
+.ast-desktop .astra-menu-animation-fade.ast-header-account-inner-wrap .ast-account-nav-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity ease-in-out .3s;
+}
+
+.ast-desktop .astra-menu-animation-fade.ast-header-account-inner-wrap.focus .ast-account-nav-menu,
+.ast-desktop .astra-menu-animation-fade.ast-header-account-inner-wrap:hover .ast-account-nav-menu {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity ease-in-out .3s;
 }
