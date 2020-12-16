@@ -439,10 +439,59 @@ function astra_header_builder_migration() {
 
 	$options = astra_sticky_header_builder_migration( $options['theme_options'] );
 
+	update_astra_widgets_builder_migration( $options['theme_options'] );
+
 	$theme_options = $options['theme_options'];
 
 	update_option( 'astra-settings', $theme_options );
 
+}
+
+/**
+ * Header Footer builder - Migration of Widgets.
+ *
+ * @since 3.0.0
+ * @param array $theme_options Theme options.
+ */
+function astra_widgets_builder_migration( $theme_options ) {
+
+	// WordPress sidebar_widgets option.
+	$widget_options = get_option( 'sidebars_widgets', array() );
+
+	$is_widget_in_primary = false;
+	$is_widget_in_above   = false;
+	$is_widget_in_below   = false;
+
+	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		if ( false !== array_search( 'widget-3', $zone ) ) {
+			$is_widget_in_above = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		if ( false !== array_search( 'widget-2', $zone ) ) {
+			$is_widget_in_below = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['primary'] as $zone ) {
+		if ( false !== array_search( 'widget-1', $zone ) ) {
+			$is_widget_in_primary = true;
+		}
+	}
+
+	if ( $is_widget_in_primary ) {
+
+		$widget_options['header-widget-1'] = $widget_options['header-widget'];
+	}
+	if ( $is_widget_in_below ) {
+
+		$widget_options['header-widget-2'] = $widget_options['below-header-widget-1'];
+	}
+	if ( $is_widget_in_above ) {
+
+		$widget_options['header-widget-3'] = $widget_options['above-header-widget-1'];
+	}
+
+	update_option( 'sidebars_widgets', $widget_options );
 }
 
 /**
