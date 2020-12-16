@@ -817,7 +817,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 			if ( defined( 'ASTRA_EXT_VER' ) ) {
 
-				$pro_divider_transparent_config = array(
+				$pro_elements_transparent_config = array(
 					/**
 					 * Option: Transparent Header Builder - Divider Elements configs.
 					 */
@@ -1017,7 +1017,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 				);
 
-				$_configs = array_merge( $_configs, $pro_divider_transparent_config );
+				$_configs = array_merge( $_configs, $pro_elements_transparent_config );
 			}
 
 			return array_merge( $configurations, $_configs );
