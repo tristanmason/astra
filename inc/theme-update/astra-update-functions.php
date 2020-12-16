@@ -1329,6 +1329,33 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 	 */
 	$footer_layout = $theme_options['footer-sml-layout'];
 
+	$theme_options['footer-desktop-items'] = array(
+		'above'   =>
+			array(
+				'above_1' => array(),
+				'above_2' => array(),
+				'above_3' => array(),
+				'above_4' => array(),
+				'above_5' => array(),
+			),
+		'primary' =>
+			array(
+				'primary_1' => array(),
+				'primary_2' => array(),
+				'primary_3' => array(),
+				'primary_4' => array(),
+				'primary_5' => array(),
+			),
+		'below'   =>
+			array(
+				'below_1' => array(),
+				'below_2' => array(),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
+			),
+	);
+
 	// Footer Section 1.
 	$footer_section_1   = $theme_options['footer-sml-section-1'];
 	$new_section_1_item = '';
@@ -1379,6 +1406,8 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 			$new_section_1_item                     = 'footer-menu';
 			break;
 	}
+
+	$used_elements[] = $new_section_1_item;
 
 	// Footer Section 2.
 	$footer_section_2   = $theme_options['footer-sml-section-2'];
@@ -1471,6 +1500,9 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 			}
 			break;
 	}
+
+	$used_elements[] = $new_section_2_item;
+
 	if ( '' === $footer_section_1 || '' === $footer_section_2 ) {
 		$theme_options['hbb-footer-column'] = 1;
 		$theme_options['hbb-footer-layout'] = array(
@@ -1487,90 +1519,23 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 		);
 	}
 	switch ( $footer_layout ) {
-		case 'none':
-			$theme_options['footer-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_1' => array(),
-						'above_2' => array(),
-						'above_3' => array(),
-						'above_4' => array(),
-						'above_5' => array(),
-					),
-				'primary' =>
-					array(
-						'primary_1' => array(),
-						'primary_2' => array(),
-						'primary_3' => array(),
-						'primary_4' => array(),
-						'primary_5' => array(),
-					),
-				'below'   =>
-					array(
-						'below_1' => array(),
-						'below_2' => array(),
-						'below_3' => array(),
-						'below_4' => array(),
-						'below_5' => array(),
-					),
-			);
-			break;
-
 		case 'footer-sml-layout-1':
-			$theme_options['footer-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_1' => array(),
-						'above_2' => array(),
-						'above_3' => array(),
-						'above_4' => array(),
-						'above_5' => array(),
-					),
-				'primary' =>
-					array(
-						'primary_1' => array(),
-						'primary_2' => array(),
-						'primary_3' => array(),
-						'primary_4' => array(),
-						'primary_5' => array(),
-					),
-				'below'   =>
-					array(
-						'below_1' => array( $new_section_1_item, $new_section_2_item ),
-						'below_2' => array(),
-						'below_3' => array(),
-						'below_4' => array(),
-						'below_5' => array(),
-					),
+			$theme_options['footer-desktop-items']['below'] = array(
+				'below_1' => array( $new_section_1_item, $new_section_2_item ),
+				'below_2' => array(),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
 			);
 			break;
 
 		case 'footer-sml-layout-2':
-			$theme_options['footer-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_1' => array(),
-						'above_2' => array(),
-						'above_3' => array(),
-						'above_4' => array(),
-						'above_5' => array(),
-					),
-				'primary' =>
-					array(
-						'primary_1' => array(),
-						'primary_2' => array(),
-						'primary_3' => array(),
-						'primary_4' => array(),
-						'primary_5' => array(),
-					),
-				'below'   =>
-					array(
-						'below_1' => array( $new_section_1_item ),
-						'below_2' => array( $new_section_2_item ),
-						'below_3' => array(),
-						'below_4' => array(),
-						'below_5' => array(),
-					),
+			$theme_options['footer-desktop-items']['below'] = array(
+				'below_1' => array( $new_section_1_item ),
+				'below_2' => array( $new_section_2_item ),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
 			);
 			break;
 	}
@@ -1709,10 +1674,19 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 
 	$theme_options['hba-footer-separator']                 = $theme_options['footer-adv-border-width'];
 	$theme_options['hba-footer-top-border-color']          = $theme_options['footer-adv-border-color'];
-	$theme_options['hba-footer-bg-obj-responsive']         = $theme_options['footer-adv-bg-obj'];
+	$theme_options['hba-footer-bg-obj-responsive']         = array(
+		'desktop' => $theme_options['footer-adv-bg-obj'],
+		'tablet'  => '',
+		'mobile'  => '',
+	);
 	$theme_options['section-above-footer-builder-padding'] = $theme_options['footer-adv-area-padding'];
 
 	for ( $i = 1; $i <= $column; $i++ ) {
+
+		if ( 6 > $column ) {
+			return;
+		}
+
 		$theme_options[ 'footer-widget-' . $i . '-title-color' ]  = array(
 			'desktop' => $theme_options['footer-adv-wgt-title-color'],
 			'tablet'  => '',
@@ -1733,6 +1707,18 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 			'tablet'  => '',
 			'mobile'  => '',
 		);
+
+		$theme_options[ 'footer-widget-' . $i . '-font-size' ]      = $theme_options['footer-adv-wgt-title-font-size'];
+		$theme_options[ 'footer-widget-' . $i . '-font-weight' ]    = $theme_options['footer-adv-wgt-title-font-weight'];
+		$theme_options[ 'footer-widget-' . $i . '-line-height' ]    = $theme_options['footer-adv-wgt-title-line-height'];
+		$theme_options[ 'footer-widget-' . $i . '-font-family' ]    = $theme_options['footer-adv-wgt-title-font-family'];
+		$theme_options[ 'footer-widget-' . $i . '-text-transform' ] = $theme_options['footer-adv-wgt-title-text-transform'];
+
+		$theme_options[ 'footer-widget-' . $i . '-content-font-size' ]      = $theme_options['footer-adv-wgt-content-font-size'];
+		$theme_options[ 'footer-widget-' . $i . '-content-font-weight' ]    = $theme_options['footer-adv-wgt-content-font-weight'];
+		$theme_options[ 'footer-widget-' . $i . '-content-line-height' ]    = $theme_options['footer-adv-wgt-content-line-height'];
+		$theme_options[ 'footer-widget-' . $i . '-content-font-family' ]    = $theme_options['footer-adv-wgt-content-font-family'];
+		$theme_options[ 'footer-widget-' . $i . '-content-text-transform' ] = $theme_options['footer-adv-wgt-content-text-transform'];
 	}
 	
 	return array(
