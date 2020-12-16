@@ -50,6 +50,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$margin          = astra_get_option( 'header-account-margin' );
 	$margin_selector = '.ast-header-account-wrap';
+
+	$text_font_size     = astra_get_option( 'header-account-logout-text-font-size' );
+	$text_color     = astra_get_option( 'header-account-logout-text-color' );
 	
 	/**
 	 * Account CSS.
@@ -76,6 +79,10 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
+		$selector . ' .ast-header-account-text' => array(
+			'font-size' => astra_responsive_font( $text_font_size, 'desktop' ),
+			'color' => esc_attr( $text_color ),
+		),
 	);
 
 	$css_output_tablet = array(
@@ -94,6 +101,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 		),
+		$selector . ' .ast-header-account-text' => array(
+			'font-size' => astra_responsive_font( $text_font_size, 'tablet' ),
+		),
 	);
 
 	$css_output_mobile = array(
@@ -111,6 +121,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+		),
+		$selector . ' .ast-header-account-text' => array(
+			'font-size' => astra_responsive_font( $text_font_size, 'mobile' ),
 		),
 	);
 
