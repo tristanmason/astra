@@ -1566,6 +1566,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-account-logout-style']    = 'none';
 	$defaults['header-account-logged-out-text'] = __( 'Log In', 'astra' );
 	$defaults['header-account-logout-action']   = 'link';
+	$defaults['header-account-menu-container-animation']   = '';
 	$defaults['header-account-image-width']     = array(
 		'desktop' => '40',
 		'tablet'  => '',

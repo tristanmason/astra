@@ -45,19 +45,14 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 		 */
 		public static function account_menu_markup() {
 
-			$theme_location = 'secondary_menu';
+			$theme_location = 'loggedin_account_menu';
 
-			$submenu_class         = apply_filters( 'secondary_submenu_border_class', ' submenu-with-border' );
-			$stack_on_mobile_class = 'inline-on-mobile';
-
-			if ( astra_get_option( 'header-account-menu-stack-on-mobile' ) ) {
-				$stack_on_mobile_class = 'stack-on-mobile';
-			}
+			$submenu_class = '';
 
 			// Menu Animation.
 			$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
 			if ( ! empty( $menu_animation ) ) {
-				$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
+				$submenu_class .= 'astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 			}
 
 			/**
@@ -66,7 +61,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			 * @since  3.0.0
 			 * @var Array
 			 */
-			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu' ) );
+			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu', $submenu_class ) );
 
 			$items_wrap  = '<nav ';
 			$items_wrap .= astra_attr(

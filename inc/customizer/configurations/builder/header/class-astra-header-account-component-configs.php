@@ -37,6 +37,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 
 		$_section = 'section-header-account';
 		$defaults = Astra_Theme_Options::defaults();
+		$account_type_condition = array(
+			'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
+			'operator' => '==',
+			'value'    => 'default',
+		);;
 
 		$account_choices = array(
 			'default' => __( 'Default', 'astra' ),
@@ -48,6 +53,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 
 		if ( class_exists( 'WooCommerce' ) ) {
 			$account_choices['woocommerce'] = __( 'Woo Commerce', 'astra' );
+		}
+
+		if ( count( $account_choices ) == 1 ) {
+			$account_type_condition = array(
+				'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+				'operator' => '==',
+				'value'    => 'link',
+			);
 		}
 
 		$_configs = array(
@@ -159,10 +172,9 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'operator' => '!=',
 						'value'    => 'default',
 					),
-					
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
-						'operator' => '==',
+						'operator' => '!=',
 						'value'    => 'menu',
 					),
 				),
@@ -190,11 +202,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					),
 					array(
 						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
-							'operator' => '==',
-							'value'    => 'default',
-						),
+						$account_type_condition,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-link-type]',
 							'operator' => '==',
@@ -258,7 +266,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'  => 201,
 				'choices'   => array(
 					'none' => __( 'None', 'astra' ),
-					'text' => __( 'Text', 'astra' ),
 					'icon' => __( 'Icon', 'astra' ),
 				),
 				'transport' => 'postMessage',
@@ -286,32 +293,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					Astra_Builder_Helper::$general_tab_config,
 				),
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'        => '.ast-header-account',
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
-				),
-			),
-
-			/**
-			* Option: Logged Out Text
-			*/
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text]',
-				'default'   => astra_get_option( 'header-account-logged-out-text' ),
-				'type'      => 'control',
-				'control'   => 'text',
-				'section'   => $_section,
-				'title'     => __( 'Text', 'astra' ),
-				'priority'  => 203,
-				'transport' => 'postMessage',
-				'context'   => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '===',
-						'value'    => 'text',
-					),
-					Astra_Builder_Helper::$general_tab_config,
-				),
 				'partial'   => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
@@ -880,7 +861,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-menu-container-animation]',
-				'default'   => '',
+				'default'   => astra_get_option( 'header-account-menu-container-animation' ),
 				'type'      => 'control',
 				'control'   => 'select',
 				'section'   => $_section,
