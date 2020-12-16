@@ -734,10 +734,16 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			if ( is_rtl() ) {
+				$builder_customizer_css_file = 'ast-builder-customizer-rtl';
+			} else {
+				$builder_customizer_css_file = 'ast-builder-customizer';
+			}
+
 			// Enqueue Builder CSS.
 			wp_enqueue_style(
 				'ahfb-customizer-style',
-				ASTRA_THEME_URI . 'inc/assets/css/ast-builder-customizer.css',
+				ASTRA_THEME_URI . 'inc/assets/css/' . $builder_customizer_css_file . '.css',
 				array( 'wp-components' ),
 				ASTRA_THEME_VERSION
 			);
