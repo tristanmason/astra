@@ -3299,10 +3299,6 @@ body .entry-content .wp-block-latest-posts li {
   vertical-align: middle;
 }
 
-.ast-hb-account-login {
-  max-height: 556px;
-}
-
 .ast-hb-account-login-wrapper .ast-hb-account-login-bg {
   position: fixed;
   top: 0;
@@ -3320,9 +3316,9 @@ body .entry-content .wp-block-latest-posts li {
   left: 50%;
   overflow: hidden;
   top: 50%;
-  transform: translateY(-50%);
+  padding: 35px;
   bottom: 0px;
-  max-height: 560px;
+  max-height: 550px;
   width: 340px;
   margin: 0 0 0 -190px;
   background-color: #f1f1f1;
@@ -3340,11 +3336,6 @@ body .entry-content .wp-block-latest-posts li {
   -js-display: flex;
   display: flex;
   box-shadow: none;
-}
-
-.ast-hb-account-login-wrapper #ast-hb-account-login-form {
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .ast-hb-account-login-wrapper #loginform input[type=text],
@@ -3379,6 +3370,9 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-hb-account-login-wrapper .ast-hb-login-header {
   -js-display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
   display: flex;
   justify-content: flex-end;
   min-height: calc(1.2em + 24px);
@@ -3407,8 +3401,6 @@ body .entry-content .wp-block-latest-posts li {
 .ast-hb-login-body {
   height: 100%;
   position: relative;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .ast-header-account-type-avatar .avatar {
