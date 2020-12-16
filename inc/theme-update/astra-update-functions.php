@@ -1729,6 +1729,8 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
  */
 function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 
+	$widget_options = get_option( 'sidebars_widgets', array() );
+
 	$footer_widget_layouts = $theme_options['footer-adv'];
 	$column                = 2;
 	$layout                = array(
@@ -1883,7 +1885,11 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 		$theme_options[ 'footer-widget-' . $i . '-content-line-height' ]    = $theme_options['footer-adv-wgt-content-line-height'];
 		$theme_options[ 'footer-widget-' . $i . '-content-font-family' ]    = $theme_options['footer-adv-wgt-content-font-family'];
 		$theme_options[ 'footer-widget-' . $i . '-content-text-transform' ] = $theme_options['footer-adv-wgt-content-text-transform'];
+
+		$widget_options[ 'footer-widget-' . $i ] = $widget_options[ 'advanced-footer-widget-' . $i ];
 	}
+	
+	update_option( 'sidebars_widgets', $widget_options );
 	
 	return array(
 		'theme_options' => $theme_options,
