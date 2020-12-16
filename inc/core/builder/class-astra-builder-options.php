@@ -1578,11 +1578,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 18,
 	);
 
-	$defaults['header-account-icon-color'] = array(
-		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
-	);
+	$defaults['header-account-icon-color'] = '';
 
 	$defaults['header-account-logout-link'] = array(
 		'url'      => esc_url( get_site_url() . '/wp-admin' ),

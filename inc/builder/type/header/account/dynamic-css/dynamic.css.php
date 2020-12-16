@@ -50,7 +50,6 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$margin          = astra_get_option( 'header-account-margin' );
 	$margin_selector = '.ast-header-account-wrap';
-
 	
 	/**
 	 * Account CSS.
