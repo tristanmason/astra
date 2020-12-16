@@ -2086,8 +2086,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_color   = astra_get_option( 'transparent-header-button-bg-color' );
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
-				$divider_color      = astra_get_option( 'transparent-header-divider-color' );
-				$account_icon_color = astra_get_option( 'transparent-account-icon-color' );
+				$divider_color                = astra_get_option( 'transparent-header-divider-color' );
+				$account_icon_color           = astra_get_option( 'transparent-account-icon-color' );
 				$account_loggedout_text_color = astra_get_option( 'transparent-account-logout-text-color' );
 
 				// Menu colors.

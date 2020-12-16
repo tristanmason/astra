@@ -384,7 +384,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$action_type            = astra_get_option( 'header-account-logout-action' );
 					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
 					$logged_out_text        = astra_get_option( 'header-account-logged-out-text' );
-					$login_link = astra_get_option( 'header-account-logout-link' );
+					$login_link             = astra_get_option( 'header-account-logout-link' );
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
 						$link_url = $login_link['url'];

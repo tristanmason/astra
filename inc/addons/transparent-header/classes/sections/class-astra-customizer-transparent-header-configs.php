@@ -854,7 +854,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 								'operator' => '===',
 								'value'    => 'text',
 							),
-						)
+						),
 					),
 				);
 
