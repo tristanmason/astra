@@ -2190,7 +2190,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation ul' => array(
 						'background' => $account_menu_resp_bg_color_desktop,
 					),
-					'.ast-theme-transparent-header .ast-header-account-text' => array(
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text' => array(
 						'color' => $account_loggedout_text_color,
 					),
 				);

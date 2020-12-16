@@ -243,7 +243,7 @@
 	astra_css(
 		'astra-settings[transparent-account-logout-text-color]',
 		'color',
-		'.ast-theme-transparent-header .ast-header-account-text'
+		'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text'
 	);
 	
 	// Menu - Normal Color
