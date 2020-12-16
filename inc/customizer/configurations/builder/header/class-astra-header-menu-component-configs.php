@@ -139,7 +139,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
 						'title'     => __( 'Submenu Container', 'astra' ),
-						'section'   => 'section-buttons',
+						'section'   => $_section,
 						'transport' => 'postMessage',
 						'priority'  => 20,
 						'context'   => Astra_Builder_Helper::$design_tab,
