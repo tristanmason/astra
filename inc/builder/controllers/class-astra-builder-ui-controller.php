@@ -292,14 +292,14 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$is_logged_in = is_user_logged_in();
 
-			$link_href      = '';
-			$new_tab        = '';
-			$link_rel       = '';
-			$account_link   = '';
-			$link_url       = '';
-			$logout_preview = astra_get_option( 'header-account-logout-preview' );
-			$is_customizer  = is_customize_preview();
-			$logged_out_style       = astra_get_option( 'header-account-logout-style' );
+			$link_href        = '';
+			$new_tab          = '';
+			$link_rel         = '';
+			$account_link     = '';
+			$link_url         = '';
+			$logout_preview   = astra_get_option( 'header-account-logout-preview' );
+			$is_customizer    = is_customize_preview();
+			$logged_out_style = astra_get_option( 'header-account-logout-style' );
 
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
