@@ -180,7 +180,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
-					 * Option: Global Button Radius
+					 * Option: Submenu Button Radius
 					 */
 					array(
 						'name'        => 'header-' . $_prefix . '-submenu-border-radius',
@@ -199,7 +199,26 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
-					 * Option: Global Button Radius
+					 * Option: Submenu width
+					 */
+					array(
+						'name'        => 'header-' . $_prefix . '-submenu-width',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-width' ),
+						'type'        => 'sub-control',
+						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-group]',
+						'section'   => $_section,
+						'control'     => 'ast-slider',
+						'priority'    => 4,
+						'title'       => __( 'Width', 'astra' ),
+						'input_attrs' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+					),
+
+					/**
+					 * Option: Submenu Top Offset
 					 */
 					array(
 						'name'        => 'header-' . $_prefix . '-submenu-top-offset',
@@ -208,8 +227,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-group]',
 						'section'   => $_section,
 						'control'     => 'ast-slider',
-						'priority'    => 4,
-						'title'       => __( 'Submenu Top Offset', 'astra' ),
+						'priority'    => 5,
+						'title'       => __( 'Top Offset', 'astra' ),
 						'input_attrs' => array(
 							'min'  => 0,
 							'step' => 1,

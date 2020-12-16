@@ -320,6 +320,19 @@
 					} );
 				} );
 
+				// Sub Menu - Width.
+				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-width]', function( value ) {
+					value.bind( function( width ) {
+
+						var dynamicStyle = '.ast-builder-menu-' + index + ' li.menu-item .sub-menu {';
+						dynamicStyle += 'width: ' + width + 'px';
+						dynamicStyle += '}';
+
+						astra_add_dynamic_css( 'header-menu'+ index +'-submenu-width', dynamicStyle );
+
+					} );
+				} );
+
 			})(index);
 
 
