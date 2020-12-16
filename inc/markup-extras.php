@@ -141,10 +141,14 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function astra_number_pagination() {
-		global $numpages;
+		global $wp_query;
 		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) && $enabled ) {
+		// Don't print empty markup if their is only one page.
+		if ( ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) || ! $enabled ) {
+			return;
+		}
+
 			ob_start();
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
@@ -158,7 +162,6 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo '</div>';
 			$output = ob_get_clean();
 			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
 	}
 }
 
