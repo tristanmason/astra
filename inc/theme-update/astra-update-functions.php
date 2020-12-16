@@ -453,7 +453,7 @@ function astra_header_builder_migration() {
  * @since 3.0.0
  * @param array $theme_options Theme options.
  */
-function astra_widgets_builder_migration( $theme_options ) {
+function update_astra_widgets_builder_migration( $theme_options ) {
 
 	// WordPress sidebar_widgets option.
 	$widget_options = get_option( 'sidebars_widgets', array() );
