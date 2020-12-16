@@ -656,6 +656,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		</header><!-- #masthead -->
 
 		<?php
+		do_action( 'astra_sticky_header_markup' );
 		do_action( 'astra_header_markup_after' );
 
 	}
