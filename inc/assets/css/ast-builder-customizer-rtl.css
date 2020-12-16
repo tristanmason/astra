@@ -727,6 +727,7 @@
 
 .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):hover {
     color: #777777;
+    box-shadow: none;
 }
 
 .dashicons-plus-alt2:before {
