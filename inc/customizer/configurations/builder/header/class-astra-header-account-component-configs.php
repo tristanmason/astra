@@ -35,8 +35,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section               = 'section-header-account';
-		$defaults               = Astra_Theme_Options::defaults();
+		$_section = 'section-header-account';
+		$defaults = Astra_Theme_Options::defaults();
 
 		$account_choices = array(
 			'default' => __( 'Default', 'astra' ),
@@ -64,9 +64,9 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 	
 			if ( class_exists( 'WooCommerce' ) ) {
 				$account_choices['woocommerce'] = __( 'Woo Commerce', 'astra' );
-			}	
+			}   
 
-			if( count( $account_choices ) > 1 ) {
+			if ( count( $account_choices ) > 1 ) {
 				$account_type_condition = array(
 					'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
 					'operator' => '==',
@@ -90,7 +90,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'operator' => '==',
 						'value'    => 'custom',
 					),
-				)
+				),
 			);
 
 			$logout_link_context = array(
@@ -159,14 +159,13 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-			),			
-
+			), 
 			/**
 			* Option: Account Log In Link
 			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-login-link]',
-				'default'   => '',
+				'default'   => astra_get_option( 'header-account-login-link' ),
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,

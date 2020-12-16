@@ -1580,6 +1580,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	$defaults['header-account-icon-color'] = '';
 
+	$defaults['header-account-login-link'] = array(
+		'url'      => '',
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
+
 	$defaults['header-account-logout-link'] = array(
 		'url'      => esc_url( get_site_url() . '/wp-admin' ),
 		'new_tab'  => false,

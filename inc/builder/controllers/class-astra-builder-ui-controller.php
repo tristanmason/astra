@@ -299,6 +299,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$link_url       = '';
 			$logout_preview = astra_get_option( 'header-account-logout-preview' );
 			$is_customizer  = is_customize_preview();
+			$logged_out_style       = astra_get_option( 'header-account-logout-style' );
 
 			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
 				return;
@@ -352,7 +353,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					if ( 'menu' == $action_type && defined( 'ASTRA_EXT_VER' ) ) {
 						// Menu Animation.
 						$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
-						$submenu_class =  ( ! empty( $menu_animation ) ) ? ( ' astra-menu-animation-' . esc_attr( $menu_animation ) ) : '';
+						$submenu_class  = ( ! empty( $menu_animation ) ) ? ( ' astra-menu-animation-' . esc_attr( $menu_animation ) ) : '';
 					}
 
 					?>
@@ -380,7 +381,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					<?php
 					$logged_out_style_class = '';
-					$logged_out_style       = astra_get_option( 'header-account-logout-style' );
 					$action_type            = astra_get_option( 'header-account-logout-action' );
 					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
 
