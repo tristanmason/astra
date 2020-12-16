@@ -431,6 +431,92 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
+			 * Option: Logged Out text
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-text-heading]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Logged Out Text', 'astra' ),
+				'priority' => 5,
+				'settings' => array(),
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '===',
+						'value'    => 'text',
+					),
+				),
+			),
+
+			/**
+			 * Option:  Logged Out text Typography
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-text-typography]',
+				'default'   => astra_get_option( 'header-account-logout-text-typography' ),
+				'type'      => 'control',
+				'control'   => 'ast-settings-group',
+				'title'     => __( 'Typography', 'astra' ),
+				'section'   => $_section,
+				'transport' => 'postMessage',
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '===',
+						'value'    => 'text',
+					),
+				),
+				'priority'  => 5,
+			),
+
+			// Option: Menu Font Size.
+			array(
+				'name'        => 'header-account-logout-text-font-size',
+				'default'     => astra_get_option( 'header-account-logout-text-font-size' ),
+				'parent'      => ASTRA_THEME_SETTINGS . '[header-account-logout-text-typography]',
+				'section'     => $_section,
+				'type'        => 'sub-control',
+				'priority'    => 23,
+				'title'       => __( 'Size', 'astra' ),
+				'control'     => 'ast-responsive',
+				'transport'   => 'postMessage',
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+				'context'     => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			* Option: account Color.
+			*/
+		   	array(
+			   'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-text-color]',
+			   'default'   => $defaults['header-account-logout-text-color'],
+			   'type'      => 'control',
+			   'section'   => $_section,
+			   'priority'  => 5,
+			   'transport' => 'postMessage',
+			   'control'   => 'ast-color',
+			   'title'     => __( 'Color', 'astra' ),
+			   'context'   => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '===',
+						'value'    => 'text',
+					),
+			   )
+			),
+
+			/**
 			 * Option: Margin heading
 			 */
 			array(

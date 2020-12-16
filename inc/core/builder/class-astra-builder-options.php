@@ -1592,5 +1592,16 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'link_rel' => '',
 	);
 
+	$defaults[ 'header-account-logout-text-font-size' ]      = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	$defaults['header-account-logout-text-color']  = '';
+
 	return $defaults;
 }
