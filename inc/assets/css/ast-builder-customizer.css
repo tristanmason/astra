@@ -727,6 +727,7 @@
 
 .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):hover {
     color: #777777;
+    box-shadow: none;
 }
 
 .dashicons-plus-alt2:before {
@@ -1431,6 +1432,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove {
     color: #556068;
+    box-shadow: none;
 }
 
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand:focus, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove:focus {
