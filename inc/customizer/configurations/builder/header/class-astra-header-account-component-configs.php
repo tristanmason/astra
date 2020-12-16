@@ -35,13 +35,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = 'section-header-account';
-		$defaults = Astra_Theme_Options::defaults();
+		$_section               = 'section-header-account';
+		$defaults               = Astra_Theme_Options::defaults();
 		$account_type_condition = array(
 			'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
 			'operator' => '==',
 			'value'    => 'default',
-		);;
+		);
+
 
 		$account_choices = array(
 			'default' => __( 'Default', 'astra' ),
@@ -981,4 +982,5 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
  */
 
 new Astra_Header_Account_Component_Configs();
+
 
