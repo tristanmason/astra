@@ -64,7 +64,7 @@
 	astra_css(
 		'astra-settings[header-account-logout-text-color]',
 		'color',
-		selector + ' .ast-header-account-text'
+		selector + ' .ast-header-account-text, .ast-mobile-popup-content ' + selector + ' .ast-header-account-text'
 	);
 
 	// Menu - Border Color.
