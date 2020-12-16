@@ -1259,7 +1259,12 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 	 * Below Header
 	 */
 
-	$below_header_layout                             = $theme_options['below-header-layout'];
+	$below_header_layout = $theme_options['below-header-layout'];
+
+	$below_header_on_mobile   = $theme_options['below-header-on-mobile'];
+	$below_header_merge_menu  = $theme_options['below-header-merge-menu'];
+	$below_header_swap_mobile = $theme_options['below-header-swap-mobile'];
+
 	$theme_options['hbb-header-height']              = array(
 		'desktop' => $theme_options['below-header-height'],
 		'tablet'  => '',
@@ -1476,6 +1481,37 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			);
 			break;
 	}
+
+	if ( $below_header_on_mobile && ( 'menu' === $below_header_section_1 || 'menu' === $below_header_section_2 ) ) {
+
+		$item = ( 'menu' === $below_header_section_1 ) ? $below_header_section_1 : $below_header_section_2;
+
+		if ( $below_header_swap_mobile ) {
+			$temp                   = $below_header_section_1;
+			$below_header_section_1 = $below_header_section_2;
+			$below_header_section_2 = $temp;
+		}
+
+		if ( $below_header_merge_menu ) {
+
+			$original_popup_content = $theme_options['header-mobile-items']['popup'];
+			$new_popup_content      = array_unshift( $original_popup_content, $item );
+
+			$theme_options['header-mobile-items']['popup'] = array( 'popup_content' => $new_popup_content );
+
+		} else {
+
+			$original_content_1 = $theme_options['header-mobile-items']['below']['below_left'];
+			$original_content_2 = $theme_options['header-mobile-items']['below']['below_right'];
+
+			$new_content_1 = ( ( 'menu' === $below_header_section_1 ) ) ? array_unshift( $original_content_1, $below_header_section_1 ) : $original_content_1;
+			$new_content_2 = ( ( 'menu' === $below_header_section_2 ) ) ? array_unshift( $original_content_2, $below_header_section_2 ) : $original_content_2;
+
+			$theme_options['header-mobile-items']['below']['below_left']  = $new_content_1;
+			$theme_options['header-mobile-items']['below']['below_right'] = $new_content_2;
+		}
+	}
+
 	return array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
