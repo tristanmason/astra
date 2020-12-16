@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_total_display = astra_get_option( 'woo-header-cart-total-display' );
 			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
 			$cart_title_display = astra_get_option( 'woo-header-cart-title-display' );
-			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra-addon' ) );
+			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 
 			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
 			$cart_total_markup = '';

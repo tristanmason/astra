@@ -762,6 +762,58 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements ) 
 	$theme_options['header-menu1-submenu-item-b-color']        = $theme_options['primary-submenu-item-b-color'];
 
 	/**
+	 * Primary Menu.
+	 */
+
+	$theme_options['header-menu1-color-responsive']  = $theme_options['primary-menu-color-responsive'];
+	$theme_options['header-menu1-bg-obj-responsive'] = $theme_options['primary-menu-bg-obj-responsive'];
+
+	$theme_options['header-menu1-h-color-responsive']    = $theme_options['primary-menu-text-h-color-responsive'];
+	$theme_options['header-menu1-h-bg-color-responsive'] = $theme_options['primary-menu-h-bg-color-responsive'];
+
+	$theme_options['header-menu1-a-color-responsive']    = $theme_options['primary-menu-a-color-responsive'];
+	$theme_options['header-menu1-a-bg-color-responsive'] = $theme_options['primary-menu-a-bg-color-responsive'];
+
+	$theme_options['header-menu1-font-size']      = $theme_options['font-size-primary-menu'];
+	$theme_options['header-menu1-font-weight']    = $theme_options['font-weight-primary-menu'];
+	$theme_options['header-menu1-line-height']    = $theme_options['line-height-primary-menu'];
+	$theme_options['header-menu1-font-family']    = $theme_options['font-family-primary-menu'];
+	$theme_options['header-menu1-text-transform'] = $theme_options['text-transform-primary-menu'];
+
+	$theme_options['header-menu1-menu-spacing'] = $theme_options['primary-menu-spacing'];
+	
+
+	// Primary Menu - Submenu.
+	$theme_options['header-menu1-submenu-color-responsive']    = $theme_options['primary-submenu-color-responsive'];
+	$theme_options['header-menu1-submenu-bg-color-responsive'] = $theme_options['primary-submenu-bg-color-responsive'];
+
+	$theme_options['header-menu1-submenu-h-color-responsive']    = $theme_options['primary-submenu-h-color-responsive'];
+	$theme_options['header-menu1-submenu-h-bg-color-responsive'] = $theme_options['primary-submenu-h-bg-color-responsive'];
+
+	$theme_options['header-menu1-submenu-a-color-responsive']    = $theme_options['primary-submenu-a-color-responsive'];
+	$theme_options['header-menu1-submenu-a-bg-color-responsive'] = $theme_options['primary-submenu-a-bg-color-responsive'];
+
+	$theme_options['header-font-size-menu1-sub-menu']      = $theme_options['font-size-primary-dropdown-menu'];
+	$theme_options['header-font-weight-menu1-sub-menu']    = $theme_options['font-weight-primary-dropdown-menu'];
+	$theme_options['header-line-height-menu1-sub-menu']    = $theme_options['line-height-primary-dropdown-menu'];
+	$theme_options['header-font-family-menu1-sub-menu']    = $theme_options['font-family-primary-dropdown-menu'];
+	$theme_options['header-text-transform-menu1-sub-menu'] = $theme_options['text-transform-primary-dropdown-menu'];
+	
+	$theme_options['header-menu1-submenu-spacing'] = $theme_options['primary-submenu-spacing'];
+
+	// Primary Menu - Mega Menu.
+	$theme_options['header-menu1-header-megamenu-heading-color']   = $theme_options['primary-header-megamenu-heading-color'];
+	$theme_options['header-menu1-header-megamenu-heading-h-color'] = $theme_options['primary-header-megamenu-heading-h-color'];
+
+	$theme_options['header-menu1-megamenu-heading-font-size']      = $theme_options['primary-header-megamenu-heading-font-size'];
+	$theme_options['header-menu1-megamenu-heading-font-weight']    = $theme_options['primary-header-megamenu-heading-font-weight'];
+	$theme_options['header-menu1-megamenu-heading-line-height']    = $theme_options['primary-header-megamenu-heading-line-height'];
+	$theme_options['header-menu1-megamenu-heading-font-family']    = $theme_options['primary-header-megamenu-heading-font-family'];
+	$theme_options['header-menu1-megamenu-heading-text-transform'] = $theme_options['primary-header-megamenu-heading-text-transform'];
+
+	$theme_options['header-menu1-megamenu-heading-space'] = $theme_options['primary-header-megamenu-heading-space'];
+
+	/**
 	 * Primary Menu - Mobile.
 	 */
 	$theme_options['mobile-header-menu-label']           = $theme_options['header-main-menu-label'];
@@ -1008,6 +1060,14 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu3-a-color-responsive']    = $theme_options['above-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
 
+			$theme_options['header-menu3-font-size']      = $theme_options['above-header-font-size'];
+			$theme_options['header-menu3-font-weight']    = $theme_options['above-header-font-weight'];
+			$theme_options['header-menu3-line-height']    = $theme_options['above-header-line-height'];
+			$theme_options['header-menu3-font-family']    = $theme_options['above-header-font-family'];
+			$theme_options['header-menu3-text-transform'] = $theme_options['above-header-text-transform'];
+
+			$theme_options['header-menu3-menu-spacing'] = $theme_options['above-header-menu-spacing'];
+
 			// Menu 3 - Submenu.
 			$theme_options['header-menu3-submenu-color-responsive']    = $theme_options['above-header-submenu-text-color-responsive'];
 			$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
@@ -1017,6 +1077,14 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 
 			$theme_options['header-menu3-submenu-a-color-responsive']    = $theme_options['above-header-submenu-active-color-responsive'];
 			$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
+
+			$theme_options['header-font-size-menu3-sub-menu']      = $theme_options['font-size-above-header-dropdown-menu'];
+			$theme_options['header-font-weight-menu3-sub-menu']    = $theme_options['font-weight-above-header-dropdown-menu'];
+			$theme_options['header-line-height-menu3-sub-menu']    = $theme_options['line-height-above-header-dropdown-menu'];
+			$theme_options['header-font-family-menu3-sub-menu']    = $theme_options['font-family-above-header-dropdown-menu'];
+			$theme_options['header-text-transform-menu3-sub-menu'] = $theme_options['text-transform-above-header-dropdown-menu'];
+			
+			$theme_options['header-menu3-submenu-spacing'] = $theme_options['above-header-submenu-spacing'];
 			break;
 
 		case 'search':
@@ -1078,7 +1146,15 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu3-a-color-responsive']    = $theme_options['above-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
 
-			// Menu 2 - Submenu.
+			$theme_options['header-menu3-font-size']      = $theme_options['above-header-font-size'];
+			$theme_options['header-menu3-font-weight']    = $theme_options['above-header-font-weight'];
+			$theme_options['header-menu3-line-height']    = $theme_options['above-header-line-height'];
+			$theme_options['header-menu3-font-family']    = $theme_options['above-header-font-family'];
+			$theme_options['header-menu3-text-transform'] = $theme_options['above-header-text-transform'];
+
+			$theme_options['header-menu3-menu-spacing'] = $theme_options['above-header-menu-spacing'];
+
+			// Menu 3 - Submenu.
 			$theme_options['header-menu3-submenu-color-responsive']    = $theme_options['above-header-submenu-text-color-responsive'];
 			$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
 
@@ -1087,6 +1163,14 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 
 			$theme_options['header-menu3-submenu-a-color-responsive']    = $theme_options['above-header-submenu-active-color-responsive'];
 			$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
+
+			$theme_options['header-font-size-menu3-sub-menu']      = $theme_options['font-size-above-header-dropdown-menu'];
+			$theme_options['header-font-weight-menu3-sub-menu']    = $theme_options['font-weight-above-header-dropdown-menu'];
+			$theme_options['header-line-height-menu3-sub-menu']    = $theme_options['line-height-above-header-dropdown-menu'];
+			$theme_options['header-font-family-menu3-sub-menu']    = $theme_options['font-family-above-header-dropdown-menu'];
+			$theme_options['header-text-transform-menu3-sub-menu'] = $theme_options['text-transform-above-header-dropdown-menu'];
+			
+			$theme_options['header-menu3-submenu-spacing'] = $theme_options['above-header-submenu-spacing'];
 			break;
 
 		case 'search':
@@ -1210,6 +1294,14 @@ function astra_below_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu2-a-color-responsive']    = $theme_options['below-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
 
+			$theme_options['header-menu2-font-size']      = $theme_options['below-header-font-size'];
+			$theme_options['header-menu2-font-weight']    = $theme_options['below-header-font-weight'];
+			$theme_options['header-menu2-line-height']    = $theme_options['below-header-line-height'];
+			$theme_options['header-menu2-font-family']    = $theme_options['below-header-font-family'];
+			$theme_options['header-menu2-text-transform'] = $theme_options['below-header-text-transform'];
+
+			$theme_options['header-menu2-menu-spacing'] = $theme_options['below-header-menu-spacing'];
+
 			// Menu 2 - Submenu.
 			$theme_options['header-menu2-submenu-color-responsive']    = $theme_options['below-header-submenu-text-color-responsive'];
 			$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
@@ -1219,6 +1311,14 @@ function astra_below_header_builder_migration( $theme_options, $used_elements ) 
 
 			$theme_options['header-menu2-submenu-a-color-responsive']    = $theme_options['below-header-submenu-active-color-responsive'];
 			$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
+
+			$theme_options['header-font-size-menu2-sub-menu']      = $theme_options['font-size-below-header-dropdown-menu'];
+			$theme_options['header-font-weight-menu2-sub-menu']    = $theme_options['font-weight-below-header-dropdown-menu'];
+			$theme_options['header-line-height-menu2-sub-menu']    = $theme_options['line-height-below-header-dropdown-menu'];
+			$theme_options['header-font-family-menu2-sub-menu']    = $theme_options['font-family-below-header-dropdown-menu'];
+			$theme_options['header-text-transform-menu2-sub-menu'] = $theme_options['text-transform-below-header-dropdown-menu'];
+			
+			$theme_options['header-menu2-submenu-spacing'] = $theme_options['below-header-submenu-spacing'];
 			break;
 
 		case 'search':
@@ -1280,6 +1380,14 @@ function astra_below_header_builder_migration( $theme_options, $used_elements ) 
 			$theme_options['header-menu2-a-color-responsive']    = $theme_options['below-header-current-menu-text-color-responsive'];
 			$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
 
+			$theme_options['header-menu2-font-size']      = $theme_options['below-header-font-size'];
+			$theme_options['header-menu2-font-weight']    = $theme_options['below-header-font-weight'];
+			$theme_options['header-menu2-line-height']    = $theme_options['below-header-line-height'];
+			$theme_options['header-menu2-font-family']    = $theme_options['below-header-font-family'];
+			$theme_options['header-menu2-text-transform'] = $theme_options['below-header-text-transform'];
+
+			$theme_options['header-menu2-menu-spacing'] = $theme_options['below-header-menu-spacing'];
+
 			// Menu 2 - Submenu.
 			$theme_options['header-menu2-submenu-color-responsive']    = $theme_options['below-header-submenu-text-color-responsive'];
 			$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
@@ -1289,6 +1397,14 @@ function astra_below_header_builder_migration( $theme_options, $used_elements ) 
 
 			$theme_options['header-menu2-submenu-a-color-responsive']    = $theme_options['below-header-submenu-active-color-responsive'];
 			$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
+
+			$theme_options['header-font-size-menu2-sub-menu']      = $theme_options['font-size-below-header-dropdown-menu'];
+			$theme_options['header-font-weight-menu2-sub-menu']    = $theme_options['font-weight-below-header-dropdown-menu'];
+			$theme_options['header-line-height-menu2-sub-menu']    = $theme_options['line-height-below-header-dropdown-menu'];
+			$theme_options['header-font-family-menu2-sub-menu']    = $theme_options['font-family-below-header-dropdown-menu'];
+			$theme_options['header-text-transform-menu2-sub-menu'] = $theme_options['text-transform-below-header-dropdown-menu'];
+			
+			$theme_options['header-menu2-submenu-spacing'] = $theme_options['below-header-submenu-spacing'];
 			break;
 
 		case 'search':
@@ -1378,6 +1494,33 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 	 */
 	$footer_layout = $theme_options['footer-sml-layout'];
 
+	$theme_options['footer-desktop-items'] = array(
+		'above'   =>
+			array(
+				'above_1' => array(),
+				'above_2' => array(),
+				'above_3' => array(),
+				'above_4' => array(),
+				'above_5' => array(),
+			),
+		'primary' =>
+			array(
+				'primary_1' => array(),
+				'primary_2' => array(),
+				'primary_3' => array(),
+				'primary_4' => array(),
+				'primary_5' => array(),
+			),
+		'below'   =>
+			array(
+				'below_1' => array(),
+				'below_2' => array(),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
+			),
+	);
+
 	// Footer Section 1.
 	$footer_section_1   = $theme_options['footer-sml-section-1'];
 	$new_section_1_item = '';
@@ -1417,6 +1560,13 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 				'tablet'  => '',
 				'mobile'  => '',
 			);
+
+			$theme_options['footer-widget-1-content-font-size']      = $theme_options['font-size-footer-content'];
+			$theme_options['footer-widget-1-content-font-weight']    = $theme_options['font-weight-footer-content'];
+			$theme_options['footer-widget-1-content-line-height']    = $theme_options['line-height-footer-content'];
+			$theme_options['footer-widget-1-content-font-family']    = $theme_options['font-family-footer-content'];
+			$theme_options['footer-widget-1-content-text-transform'] = $theme_options['text-transform-footer-content'];
+			
 			break;
 
 		case 'menu':
@@ -1428,6 +1578,8 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 			$new_section_1_item                     = 'footer-menu';
 			break;
 	}
+
+	$used_elements[] = $new_section_1_item;
 
 	// Footer Section 2.
 	$footer_section_2   = $theme_options['footer-sml-section-2'];
@@ -1472,54 +1624,48 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 			break;
 
 		case 'widget':
-			$new_section_2_item = ( 'widget-1' !== $new_section_1_item ) ? 'widget-1' : 'widget-2';
-			if ( 'widget-1' !== $new_section_1_item ) {
-				$theme_options['footer-widget-alignment-1'] = array(
-					'desktop' => 'right',
-					'tablet'  => 'right',
-					'mobile'  => 'center',
-				);
-			} else {
-				$theme_options['footer-widget-alignment-2'] = array(
-					'desktop' => 'right',
-					'tablet'  => 'right',
-					'mobile'  => 'center',
-				);
-			}
-			$theme_options[ 'footer-' . $new_section_2_item . '-color' ]        = array(
+			$new_section_2_item                            = 'widget-2';
+			$theme_options['footer-widget-alignment-2']    = array(
+				'desktop' => 'right',
+				'tablet'  => 'right',
+				'mobile'  => 'center',
+			);
+			$theme_options['footer-widget-2-color']        = array(
 				'desktop' => $theme_options['footer-color'],
 				'tablet'  => '',
 				'mobile'  => '',
 			);
-			$theme_options[ 'footer-' . $new_section_2_item . '-link-color' ]   = array(
+			$theme_options['footer-widget-2-link-color']   = array(
 				'desktop' => $theme_options['footer-link-color'],
 				'tablet'  => '',
 				'mobile'  => '',
 			);
-			$theme_options[ 'footer-' . $new_section_2_item . '-link-h-color' ] = array(
+			$theme_options['footer-widget-2-link-h-color'] = array(
 				'desktop' => $theme_options['footer-link-h-color'],
 				'tablet'  => '',
 				'mobile'  => '',
 			);
+
+			$theme_options['footer-widget-2-content-font-size']      = $theme_options['font-size-footer-content'];
+			$theme_options['footer-widget-2-content-font-weight']    = $theme_options['font-weight-footer-content'];
+			$theme_options['footer-widget-2-content-line-height']    = $theme_options['line-height-footer-content'];
+			$theme_options['footer-widget-2-content-font-family']    = $theme_options['font-family-footer-content'];
+			$theme_options['footer-widget-2-content-text-transform'] = $theme_options['text-transform-footer-content'];
+			
 			break;
 
 		case 'menu':
-			$new_section_2_item = ( 'footer-menu' !== $new_section_1_item ) ? 'footer-menu' : 'widget-3';
-			if ( 'footer-menu' !== $new_section_1_item ) {
-				$theme_options['footer-menu-alignment'] = array(
-					'desktop' => 'flex-end',
-					'tablet'  => 'flex-end',
-					'mobile'  => 'center',
-				);
-			} else {
-				$theme_options['footer-widget-alignment-3'] = array(
-					'desktop' => 'right',
-					'tablet'  => 'right',
-					'mobile'  => 'center',
-				);
-			}
+			$new_section_2_item                     = 'footer-menu';
+			$theme_options['footer-menu-alignment'] = array(
+				'desktop' => 'flex-end',
+				'tablet'  => 'flex-end',
+				'mobile'  => 'center',
+			);
 			break;
 	}
+
+	$used_elements[] = $new_section_2_item;
+
 	if ( '' === $footer_section_1 || '' === $footer_section_2 ) {
 		$theme_options['hbb-footer-column'] = 1;
 		$theme_options['hbb-footer-layout'] = array(
@@ -1536,98 +1682,36 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 		);
 	}
 	switch ( $footer_layout ) {
-		case 'none':
-			$theme_options['footer-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_1' => array(),
-						'above_2' => array(),
-						'above_3' => array(),
-						'above_4' => array(),
-						'above_5' => array(),
-					),
-				'primary' =>
-					array(
-						'primary_1' => array(),
-						'primary_2' => array(),
-						'primary_3' => array(),
-						'primary_4' => array(),
-						'primary_5' => array(),
-					),
-				'below'   =>
-					array(
-						'below_1' => array(),
-						'below_2' => array(),
-						'below_3' => array(),
-						'below_4' => array(),
-						'below_5' => array(),
-					),
-			);
-			break;
-
 		case 'footer-sml-layout-1':
-			$theme_options['footer-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_1' => array(),
-						'above_2' => array(),
-						'above_3' => array(),
-						'above_4' => array(),
-						'above_5' => array(),
-					),
-				'primary' =>
-					array(
-						'primary_1' => array(),
-						'primary_2' => array(),
-						'primary_3' => array(),
-						'primary_4' => array(),
-						'primary_5' => array(),
-					),
-				'below'   =>
-					array(
-						'below_1' => array( $new_section_1_item, $new_section_2_item ),
-						'below_2' => array(),
-						'below_3' => array(),
-						'below_4' => array(),
-						'below_5' => array(),
-					),
+			$theme_options['footer-desktop-items']['below'] = array(
+				'below_1' => array( $new_section_1_item, $new_section_2_item ),
+				'below_2' => array(),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
 			);
 			break;
 
 		case 'footer-sml-layout-2':
-			$theme_options['footer-desktop-items'] = array(
-				'above'   =>
-					array(
-						'above_1' => array(),
-						'above_2' => array(),
-						'above_3' => array(),
-						'above_4' => array(),
-						'above_5' => array(),
-					),
-				'primary' =>
-					array(
-						'primary_1' => array(),
-						'primary_2' => array(),
-						'primary_3' => array(),
-						'primary_4' => array(),
-						'primary_5' => array(),
-					),
-				'below'   =>
-					array(
-						'below_1' => array( $new_section_1_item ),
-						'below_2' => array( $new_section_2_item ),
-						'below_3' => array(),
-						'below_4' => array(),
-						'below_5' => array(),
-					),
+			$theme_options['footer-desktop-items']['below'] = array(
+				'below_1' => array( $new_section_1_item ),
+				'below_2' => array( $new_section_2_item ),
+				'below_3' => array(),
+				'below_4' => array(),
+				'below_5' => array(),
 			);
 			break;
 	}
 
-	$theme_options['hb-footer-layout-width']       = $theme_options['footer-layout-width'];
-	$theme_options['hbb-footer-separator']         = $theme_options['footer-sml-divider'];
-	$theme_options['hbb-footer-top-border-color']  = $theme_options['footer-sml-divider-color'];
-	$theme_options['hbb-footer-bg-obj-responsive'] = $theme_options['footer-bg-obj'];
+	$theme_options['hb-footer-layout-width']               = $theme_options['footer-layout-width'];
+	$theme_options['hbb-footer-separator']                 = $theme_options['footer-sml-divider'];
+	$theme_options['hbb-footer-top-border-color']          = $theme_options['footer-sml-divider-color'];
+	$theme_options['hbb-footer-bg-obj-responsive']         = array(
+		'desktop' => $theme_options['footer-bg-obj'],
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$theme_options['section-below-footer-builder-padding'] = $theme_options['footer-sml-spacing'];
 
 	return array(
 		'theme_options' => $theme_options,
@@ -1758,10 +1842,15 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 
 	$theme_options['hba-footer-separator']                 = $theme_options['footer-adv-border-width'];
 	$theme_options['hba-footer-top-border-color']          = $theme_options['footer-adv-border-color'];
-	$theme_options['hba-footer-bg-obj-responsive']         = $theme_options['footer-adv-bg-obj'];
+	$theme_options['hba-footer-bg-obj-responsive']         = array(
+		'desktop' => $theme_options['footer-adv-bg-obj'],
+		'tablet'  => '',
+		'mobile'  => '',
+	);
 	$theme_options['section-above-footer-builder-padding'] = $theme_options['footer-adv-area-padding'];
 
 	for ( $i = 1; $i <= $column; $i++ ) {
+
 		$theme_options[ 'footer-widget-' . $i . '-title-color' ]  = array(
 			'desktop' => $theme_options['footer-adv-wgt-title-color'],
 			'tablet'  => '',
@@ -1782,6 +1871,18 @@ function astra_footer_widgets_migration( $theme_options, $used_elements ) {
 			'tablet'  => '',
 			'mobile'  => '',
 		);
+
+		$theme_options[ 'footer-widget-' . $i . '-font-size' ]      = $theme_options['footer-adv-wgt-title-font-size'];
+		$theme_options[ 'footer-widget-' . $i . '-font-weight' ]    = $theme_options['footer-adv-wgt-title-font-weight'];
+		$theme_options[ 'footer-widget-' . $i . '-line-height' ]    = $theme_options['footer-adv-wgt-title-line-height'];
+		$theme_options[ 'footer-widget-' . $i . '-font-family' ]    = $theme_options['footer-adv-wgt-title-font-family'];
+		$theme_options[ 'footer-widget-' . $i . '-text-transform' ] = $theme_options['footer-adv-wgt-title-text-transform'];
+
+		$theme_options[ 'footer-widget-' . $i . '-content-font-size' ]      = $theme_options['footer-adv-wgt-content-font-size'];
+		$theme_options[ 'footer-widget-' . $i . '-content-font-weight' ]    = $theme_options['footer-adv-wgt-content-font-weight'];
+		$theme_options[ 'footer-widget-' . $i . '-content-line-height' ]    = $theme_options['footer-adv-wgt-content-line-height'];
+		$theme_options[ 'footer-widget-' . $i . '-content-font-family' ]    = $theme_options['footer-adv-wgt-content-font-family'];
+		$theme_options[ 'footer-widget-' . $i . '-content-text-transform' ] = $theme_options['footer-adv-wgt-content-text-transform'];
 	}
 	
 	return array(
