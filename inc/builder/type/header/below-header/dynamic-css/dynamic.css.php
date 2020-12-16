@@ -26,13 +26,21 @@ add_filter( 'astra_dynamic_theme_css', 'astra_below_header_row_setting', 11 );
  */
 function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	if ( ! is_customize_preview() && ( ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'mobile' ) ) ) {
+		return $dynamic_css;
+	}
+
 	$parse_css = '';
 
 	// Common CSS options.
 	$hbb_header_height  = astra_get_option( 'hbb-header-height' );
-	$hbb_header_height  = astra_get_css_value( $hbb_header_height, 'px' );
 	$hbb_header_divider = astra_get_option( 'hbb-header-separator' );
 	$hbb_border_color   = astra_get_option( 'hbb-header-bottom-border-color' );
+
+	// Header Height.
+	$hbb_header_height_desktop = ( isset( $hbb_header_height['desktop'] ) && ! empty( $hbb_header_height['desktop'] ) ) ? $hbb_header_height['desktop'] : '';
+	$hbb_header_height_tablet  = ( isset( $hbb_header_height['tablet'] ) && ! empty( $hbb_header_height['tablet'] ) ) ? $hbb_header_height['tablet'] : '';
+	$hbb_header_height_mobile  = ( isset( $hbb_header_height['mobile'] ) && ! empty( $hbb_header_height['mobile'] ) ) ? $hbb_header_height['mobile'] : '';
 
 	// Background CSS options.
 	$hbb_header_bg_obj  = astra_get_option( 'hbb-header-bg-obj-responsive' );
@@ -53,11 +61,13 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'border-bottom-style' => 'solid',
 		),
 		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
-			'min-height' => $hbb_header_height,
+			'min-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-below-header-bar .main-header-menu > .menu-item' => array(
-			'height'     => $hbb_header_height,
-			'align-self' => 'center',
+			'line-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
+		),
+		'.ast-desktop .ast-below-header-bar .ast-header-woo-cart, .ast-desktop .ast-below-header-bar .ast-header-edd-cart' => array(
+			'line-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 		),
 	);
 
@@ -78,6 +88,9 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-header-break-point .ast-below-header-bar' => array(
 			'background-color' => esc_attr( $tablet_background ),
 		),
+		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
+			'min-height' => astra_get_css_value( $hbb_header_height_tablet, 'px' ),
+		),
 	);
 	$parse_css .= astra_parse_css( $tablet_bg, '', astra_get_tablet_breakpoint() );
 
@@ -86,6 +99,9 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-below-header-bar'                         => astra_get_responsive_background_obj( $hbb_header_bg_obj, 'mobile' ),
 		'.ast-header-break-point .ast-below-header-bar' => array(
 			'background-color' => esc_attr( $mobile_background ),
+		),
+		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
+			'min-height' => astra_get_css_value( $hbb_header_height_mobile, 'px' ),
 		),
 	);
 	$parse_css .= astra_parse_css( $mobile_bg, '', astra_get_mobile_breakpoint() );
@@ -100,6 +116,8 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$parent_selector = '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header';
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-below-header-bar', 'block' );
 
 	return $dynamic_css;
 }

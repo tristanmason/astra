@@ -28,6 +28,16 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config context general tab config.
+	 *
+	 * @var string[][]
+	 */
+	public static $general_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'general',
+	);
+
+	/**
 	 * Config context design tab.
 	 *
 	 * @var string[][]
@@ -40,6 +50,29 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Config context design tab.
+	 *
+	 * @var string[][]
+	 */
+	public static $design_tab_config = array(
+		'setting' => 'ast_selected_tab',
+		'value'   => 'design',
+	);
+
+	/**
+	 * Config Tablet device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $tablet_device = array(
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
+			'value'    => array( 'tablet' ),
+		),
+	);
+
+	/**
 	 * Config Mobile device context.
 	 *
 	 * @var string[][]
@@ -48,7 +81,71 @@ final class Astra_Builder_Helper {
 		array(
 			'setting'  => 'ast_selected_device',
 			'operator' => 'in',
+			'value'    => array( 'mobile' ),
+		),
+	);
+
+	/**
+	 * Config Mobile device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $responsive_devices = array(
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
 			'value'    => array( 'tablet', 'mobile' ),
+		),
+	);
+
+	/**
+	 * Config Mobile device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $responsive_general_tab = array(
+		array(
+			'setting' => 'ast_selected_tab',
+			'value'   => 'general',
+		),
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => 'in',
+			'value'    => array( 'tablet', 'mobile' ),
+		),
+	);
+
+	/**
+	 * Config Desktop device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $desktop_general_tab = array(
+		array(
+			'setting' => 'ast_selected_tab',
+			'value'   => 'general',
+		),
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => '==',
+			'value'    => 'desktop',
+		),
+	);
+
+	/**
+	 * Config Tablet device context.
+	 *
+	 * @var string[][]
+	 */
+	public static $tablet_general_tab = array(
+		array(
+			'setting' => 'ast_selected_tab',
+			'value'   => 'general',
+		),
+		array(
+			'setting'  => 'ast_selected_device',
+			'operator' => '==',
+			'value'    => 'tablet',
 		),
 	);
 
@@ -64,8 +161,8 @@ final class Astra_Builder_Helper {
 		),
 		array(
 			'setting'  => 'ast_selected_device',
-			'operator' => 'in',
-			'value'    => array( 'tablet', 'mobile' ),
+			'operator' => '==',
+			'value'    => 'mobile',
 		),
 	);
 
@@ -82,6 +179,13 @@ final class Astra_Builder_Helper {
 	 * @var int
 	 */
 	public static $num_of_footer_html;
+
+	/**
+	 *  No. Of. Footer divider.
+	 *
+	 * @var int
+	 */
+	public static $num_of_footer_divider;
 
 	/**
 	 *  No. Of. Header Widgets.
@@ -117,6 +221,13 @@ final class Astra_Builder_Helper {
 	 * @var int
 	 */
 	public static $num_of_header_html;
+
+	/**
+	 *  No. Of. Header divider.
+	 *
+	 * @var int
+	 */
+	public static $num_of_header_divider;
 
 	/**
 	 *  No. Of. Footer Columns.
@@ -206,16 +317,16 @@ final class Astra_Builder_Helper {
 		self::$num_of_header_html = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-html'] : 2;
 		self::$num_of_footer_html = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-html'] : 2;
 
-		self::$num_of_header_menu = 2;
-		// Todo: Update filter on menu support.
-		// defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;.
+		self::$num_of_header_menu = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-menu'] : 2;
 
-
-		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 0;
+		self::$num_of_header_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-widget'] : 2;
 		self::$num_of_footer_widgets = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-widget'] : 4;
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-social-icons'] : 1;
 		self::$num_of_footer_social_icons = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-social-icons'] : 1;
+
+		self::$num_of_header_divider = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['header-divider'] : 0;
+		self::$num_of_footer_divider = defined( 'ASTRA_EXT_VER' ) ? $component_count_by_key['footer-divider'] : 0;
 
 		self::$num_of_footer_columns = defined( 'ASTRA_EXT_VER' ) ? apply_filters( 'astra_footer_column_count', 6 ) : 6;
 
@@ -469,8 +580,29 @@ final class Astra_Builder_Helper {
 				),
 			)
 		);
+		
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
 
-		self::$header_mobile_items             = apply_filters(
+			$woo_cart_name = class_exists( 'Easy_Digital_Downloads' ) ? __( 'Woo Cart', 'astra' ) : __( 'Cart', 'astra' );
+
+			self::$header_desktop_items['woo-cart'] = array(
+				'name'    => $woo_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-woo-cart',
+			);
+		}
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+
+			$edd_cart_name = class_exists( 'Astra_Woocommerce' ) ? __( 'EDD Cart', 'astra' ) : __( 'Cart', 'astra' );
+
+			self::$header_desktop_items['edd-cart'] = array(
+				'name'    => $edd_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-edd-cart',
+			);
+		}
+
+		self::$header_mobile_items = apply_filters(
 			'astra_header_mobile_items',
 			array(
 				'logo'           => array(
@@ -488,8 +620,29 @@ final class Astra_Builder_Helper {
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-trigger',
 				),
+				'mobile-menu'    => array(
+					'name'    => __( 'Mobile Menu', 'astra' ),
+					'icon'    => 'menu-alt',
+					'section' => 'section-header-mobile-menu',
+				),
 			)
 		);
+
+		if ( class_exists( 'Astra_Woocommerce' ) ) {
+			self::$header_mobile_items['woo-cart'] = array(
+				'name'    => $woo_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-woo-cart',
+			);
+		}
+		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+			self::$header_mobile_items['edd-cart'] = array(
+				'name'    => $edd_cart_name,
+				'icon'    => 'cart',
+				'section' => 'section-header-edd-cart',
+			);
+		}
+
 		self::$is_header_footer_builder_active = self::is_header_footer_builder_active();
 
 		add_filter( 'astra_addon_list', array( $this, 'deprecate_old_header_and_footer' ) );
@@ -504,20 +657,50 @@ final class Astra_Builder_Helper {
 	 */
 	public static function get_component_count_by_key() {
 
-		$component_keys_count = apply_filters(
-			'astra_builder_elements_count',
-			array(
-				'header-button'       => 2,
-				'footer-button'       => 2,
-				'header-html'         => 2,
-				'footer-html'         => 2,
-				'header-menu'         => 2,
-				'header-widget'       => 4,
-				'footer-widget'       => 4,
-				'header-social-icons' => 1,
-				'footer-social-icons' => 1,
+		$component_keys_count = array(
+			'header-button'       => 2,
+			'footer-button'       => 2,
+			'header-html'         => 2,
+			'footer-html'         => 2,
+			'header-menu'         => 2,
+			'header-widget'       => 4,
+			'footer-widget'       => 4,
+			'header-social-icons' => 1,
+			'footer-social-icons' => 1,
+			'header-divider'      => 0,
+			'footer-divider'      => 0,
+		);
+
+		$component_keys_count = array_merge(
+			$component_keys_count,
+			apply_filters(
+				'astra_builder_elements_count',
+				$component_keys_count
 			)
 		);
+
+		// Buttons.
+		$component_keys_count['header-button'] = ( 10 >= $component_keys_count['header-button'] ) ? $component_keys_count['header-button'] : 10;
+		$component_keys_count['footer-button'] = ( 10 >= $component_keys_count['footer-button'] ) ? $component_keys_count['footer-button'] : 10;
+
+		// HTML.
+		$component_keys_count['header-html'] = ( 10 >= $component_keys_count['header-html'] ) ? $component_keys_count['header-html'] : 10;
+		$component_keys_count['footer-html'] = ( 10 >= $component_keys_count['footer-html'] ) ? $component_keys_count['footer-html'] : 10;
+
+		// Header Menu.
+		$component_keys_count['header-menu'] = ( 5 >= $component_keys_count['header-menu'] ) ? $component_keys_count['header-menu'] : 5;
+
+		// Widgets.
+		$component_keys_count['header-widget'] = ( 10 >= $component_keys_count['header-widget'] ) ? $component_keys_count['header-widget'] : 10;
+		$component_keys_count['footer-widget'] = ( 10 >= $component_keys_count['footer-widget'] ) ? $component_keys_count['footer-widget'] : 10;
+
+		// Social Icons.
+		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
+		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
+
+		// Divider.
+		$component_keys_count['header-divider'] = ( 10 >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : 10;
+		$component_keys_count['footer-divider'] = ( 10 >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : 10;
 
 		return $component_keys_count;
 	}
@@ -663,7 +846,6 @@ final class Astra_Builder_Helper {
 			}
 		}
 		?>
-
 		<div id="ast-mobile-popup-wrapper">
 			<div id="ast-mobile-popup" class="ast-mobile-popup-drawer <?php echo esc_attr( $side_class ); ?>">
 			<div class="ast-mobile-popup-overlay"></div>
@@ -739,28 +921,6 @@ final class Astra_Builder_Helper {
 	}
 
 	/**
-	 * Check if Zone is empty.
-	 *
-	 * @param string $row row.
-	 * @param string $builder_type the type of the builder.
-	 * @param string $zone Zone.
-	 * @return bool
-	 */
-	public static function is_zone_empty( $row = 'primary', $builder_type = 'header', $zone ) {
-		$sides    = true;
-		$elements = astra_get_option( $builder_type . '-desktop-items' );
-		if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
-
-			if ( isset( $elements[ $row ][ $row . '_' . $zone ] ) &&
-			is_array( $elements[ $row ][ $row . '_' . $zone ] ) && ! empty( $elements[ $row ][ $row . '_' . $zone ] ) ) {
-
-				$sides = false;
-			}
-		}
-		return $sides;
-	}
-
-	/**
 	 * Check if Footer Zone is empty.
 	 *
 	 * @param string $row row.
@@ -803,11 +963,11 @@ final class Astra_Builder_Helper {
 	/**
 	 * Check if component placed on the builder.
 	 *
-	 * @param string  $builder_type builder type.
 	 * @param integer $component_id component id.
+	 * @param string  $builder_type builder type.
 	 * @return bool
 	 */
-	public static function is_component_loaded( $builder_type = 'header', $component_id ) {
+	public static function is_component_loaded( $component_id, $builder_type = 'header' ) {
 
 		$loaded_components = array();
 

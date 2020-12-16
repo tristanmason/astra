@@ -326,19 +326,6 @@ th {
 /*!
  * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  */
-.ast-container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-.ast-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 @media (min-width: 544px) {
   .ast-container {
     max-width: 100%;
@@ -363,14 +350,14 @@ th {
   }
 }
 
-.ast-container-fluid {
+.ast-container-fluid, .ast-container {
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
   padding-left: 20px;
 }
 
-.ast-container-fluid::after {
+.ast-container-fluid::after, .ast-container::after {
   content: "";
   display: table;
   clear: both;
@@ -1693,15 +1680,6 @@ a:hover {
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-  border: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
-}
-
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
@@ -2081,38 +2059,6 @@ textarea,
   font-weight: normal;
 }
 
-/*----------  Elements ----------*/
-/**
- * 2 - Social Follow
- */
-.ast-social-icons {
-  list-style-type: none;
-  margin: 0;
-}
-
-.ast-social-icons li {
-  display: inline-block;
-  padding-left: 15px;
-}
-
-.ast-social-icons li:last-child {
-  padding-left: 0;
-}
-
-.ast-social-icons a {
-  display: block;
-}
-
-.ast-social-icons i {
-  font-style: normal;
-  font-family: fontawesome;
-  font-weight: normal;
-}
-
-.ast-social-icons i:before {
-  font-weight: normal;
-}
-
 /*----------  Media ----------*/
 .single .entry-content .gallery {
   margin-right: -10px;
@@ -2394,8 +2340,6 @@ body {
 }
 
 .main-navigation {
-  -js-display: inline-flex;
-  display: inline-flex;
   height: 100%;
 }
 
@@ -2646,10 +2590,6 @@ body {
 
 .ast-button-wrap .menu-toggle:focus {
   outline: thin dotted;
-}
-
-.main-header-bar-navigation {
-  flex: 1;
 }
 
 .header-main-layout-1 .ast-main-header-bar-alignment {
@@ -3228,11 +3168,56 @@ body .entry-content .wp-block-latest-posts li {
   grid-template-columns: 1fr;
 }
 
+/* Divider component */
+.ast-container[data-section="section-above-header-builder"],
+.ast-container[data-section="section-primary-header-builder"],
+.ast-container[data-section="section-below-header-builder"],
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-left,
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-center,
+.ast-container[data-section="section-above-header-builder"] .site-header-above-section-right,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-left,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-center,
+.ast-container[data-section="section-primary-header-builder"] .site-header-primary-section-right,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-left,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-center,
+.ast-container[data-section="section-below-header-builder"] .site-header-below-section-right {
+  position: relative;
+}
+
+.footer-widget-area.ast-footer-divider-element {
+  position: relative;
+  align-items: center;
+}
+
+.ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
+  width: 100%;
+}
+
+.ast-mobile-popup-content .ast-header-divider-element {
+  justify-content: center;
+}
+
+.ast-header-divider-element {
+  position: relative;
+}
+
+.site-footer-section,
+.ast-fb-divider-layout-vertical.ast-footer-divider-element,
+.ast-hb-divider-layout-vertical.ast-header-divider-element {
+  height: 100%;
+}
+
+.footer-widget-area .ast-divider-wrapper {
+  display: inline-block;
+}
+
+.ast-fb-divider-layout-vertical .ast-divider-layout-vertical,
+.ast-fb-divider-layout-vertical .ast-divider-layout-horizontal {
+  position: absolute;
+}
+
 .ast-builder-layout-element {
   align-items: center;
-  -js-display: flex;
-  display: flex;
-  height: 100%;
 }
 
 .ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:first-child {
@@ -3255,8 +3240,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .site-header-section {
-  -js-display: flex;
-  display: flex;
   height: 100%;
   min-height: 0;
   align-items: center;
@@ -3279,8 +3262,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .site-header-section .ast-builder-menu {
-  -js-display: flex;
-  display: flex;
   align-items: center;
 }
 
@@ -3359,8 +3340,6 @@ body .entry-content .wp-block-latest-posts li {
  * Social Widget.
  */
 .ast-builder-social-element {
-  -js-display: inline-flex;
-  display: inline-flex;
   line-height: 1;
   color: #3a3a3a;
   background: transparent;
@@ -3390,8 +3369,6 @@ body .entry-content .wp-block-latest-posts li {
   width: 17px;
   height: 17px;
   transition: none;
-  -js-display: flex;
-  display: flex;
 }
 
 .ahfb-svg-iconset svg > * {
@@ -3445,6 +3422,12 @@ body .entry-content .wp-block-latest-posts li {
   -moz-osx-font-smoothing: grayscale;
   margin-right: 10px;
   line-height: normal;
+}
+
+.main-header-bar .main-header-bar-navigation,
+.ast-above-header .main-header-bar-navigation,
+.ast-below-header .main-header-bar-navigation {
+  height: 100%;
 }
 
 .ast-nav-menu .sub-menu {
@@ -3814,276 +3797,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   padding-left: 5.5em;
 }
 
-/* Social Icons Official CSS */
-.header-social-inner-wrap.ast-social-color-type-official .ast-twitter,
-.header-social-inner-wrap.ast-social-color-type-official .ast-twitter .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-twitter,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-twitter .social-item-label {
-  background: transparent;
-  color: #7acdee;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-instagram,
-.header-social-inner-wrap.ast-social-color-type-official .ast-instagram .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-instagram,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-instagram .social-item-label {
-  background: transparent;
-  color: #292929;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-linkedin,
-.header-social-inner-wrap.ast-social-color-type-official .ast-linkedin .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-linkedin,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-linkedin .social-item-label {
-  background: transparent;
-  color: #1c86c6;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-facebook_group,
-.header-social-inner-wrap.ast-social-color-type-official .ast-facebook_group .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-facebook_group,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-facebook_group .social-item-label {
-  background: transparent;
-  color: #3D87FB;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-discord,
-.header-social-inner-wrap.ast-social-color-type-official .ast-discord .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-discord,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-discord .social-item-label {
-  background: transparent;
-  color: #7187D4;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-pinterest,
-.header-social-inner-wrap.ast-social-color-type-official .ast-pinterest .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-pinterest,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-pinterest .social-item-label {
-  background: transparent;
-  color: #ea575a;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-dribbble,
-.header-social-inner-wrap.ast-social-color-type-official .ast-dribbble .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-dribbble,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-dribbble .social-item-label {
-  background: transparent;
-  color: #d77ea6;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-behance,
-.header-social-inner-wrap.ast-social-color-type-official .ast-behance .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-behance,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-behance .social-item-label {
-  background: transparent;
-  color: #1B64F6;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-medium,
-.header-social-inner-wrap.ast-social-color-type-official .ast-medium .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-medium,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-medium .social-item-label {
-  background: transparent;
-  color: #292929;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-patreon,
-.header-social-inner-wrap.ast-social-color-type-official .ast-patreon .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-patreon,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-patreon .social-item-label {
-  background: transparent;
-  color: #e65c4b;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-vk,
-.header-social-inner-wrap.ast-social-color-type-official .ast-vk .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-vk,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-vk .social-item-label {
-  background: transparent;
-  color: #5382b6;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-reddit,
-.header-social-inner-wrap.ast-social-color-type-official .ast-reddit .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-reddit,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-reddit .social-item-label {
-  background: transparent;
-  color: #FC471E;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-youtube,
-.header-social-inner-wrap.ast-social-color-type-official .ast-youtube .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-youtube,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-youtube .social-item-label {
-  background: transparent;
-  color: #e96651;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-vimeo,
-.header-social-inner-wrap.ast-social-color-type-official .ast-vimeo .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-vimeo,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-vimeo .social-item-label {
-  background: transparent;
-  color: #8ecfde;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-rss,
-.header-social-inner-wrap.ast-social-color-type-official .ast-rss .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-rss,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-rss .social-item-label {
-  background: transparent;
-  color: #f09124;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-whatsapp,
-.header-social-inner-wrap.ast-social-color-type-official .ast-whatsapp .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-whatsapp,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-whatsapp .social-item-label {
-  background: transparent;
-  color: #5BBA67;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-viber,
-.header-social-inner-wrap.ast-social-color-type-official .ast-viber .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-viber,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-viber .social-item-label {
-  background: transparent;
-  color: #7F509E;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-telegram,
-.header-social-inner-wrap.ast-social-color-type-official .ast-telegram .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-telegram,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-telegram .social-item-label {
-  background: transparent;
-  color: #229CCE;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-xing,
-.header-social-inner-wrap.ast-social-color-type-official .ast-xing .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-xing,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-xing .social-item-label {
-  background: transparent;
-  color: #0A5C5D;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-weibo,
-.header-social-inner-wrap.ast-social-color-type-official .ast-weibo .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-weibo,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-weibo .social-item-label {
-  background: transparent;
-  color: #E41C34;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-tumblr,
-.header-social-inner-wrap.ast-social-color-type-official .ast-tumblr .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-tumblr,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-tumblr .social-item-label {
-  background: transparent;
-  color: #314255;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-qq,
-.header-social-inner-wrap.ast-social-color-type-official .ast-qq .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-qq,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-qq .social-item-label {
-  background: transparent;
-  color: #487FC8;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-wechat,
-.header-social-inner-wrap.ast-social-color-type-official .ast-wechat .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-wechat,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-wechat .social-item-label {
-  background: transparent;
-  color: #2DC121;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-phone,
-.header-social-inner-wrap.ast-social-color-type-official .ast-phone .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-phone,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-phone .social-item-label {
-  background: transparent;
-  color: inherit;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-strava,
-.header-social-inner-wrap.ast-social-color-type-official .ast-strava .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-strava,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-strava .social-item-label {
-  background: transparent;
-  color: #2DC121;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-email,
-.header-social-inner-wrap.ast-social-color-type-official .ast-email .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-email,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-email .social-item-label {
-  background: transparent;
-  color: #ea4335;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-github,
-.header-social-inner-wrap.ast-social-color-type-official .ast-github .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-github,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-github .social-item-label {
-  background: transparent;
-  color: #24292e;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-google_reviews,
-.header-social-inner-wrap.ast-social-color-type-official .ast-google_reviews .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-google_reviews,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-google_reviews .social-item-label {
-  background: transparent;
-  color: #dc4e41;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-wordpress,
-.header-social-inner-wrap.ast-social-color-type-official .ast-wordpress .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-wordpress,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-wordpress .social-item-label {
-  background: transparent;
-  color: #464646;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-yelp,
-.header-social-inner-wrap.ast-social-color-type-official .ast-yelp .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-yelp,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-yelp .social-item-label {
-  background: transparent;
-  color: #af0606;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-facebook,
-.header-social-inner-wrap.ast-social-color-type-official .ast-facebook .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-facebook,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-facebook .social-item-label {
-  color: #557dbc;
-  background: transparent;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-imdb,
-.header-social-inner-wrap.ast-social-color-type-official .ast-imdb .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-imdb,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-imdb .social-item-label {
-  color: #000000;
-  background: #F5C518;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-trip_advisor,
-.header-social-inner-wrap.ast-social-color-type-official .ast-trip_advisor .social-item-label,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-trip_advisor,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-trip_advisor .social-item-label {
-  color: #000000;
-  background: #00aa6c;
-}
-
-.header-social-inner-wrap.ast-social-color-type-official .ast-builder-social-element svg,
-.footer-social-inner-wrap.ast-social-color-type-official .ast-builder-social-element svg {
-  fill: currentColor;
-}
-
 @media screen and (max-width: 921px) {
   .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
     left: calc( 20px - 0.907em);
@@ -4170,8 +3883,8 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 /** Default Spacing for Mobile Header elements except Menu */
-.ast-mobile-popup-content .ast-builder-layout-element:not(.ast-builder-menu),
-.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu) {
+.ast-mobile-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
+.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
   margin: 15px 20px;
 }
 
@@ -4189,6 +3902,37 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   .footer-nav-wrap .astra-footer-horizontal-menu a {
     padding: 0 0.5em;
   }
+}
+
+/** Cart CSS */
+.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-site-header-cart, .ast-header-break-point.astra-hfb-header .ast-site-header-cart {
+  padding: 0;
+}
+
+.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.astra-hfb-header .ast-cart-menu-wrap {
+  width: 2em;
+  height: 2em;
+  font-size: 1.4em;
+  line-height: 2;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
+  width: 2em;
+  height: 2em;
+  font-size: 1.4em;
+  line-height: 2;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu {
+  background-color: transparent;
+}
+
+.ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu .sub-menu {
+  background-color: transparent;
 }
 
 /*----------  Header  ----------*/
@@ -4561,6 +4305,16 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   width: 235px;
 }
 
+.ast-header-search .ast-search-menu-icon.slide-search .search-submit, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-submit {
+  position: unset;
+}
+
+.ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
+  -js-display: flex;
+  display: flex;
+  align-items: center;
+}
+
 .ast-search-icon {
   z-index: 4;
   position: relative;
@@ -4701,6 +4455,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   flex-wrap: unset;
 }
 
+.ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.inline-on-mobile .menu-item.menu-item-has-children {
+  margin-left: 10px;
+}
+
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.inline-on-mobile .menu-item.ast-submenu-expanded > .sub-menu {
   display: block;
   width: 150px;
@@ -4736,7 +4494,7 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.inline-on-mobile .ast-menu-toggle {
-  left: -10px;
+  left: -15px;
 }
 
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.stack-on-mobile {
@@ -5257,281 +5015,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-page-builder-template.single-post .site-content > .ast-container {
   max-width: 100%;
-}
-
-/*----------  Single Post Comment Form Stylesheet  ----------*/
-/**
- *  Comment Form Styles
- *
- *  Content
- *  1 - Textarea Styles
- *  2 - Input Fields Styles
- *  3 - Submit Button Styles
- *  4 - Comment List Styles
-*/
-.comments-count-wrapper {
-  padding: 2em 0;
-}
-
-.comments-count-wrapper .comments-title {
-  font-weight: normal;
-  word-wrap: break-word;
-}
-
-.ast-comment-list {
-  margin: 0;
-  word-wrap: break-word;
-  padding-bottom: 0.5em;
-  list-style: none;
-}
-
-.ast-comment-list li {
-  list-style: none;
-}
-
-.ast-comment-list li.depth-1 .ast-comment,
-.ast-comment-list li.depth-2 .ast-comment {
-  border-bottom: 1px solid #eeeeee;
-}
-
-.ast-comment-list .children {
-  margin-right: 2em;
-}
-
-@media (max-width: 992px) {
-  .ast-comment-list .children {
-    margin-right: 1em;
-  }
-}
-
-.ast-comment-list .comment-respond {
-  padding: 1em 0;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.ast-comment-list .comment-respond .comment-reply-title {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.ast-comment-list .comment-respond p {
-  margin-bottom: .5em;
-}
-
-.ast-comment-list #cancel-comment-reply-link {
-  white-space: nowrap;
-  font-size: 15px;
-  font-size: 1rem;
-  margin-right: 1em;
-}
-
-.ast-comment-list .ast-comment-edit-reply-wrap {
-  -js-display: flex;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.ast-comment-list .ast-edit-link {
-  flex: 1;
-}
-
-.ast-comment-list .comment-awaiting-moderation {
-  margin-bottom: 0;
-}
-
-.ast-comment {
-  padding: 1em 0;
-}
-
-.ast-comment-avatar-wrap {
-  float: right;
-  clear: left;
-  margin-left: 1.33333em;
-}
-
-.ast-comment-avatar-wrap img {
-  border-radius: 50%;
-}
-
-.ast-comment-meta-wrap {
-  float: right;
-  clear: left;
-  padding: 0 0 1.33333em;
-}
-
-.ast-comment-content {
-  clear: both;
-}
-
-.ast-comment-cite-wrap {
-  text-align: right;
-}
-
-.ast-comment-cite-wrap cite {
-  font-style: normal;
-}
-
-.comment-reply-title {
-  padding-top: 1em;
-  font-weight: normal;
-  line-height: 1.65;
-}
-
-.ast-comment-meta {
-  margin-bottom: 0.5em;
-}
-
-.ast-comment-time .timendate,
-.ast-comment-time .reply {
-  margin-left: 0.5em;
-}
-
-.comments-area {
-  border-top: 1px solid #eeeeee;
-  margin-top: 2em;
-  /*  1 - Textarea Styles */
-  /*  2 - Input Fields Styles */
-  /*  4 - Comment List Styles  */
-  /* Comment Cookie concent field aignment */
-}
-
-.comments-area .comment-form-comment {
-  width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.comments-area .comment-notes,
-.comments-area .comment-textarea,
-.comments-area .form-allowed-tags {
-  margin-bottom: 1.5em;
-}
-
-.comments-area .form-submit {
-  margin-bottom: 0;
-}
-
-.comments-area textarea#comment,
-.comments-area .ast-comment-formwrap input[type="text"] {
-  width: 100%;
-  border-radius: 0;
-  vertical-align: middle;
-  margin-bottom: 10px;
-}
-
-.comments-area .no-comments {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-.comments-area p.logged-in-as {
-  margin-bottom: 1em;
-}
-
-.comments-area #wp-comment-cookies-consent {
-  margin-left: 10px;
-}
-
-.ast-separate-container .comments-count-wrapper {
-  background-color: #fff;
-  padding: 2em 6.67em 0;
-}
-
-@media (max-width: 1200px) {
-  .ast-separate-container .comments-count-wrapper {
-    padding: 2em 3.34em;
-  }
-}
-
-.ast-separate-container .comments-area {
-  border-top: 0;
-}
-
-.ast-separate-container .ast-comment-list {
-  padding-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list li {
-  background-color: #fff;
-}
-
-.ast-separate-container .ast-comment-list li.depth-1 {
-  padding: 4em 6.67em;
-  margin-bottom: 2em;
-}
-
-@media (max-width: 1200px) {
-  .ast-separate-container .ast-comment-list li.depth-1 {
-    padding: 3em 3.34em;
-  }
-}
-
-.ast-separate-container .ast-comment-list li.depth-1 .ast-comment {
-  border-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list li.depth-1 .children li {
-  padding-bottom: 0;
-  padding-top: 0;
-  margin-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list li.depth-1 .ast-comment,
-.ast-separate-container .ast-comment-list li.depth-2 .ast-comment {
-  border-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list .comment-respond {
-  padding-top: 0;
-  padding-bottom: 1em;
-  background-color: transparent;
-}
-
-.ast-separate-container .ast-comment-list .pingback p {
-  margin-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list .bypostauthor {
-  padding: 2em;
-  margin-bottom: 1em;
-}
-
-.ast-separate-container .ast-comment-list .bypostauthor .bypostauthor {
-  background: transparent;
-  margin-bottom: 0;
-  padding-left: 0;
-  padding-bottom: 0;
-  padding-top: 0;
-}
-
-.ast-separate-container .ast-comment-list .bypostauthor li {
-  background: transparent;
-  margin-bottom: 0;
-  padding: 0 2em 0 0;
-}
-
-.ast-separate-container .comment-respond {
-  background-color: #fff;
-  padding: 4em 6.67em;
-  border-bottom: 0;
-}
-
-@media (max-width: 1200px) {
-  .ast-separate-container .comment-respond {
-    padding: 3em 2.34em;
-  }
-}
-
-.ast-separate-container .comment-reply-title {
-  padding-top: 0;
-}
-
-.ast-page-builder-template .comments-area {
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 /*--------------------------------------------------------------
