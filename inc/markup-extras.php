@@ -653,9 +653,15 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 
 			<?php astra_masthead_bottom(); ?>
 
+			<?php
+			do_action( 'astra_sticky_header_markup' );
+			do_action( 'astra_bottom_header_after_markup' );
+			?>
+
 		</header><!-- #masthead -->
 
 		<?php
+
 		do_action( 'astra_header_markup_after' );
 
 	}
