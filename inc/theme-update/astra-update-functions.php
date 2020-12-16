@@ -977,6 +977,10 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 	 */
 
 	$above_header_layout                             = $theme_options['above-header-layout'];
+	$above_header_on_mobile = $theme_options['above-header-on-mobile'];
+	$above_header_merge_menu = $theme_options['above-header-merge-menu'];
+	$above_header_swap_mobile = $theme_options['above-header-swap-mobile'];
+
 	$theme_options['hba-header-height']              = array(
 		'desktop' => $theme_options['above-header-height'],
 		'tablet'  => '',
@@ -1189,6 +1193,36 @@ function astra_above_header_builder_migration( $theme_options, $used_elements ) 
 				'above_right'  => array(),
 			);
 			break;
+	}
+
+	if ( $above_header_on_mobile && ( 'menu' === $above_header_section_1 || 'menu' === $above_header_section_2 ) ) {
+
+		$item = ( 'menu' === $above_header_section_1 ) ? $above_header_section_1 : $above_header_section_2;
+
+		if ( $above_header_swap_mobile ) {
+			$temp = $above_header_section_1;
+			$above_header_section_1 = $above_header_section_2;
+			$above_header_section_2 = $temp;
+		}
+
+		if ( $above_header_merge_menu ) {
+
+			$original_popup_content = $theme_options['header-mobile-items']['popup'];
+			$new_popup_content = array_unshift( $original_popup_content, $item );
+
+			$theme_options['header-mobile-items']['popup'] = array( 'popup_content' => $new_popup_content );
+
+		} else {
+
+			$original_content_1 = $theme_options['header-mobile-items']['above']['above_left'];
+			$original_content_2 = $theme_options['header-mobile-items']['above']['above_right'];
+
+			$new_content_1 = ( ( 'menu' === $above_header_section_1 ) ) ? array_unshift( $original_content_1, $above_header_section_1 ) : $original_content_1;
+			$new_content_2 = ( ( 'menu' === $above_header_section_2 ) ) ? array_unshift( $original_content_2, $above_header_section_2 ) : $original_content_2;
+
+			$theme_options['header-mobile-items']['above']['above_left'] = $new_content_1;
+			$theme_options['header-mobile-items']['above']['above_right'] = $new_content_2;
+		}
 	}
 	
 	return array(
