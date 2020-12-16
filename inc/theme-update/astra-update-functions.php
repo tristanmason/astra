@@ -619,12 +619,70 @@ function astra_sticky_header_builder_migration( $theme_options ) {
 
 	if ( $is_html_in_above ) {
 
-		$theme_options['sticky-header-html-3color'] = $theme_options['sticky-above-header-content-section-text-color-responsive'];
+		$theme_options['sticky-header-html-3color'] = $theme_options['sticky-above-header-content-section-text-color-responsive']['desktop'];
 
 	}
 	if ( $is_html_in_below ) {
 
-		$theme_options['sticky-header-html-2color'] = $theme_options['sticky-below-header-content-section-text-color-responsive'];
+		$theme_options['sticky-header-html-2color'] = $theme_options['sticky-below-header-content-section-text-color-responsive']['desktop'];
+
+	}
+	
+	// Sticky Above/Below Header Search.
+	$is_search_in_above = false;
+	$is_search_in_below = false;
+
+	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		if ( false !== array_search( 'search', $zone ) ) {
+			$is_search_in_above = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		if ( false !== array_search( 'search', $zone ) ) {
+			$is_search_in_below = true;
+		}
+	}
+
+	if ( $is_search_in_above ) {
+
+		$theme_options['sticky-header-search-icon-color'] = $theme_options['sticky-above-header-content-section-link-color-responsive']['desktop'];
+
+	}
+	if ( $is_search_in_below ) {
+
+		$theme_options['sticky-header-search-icon-color'] = $theme_options['sticky-below-header-content-section-link-color-responsive']['desktop'];
+
+	}
+
+	// Sticky Above/Below Header Widget.
+	$is_widget_in_above = false;
+	$is_widget_in_below = false;
+
+	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		if ( false !== array_search( 'widget-1', $zone ) ) {
+			$is_widget_in_above = true;
+		}
+	}
+	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		if ( false !== array_search( 'widget-1', $zone ) ) {
+			$is_widget_in_below = true;
+		}
+	}
+
+	if ( $is_widget_in_above ) {
+
+		$theme_options['sticky-header-widget-1-title-color']  = $theme_options['sticky-above-header-content-section-text-color-responsive']['desktop'];
+		$theme_options['sticky-header-widget-1-color']        = $theme_options['sticky-above-header-content-section-text-color-responsive']['desktop'];
+		$theme_options['sticky-header-widget-1-link-color']   = $theme_options['sticky-above-header-content-section-link-color-responsive']['desktop'];
+		$theme_options['sticky-header-widget-1-link-h-color'] = $theme_options['sticky-above-header-content-section-link-h-color-responsive']['desktop'];
+
+	}
+	if ( $is_widget_in_below ) {
+
+		$theme_options['sticky-header-widget-1-title-color']  = $theme_options['sticky-below-header-content-section-text-color-responsive']['desktop'];
+		$theme_options['sticky-header-widget-1-color']        = $theme_options['sticky-below-header-content-section-text-color-responsive']['desktop'];
+		$theme_options['sticky-header-widget-1-link-color']   = $theme_options['sticky-below-header-content-section-link-color-responsive']['desktop'];
+		$theme_options['sticky-header-widget-1-link-h-color'] = $theme_options['sticky-below-header-content-section-link-h-color-responsive']['desktop'];
 
 	}
 	
