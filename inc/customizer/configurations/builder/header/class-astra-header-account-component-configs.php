@@ -206,6 +206,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'choices'   => array(
 					'none' => __( 'None', 'astra' ),
 					'icon' => __( 'Icon', 'astra' ),
+					'text' => __( 'Text', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'partial'   => array(
@@ -236,6 +237,32 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
+			),
+			
+			/**	
+			* Option: Logged Out Text	
+			*/	
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text]',	
+				'default'   => astra_get_option( 'header-account-logged-out-text' ),	
+				'type'      => 'control',	
+				'control'   => 'text',	
+				'section'   => $_section,	
+				'title'     => __( 'Text', 'astra' ),	
+				'priority'  => 203,	
+				'transport' => 'postMessage',	
+				'context'   => array(	
+					array(	
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',	
+						'operator' => '===',	
+						'value'    => 'text',	
+					),	
+					Astra_Builder_Helper::$general_tab_config,	
+				),	
+				'partial'   => array(	
+					'selector'        => '.ast-header-account',	
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),	
+				),	
 			),
 
 			/**
