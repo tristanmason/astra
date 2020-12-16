@@ -597,9 +597,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 
 			if ( 'image' === $config['type'] ) {
-
 				$this->prepare_preload_controls( $config );
-				return;
 			}
 
 			if ( isset( $config['active_callback'] ) ) {
