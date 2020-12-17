@@ -221,6 +221,26 @@
 			}
 		},
 
+		cloneControlsBySection: function (section, clone_index) {
+
+			if ('undefined' != typeof AstraBuilderCustomizerData) {
+				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
+				if (controls) {
+					for (let i = 0; i < controls.length; i++) {
+						let config = controls[i];
+						let clone_id = config.id.replace(/[0-9]/g, clone_index);
+						let control= api.control(clone_id);
+
+						if( control ){
+							control.setting.set( api.control(config.id).setting.get() );
+						}
+
+
+					}
+				}
+			}
+		},
+
 		setControlContextBySection: function (section) {
 
 			// Skip setting context when no tabs added inside section.
@@ -602,7 +622,30 @@
 
 		api.previewer.bind('ready', function () {
 			AstCustomizerAPI.setDefaultControlContext();
+
+			console.error( AstraBuilderCustomizerData.js_configs );
+
 		} );
+
+		document.addEventListener('AstraBuilderCloneComponent', function (e) {
+
+
+
+			let clone_section =  e.detail.clone_section;
+			let clone_from =  e.detail.clone_from;
+			let clone_index =  e.detail.clone_index;
+			AstCustomizerAPI.addSection( clone_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_section] );
+			AstCustomizerAPI.registerControlsBySection( api.section(clone_section) );
+
+
+
+
+			AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from), clone_index )
+
+
+
+
+		});
 
 	});
 

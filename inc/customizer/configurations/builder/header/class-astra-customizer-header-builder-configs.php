@@ -42,6 +42,8 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-hb-button-' . $index,
+				'clone'   => true,
+				'type'    => 'header-button'
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'button-' . $index ] = $item;
@@ -54,6 +56,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-hb-html-' . $index,
+				'clone'   => true
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'html-' . $index ] = $item;

@@ -42,7 +42,7 @@ class Astra_Button_Component_Configs {
 		}
 
 		$html_config = array();
-		for ( $index = 1; $index <= $number_of_button; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$_section = $section . $index;
 			$_prefix  = 'button' . $index;
@@ -63,6 +63,8 @@ class Astra_Button_Component_Configs {
 					/* translators: %s Index */
 					'title'    => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
 					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type' => $builder_type . '-button'
 				),
 
 				/**

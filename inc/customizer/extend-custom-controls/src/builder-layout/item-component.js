@@ -3,7 +3,13 @@ const {Dashicon, Button} = wp.components;
 
 const ItemComponent = props => {
 
-	let choices = ( AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[ props.controlParams.group ] ? AstraBuilderCustomizerData.choices[ props.controlParams.group ] : [] );
+
+
+
+
+
+	let choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[props.controlParams.group] ? AstraBuilderCustomizerData.choices[props.controlParams.group] : []);
+
 
 	return <div className="ahfb-builder-item" data-id={props.item}
 				data-section={undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : ''}
@@ -13,6 +19,19 @@ const ItemComponent = props => {
 				<span className="ahfb-builder-item-text">
 					{undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ''}
 				</span>
+		{
+			choices[props.item]['clone'] &&
+
+		<Button className="ahfb-builder-item-icon" onClick={e => {
+			e.stopPropagation();
+			props.cloneItem(props.item);
+		}}>
+			<Dashicon icon="admin-page"/>
+		</Button>
+		}
+
+
+
 		<Button className="ahfb-builder-item-icon" onClick={e => {
 			e.stopPropagation();
 			props.removeItem(props.item);

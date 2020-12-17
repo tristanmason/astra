@@ -43,15 +43,22 @@ const DropComponent = props => {
 						   className={'ahfb-builder-drop ahfb-builder-sortable-panel ahfb-builder-drop-' + location + loc}
 						   list={items} setList={newState => props.onUpdate(props.row, props.zone + loc, newState)}>
 				{lists.length > 0 && lists.map((item, index) => {
-					return <ItemComponent removeItem={remove => props.removeItem(remove, props.row, props.zone + loc)}
-										  focusItem={focus => props.focusItem(focus)} key={item} index={index}
-										  item={item} controlParams={props.controlParams}/>;
+					return <ItemComponent
+						removeItem={remove => props.removeItem(remove, props.row, props.zone + loc)}
+						cloneItem={remove => props.cloneItem(remove, props.row, props.zone + loc)}
+						focusItem={focus => props.focusItem(focus)} key={item} index={index}
+						item={item} controlParams={props.controlParams}/>;
 				})}
 			</ReactSortable>
-			<AddComponent row={props.row} list={items} settings={props.settings} column={props.zone + loc}
-						  setList={newState => props.onAddItem(props.row, props.zone + loc, newState)} key={location}
+			<AddComponent row={props.row}
+						  list={items}
+						  settings={props.settings}
+						  column={props.zone + loc}
+						  setList={newState => props.onAddItem(props.row, props.zone + loc, newState)}
+						  key={location}
 						  location={location + loc} id={'add' + add_id_loc + '-' + location}
-						  controlParams={props.controlParams} choices={props.choices}/>
+						  controlParams={props.controlParams}
+						  choices={props.choices}/>
 		</Fragment>;
 	};
 

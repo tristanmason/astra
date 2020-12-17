@@ -71,6 +71,7 @@ class Astra_Html_Component_Configs {
 					/* translators: %s Index */
 					'title'    => sprintf( __( 'HTML %s', 'astra' ), $index ),
 					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'component-type' => $builder_type . '-html',
 				),
 
 				/**

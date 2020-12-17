@@ -107,7 +107,58 @@ const BuilderComponent = props => {
 		}
 	};
 
+	const cloneItem = ( item, row, zone ) => {
+
+		let cloneData = Object.assign({},choices[item] ) ,
+			clone_index = AstraBuilderCustomizerData.component_count[ cloneData['type'] ] + 1,
+			clone_section = cloneData['section'].replace(/[0-9]/g, clone_index);
+
+		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
+		cloneData.section = clone_section;
+
+		AstraBuilderCustomizerData.choices[controlParams.group][clone_section] = cloneData;
+		AstraBuilderCustomizerData.component_count[ cloneData['type'] ] = clone_index;
+
+		let event = new CustomEvent(
+			'AstraBuilderCloneComponent', {
+				'detail': {
+					'cloneData': cloneData,
+					'clone_index': clone_index,
+					'clone_section': clone_section,
+					'clone_from' : choices[item]['section']
+				}
+			});
+		document.dispatchEvent(event);
+
+
+		let updateState = state.value;
+		let update = updateState[row];
+
+		let items = update[zone];
+
+		 items.push( clone_section );
+
+		let updateItems = [];
+
+		items.forEach(function(item) {
+			updateItems.push({
+				id: item
+			});
+		});
+
+		setState(prevState => ({
+			...prevState,
+			value: updateState
+		}));
+
+		updateValues(updateState, row);
+
+
+	}
+
 	const removeItem = (item, row, zone) => {
+
+
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
@@ -184,11 +235,13 @@ const BuilderComponent = props => {
 				...prevState,
 				value: updateState
 			}));
+			debugger;
 			updateValues(updateState, row);
 		}
 	};
 
 	const onAddItem = (row, zone, items) => {
+		debugger;
 		onDragEnd(row, zone, items);
 		let event = new CustomEvent('AstraBuilderRemovedBuilderItem', {
 			'detail': controlParams.group
@@ -227,6 +280,7 @@ const BuilderComponent = props => {
 		<RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 					  focusItem={item => focusItem(item)}
 					  removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+					  cloneItem={(remove, row, zone) => cloneItem(remove, row, zone)}
 					  onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
 					  hideDrop={() => onDragStop()}
 					  onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
@@ -241,6 +295,7 @@ const BuilderComponent = props => {
 				return <RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 									 focusItem={item => focusItem(item)}
 									 removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+									 cloneItem={(remove, row, zone) => cloneItem(remove, row, zone)}
 									 hideDrop={() => onDragStop()}
 									 onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
 									 onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
