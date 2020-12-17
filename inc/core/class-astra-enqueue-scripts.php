@@ -129,6 +129,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @return array assets array.
 		 */
 		public static function theme_assets() {
+			global $wp_query;
 
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
@@ -158,6 +159,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 						'astra-theme-css' => 'style',
 					),
 				);
+			}
+
+			if ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) {
+					$default_assets['css']['astra-theme-pagination-css'] = 'blog-pagination';
 			}
 
 			return apply_filters( 'astra_theme_assets', $default_assets );

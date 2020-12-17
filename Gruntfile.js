@@ -126,7 +126,9 @@ module.exports = function (grunt) {
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                     },
-
+                    {
+                        'assets/css/unminified/blog-pagination.css': 'sass/site/blog/blog-pagination.scss',
+                    },
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
