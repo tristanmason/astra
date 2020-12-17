@@ -438,13 +438,13 @@ function astra_header_builder_migration() {
 
 	$options = astra_above_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
-	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'] );
+	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 	
-	// $options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	$options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
-	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'] );
+	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
-	$options = astra_sticky_header_builder_migration( $options['theme_options'] );
+	$options = astra_sticky_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
 	$theme_options  = $options['theme_options'];
 	$widget_options = $options['widget_options'];
@@ -463,7 +463,7 @@ function astra_header_builder_migration() {
  * @param array $theme_options Theme options.
  * @return array
  */
-function astra_sticky_header_builder_migration( $theme_options ) {
+function astra_sticky_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
 
 	// Menu.
 	$is_menu_in_primary = false;
@@ -700,7 +700,9 @@ function astra_sticky_header_builder_migration( $theme_options ) {
 	}
 	
 	return array(
-		'theme_options' => $theme_options,
+		'theme_options'  => $theme_options,
+		'used_elements'  => $used_elements,
+		'widget_options' => $widget_options,
 	);
 }
 
@@ -712,7 +714,7 @@ function astra_sticky_header_builder_migration( $theme_options ) {
  * @param array $used_elements Used Elements array.
  * @return array
  */
-function astra_primary_menu_builder_migration( $theme_options, $used_elements ) {
+function astra_primary_menu_builder_migration( $theme_options, $used_elements, $widget_options ) {
 
 	/**
 	 * Primary Menu.
@@ -783,8 +785,9 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements ) 
 	$theme_options['mobile-header-toggle-border-radius'] = $theme_options['mobile-header-toggle-btn-border-radius'];
 
 	return array(
-		'theme_options' => $theme_options,
-		'used_elements' => $used_elements,
+		'theme_options'  => $theme_options,
+		'used_elements'  => $used_elements,
+		'widget_options' => $widget_options,
 	);
 }
 
@@ -1535,7 +1538,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
  * @param array $used_elements Used Elements array.
  * @return array
  */
-function astra_footer_builder_migration( $theme_options, $used_elements ) {
+function astra_footer_builder_migration( $theme_options, $used_elements, $widget_options ) {
 	/**
 	 * Footer
 	 */
@@ -1761,8 +1764,9 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 	$theme_options['section-below-footer-builder-padding'] = $theme_options['footer-sml-spacing'];
 
 	return array(
-		'theme_options' => $theme_options,
-		'used_elements' => $used_elements,
+		'theme_options'  => $theme_options,
+		'used_elements'  => $used_elements,
+		'widget_options' => $widget_options,
 	);
 }
 
