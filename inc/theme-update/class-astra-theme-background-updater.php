@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.6.1' => array(
 				'astra_gutenberg_media_text_block_css_compatibility',
 			),
-			'2.6.2' => array(
+			'2.6.3' => array(
 				'astra_gutenberg_pattern_compatibility',
 			),
 		);
