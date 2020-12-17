@@ -912,27 +912,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
 
 				$outline_button_css = array(
-					'.wp-block-button .wp-block-button__link' => array(
-						'min-height'  => '45px',
-						'align-items' => 'center',
-						'display'     => 'inline-flex',
-					),
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'border-color'        => esc_attr( $btn_bg_color ),
 						'border-top-width'    => esc_attr( $theme_btn_top_border ),
 						'border-right-width'  => esc_attr( $theme_btn_right_border ),
 						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
 						'border-left-width'   => esc_attr( $theme_btn_left_border ),
-						'padding-top'         => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ) - (int) $theme_btn_top_border, 'px' ),
-						'padding-right'       => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ) - (int) $theme_btn_right_border, 'px' ),
-						'padding-bottom'      => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ) - (int) $theme_btn_bottom_border, 'px' ),
-						'padding-left'        => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ) - (int) $theme_btn_left_border, 'px' ),
 					),
 					'.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
 						'color' => esc_attr( $btn_text_color ),
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-button.is-style-outline .wp-block-button__link:focus' => array(
-						'color'            => esc_attr( $btn_text_hover_color ),
+						'color'            => esc_attr( $btn_text_hover_color ) . ' !important',
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
 					),
@@ -944,10 +935,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Tablet CSS.
 				$outline_button_tablet_css = array(
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'padding-top'    => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ) - (int) $theme_btn_top_border, 'px' ),
-						'padding-right'  => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ) - (int) $theme_btn_right_border, 'px' ),
-						'padding-bottom' => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ) - (int) $theme_btn_bottom_border, 'px' ),
-						'padding-left'   => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ) - (int) $theme_btn_left_border, 'px' ),
+						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+						'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+						'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+						'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
 					),
 				);
 
@@ -956,10 +947,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Mobile CSS.
 				$outline_button_mobile_css = array(
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'padding-top'    => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ) - (int) $theme_btn_top_border, 'px' ),
-						'padding-right'  => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ) - (int) $theme_btn_right_border, 'px' ),
-						'padding-bottom' => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ) - (int) $theme_btn_bottom_border, 'px' ),
-						'padding-left'   => astra_get_css_value( (int) astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ) - (int) $theme_btn_left_border, 'px' ),
+						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+						'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+						'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+						'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
 					),
 				);
 
@@ -1299,27 +1290,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 
 				$global_button_page_builder_desktop = array(
-					'.wp-block-button .wp-block-button__link' => array(
-						'border-style'        => 'solid',
-						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
-						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
-						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
-						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
-						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
-						'background-color'    => esc_attr( $btn_bg_color ),
-						'color'               => esc_attr( $btn_text_color ),
-						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
-						'font-weight'         => esc_attr( $theme_btn_font_weight ),
-						'line-height'         => esc_attr( $theme_btn_line_height ),
-						'text-transform'      => esc_attr( $theme_btn_text_transform ),
-						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
-						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
-						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
-						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-						'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
-					),
 					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
@@ -1345,31 +1315,97 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				if ( self::gutenberg_patterns_compat() ) {
+					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link'] = array(
+						'border-style'        => 'solid',
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
+						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+						'background-color'    => esc_attr( $btn_bg_color ),
+						'color'               => esc_attr( $btn_text_color ),
+						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
+						'font-weight'         => esc_attr( $theme_btn_font_weight ),
+						'line-height'         => esc_attr( $theme_btn_line_height ),
+						'text-transform'      => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding-top'         => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+						'padding-right'       => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+						'padding-bottom'      => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+						'padding-left'        => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
+					);
+
+					$global_button_page_builder_tablet = array(
+						'.wp-block-button .wp-block-button__link' => array(
+							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+							'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+							'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+							'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
+						),
+					);
+
+					$global_button_page_builder_mobile = array(
+						'.wp-block-button .wp-block-button__link' => array(
+							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+							'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+							'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+							'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
+						),
+					);
+				} else {
+					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link'] = array(
+						'border-style'        => 'solid',
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
+						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+						'background-color'    => esc_attr( $btn_bg_color ),
+						'color'               => esc_attr( $btn_text_color ),
+						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
+						'font-weight'         => esc_attr( $theme_btn_font_weight ),
+						'line-height'         => esc_attr( $theme_btn_line_height ),
+						'text-transform'      => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+					);
+
+					$global_button_page_builder_tablet = array(
+						'.wp-block-button .wp-block-button__link' => array(
+							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+						),
+					);
+
+					$global_button_page_builder_mobile = array(
+						'.wp-block-button .wp-block-button__link' => array(
+							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+						),
+					);
+				}
+
 				/* Parse CSS from array() */
 				$parse_css .= astra_parse_css( $global_button_page_builder_desktop );
 
-				$global_button_page_builder_tablet = array(
-					'.wp-block-button .wp-block-button__link' => array(
-						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
-					),
-				);
-
 				/* Parse CSS from array() */
 				$parse_css .= astra_parse_css( $global_button_page_builder_tablet, '', astra_get_tablet_breakpoint() );
-
-				$global_button_page_builder_mobile = array(
-					'.wp-block-button .wp-block-button__link' => array(
-						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
-					),
-				);
 
 				/* Parse CSS from array() */
 				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', astra_get_mobile_breakpoint() );
