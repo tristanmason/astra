@@ -162,7 +162,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'name'     => $_section,
 					'type'     => 'section',
 					'priority' => 5,
-					'title'    => __( 'Woocommerce Cart', 'astra-addon' ),
+					'title'    => __( 'Woocommerce Cart', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
 				),
 
@@ -189,7 +189,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-cart-icon-divider]',
 					'section'  => $_section,
-					'title'    => __( 'Header Cart Icon', 'astra-addon' ),
+					'title'    => __( 'Header Cart Icon', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 30,
