@@ -17346,12 +17346,13 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     }, description);
   }
 
-  var handleSelectChange = function handleSelectChange(value) {
+  var handleRadioChange = function handleRadioChange(value) {
     var obj = _objectSpread({}, state);
 
     obj['patterntype'] = value;
     setState(obj);
     props.control.setting.set(obj);
+    props.customizer.control('astra-settings[text-color]').setting.set(obj[obj.patterntype][0]);
   };
 
   var handleChangeComplete = function handleChangeComplete(color, patterntype, index) {
@@ -17391,6 +17392,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
 
     setState(obj);
     props.control.setting.set(obj);
+    props.customizer.control('astra-settings[text-color]').setting.set(obj[obj.patterntype][0]);
   };
 
   var pattern1html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -17541,9 +17543,10 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
     className: "customizer-text"
-  }, labelHtml), renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["SelectControl"], {
-    className: "ast-color-palette-type",
-    value: state.patterntype,
+  }, labelHtml), renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-color-palette-wrapper"
+  }, pattern1html, pattern2html), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["RadioControl"], {
+    selected: state.patterntype,
     options: [{
       label: 'Pattern 1',
       value: 'pattern1'
@@ -17552,15 +17555,13 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       value: 'pattern2'
     }],
     onChange: function onChange(value) {
-      return handleSelectChange(value);
+      return handleRadioChange(value);
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "ast-color-palette-wrapper"
-  }, state.patterntype == "pattern1" && pattern1html, state.patterntype == "pattern2" && pattern2html), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", {
     type: "hidden",
     "data-palette": JSON.stringify(state[state.patterntype]),
     id: "ast-color-palette-hidden"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, descriptionHtml));
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", null, descriptionHtml));
 };
 
 ColorPaletteComponent.propTypes = {
@@ -17740,7 +17741,7 @@ var ColorComponent = function ColorComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-picker-alpha color-picker-hex"
   }, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    color: state.value,
+    color: undefined !== state.value && state.value ? state.value : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
       return handleChangeComplete(color);
     },

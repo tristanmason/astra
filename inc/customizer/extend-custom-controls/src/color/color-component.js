@@ -7,18 +7,36 @@ const ColorComponent = props => {
 
 	let value = props.control.setting.get();
 	let defaultValue = props.control.params.default;
-
+	
 	const [state, setState] = useState({
 		value: value,
 	});
-
+	
 	const updateValues = (value) => {
+
 		setState(prevState => ({
 			...prevState,
 			value: value
 		}));
 		props.control.setting.set(value);
+	
 	};
+	const updatePaletteState = (e) =>{
+		
+		var current_color;
+		if(props.control.id  == "astra-settings[text-color]"){
+			current_color = e.detail[e.detail.patterntype][0]
+		}else if(props.control.id  == "astra-settings[theme-color]"){
+			current_color = e.detail[e.detail.patterntype][1]
+		}else if(props.control.id  == "astra-settings[link-color]"){
+			current_color = e.detail[e.detail.patterntype][2]
+		}else if(props.control.id  == "astra-settings[link-h-color]"){
+			current_color = e.detail[e.detail.patterntype][3]
+		}
+			
+		updateValues(current_color)
+	}
+	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 
 	const renderOperationButtons = () => {
 		return <span className="customize-control-title">
@@ -72,24 +90,7 @@ const ColorComponent = props => {
 	}
 
 
-	var element =  document.getElementById("ast-color-palette-hidden");
-	if (typeof(element) != 'undefined' && element != null)
-	{
-		var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');
-	}
-	var current_color = state.value
-
-	if(props.control.id  == "astra-settings[text-color]"){
-		current_color = Object.values(JSON.parse(custompalette))[0]
-	}else if(props.control.id  == "astra-settings[theme-color]"){
-		current_color = Object.values(JSON.parse(custompalette))[1]
-	}else if(props.control.id  == "astra-settings[link-color]"){
-		current_color = Object.values(JSON.parse(custompalette))[2]
-	}else if(props.control.id  == "astra-settings[link-h-color]"){
-		current_color = Object.values(JSON.parse(custompalette))[3]
-	}else if(props.control.id  == "astra-settings[heading-base-color]"){
-		current_color = Object.values(JSON.parse(custompalette))[4]
-	}
+	
 
 
 	return <>
@@ -104,6 +105,7 @@ const ColorComponent = props => {
 									 allowGradient={false}
 									 allowImage={false}
 									 defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
+									
 									 />
 									 
 

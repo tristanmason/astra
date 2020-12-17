@@ -4,9 +4,11 @@ import {Fragment} from '@wordpress/element';
 
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
+
 import {useState} from 'react';
 
-import { SelectControl,Dashicon } from '@wordpress/components';
+import { SelectControl,Dashicon,RadioControl } from '@wordpress/components';
+
 
 
 const ColorPaletteComponent = props => {
@@ -36,16 +38,23 @@ const ColorPaletteComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	const handleSelectChange = (value) => {
+	const handleRadioChange = (value) => {
 		let obj = {
 			...state
 		};
 		obj['patterntype'] = value
 		setState(obj)
 		props.control.setting.set( obj );
+
+		var event = new CustomEvent( "colorpaletteglobal", 
+				{ 
+					"detail": obj
+				} 
+			);
+			
+		document.dispatchEvent(event);
 	}
 	const handleChangeComplete = ( color,patterntype,index ) => {
-		
 		let value;
 		
 		
@@ -56,8 +65,9 @@ const ColorPaletteComponent = props => {
 		} else {
 			value = color.hex;
 		}
-	
-
+		
+		
+		
 		updateValues(value,patterntype,index);
 	};
 
@@ -91,8 +101,19 @@ const ColorPaletteComponent = props => {
 			obj['pattern2'] = pattern2
 		}
 		
+		
 		setState(obj)
-		props.control.setting.set( obj );
+		props.control.setting.set( obj );		
+		var passglobalpalette = new CustomEvent( "colorpaletteglobal", 
+				{ 
+					"detail": obj
+				} 
+			);
+			
+		document.dispatchEvent(passglobalpalette);
+		
+
+		
 	};
 
 	var pattern1html = (
@@ -242,28 +263,23 @@ const ColorPaletteComponent = props => {
 			{ labelHtml }
 		</label>
 		{renderOperationButtons()}
-		<SelectControl 
-			className="ast-color-palette-type"
-			value={state.patterntype}
+		
+		<div className="ast-color-palette-wrapper">			
+			{	pattern1html }
+			{	pattern2html }
+		</div>
+		<RadioControl       
+			selected={ state.patterntype }
 			options={ [
 				{ label: 'Pattern 1', value: 'pattern1' },
 				{ label: 'Pattern 2', value: 'pattern2' },
 			] }
-		 	onChange={ value => handleSelectChange(value) }
-		/>
-		
-		<div className="ast-color-palette-wrapper">			
-			{state.patterntype ==  "pattern1" && (
-				pattern1html
-			)}
-			{state.patterntype ==  "pattern2" && (
-				pattern2html
-			)}
-		</div>
+			onChange={ value => handleRadioChange(value) }
+    	/>
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
-		<label>
+		<p>
 			{ descriptionHtml }	
-		</label>
+		</p>
 	</Fragment>;
 };
 

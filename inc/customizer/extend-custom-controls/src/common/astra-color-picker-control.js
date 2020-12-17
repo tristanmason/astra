@@ -116,19 +116,28 @@ class AstraColorPickerControl extends Component {
 		let finalpaletteColors = [];
 		let count = 0;
 
-		var colorpalettevalue = this.props.defautColorPalette;
-				
-		var defaultColorPalette;
+		var defaultdbpalette = wp.customize.control('astra-settings[global-color-palette]').setting.get()
+
+		var defaultColorPalette
 		if(undefined !== colorPalette  && colorPalette &&  "" !== colorPalette ){
-			 defaultColorPalette = [...colorPalette] 
+			defaultColorPalette = [...colorPalette] 
 		}else{
+			var colorpalettevalue = this.props.defautColorPalette;
+			// console.log(colorpalettevalue);
 			if (typeof(colorpalettevalue) != 'undefined' && colorpalettevalue != null)	{
 				defaultColorPalette = colorpalettevalue[colorpalettevalue.patterntype];			
 			}else{
-				defaultColorPalette = [...astColorPalette.colors]
+				defaultColorPalette =  defaultdbpalette[defaultdbpalette.patterntype] 
 			}
 		}
-		defaultColorPalette.forEach( singleColor => {
+		// console.log(defaultdbpalette[defaultdbpalette.patterntype]);
+		var newdefaultpalette 
+		if (Array.isArray(defaultColorPalette)) {
+			newdefaultpalette = defaultColorPalette
+		  }else{
+			newdefaultpalette = Object.values(defaultColorPalette)
+		  }
+		newdefaultpalette.forEach( singleColor => {
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: count + '_' + singleColor } );
 			Object.assign( paletteColors, { color: singleColor } );
@@ -285,6 +294,7 @@ class AstraColorPickerControl extends Component {
 		}
 		this.setState( { backgroundType: 'color' } );
 		this.props.onChangeComplete( color, 'color' );
+		
 	}
 
 	onPaletteChangeComplete( color ) {

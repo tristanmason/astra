@@ -1443,10 +1443,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['global-color-palette'] = array(
 		'pattern1'    => array(
-			'#442288',
-			'#6ca2ea',
-			'#b5d33d',
-			'#fed23f',
+			'#3a3a3a',
+			'#0274be',
+			'#0274be',
+			'#3a3a3a',
 			'#eb7d5b',
 		),
 		'pattern2'    => array(
