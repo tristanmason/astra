@@ -53,8 +53,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$this->remove_existing_actions();
 
-				add_action( 'astra_header', array( $this, 'prepare_header_builder_markup' ) );
-
 				add_action( 'body_class', array( $this, 'add_body_class' ) );
 
 				// Header Desktop Builder.
@@ -156,7 +154,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					if ( $index ) {
 						Astra_Builder_UI_Controller::render_divider_markup( str_replace( '_', '-', $func ) );
 					}
-				}           
+				}
 			}
 		}
 
@@ -171,44 +169,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			do_action( 'astra_header' );
 		}
 
-
-		/**
-		 * Inherit Header base layout.
-		 */
-		public function prepare_header_builder_markup() {
-
-			// Before header markup.
-			do_action( 'astra_header_markup_before' );
-			?>
-			<header
-			<?php
-				echo astra_attr(
-					'header',
-					array(
-						'id'    => 'masthead',
-						'class' => join( ' ', astra_get_header_classes() ),
-					)
-				);
-			?>
-			>
-				<?php 
-				astra_masthead_top();
-
-				astra_masthead();
-
-				astra_masthead_bottom();
-				
-				do_action( 'astra_sticky_header_markup' );
-				do_action( 'astra_bottom_header_after_markup' ); 
-				?>
-			</header><!-- #masthead -->
-
-			<?php
-
-			// After header markup.
-			do_action( 'astra_header_markup_after' );
-		}
-
 		/**
 		 * Remove existing Header to load Header Builder.
 		 *
@@ -217,8 +177,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function remove_existing_actions() {
 			remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
-			remove_action( 'astra_header', 'astra_header_markup' );
-
 			remove_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
 			remove_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
@@ -460,7 +418,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function header_mobile_menu_markup() {
 			Astra_Mobile_Menu_Component::menu_markup();
 		}
-		
+
 		/**
 		 * Defines all constants
 		 *
