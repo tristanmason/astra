@@ -414,6 +414,7 @@ function astra_header_builder_compatibility() {
  */
 function astra_header_builder_migration() {
 
+	return;
 	/**
 	 * All theme options.
 	 */
