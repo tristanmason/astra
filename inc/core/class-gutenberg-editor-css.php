@@ -259,11 +259,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.block-editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large), .edit-post-visual-editor .wp-block-pullquote blockquote' => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
-
-				// Block quote padding.
-				'.edit-post-visual-editor .block-editor-block-list__block.wp-block-quote' => array(
-					'padding' => '1.2em',
-				),
 				// Heading H1 - H6 font size.
 				'.edit-post-visual-editor .block-editor-block-list__block h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1, .edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
 					'font-size'      => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
