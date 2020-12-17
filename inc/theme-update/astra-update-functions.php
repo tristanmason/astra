@@ -414,7 +414,6 @@ function astra_header_builder_compatibility() {
  */
 function astra_header_builder_migration() {
 
-	// return;
 	/**
 	 * All theme options.
 	 */
@@ -430,8 +429,7 @@ function astra_header_builder_migration() {
 		'used_elements'  => $used_elements,
 		'widget_options' => $widget_options,
 	);
-	error_log('hereraj1');
-	error_log( print_r($widget_options, TRUE) );
+	
 	$options = astra_primary_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
 	$options = astra_below_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
@@ -450,8 +448,6 @@ function astra_header_builder_migration() {
 	$widget_options = $options['widget_options'];
 
 	update_option( 'astra-settings', $theme_options );
-	error_log('hereraj2');
-	error_log( print_r($widget_options, TRUE) );
 	update_option( 'sidebars_widgets', $widget_options );
 
 }
@@ -972,8 +968,7 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 
 	// Header - Primary Header - Border Bottom.
 	$theme_options['hb-header-main-sep'] = $theme_options['header-main-sep'];
-	error_log('primary1raj');
-	error_log( print_r($widget_options, TRUE) );
+	
 	return array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
@@ -1245,8 +1240,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 			$theme_options['header-mobile-items']['above']['above_right'] = $new_content_2;
 		}
 	}
-	error_log('above1raj');
-	error_log( print_r($widget_options, TRUE) );
+	
 	return array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
@@ -1521,8 +1515,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			$theme_options['header-mobile-items']['below']['below_right'] = $new_content_2;
 		}
 	}
-	error_log('blv1raj');
-	error_log( print_r($widget_options, TRUE) );
+	
 	return array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
@@ -1946,8 +1939,7 @@ function astra_footer_widgets_migration( $theme_options, $used_elements, $widget
 
 		$widget_options[ 'footer-widget-' . $i ] = $widget_options[ 'advanced-footer-widget-' . $i ];
 	}
-	error_log('footer1raj');
-	error_log( print_r($widget_options, TRUE) );
+	
 	return array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
