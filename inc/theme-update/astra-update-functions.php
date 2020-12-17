@@ -429,20 +429,20 @@ function astra_header_builder_migration() {
 		'used_elements'  => $used_elements,
 		'widget_options' => $widget_options,
 	);
-
+	
 	$options = astra_primary_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
 	$options = astra_below_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
 	$options = astra_above_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
-	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'] );
+	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 	
 	$options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
-	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'] );
+	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
-	$options = astra_sticky_header_builder_migration( $options['theme_options'] );
+	$options = astra_sticky_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
 	$theme_options  = $options['theme_options'];
 	$widget_options = $options['widget_options'];
@@ -457,9 +457,11 @@ function astra_header_builder_migration() {
  *
  * @since 3.0.0
  * @param array $theme_options Theme options.
+ * @param array $used_elements Used Elements array.
+ * @param array $widget_options Widget options.
  * @return array
  */
-function astra_sticky_header_builder_migration( $theme_options ) {
+function astra_sticky_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
 
 	// Menu.
 	$is_menu_in_primary = false;
@@ -696,7 +698,9 @@ function astra_sticky_header_builder_migration( $theme_options ) {
 	}
 	
 	return array(
-		'theme_options' => $theme_options,
+		'theme_options'  => $theme_options,
+		'used_elements'  => $used_elements,
+		'widget_options' => $widget_options,
 	);
 }
 
@@ -706,9 +710,10 @@ function astra_sticky_header_builder_migration( $theme_options ) {
  * @since 3.0.0
  * @param array $theme_options Theme options.
  * @param array $used_elements Used Elements array.
+ * @param array $widget_options Widget options.
  * @return array
  */
-function astra_primary_menu_builder_migration( $theme_options, $used_elements ) {
+function astra_primary_menu_builder_migration( $theme_options, $used_elements, $widget_options ) {
 
 	/**
 	 * Primary Menu.
@@ -779,8 +784,9 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements ) 
 	$theme_options['mobile-header-toggle-border-radius'] = $theme_options['mobile-header-toggle-btn-border-radius'];
 
 	return array(
-		'theme_options' => $theme_options,
-		'used_elements' => $used_elements,
+		'theme_options'  => $theme_options,
+		'used_elements'  => $used_elements,
+		'widget_options' => $widget_options,
 	);
 }
 
@@ -1061,16 +1067,16 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-2' ) ) {
-				$new_above_header_section_1_item = 'html-2';
-				$theme_options['header-html-2']  = $theme_options['above-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-3' ) ) {
+				$new_above_header_section_1_item = 'html-3';
+				$theme_options['header-html-3']  = $theme_options['above-header-section-1-html'];
 			}
 			
 			break;
 
 		case 'widget':
-			if ( ! in_array( $used_elements, 'widget-1' ) ) {
-				$new_above_header_section_1_item   = 'widget-1';
+			if ( ! in_array( $used_elements, 'widget-3' ) ) {
+				$new_above_header_section_1_item   = 'widget-3';
 				$widget_options['header-widget-3'] = $widget_options['above-header-widget-1'];
 			}
 			break;
@@ -1148,16 +1154,16 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-2' ) ) {
-				$new_above_header_section_2_item = 'html-2';
-				$theme_options['header-html-2']  = $theme_options['above-header-section-2-html'];
+			if ( ! in_array( $used_elements, 'html-3' ) ) {
+				$new_above_header_section_2_item = 'html-3';
+				$theme_options['header-html-3']  = $theme_options['above-header-section-2-html'];
 			}
 			
 			break;
 
 		case 'widget':
-			if ( ! in_array( $used_elements, 'widget-1' ) ) {
-				$new_above_header_section_2_item   = 'widget-1';
+			if ( ! in_array( $used_elements, 'widget-3' ) ) {
+				$new_above_header_section_2_item   = 'widget-3';
 				$widget_options['header-widget-3'] = $widget_options['above-header-widget-1'];
 			}
 			break;
@@ -1243,6 +1249,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 		'used_elements'  => $used_elements,
 		'widget_options' => $widget_options,
 	);
+	
 }
 
 /**
@@ -1334,16 +1341,16 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-3' ) ) {
-				$new_below_header_section_1_item = 'html-3';
-				$theme_options['header-html-3']  = $theme_options['below-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-2' ) ) {
+				$new_below_header_section_1_item = 'html-2';
+				$theme_options['header-html-2']  = $theme_options['below-header-section-1-html'];
 			}
 			
 			break;
 
 		case 'widget':
-			if ( ! in_array( $used_elements, 'widget-1' ) ) {
-				$new_below_header_section_1_item   = 'widget-1';
+			if ( ! in_array( $used_elements, 'widget-2' ) ) {
+				$new_below_header_section_1_item   = 'widget-2';
 				$widget_options['header-widget-2'] = $widget_options['below-header-widget-1'];
 			}
 			break;
@@ -1421,16 +1428,16 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-3' ) ) {
-				$new_below_header_section_2_item = 'html-3';
-				$theme_options['header-html-3']  = $theme_options['below-header-section-2-html'];
+			if ( ! in_array( $used_elements, 'html-2' ) ) {
+				$new_below_header_section_2_item = 'html-2';
+				$theme_options['header-html-2']  = $theme_options['below-header-section-2-html'];
 			}
 			
 			break;
 
 		case 'widget':
-			if ( ! in_array( $used_elements, 'widget-1' ) ) {
-				$new_below_header_section_2_item   = 'widget-1';
+			if ( ! in_array( $used_elements, 'widget-2' ) ) {
+				$new_below_header_section_2_item   = 'widget-2';
 				$widget_options['header-widget-2'] = $widget_options['below-header-widget-1'];
 			}
 			break;
@@ -1511,7 +1518,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			$theme_options['header-mobile-items']['below']['below_right'] = $new_content_2;
 		}
 	}
-
+	
 	return array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
@@ -1525,9 +1532,10 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
  * @since 3.0.0
  * @param array $theme_options Theme options.
  * @param array $used_elements Used Elements array.
+ * @param array $widget_options Widget options.
  * @return array
  */
-function astra_footer_builder_migration( $theme_options, $used_elements ) {
+function astra_footer_builder_migration( $theme_options, $used_elements, $widget_options ) {
 	/**
 	 * Footer
 	 */
@@ -1753,8 +1761,9 @@ function astra_footer_builder_migration( $theme_options, $used_elements ) {
 	$theme_options['section-below-footer-builder-padding'] = $theme_options['footer-sml-spacing'];
 
 	return array(
-		'theme_options' => $theme_options,
-		'used_elements' => $used_elements,
+		'theme_options'  => $theme_options,
+		'used_elements'  => $used_elements,
+		'widget_options' => $widget_options,
 	);
 }
 
