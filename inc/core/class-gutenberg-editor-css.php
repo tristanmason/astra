@@ -246,7 +246,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.editor-post-title__block .editor-post-title__input, .wc-block-grid__product-title, .edit-post-visual-editor .block-editor-block-list__block h1, .edit-post-visual-editor .block-editor-block-list__block h2, .edit-post-visual-editor .block-editor-block-list__block h3, .edit-post-visual-editor .block-editor-block-list__block h4, .edit-post-visual-editor .block-editor-block-list__block h5, .edit-post-visual-editor .block-editor-block-list__block h6, .edit-post-visual-editor .wp-block-heading, .edit-post-visual-editor .wp-block-uagb-advanced-heading h1, .edit-post-visual-editor .wp-block-uagb-advanced-heading h2, .edit-post-visual-editor .wp-block-uagb-advanced-heading h3, .edit-post-visual-editor .wp-block-uagb-advanced-heading h4, .edit-post-visual-editor .wp-block-uagb-advanced-heading h5, .edit-post-visual-editor .wp-block-uagb-advanced-heading h6' => array(
 					'color' => esc_attr( $heading_base_color ),
 				),
-
 				// Blockquote Text Color.
 				'blockquote'                              => array(
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
