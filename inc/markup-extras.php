@@ -141,11 +141,11 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function astra_number_pagination() {
-		global $wp_query;
+		global $numpages, $wp_query;
 		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
 		// Don't print empty markup if their is only one page.
-		if ( ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) || ! $enabled ) {
+		if ( ( isset( $numpages ) && $wp_query->max_num_pages < 2 ) || ! $enabled ) {
 			return;
 		}
 
