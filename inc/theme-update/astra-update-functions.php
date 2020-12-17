@@ -440,7 +440,7 @@ function astra_header_builder_migration() {
 
 	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'] );
 	
-	$options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	// $options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
 
 	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'] );
 
@@ -452,7 +452,7 @@ function astra_header_builder_migration() {
 	update_option( 'astra-settings', $theme_options );
 	error_log('hereraj2');
 	error_log( print_r($widget_options, TRUE) );
-	// update_option( 'sidebars_widgets', $widget_options );
+	update_option( 'sidebars_widgets', $widget_options );
 
 }
 
