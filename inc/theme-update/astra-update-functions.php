@@ -815,7 +815,8 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	$new_menu_item                 = '';
 	$new_menu_item_mobile          = '';
 	$new_menu_item_mobile_outside  = '';
-	
+
+	$theme_options['mobile-header-type'] = 'dropdown';
 
 	switch ( $last_menu_item ) {
 		case 'search':
@@ -1571,12 +1572,18 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 	// Footer Section 1.
 	$footer_section_1   = $theme_options['footer-sml-section-1'];
 	$new_section_1_item = '';
+	$used_elements[]    = $new_section_1_item;
+
+	$footer_section_2   = $theme_options['footer-sml-section-2'];
+	$new_section_2_item = '';
+	$used_elements[]    = $new_section_2_item;
+
 	switch ( $footer_section_1 ) {
 		case 'custom':
 			$new_section_1_item                             = 'copyright';
 			$theme_options['footer-copyright-alignment']    = array(
-				'desktop' => 'left',
-				'tablet'  => 'left',
+				'desktop' => ( '' === $new_section_2_item ) ? 'center' : 'left',
+				'tablet'  => ( '' === $new_section_2_item ) ? 'center' : 'left',
 				'mobile'  => 'center',
 			);
 			$theme_options['footer-copyright-editor']       = $theme_options['footer-sml-section-1-credit'];
@@ -1626,11 +1633,7 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 			break;
 	}
 
-	$used_elements[] = $new_section_1_item;
-
 	// Footer Section 2.
-	$footer_section_2   = $theme_options['footer-sml-section-2'];
-	$new_section_2_item = '';
 	switch ( $footer_section_2 ) {
 		case 'custom':
 			$new_section_2_item = ( 'copyright' !== $new_section_1_item ) ? 'copyright' : 'html-1';
@@ -1710,8 +1713,6 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 			);
 			break;
 	}
-
-	$used_elements[] = $new_section_2_item;
 
 	if ( '' === $footer_section_1 || '' === $footer_section_2 ) {
 		$theme_options['hbb-footer-column'] = 1;
