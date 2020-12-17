@@ -791,7 +791,33 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'priority'  => 11,
 						'title'     => __( 'Background Color', 'astra' ),
 					),
+				);
 
+				$_configs = array_merge( $_configs, $_hfb_configs );
+			} else {
+				$_old_content_configs = array(
+					/**
+					 * Option: Header Builder Tabs
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
+						'default'   => astra_get_option( 'transparent-header-colors-content' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Content', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'priority'  => 35,
+						'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					),
+				);
+
+				$_configs = array_merge( $_configs, $_old_content_configs );
+			}
+
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+				$pro_divider_transparent_config = array(
 					/**
 					 * Option: Transparent Header Builder - Divider Elements configs.
 					 */
@@ -822,26 +848,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 				);
 
-				$_configs = array_merge( $_configs, $_hfb_configs );
-			} else {
-				$_old_content_configs = array(
-					/**
-					 * Option: Header Builder Tabs
-					 */
-					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
-						'default'   => astra_get_option( 'transparent-header-colors-content' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Content', 'astra' ),
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'priority'  => 35,
-						'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					),
-				);
-
-				$_configs = array_merge( $_configs, $_old_content_configs );
+				$_configs = array_merge( $_configs, $pro_divider_transparent_config );
 			}
 
 			return array_merge( $configurations, $_configs );
