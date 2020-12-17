@@ -457,6 +457,8 @@ function astra_header_builder_migration() {
  *
  * @since 3.0.0
  * @param array $theme_options Theme options.
+ * @param array $used_elements Used Elements array.
+ * @param array $widget_options Widget options.
  * @return array
  */
 function astra_sticky_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
@@ -708,6 +710,7 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
  * @since 3.0.0
  * @param array $theme_options Theme options.
  * @param array $used_elements Used Elements array.
+ * @param array $widget_options Widget options.
  * @return array
  */
 function astra_primary_menu_builder_migration( $theme_options, $used_elements, $widget_options ) {
@@ -1529,6 +1532,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
  * @since 3.0.0
  * @param array $theme_options Theme options.
  * @param array $used_elements Used Elements array.
+ * @param array $widget_options Widget options.
  * @return array
  */
 function astra_footer_builder_migration( $theme_options, $used_elements, $widget_options ) {
