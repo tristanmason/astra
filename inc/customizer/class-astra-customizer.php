@@ -731,7 +731,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'choices'         => self::get_choices(),
 					'js_configs'      => self::get_js_configs(),
 					'tabbed_sections' => self::get_tabbed_sections(),
-					'is_site_rtl' => is_rtl(),
+					'is_site_rtl'     => is_rtl(),
 				)
 			);
 

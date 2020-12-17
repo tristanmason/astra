@@ -105,8 +105,12 @@
 			});
 			$section.on('click', '.ahfb-builder-tab-toggle', function (e) {
 				e.preventDefault();
-				$section.toggleClass('ahfb-builder-hide');
-				resizePreviewer();
+				api.previewer.container.css({"bottom": '0px'});
+				setTimeout(function () {
+					$section.toggleClass('ahfb-builder-hide');
+					resizePreviewer();
+				}, 120);
+
 			});
 		}
 	};
