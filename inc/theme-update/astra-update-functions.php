@@ -1067,9 +1067,9 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-2' ) ) {
-				$new_above_header_section_1_item = 'html-2';
-				$theme_options['header-html-2']  = $theme_options['above-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-3' ) ) {
+				$new_above_header_section_1_item = 'html-3';
+				$theme_options['header-html-3']  = $theme_options['above-header-section-1-html'];
 			}
 			
 			break;
@@ -1154,9 +1154,9 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-2' ) ) {
-				$new_above_header_section_2_item = 'html-2';
-				$theme_options['header-html-2']  = $theme_options['above-header-section-2-html'];
+			if ( ! in_array( $used_elements, 'html-3' ) ) {
+				$new_above_header_section_2_item = 'html-3';
+				$theme_options['header-html-3']  = $theme_options['above-header-section-2-html'];
 			}
 			
 			break;
@@ -1341,9 +1341,9 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-3' ) ) {
-				$new_below_header_section_1_item = 'html-3';
-				$theme_options['header-html-3']  = $theme_options['below-header-section-1-html'];
+			if ( ! in_array( $used_elements, 'html-2' ) ) {
+				$new_below_header_section_1_item = 'html-2';
+				$theme_options['header-html-2']  = $theme_options['below-header-section-1-html'];
 			}
 			
 			break;
@@ -1428,9 +1428,9 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 			break;
 
 		case 'text-html':
-			if ( ! in_array( $used_elements, 'html-3' ) ) {
-				$new_below_header_section_2_item = 'html-3';
-				$theme_options['header-html-3']  = $theme_options['below-header-section-2-html'];
+			if ( ! in_array( $used_elements, 'html-2' ) ) {
+				$new_below_header_section_2_item = 'html-2';
+				$theme_options['header-html-2']  = $theme_options['below-header-section-2-html'];
 			}
 			
 			break;
