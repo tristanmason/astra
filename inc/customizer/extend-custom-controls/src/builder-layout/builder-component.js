@@ -110,14 +110,25 @@ const BuilderComponent = props => {
 	const cloneItem = ( item, row, zone ) => {
 
 		let cloneData = Object.assign({},choices[item] ) ,
-			clone_index = AstraBuilderCustomizerData.component_count[ cloneData['type'] ] + 1,
-			clone_section = cloneData['section'].replace(/[0-9]/g, clone_index);
+			component_type = cloneData.builder + '-' + cloneData.type,
+			clone_index = AstraBuilderCustomizerData.component_count[ component_type ] + 1,
+			clone_section = cloneData.section.replace(/[0-9]/g, clone_index);
 
 		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
 		cloneData.section = clone_section;
 
-		AstraBuilderCustomizerData.choices[controlParams.group][clone_section] = cloneData;
-		AstraBuilderCustomizerData.component_count[ cloneData['type'] ] = clone_index;
+		let clone_type_id = cloneData.type + '-' + clone_index;
+
+		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
+
+		AstraBuilderCustomizerData.component_count[ component_type ] = clone_index;
+
+		let setting = wp.customize.control('astra-settings[cloned-component-track]').setting;
+
+		setting.set( {
+			...setting.get(),
+			...AstraBuilderCustomizerData.component_count
+		} );
 
 		let event = new CustomEvent(
 			'AstraBuilderCloneComponent', {
@@ -136,7 +147,7 @@ const BuilderComponent = props => {
 
 		let items = update[zone];
 
-		 items.push( clone_section );
+	 	items.push( clone_type_id );
 
 		let updateItems = [];
 
@@ -235,13 +246,13 @@ const BuilderComponent = props => {
 				...prevState,
 				value: updateState
 			}));
-			debugger;
+
 			updateValues(updateState, row);
 		}
 	};
 
 	const onAddItem = (row, zone, items) => {
-		debugger;
+
 		onDragEnd(row, zone, items);
 		let event = new CustomEvent('AstraBuilderRemovedBuilderItem', {
 			'detail': controlParams.group

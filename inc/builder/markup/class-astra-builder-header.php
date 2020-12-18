@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 
 				// Buttons.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 					add_action( 'astra_header_button_' . $index, array( $this, 'button_' . $index ) );
 					self::$methods[] = 'button_' . $index;
 				}

@@ -13,4 +13,3 @@
 	astra_builder_button_css( 'header', AstraBuilderButtonData.header_button_count );
 
 } )( jQuery );
-		

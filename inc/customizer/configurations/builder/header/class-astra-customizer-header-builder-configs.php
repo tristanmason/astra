@@ -43,7 +43,8 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'admin-links',
 				'section' => 'section-hb-button-' . $index,
 				'clone'   => true,
-				'type'    => 'header-button'
+				'type'    => 'button',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'button-' . $index ] = $item;
@@ -56,7 +57,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-hb-html-' . $index,
-				'clone'   => true
+				'clone'   => true,
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'html-' . $index ] = $item;
@@ -160,6 +161,20 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 0,
 				'description' => '',
+			),
+
+			/**
+			 * Header Clone Component Track.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[cloned-component-track]',
+				'section'   => 'section-header-builder-layout',
+				'type'      => 'control',
+				'control'   => 'ast-hidden',
+				'priority'  => 43,
+				'transport' => 'postMessage',
+				'partial'   => false,
+				'default'   => astra_get_option( 'cloned-component-track' ),
 			),
 
 			/**

@@ -477,24 +477,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 
 			unset( $config['type'] );
-			$config['type']                                = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
-			$config['active']                              = true;
-			$config['id']                                  = $section_name;
-			$config['customizeAction']                     = sprintf( 'Customizing ▸ %s', astra_get_prop( $config, 'title' ) );
+			$config['type']            = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
+			$config['active']          = true;
+			$config['id']              = $section_name;
+			$config['customizeAction'] = sprintf( 'Customizing ▸ %s', astra_get_prop( $config, 'title' ) );
 
-		if( isset( $config['clone_type'] ) && isset( $config['clone_index'] ) ) {
+			if ( isset( $config['clone_type'] ) && isset( $config['clone_index'] ) ) {
 
-			if( isset( Astra_Builder_Helper::$component_count_array[$config['clone_type']] ) ) {
-				if( Astra_Builder_Helper::$component_count_array[$config['clone_type']] <= $config['clone_index']  ) {
-					self::$js_configs['clone_sections'][ $section_name ] = $config;
-				} else {
+				if ( isset( Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] ) ) {
+					if ( Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] < $config['clone_index'] ) {
+						self::$js_configs['clone_sections'][ $section_name ] = $config;
+					} else {
+						self::$js_configs['sections'][ $section_name ] = $config;
+					}
+				}           
+			} else {
 				self::$js_configs['sections'][ $section_name ] = $config;
-				}
 			}
-
-		} else {
-			self::$js_configs['sections'][ $section_name ] = $config;
-		}
 
 
 		}
@@ -748,7 +747,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'choices'         => self::get_choices(),
 					'js_configs'      => self::get_js_configs(),
 					'tabbed_sections' => self::get_tabbed_sections(),
-					'component_count' => Astra_Builder_Helper::$component_count_array
+					'component_count' => Astra_Builder_Helper::$component_count_array,
 
 				)
 			);

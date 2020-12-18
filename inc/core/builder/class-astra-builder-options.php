@@ -286,7 +286,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile-unit'  => 'px',
 	);
 
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$_prefix = 'button' . $index;
 
@@ -571,7 +571,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		 * Menu Stack on Mobile.
 		 */
 		$defaults[ 'header-' . $_prefix . '-menu-stack-on-mobile' ] = true;
-		
+
 		/**
 		 * Menu - Typography.
 		 */
@@ -594,7 +594,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults['transparent-header-main-sep']       = '';
 		$defaults['transparent-header-main-sep-color'] = '';
 	}
-	
+
 	/**
 	 * Header Types - Defaults
 	 */
@@ -1303,7 +1303,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	// Widget Header defaults.
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
-		
+
 		// Colors.
 		$defaults[ 'header-widget-' . $index . '-title-color' ] = array(
 			'desktop' => '',
@@ -1395,7 +1395,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		
+
 		/**
 		 * Title Typography.
 		 */
@@ -1521,7 +1521,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'right'  => 0,
 	);
 
-		
+
 		/**
 		 * Menu - Typography.
 		*/
@@ -1537,7 +1537,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-mobile-menu-font-family']    = 'inherit';
 	$defaults['header-mobile-menu-text-transform'] = '';
 	$defaults['header-mobile-menu-line-height']    = '';
-		
+
 	/**
 	 * Woo-Cart.
 	 */
@@ -1555,6 +1555,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['edd-header-cart-icon-radius']   = 3;
 	$defaults['edd-header-cart-total-display'] = true;
 	$defaults['edd-header-cart-title-display'] = true;
+
+	$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
 
 	return $defaults;
 }

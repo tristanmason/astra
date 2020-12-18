@@ -57,14 +57,14 @@ class Astra_Button_Component_Configs {
 					* Header Builder section - Button Component Configs.
 					*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 50,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 50,
 					/* translators: %s Index */
-					'title'    => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
 					'clone_index' => $index,
-					'clone_type' => $builder_type . '-button'
+					'clone_type'  => $builder_type . '-button',
 				),
 
 				/**

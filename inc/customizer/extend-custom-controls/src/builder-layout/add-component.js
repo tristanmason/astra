@@ -13,7 +13,6 @@ const AddComponent = props => {
 
 	const addItem = (item, row, column) => {
 
-		debugger;
 		const {
 			setList,
 			list
@@ -51,7 +50,6 @@ const AddComponent = props => {
 		});
 		return <Fragment key={item}>
 			{available && <Button isTertiary className={'builder-add-btn'} onClick={() => {
-				debugger;
 				addItem(item, props.row, props.column);
 			}}>
 				<span className="add-btn-icon"> <Dashicon

@@ -65,12 +65,12 @@ class Astra_Html_Component_Configs {
 				 * Builder section
 				 */
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 60,
+					'name'           => $_section,
+					'type'           => 'section',
+					'priority'       => 60,
 					/* translators: %s Index */
-					'title'    => sprintf( __( 'HTML %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'          => sprintf( __( 'HTML %s', 'astra' ), $index ),
+					'panel'          => 'panel-' . $builder_type . '-builder-group',
 					'component-type' => $builder_type . '-html',
 				),
 
