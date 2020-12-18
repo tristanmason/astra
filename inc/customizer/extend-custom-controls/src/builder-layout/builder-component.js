@@ -109,6 +109,8 @@ const BuilderComponent = props => {
 
 	const cloneItem = ( item, row, zone ) => {
 
+
+
 		let cloneData = Object.assign({},choices[item] ) ,
 			component_type = cloneData.builder + '-' + cloneData.type,
 			clone_index = AstraBuilderCustomizerData.component_count[ component_type ] + 1,
@@ -116,6 +118,12 @@ const BuilderComponent = props => {
 
 		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
 		cloneData.section = clone_section;
+
+		sessionStorage.setItem('clone-in-progress', JSON.stringify({
+			'clone_index': clone_index,
+			'clone_to_section': clone_section,
+			'clone_from_section' : choices[item]['section']
+		}));
 
 		let clone_type_id = cloneData.type + '-' + clone_index;
 
@@ -130,24 +138,12 @@ const BuilderComponent = props => {
 			...AstraBuilderCustomizerData.component_count
 		} );
 
-		let event = new CustomEvent(
-			'AstraBuilderCloneComponent', {
-				'detail': {
-					'cloneData': cloneData,
-					'clone_index': clone_index,
-					'clone_section': clone_section,
-					'clone_from' : choices[item]['section']
-				}
-			});
-		document.dispatchEvent(event);
-
-
 		let updateState = state.value;
 		let update = updateState[row];
 
 		let items = update[zone];
 
-	 	items.push( clone_type_id );
+		items.push( clone_type_id );
 
 		let updateItems = [];
 
@@ -163,6 +159,9 @@ const BuilderComponent = props => {
 		}));
 
 		updateValues(updateState, row);
+
+
+
 
 
 	}

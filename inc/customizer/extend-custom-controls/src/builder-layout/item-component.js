@@ -3,11 +3,6 @@ const {Dashicon, Button} = wp.components;
 
 const ItemComponent = props => {
 
-
-
-
-
-
 	let choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[props.controlParams.group] ? AstraBuilderCustomizerData.choices[props.controlParams.group] : []);
 
 
@@ -29,8 +24,6 @@ const ItemComponent = props => {
 			<Dashicon icon="admin-page"/>
 		</Button>
 		}
-
-
 
 		<Button className="ahfb-builder-item-icon" onClick={e => {
 			e.stopPropagation();

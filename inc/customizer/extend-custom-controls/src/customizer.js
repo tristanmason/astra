@@ -223,8 +223,6 @@
 
 		cloneControlsBySection: function (section, clone_index) {
 
-			debugger;
-
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
 				if (controls) {
@@ -237,7 +235,6 @@
 						}
 
 						if ('ast-settings-group' === config['type']) {
-							debugger;
 							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
 							if (sub_controls) {
 								for (let i = 0; i < sub_controls.length; i++) {
@@ -250,9 +247,6 @@
 								}
 							}
 						}
-
-
-
 					}
 				}
 			}
@@ -638,27 +632,34 @@
 		AstCustomizerAPI.moveDefaultSection();
 
 		api.previewer.bind('ready', function () {
+
 			AstCustomizerAPI.setDefaultControlContext();
+
+			sessionStorage.removeItem('clone-in-progress');
+
+			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
+				let cloneData = JSON.parse( sessionStorage.getItem('clone-in-progress') );
+				if( ! cloneData ){
+					return;
+				}
+
+				let clone_to_section =  cloneData.clone_to_section,
+					clone_from_section =  cloneData.clone_from_section,
+					clone_from_id =  clone_from_section.match(/\d+$/)[0],
+					clone_index =  cloneData.clone_index;
+
+				AstCustomizerAPI.addSection( clone_to_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section] );
+				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section), clone_from_id );
+				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
+
+				api.section(clone_to_section).expanded.bind(function (isExpanded) {
+					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
+				});
+
+				sessionStorage.removeItem('clone-in-progress');
+
+			} );
 		} );
-
-		document.addEventListener('AstraBuilderCloneComponent', function (e) {
-
-			let clone_section =  e.detail.clone_section;
-			let clone_from =  e.detail.clone_from;
-			let clone_index =  e.detail.clone_index;
-			AstCustomizerAPI.addSection( clone_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_section] );
-			AstCustomizerAPI.registerControlsBySection( api.section(clone_section) );
-
-			AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from), clone_index );
-
-			api.section(clone_section).expanded.bind(function (isExpanded) {
-				AstCustomizerAPI.setControlContextBySection(api.section(clone_section));
-			});
-
-
-
-
-		});
 
 	});
 
