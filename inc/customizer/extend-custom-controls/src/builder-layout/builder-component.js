@@ -26,6 +26,8 @@ const BuilderComponent = props => {
 
 	let choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
+	const component_track = props.customizer.control('astra-settings[cloned-component-track]').setting;
+
 	const [state, setState] = useState({
 		value: value,
 		layout: controlParams.layouts
@@ -107,14 +109,38 @@ const BuilderComponent = props => {
 		}
 	};
 
+	const isCloneEnabled = () => {
+
+		let component_count = component_track.get();
+		Object.keys(component_count).forEach(function( component_type, value) {
+			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
+				let choices = AstraBuilderCustomizerData.choices[controlParams.group];
+				Object.keys(choices).forEach(function(key) {
+					if(  choices[key]['clone'] ) {
+						choices[key]['clone'] = false;
+					}
+				});
+			}
+		});
+	}
+
 	const cloneItem = ( item, row, zone ) => {
 
 
+		let component_count = component_track.get();
 
 		let cloneData = Object.assign({},choices[item] ) ,
 			component_type = cloneData.builder + '-' + cloneData.type,
-			clone_index = AstraBuilderCustomizerData.component_count[ component_type ] + 1,
+			clone_index = component_count[ component_type ] + 1,
 			clone_section = cloneData.section.replace(/[0-9]/g, clone_index);
+
+		let clone_type_id = cloneData.type + '-' + clone_index;
+
+		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
+
+		if( clone_index > AstraBuilderCustomizerData.component_limit ) {
+			return;
+		}
 
 		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
 		cloneData.section = clone_section;
@@ -125,28 +151,17 @@ const BuilderComponent = props => {
 			'clone_from_section' : choices[item]['section']
 		}));
 
-		let clone_type_id = cloneData.type + '-' + clone_index;
 
-		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
 
-		AstraBuilderCustomizerData.component_count[ component_type ] = clone_index;
-
-		let setting = wp.customize.control('astra-settings[cloned-component-track]').setting;
-
-		setting.set( {
-			...setting.get(),
-			...AstraBuilderCustomizerData.component_count
-		} );
+		let updated_count = {};
+		updated_count[ component_type ] = clone_index;
+		component_track.set( { ...component_count, ...updated_count } );
 
 		let updateState = state.value;
 		let update = updateState[row];
-
 		let items = update[zone];
-
 		items.push( clone_type_id );
-
 		let updateItems = [];
-
 		items.forEach(function(item) {
 			updateItems.push({
 				id: item
@@ -159,10 +174,6 @@ const BuilderComponent = props => {
 		}));
 
 		updateValues(updateState, row);
-
-
-
-
 
 	}
 
@@ -284,6 +295,8 @@ const BuilderComponent = props => {
 			props.customizer.section(item).focus();
 		}
 	};
+
+	isCloneEnabled();
 
 	return <div className="ahfb-control-field ahfb-builder-items">
 		{controlParams.rows.includes('popup') &&

@@ -490,7 +490,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					} else {
 						self::$js_configs['sections'][ $section_name ] = $config;
 					}
-				}           
+				}
 			} else {
 				self::$js_configs['sections'][ $section_name ] = $config;
 			}
@@ -747,7 +747,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'choices'         => self::get_choices(),
 					'js_configs'      => self::get_js_configs(),
 					'tabbed_sections' => self::get_tabbed_sections(),
-					'component_count' => Astra_Builder_Helper::$component_count_array,
+					'component_limit' => Astra_Builder_Helper::$component_limit,
 
 				)
 			);
