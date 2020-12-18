@@ -339,12 +339,12 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 						$link_url = $account_link['url'];
 						
-						$new_tab = ( $account_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+						$new_tab = ( $account_link['new_tab'] ? 'target=_blank' : 'target=_self' );
 
-						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel="' . esc_attr( $account_link['link_rel'] ) . '"' : '' );
+						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel=' . esc_attr( $account_link['link_rel'] ) : '' );
 					}
 					
-					$link_href = 'href=' . esc_url( $link_url ) . '';
+					$link_href = 'href=' . esc_url( $link_url );
 
 					$link_classes = 'ast-header-account-link ast-header-account-type-' . $login_profile_type . ' ast-account-action-' . $action_type;
 
@@ -388,9 +388,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
 						$link_url = $login_link['url'];
-						$new_tab  = ( $login_link['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+						$new_tab  = ( $login_link['new_tab'] ? 'target=_blank' : 'target=_self' );
 
-						$link_rel = ( ! empty( $login_link['link_rel'] ) ? 'rel="' . esc_attr( $login_link['link_rel'] ) . '"' : '' );
+						$link_rel = ( ! empty( $login_link['link_rel'] ) ? 'rel=' . esc_attr( $login_link['link_rel'] ) : '' );
 					}
 										
 					$link_href = 'href=' . esc_url( $link_url ) . '';
