@@ -408,6 +408,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							),
 							Astra_Builder_Helper::$general_tab_config,
 						),
+						'transport' => 'postMessage',
 					)
 				);
 			}
