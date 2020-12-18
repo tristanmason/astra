@@ -174,6 +174,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hbb-stack]',
+					'default'   => astra_get_option( 'hbb-stack' ),
+					'type'      => 'control',
+					'control'   => 'ast-responsive-select',
+					'section'   => $_section,
+					'priority'  => 35,
+					'title'     => __( 'Layout', 'astra' ),
+					'choices'   => array(
+						'stack'   => __( 'Stack', 'astra' ),
+						'inline'  => __( 'Inline', 'astra' ),
+					),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+				),
+
 				// Section: Below Footer Border.
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[hbb-footer-separator]',
