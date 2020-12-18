@@ -27,61 +27,28 @@
 --------------------------------------------------------------*/
 html,
 body,
-div,
-span,
-applet,
-object,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
 iframe,
+address,
+hr,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-font,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
+h6 {
   border: 0;
   font-size: 100%;
   font-style: inherit;
@@ -101,37 +68,14 @@ body {
   margin: 0;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
 main,
-menu,
-nav,
-section,
-summary {
+nav {
   display: block;
 }
 
-audio,
-canvas,
-progress,
-video {
+progress {
   display: inline-block;
   vertical-align: baseline;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden],
-template {
-  display: none;
 }
 
 a {
