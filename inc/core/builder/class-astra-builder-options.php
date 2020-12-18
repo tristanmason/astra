@@ -1563,7 +1563,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-account-login-style']              = 'icon';
 	$defaults['header-account-action-type']              = 'link';
 	$defaults['header-account-link-type']                = 'default';
-	$defaults['header-account-logout-style']             = 'none';
+	$defaults['header-account-logout-style']             = 'icon';
 	$defaults['header-account-logged-out-text']          = __( 'Log In', 'astra' );
 	$defaults['header-account-logout-action']            = 'link';
 	$defaults['header-account-menu-container-animation'] = '';
