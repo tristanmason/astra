@@ -802,6 +802,7 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements, $
 function astra_primary_header_builder_migration( $theme_options, $used_elements, $widget_options ) {
 	error_log('Hello World');
 	error_log(print_r(Astra_Theme_Options::defaults(), true));
+	error_log(print_r(count(Astra_Theme_Options::defaults()), true));
 	/**
 	 * Primary Header.
 	 */
