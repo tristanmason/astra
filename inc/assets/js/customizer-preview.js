@@ -141,3 +141,20 @@ function astra_builder_advanced_css( section, selector ) {
     } );
 
 }
+// Single Post Content Width
+wp.customize( 'astra-settings[blog-single-width]', function( value ) {
+    value.bind( function( value ) {
+
+        var single_post_max_width = wp.customize('astra-settings[blog-single-max-width]').get();
+
+        var dynamicStyle = '';
+
+        if ( 'custom' === value ) {
+
+            dynamicStyle += '.single-post .site-content > .ast-container {';
+            dynamicStyle += 'max-width: ' + single_post_max_width + 'px;';
+            dynamicStyle += '} ';
+        }
+        astra_add_dynamic_css( 'blog-single-width', dynamicStyle );
+    } );
+} );
