@@ -52,6 +52,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
+					'transport'   => 'postMessage',
 				),
 
 				/**

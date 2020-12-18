@@ -158,6 +158,7 @@ wp.customize( 'astra-settings[blog-single-width]', function( value ) {
         astra_add_dynamic_css( 'blog-single-width', dynamicStyle );
     } );
 } );
+
 // Blog Post Content Width
 wp.customize( 'astra-settings[blog-width]', function( value ) {
     value.bind( function( value ) {
@@ -175,3 +176,23 @@ wp.customize( 'astra-settings[blog-width]', function( value ) {
         astra_add_dynamic_css( 'blog-width', dynamicStyle );
     } );
 } );
+
+// Blog Post Content Width
+wp.customize( 'astra-settings[edd-archive-grids]', function( value ) {
+    value.bind( function( value ) {
+
+        for ( var i = 1; i < 7; i++ ) {
+            jQuery('body').removeClass( 'columns-' + i );
+            jQuery('body').removeClass( 'tablet-columns-' + i );
+            jQuery('body').removeClass( 'mobile-columns-' + i );
+        }
+
+        if ( jQuery('body').hasClass( 'ast-edd-archive-page' ) ) {
+
+            jQuery('body').addClass( 'columns-' + value['desktop'] );
+            jQuery('body').addClass( 'tablet-columns-' + value['tablet'] );
+            jQuery('body').addClass( 'mobile-columns-' + value['mobile'] );
+        }
+    } );
+} );
+
