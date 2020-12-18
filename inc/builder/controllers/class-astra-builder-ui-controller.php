@@ -329,7 +329,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$account_link = astra_get_option( 'header-account-login-link' );
 
 					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
-						$new_tab = 'target="_self"';
+						$new_tab = 'target=_self';
 						if ( 'woocommerce' == $account_type ) {
 							$link_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
 						} elseif ( 'lifterlms' === $account_type ) {

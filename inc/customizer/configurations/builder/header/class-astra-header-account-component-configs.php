@@ -63,7 +63,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			}
 	
 			if ( class_exists( 'WooCommerce' ) ) {
-				$account_choices['woocommerce'] = __( 'Woo Commerce', 'astra' );
+				$account_choices['woocommerce'] = __( 'WooCommerce', 'astra' );
 			}
 
 			if ( count( $account_choices ) > 1 ) {
