@@ -417,7 +417,7 @@ function astra_header_builder_migration() {
 	/**
 	 * All theme options.
 	 */
-	$theme_options = Astra_Theme_Options::defaults();
+	$theme_options = get_option( 'astra-settings', array() );
 
 	// WordPress sidebar_widgets option.
 	$widget_options = get_option( 'sidebars_widgets', array() );
