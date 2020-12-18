@@ -394,14 +394,16 @@ function astra_header_builder_compatibility() {
 
 	// Set flag to not load button specific CSS.
 	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
+		astra_header_builder_migration();
 		$theme_options['is-header-footer-builder'] = false;
 		update_option( 'astra-settings', $theme_options );
-		astra_header_builder_migration();
+		
 	}
 	if ( ! isset( $theme_options['header-footer-builder-notice'] ) ) {
+		astra_header_builder_migration();
 		$theme_options['header-footer-builder-notice'] = false;
 		update_option( 'astra-settings', $theme_options );
-		astra_header_builder_migration();
+		
 	}
 }
 
