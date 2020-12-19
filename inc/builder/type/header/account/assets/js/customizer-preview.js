@@ -15,38 +15,6 @@
 
 	var selector = '.ast-header-account-wrap';
 
-	// Menu Typography.
-	astra_generate_outside_font_family_css(
-		'astra-settings[header-account-menu-font-family]',
-		selector + ' .ast-account-nav-menu .menu-link'
-	);
-	astra_generate_font_weight_css(
-		'astra-settings[header-account-menu-font-family]',
-		'astra-settings[header-account-menu-font-weight]',
-		'font-weight',
-		selector + ' .ast-account-nav-menu .menu-link'
-	);
-	astra_css(
-		'astra-settings[header-account-menu-text-transform]',
-		'text-transform',
-		selector + ' .ast-account-nav-menu .menu-link'
-	);
-	astra_responsive_font_size(
-		'astra-settings[header-account-menu-font-size]',
-		selector + ' .ast-account-nav-menu .menu-link'
-	);
-	astra_css(
-		'astra-settings[header-account-menu-line-height]',
-		'line-height',
-		selector + ' .ast-account-nav-menu .menu-link'
-	);
-	astra_css(
-		'astra-settings[header-account-menu-letter-spacing]',
-		'letter-spacing',
-		selector + ' .ast-account-nav-menu .menu-link',
-		'px'
-	);
-
 	// Icon Color.
 	astra_css(
 		'astra-settings[header-account-icon-color]',
@@ -65,61 +33,6 @@
 		'astra-settings[header-account-logout-text-color]',
 		'color',
 		selector + ' .ast-header-account-text, .ast-mobile-popup-content ' + selector + ' .ast-header-account-text'
-	);
-
-	// Menu - Border Color.
-	astra_css(
-		'astra-settings[header-account-menu-container-b-color]',
-		'border-color',
-		selector + ' ul '
-	);
-
-	// Menu - Normal Color
-	astra_color_responsive_css(
-		'astra-account-menu-color-preview',
-		'astra-settings[header-account-menu-color-responsive]',
-		'color',
-		selector + ' .main-header-menu .menu-item > .menu-link'
-	);
-
-	// Menu - Hover Color
-	astra_color_responsive_css(
-		'astra-account-menu-h-color-preview',
-		'astra-settings[header-account-menu-h-color-responsive]',
-		'color',
-		selector + ' .menu-item:hover > .menu-link'
-	);
-
-	// Menu - Active Color
-	astra_color_responsive_css(
-		'astra-account-menu-active-color-preview',
-		'astra-settings[header-account-menu-a-color-responsive]',
-		'color',
-		selector + ' .menu-item.current-menu-item > .menu-link'
-	);
-
-	// Menu - Hover Background
-	astra_color_responsive_css(
-		'astra-account-menu-bg-preview',
-		'astra-settings[header-account-menu-bg-obj-responsive]',
-		'background',
-		selector + ' .account-main-navigation ul'
-	);
-
-	// Menu - Hover Background
-	astra_color_responsive_css(
-		'astra-account-menu-bg-preview',
-		'astra-settings[header-account-menu-h-bg-color-responsive]',
-		'background',
-		selector + ' .menu-item:hover > .menu-link'
-	);
-
-	// Menu - Active Background
-	astra_color_responsive_css(
-		'astra-account-menu',
-		'astra-settings[header-account-menu-a-bg-color-responsive]',
-		'background',
-		selector + ' .menu-item.current-menu-item > .menu-link'
 	);
 
 	// Icon Size.
@@ -180,56 +93,6 @@
 				dynamicStyle += '} ';
 				astra_add_dynamic_css( 'header-account-image-width', dynamicStyle );
 			}
-		} );
-	} );
-
-	// Menu 1 > Sub Menu Border Size.
-	wp.customize( 'astra-settings[header-account-menu-container-border]', function( setting ) {
-		setting.bind( function( border ) {
-
-			var dynamicStyle = '.ast-desktop .ast-header-account-wrap ul {';
-			dynamicStyle += 'border-top-width:'  + border.top + 'px;';
-			dynamicStyle += 'border-right-width:'  + border.right + 'px;';
-			dynamicStyle += 'border-left-width:'   + border.left + 'px;';
-			dynamicStyle += 'border-style: solid;';
-			dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-
-			dynamicStyle += '}';
-			astra_add_dynamic_css( 'header-account-menu-container-border', dynamicStyle );
-
-		} );
-	} );
-	
-	// Menu Spacing.
-	wp.customize( 'astra-settings[header-account-menu-spacing]', function( value ) {
-		value.bind( function( padding ) {
-			var dynamicStyle = '';
-			dynamicStyle += '.ast-header-account-wrap .menu-item .menu-link {';
-			dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
-			dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
-			dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
-			dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
-			dynamicStyle += '} ';
-
-			dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-			dynamicStyle += '.ast-header-break-point .ast-header-account-wrap .menu-item .menu-link {';
-			dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
-			dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
-			dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
-			dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
-			dynamicStyle += '} ';
-			dynamicStyle += '} ';
-
-			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-			dynamicStyle += '.ast-header-break-point .ast-header-account-wrap .menu-item .menu-link {';
-			dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
-			dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
-			dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
-			dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
-			dynamicStyle += '} ';
-			dynamicStyle += '} ';
-
-			astra_add_dynamic_css( 'header-account-menu-spacing', dynamicStyle );
 		} );
 	} );
 
