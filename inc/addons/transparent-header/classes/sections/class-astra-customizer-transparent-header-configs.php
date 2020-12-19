@@ -834,10 +834,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 
 					/**
-					* Option: account logged out Color.
+					* Option: account Color.
 					*/
 					array(
-						'name'      => 'transparent-account-logout-text-color',
+						'name'      => 'transparent-account-type-text-color',
 						'default'   => '',
 						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
 						'type'      => 'sub-control',
@@ -846,13 +846,21 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'control'   => 'ast-color',
 						'section'   => 'section-transparent-header',
-						'title'     => __( 'Logged Out Text Color', 'astra' ),
+						'title'     => __( 'Text Color', 'astra' ),
 						'context'   => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-								'operator' => '===',
-								'value'    => 'text',
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '===',
+									'value'    => 'text',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+									'operator' => '===',
+									'value'    => 'text',
+								),
 							),
 						),
 					),

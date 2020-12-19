@@ -241,7 +241,7 @@
 
 	// logged out text Color.
 	astra_css(
-		'astra-settings[transparent-account-logout-text-color]',
+		'astra-settings[transparent-account-type-text-color]',
 		'color',
 		'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text'
 	);

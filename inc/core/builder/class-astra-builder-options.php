@@ -1565,6 +1565,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-account-link-type']                = 'default';
 	$defaults['header-account-logout-style']             = 'icon';
 	$defaults['header-account-logged-out-text']          = __( 'Log In', 'astra' );
+	$defaults['header-account-logged-in-text']          	 = __( 'My Account', 'astra' );
 	$defaults['header-account-logout-action']            = 'link';
 	$defaults['header-account-image-width']              = array(
 		'desktop' => '40',
@@ -1591,7 +1592,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'link_rel' => '',
 	);
 
-	$defaults['header-account-logout-text-font-size'] = array(
+	$defaults['header-account-type-text-font-size'] = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1600,7 +1601,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile-unit'  => 'px',
 	);
 
-	$defaults['header-account-logout-text-color'] = '';
+	$defaults['header-account-type-text-color'] = '';
 
 	return $defaults;
 }

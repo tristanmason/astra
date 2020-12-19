@@ -51,8 +51,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$margin          = astra_get_option( 'header-account-margin' );
 	$margin_selector = '.ast-header-account-wrap';
 
-	$text_font_size = astra_get_option( 'header-account-logout-text-font-size' );
-	$text_color     = astra_get_option( 'header-account-logout-text-color' );
+	$text_font_size = astra_get_option( 'header-account-type-text-font-size' );
+	$text_color     = astra_get_option( 'header-account-type-text-color' );
 	
 	/**
 	 * Account CSS.

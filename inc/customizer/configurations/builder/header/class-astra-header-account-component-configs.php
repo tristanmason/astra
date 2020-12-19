@@ -153,13 +153,41 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'choices'   => array(
 					'icon'   => __( 'Icon', 'astra' ),
 					'avatar' => __( 'Avatar', 'astra' ),
+					'text' => __( 'Text', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'partial'   => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-			), 
+			),
+			
+			/** 
+			* Option: Logged Out Text   
+			*/  
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-in-text]',
+				'default'   => astra_get_option( 'header-account-logged-in-text' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'section'   => $_section,
+				'title'     => __( 'Text', 'astra' ),
+				'priority'  => 3, 
+				'transport' => 'postMessage',
+				'context'   => array(   
+					array(  
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '===',
+						'value'    => 'text',   
+					),
+					Astra_Builder_Helper::$general_tab_config,  
+				),
+				'partial'   => array(   
+					'selector'        => '.ast-header-account', 
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),  
+				),  
+			),
+
 			/**
 			* Option: Account Log In Link
 			*/
@@ -431,22 +459,30 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Logged Out text
+			 * Option: Profile text
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-text-heading]',
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-type-text-heading]',
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Logged Out Text', 'astra' ),
+				'title'    => __( 'Profile Text', 'astra' ),
 				'priority' => 5,
 				'settings' => array(),
 				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '===',
-						'value'    => 'text',
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '===',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '===',
+							'value'    => 'text',
+						),
 					),
 				),
 			),
@@ -455,8 +491,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option:  Logged Out text Typography
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-text-typography]',
-				'default'   => astra_get_option( 'header-account-logout-text-typography' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
+				'default'   => astra_get_option( 'header-account-type-text-typography' ),
 				'type'      => 'control',
 				'control'   => 'ast-settings-group',
 				'title'     => __( 'Typography', 'astra' ),
@@ -465,9 +501,17 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'   => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '===',
-						'value'    => 'text',
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '===',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '===',
+							'value'    => 'text',
+						),
 					),
 				),
 				'priority'  => 5,
@@ -475,9 +519,9 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 
 			// Option: Menu Font Size.
 			array(
-				'name'        => 'header-account-logout-text-font-size',
-				'default'     => astra_get_option( 'header-account-logout-text-font-size' ),
-				'parent'      => ASTRA_THEME_SETTINGS . '[header-account-logout-text-typography]',
+				'name'        => 'header-account-type-text-font-size',
+				'default'     => astra_get_option( 'header-account-type-text-font-size' ),
+				'parent'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
 				'section'     => $_section,
 				'type'        => 'sub-control',
 				'priority'    => 23,
@@ -498,8 +542,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			* Option: account Color.
 			*/
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-text-color]',
-				'default'   => $defaults['header-account-logout-text-color'],
+				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-color]',
+				'default'   => $defaults['header-account-type-text-color'],
 				'type'      => 'control',
 				'section'   => $_section,
 				'priority'  => 5,
@@ -509,9 +553,17 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'   => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '===',
-						'value'    => 'text',
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '===',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '===',
+							'value'    => 'text',
+						),
 					),
 				),
 			),
