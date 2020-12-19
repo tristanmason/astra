@@ -327,6 +327,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$link_type   = astra_get_option( 'header-account-link-type' );
 
 					$account_link = astra_get_option( 'header-account-login-link' );
+					$icon_skin = ( '' !== astra_get_option( 'header-account-icon-type' ) ) ? astra_get_option( 'header-account-icon-type' ) : 'account-1';
 
 					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
 						$new_tab = 'target=_self';
@@ -356,9 +357,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 								echo get_avatar( get_current_user_id() );
 
-							} else { 
-								echo self::fetch_svg_icon( 'account' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+							} else {
+								echo self::fetch_svg_icon( $icon_skin ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							} 
 							?>
 						</a>
