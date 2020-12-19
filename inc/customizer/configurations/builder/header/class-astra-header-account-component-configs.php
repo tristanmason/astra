@@ -135,7 +135,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'  => 'ast-heading',
 				'section'  => $_section,
 				'priority' => 2,
-				'title'    => __( 'Logged In Options', 'astra' ),
+				'title'    => __( 'Logged In View', 'astra' ),
 				'settings' => array(),
 			),
 
@@ -187,7 +187,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Logged Out Options', 'astra' ),
+				'title'    => __( 'Logged Out View', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
 			),
