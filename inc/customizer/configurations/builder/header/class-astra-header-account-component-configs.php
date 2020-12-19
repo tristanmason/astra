@@ -274,7 +274,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,
-				'title'     => __( 'Link', 'astra' ),
+				'title'     => __( 'Enter URL', 'astra' ),
 				'priority'  => 205,
 				'transport' => 'postMessage',
 				'context'   => array(
