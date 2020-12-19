@@ -32,21 +32,6 @@
                 }
             }
         }
-        &.ast-header-account-inner-wrap {
-            .ast-account-nav-menu {
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(0.5em);
-                transition: visibility .2s ease, transform .2s ease;
-            }
-            &.focus .ast-account-nav-menu,
-            &:hover .ast-account-nav-menu {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-                transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
-            }
-        }
     }
 
     /**
@@ -83,21 +68,6 @@
                 }
             }
         }
-        &.ast-header-account-inner-wrap {
-            .ast-account-nav-menu {
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-0.5em);
-                transition: visibility .2s ease, transform .2s ease;
-            }
-            &.focus .ast-account-nav-menu,
-            &:hover .ast-account-nav-menu {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-                transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
-            }
-        }
     }
 
     /**
@@ -129,19 +99,6 @@
                 &:hover > .astra-full-megamenu-wrapper {
                     display: flex;
                 }
-            }
-        }
-        &.ast-header-account-inner-wrap {
-            .ast-account-nav-menu {
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity ease-in-out .3s;
-            }
-            &.focus .ast-account-nav-menu,
-            &:hover .ast-account-nav-menu {
-                opacity: 1;
-                visibility: visible;
-                transition: opacity ease-in-out .3s;
             }
         }
     }

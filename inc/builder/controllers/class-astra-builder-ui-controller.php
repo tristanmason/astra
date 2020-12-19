@@ -347,17 +347,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$link_href = 'href=' . esc_url( $link_url );
 
 					$link_classes = 'ast-header-account-link ast-header-account-type-' . $login_profile_type . ' ast-account-action-' . $action_type;
-
-					$submenu_class = '';
-
-					if ( 'menu' == $action_type && defined( 'ASTRA_EXT_VER' ) ) {
-						// Menu Animation.
-						$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
-						$submenu_class  = ( ! empty( $menu_animation ) ) ? ( ' astra-menu-animation-' . esc_attr( $menu_animation ) ) : '';
-					}
-
 					?>
-					<div class="ast-header-account-inner-wrap<?php echo esc_attr( $submenu_class ); ?>">
+					<div class="ast-header-account-inner-wrap">
 						<a class="<?php echo esc_attr( $link_classes ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
 
 							<?php 

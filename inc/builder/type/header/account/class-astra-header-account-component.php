@@ -47,21 +47,13 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 
 			$theme_location = 'loggedin_account_menu';
 
-			$submenu_class = '';
-
-			// Menu Animation.
-			$menu_animation = astra_get_option( 'header-account-menu-container-animation' );
-			if ( ! empty( $menu_animation ) ) {
-				$submenu_class .= 'astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
-			}
-
 			/**
 			 * Filter the classes(array) for Menu (<ul>).
 			 *
 			 * @since  3.0.0
 			 * @var Array
 			 */
-			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu', $submenu_class ) );
+			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu' ) );
 
 			$items_wrap  = '<nav ';
 			$items_wrap .= astra_attr(
