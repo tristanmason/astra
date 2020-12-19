@@ -126,6 +126,10 @@ const BuilderComponent = props => {
 
 	const cloneItem = ( item, row, zone ) => {
 
+		// Skip clone if already is in progress.
+		if( sessionStorage.getItem('clone-in-progress') ) {
+			return;
+		}
 
 		let component_count = component_track.get();
 
@@ -150,8 +154,6 @@ const BuilderComponent = props => {
 			'clone_to_section': clone_section,
 			'clone_from_section' : choices[item]['section']
 		}));
-
-
 
 		let updated_count = {};
 		updated_count[ component_type ] = clone_index;
