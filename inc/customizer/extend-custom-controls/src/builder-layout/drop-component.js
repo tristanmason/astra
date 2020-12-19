@@ -7,20 +7,23 @@ const {Fragment} = wp.element;
 const DropComponent = props => {
 
 	const location = props.zone.replace(props.row + '_', '');
-	const currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
+	let currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
 	let choices = props.choices;
 	let theItems = [];
 	{
+		let tmp_choices = Object.keys(choices);
+		let tmp_current_list = [];
 		currentList.length > 0 && currentList.map((item, key) => {
-			if (Object.keys(choices).includes(item)) {
+			if (tmp_choices.includes(item)) {
 				theItems.push({
 					id: item
 				});
-			} else {
-				currentList.splice(key, 1);
+				tmp_current_list.push(item);
 			}
 		});
+		currentList = tmp_current_list;
 	}
+
 	const currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
 	let theCenterItems = [];
 	{

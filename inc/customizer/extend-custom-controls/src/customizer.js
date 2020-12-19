@@ -231,7 +231,10 @@
 						let clone_id = config.id.replace(/[0-9]/g, clone_index);
 						let control= api.control(clone_id);
 						if( control ){
-							control.setting.set( api.control(config.id).setting.get() );
+							let val = api.control(config.id).setting.get();
+							if( val ) {
+								control.setting.set( val );
+							}
 						}
 
 						if ('ast-settings-group' === config['type']) {
@@ -242,7 +245,10 @@
 									let sub_clone_id = sub_config.id.replace(/[0-9]/g, clone_index);
 									let sub_control= api.control(sub_clone_id);
 									if( sub_control ){
-										sub_control.setting.set( api.control(sub_config.id).setting.get() );
+										let val = api.control(sub_config.id).setting.get();
+										if( val ) {
+											sub_control.setting.set( val );
+										}
 									}
 								}
 							}

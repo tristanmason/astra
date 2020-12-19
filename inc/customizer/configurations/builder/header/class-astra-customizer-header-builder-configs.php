@@ -42,7 +42,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-hb-button-' . $index,
-				'clone'   => true,
+				'clone'   => defined( 'ASTRA_EXT_VER' ) ? true : false,
 				'type'    => 'button',
 				'builder' => 'header',
 			);
