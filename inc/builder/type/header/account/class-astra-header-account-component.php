@@ -46,6 +46,8 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 		public static function account_menu_markup() {
 
 			$theme_location = 'loggedin_account_menu';
+			$account_type = astra_get_option( 'header-account-type' );
+			$enable_woo_menu = ( 'woocommerce' === $account_type && astra_get_option( 'header-account-woo-menu' ) );
 
 			/**
 			 * Filter the classes(array) for Menu (<ul>).
@@ -85,7 +87,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			// Do not add any CSS from theme except header alignment.
 			echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
 
-			if ( has_nav_menu( $theme_location ) ) {
+			if ( has_nav_menu( $theme_location ) && ! $enable_woo_menu ) {
 				wp_nav_menu(
 					array(
 						'menu_id'         => 'ast-hf-account-menu',
@@ -96,18 +98,28 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 						'theme_location'  => $theme_location,
 					)
 				);
-			} else {
+			} else if( $enable_woo_menu ) {
 				echo '<div class="ast-hf-account-menu-wrap ast-main-header-bar-alignment">';
 					echo '<div class="account-main-header-bar-navigation">';
 						echo '<nav ';
 						echo astra_attr(
-							'site-navigation',
+							'account-woo-navigation',
 							array(
-								'id' => 'site-navigation',
+								'id' => 'account-woo-navigation',
 							)
 						);
-						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
-							wp_page_menu( $fallback_menu_args );
+						echo ' class="ast-flex-grow-1 navigation-accessibility site-header-focus-item" aria-label="' . esc_attr__( 'Account Woo Navigation', 'astra' ) . '">';
+						if ( class_exists( 'woocommerce' ) ) {
+							?>
+								<ul id="ast-hf-account-menu" class="main-header-menu ast-nav-menu ast-account-nav-menu ast-header-account-woocommerce-menu">
+									<?php foreach ( wc_get_account_menu_items() as $endpoint => $item ) { ?>
+										<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+											<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $item ); ?></a>
+										</li>
+									<?php } ?>
+								</ul>
+							<?php
+						}
 						echo '</nav>';
 					echo '</div>';
 				echo '</div>';
