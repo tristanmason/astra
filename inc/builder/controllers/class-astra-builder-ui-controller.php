@@ -418,7 +418,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 										<?php
 										$args = array(
 											'echo'     => true,
-											'redirect' => get_permalink( get_the_ID() ),
 											'remember' => true,
 											'value_remember' => true,
 										);                                      
