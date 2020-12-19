@@ -362,7 +362,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$_prefix = 'button' . $index;
 
@@ -444,7 +444,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		);
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$_section = 'section-hb-html-' . $index;
 
@@ -887,7 +887,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Header > Social Icon Defaults.
 	 */
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$defaults[ 'header-social-' . $index . '-space' ]        = array(
 			'desktop' => '',
@@ -957,7 +957,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Footer > Social Icon Defaults.
 	 */
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_social_icons; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$defaults[ 'footer-social-' . $index . '-space' ]        = array(
 			'desktop' => '',
@@ -1202,7 +1202,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-toggle-border-radius']   = 2;
 
 	// HTML Footer defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$defaults[ 'footer-html-' . $index ] = __( 'Insert HTML text here.', 'astra' );
 
@@ -1254,7 +1254,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 
 	// Divider Footer defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_divider; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$defaults[ 'footer-divider-' . $index . '-layout' ] = 'horizontal';
 		$defaults[ 'footer-divider-' . $index . '-style' ]  = 'solid';
@@ -1281,7 +1281,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 
 	// Divider header defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$defaults[ 'header-divider-' . $index . '-layout' ] = 'vertical';
 		$defaults[ 'header-divider-' . $index . '-style' ]  = 'solid';

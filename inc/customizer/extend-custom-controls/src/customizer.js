@@ -656,7 +656,7 @@
 
 				AstCustomizerAPI.addSection( clone_to_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section] );
 				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section), clone_from_id );
-				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
+				// AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));

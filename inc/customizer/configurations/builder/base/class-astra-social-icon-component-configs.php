@@ -42,7 +42,7 @@ class Astra_Social_Icon_Component_Configs {
 			$number_of_social_icons = Astra_Builder_Helper::$num_of_footer_social_icons;
 		}
 
-		for ( $index = 1; $index <= $number_of_social_icons; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit ; $index++ ) {
 
 			$_section = $section . $index;
 
@@ -373,7 +373,7 @@ class Astra_Social_Icon_Component_Configs {
 			}
 
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
-			
+
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
 				$_section,
 				array(

@@ -42,7 +42,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-hb-button-' . $index,
-				'clone'   => defined( 'ASTRA_EXT_VER' ) ? true : false,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'button',
 				'builder' => 'header',
 			);
@@ -51,13 +51,15 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			Astra_Builder_Helper::$header_mobile_items[ 'button-' . $index ]  = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-hb-html-' . $index,
-				'clone'   => true,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'html-' . $index ] = $item;
@@ -82,6 +84,9 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
 				'icon'    => 'minus',
 				'section' => 'section-hb-divider-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'divider-' . $index ] = $item;
@@ -114,12 +119,15 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ] = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
 				'section' => 'section-hb-social-icons-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'social-icons-' . $index ] = $item;

@@ -73,6 +73,9 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-fb-html-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'footer',
 			);
 		}
 
@@ -91,6 +94,9 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-fb-button-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'footer',
 			);
 		}
 
@@ -100,6 +106,9 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
 				'section' => 'section-fb-social-icons-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'footer',
 			);
 		}
 
@@ -109,6 +118,9 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_divider ) ? 'Divider' : 'Divider ' . $index,
 				'icon'    => 'minus',
 				'section' => 'section-fb-divider-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'footer',
 			);
 		}
 

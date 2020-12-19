@@ -94,17 +94,17 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				}
 
 				// Htmls.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 					add_action( 'astra_header_html_' . $index, array( $this, 'header_html_' . $index ) );
 					self::$methods[] = 'header_html_' . $index;
 				}
 
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
 					self::$methods[] = 'header_social_' . $index;
 				}
 
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 					add_action( 'astra_header_divider_' . $index, array( $this, 'header_divider_' . $index ) );
 					self::$methods[] = 'header_divider_' . $index;
 				}

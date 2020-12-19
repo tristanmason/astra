@@ -43,7 +43,7 @@ class Astra_Html_Component_Configs {
 			$number_of_html = Astra_Builder_Helper::$num_of_footer_html;
 		}
 
-		for ( $index = 1; $index <= $number_of_html; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$_section = $section . $index;
 
