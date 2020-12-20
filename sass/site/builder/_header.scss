@@ -410,13 +410,14 @@
 	}
 	.menu-item {
 		.menu-link {
-			border-bottom-width: 1px;
-			border-color: #eaeaea;
-			border-style: solid;
+			border-style: none;
 			padding: .9em 1em;
 			display: block;
 			word-wrap: break-word;
 		}
+	}
+	.menu-item {
+		border-style: none;
 	}
 	.menu-item.menu-item-has-children>.menu-link:after {
 		position: absolute;

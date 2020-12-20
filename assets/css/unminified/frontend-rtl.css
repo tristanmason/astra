@@ -3472,12 +3472,14 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-account-nav-menu .menu-item .menu-link {
-  border-bottom-width: 1px;
-  border-color: #eaeaea;
-  border-style: solid;
+  border-style: none;
   padding: .9em 1em;
   display: block;
   word-wrap: break-word;
+}
+
+.ast-account-nav-menu .menu-item {
+  border-style: none;
 }
 
 .ast-account-nav-menu .menu-item.menu-item-has-children > .menu-link:after {

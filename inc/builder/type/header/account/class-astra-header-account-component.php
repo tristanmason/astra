@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			/**
 			 * Filter the classes(array) for Menu (<ul>).
 			 *
-			 * @since  3.0.0
+			 * @since  x.x.x
 			 * @var Array
 			 */
 			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu' ) );
@@ -120,6 +120,21 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 								</ul>
 							<?php
 						}
+						echo '</nav>';
+					echo '</div>';
+				echo '</div>';
+			} else {
+				echo '<div class="ast-hf-account-menu-wrap ast-main-header-bar-alignment">';
+					echo '<div class="account-main-header-bar-navigation">';
+						echo '<nav ';
+							echo astra_attr(
+								'site-navigation',
+								array(
+									'id' => 'site-navigation',
+								)
+							);
+							echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';
 				echo '</div>';
