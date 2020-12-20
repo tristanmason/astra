@@ -153,7 +153,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'choices'   => array(
 					'icon'   => __( 'Icon', 'astra' ),
 					'avatar' => __( 'Avatar', 'astra' ),
-					'text' => __( 'Text', 'astra' ),
+					'text'   => __( 'Text', 'astra' ),
 				),
 				'transport' => 'postMessage',
 				'partial'   => array(

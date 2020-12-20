@@ -326,9 +326,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$action_type = astra_get_option( 'header-account-action-type' );
 					$link_type   = astra_get_option( 'header-account-link-type' );
 
-					$account_link = astra_get_option( 'header-account-login-link' );
-					$icon_skin = ( '' !== astra_get_option( 'header-account-icon-type' ) ) ? astra_get_option( 'header-account-icon-type' ) : 'account-1';
-					$logged_in_text        = astra_get_option( 'header-account-logged-in-text' );
+					$account_link   = astra_get_option( 'header-account-login-link' );
+					$icon_skin      = ( '' !== astra_get_option( 'header-account-icon-type' ) ) ? astra_get_option( 'header-account-icon-type' ) : 'account-1';
+					$logged_in_text = astra_get_option( 'header-account-logged-in-text' );
 
 					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
 						$new_tab = 'target=_self';
@@ -358,9 +358,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 								echo get_avatar( get_current_user_id() );
 
-							} else if ( 'icon' === $login_profile_type ) {
+							} elseif ( 'icon' === $login_profile_type ) {
 								echo self::fetch_svg_icon( $icon_skin ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							} else if ( 'text' === $login_profile_type ) { ?>
+							} elseif ( 'text' === $login_profile_type ) { 
+								?>
 								<span class="ast-header-account-text"><?php echo esc_attr( $logged_in_text ); ?></span>
 							<?php } ?>
 						</a>
@@ -378,8 +379,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
 					$logged_out_text        = astra_get_option( 'header-account-logged-out-text' );
 					$login_link             = astra_get_option( 'header-account-logout-link' );
-					$show_lost_password 	= astra_get_option( 'header-account-login-lostpass' );
-					$show_register      	= ( get_option( 'users_can_register' ) && astra_get_option( 'header-account-login-register' ) );
+					$show_lost_password     = astra_get_option( 'header-account-login-lostpass' );
+					$show_register          = ( get_option( 'users_can_register' ) && astra_get_option( 'header-account-login-register' ) );
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
 						$link_url = $login_link['url'];
@@ -426,7 +427,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 												$register_url = wp_registration_url();
 												?>
 												<a class="ast-header-account-footer-link" href="<?php echo esc_url( $register_url ); ?>" >
-													<span class="ast-header-account-register"><?php echo __( 'Register', 'astra'); ?></span>
+													<span class="ast-header-account-register"><?php echo __( 'Register', 'astra' ); ?></span>
 												</a>
 												<?php
 											}
@@ -434,7 +435,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 												$lostpass_url = wp_lostpassword_url();
 												?>
 												<a class="ast-header-account-footer-link" href="<?php echo esc_url( $lostpass_url ); ?>" >
-													<span class="ast-header-account-lostpass"><?php echo __( 'Lost your password?', 'astra'); ?></span>
+													<span class="ast-header-account-lostpass"><?php echo __( 'Lost your password?', 'astra' ); ?></span>
 												</a>
 												<?php
 											}

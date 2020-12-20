@@ -45,8 +45,8 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 		 */
 		public static function account_menu_markup() {
 
-			$theme_location = 'loggedin_account_menu';
-			$account_type = astra_get_option( 'header-account-type' );
+			$theme_location  = 'loggedin_account_menu';
+			$account_type    = astra_get_option( 'header-account-type' );
 			$enable_woo_menu = ( 'woocommerce' === $account_type && astra_get_option( 'header-account-woo-menu' ) );
 
 			/**
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 						'theme_location'  => $theme_location,
 					)
 				);
-			} else if( $enable_woo_menu ) {
+			} elseif ( $enable_woo_menu ) {
 				echo '<div class="ast-hf-account-menu-wrap ast-main-header-bar-alignment">';
 					echo '<div class="account-main-header-bar-navigation">';
 						echo '<nav ';
@@ -109,17 +109,17 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 							)
 						);
 						echo ' class="ast-flex-grow-1 navigation-accessibility site-header-focus-item" aria-label="' . esc_attr__( 'Account Woo Navigation', 'astra' ) . '">';
-						if ( class_exists( 'woocommerce' ) ) {
-							?>
+				if ( class_exists( 'woocommerce' ) ) {
+					?>
 								<ul id="ast-hf-account-menu" class="main-header-menu ast-nav-menu ast-account-nav-menu ast-header-account-woocommerce-menu">
-									<?php foreach ( wc_get_account_menu_items() as $endpoint => $item ) { ?>
+							<?php foreach ( wc_get_account_menu_items() as $endpoint => $item ) { ?>
 										<li class="menu-item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 											<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" class="menu-link"><?php echo esc_html( $item ); ?></a>
 										</li>
 									<?php } ?>
 								</ul>
 							<?php
-						}
+				}
 						echo '</nav>';
 					echo '</div>';
 				echo '</div>';

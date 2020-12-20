@@ -3471,6 +3471,10 @@ body .entry-content .wp-block-latest-posts li {
   right: 100%;
 }
 
+.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active a.menu-link {
+  background-color: unset;
+}
+
 .ast-account-nav-menu .menu-item .menu-link {
   border-style: none;
   padding: .9em 1em;
