@@ -1602,6 +1602,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	$defaults['header-account-type-text-color'] = '';
+	$defaults['header-account-woo-menu'] = false;
 
 	return $defaults;
 }
