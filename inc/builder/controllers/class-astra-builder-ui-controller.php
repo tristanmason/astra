@@ -427,7 +427,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 												$register_url = wp_registration_url();
 												?>
 												<a class="ast-header-account-footer-link" href="<?php echo esc_url( $register_url ); ?>" >
-													<span class="ast-header-account-register"><?php echo __( 'Register', 'astra' ); ?></span>
+													<span class="ast-header-account-register"><?php echo esc_attr( __( 'Register', 'astra' ) ); ?></span>
 												</a>
 												<?php
 											}
@@ -435,13 +435,12 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 												$lostpass_url = wp_lostpassword_url();
 												?>
 												<a class="ast-header-account-footer-link" href="<?php echo esc_url( $lostpass_url ); ?>" >
-													<span class="ast-header-account-lostpass"><?php echo __( 'Lost your password?', 'astra' ); ?></span>
+													<span class="ast-header-account-lostpass"><?php echo esc_attr( __( 'Lost your password?', 'astra' ) ); ?></span>
 												</a>
 												<?php
 											}
 										}
 										?>
-										
 									</div>
 								</div>
 							</div>

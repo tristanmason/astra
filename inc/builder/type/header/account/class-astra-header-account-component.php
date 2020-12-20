@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 					?>
 								<ul id="ast-hf-account-menu" class="main-header-menu ast-nav-menu ast-account-nav-menu ast-header-account-woocommerce-menu">
 							<?php foreach ( wc_get_account_menu_items() as $endpoint => $item ) { ?>
-										<li class="menu-item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+										<li class="menu-item <?php echo esc_attr( wc_get_account_menu_item_classes( $endpoint ) ); ?>">
 											<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" class="menu-link"><?php echo esc_html( $item ); ?></a>
 										</li>
 									<?php } ?>
