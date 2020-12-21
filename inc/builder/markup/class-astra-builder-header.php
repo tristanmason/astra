@@ -81,10 +81,25 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 
-				// Buttons.
+
 				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+
+					// Buttons.
 					add_action( 'astra_header_button_' . $index, array( $this, 'button_' . $index ) );
 					self::$methods[] = 'button_' . $index;
+
+					// Htmls.
+					add_action( 'astra_header_html_' . $index, array( $this, 'header_html_' . $index ) );
+					self::$methods[] = 'header_html_' . $index;
+
+					// Social Icons.
+					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
+					self::$methods[] = 'header_social_' . $index;
+
+					// Dividers.
+					add_action( 'astra_header_divider_' . $index, array( $this, 'header_divider_' . $index ) );
+					self::$methods[] = 'header_divider_' . $index;
+
 				}
 
 				// Menus.
@@ -93,22 +108,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					self::$methods[] = 'menu_' . $index;
 				}
 
-				// Htmls.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-					add_action( 'astra_header_html_' . $index, array( $this, 'header_html_' . $index ) );
-					self::$methods[] = 'header_html_' . $index;
-				}
-
-
-				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
-					self::$methods[] = 'header_social_' . $index;
-				}
-
-				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-					add_action( 'astra_header_divider_' . $index, array( $this, 'header_divider_' . $index ) );
-					self::$methods[] = 'header_divider_' . $index;
-				}
 
 				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );
