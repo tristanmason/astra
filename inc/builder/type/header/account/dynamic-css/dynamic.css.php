@@ -32,6 +32,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$_section  = 'section-header-account';
 	$selector  = '.ast-header-account-wrap';
+	$visibility_selector  = '.ast-header-account[data-section="section-header-account"]';
+
 	$icon_size = astra_get_option( 'header-account-icon-size' );
 
 	$icon_size_desktop = ( isset( $icon_size ) && isset( $icon_size['desktop'] ) && ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;
@@ -133,6 +135,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
 
 	return $dynamic_css;
 }

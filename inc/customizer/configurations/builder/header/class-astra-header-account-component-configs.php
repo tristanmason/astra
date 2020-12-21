@@ -606,6 +606,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 		);
 
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
+
 		return array_merge( $configurations, $_configs );
 	}
 }

@@ -14,6 +14,8 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	var selector = '.ast-header-account-wrap';
+    var section = 'section-header-account';
+	var visibility_selector = '.ast-header-account[data-section="section-header-account"]';
 
 	// Icon Color.
 	astra_css(
@@ -133,6 +135,9 @@
                 astra_add_dynamic_css( 'header-account-margin', dynamicStyle );
             }
         } );
-    } );
+	} );	
+	
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( section, visibility_selector );
 
 } )( jQuery );
