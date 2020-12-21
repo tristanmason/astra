@@ -808,12 +808,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 									'operator' => '===',
-									'value'    => 'icon'
+									'value'    => 'icon',
 								),
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 									'operator' => '===',
-									'value'    => 'text'
+									'value'    => 'text',
 								),
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',

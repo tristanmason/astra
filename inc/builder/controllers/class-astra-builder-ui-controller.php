@@ -305,7 +305,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				return;
 			}
 
-			$icon_skin      = ( '' !== astra_get_option( 'header-account-icon-type' ) ) ? astra_get_option( 'header-account-icon-type' ) : 'account-1';
+			$icon_skin = ( '' !== astra_get_option( 'header-account-icon-type' ) ) ? astra_get_option( 'header-account-icon-type' ) : 'account-1';
 
 			?>
 
@@ -328,7 +328,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$action_type = astra_get_option( 'header-account-action-type' );
 					$link_type   = astra_get_option( 'header-account-link-type' );
 
-					$account_link   = astra_get_option( 'header-account-login-link' );
+					$account_link = astra_get_option( 'header-account-login-link' );
 					
 					$logged_in_text = astra_get_option( 'header-account-logged-in-text' );
 
