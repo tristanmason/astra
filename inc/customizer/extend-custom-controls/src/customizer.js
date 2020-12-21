@@ -232,8 +232,6 @@
 
 		cloneControlsBySection: function (section, clone_index) {
 
-			debugger;
-
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
 				if (controls) {

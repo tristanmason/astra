@@ -99,6 +99,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					self::$methods[] = 'header_html_' . $index;
 				}
 
+
 				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
 					self::$methods[] = 'header_social_' . $index;

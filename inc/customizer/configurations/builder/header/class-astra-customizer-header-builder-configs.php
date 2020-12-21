@@ -119,14 +119,14 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			Astra_Builder_Helper::$header_mobile_items[ 'menu-' . $index ] = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
 
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
 				'section' => 'section-hb-social-icons-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'social',
+				'type'    => 'social-icons',
 				'builder' => 'header',
 			);
 

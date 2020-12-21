@@ -52,12 +52,14 @@ class Astra_Social_Icon_Component_Configs {
 				* Builder section
 				*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 90,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 90,
 					/* translators: 1: index */
-					'title'    => ( 1 === $number_of_social_icons ) ? __( 'Social Icons', 'astra' ) : sprintf( __( 'Social Icons %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_social_icons ) ? __( 'Social Icons', 'astra' ) : sprintf( __( 'Social Icons %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $builder_type . '-social-icons',
 				),
 
 				/**

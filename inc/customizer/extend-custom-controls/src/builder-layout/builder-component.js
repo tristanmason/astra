@@ -126,7 +126,6 @@ const BuilderComponent = props => {
 
 	const cloneItem = ( item, row, zone ) => {
 
-		debugger;
 		// Skip clone if already is in progress.
 		if( sessionStorage.getItem('clone-in-progress') ) {
 			return;
