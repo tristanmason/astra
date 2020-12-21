@@ -94,7 +94,6 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 					 */
 					do_action( "astra_header_{$row}_container_after" );
 					?>
-				
-		</div>
+			</div>
 	<?php
 }
