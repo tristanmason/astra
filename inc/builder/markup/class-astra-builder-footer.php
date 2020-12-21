@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 				self::$methods[] = 'footer_social_' . $index;
 			}
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
+			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 				add_action( 'astra_footer_divider_' . $index, array( $this, 'footer_divider_' . $index ) );
 				self::$methods[] = 'footer_divider_' . $index;
 			}

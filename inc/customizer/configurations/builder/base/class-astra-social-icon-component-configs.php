@@ -42,7 +42,7 @@ class Astra_Social_Icon_Component_Configs {
 			$number_of_social_icons = Astra_Builder_Helper::$num_of_footer_social_icons;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit ; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$_section = $section . $index;
 

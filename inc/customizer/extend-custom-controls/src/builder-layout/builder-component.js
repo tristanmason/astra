@@ -126,10 +126,12 @@ const BuilderComponent = props => {
 
 	const cloneItem = ( item, row, zone ) => {
 
+		debugger;
 		// Skip clone if already is in progress.
 		if( sessionStorage.getItem('clone-in-progress') ) {
 			return;
 		}
+
 
 		let component_count = component_track.get();
 
@@ -169,6 +171,7 @@ const BuilderComponent = props => {
 				id: item
 			});
 		});
+
 
 		setState(prevState => ({
 			...prevState,

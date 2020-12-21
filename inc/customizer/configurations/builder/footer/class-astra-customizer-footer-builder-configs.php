@@ -74,7 +74,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'text',
 				'section' => 'section-fb-html-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'button',
+				'type'    => 'html',
 				'builder' => 'footer',
 			);
 		}
@@ -107,7 +107,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'share',
 				'section' => 'section-fb-social-icons-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'button',
+				'type'    => 'social',
 				'builder' => 'footer',
 			);
 		}
@@ -119,7 +119,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'minus',
 				'section' => 'section-fb-divider-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'button',
+				'type'    => 'divider',
 				'builder' => 'footer',
 			);
 		}

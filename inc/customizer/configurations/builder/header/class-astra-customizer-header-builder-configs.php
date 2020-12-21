@@ -51,14 +51,14 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			Astra_Builder_Helper::$header_mobile_items[ 'button-' . $index ]  = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
 
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-hb-html-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'button',
+				'type'    => 'html',
 				'builder' => 'header',
 			);
 
@@ -85,7 +85,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'minus',
 				'section' => 'section-hb-divider-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'button',
+				'type'    => 'divider',
 				'builder' => 'header',
 			);
 
@@ -126,7 +126,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'share',
 				'section' => 'section-hb-social-icons-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'button',
+				'type'    => 'social',
 				'builder' => 'header',
 			);
 

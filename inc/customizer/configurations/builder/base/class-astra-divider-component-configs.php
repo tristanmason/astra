@@ -43,7 +43,7 @@ class Astra_Divider_Component_Configs {
 			$number_of_divider = Astra_Builder_Helper::$num_of_header_divider;
 		}
 
-		for ( $index = 1; $index <= $number_of_divider; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$_section = $section . $index;
 			$_prefix  = 'divider' . $index;
@@ -71,12 +71,14 @@ class Astra_Divider_Component_Configs {
 				* Header Builder section - divider Component Configs.
 				*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 50,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 50,
 					/* translators: %s Index */
-					'title'    => ( 1 === $number_of_divider ) ? __( 'Divider', 'astra' ) : sprintf( __( 'Divider %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_divider ) ? __( 'Divider', 'astra' ) : sprintf( __( 'Divider %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $builder_type . '-button',
 				),
 
 				/**
