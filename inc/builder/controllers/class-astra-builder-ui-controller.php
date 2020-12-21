@@ -334,10 +334,17 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
 						$new_tab = 'target=_self';
-						if ( 'woocommerce' == $account_type ) {
-							$link_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
-						} elseif ( 'lifterlms' === $account_type ) {
-							$link_url = llms_get_page_url( 'myaccount' );
+						if ( 'woocommerce' === $account_type && class_exists( 'WooCommerce' ) ) {
+
+							$woocommerce_link = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
+
+							$link_url = ( $woocommerce_link ) ? $woocommerce_link : '';
+
+						} elseif ( 'lifterlms' === $account_type && class_exists( 'LifterLMS' ) ) {
+
+							$lifterlms_link = get_permalink( llms_get_page_id( 'myaccount' ) );
+
+							$link_url = ( $lifterlms_link ) ? $lifterlms_link : '';
 						}
 					} elseif ( '' !== $account_link && '' !== $account_link['url'] ) {
 
@@ -348,7 +355,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel=' . esc_attr( $account_link['link_rel'] ) : '' );
 					}
 					
-					$link_href = 'href=' . esc_url( $link_url );
+					$link_href = ( '' !== $link_url ) ? 'href=' . esc_url( $link_url ) : '';
 
 					$link_classes = 'ast-header-account-link ast-header-account-type-' . $login_profile_type . ' ast-account-action-' . $action_type;
 					?>

@@ -197,7 +197,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,
-				'title'     => __( 'Enter URL', 'astra' ),
+				'title'     => __( 'Account URL', 'astra' ),
 				'priority'  => 6,
 				'transport' => 'postMessage',
 				'context'   => $login_link_context,
@@ -302,7 +302,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'      => 'control',
 				'control'   => 'ast-link',
 				'section'   => $_section,
-				'title'     => __( 'Enter URL', 'astra' ),
+				'title'     => __( 'Login URL', 'astra' ),
 				'priority'  => 205,
 				'transport' => 'postMessage',
 				'context'   => array(
