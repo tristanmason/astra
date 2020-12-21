@@ -107,7 +107,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'icon'    => 'share',
 				'section' => 'section-fb-social-icons-' . $index,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'social',
+				'type'    => 'social-icons',
 				'builder' => 'footer',
 			);
 		}
