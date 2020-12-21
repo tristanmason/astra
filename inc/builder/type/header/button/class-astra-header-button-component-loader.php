@@ -48,7 +48,7 @@ class Astra_Header_Button_Component_Loader {
 			'astra-heading-button-customizer-preview-js',
 			'AstraBuilderButtonData',
 			array(
-				'header_button_count' => Astra_Builder_Helper::$component_limit,
+				'component_limit' => Astra_Builder_Helper::$component_limit,
 			)
 		);
 	}

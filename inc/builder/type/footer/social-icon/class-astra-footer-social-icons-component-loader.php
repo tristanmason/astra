@@ -48,10 +48,9 @@ class Astra_Footer_Social_Icons_Component_Loader {
 			'astra-footer-social-icons-customizer-preview-js',
 			'astraBuilderFooterSocial',
 			array(
-				'tablet_break_point'  => astra_get_tablet_breakpoint(),
-				'mobile_break_point'  => astra_get_mobile_breakpoint(),
-				'footer_social_count' => Astra_Builder_Helper::$component_limit,
-				'header_social_count' => Astra_Builder_Helper::$component_limit,
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
+				'component_limit'    => Astra_Builder_Helper::$component_limit,
 			)
 		);
 	}

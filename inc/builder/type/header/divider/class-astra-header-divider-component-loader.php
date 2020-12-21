@@ -48,7 +48,7 @@ class Astra_Header_Divider_Component_Loader {
 			'astra-heading-divider-customizer-preview-js',
 			'AstraBuilderDividerData',
 			array(
-				'header_divider_count' => Astra_Builder_Helper::$component_limit,
+				'component_limit' => Astra_Builder_Helper::$component_limit,
 			)
 		);
 	}

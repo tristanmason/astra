@@ -10,7 +10,6 @@
 
 ( function( $ ) {
 
-    astra_builder_divider_css( 'header', AstraBuilderDividerData.header_divider_count );
-    
+    astra_builder_divider_css( 'header', AstraBuilderDividerData.component_limit );
+
 } )( jQuery );
-		
