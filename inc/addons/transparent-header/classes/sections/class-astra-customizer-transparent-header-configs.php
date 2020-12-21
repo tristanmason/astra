@@ -808,7 +808,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 									'operator' => '===',
-									'value'    => 'icon',
+									'value'    => 'icon'
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '===',
+									'value'    => 'text'
 								),
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -830,7 +835,22 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'priority'  => 5,
 						'title'     => __( 'Icon Color', 'astra' ),
-						'context'   => Astra_Builder_Helper::$design_tab,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '===',
+									'value'    => 'icon',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+									'operator' => '===',
+									'value'    => 'icon',
+								),
+							),
+						),
 					),
 
 					/**
