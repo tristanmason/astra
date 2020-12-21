@@ -393,14 +393,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					 * Option: Breadcrumb Separator
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
-						'type'     => 'control',
-						'control'  => 'text',
-						'section'  => $_section,
-						'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
-						'priority' => 15,
-						'title'    => __( 'Separator', 'astra' ),
-						'context'  => array(
+						'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
+						'type'      => 'control',
+						'control'   => 'text',
+						'section'   => $_section,
+						'default'   => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
+						'priority'  => 15,
+						'title'     => __( 'Separator', 'astra' ),
+						'context'   => array(
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 								'operator' => '!=',
