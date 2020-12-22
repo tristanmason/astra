@@ -36,7 +36,6 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 		 */
 		do_action( "astra_footer_{$row}_container_before" );
 		?>
-		<div class="site-container">
 			<div class="ast-builder-footer-grid-columns site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap ast-builder-grid-row">
 			<?php for ( $zones = 1; $zones <= Astra_Builder_Helper::$num_of_footer_columns; $zones++ ) { ?>
 				<?php
@@ -48,7 +47,6 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 				</div>
 			<?php } ?>
 			</div>
-		</div>
 		<?php
 		/**
 		 * Astra Render before Site container of Footer.
