@@ -101,7 +101,6 @@
 	 */
 	wp.customize( 'astra-settings[breadcrumb-separator]', function( value ) {
 		value.bind( function( value ) {
-			console.log(value);
 			var dynamicStyle = '';
                 dynamicStyle += '.trail-items li::after {';
                 dynamicStyle += 'content: "' + value + '";';
