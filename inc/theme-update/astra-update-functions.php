@@ -1619,7 +1619,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 			}
 			break;
 	}
-	
+
 	switch ( $above_header_layout ) {
 
 		case 'above-header-layout-1':
@@ -1738,8 +1738,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 	}
 
 	// Below Header Section 1.
-	$below_header_section_1 = ( isset( $theme_options['below-header-section-1'] ) ) ? $theme_options['below-header-section-1'] : '';
-
+	$below_header_section_1          = ( isset( $theme_options['below-header-section-1'] ) ) ? $theme_options['below-header-section-1'] : '';
 	$new_below_header_section_1_item = '';
 	switch ( $below_header_section_1 ) {
 		case 'menu':
@@ -1890,7 +1889,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 	}
 
 	// Below Header Section 2.
-	$below_header_section_2          = ( isset( $theme_options['below-header-section-1'] ) ) ? $theme_options['below-header-section-1'] : '';
+	$below_header_section_2          = ( isset( $theme_options['below-header-section-2'] ) ) ? $theme_options['below-header-section-2'] : '';
 	$new_below_header_section_2_item = '';
 	switch ( $below_header_section_2 ) {
 		case 'menu':
