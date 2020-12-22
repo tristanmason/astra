@@ -114,12 +114,16 @@ const BuilderComponent = props => {
 		let component_count = component_track.get();
 		Object.keys(component_count).forEach(function( component_type, value) {
 			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
-				let choices = AstraBuilderCustomizerData.choices[controlParams.group];
-				Object.keys(choices).forEach(function(key) {
-					if(  choices[key]['clone'] ) {
-						choices[key]['clone'] = false;
+				for (let key in choices) {
+					if (choices.hasOwnProperty(key)) {
+						let tmp_choice = choices[key];
+						if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
+							if( component_type === tmp_choice['builder'] + '-' + tmp_choice['type'] ) {
+								tmp_choice['clone'] = false;
+							}
+						}
 					}
-				});
+				}
 			}
 		});
 	}
