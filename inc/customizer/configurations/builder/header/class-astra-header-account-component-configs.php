@@ -177,7 +177,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'   => array(   
 					array(  
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-						'operator' => '===',
+						'operator' => '==',
 						'value'    => 'text',   
 					),
 					Astra_Builder_Helper::$general_tab_config,  
@@ -282,7 +282,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'   => array(   
 					array(  
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '===',
+						'operator' => '==',
 						'value'    => 'text',   
 					),
 					Astra_Builder_Helper::$general_tab_config,  
@@ -330,7 +330,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-						'operator' => '===',
+						'operator' => '==',
 						'value'    => 'avatar',
 					),
 					Astra_Builder_Helper::$design_tab_config,
@@ -357,7 +357,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'     => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-						'operator' => '===',
+						'operator' => '==',
 						'value'    => 'avatar',
 					),
 					Astra_Builder_Helper::$design_tab_config,
@@ -381,12 +381,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'relation' => 'OR',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'icon',
 						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'icon',
 						),
 					),
@@ -416,12 +416,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'relation' => 'OR',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'icon',
 						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'icon',
 						),
 					),
@@ -446,12 +446,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'relation' => 'OR',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'icon',
 						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'icon',
 						),
 					),
@@ -475,12 +475,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'relation' => 'OR',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'text',
 						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'text',
 						),
 					),
@@ -504,12 +504,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'relation' => 'OR',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'text',
 						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'text',
 						),
 					),
@@ -556,12 +556,12 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						'relation' => 'OR',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'text',
 						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'text',
 						),
 					),
