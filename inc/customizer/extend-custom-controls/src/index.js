@@ -6,7 +6,8 @@ import { descriptionControl } from './description/control';
 import { linkControl } from './link/control';
 import { dividerControl } from './divider/control';
 import { settingsGroupControl } from './settings-group/control';
-import { colorControl } from './color/control';
+import { colorPaletteControl } from './color-palette/control';
+import { ColorControl } from './color/control';
 import { responsiveColorControl } from './responsive-color/control'
 import { responsiveBackgroundControl } from './responsive-background/control';
 import { backgroundControl } from './background/control';
@@ -29,7 +30,6 @@ import { EditorControl } from './html-editor/control';
 import { DraggableControl } from './draggable/control';
 import { HeaderTypeButtonControl } from './header-type-button/control';
 import { RowLayoutControl } from './row-layout/control';
-import { colorPaletteControl } from './color-palette/control';
 
 
 window.svgIcons = svgIcons;
@@ -39,7 +39,8 @@ wp.customize.controlConstructor['ast-description'] = descriptionControl;
 wp.customize.controlConstructor['ast-link'] = linkControl;
 wp.customize.controlConstructor['ast-divider'] = dividerControl;
 wp.customize.controlConstructor['ast-settings-group'] = settingsGroupControl;
-wp.customize.controlConstructor['ast-color'] = colorControl;
+wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
+wp.customize.controlConstructor['ast-color'] = ColorControl;
 wp.customize.controlConstructor['ast-customizer-link'] = customizerLinkControl;
 wp.customize.controlConstructor['ast-slider'] = sliderControl;
 wp.customize.controlConstructor['ast-radio-image'] = radioImageControl;
@@ -62,7 +63,6 @@ wp.customize.controlConstructor['ast-html-editor'] = EditorControl;
 wp.customize.controlConstructor['ast-builder'] = BuilderControl;
 wp.customize.controlConstructor['ast-draggable-items'] = DraggableControl;
 wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
-wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';

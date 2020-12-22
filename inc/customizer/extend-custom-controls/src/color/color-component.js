@@ -20,6 +20,22 @@ const ColorComponent = props => {
 		props.control.setting.set(value);
 	};
 
+	const handleChangeComplete = ( color ) => {
+		console.log('COLOR<<<<COMPONENT');
+		// let value;sa
+		// if (typeof color === 'string' || color instanceof String) {
+		// 	value = color;
+		// } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+		// 	value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+		// } else {
+		// 	value = color.hex;
+		// }
+
+		// console.log('INSIDE Color Palette');
+
+		// updateValues(value,patterntype,index);
+	};
+
 	const renderOperationButtons = () => {
 		return <span className="customize-control-title">
 				<>
@@ -48,19 +64,19 @@ const ColorComponent = props => {
 			</span>;
 	};
 
-	const handleChangeComplete = ( color ) => {
-		let value;
+	// const handleChangeComplete = ( color ) => {
+	// 	let value;
 
-		if (typeof color === 'string' || color instanceof String) {
-			value = color;
-		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-			value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
-		} else {
-			value = color.hex;
-		}
+	// 	if (typeof color === 'string' || color instanceof String) {
+	// 		value = color;
+	// 	} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+	// 		value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+	// 	} else {
+	// 		value = color.hex;
+	// 	}
 
-		updateValues(value);
-	};
+	// 	updateValues(value);
+	// };
 
 	let labelHtml = null;
 	const {
@@ -98,14 +114,15 @@ const ColorComponent = props => {
 		</label>
 		<div className="ast-color-picker-alpha color-picker-hex">
 			{renderOperationButtons()}
-			<AstraColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
-									 onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
-									 backgroundType={'color'}
-									 allowGradient={false}
-									 allowImage={false}
-									 defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
-									 />
-									 
+			<AstraColorPickerControl
+				color={undefined !== state.value && state.value ? state.value : ''}
+				onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
+				backgroundType={'color'}
+				allowGradient={false}
+				allowImage={false}
+				defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
+			/>
+
 
 		</div>
 	</>;

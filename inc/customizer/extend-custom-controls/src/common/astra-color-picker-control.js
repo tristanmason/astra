@@ -53,15 +53,15 @@ class AstraColorPickerControl extends Component {
 			allowImage,
 			disablePalette
 		} = this.props
-		
+
 		const toggleVisible = () => {
 			var element =  document.getElementById("ast-color-palette-hidden");
 			if (typeof(element) != 'undefined' && element != null)
 			{
-				var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');	
+				var custompalette = document.getElementById("ast-color-palette-hidden").getAttribute('data-palette');
 				this.setState( { colorPalette:Object.values(JSON.parse(custompalette))  } );
-			}			
-			
+			}
+
 			if ( refresh === true ) {
 				this.setState( { refresh: false } );
 			} else {
@@ -117,13 +117,13 @@ class AstraColorPickerControl extends Component {
 		let count = 0;
 
 		var colorpalettevalue = this.props.defautColorPalette;
-				
+
 		var defaultColorPalette;
 		if(undefined !== colorPalette  && colorPalette &&  "" !== colorPalette ){
-			 defaultColorPalette = [...colorPalette] 
+			 defaultColorPalette = [...colorPalette]
 		}else{
 			if (typeof(colorpalettevalue) != 'undefined' && colorpalettevalue != null)	{
-				defaultColorPalette = colorpalettevalue[colorpalettevalue.patterntype];			
+				defaultColorPalette = colorpalettevalue[colorpalettevalue.patterntype];
 			}else{
 				defaultColorPalette = [...astColorPalette.colors]
 			}
@@ -276,7 +276,6 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onChangeComplete( color ) {
-
 		let newColor;
 		if ( color.rgb && color.rgb.a && 1 !== color.rgb.a ) {
 			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
@@ -284,6 +283,7 @@ class AstraColorPickerControl extends Component {
 			newColor = color.hex;
 		}
 		this.setState( { backgroundType: 'color' } );
+		console.log('Astra Color Picker');
 		this.props.onChangeComplete( color, 'color' );
 	}
 
@@ -438,7 +438,6 @@ AstraColorPickerControl.propTypes = {
 	presetColors: PropTypes.object,
 	onChangeComplete: PropTypes.func,
 	onPaletteChangeComplete: PropTypes.func,
-	onChange: PropTypes.func,
 	customizer: PropTypes.object
 };
 
