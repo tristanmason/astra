@@ -84,6 +84,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet'  => '',
 		'mobile'  => '',
 	);
+	$defaults['hb-stack']                    = array(
+		'desktop' => 'stack',
+		'tablet'  => 'stack',
+		'mobile'  => 'stack',
+	);
 
 	$defaults['hb-header-main-sep']          = 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
@@ -147,6 +152,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'desktop' => 50,
 		'tablet'  => '',
 		'mobile'  => '',
+	);
+	$defaults['hba-stack']                          = array(
+		'desktop' => 'stack',
+		'tablet'  => 'stack',
+		'mobile'  => 'stack',
 	);
 	$defaults['hba-header-separator']               = 1;
 	$defaults['hba-header-bottom-border-color']     = '#eaeaea';
@@ -225,13 +235,18 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	/**
-	 * Above Header Defaults.
+	 * Below Header Defaults.
 	 */
 	$defaults['hbb-header-layout'] = 'below-header-layout-1';
 	$defaults['hbb-header-height'] = array(
 		'desktop' => 60,
 		'tablet'  => '',
 		'mobile'  => '',
+	);
+	$defaults['hbb-stack']         = array(
+		'desktop' => 'stack',
+		'tablet'  => 'stack',
+		'mobile'  => 'stack',
 	);
 
 	$defaults['hbb-header-separator']           = 1;

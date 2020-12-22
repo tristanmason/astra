@@ -16,9 +16,9 @@ if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 
-	$option  = ( 'above' === $row ) ? 'hba' : ( ( 'below' === $row ) ? 'hbb' : 'hb' );
-	$columns = astra_get_option( $option . '-footer-column' );
-	$layout  = astra_get_option( $option . '-footer-layout' );
+	$option       = ( 'above' === $row ) ? 'hba' : ( ( 'below' === $row ) ? 'hbb' : 'hb' );
+	$columns      = astra_get_option( $option . '-footer-column' );
+	$layout       = astra_get_option( $option . '-footer-layout' );
 	$stack_layout = astra_get_option( $option . '-stack' );
 
 	$desk_layout = ( isset( $layout['desktop'] ) ) ? $layout['desktop'] : 'full';
