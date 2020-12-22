@@ -424,6 +424,8 @@ function astra_header_builder_migration() {
 
 	$used_elements = array();
 
+	error_log( 'Astra: Migrating Header Footer Builder Options - Process Start' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+
 	$options = array(
 		'theme_options'  => $theme_options,
 		'used_elements'  => $used_elements,
@@ -449,6 +451,8 @@ function astra_header_builder_migration() {
 
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'sidebars_widgets', $widget_options );
+
+	error_log( 'Astra: Migrating Header Footer Builder Options - Process Done' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 }
 
