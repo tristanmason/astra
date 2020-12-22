@@ -235,12 +235,22 @@
   background-color: #1e8cbe;
 }
 
+#customize-control-astra-settings-global-color-palette .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+  width: 25px;
+  height: 25px;
+}
+
+#customize-control-astra-settings-global-color-palette .components-radio-control__option.activepalette {
+  background: white;
+  border-radius: 10px;
+}
+
 #customize-control-astra-settings-global-color-palette .components-radio-control__input[type="radio"]:checked::before {
   border: unset;
 }
 
 #customize-control-astra-settings-global-color-palette .components-radio-control__option {
-  padding: 20px 0;
+  padding: 15px 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
@@ -257,14 +267,14 @@
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap {
   position: absolute;
-  top: 25%;
-  left: 0;
+  top: 26%;
+  left: 4%;
 }
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette2-wrap {
   position: absolute;
-  left: 0;
-  top: 57%;
+  left: 4%;
+  top: 55%;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
@@ -947,12 +957,22 @@
   background-color: #1e8cbe;
 }
 
+#customize-control-astra-settings-global-color-palette .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+  width: 25px;
+  height: 25px;
+}
+
+#customize-control-astra-settings-global-color-palette .components-radio-control__option.activepalette {
+  background: white;
+  border-radius: 10px;
+}
+
 #customize-control-astra-settings-global-color-palette .components-radio-control__input[type="radio"]:checked::before {
   border: unset;
 }
 
 #customize-control-astra-settings-global-color-palette .components-radio-control__option {
-  padding: 20px 0;
+  padding: 15px 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
@@ -969,19 +989,19 @@
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap {
   position: absolute;
-  top: 25%;
+  top: 26%;
   left: 0;
 }
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette2-wrap {
   position: absolute;
-  left: 0;
-  top: 57%;
+  left: 4%;
+  top: 55%;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
   position: absolute;
-  z-index: 99;
+  z-index: 1;
   left: 0;
   width: 21em;
 }

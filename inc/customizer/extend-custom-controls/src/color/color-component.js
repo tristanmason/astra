@@ -4,12 +4,12 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {useState} from 'react';
 
 const ColorComponent = props => {
-
 	let value = props.control.setting.get();
 	let defaultValue = props.control.params.default;
 	
 	const [state, setState] = useState({
 		value: value,
+		isPaletteUsed:false,
 	});
 	
 	const updateValues = (value) => {
@@ -21,19 +21,32 @@ const ColorComponent = props => {
 		props.control.setting.set(value);
 	
 	};
+	const updatepaletteuse = (value) =>{
+		props.control.container[0].setAttribute('paleteused', value);		
+	}
+
 	const updatePaletteState = (e) =>{
-		
-		var current_color;
-		if(props.control.id  == "astra-settings[text-color]"){
-			current_color = e.detail[e.detail.patterntype][0]
-		}else if(props.control.id  == "astra-settings[theme-color]"){
-			current_color = e.detail[e.detail.patterntype][1]
-		}else if(props.control.id  == "astra-settings[link-color]"){
-			current_color = e.detail[e.detail.patterntype][2]
-		}else if(props.control.id  == "astra-settings[link-h-color]"){
-			current_color = e.detail[e.detail.patterntype][3]
+	
+		if( e.detail.radiochange == "true" ){			
+			var current_color;		
+			if(props.control.params.label == "Text Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][0]
+			}else if(props.control.params.label == "Theme Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][1]
+			}else if(props.control.params.label == "Link Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][2]
+			}else if(props.control.params.label == "Link Hover Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][3]
+			}
+		}else{
+
+			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color")  && ( props.control.container[0].getAttribute('paleteused') == true || props.control.container[0].getAttribute('paleteused') == null  ) && ( state.value == e.detail.prevcolor ) ){					
+				var current_color = e.detail.newcolor;	
+			}else{
+				return
+			}
 		}
-			
+		
 		updateValues(current_color)
 	}
 	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
@@ -105,6 +118,7 @@ const ColorComponent = props => {
 									 allowGradient={false}
 									 allowImage={false}
 									 defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
+									 isPaletteUsed={(value) => updatepaletteuse(value)}
 									
 									 />
 									 

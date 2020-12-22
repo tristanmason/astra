@@ -75,7 +75,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => 'section-colors-body',
 					'type'     => 'control',
 					'control'  => 'ast-color',
-					'default'  => '#0274be',
+					'default'  => '#0274b2',
 					'priority' => 5,
 					'title'    => __( 'Link Color', 'astra' ),
 				),
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[link-h-color]',
 					'section'  => 'section-colors-body',
-					'default'  => '#3a3a3a',
+					'default'  => '#3a3a31',
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'priority' => 15,

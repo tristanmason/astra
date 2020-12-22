@@ -1445,8 +1445,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'pattern1'    => array(
 			'#3a3a3a',
 			'#0274be',
-			'#0274be',
-			'#3a3a3a',
+			'#0274b2',
+			'#3a3a31',
 			'#eb7d5b',
 		),
 		'pattern2'    => array(

@@ -17,6 +17,34 @@ const ResponsiveColorComponent = props => {
 		setPropsValue(obj);
 	};
 
+	const updatePaletteState = (e) =>{
+	
+		if(e.detail.radiochange == "true"){			
+			var current_color;		
+			if(props.control.params.label == "Text Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][0]
+			}else if(props.control.params.label == "Theme Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][1]
+			}else if(props.control.params.label == "Link Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][2]
+			}else if(props.control.params.label == "Link Hover Color"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][3]
+			}
+		}else{
+
+			if( props_value.value != e.detail.prevcolor ){
+					return
+			}
+			
+			if( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" ){
+				var current_color = e.detail.newcolor;		
+	
+			}
+		}
+		updateValues(current_color,"desktop")
+	}
+
+	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 	const renderReset = ( key ) => {
 		let deleteBtnDisabled = true;
 		let devices = ['desktop', 'mobile', 'tablet'];

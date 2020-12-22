@@ -48,7 +48,7 @@ const ColorPaletteComponent = props => {
 
 		var event = new CustomEvent( "colorpaletteglobal", 
 				{ 
-					"detail": obj
+					"detail":{"palette":obj,"radiochange":"true",}
 				} 
 			);
 			
@@ -75,6 +75,8 @@ const ColorPaletteComponent = props => {
 		let obj = {
 			...state
 		};
+		var prevcolor = obj[obj.patterntype][index]
+		
 
 		if (patterntype == "pattern1") {
 			
@@ -100,18 +102,19 @@ const ColorPaletteComponent = props => {
 			pattern2[index] = pattern2_index
 			obj['pattern2'] = pattern2
 		}
+		var newcolor = obj[obj.patterntype][index]
+		
 		
 		
 		setState(obj)
 		props.control.setting.set( obj );		
+		
 		var passglobalpalette = new CustomEvent( "colorpaletteglobal", 
 				{ 
-					"detail": obj
+					"detail":{"palette":obj,"index":index,"prevcolor":prevcolor,"newcolor":newcolor}
 				} 
 			);
-			
 		document.dispatchEvent(passglobalpalette);
-		
 
 		
 	};
@@ -119,7 +122,7 @@ const ColorPaletteComponent = props => {
 	var pattern1html = (
 		<Fragment>		
 			<div className="ast-color-palette1-wrap">
-				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-1 ast-color-palette-inline" title="Text Color">
 					<AstraColorPickerControl
 						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[0] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',0)}
@@ -129,7 +132,7 @@ const ColorPaletteComponent = props => {
 						disablePalette = { true }										
 					/>
 				</div>
-				<div className="ast-color-picker-palette-2 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-2 ast-color-palette-inline" title="Theme Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[1] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',1)}
@@ -139,7 +142,7 @@ const ColorPaletteComponent = props => {
 						disablePalette = { true }
 					/>
 				</div>
-				<div className="ast-color-picker-palette-3 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-3 ast-color-palette-inline" title="Link Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[2] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',2)}
@@ -149,7 +152,7 @@ const ColorPaletteComponent = props => {
 						disablePalette = { true }
 					/>
 				</div>
-				<div className="ast-color-picker-palette-4 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-4 ast-color-palette-inline" title="Link Hover Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[3] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',3)}
@@ -159,7 +162,7 @@ const ColorPaletteComponent = props => {
 						disablePalette = { true }
 					/>
 				</div>
-				<div className="ast-color-picker-palette-5 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-5 ast-color-palette-inline" title="Custom Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern1 && state.pattern1 ?  state.pattern1[4]  : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',4)}
@@ -176,7 +179,7 @@ const ColorPaletteComponent = props => {
 	var pattern2html = (
 		<div className="ast-color-palette2-wrap">			
 		
-				<div className="ast-color-picker-palette-1 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-1 ast-color-palette-inline" title="Text Color">
 					<AstraColorPickerControl
 						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[0] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',0)}
@@ -185,7 +188,7 @@ const ColorPaletteComponent = props => {
 						allowImage={ false }					
 					/>
 				</div>
-				<div className="ast-color-picker-palette-2 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-2 ast-color-palette-inline" title="Theme Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[1] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',1)}
@@ -194,7 +197,7 @@ const ColorPaletteComponent = props => {
 						allowImage={false}					
 					/>
 				</div>
-				<div className="ast-color-picker-palette-3 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-3 ast-color-palette-inline" title="Link Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[2] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',2)}
@@ -203,7 +206,7 @@ const ColorPaletteComponent = props => {
 						allowImage={false}					
 					/>
 				</div>
-				<div className="ast-color-picker-palette-4 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-4 ast-color-palette-inline" title="Link Hover Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[3] : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',3)}
@@ -212,7 +215,7 @@ const ColorPaletteComponent = props => {
 						allowImage={false}
 					/>
 				</div>
-				<div className="ast-color-picker-palette-5 ast-color-palette-inline" >
+				<div className="ast-color-picker-palette-5 ast-color-palette-inline" title="Custom Color">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern2 && state.pattern2 ?  state.pattern2[4]  : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',4)}

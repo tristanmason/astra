@@ -123,14 +123,12 @@ class AstraColorPickerControl extends Component {
 			defaultColorPalette = [...colorPalette] 
 		}else{
 			var colorpalettevalue = this.props.defautColorPalette;
-			// console.log(colorpalettevalue);
 			if (typeof(colorpalettevalue) != 'undefined' && colorpalettevalue != null)	{
 				defaultColorPalette = colorpalettevalue[colorpalettevalue.patterntype];			
 			}else{
 				defaultColorPalette =  defaultdbpalette[defaultdbpalette.patterntype] 
 			}
 		}
-		// console.log(defaultdbpalette[defaultdbpalette.patterntype]);
 		var newdefaultpalette 
 		if (Array.isArray(defaultColorPalette)) {
 			newdefaultpalette = defaultColorPalette
@@ -285,6 +283,9 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onChangeComplete( color ) {
+		if( this.props.isPaletteUsed){
+			this.props.isPaletteUsed(false);
+		}
 
 		let newColor;
 		if ( color.rgb && color.rgb.a && 1 !== color.rgb.a ) {
@@ -294,10 +295,13 @@ class AstraColorPickerControl extends Component {
 		}
 		this.setState( { backgroundType: 'color' } );
 		this.props.onChangeComplete( color, 'color' );
-		
+
 	}
 
 	onPaletteChangeComplete( color ) {
+		if( this.props.isPaletteUsed){
+			this.props.isPaletteUsed(true);
+		}
 		this.setState( { color: color } );
 		if ( this.state.refresh === true ) {
 			this.setState( { refresh: false } );
@@ -305,6 +309,7 @@ class AstraColorPickerControl extends Component {
 			this.setState( { refresh: true } );
 		}
 		this.props.onChangeComplete( color, 'color' );
+
 	}
 
 	onSelectImage( media ) {
