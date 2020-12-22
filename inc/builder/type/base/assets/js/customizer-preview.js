@@ -105,6 +105,8 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var prefix = 'button' + index;
 		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
 
+		astra_css( 'flex', 'display', '.ast-' + builder_type + '-button-' + index + '[data-section="' + section + '"]' );
+
 		// Button Text Color.
 		astra_color_responsive_css(
 			context + '-button-color',
@@ -652,18 +654,25 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 
 		let section = ( 'header' === builder_type ) ? 'section-hb-divider-' + index : 'section-fb-divider-' + index;
 
-		// Divider - Style.
 		astra_css(
 			'astra-settings[' + builder_type + '-divider-' + index + '-style]',
 			'border-style',
 			selector + ' .ast-divider-wrapper'
 		);
 
-		astra_css(
-			'astra-settings[' + builder_type + '-divider-' + index + '-color]',
-			'border-color',
-			selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper'
-		);
+		// Border style.
+		wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-color]', function( setting ) {
+			setting.bind( function( color ) {
+
+				var dynamicStyle = '';
+				dynamicStyle += selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper {';
+				dynamicStyle += 'border-color: ' + color + ';';
+				dynamicStyle += 'border-style: solid;';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( builder_type + '-divider-' + index + '-color', dynamicStyle );
+			} );
+		} );
 
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector );
@@ -689,22 +698,29 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 						size.tablet != '' || size.tablet != '' || size.tablet != '' || size.tablet != '' ||
 						size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
 					) {
-						var dynamicStyle = '';
+						var dynamicStyle = '',
+							desktop_size = (typeof ( wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-size]'] ) != 'undefined') ? wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-size]']._value.desktop : '',
+							tablet_size = (typeof ( wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-size]'] ) != 'undefined') ? wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-size]']._value.tablet : '',
+							mobile_size = (typeof ( wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-size]'] ) != 'undefined') ? wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-size]']._value.mobile : '';
 						dynamicStyle += selector + ' .ast-divider-layout-horizontal {';
+						dynamicStyle += 'width: ' + desktop_size + '%' + ';';
 						dynamicStyle += 'border-top-width: ' + size.desktop + 'px' + ';';
 						dynamicStyle += '} ';
 
 						dynamicStyle += selector + ' .ast-divider-layout-vertical {';
+						dynamicStyle += 'height: ' + desktop_size + '%' + ';';
 						dynamicStyle += 'border-right-width: ' + size.desktop + 'px' + ';';
 						dynamicStyle += '} ';
 
 						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 
 						dynamicStyle += selector + ' .ast-divider-layout-horizontal {';
+						dynamicStyle += 'width: ' + tablet_size + '%' + ';';
 						dynamicStyle += 'border-top-width: ' + size.tablet + 'px' + ';';
 						dynamicStyle += '} ';
 
 						dynamicStyle += selector + ' .ast-divider-layout-vertical {';
+						dynamicStyle += 'height: ' + tablet_size + '%' + ';';
 						dynamicStyle += 'border-right-width: ' + size.tablet + 'px' + ';';
 						dynamicStyle += '} ';
 
@@ -713,10 +729,12 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 
 						dynamicStyle += selector + ' .ast-divider-layout-horizontal {';
+						dynamicStyle += 'width: ' + mobile_size + '%' + ';';
 						dynamicStyle += 'border-top-width: ' + size.mobile + 'px' + ';';
 						dynamicStyle += '} ';
 
 						dynamicStyle += selector + ' .ast-divider-layout-vertical {';
+						dynamicStyle += 'height: ' + mobile_size + '%' + ';';
 						dynamicStyle += 'border-right-width: ' + size.mobile + 'px' + ';';
 						dynamicStyle += '} ';
 
