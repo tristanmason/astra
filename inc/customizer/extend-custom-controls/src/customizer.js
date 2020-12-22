@@ -28,6 +28,7 @@
 		} else {
 			api.previewer.container.css('bottom', '');
 		}
+
 		$section.css( 'overflow', 'visible' );
 		$footer.css( 'overflow', 'visible' );
 	}
@@ -39,7 +40,6 @@
 
 		let builder = panel.id.includes("-header-") ? 'header' : 'footer';
 		var section = api.section('section-' + builder + '-builder');
-
 
 		if (section) {
 
@@ -75,20 +75,29 @@
 					control.container.trigger('init');
 				});
 
+
+
 				if (isExpanded) {
 
 					expandedPanel = panel.id;
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
-
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
+					if( 'header' === builder ) {
+						$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					} else {
+						$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+					}
+
 				} else {
+
+					$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
 
 					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
-
 				}
 
 				resizePreviewer();
@@ -96,8 +105,12 @@
 			});
 			$section.on('click', '.ahfb-builder-tab-toggle', function (e) {
 				e.preventDefault();
-				$section.toggleClass('ahfb-builder-hide');
-				resizePreviewer();
+				api.previewer.container.css({"bottom": '0px'});
+				setTimeout(function () {
+					$section.toggleClass('ahfb-builder-hide');
+					resizePreviewer();
+				}, 120);
+
 			});
 		}
 	};
@@ -117,9 +130,18 @@
 			var Constructor = api.panelConstructor[data.type] || api.Panel, options;
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
+			var isSiteRTL = false;
+
+			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.is_site_rtl) {
+				isSiteRTL = true;
+			}
 
 			if ('panel-footer-builder-group' === id || 'panel-header-builder-group' === id) {
-				$('#accordion-panel-' + id).find('.accordion-section-title').append("<span class=\'ahfb-highlight\'> New </span>");
+				if( isSiteRTL ) {
+					$('#accordion-panel-' + id).find('.accordion-section-title').prepend("<span class=\'ahfb-highlight\'> New </span>");
+				} else {
+					$('#accordion-panel-' + id).find('.accordion-section-title').append("<span class=\'ahfb-highlight\'> New </span>");
+				}
 			}
 
 			// Scroll to footer.
@@ -481,6 +503,7 @@
 
 					bindSettings(rules);
 
+					element.active.validate = isDisplayed;
 					setActiveState();
 				};
 				api.control(control_id, initContext);
