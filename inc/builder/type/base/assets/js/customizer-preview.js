@@ -98,6 +98,9 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
  */
 function astra_builder_button_css( builder_type = 'header', button_count ) {
 
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
 	for ( var index = 1; index <= button_count; index++ ) {
 
 		var section = ( 'header' === builder_type ) ? 'section-hb-button-' + index : 'section-fb-button-' + index;
@@ -181,6 +184,34 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 					astra_add_dynamic_css( 'astra-settings[' + builder_type + '-button'+ index +'-border-size]', dynamicStyle );
 				} );
 			} );
+
+			if( 'footer' == builder_type ) {
+				wp.customize( 'astra-settings[footer-button-'+ index +'-alignment]', function( value ) {
+					value.bind( function( alignment ) {
+	
+						if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
+							var dynamicStyle = '';
+							dynamicStyle += '.ast-footer-button-'+ index +'[data-section="section-fb-button-'+ index +'"] {';
+							dynamicStyle += 'justify-content: ' + alignment['desktop'] + ';';
+							dynamicStyle += '} ';
+	
+							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+							dynamicStyle += '.ast-footer-button-'+ index +'[data-section="section-fb-button-'+ index +'"] {';
+							dynamicStyle += 'justify-content: ' + alignment['tablet'] + ';';
+							dynamicStyle += '} ';
+							dynamicStyle += '} ';
+	
+							dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+							dynamicStyle += '.ast-footer-button-'+ index +'[data-section="section-fb-button-'+ index +'"] {';
+							dynamicStyle += 'justify-content: ' + alignment['mobile'] + ';';
+							dynamicStyle += '} ';
+							dynamicStyle += '} ';
+	
+							astra_add_dynamic_css( 'footer-button-'+ index +'-alignment', dynamicStyle );
+						}
+					} );
+				} );
+			}
 		})(index);
 	}
 }
