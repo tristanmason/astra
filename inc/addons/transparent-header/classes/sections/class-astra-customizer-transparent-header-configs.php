@@ -823,9 +823,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							),
 						),
 					),
+				);
 
-					// Option: Search Color.
-					array(
+				if( 'icon' === astra_get_option('header-account-login-style') || 'icon' === astra_get_option('header-account-logout-style' ) ) {
+					$_configs[] = array(
 						'name'      => 'transparent-account-icon-color',
 						'default'   => '',
 						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
@@ -835,28 +836,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'priority'  => 5,
 						'title'     => __( 'Icon Color', 'astra' ),
-						'context'   => array(
-							Astra_Builder_Helper::$design_tab_config,
-							array(
-								'relation' => 'OR',
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-									'operator' => '==',
-									'value'    => 'icon',
-								),
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-									'operator' => '==',
-									'value'    => 'icon',
-								),
-							),
-						),
-					),
+						'context'   => Astra_Builder_Helper::$design_tab_config,
+					);
+				}
 
-					/**
-					* Option: account Color.
-					*/
-					array(
+				if( 'text' === astra_get_option('header-account-login-style') || 'text' === astra_get_option('header-account-logout-style' ) ) {
+					$_configs[] = array(
 						'name'      => 'transparent-account-type-text-color',
 						'default'   => '',
 						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
@@ -867,24 +852,9 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'control'   => 'ast-color',
 						'section'   => 'section-transparent-header',
 						'title'     => __( 'Text Color', 'astra' ),
-						'context'   => array(
-							Astra_Builder_Helper::$design_tab_config,
-							array(
-								'relation' => 'OR',
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-									'operator' => '==',
-									'value'    => 'text',
-								),
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-									'operator' => '==',
-									'value'    => 'text',
-								),
-							),
-						),
-					),
-				);
+						'context'   => Astra_Builder_Helper::$design_tab_config,
+					);
+				}
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
 			} else {
