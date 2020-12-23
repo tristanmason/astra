@@ -638,7 +638,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							),
 						),
 					),
-
 					/**
 					 * Search Box Background Color
 					 */
