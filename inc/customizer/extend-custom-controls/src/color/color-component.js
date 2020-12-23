@@ -8,8 +8,7 @@ const ColorComponent = props => {
 	let defaultValue = props.control.params.default;
 	
 	const [state, setState] = useState({
-		value: value,
-		isPaletteUsed:false,
+		value: value,	
 	});
 	
 	const updateValues = (value) => {
@@ -21,8 +20,11 @@ const ColorComponent = props => {
 		props.control.setting.set(value);
 	
 	};
-	const updatepaletteuse = (value) =>{
-		props.control.container[0].setAttribute('paleteused', value);		
+
+	const updatepaletteuse = (value,index) =>{
+		props.control.container[0].setAttribute('paleteused', value);
+		props.control.container[0].setAttribute('paleteindex', index);		
+
 	}
 
 	const updatePaletteState = (e) =>{
@@ -37,14 +39,18 @@ const ColorComponent = props => {
 				current_color = e.detail.palette[e.detail.palette.patterntype][2]
 			}else if(props.control.params.label == "Link Hover Color"){
 				current_color = e.detail.palette[e.detail.palette.patterntype][3]
+			}else if(props.control.params.label == "Heading Color ( H1 - H6 )"){
+				current_color = e.detail.palette[e.detail.palette.patterntype][4]
 			}
+			
 		}else{
 
-			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color")  && ( props.control.container[0].getAttribute('paleteused') == true || props.control.container[0].getAttribute('paleteused') == null  ) && ( state.value == e.detail.prevcolor ) ){					
+			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )") && (props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index )  && (state.value == e.detail.prevcolor)){
 				var current_color = e.detail.newcolor;	
 			}else{
 				return
 			}
+			
 		}
 		
 		updateValues(current_color)
@@ -118,8 +124,8 @@ const ColorComponent = props => {
 									 allowGradient={false}
 									 allowImage={false}
 									 defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
-									 isPaletteUsed={(value) => updatepaletteuse(value)}
-									
+									 isPaletteUsed={(value,index) => updatepaletteuse(value,index)}
+									 container ={props.control.container[0]}
 									 />
 									 
 

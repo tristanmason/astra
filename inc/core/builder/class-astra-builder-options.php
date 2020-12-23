@@ -1447,14 +1447,14 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'#0274be',
 			'#0274b2',
 			'#3a3a31',
-			'#eb7d5b',
+			'',
 		),
 		'pattern2'    => array(
 			'#cd5c5c',
 			'#f08080',
 			'#fa8072',
 			'#e9967a',
-			'#ffa07a',
+			'',
 		),
 		'patterntype' => 'pattern1',
 	);

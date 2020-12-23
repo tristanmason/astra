@@ -132,9 +132,9 @@ class AstraColorPickerControl extends Component {
 		var newdefaultpalette 
 		if (Array.isArray(defaultColorPalette)) {
 			newdefaultpalette = defaultColorPalette
-		  }else{
+		}else{
 			newdefaultpalette = Object.values(defaultColorPalette)
-		  }
+		}
 		newdefaultpalette.forEach( singleColor => {
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: count + '_' + singleColor } );
@@ -142,6 +142,37 @@ class AstraColorPickerControl extends Component {
 			finalpaletteColors.push(paletteColors);
 			count ++;
 		});
+		
+		let belowColorPalette = finalpaletteColors.map((item,index)=>{
+			return <span key={index}><ColorPalette
+			colors={ [finalpaletteColors[index]] }
+			value={ this.props.color }
+			clearable={ false }
+			disableCustomColors={ true }
+			className="ast-color-palette"
+			onChange={ ( color ) => this.onPaletteChangeComplete( color,index ) }
+			/></span>
+		})
+		
+		if( this.props.container ){	
+			if(this.props.color == finalpaletteColors[0]['color']){
+				this.props.container.setAttribute('paleteindex', '0');
+				this.props.container.setAttribute('paleteused', 'true');				
+			}else if(this.props.color == finalpaletteColors[1]['color']){
+				this.props.container.setAttribute('paleteindex', '1');
+				this.props.container.setAttribute('paleteused', 'true');				
+			}else if(this.props.color == finalpaletteColors[2]['color']){
+				this.props.container.setAttribute('paleteindex', '2');
+				this.props.container.setAttribute('paleteused', 'true');				
+			}else if(this.props.color == finalpaletteColors[3]['color']){
+				this.props.container.setAttribute('paleteindex', '3');
+				this.props.container.setAttribute('paleteused', 'true');			
+			}else if(this.props.color == finalpaletteColors[4]['color']){
+				this.props.container.setAttribute('paleteindex', '4');
+				this.props.container.setAttribute('paleteused', 'true');			
+			}
+		}
+
 
 		return (
 			<>
@@ -245,15 +276,10 @@ class AstraColorPickerControl extends Component {
 										</>
 									) }
 									{ !disablePalette && (
-										<ColorPalette
-											colors={ finalpaletteColors }
-											value={ this.props.color }
-											clearable={ false }
-											disableCustomColors={ true }
-											className="ast-color-palette"
-											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-										/>
-									)}
+										<Fragment>
+											{ belowColorPalette }											
+										</Fragment>
+									) }
 									<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 								</>
 								}
@@ -284,7 +310,7 @@ class AstraColorPickerControl extends Component {
 
 	onChangeComplete( color ) {
 		if( this.props.isPaletteUsed){
-			this.props.isPaletteUsed(false);
+			this.props.isPaletteUsed(false,'');
 		}
 
 		let newColor;
@@ -298,9 +324,10 @@ class AstraColorPickerControl extends Component {
 
 	}
 
-	onPaletteChangeComplete( color ) {
-		if( this.props.isPaletteUsed){
-			this.props.isPaletteUsed(true);
+	onPaletteChangeComplete( color,index ) {
+		
+		if( this.props.isPaletteUsed ){
+			this.props.isPaletteUsed(true,index);			
 		}
 		this.setState( { color: color } );
 		if ( this.state.refresh === true ) {
