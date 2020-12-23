@@ -260,7 +260,7 @@ final class Astra_Builder_Customizer {
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
-		
+
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			require_once $header_components_path . '/woo-cart/class-astra-header-woo-cart-component.php';
 		}

@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 			$header_widgets_count = Astra_Builder_Helper::$num_of_header_widgets;
 
 			if ( $header_widgets_count ) {
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 					$this->register_sidebar( $index, 'header' );
 				}
 			}

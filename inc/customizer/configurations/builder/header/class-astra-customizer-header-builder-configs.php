@@ -72,6 +72,9 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
 				'icon'    => 'wordpress',
 				'section' => 'sidebar-widgets-header-widget-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'widget',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'widget-' . $index ] = $item;

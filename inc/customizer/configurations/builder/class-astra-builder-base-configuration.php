@@ -260,18 +260,20 @@ final class Astra_Builder_Base_Configuration {
 			$class_obj     = Astra_Builder_Header::get_instance();
 			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
 		}
-		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
+		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
 
 			$_configs = array(
 
 				array(
-					'name'     => 'sidebar-widgets-' . $type . '-widget-' . $index,
-					'type'     => 'section',
-					'priority' => 5,
-					'title'    => __( 'Widget ', 'astra' ) . $index,
-					'panel'    => 'panel-' . $type . '-builder-group',
+					'name'        => 'sidebar-widgets-' . $type . '-widget-' . $index,
+					'type'        => 'section',
+					'priority'    => 5,
+					'title'       => __( 'Widget ', 'astra' ) . $index,
+					'panel'       => 'panel-' . $type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $type . '-button',
 				),
 
 

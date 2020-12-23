@@ -864,7 +864,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-toggle-border-radius']   = 2;
 
 	// Widget Header defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		// Colors.
 		$defaults[ 'header-widget-' . $index . '-title-color' ] = array(

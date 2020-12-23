@@ -6,6 +6,8 @@
 
 	var expandedPanel = '';
 
+	var defaultContextSet = '';
+
 	/**
 	 * Resize Preview Frame when show / hide Builder.
 	 */
@@ -288,7 +290,7 @@
 
 		setDefaultControlContext: function () {
 
-			if( 'undefined' === typeof AstraBuilderCustomizerData ) {
+			if( 'undefined' === typeof AstraBuilderCustomizerData || defaultContextSet ) {
 				return ;
 			}
 			let skip_context = AstraBuilderCustomizerData.js_configs.skip_context || [];
@@ -317,6 +319,8 @@
 				}
 
 			});
+
+			defaultContextSet = true;
 		},
 
 		initializeConfigs: function () {
@@ -666,6 +670,19 @@
 				AstCustomizerAPI.addSection( clone_to_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section] );
 				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section), clone_from_id );
 				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
+
+				if( clone_from_section.startsWith('sidebar-widgets-') ){
+					let parent_id = clone_to_section.startsWith('sidebar-widgets-header-widget-') ?
+						'sidebars_widgets[header-widget-1]' : 'sidebars_widgets[footer-widget-1]';
+					parent_id = parent_id.replace(/[0-9]/g, clone_index);
+					_.each(  wp.customize.section( clone_from_section ).controls(), function( control ) {
+						if( control.hasOwnProperty('widgetControlEmbedded') ) {
+						 wp.customize.control(parent_id).addWidget(control.params.widget_id_base).updateWidget({
+								instance: control.setting()
+							})
+						}
+					});
+				}
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
