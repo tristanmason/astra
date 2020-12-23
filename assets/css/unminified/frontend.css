@@ -2666,11 +2666,15 @@ body {
 
 .ast-icon svg {
   fill: currentColor;
-  fill: currentColor;
   height: .60em;
   width: .60em;
   position: relative;
   margin-left: 10px;
+}
+
+.ast-mobile-popup-content .ast-icon svg {
+  height: .85em;
+  width: .85em;
 }
 
 /*----------  Primary  ----------*/
@@ -3635,14 +3639,6 @@ body .entry-content .wp-block-latest-posts li {
   -js-display: flex;
   display: flex;
   box-shadow: none;
-}
-
-.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
-  font-weight: bold;
-  content: "\e900";
-  font-family: 'Astra';
-  text-decoration: inherit;
-  display: inline-block;
 }
 
 .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children .sub-menu {

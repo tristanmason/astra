@@ -19,7 +19,7 @@ class Astra_Icons {
 	 * Constructor function that initializes required actions and hooks
 	 */
 	public function __construct() {
-		
+
 	}
 
 	/**

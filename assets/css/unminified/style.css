@@ -2666,11 +2666,15 @@ body {
 
 .ast-icon svg {
   fill: currentColor;
-  fill: currentColor;
   height: .60em;
   width: .60em;
   position: relative;
   margin-left: 10px;
+}
+
+.ast-mobile-popup-content .ast-icon svg {
+  height: .85em;
+  width: .85em;
 }
 
 /*----------  Header  ----------*/

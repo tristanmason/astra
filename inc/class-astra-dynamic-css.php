@@ -2375,7 +2375,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'top'       => '50%',
 						'transform' => 'translate(0,-50%) rotate(270deg)',
 					),
-					'.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
+					'.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before, .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children>.ast-menu-toggle::before' => array(
 						'font-weight'     => 'bold',
 						'content'         => '"\e900"',
 						'font-family'     => 'Astra',
