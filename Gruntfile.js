@@ -353,6 +353,10 @@ module.exports = function (grunt) {
                         src: 'assets/css/unminified/compatibility/edd-rtl.css',
                         dest: 'assets/css/minified/compatibility/edd.min-rtl.css',
                     },
+                    {
+                        src: 'assets/css/unminified/blog-pagination-rtl.css',
+                        dest: 'assets/css/minified/blog-pagination.min-rtl.css',
+                    },
                 ]
             }
         },
