@@ -700,8 +700,10 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-color]', function( setting ) {
 				setting.bind( function( color ) {
 
-					var dynamicStyle = '';
+					var dynamicStyle = '',
+						borderStyle = (typeof ( wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-style]'] ) != 'undefined') ? wp.customize._value['astra-settings[' + builder_type + '-divider-' + index + '-style]']._value : '';
 					dynamicStyle += selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper {';
+					dynamicStyle += 'border-style: ' + borderStyle + ';';
 					dynamicStyle += 'border-color: ' + color + ';';
 					dynamicStyle += '} ';
 
