@@ -1059,10 +1059,6 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	 */
 
 	// Header : Primary Header - Layout.
-	error_log( print_r( $theme_options['header-layouts'], true ) );
-	error_log( print_r( astra_get_option( 'header-layouts' ), true ) );
-	error_log( print_r( $defaults['header-layouts'], true ) );
-
 	$primary_header_layout = $theme_options['header-layouts'];
 
 	// Header : Primary Header - Last Menu Item.
@@ -1166,10 +1162,6 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	$new_menu_item_mobile = ( ! $last_menu_item_mobile_flag ) ? $new_menu_item : '';
 
 	$new_menu_item_mobile_outside = ( ! $last_menu_item_mobile_flag && $last_menu_item_mobile_outside ) ? $new_menu_item : '';
-
-	// if ( '' !== $new_menu_item_mobile_outside ) {
-	// $new_menu_item = '';
-	// }
 
 	$theme_options['header-desktop-items']['above'] = array(
 		'above_left'         => array(),
