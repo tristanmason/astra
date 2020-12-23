@@ -121,6 +121,7 @@
 }
 .ast-header-divider-element {
 	position: relative;
+	display: flex;
 }
 .site-footer-section,
 .ast-fb-divider-layout-vertical.ast-footer-divider-element,
@@ -405,8 +406,6 @@
  * AST HF Builder - Responsive CSS.
  * For desktop view.
  */
-
-
 
 #ast-mobile-header {
 	display: none;
@@ -776,7 +775,9 @@ body.admin-bar {
 		padding-right: 5.5em;
 	}
 }
-
+.site-footer-focus-item[CLASS*="ast-footer-button-"] {
+	display: flex;
+}
 
 @media screen and (max-width: 921px) {
 	.ast-mobile-popup-drawer {
