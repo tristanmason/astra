@@ -24,7 +24,7 @@ const RowComponent = props => {
 		});
 	}
 
-	if ('astra-settings[header-desktop-items]' === props.controlParams.group && typeof props.items[props.row + '_center'] != "undefined" && props.items[props.row + '_center'] != null && props.items[props.row + '_center'].length != null && props.items[props.row + '_center'].length > 0) {
+	if ( 'popup' !== props.row && 'astra-settings[header-desktop-items]' === props.controlParams.group && typeof props.items[props.row + '_center'] != "undefined" && props.items[props.row + '_center'] != null && props.items[props.row + '_center'].length != null && props.items[props.row + '_center'].length > 0) {
 		centerClass = 'has-center-items';
 	}
 
@@ -79,14 +79,15 @@ const RowComponent = props => {
 					return;
 				}
 
-				if ('astra-settings[header-desktop-items]' === props.controlParams.group && props.row + '_left' === zone && 'footer' !== mode) {
+				if ('popup' !== props.row && 'astra-settings[header-desktop-items]' === props.controlParams.group && props.row + '_left' === zone && 'footer' !== mode) {
 					besideItems = props.items[props.row + '_left_center'];
 				}
 
-				if ('astra-settings[header-desktop-items]' === props.controlParams.group && props.row + '_right' === zone && 'footer' !== mode) {
+				if ('popup' !== props.row && 'astra-settings[header-desktop-items]' === props.controlParams.group && props.row + '_right' === zone && 'footer' !== mode) {
 					besideItems = props.items[props.row + '_right_center'];
 				}
-
+				console.log(props.items);
+				console.log(zone);
 				return enableRow && <DropComponent
 					removeItem={(remove, removeRow, removeZone) => props.removeItem(remove, removeRow, removeZone)}
 					focusItem={focus => props.focusItem(focus)} hideDrop={() => props.hideDrop()}
