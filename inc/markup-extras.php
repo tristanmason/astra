@@ -141,10 +141,14 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function astra_number_pagination() {
-		global $numpages;
+		global $wp_query;
 		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) && $enabled ) {
+		// Don't print empty markup if their is only one page.
+		if ( $wp_query->max_num_pages < 2 || ! $enabled ) {
+			return;
+		}
+
 			ob_start();
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
@@ -158,7 +162,6 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo '</div>';
 			$output = ob_get_clean();
 			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
 	}
 }
 
@@ -636,7 +639,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		?>
 
 		<header
-			<?php
+		<?php
 				echo astra_attr(
 					'header',
 					array(
@@ -644,7 +647,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 						'class' => join( ' ', astra_get_header_classes() ),
 					)
 				);
-			?>
+		?>
 		>
 
 			<?php astra_masthead_top(); ?>
@@ -683,7 +686,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div
+			<div 
 			<?php
 				echo astra_attr(
 					'site-identity',
@@ -979,8 +982,8 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer
-			<?php
+		<footer 
+		<?php
 				echo astra_attr(
 					'footer',
 					array(
@@ -988,7 +991,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 						'class' => join( ' ', astra_get_footer_classes() ),
 					)
 				);
-			?>
+		?>
 		>
 
 			<?php astra_footer_content_top(); ?>
