@@ -849,7 +849,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'title'     => __( 'Text Color', 'astra' ),
 						'context'   => Astra_Builder_Helper::$design_tab_config,
-					)
+					),
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
