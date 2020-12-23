@@ -2382,6 +2382,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-decoration' => 'inherit',
 						'display'         => 'inline-block',
 					),
+					'.ast-header-break-point .main-navigation ul.sub-menu .menu-item .menu-link:before' => array(
+						'content'         => '"\e900"',
+						'font-family'     => 'Astra',
+						'font-size'       => '.65em',
+						'text-decoration' => 'inherit',
+						'display'         => 'inline-block',
+						'transform'       => 'translate(0, -2px) rotateZ(270deg)',
+						'margin-right'    => '5px',
+					),
 					'.widget_search .search-form:after' => array(
 						'font-family' => 'Astra',
 						'font-size'   => '1.2em',
