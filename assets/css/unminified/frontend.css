@@ -4001,6 +4001,12 @@ body.admin-bar .astra-cart-drawer {
   z-index: 999;
 }
 
+@media (max-width: 545px) {
+  .astra-cart-drawer.active {
+    width: 100%;
+  }
+}
+
 /** Cart CSS */
 .ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-site-header-cart, .ast-header-break-point.astra-hfb-header .ast-site-header-cart {
   padding: 0;

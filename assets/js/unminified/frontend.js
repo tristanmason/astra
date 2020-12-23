@@ -354,7 +354,7 @@ var main_header_masthead = document.getElementById('masthead');
 		console.log(discardClickCart);
 		discardClickCart.addEventListener( "click", function( e ) {
 			console.log(this)
-			debugger
+			// debugger
 			e.preventDefault();
 			return false;
 		} );
