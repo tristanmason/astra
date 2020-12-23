@@ -685,30 +685,25 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 
 		let section = ( 'header' === builder_type ) ? 'section-hb-divider-' + index : 'section-fb-divider-' + index;
 
-		astra_css(
-			'astra-settings[' + builder_type + '-divider-' + index + '-style]',
-			'border-style',
-			selector + ' .ast-divider-wrapper'
-		);
-
-		// Border style.
-		wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-color]', function( setting ) {
-			setting.bind( function( color ) {
-
-				var dynamicStyle = '';
-				dynamicStyle += selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper {';
-				dynamicStyle += 'border-color: ' + color + ';';
-				dynamicStyle += 'border-style: solid;';
-				dynamicStyle += '} ';
-
-				astra_add_dynamic_css( builder_type + '-divider-' + index + '-color', dynamicStyle );
-			} );
-		} );
-
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector );
 
 		( function ( index ) {
+
+			// Border style.
+			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-color]', function( setting ) {
+				setting.bind( function( color ) {
+
+					var dynamicStyle = '';
+					dynamicStyle += selector + ' .ast-divider-wrapper, .ast-mobile-popup-content ' + selector + ' .ast-divider-wrapper {';
+					dynamicStyle += 'border-color: ' + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '} ';
+
+					astra_add_dynamic_css( builder_type + '-divider-' + index + '-color', dynamicStyle );
+				} );
+			} );
+
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-layout]', function ( value ) {
 				value.bind( function ( newval ) {
 
