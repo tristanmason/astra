@@ -1059,11 +1059,10 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	 */
 
 	// Header : Primary Header - Layout.
-	$defaults = Astra_Theme_Options::defaults();
 	error_log( print_r( $theme_options['header-layouts'], true ) );
 	error_log( print_r( astra_get_option( 'header-layouts' ), true ) );
 	error_log( print_r( $defaults['header-layouts'], true ) );
-	// var_dump($theme_options['header-layouts']);
+
 	$primary_header_layout = $theme_options['header-layouts'];
 
 	// Header : Primary Header - Last Menu Item.
