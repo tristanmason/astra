@@ -825,7 +825,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 				);
 
-				if( 'icon' === astra_get_option('header-account-login-style') || 'icon' === astra_get_option('header-account-logout-style' ) ) {
+				if ( 'icon' === astra_get_option( 'header-account-login-style' ) || 'icon' === astra_get_option( 'header-account-logout-style' ) ) {
 					$_configs[] = array(
 						'name'      => 'transparent-account-icon-color',
 						'default'   => '',
@@ -840,7 +840,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					);
 				}
 
-				if( 'text' === astra_get_option('header-account-login-style') || 'text' === astra_get_option('header-account-logout-style' ) ) {
+				if ( 'text' === astra_get_option( 'header-account-login-style' ) || 'text' === astra_get_option( 'header-account-logout-style' ) ) {
 					$_configs[] = array(
 						'name'      => 'transparent-account-type-text-color',
 						'default'   => '',
