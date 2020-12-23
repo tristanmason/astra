@@ -1269,6 +1269,10 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	if ( isset( $theme_options['header-main-sep'] ) ) {
 		$theme_options['hb-header-main-sep'] = $theme_options['header-main-sep'];
 	}
+
+	if ( isset( $theme_options['header-main-sep-color'] ) ) {
+		$theme_options['hb-header-main-sep-color'] = $theme_options['header-main-sep-color'];
+	}
 	
 	return array(
 		'theme_options'  => $theme_options,
