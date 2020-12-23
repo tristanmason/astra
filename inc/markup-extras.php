@@ -646,18 +646,16 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 				);
 		?>
 		>
+			<?php 
+			astra_masthead_top();
 
-			<?php astra_masthead_top(); ?>
+			astra_masthead();
 
-			<?php astra_masthead(); ?>
-
-			<?php astra_masthead_bottom(); ?>
-
-			<?php
+			astra_masthead_bottom();
+			
 			do_action( 'astra_sticky_header_markup' );
 			do_action( 'astra_bottom_header_after_markup' );
 			?>
-
 		</header><!-- #masthead -->
 
 		<?php
