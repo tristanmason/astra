@@ -3,7 +3,6 @@
 }
 
 .main-navigation {
-	display: inline-flex;
 	height: 100%;
 
 	ul {
@@ -17,7 +16,7 @@
 .main-header-menu {
 
 	.menu-link,
-	a {
+	> a {
 		text-decoration: none;
 		padding: 0 1em;
 		display: inline-block;

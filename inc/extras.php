@@ -313,28 +313,17 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
 }
 
-	/**
-	 * Check the WordPress version.
-	 *
-	 * @since  2.5.4
-	 * @param string $version   WordPress version to compare with the current version.
-	 * @param string $compare   Comparison value i.e > or < etc.
-	 * @return bool            True/False based on the  $version and $compare value.
-	 */
+/**
+ * Check the WordPress version.
+ *
+ * @since  2.5.4
+ * @param string $version   WordPress version to compare with the current version.
+ * @param string $compare   Comparison value i.e > or < etc.
+ * @return bool            True/False based on the  $version and $compare value.
+ */
 function astra_wp_version_compare( $version, $compare ) {
 
 	return version_compare( get_bloginfo( 'version' ), $version, $compare );
-}
-
-/**
- * Get instance of WP_Filesystem.
- *
- * @since 2.1.0
- *
- * @return WP_Filesystem
- */
-function astra_filesystem() {
-	return Astra_Filesystem::instance();
 }
 
 /**
@@ -380,7 +369,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
 	$tabindex = ' tabindex="0"';
-	$icon  = Astra_Icons::get_icons( 'arrow' );
+	$icon     = Astra_Icons::get_icons( 'arrow' );
 	if ( isset( $args->container_class ) && 'main-header-bar-navigation' === $args->container_class ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value ) {
@@ -393,6 +382,48 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	}
 	return $title;
 }
+
 if ( Astra_Icons::is_svg_icons() ) {
 	add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
+}
+
+/**
+ * Is theme existing header footer configs enable.
+ *
+ * @since 3.0.0
+ *
+ * @return boolean true/false.
+ */
+function astra_existing_header_footer_configs() {
+
+	return apply_filters( 'astra_existing_header_footer_configs', true );
+}
+
+/**
+ * Get Spacing value
+ *
+ * @param  array  $value        Responsive spacing value with unit.
+ * @param  string $operation    + | - | * | /.
+ * @param  string $from         Perform operation from the value.
+ * @param  string $from_unit    Perform operation from the value of unit.
+ *
+ * @since 3.0.0
+ * @return mixed
+ */
+function astra_calculate_spacing( $value, $operation = '', $from = '', $from_unit = '' ) {
+
+	$css = '';
+	if ( ! empty( $value ) ) {
+		$css = $value;
+		if ( ! empty( $operation ) && ! empty( $from ) ) {
+			if ( ! empty( $from_unit ) ) {
+				$css = 'calc( ' . $value . ' ' . $operation . ' ' . $from . $from_unit . ' )';
+			}
+			if ( '*' === $operation || '/' === $operation ) {
+				$css = 'calc( ' . $value . ' ' . $operation . ' ' . $from . ' )';
+			}
+		}
+	}
+
+	return $css;
 }

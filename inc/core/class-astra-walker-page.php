@@ -66,14 +66,14 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 		 * @param int     $current_page Optional. Page ID. Default 0.
 		 */
 		public function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
-			$css_class = array( 'page_item', 'page-item-' . $page->ID );
-			$icon = '';
+			$css_class   = array( 'page_item', 'page-item-' . $page->ID );
+			$icon        = '';
 			$mobile_icon = '';
 
 			if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
 				$css_class[] = 'menu-item-has-children';
-				$icon  = Astra_Icons::get_icons( 'arrow' );
-				$icon = '<span role="presentation" class="dropdown-menu-toggle">' . $icon . '</span>';
+				$icon        = Astra_Icons::get_icons( 'arrow' );
+				$icon        = '<span role="presentation" class="dropdown-menu-toggle">' . $icon . '</span>';
 				// Add toggle button if menu is from Astra.
 				if ( true === is_object( $args ) ) {
 					if ( isset( $args->theme_location ) &&
@@ -112,14 +112,14 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 				} elseif ( $_current_page && $page->ID == $_current_page->post_parent ) {
 					$css_class[] = 'current-menu-parent';
 				}
-			} elseif ( $page->ID == get_option( 'page_for_posts' ) ) {
+			} elseif ( get_option( 'page_for_posts' ) == $page->ID ) {
 				$css_class[] = 'current-menu-parent';
 			}
 
 			$css_classes = implode( ' ', apply_filters( 'page_css_class', $css_class, $page, $depth, $args, $current_page ) );
 
 			$args['link_before'] = empty( $args['link_before'] ) ? '' : $args['link_before'];
-			$args['link_after'] = empty( $args['link_after'] ) ? '' : $args['link_after'];
+			$args['link_after']  = empty( $args['link_after'] ) ? '' : $args['link_after'];
 
 			$output .= sprintf(
 				'<li class="%s"><a href="%s" class="menu-link">%s%s%s%s</a>%s',

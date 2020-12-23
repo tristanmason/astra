@@ -430,6 +430,17 @@
         }
     },
     {
+        "Andika New Basic": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Angkor": {
             "variants": [
                 "regular"
@@ -587,8 +598,12 @@
         "Arimo": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -701,6 +716,7 @@
                 "200",
                 "300",
                 "regular",
+                "500",
                 "600",
                 "700",
                 "800"
@@ -1316,6 +1332,66 @@
         }
     },
     {
+        "Big Shoulders Inline Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Inline Text": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Stencil Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Stencil Text": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Big Shoulders Text": {
             "variants": [
                 "100",
@@ -1613,12 +1689,12 @@
         "Cabin": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -1805,6 +1881,15 @@
         }
     },
     {
+        "Castoro": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Catamaran": {
             "variants": [
                 "100",
@@ -1835,6 +1920,8 @@
         "Caveat": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "handwriting"
@@ -2043,7 +2130,10 @@
         "Cinzel": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "serif"
@@ -2140,6 +2230,22 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Commissioner": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -2423,8 +2529,12 @@
         "Cuprum": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -2674,6 +2784,8 @@
         "Domine": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -3699,6 +3811,15 @@
         }
     },
     {
+        "Goldman": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Gorditas": {
             "variants": [
                 "regular",
@@ -3753,6 +3874,31 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Grandstander": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
         }
     },
     {
@@ -4263,10 +4409,12 @@
         "Ibarra Real Nova": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "serif"
@@ -4461,6 +4609,29 @@
         }
     },
     {
+        "JetBrains Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Jim Nightshade": {
             "variants": [
                 "regular"
@@ -4525,14 +4696,18 @@
         "Josefin Slab": {
             "variants": [
                 "100",
-                "100italic",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "serif"
@@ -4730,10 +4905,20 @@
     {
         "Karla": {
             "variants": [
+                "200",
+                "300",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic"
+                "800",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
             ],
             "category": "sans-serif"
         }
@@ -4996,6 +5181,25 @@
         }
     },
     {
+        "Kufam": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Kulim Park": {
             "variants": [
                 "200",
@@ -5026,6 +5230,16 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Kumbh Sans": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -5082,6 +5296,14 @@
     },
     {
         "Lancelot": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Langar": {
             "variants": [
                 "regular"
             ],
@@ -5272,6 +5494,14 @@
         }
     },
     {
+        "Libre Barcode EAN13 Text": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Libre Baskerville": {
             "variants": [
                 "regular",
@@ -5303,22 +5533,22 @@
         "Libre Franklin": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -5370,14 +5600,22 @@
     {
         "Literata": {
             "variants": [
+                "200",
+                "300",
                 "regular",
                 "500",
                 "600",
                 "700",
+                "800",
+                "900",
+                "200italic",
+                "300italic",
                 "italic",
                 "500italic",
                 "600italic",
-                "700italic"
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -5953,12 +6191,16 @@
         "Merriweather Sans": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic",
                 "800",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
                 "800italic"
             ],
             "category": "sans-serif"
@@ -6457,6 +6699,14 @@
     },
     {
         "Nanum Pen Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Nerko One": {
             "variants": [
                 "regular"
             ],
@@ -7373,6 +7623,31 @@
         }
     },
     {
+        "Piazzolla": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Piedra": {
             "variants": [
                 "regular"
@@ -7991,6 +8266,8 @@
             "variants": [
                 "300",
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "display"
@@ -8242,14 +8519,18 @@
         "Rubik": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic",
+                "800",
                 "900",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -8476,6 +8757,20 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Sansita Swashed": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -9009,6 +9304,18 @@
         }
     },
     {
+        "Space Grotesk": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Space Mono": {
             "variants": [
                 "regular",
@@ -9328,6 +9635,34 @@
         }
     },
     {
+        "Syne": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Syne Mono": {
+            "variants": [
+                "regular"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
+        "Syne Tactile": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Tajawal": {
             "variants": [
                 "200",
@@ -9433,6 +9768,31 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Texturina": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -9577,6 +9937,21 @@
                 "900italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Trispace": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -9975,6 +10350,15 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Xanh Mono": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "monospace"
         }
     },
     {
