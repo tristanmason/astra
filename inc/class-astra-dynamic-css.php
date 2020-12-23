@@ -435,10 +435,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-single-post .entry-title, .page-title' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 				),
-				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
-				),
-
 				// Global CSS.
 				'::selection'                     => array(
 					'background-color' => esc_attr( $theme_color ),
@@ -523,15 +519,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.calendar_wrap #today > a'       => array(
 					'color' => astra_get_foreground_color( $link_color ),
 				),
-
-				// Pagination.
-				'.ast-pagination a, .page-links .page-link, .single .post-navigation a' => array(
-					'color' => esc_attr( $link_color ),
-				),
-				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
-					'color' => esc_attr( $link_hover_color ),
-				),
-
 				// toggle style
 				// Menu Toggle Minimal.
 				'.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle' => array(
@@ -557,6 +544,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
 			);
+			
+			global $wp_query;
+
+			if ( ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) || is_single() ) {
+				// Pagination.
+				$css_output['.ast-pagination a, .page-links .page-link, .single .post-navigation a'] = array(
+					'color' => esc_attr( $link_color ),
+				);
+
+				$css_output['.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover'] = array(
+					'color' => esc_attr( $link_hover_color ),
+				);
+			}
+
+			if ( 'no-sidebar' !== astra_page_layout() ) {
+				$css_output['#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea'] = array(
+					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
+				);
+			}
 
 			/**
 			 * Loaded the following CSS conditionally because of following scenarios -
@@ -925,30 +931,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$static_layout_css = array(
-				'#secondary.secondary'                  => array(
-					'padding-top' => 0,
-				),
 				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
 					'padding' => '1.5em 2.14em',
 				),
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
 				),
-				'.ast-separate-container.ast-right-sidebar #secondary' => array(
-					'padding-left'  => '1em',
-					'padding-right' => '1em',
-				),
-				'.ast-separate-container.ast-two-container #secondary' => array(
-					'padding-left'  => 0,
-					'padding-right' => 0,
-				),
-				'.ast-page-builder-template .entry-header #secondary' => array(
-					'margin-top' => '1.5em',
-				),
-				'.ast-page-builder-template #secondary' => array(
-					'margin-top' => '1.5em',
-				),
-				'#primary, #secondary'                  => array(
+				'#primary, #secondary'               => array(
 					'padding' => '1.5em 0',
 					'margin'  => 0,
 				),
@@ -957,18 +946,57 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'flex-direction' => 'column-reverse',
 					'width'          => '100%',
 				),
-				'.ast-author-box img.avatar'            => array(
+				'.ast-author-box img.avatar'         => array(
 					'margin' => '20px 0 0 0',
 				),
-				'.ast-pagination'                       => array(
+				'.ast-pagination'                    => array(
 					'padding-top' => '1.5em',
 					'text-align'  => 'center',
 				),
-				'.ast-pagination .next.page-numbers'    => array(
+				'.ast-pagination .next.page-numbers' => array(
 					'display' => 'inherit',
 					'float'   => 'none',
 				),
 			);
+
+			if ( 'no-sidebar' !== astra_page_layout() ) {
+				$static_secondary_layout_css = array(
+					'#secondary.secondary'               => array(
+						'padding-top' => 0,
+					),
+					'.ast-separate-container.ast-right-sidebar #secondary' => array(
+						'padding-left'  => '1em',
+						'padding-right' => '1em',
+					),
+					'.ast-separate-container.ast-two-container #secondary' => array(
+						'padding-left'  => 0,
+						'padding-right' => 0,
+					),
+					'.ast-page-builder-template .entry-header #secondary' => array(
+						'margin-top' => '1.5em',
+					),
+					'.ast-page-builder-template #secondary' => array(
+						'margin-top' => '1.5em',
+					),
+					'.ast-separate-container #secondary' => array(
+						'padding-top' => 0,
+					),
+					'.ast-separate-container.ast-two-container #secondary .widget' => array(
+						'margin-bottom' => '1.5em',
+						'padding-left'  => '1em',
+						'padding-right' => '1em',
+					),
+					'.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' => array(
+						'border'       => 0,
+						'margin-left'  => 'auto',
+						'margin-right' => 'auto',
+					),
+					'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
+						'margin-bottom' => 0,
+					),
+				);
+				$parse_css                  .= astra_parse_css( $static_secondary_layout_css, '', astra_get_tablet_breakpoint() );
+			}
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
@@ -1002,22 +1030,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			} else {
 				$static_layout_lang_direction_css = array(
-					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
-						'padding-right' => '20px',
-					),
-					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
-						'padding-left' => '20px',
-					),
 					'.ast-right-sidebar #primary'        => array(
-						'padding-right' => 0,
-					),
-					'.ast-right-sidebar #secondary'      => array(
-						'padding-left' => 0,
-					),
-					'.ast-left-sidebar #primary'         => array(
-						'padding-left' => 0,
-					),
-					'.ast-left-sidebar #secondary'       => array(
 						'padding-right' => 0,
 					),
 					'.ast-pagination .prev.page-numbers' => array(
@@ -1027,22 +1040,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding-right' => '.5em',
 					),
 				);
+				if ( 'no-sidebar' !== astra_page_layout() ) {
+					$static_layout_lang_direction_css_sidebar = array(
+						'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+							'padding-right' => '20px',
+						),
+						'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
+							'padding-left' => '20px',
+						),
+						'.ast-right-sidebar #secondary' => array(
+							'padding-left' => 0,
+						),
+						'.ast-left-sidebar #primary'    => array(
+							'padding-left' => 0,
+						),
+						'.ast-left-sidebar #secondary'  => array(
+							'padding-right' => 0,
+						),
+					);
+					$static_layout_lang_direction_css         = array_merge( $static_layout_lang_direction_css, $static_layout_lang_direction_css_sidebar );
+				}
 			}
-
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_lang_direction_css, '', astra_get_tablet_breakpoint() );
 
 			$static_layout_css_min = array(
 				'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary' => array(
 					'border' => 0,
-				),
-				'.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' => array(
-					'border'       => 0,
-					'margin-left'  => 'auto',
-					'margin-right' => 'auto',
-				),
-				'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
-					'margin-bottom' => 0,
 				),
 				'.ast-separate-container .ast-comment-list li .comment-respond' => array(
 					'padding-left'  => '2.66666em',
@@ -1090,29 +1114,34 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			} else {
 				$static_layout_min_lang_direction_css = array(
-					'.ast-right-sidebar #primary'   => array(
+					'.ast-right-sidebar #primary' => array(
 						'border-right' => '1px solid #eee',
 					),
-					'.ast-right-sidebar #secondary' => array(
+					'.ast-left-sidebar #primary'  => array(
 						'border-left' => '1px solid #eee',
-						'margin-left' => '-1px',
-					),
-					'.ast-left-sidebar #primary'    => array(
-						'border-left' => '1px solid #eee',
-					),
-					'.ast-left-sidebar #secondary'  => array(
-						'border-right' => '1px solid #eee',
-						'margin-right' => '-1px',
-					),
-					'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
-						'padding-left'  => '30px',
-						'padding-right' => 0,
-					),
-					'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
-						'padding-right' => '30px',
-						'padding-left'  => 0,
 					),
 				);
+				if ( 'no-sidebar' !== astra_page_layout() ) {
+					$static_layout_min_lang_direction_css_sidebar = array(
+						'.ast-right-sidebar #secondary' => array(
+							'border-left' => '1px solid #eee',
+							'margin-left' => '-1px',
+						),
+						'.ast-left-sidebar #secondary'  => array(
+							'border-right' => '1px solid #eee',
+							'margin-right' => '-1px',
+						),
+						'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
+							'padding-left'  => '30px',
+							'padding-right' => 0,
+						),
+						'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
+							'padding-right' => '30px',
+							'padding-left'  => 0,
+						),
+					);
+					$static_layout_min_lang_direction_css         = array_merge( $static_layout_min_lang_direction_css, $static_layout_min_lang_direction_css_sidebar );
+				}           
 			}
 
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
@@ -1390,14 +1419,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container #content .ast-container' => array(
 					'padding-left'  => '0.54em',
 					'padding-right' => '0.54em',
-				),
-				'.ast-separate-container #secondary'       => array(
-					'padding-top' => 0,
-				),
-				'.ast-separate-container.ast-two-container #secondary .widget' => array(
-					'margin-bottom' => '1.5em',
-					'padding-left'  => '1em',
-					'padding-right' => '1em',
 				),
 				'.ast-separate-container .comments-count-wrapper' => array(
 					'padding' => '1.5em 1em',
