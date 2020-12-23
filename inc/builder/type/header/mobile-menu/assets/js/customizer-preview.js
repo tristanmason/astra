@@ -46,7 +46,7 @@
         astra_css(
             'astra-settings[header-mobile-menu-line-height]',
             'line-height',
-            selector + ' .menu-item > .menu-link'
+            selector + ' .menu-item > .menu-link, ' + selector + ' .menu-item > .ast-menu-toggle'
         );
         astra_css(
             'astra-settings[header-mobile-menu-letter-spacing]',
