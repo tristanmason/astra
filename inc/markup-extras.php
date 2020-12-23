@@ -634,7 +634,6 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 
 		do_action( 'astra_header_markup_before' );
 		?>
-
 		<header
 		<?php
 				echo astra_attr(
