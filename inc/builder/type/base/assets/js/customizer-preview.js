@@ -689,14 +689,11 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 		astra_builder_visibility_css( section, selector );
 
 		( function ( index ) {
-
 			astra_css(
 				'astra-settings[' + builder_type + '-divider-' + index + '-style]',
 				'border-style',
 				selector + ' .ast-divider-wrapper'
 			);
-
-			// Border style.
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-color]', function( setting ) {
 				setting.bind( function( color ) {
 
@@ -710,7 +707,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 					astra_add_dynamic_css( builder_type + '-divider-' + index + '-color', dynamicStyle );
 				} );
 			} );
-
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-layout]', function ( value ) {
 				value.bind( function ( newval ) {
 
@@ -722,8 +718,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 					jQuery( '.ast-' + builder_type + '-divider-' + index ).addClass( side_class );
 				} );
 			} );
-
-			// Divider Thickness.
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-thickness]', function( value ) {
 				value.bind( function( size ) {
 					if(
@@ -777,8 +771,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 					}
 				} );
 			} );
-
-			// Divider Size.
 			wp.customize( 'astra-settings[' + builder_type + '-divider-' + index + '-size]', function( value ) {
 				value.bind( function( size ) {
 					if(
@@ -825,8 +817,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 					}
 				} );
 			} );
-
-			// Margin.
 			wp.customize( 'astra-settings[' + section + '-margin]', function( value ) {
 				value.bind( function( margin ) {
 					if(
@@ -863,7 +853,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 					}
 				} );
 			} );
-
 		})(index);
 
     }
