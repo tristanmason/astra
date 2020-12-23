@@ -626,7 +626,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    	M.splice(1,1,tem[1]);
 	    }
 
-	    bodyElement = body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
 		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
 	    }
@@ -824,8 +823,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	/* Add class if mouse clicked and remove if tab pressed */
 	if ( 'querySelector' in document && 'addEventListener' in window ) {
-		var body = body;
-
 		body.addEventListener( 'mousedown', function() {
 			body.classList.add( 'ast-mouse-clicked' );
 		} );
