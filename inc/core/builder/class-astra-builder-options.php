@@ -1296,28 +1296,28 @@ function prepare_divider_defaults( $defaults, $index ) {
 
 	$defaults[ 'header-divider-' . $index . '-layout' ]    = 'vertical';
 	$defaults[ 'header-divider-' . $index . '-style' ]     = 'solid';
-	$defaults[ 'header-divider-' . $index . '-color' ]     = '#3a3a3a';
+	$defaults[ 'header-divider-' . $index . '-color' ]     = '';
 	$defaults[ 'header-divider-' . $index . '-size' ]      = array(
-		'desktop' => 50,
+		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
 	$defaults[ 'header-divider-' . $index . '-thickness' ] = array(
-		'desktop' => 1,
+		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
 
 	$defaults[ 'footer-divider-' . $index . '-layout' ]    = 'horizontal';
 	$defaults[ 'footer-divider-' . $index . '-style' ]     = 'solid';
-	$defaults[ 'footer-divider-' . $index . '-color' ]     = '#3a3a3a';
+	$defaults[ 'footer-divider-' . $index . '-color' ]     = '';
 	$defaults[ 'footer-divider-' . $index . '-size' ]      = array(
-		'desktop' => 50,
+		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
 	$defaults[ 'footer-divider-' . $index . '-thickness' ] = array(
-		'desktop' => 1,
+		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
