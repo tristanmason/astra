@@ -2411,7 +2411,7 @@ body {
   display: none;
 }
 
-.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link .icon-arrow svg {
+#ast-desktop-header .main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link .icon-arrow svg {
   position: absolute;
   right: .60em;
   top: 50%;
@@ -2459,8 +2459,8 @@ body {
 }
 
 .ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg {
-  left: 20px;
-  top: 20px;
+  left: .4em;
+  top: .4em;
   transform: translate(0, -2px) rotateZ(270deg);
 }
 

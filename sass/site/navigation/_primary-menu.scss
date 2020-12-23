@@ -104,16 +104,24 @@
 				}
 			}
 		}
-
-		.menu-item.menu-item-has-children > .menu-link .icon-arrow svg {
-			position: absolute;
-			right: .60em;
-			top: 50%;
-			transform: translate(0, -50%) rotate(270deg);
-		}
-
 	}
+}
 
+#ast-desktop-header {
+	.main-header-menu {
+		.sub-menu {
+			.menu-item.menu-item-has-children>.menu-link {
+				.icon-arrow {
+					svg {
+						position: absolute;
+						right: .60em;
+						top: 50%;
+						transform: translate(0, -50%) rotate(270deg);
+					}
+				}
+			}
+		}
+	}
 }
 
 .main-header-menu {
@@ -168,8 +176,8 @@
 						&:first-of-type {
 							margin-right: 20px;
 							svg {
-								left: 20px;
-								top: 20px;
+								left: .4em;
+								top: .4em;
 								transform: translate(0, -2px) rotateZ(270deg);
 							}
 						}
