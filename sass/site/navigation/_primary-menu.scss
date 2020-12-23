@@ -105,10 +105,9 @@
 			}
 		}
 
-		.menu-item.menu-item-has-children > .menu-link:after,
 		.menu-item.menu-item-has-children > .menu-link .icon-arrow svg {
 			position: absolute;
-			right: 1em;
+			right: .60em;
 			top: 50%;
 			transform: translate(0, -50%) rotate(270deg);
 		}

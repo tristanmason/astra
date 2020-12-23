@@ -2411,10 +2411,9 @@ body {
   display: none;
 }
 
-.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link:after,
 .main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link .icon-arrow svg {
   position: absolute;
-  right: 1em;
+  right: .60em;
   top: 50%;
   transform: translate(0, -50%) rotate(270deg);
 }
@@ -2667,10 +2666,11 @@ body {
 
 .ast-icon svg {
   fill: currentColor;
-  height: 1em;
-  width: 1em;
-  top: .125em;
+  fill: currentColor;
+  height: .60em;
+  width: .60em;
   position: relative;
+  margin-left: 10px;
 }
 
 /*----------  Header  ----------*/
