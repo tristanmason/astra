@@ -19,7 +19,10 @@ class Astra_Icons {
 	 * Constructor function that initializes required actions and hooks
 	 */
 	public function __construct() {
-
+		// Remove astra.woff and other format of Astra font files when SVG is enabled.
+		if ( self::is_svg_icons() ) {
+			add_filter( 'astra_enable_default_fonts', '__return_false' );
+		}
 	}
 
 	/**
