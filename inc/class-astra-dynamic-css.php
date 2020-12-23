@@ -2222,6 +2222,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
+
+			if ( 'no-sidebar' !== astra_page_layout() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
+			}
+
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
 		}
@@ -2604,6 +2609,69 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-media-text-block-padding-css'] = isset( $astra_settings['guntenberg-media-text-block-padding-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_media_text_block_spacing_compatibility', $astra_settings['guntenberg-media-text-block-padding-css'] );
+		}
+
+		/**
+		 * Load sidebar static CSS when it is enabled.
+		 *
+		 * @since 3.0.0
+		 */
+		public static function load_sidebar_static_css() {
+
+			return '
+			#secondary {
+				margin: 4em 0 2.5em;
+				word-break: break-word;
+				line-height: 2;
+			}
+			
+			#secondary li {
+				margin-bottom: 0.25em;
+			}
+			
+			#secondary li:last-child {
+				margin-bottom: 0;
+			}
+			.ast-page-builder-template.ast-left-sidebar #secondary {
+				padding-left: 20px;
+			}
+			
+			.ast-page-builder-template.ast-right-sidebar #secondary {
+				padding-right: 20px;
+			}
+			@media (min-width: 993px) {
+				.ast-left-sidebar #secondary {
+					padding-right: 60px;
+				}
+				
+				.ast-right-sidebar #secondary {
+					padding-left: 60px;
+				} 
+			}
+			@media (max-width: 992px) {
+				.ast-right-sidebar #secondary {
+					padding-left: 30px;
+				}
+				.ast-left-sidebar #secondary {
+					padding-right: 30px;
+				} 
+			}	
+			@media (max-width: 768px) {
+				.js_active .ast-plain-container.ast-single-post #secondary {
+				  margin-top: 1.5em;
+				}
+			}
+			.ast-separate-container.ast-two-container #secondary .widget {
+				background-color: #fff;
+				padding: 2em;
+				margin-bottom: 2em;
+			}
+			@media (max-width: 768px) {
+				.js_active .ast-plain-container.ast-single-post #secondary {
+				  margin-top: 1.5em;
+				}
+			}
+			';
 		}
 
 		/**
