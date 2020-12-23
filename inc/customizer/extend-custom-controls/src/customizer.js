@@ -230,6 +230,29 @@
 			}
 		},
 
+		resetControlsBySection: function ( section_id ){
+
+			if ('undefined' != typeof AstraBuilderCustomizerData) {
+				let controls = AstraBuilderCustomizerData.js_configs.controls[section_id] || [];
+				if (controls) {
+					for (let i = 0; i < controls.length; i++) {
+						let config = controls[i];
+						api.control(config.id).setting.set( config['default'] );
+						if ('ast-settings-group' === config['type']) {
+							console.log('thert');
+							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
+							if (sub_controls) {
+								for (let i = 0; i < sub_controls.length; i++) {
+									let sub_config = sub_controls[i];
+									api.control(sub_config.id).setting.set( sub_config['default'] );
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+
 		cloneControlsBySection: function (section, clone_index) {
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
@@ -648,6 +671,8 @@
 
 		api.previewer.bind('ready', function () {
 
+			console.log(AstraBuilderCustomizerData);
+
 			AstCustomizerAPI.setDefaultControlContext();
 
 			sessionStorage.removeItem('clone-in-progress');
@@ -674,6 +699,11 @@
 				sessionStorage.removeItem('clone-in-progress');
 
 			} );
+
+			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
+				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
+			});
+
 		} );
 
 	});

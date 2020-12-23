@@ -17,12 +17,31 @@ const ItemComponent = props => {
 		{
 			choices[props.item]['clone'] &&
 
-		<Button className="ahfb-builder-item-icon" onClick={e => {
-			e.stopPropagation();
-			props.cloneItem(props.item);
-		}}>
-			<Dashicon icon="admin-page"/>
-		</Button>
+			<div className="ast-slideup">
+
+				<span title="Clone"
+					onClick={e => {
+					e.stopPropagation();
+					props.cloneItem(props.item);
+				}} className=" tooltip dashicons dashicons-admin-page">
+
+				</span>
+
+				<span title="Reset to default"
+					  onClick={e => {
+						  e.stopPropagation();
+						  var event = new CustomEvent('AstraBuilderResetSectionControls', {
+							  'detail': {
+							  	'section_id': choices[props.item].section
+							  }
+						  });
+						  document.dispatchEvent(event);
+					  }}
+					  className=" tooltip dashicons dashicons-image-rotate"></span>
+
+				<span  title="Delete" className="tooltip dashicons dashicons-trash"></span>
+
+			</div>
 		}
 
 		<Button className="ahfb-builder-item-icon" onClick={e => {
