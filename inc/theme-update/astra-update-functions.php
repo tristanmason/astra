@@ -1046,7 +1046,8 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements, $
 	}
 
 	if ( isset( $theme_options['mobile-header-toggle-btn-style-color'] ) ) {
-		$theme_options['mobile-header-toggle-btn-color'] = $theme_options['mobile-header-toggle-btn-style-color'];
+		$theme_options['mobile-header-toggle-btn-color']    = $theme_options['mobile-header-toggle-btn-style-color'];
+		$theme_options['mobile-header-toggle-border-color'] = $theme_options['mobile-header-toggle-btn-style-color'];
 	}
 
 	if ( isset( $theme_options['mobile-header-toggle-btn-border-radius'] ) ) {
