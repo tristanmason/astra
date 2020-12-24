@@ -877,11 +877,21 @@ function astra_primary_menu_builder_migration( $theme_options, $used_elements, $
 	/**
 	 * Primary Menu.
 	 */
-	$theme_options['header-menu1-submenu-container-animation'] = $theme_options['header-main-submenu-container-animation'];
-	$theme_options['header-menu1-submenu-border']              = $theme_options['primary-submenu-border'];
-	$theme_options['header-menu1-submenu-b-color']             = $theme_options['primary-submenu-b-color'];
-	$theme_options['header-menu1-submenu-item-border']         = $theme_options['primary-submenu-item-border'];
-	$theme_options['header-menu1-submenu-item-b-color']        = $theme_options['primary-submenu-item-b-color'];
+	if ( isset( $theme_options['header-main-submenu-container-animation'] ) ) {
+		$theme_options['header-menu1-submenu-container-animation'] = $theme_options['header-main-submenu-container-animation'];
+	}
+	if ( isset( $theme_options['primary-submenu-border'] ) ) {
+		$theme_options['header-menu1-submenu-border'] = $theme_options['primary-submenu-border'];
+	}
+	if ( isset( $theme_options['primary-submenu-b-color'] ) ) {
+		$theme_options['header-menu1-submenu-b-color'] = $theme_options['primary-submenu-b-color'];
+	}
+	if ( isset( $theme_options['primary-submenu-item-border'] ) ) {
+		$theme_options['header-menu1-submenu-item-border'] = $theme_options['primary-submenu-item-border'];
+	}
+	if ( isset( $theme_options['primary-submenu-item-b-color'] ) ) {
+		$theme_options['header-menu1-submenu-item-b-color'] = $theme_options['primary-submenu-item-b-color'];
+	}
 
 	/**
 	 * Primary Menu.
@@ -1059,12 +1069,12 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	 */
 
 	// Header : Primary Header - Layout.
-	$primary_header_layout = $theme_options['header-layouts'];
+	$primary_header_layout = ( isset( $theme_options['header-layouts'] ) ) ? $theme_options['header-layouts'] : '';
 
 	// Header : Primary Header - Last Menu Item.
-	$last_menu_item                = $theme_options['header-main-rt-section'];
-	$last_menu_item_mobile_flag    = $theme_options['hide-custom-menu-mobile'];
-	$last_menu_item_mobile_outside = $theme_options['header-display-outside-menu'];
+	$last_menu_item                = ( isset( $theme_options['header-main-rt-section'] ) ) ? $theme_options['header-main-rt-section'] : '';
+	$last_menu_item_mobile_flag    = ( isset( $theme_options['hide-custom-menu-mobile'] ) ) ? $theme_options['hide-custom-menu-mobile'] : '';
+	$last_menu_item_mobile_outside = ( isset( $theme_options['header-display-outside-menu'] ) ) ? $theme_options['header-display-outside-menu'] : '';
 	$new_menu_item                 = '';
 	$new_menu_item_mobile          = '';
 	$new_menu_item_mobile_outside  = '';
