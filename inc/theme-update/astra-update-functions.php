@@ -2300,6 +2300,26 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 			$theme_options['footer-copyright-link-h-color'] = $theme_options['footer-link-h-color'];
 		}
 
+		if ( isset( $theme_options['font-size-footer-content'] ) ) {
+			$theme_options['font-size-section-footer-copyright'] = $theme_options['font-size-footer-content'];
+		}
+		
+		if ( isset( $theme_options['font-weight-footer-content'] ) ) {
+			$theme_options['font-weight-section-footer-copyright'] = $theme_options['font-weight-footer-content'];
+		}
+		
+		if ( isset( $theme_options['line-height-footer-content'] ) ) {
+			$theme_options['line-height-section-footer-copyright'] = $theme_options['line-height-footer-content'];
+		}
+		
+		if ( isset( $theme_options['font-family-footer-content'] ) ) {
+			$theme_options['font-family-section-footer-copyright'] = $theme_options['font-family-footer-content'];
+		}
+		
+		if ( isset( $theme_options['text-transform-footer-content'] ) ) {
+			$theme_options['text-transform-section-footer-copyright'] = $theme_options['text-transform-footer-content'];
+		}
+
 		if ( 'html-1' === $new_section_2_item ) {
 			// Footer Content Color migrated to HTML 1.
 			if ( isset( $theme_options['footer-color'] ) ) {
@@ -2323,6 +2343,26 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 					'mobile'  => '',
 				);
 			}
+
+			if ( isset( $theme_options['font-size-footer-content'] ) ) {
+				$theme_options['font-size-section-fb-html-1'] = $theme_options['font-size-footer-content'];
+			}
+			
+			if ( isset( $theme_options['font-weight-footer-content'] ) ) {
+				$theme_options['font-weight-section-fb-html-1'] = $theme_options['font-weight-footer-content'];
+			}
+			
+			if ( isset( $theme_options['line-height-footer-content'] ) ) {
+				$theme_options['line-height-section-fb-html-1'] = $theme_options['line-height-footer-content'];
+			}
+			
+			if ( isset( $theme_options['font-family-footer-content'] ) ) {
+				$theme_options['font-family-section-fb-html-1'] = $theme_options['font-family-footer-content'];
+			}
+			
+			if ( isset( $theme_options['text-transform-footer-content'] ) ) {
+				$theme_options['text-transform-section-fb-html-1'] = $theme_options['text-transform-footer-content'];
+			}
 		}
 	}
 
@@ -2341,6 +2381,12 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 				'mobile'  => '',
 			);
 		}
+
+		$theme_options['footer-menu-layout'] = array(
+			'desktop' => 'horizontal',
+			'tablet'  => 'horizontal',
+			'mobile'  => 'horizontal',
+		);
 
 		if ( isset( $theme_options['font-size-footer-content'] ) ) {
 			$theme_options['footer-menu-font-size'] = $theme_options['font-size-footer-content'];
