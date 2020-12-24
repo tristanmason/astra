@@ -1587,7 +1587,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	$defaults['header-account-logout-link'] = array(
-		'url'      => esc_url( get_site_url() . '/wp-admin' ),
+		'url'      => esc_url( wp_login_url() ),
 		'new_tab'  => false,
 		'link_rel' => '',
 	);

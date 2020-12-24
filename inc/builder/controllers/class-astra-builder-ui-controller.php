@@ -392,6 +392,14 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					$show_register          = ( get_option( 'users_can_register' ) && astra_get_option( 'header-account-login-register' ) );
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
+
+						$current_url = home_url( add_query_arg( [], $GLOBALS['wp']->request ) );
+						$default_login = wp_login_url();
+
+						if( $default_login === $login_link['url'] ) {
+							$login_link['url'] = wp_login_url( $current_url );
+						}
+						
 						$link_url = $login_link['url'];
 						$new_tab  = ( $login_link['new_tab'] ? 'target=_blank' : 'target=_self' );
 
