@@ -24,8 +24,6 @@ $mx-col-md: 768px;
 }
 
 .ast-pagination {
-    display: inline-block;
-    width: 100%;
     padding-top: 2em;
     @media(min-width: $col-lg) {
         padding-left: 3.33333em;
@@ -42,7 +40,9 @@ $mx-col-md: 768px;
     }
 
     .nav-links {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        position: relative;
         width: 100%;
     }
 
@@ -80,8 +80,8 @@ $mx-col-md: 768px;
         }
     }
     .next.page-numbers {
-        float: right;
-        text-align: right;
+        right: 0;
+        position: absolute;
         @media(max-width: $mx-col-md) {
             .page-navigation{
                 padding-right: 0;

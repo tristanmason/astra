@@ -16,8 +16,6 @@
 }
 
 .ast-pagination {
-  display: inline-block;
-  width: 100%;
   padding-top: 2em;
 }
 
@@ -39,7 +37,10 @@
 }
 
 .ast-pagination .nav-links {
-  display: inline-block;
+  -js-display: flex;
+  display: flex;
+  align-items: center;
+  position: relative;
   width: 100%;
 }
 
@@ -103,8 +104,8 @@
 }
 
 .ast-pagination .next.page-numbers {
-  float: left;
-  text-align: left;
+  left: 0;
+  position: absolute;
 }
 
 @media (max-width: 768px) {
