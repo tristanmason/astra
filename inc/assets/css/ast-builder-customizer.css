@@ -1892,7 +1892,7 @@ button.components-button.ahfb-sorter-item-expand {
 	top: 0px;
 	left: 0px;
 	height: 15px;
-	background-color: #007cba;
+	background-color: #e3e3e3;
 	padding-top: 10px;
 	border-radius: 4px 4px 0 0;
 }
@@ -1905,6 +1905,6 @@ button.components-button.ahfb-sorter-item-expand {
 .ahfb-builder-item:hover .ast-slideup {
 	opacity: 1;
 	visibility: visible;
-	color: white;
+	color: #444444;
 }
 

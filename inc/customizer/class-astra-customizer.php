@@ -143,6 +143,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$defaults = $this->get_astra_customizer_configuration_defaults();
 
+			$default_values = Astra_Theme_Options::defaults();
+
 			foreach ( $configurations as $key => $configuration ) {
 
 				$config = wp_parse_args( $configuration, $defaults );
@@ -171,9 +173,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 
 					case 'sub-control':
+						$config['reset_default'] =  $this->get_default_value(astra_get_prop( $config, 'name' ), $default_values);
 						$this->prepare_javascript_sub_control_configs( $config );
 						break;
 					case 'control':
+
+						$config['reset_default'] =  $this->get_default_value(astra_get_prop( $config, 'name' ), $default_values);
 						$this->prepare_javascript_control_configs( $config );
 						break;
 				}
@@ -182,6 +187,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$this->set_default_context();
 			$this->prepare_tabbed_sections();
 
+		}
+
+		private function get_default_value($setting_key, $default_values) {
+			$return = '';
+			preg_match('#astra-settings\[(.*?)\]#',  $setting_key, $match);
+			if( !empty( $match ) && isset( $match[1] ) ) {
+				 $return =  isset($default_values[$match[1]]) ? $default_values[$match[1]] : '';
+			}
+			return $return;
 		}
 
 		/**

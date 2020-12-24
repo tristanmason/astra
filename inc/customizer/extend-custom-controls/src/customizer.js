@@ -234,22 +234,29 @@
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = AstraBuilderCustomizerData.js_configs.controls[section_id] || [];
+
 				if (controls) {
 					for (let i = 0; i < controls.length; i++) {
 						let config = controls[i];
-						api.control(config.id).setting.set( config['default'] );
+						let val = config['reset_default'] ?  config['reset_default'] : '';
+
+						api(config.id).set( val );
+
 						if ('ast-settings-group' === config['type']) {
-							console.log('thert');
+
 							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
 							if (sub_controls) {
 								for (let i = 0; i < sub_controls.length; i++) {
 									let sub_config = sub_controls[i];
-									api.control(sub_config.id).setting.set( sub_config['default'] );
+									val = sub_config['reset_default'] ?  sub_config['reset_default'] : '';
+									api(sub_config.id).set( val );
 								}
 							}
 						}
 					}
 				}
+
+
 			}
 		},
 
@@ -670,8 +677,6 @@
 		AstCustomizerAPI.moveDefaultSection();
 
 		api.previewer.bind('ready', function () {
-
-			console.log(AstraBuilderCustomizerData);
 
 			AstCustomizerAPI.setDefaultControlContext();
 
