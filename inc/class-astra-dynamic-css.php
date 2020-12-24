@@ -2438,18 +2438,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'transform' => 'translate(0,-50%) rotate(270deg)',
 						),
 						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
-							'left' => '.1em',
-							'top' => '.1em',
-							'transform' =>  'translate(0, -2px) rotateZ(270deg)',
+							'left'      => '.1em',
+							'top'       => '.1em',
+							'transform' => 'translate(0, -2px) rotateZ(270deg)',
 						),
 					);
 				} else {
 					$submenu_toggle = array(
 						// Old Header Footer - SVG Support.
 						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
-							'left' => '.4em',
-							'top' => '.4em',
-							'transform' =>  'translate(0, -2px) rotateZ(270deg)',
+							'left'      => '.4em',
+							'top'       => '.4em',
+							'transform' => 'translate(0, -2px) rotateZ(270deg)',
 						),
 					);
 				}
