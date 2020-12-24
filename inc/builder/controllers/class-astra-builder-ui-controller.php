@@ -393,10 +393,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 					if ( '' !== $login_link && '' !== $login_link['url'] ) {
 
-						$current_url = home_url( add_query_arg( [], $GLOBALS['wp']->request ) );
+						$current_url   = home_url( add_query_arg( array(), $GLOBALS['wp']->request ) );
 						$default_login = wp_login_url();
 
-						if( $default_login === $login_link['url'] ) {
+						if ( $default_login === $login_link['url'] ) {
 							$login_link['url'] = wp_login_url( $current_url );
 						}
 						
