@@ -117,6 +117,41 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
+					 * Option: Animation border Top Offset
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-animation-border-position]',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-menu-animation-border-position' ),
+						'type'        => 'control',
+						'context'   => array(
+							'relation' => 'AND',
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
+									'operator' => '==',
+									'value'    => 'overline',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
+									'operator' => '==',
+									'value'    => 'overline',
+								),
+							),
+						),
+						'section'     => $_section,
+						'control'     => 'ast-slider',
+						'priority'    => 30.5,
+						'title'       => __( 'Border Position', 'astra' ),
+						'input_attrs' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
+					),
+
+					/**
 					 * Option: Primary Header Button Colors Divider
 					 */
 					array(
