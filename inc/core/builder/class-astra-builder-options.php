@@ -553,6 +553,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => '',
 		);
 
+		$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ] = '';
 		$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
 
 		/**

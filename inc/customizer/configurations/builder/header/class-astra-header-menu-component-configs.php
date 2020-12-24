@@ -92,6 +92,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
+					 * Option: Menu hover style
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
+						'default'   => astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' ),
+						'type'      => 'control',
+						'control'   => 'select',
+						'section'   => $_section,
+						'priority'  => 30,
+						'title'     => __( 'Navigation Hover Style', 'astra' ),
+						'choices'   => array(
+							''           => __( 'None', 'astra' ),
+							'zoom'       => __( 'Zoom In', 'astra' ),
+							'underline'  => __( 'Underline', 'astra' ),
+							'overline'   => __( 'Over Line', 'astra' ),
+						),
+						'context'   => Astra_Builder_Helper::$general_tab,
+						'transport' => 'postMessage',
+						'partial'   => array(
+							'selector'        => '#ast-hf-menu-' . $index,
+							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						),
+					),
+
+					/**
 					 * Option: Primary Header Button Colors Divider
 					 */
 					array(
