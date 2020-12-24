@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			} 
 
 			if ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) {
-				$inline_css_key = 'astra-theme-pagination-css'; // this will resolve the loading custom CSS file before inline CSS.
+				$inline_css_key = 'astra-theme-pagination-css'; // this will resolve the issue of loading custom CSS file after inline CSS.
 				// Register.
 				wp_register_style( 'astra-theme-pagination-css', $css_uri . 'blog-pagination' . $file_prefix . '.css', $dependency, null, 'all' );
 				// Enqueue.
