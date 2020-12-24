@@ -408,11 +408,6 @@
 			left: 100%;
 		}
 	}
-	.woocommerce-MyAccount-navigation-link.is-active {
-		a.menu-link {
-			background-color: unset;
-		}
-	}
 	.menu-item {
 		.menu-link {
 			border-style: none;
@@ -465,6 +460,11 @@
 }
 
 .ast-header-account-wrap {
+	.woocommerce-MyAccount-navigation-link.is-active {
+		a {
+			background: unset;
+		}
+	}
 	.menu-item:last-child > .menu-link {
 		border-style: none;
 	}
