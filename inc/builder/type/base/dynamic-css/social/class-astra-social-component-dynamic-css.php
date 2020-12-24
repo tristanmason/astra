@@ -50,9 +50,9 @@ class Astra_Social_Component_Dynamic_CSS {
 			$icon_size       = astra_get_option( $builder_type . '-social-' . $index . '-size' );
 			$icon_radius     = astra_get_option( $builder_type . '-social-' . $index . '-radius' );
 
-			$icon_spacing_desktop = ( isset( $icon_spacing['desktop'] ) && '' !== $icon_spacing['desktop'] ) ? (int) $icon_spacing['desktop'] / 2 : 6;
-			$icon_spacing_tablet  = ( isset( $icon_spacing['tablet'] ) && '' !== $icon_spacing['tablet'] ) ? (int) $icon_spacing['tablet'] / 2 : 6;
-			$icon_spacing_mobile  = ( isset( $icon_spacing['mobile'] ) && '' !== $icon_spacing['mobile'] ) ? (int) $icon_spacing['mobile'] / 2 : 6;
+			$icon_spacing_desktop = ( isset( $icon_spacing['desktop'] ) && '' !== $icon_spacing['desktop'] ) ? (int) $icon_spacing['desktop'] / 2 : '';
+			$icon_spacing_tablet  = ( isset( $icon_spacing['tablet'] ) && '' !== $icon_spacing['tablet'] ) ? (int) $icon_spacing['tablet'] / 2 : '';
+			$icon_spacing_mobile  = ( isset( $icon_spacing['mobile'] ) && '' !== $icon_spacing['mobile'] ) ? (int) $icon_spacing['mobile'] / 2 : '';
 
 			$icon_size_desktop = ( isset( $icon_size['desktop'] ) && '' !== $icon_size['desktop'] ) ? (int) $icon_size['desktop'] : 18;
 			$icon_size_tablet  = ( isset( $icon_size['tablet'] ) && '' !== $icon_size['tablet'] ) ? (int) $icon_size['tablet'] : 18;
