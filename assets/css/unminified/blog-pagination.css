@@ -16,6 +16,8 @@
 }
 
 .ast-pagination {
+  display: inline-block;
+  width: 100%;
   padding-top: 2em;
 }
 
@@ -27,22 +29,17 @@
 }
 
 .ast-pagination .page-numbers {
-  -js-display: inline-flex;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   width: 2.33333em;
   height: 2.33333em;
   font-size: 16px;
   font-size: 1.06666rem;
   line-height: calc(2.33333em - 3px);
+  text-align: center;
 }
 
 .ast-pagination .nav-links {
-  -js-display: flex;
-  display: flex;
-  align-items: center;
-  position: relative;
+  display: inline-block;
   width: 100%;
 }
 
@@ -106,8 +103,8 @@
 }
 
 .ast-pagination .next.page-numbers {
-  right: 0;
-  position: absolute;
+  float: right;
+  text-align: right;
 }
 
 @media (max-width: 768px) {
