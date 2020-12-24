@@ -1369,26 +1369,7 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'font-family-' . $_section ]               = 'inherit';
 	$defaults[ 'line-height-' . $_section ]               = '';
 	$defaults[ 'text-transform-' . $_section ]            = '';
-	$defaults[ $_section . '-margin' ] = array(
-		'desktop' => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'  => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'  => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-	);
+
 
 	$_section = 'section-fb-html-' . $index;
 
@@ -1433,26 +1414,6 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'font-family-' . $_section ]               = 'inherit';
 	$defaults[ 'text-transform-' . $_section ]            = '';
 	$defaults[ 'line-height-' . $_section ]               = '';
-	$defaults[$_section . '-margin'] = array(
-		'desktop' => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'  => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'  => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-	);
 
 	return $defaults;
 }

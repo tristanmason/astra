@@ -185,7 +185,7 @@ class Astra_Html_Component_Configs {
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => astra_get_option($_section . '-margin'),
+					'default'        => '',
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',

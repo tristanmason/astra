@@ -181,7 +181,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 
 					case 'sub-control':
-						$config['reset_default'] = $this->get_default_value( astra_get_prop( $config, 'name' ), $default_values );
+						$name                    = astra_get_prop( $config, 'name' );
+						$config['reset_default'] = isset( $default_values[ $name ] ) ? $default_values[ $name ] : '';
 						$this->prepare_javascript_sub_control_configs( $config );
 						break;
 					case 'control':
@@ -582,6 +583,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
+				'reset_default'     => astra_get_prop( $config, 'reset_default' ),
 				'sanitize_callback' => $sanitize_callback,
 			);
 

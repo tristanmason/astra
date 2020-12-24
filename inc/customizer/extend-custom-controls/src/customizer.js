@@ -238,7 +238,7 @@
 				if (controls) {
 					for (let i = 0; i < controls.length; i++) {
 						let config = controls[i];
-						console.log( config );
+
 
 						let val = config['reset_default'] ?  config['reset_default'] : '';
 						api(config.id).set( val );
@@ -678,6 +678,9 @@
 		api.previewer.bind('ready', function () {
 
 			AstCustomizerAPI.setDefaultControlContext();
+
+			console.clear();
+			console.log( AstraBuilderCustomizerData )
 
 			sessionStorage.removeItem('clone-in-progress');
 
