@@ -141,6 +141,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 						'section'     => $_section,
+						'transport' => 'postMessage',
 						'control'     => 'ast-slider',
 						'priority'    => 30,
 						'title'       => __( 'Border Position', 'astra' ),

@@ -791,8 +791,8 @@ body.admin-bar {
 }
 
 /** Hover menu style CSS */
-.ast-menu-hover-style-underline,
-.ast-menu-hover-style-overline {
+.ast-desktop .ast-menu-hover-style-underline,
+.ast-desktop .ast-menu-hover-style-overline {
 	>.menu-item {
 		>.menu-link {
 			&:before {
@@ -816,7 +816,7 @@ body.admin-bar {
 	}
 }
 
-.ast-menu-hover-style-underline {
+.ast-desktop .ast-menu-hover-style-underline {
 	>.menu-item {
 		>.menu-link {
 			&:before {
@@ -826,7 +826,7 @@ body.admin-bar {
 	}
 }
 
-.ast-menu-hover-style-overline {
+.ast-desktop .ast-menu-hover-style-overline {
 	>.menu-item {
 		>.menu-link {
 			&:before {
@@ -836,7 +836,7 @@ body.admin-bar {
 	}
 }
 
-.ast-menu-hover-style-zoom {
+.ast-desktop .ast-menu-hover-style-zoom {
 	>.menu-item {
 		>.menu-link:hover {
 			transition: all .3s ease;

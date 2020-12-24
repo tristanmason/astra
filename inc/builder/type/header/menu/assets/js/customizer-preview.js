@@ -149,6 +149,21 @@
 					} );
 				} );
 
+				// Menu Animation - Border offset.
+				wp.customize( 'astra-settings[header-menu'+ index +'-menu-animation-border-position]', function( setting ) {
+					setting.bind( function( border ) {
+
+						var dynamicStyle = '.ast-desktop .ast-builder-menu-'+ index +' .ast-menu-hover-style-overline > .menu-item > .menu-link:before {';
+						dynamicStyle += 'top:'  + ( parseInt( border ) ) + 'px;';
+						dynamicStyle += '}';
+						dynamicStyle += ' .ast-desktop .ast-builder-menu-'+ index +' .ast-menu-hover-style-underline > .menu-item > .menu-link:before {';
+						dynamicStyle += 'bottom:'  + ( parseInt( border ) ) + 'px;';
+						dynamicStyle += '}';
+						astra_add_dynamic_css( 'header-menu'+ index +'-menu-animation-border-position', dynamicStyle );
+
+					} );
+				} );
+
 				// Menu Spacing - Menu 1.
 				wp.customize( 'astra-settings[header-menu'+ index +'-menu-spacing]', function( value ) {
 					value.bind( function( padding ) {
