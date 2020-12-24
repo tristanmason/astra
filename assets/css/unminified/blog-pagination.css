@@ -27,13 +27,15 @@
 }
 
 .ast-pagination .page-numbers {
-  display: inline-block;
+  -js-display: inline-flex;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 2.33333em;
   height: 2.33333em;
   font-size: 16px;
   font-size: 1.06666rem;
   line-height: calc(2.33333em - 3px);
-  text-align: center;
 }
 
 .ast-pagination .nav-links {
