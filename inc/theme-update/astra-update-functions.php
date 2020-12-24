@@ -1086,7 +1086,7 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	$new_menu_item_mobile          = '';
 	$new_menu_item_mobile_outside  = '';
 
-	$theme_options['mobile-header-type'] = 'dropdown';
+	$theme_options['mobile-header-type'] = ( isset( $theme_options['mobile-menu-style'] ) ) ? $theme_options['mobile-menu-style'] : 'dropdown';
 
 	switch ( $last_menu_item ) {
 		case 'search':
@@ -1105,25 +1105,49 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 				$theme_options['header-button1-link-option'] = $theme_options['header-main-rt-section-button-link-option'];
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-text-color'] ) ) {
-				$theme_options['header-button1-text-color'] = $theme_options['header-main-rt-section-button-text-color'];
+				$theme_options['header-button1-text-color'] = array(
+					'desktop' => $theme_options['header-main-rt-section-button-text-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-back-color'] ) ) {
-				$theme_options['header-button1-back-color'] = $theme_options['header-main-rt-section-button-back-color'];
+				$theme_options['header-button1-back-color'] = array(
+					'desktop' => $theme_options['header-main-rt-section-button-back-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-text-h-color'] ) ) {
-				$theme_options['header-button1-text-h-color'] = $theme_options['header-main-rt-section-button-text-h-color'];
+				$theme_options['header-button1-text-h-color'] = array(
+					'desktop' => $theme_options['header-main-rt-section-button-text-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-back-h-color'] ) ) {
-				$theme_options['header-button1-back-h-color'] = $theme_options['header-main-rt-section-button-back-h-color'];
+				$theme_options['header-button1-back-h-color'] = array(
+					'desktop' => $theme_options['header-main-rt-section-button-back-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-border-size'] ) ) {
 				$theme_options['header-button1-border-size'] = $theme_options['header-main-rt-section-button-border-size'];
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-border-color'] ) ) {
-				$theme_options['header-button1-border-color'] = $theme_options['header-main-rt-section-button-border-color'];
+				$theme_options['header-button1-border-color'] = array(
+					'desktop' => $theme_options['header-main-rt-section-button-border-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-border-h-color'] ) ) {
-				$theme_options['header-button1-border-h-color'] = $theme_options['header-main-rt-section-button-border-h-color'];
+				$theme_options['header-button1-border-h-color'] = array(
+					'desktop' => $theme_options['header-main-rt-section-button-border-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
 			}
 			if ( isset( $theme_options['header-main-rt-section-button-border-radius'] ) ) {
 				$theme_options['header-button1-border-radius'] = $theme_options['header-main-rt-section-button-border-radius'];
@@ -1450,6 +1474,9 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['above-header-section-1-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['above-header-section-1-search-box-type'];
 				}
+				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+					$theme_options['header-search-icon-color'] = $theme_options['above-header-text-color-responsive'];
+				}
 			}
 			break;
 
@@ -1458,6 +1485,15 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_1_item = 'html-3';
 				if ( isset( $theme_options['above-header-section-1-html'] ) ) {
 					$theme_options['header-html-3'] = $theme_options['above-header-section-1-html'];
+				}
+				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+					$theme_options['header-html-3color'] = $theme_options['above-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
+					$theme_options['header-html-3link-color'] = $theme_options['above-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-html-3link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
 				}
 			}
 			
@@ -1468,6 +1504,15 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_1_item = 'widget-3';
 				if ( isset( $widget_options['above-header-widget-1'] ) ) {
 					$widget_options['header-widget-3'] = $widget_options['above-header-widget-1'];
+				}
+				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+					$theme_options['header-widget-3-color'] = $theme_options['above-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
+					$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-widget-3-link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -1601,6 +1646,9 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['above-header-section-2-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['above-header-section-2-search-box-type'];
 				}
+				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+					$theme_options['header-search-icon-color'] = $theme_options['above-header-text-color-responsive'];
+				}
 			}
 			break;
 
@@ -1609,6 +1657,15 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_2_item = 'html-3';
 				if ( isset( $theme_options['above-header-section-2-html'] ) ) {
 					$theme_options['header-html-3'] = $theme_options['above-header-section-2-html'];
+				}
+				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+					$theme_options['header-html-3color'] = $theme_options['above-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
+					$theme_options['header-html-3link-color'] = $theme_options['above-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-html-3link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
 				}
 			}
 			
@@ -1619,6 +1676,15 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_2_item = 'widget-3';
 				if ( isset( $widget_options['above-header-widget-2'] ) ) {
 					$widget_options['header-widget-3'] = $widget_options['above-header-widget-2'];
+				}
+				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+					$theme_options['header-widget-3-color'] = $theme_options['above-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
+					$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-widget-3-link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -1841,6 +1907,9 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['below-header-section-1-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['below-header-section-1-search-box-type'];
 				}
+				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+					$theme_options['header-search-icon-color'] = $theme_options['below-header-text-color-responsive'];
+				}
 			}
 			break;
 
@@ -1849,6 +1918,15 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_1_item = 'html-2';
 				if ( isset( $theme_options['below-header-section-1-html'] ) ) {
 					$theme_options['header-html-2'] = $theme_options['below-header-section-1-html'];
+				}
+				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+					$theme_options['header-html-2color'] = $theme_options['below-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
+					$theme_options['header-html-2link-color'] = $theme_options['below-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-html-2link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
 				}
 			}
 			
@@ -1859,6 +1937,15 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_1_item = 'widget-2';
 				if ( isset( $widget_options['below-header-widget-1'] ) ) {
 					$widget_options['header-widget-2'] = $widget_options['below-header-widget-1'];
+				}
+				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+					$theme_options['header-widget-2-color'] = $theme_options['below-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
+					$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-widget-2-link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -1992,6 +2079,9 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['below-header-section-2-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['below-header-section-2-search-box-type'];
 				}
+				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+					$theme_options['header-search-icon-color'] = $theme_options['below-header-text-color-responsive'];
+				}
 			}
 			break;
 
@@ -2000,6 +2090,15 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_2_item = 'html-2';
 				if ( isset( $theme_options['below-header-section-2-html'] ) ) {
 					$theme_options['header-html-2'] = $theme_options['below-header-section-2-html'];
+				}
+				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+					$theme_options['header-html-2color'] = $theme_options['below-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
+					$theme_options['header-html-2link-color'] = $theme_options['below-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-html-2link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
 				}
 			}
 			
@@ -2010,6 +2109,15 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_2_item = 'widget-2';
 				if ( isset( $widget_options['below-header-widget-2'] ) ) {
 					$widget_options['header-widget-2'] = $widget_options['below-header-widget-2'];
+				}
+				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+					$theme_options['header-widget-2-color'] = $theme_options['below-header-text-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
+					$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
+				}
+				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
+					$theme_options['header-widget-2-link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
 				}
 			}
 			break;
