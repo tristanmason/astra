@@ -1192,6 +1192,70 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 			if ( isset( $theme_options['header-main-rt-section-button-padding'] ) ) {
 				$theme_options['section-hb-button-1-padding'] = $theme_options['header-main-rt-section-button-padding'];
 			}
+			// Sticky Header Button options.
+			
+			// Text Color.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-text-color'] ) ) {
+				
+				$theme_options['sticky-header-button1-text-color'] = array(
+					'desktop' => $theme_options['header-main-rt-sticky-section-button-text-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			// BG Color.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-back-color'] ) ) {
+				$theme_options['sticky-header-button1-back-color'] = array(
+					'desktop' => $theme_options['header-main-rt-sticky-section-button-back-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			// Text Hover Color.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-text-h-color'] ) ) {
+				$theme_options['sticky-header-button1-text-h-color'] = array(
+					'desktop' => $theme_options['header-main-rt-sticky-section-button-text-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			// BG Hover Color.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-back-h-color'] ) ) {
+				$theme_options['sticky-header-button1-back-h-color'] = array(
+					'desktop' => $theme_options['header-main-rt-sticky-section-button-back-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			// Border Width.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-size'] ) ) {
+				$theme_options['sticky-header-button1-border-size'] = $theme_options['header-main-rt-sticky-section-button-border-size'];
+			}
+			// Border Color.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-color'] ) ) {
+				$theme_options['sticky-header-button1-border-color'] = array(
+					'desktop' => $theme_options['header-main-rt-sticky-section-button-border-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			// Border Hover Color.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-h-color'] ) ) {
+				$theme_options['sticky-header-button1-border-h-color'] = array(
+					'desktop' => $theme_options['header-main-rt-sticky-section-button-border-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			// Border Radius.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-radius'] ) ) {
+				$theme_options['sticky-header-button1-border-radius'] = $theme_options['header-main-rt-sticky-section-button-border-radius'];
+			}
+			// Padding.
+			if ( isset( $theme_options['header-main-rt-sticky-section-button-padding'] ) ) {
+				$theme_options['sticky-header-button1-padding'] = $theme_options['header-main-rt-sticky-section-button-padding'];
+			}
+			
 			break;
 
 		case 'text-html':
