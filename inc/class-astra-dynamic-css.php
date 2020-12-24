@@ -913,14 +913,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$outline_button_css = array(
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'border-color'        => esc_attr( $btn_bg_color ),
+						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'border-top-width'    => esc_attr( $theme_btn_top_border ),
 						'border-right-width'  => esc_attr( $theme_btn_right_border ),
 						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
 						'border-left-width'   => esc_attr( $theme_btn_left_border ),
 					),
 					'.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
-						'color' => esc_attr( $btn_text_color ),
+						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-button.is-style-outline .wp-block-button__link:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ) . ' !important',
