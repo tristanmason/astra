@@ -823,10 +823,8 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							),
 						),
 					),
-				);
 
-				if ( 'icon' === astra_get_option( 'header-account-login-style' ) || 'icon' === astra_get_option( 'header-account-logout-style' ) ) {
-					$_configs[] = array(
+					array(
 						'name'      => 'transparent-account-icon-color',
 						'default'   => '',
 						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
@@ -837,11 +835,9 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'priority'  => 5,
 						'title'     => __( 'Icon Color', 'astra' ),
 						'context'   => Astra_Builder_Helper::$design_tab_config,
-					);
-				}
+					),
 
-				if ( 'text' === astra_get_option( 'header-account-login-style' ) || 'text' === astra_get_option( 'header-account-logout-style' ) ) {
-					$_configs[] = array(
+					array(
 						'name'      => 'transparent-account-type-text-color',
 						'default'   => '',
 						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
@@ -853,8 +849,8 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'title'     => __( 'Text Color', 'astra' ),
 						'context'   => Astra_Builder_Helper::$design_tab_config,
-					);
-				}
+					),
+				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
 			} else {
