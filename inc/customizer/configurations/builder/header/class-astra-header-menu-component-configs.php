@@ -101,7 +101,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'select',
 						'section'   => $_section,
 						'priority'  => 30,
-						'title'     => __( 'Navigation Hover Style', 'astra' ),
+						'title'     => __( 'Menu Hover Style', 'astra' ),
 						'choices'   => array(
 							''          => __( 'None', 'astra' ),
 							'zoom'      => __( 'Zoom In', 'astra' ),
