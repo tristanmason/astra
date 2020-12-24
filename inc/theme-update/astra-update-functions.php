@@ -472,26 +472,33 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_menu_in_above   = false;
 	$is_menu_in_below   = false;
 
-	foreach ( $theme_options['header-desktop-items']['primary'] as $zone ) {
-		if ( false !== array_search( 'menu-1', $zone ) ) {
-			$is_menu_in_primary = true;
+	if ( isset( $theme_options['header-desktop-items']['primary'] ) ) {
+		foreach ( $theme_options['header-desktop-items']['primary'] as $zone ) {
+			if ( false !== array_search( 'menu-1', $zone ) ) {
+				$is_menu_in_primary = true;
+			}
 		}
 	}
-	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
-		if ( false !== array_search( 'menu-1', $zone ) ) {
-			$is_menu_in_above = true;
+
+	if ( isset( $theme_options['header-desktop-items']['above'] ) ) {
+		foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+			if ( false !== array_search( 'menu-1', $zone ) ) {
+				$is_menu_in_above = true;
+			}
 		}
 	}
-	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
-		if ( false !== array_search( 'menu-1', $zone ) ) {
-			$is_menu_in_below = true;
+
+	if ( isset( $theme_options['header-desktop-items']['below'] ) ) {
+		foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+			if ( false !== array_search( 'menu-1', $zone ) ) {
+				$is_menu_in_below = true;
+			}
 		}
 	}
 
 	if ( $is_menu_in_primary ) {
 
 		// Menu.
-
 		// Normal.
 		if ( isset( $theme_options['sticky-header-menu-color-responsive'] ) ) {
 			$theme_options['sticky-header-menu1-color-responsive'] = $theme_options['sticky-header-menu-color-responsive'];
