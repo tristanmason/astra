@@ -316,6 +316,35 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'mobile-unit'  => 'px',
 						);
 					}
+
+					if ( empty( $val ) ) {
+
+						$default_responsive_spacing = array(
+							'desktop'      => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'tablet'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'mobile'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						);
+
+						astra_update_option( $data[1], $default_responsive_spacing );
+					}
 					break;
 				case 'ast-radio-image':
 					$configuration['value'] = $val;
