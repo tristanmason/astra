@@ -2458,12 +2458,6 @@ body {
   margin-left: 20px;
 }
 
-.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg {
-  right: .4em;
-  top: .4em;
-  transform: translate(0, -2px) rotateZ(-270deg);
-}
-
 .ast-header-break-point .main-navigation ul .menu-item:not(.menu-item-has-children) .menu-link .icon-arrow:first-of-type {
   display: inline;
 }

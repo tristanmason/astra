@@ -2366,9 +2366,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $submenu_below_header );
 			}
 
+			$submenu_toggle = '';
+
 			if ( false === Astra_Icons::is_svg_icons() ) {
 				$submenu_toggle = array(
-					// CSS to open submenu just below menu.
+					// HFB / Old Header Footer - CSS compatibility when SVGs are disabled.
 					'.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link:after' => array(
 						'position'  => 'absolute',
 						'right'     => '1em',
@@ -2425,9 +2427,35 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height'             => 'normal',
 					),
 				);
-
-				$parse_css .= astra_parse_css( $submenu_toggle );
+			} else {
+				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					$submenu_toggle = array(
+						// Old Header Footer - SVG Support.
+						'.ast-desktop .main-header-menu .sub-menu .menu-item.menu-item-has-children>.menu-link .icon-arrow svg' => array(
+							'position'  => 'absolute',
+							'right'     => '.6em',
+							'top'       => '50%',
+							'transform' => 'translate(0,-50%) rotate(270deg)',
+						),
+						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
+							'left' => '.1em',
+							'top' => '.1em',
+							'transform' =>  'translate(0, -2px) rotateZ(270deg)',
+						),
+					);
+				} else {
+					$submenu_toggle = array(
+						// Old Header Footer - SVG Support.
+						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
+							'left' => '.4em',
+							'top' => '.4em',
+							'transform' =>  'translate(0, -2px) rotateZ(270deg)',
+						),
+					);
+				}
 			}
+
+			$parse_css .= astra_parse_css( $submenu_toggle );
 
 			$dynamic_css .= $parse_css;
 
