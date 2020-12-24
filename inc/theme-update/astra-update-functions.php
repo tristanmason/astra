@@ -1381,11 +1381,19 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 
 		$theme_options['header-mobile-items']['popup'] = array( 'popup_content' => ( ( '' !== $new_menu_item_mobile ) ) ? array( 'menu-1', $new_menu_item_mobile ) : array( 'menu-1' ) );
 		
-		$theme_options['header-mobile-items']['primary'] = array(
-			'primary_left'   => array( 'logo' ),
-			'primary_center' => array(),
-			'primary_right'  => ( ( '' !== $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
-		);
+		if ( 'header-main-layout-3' === $primary_header_layout ) {
+			$theme_options['header-mobile-items']['primary'] = array(
+				'primary_left'   => ( ( '' !== $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
+				'primary_center' => array(),
+				'primary_right'  => array( 'logo' ),
+			);
+		} else {
+			$theme_options['header-mobile-items']['primary'] = array(
+				'primary_left'   => array( 'logo' ),
+				'primary_center' => array(),
+				'primary_right'  => ( ( '' !== $new_menu_item_mobile_outside ) ) ? array( $new_menu_item_mobile_outside, 'mobile-trigger' ) : array( 'mobile-trigger' ),
+			);
+		}
 	}
 
 	// Header - Primary Header - Content Width.
@@ -2514,6 +2522,10 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 		
 		if ( isset( $theme_options['text-transform-footer-content'] ) ) {
 			$theme_options['footer-menu-text-transform'] = $theme_options['text-transform-footer-content'];
+		}
+
+		if ( isset( $theme_options['footer-menu-spacing'] ) ) {
+			$theme_options['footer-menu-text-transform'] = $theme_options['footer-menu-spacing'];
 		}
 	}
 
