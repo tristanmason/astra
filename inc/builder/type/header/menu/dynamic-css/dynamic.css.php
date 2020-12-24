@@ -49,7 +49,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$sub_menu_width          = astra_get_option( 'header-' . $_prefix . '-submenu-width' );
 
 		// Menu.
-		$menu_hover_border_offset = astra_get_option( 'header-' . $_prefix . '-menu-animation-border-position' );
+		$menu_hover_border_offset  = astra_get_option( 'header-' . $_prefix . '-menu-animation-border-position' );
 		$menu_resp_color           = astra_get_option( 'header-' . $_prefix . '-color-responsive' );
 		$menu_resp_bg_color        = astra_get_option( 'header-' . $_prefix . '-bg-obj-responsive' );
 		$menu_resp_color_hover     = astra_get_option( 'header-' . $_prefix . '-h-color-responsive' );
@@ -122,10 +122,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			// Menu.
 			'.ast-desktop ' . $selector . ' .ast-menu-hover-style-overline > .menu-item > .menu-link:before' => array(
-				'top' => esc_attr( $menu_hover_border_offset ) .'px',
+				'top' => esc_attr( $menu_hover_border_offset ) . 'px',
 			),
 			'.ast-desktop ' . $selector . ' .ast-menu-hover-style-underline > .menu-item > .menu-link:before' => array(
-				'bottom' => esc_attr( $menu_hover_border_offset ) .'px',
+				'bottom' => esc_attr( $menu_hover_border_offset ) . 'px',
 			),
 			$selector                                    => array(
 				'font-family'    => astra_get_font_family( $menu_font_family ),

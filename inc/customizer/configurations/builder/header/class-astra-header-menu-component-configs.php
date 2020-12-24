@@ -103,10 +103,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'  => 30,
 						'title'     => __( 'Navigation Hover Style', 'astra' ),
 						'choices'   => array(
-							''           => __( 'None', 'astra' ),
-							'zoom'       => __( 'Zoom In', 'astra' ),
-							'underline'  => __( 'Underline', 'astra' ),
-							'overline'   => __( 'Over Line', 'astra' ),
+							''          => __( 'None', 'astra' ),
+							'zoom'      => __( 'Zoom In', 'astra' ),
+							'underline' => __( 'Underline', 'astra' ),
+							'overline'  => __( 'Over Line', 'astra' ),
 						),
 						'context'   => Astra_Builder_Helper::$general_tab,
 						'transport' => 'postMessage',
@@ -123,7 +123,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-animation-border-position]',
 						'default'     => astra_get_option( 'header-' . $_prefix . '-menu-animation-border-position' ),
 						'type'        => 'control',
-						'context'   => array(
+						'context'     => array(
 							'relation' => 'AND',
 							Astra_Builder_Helper::$general_tab_config,
 							array(
@@ -141,7 +141,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 						'section'     => $_section,
-						'transport' => 'postMessage',
+						'transport'   => 'postMessage',
 						'control'     => 'ast-slider',
 						'priority'    => 30,
 						'title'       => __( 'Border Position', 'astra' ),
