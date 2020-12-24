@@ -517,6 +517,22 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'  => 5,
 			),
 
+			/**
+			 * Option: Font Family
+			 */
+			array(
+				'name'      => 'header-account-font-family',
+				'type'      => 'sub-control',
+				'parent'    => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
+				'section'   => $_section,
+				'control'   => 'ast-font',
+				'font_type' => 'ast-font-family',
+				'title'     => __( 'Family', 'astra' ),
+				'default'   => astra_get_option( 'header-account-font-family' ),
+				'connect'   => ASTRA_THEME_SETTINGS . '[header-account-font-weight]',
+				'priority'  => 1,
+			),
+
 			// Option: Menu Font Size.
 			array(
 				'name'        => 'header-account-type-text-font-size',
@@ -524,7 +540,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'parent'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
 				'section'     => $_section,
 				'type'        => 'sub-control',
-				'priority'    => 23,
+				'priority'    => 2,
 				'title'       => __( 'Size', 'astra' ),
 				'control'     => 'ast-responsive',
 				'transport'   => 'postMessage',
@@ -536,6 +552,89 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'em' => 'em',
 				),
 				'context'     => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Button Font Weight
+			 */
+			array(
+				'name'              => 'header-account-font-weight',
+				'type'              => 'sub-control',
+				'parent'            => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
+				'section'           => $_section,
+				'control'           => 'ast-font',
+				'font_type'         => 'ast-font-weight',
+				'title'             => __( 'Weight', 'astra' ),
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+				'default'           => astra_get_option( 'header-account-font-weight' ),
+				'connect'           => 'header-account-font-family',
+				'priority'          => 3,
+			),
+
+			/**
+			 * Option: Button Text Transform
+			 */
+			array(
+				'name'      => 'header-account-text-transform',
+				'transport' => 'postMessage',
+				'default'   => astra_get_option( 'header-account-text-transform' ),
+				'title'     => __( 'Text Transform', 'astra' ),
+				'type'      => 'sub-control',
+				'parent'    => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
+				'section'   => $_section,
+				'control'   => 'ast-select',
+				'priority'  => 4,
+				'choices'   => array(
+					''           => __( 'Inherit', 'astra' ),
+					'none'       => __( 'None', 'astra' ),
+					'capitalize' => __( 'Capitalize', 'astra' ),
+					'uppercase'  => __( 'Uppercase', 'astra' ),
+					'lowercase'  => __( 'Lowercase', 'astra' ),
+				),
+			),
+
+			/**
+			 * Option: Theme Button Line Height
+			 */
+			array(
+				'name'              => 'header-account-line-height',
+				'control'           => 'ast-slider',
+				'transport'         => 'postMessage',
+				'type'              => 'sub-control',
+				'default'           => astra_get_option( 'header-account-line-height' ),
+				'parent'            => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
+				'section'           => $_section,
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+				'title'             => __( 'Line Height', 'astra' ),
+				'suffix'            => '',
+				'priority'          => 5,
+				'input_attrs'       => array(
+					'min'  => 1,
+					'step' => 0.01,
+					'max'  => 5,
+				),
+			),
+
+			/**
+			 * Option: Theme Button Line Height
+			 */
+			array(
+				'name'              => 'header-account-letter-spacing',
+				'control'           => 'ast-slider',
+				'transport'         => 'postMessage',
+				'type'              => 'sub-control',
+				'default'           => '',
+				'parent'            => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
+				'section'           => $_section,
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+				'title'             => __( 'Letter Spacing', 'astra' ),
+				'suffix'            => '',
+				'priority'          => 6,
+				'input_attrs'       => array(
+					'min'  => 1,
+					'step' => 1,
+					'max'  => 100,
+				),
 			),
 
 			/**

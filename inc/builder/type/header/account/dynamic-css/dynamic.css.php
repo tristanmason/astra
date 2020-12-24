@@ -55,6 +55,12 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$text_font_size = astra_get_option( 'header-account-type-text-font-size' );
 	$text_color     = astra_get_option( 'header-account-type-text-color' );
+
+	$text_font_family    = astra_get_option( 'header-account-font-family' );
+	$text_font_weight    = astra_get_option( 'header-account-font-weight' );
+	$text_text_transform = astra_get_option( 'header-account-text-transform' );
+	$text_line_height    = astra_get_option( 'header-account-line-height' );
+	$text_letter_spacing    = astra_get_option( 'header-account-letter-spacing' );
 	
 	/**
 	 * Account CSS.
@@ -82,6 +88,11 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
 		$selector . ' .ast-header-account-text, .ast-mobile-popup-content ' . $selector . ' .ast-header-account-text' => array(
+			'font-family'    => astra_get_font_family( $text_font_family ),
+			'font-weight'    => esc_attr( $text_font_weight ),
+			'line-height'    => esc_attr( $text_line_height ),
+			'text-transform' => esc_attr( $text_text_transform ),
+			'letter-spacing' => astra_get_css_value( $text_letter_spacing, 'px' ),
 			'font-size' => astra_responsive_font( $text_font_size, 'desktop' ),
 			'color'     => esc_attr( $text_color ),
 		),

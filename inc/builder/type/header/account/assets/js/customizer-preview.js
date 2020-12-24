@@ -30,6 +30,34 @@
 		selector + ' .ast-header-account-text'
 	);
 
+	// Typography.
+	astra_generate_outside_font_family_css(
+		'astra-settings[header-account-font-family]',
+		selector + ' .ast-header-account-text'
+	);
+	astra_generate_font_weight_css(
+		'astra-settings[header-account-font-family]',
+		'astra-settings[header-account-font-weight]',
+		'font-weight',
+		selector + ' .ast-header-account-text'
+	);
+	astra_css(
+		'astra-settings[header-account-text-transform]',
+		'text-transform',
+		selector + ' .ast-header-account-text'
+	);
+	astra_css(
+		'astra-settings[header-account-line-height]',
+		'line-height',
+		selector + ' .ast-header-account-text'
+	);
+	astra_css(
+		'astra-settings[header-account-letter-spacing]',
+		'letter-spacing',
+		selector + ' .ast-header-account-text',
+		'px'
+	);
+
 	// Text size.
 	astra_css(
 		'astra-settings[header-account-type-text-color]',
