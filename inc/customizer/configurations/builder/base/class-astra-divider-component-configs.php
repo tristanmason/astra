@@ -78,7 +78,7 @@ class Astra_Divider_Component_Configs {
 					'title'       => ( 1 === $number_of_divider ) ? __( 'Divider', 'astra' ) : sprintf( __( 'Divider %s', 'astra' ), $index ),
 					'panel'       => 'panel-' . $builder_type . '-builder-group',
 					'clone_index' => $index,
-					'clone_type'  => $builder_type . '-button',
+					'clone_type'  => $builder_type . '-divider',
 				),
 
 				/**

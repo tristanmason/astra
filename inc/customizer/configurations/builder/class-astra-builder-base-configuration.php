@@ -94,7 +94,7 @@ final class Astra_Builder_Base_Configuration {
 			 */
 			array(
 				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-				'default'        => '',
+				'default'        => astra_get_option($section_id . '-margin' ),
 				'type'           => 'control',
 				'transport'      => 'postMessage',
 				'control'        => 'ast-responsive-spacing',

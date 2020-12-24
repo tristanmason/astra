@@ -241,11 +241,6 @@
 						console.log( config );
 
 						let val = config['reset_default'] ?  config['reset_default'] : '';
-
-						console.log( config.id );
-						console.log( val );
-						console.log( "===================" );
-
 						api(config.id).set( val );
 
 						if ('ast-settings-group' === config['type']) {
@@ -681,8 +676,6 @@
 		AstCustomizerAPI.moveDefaultSection();
 
 		api.previewer.bind('ready', function () {
-
-			console.log(AstraBuilderCustomizerData);
 
 			AstCustomizerAPI.setDefaultControlContext();
 

@@ -153,7 +153,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$default_values = Astra_Theme_Options::defaults();
 
-
 			foreach ( $configurations as $key => $configuration ) {
 
 				$config = wp_parse_args( $configuration, $defaults );
