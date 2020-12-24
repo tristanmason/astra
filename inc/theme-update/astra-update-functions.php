@@ -1619,7 +1619,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 		}
 	}
 
-	if ( 'widget' === $above_header_section_1 || 'widget' === $above_header_section_3 ) {
+	if ( 'widget' === $above_header_section_1 || 'widget' === $above_header_section_2 ) {
 		if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
 			$theme_options['header-widget-3-color']       = $theme_options['above-header-text-color-responsive'];
 			$theme_options['header-widget-3-title-color'] = $theme_options['above-header-text-color-responsive'];
