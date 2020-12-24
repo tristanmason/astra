@@ -138,8 +138,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'suffix'   => '',
 					'choices'  => array(
 						'flex-start' => __( 'Left', 'astra' ),
-						'center' => __( 'Center', 'astra' ),
-						'flex-end' => __( 'Right', 'astra' ),
+						'center'     => __( 'Center', 'astra' ),
+						'flex-end'   => __( 'Right', 'astra' ),
 					),
 				),
 

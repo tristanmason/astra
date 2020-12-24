@@ -32,14 +32,14 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$selector = '.ast-mobile-popup-drawer.active';
 
-	$off_canvas_background  = astra_get_option( 'off-canvas-background' );
-	$off_canvas_close_color = astra_get_option( 'off-canvas-close-color' );
+	$off_canvas_background       = astra_get_option( 'off-canvas-background' );
+	$off_canvas_close_color      = astra_get_option( 'off-canvas-close-color' );
 	$offcanvas_content_alignment = astra_get_option( 'header-offcanvas-content-alignment', 'flex-start' );
-	$menu_content_alignment = 'center';
+	$menu_content_alignment      = 'center';
 
-	if( 'flex-start' === $offcanvas_content_alignment ) {
+	if ( 'flex-start' === $offcanvas_content_alignment ) {
 		$menu_content_alignment = 'left';
-	} elseif( 'flex-end' === $offcanvas_content_alignment ) {
+	} elseif ( 'flex-end' === $offcanvas_content_alignment ) {
 		$menu_content_alignment = 'right';
 	}
 
@@ -61,10 +61,10 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	// Tablet CSS.
 	$css_output_tablet = array(
 		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .ast-builder-layout-element' => array(
-			'justify-content'    => esc_attr( $offcanvas_content_alignment ),
+			'justify-content' => esc_attr( $offcanvas_content_alignment ),
 		),
 		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .main-header-menu' => array(
-			'text-align'    => esc_attr( $menu_content_alignment ),
+			'text-align' => esc_attr( $menu_content_alignment ),
 		),
 	);
 
