@@ -1381,109 +1381,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 
 	switch ( $above_header_section_1 ) {
 		case 'menu':
-			$new_above_header_section_1_item                    = 'menu-3';
-			$theme_options['header-menu3-menu-stack-on-mobile'] = false;
-			/**
-			 * Menu - 3
-			 */
-			if ( isset( $theme_options['above-header-submenu-container-animation'] ) ) {
-				$theme_options['header-menu3-submenu-container-animation'] = $theme_options['above-header-submenu-container-animation'];
-			}
-			if ( isset( $theme_options['above-header-submenu-border'] ) ) {
-				$theme_options['header-menu3-submenu-border'] = $theme_options['above-header-submenu-border'];
-			}
-			if ( isset( $theme_options['above-header-submenu-b-color'] ) ) {
-				$theme_options['header-menu3-submenu-b-color'] = $theme_options['above-header-submenu-b-color'];
-			}
-			if ( isset( $theme_options['above-header-submenu-item-border'] ) ) {
-				$theme_options['header-menu3-submenu-item-border'] = $theme_options['above-header-submenu-item-border'];
-			}
-			if ( isset( $theme_options['above-header-submenu-item-b-color'] ) ) {
-				$theme_options['header-menu3-submenu-item-b-color'] = $theme_options['above-header-submenu-item-b-color'];
-			}
-
-			if ( isset( $theme_options['above-header-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu3-color-responsive'] = $theme_options['above-header-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-menu-bg-obj-responsive'] ) ) {
-				$theme_options['header-menu3-bg-obj-responsive'] = $theme_options['above-header-menu-bg-obj-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-menu-text-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-h-color-responsive'] = $theme_options['above-header-menu-text-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-menu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-h-bg-color-responsive'] = $theme_options['above-header-menu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-current-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu3-a-color-responsive'] = $theme_options['above-header-current-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-current-menu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-font-size'] ) ) {
-				$theme_options['header-menu3-font-size'] = $theme_options['above-header-font-size'];
-			}
-			if ( isset( $theme_options['above-header-font-weight'] ) ) {
-				$theme_options['header-menu3-font-weight'] = $theme_options['above-header-font-weight'];
-			}
-			if ( isset( $theme_options['above-header-line-height'] ) ) {
-				$theme_options['header-menu3-line-height'] = $theme_options['above-header-line-height'];
-			}
-			if ( isset( $theme_options['above-header-font-family'] ) ) {
-				$theme_options['header-menu3-font-family'] = $theme_options['above-header-font-family'];
-			}
-			if ( isset( $theme_options['above-header-text-transform'] ) ) {
-				$theme_options['header-menu3-text-transform'] = $theme_options['above-header-text-transform'];
-			}
-
-			if ( isset( $theme_options['above-header-menu-spacing'] ) ) {
-				$theme_options['header-menu3-menu-spacing'] = $theme_options['above-header-menu-spacing'];
-			}
-
-			// Menu 3 - Submenu.
-			if ( isset( $theme_options['above-header-submenu-text-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-color-responsive'] = $theme_options['above-header-submenu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-submenu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-submenu-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-h-color-responsive'] = $theme_options['above-header-submenu-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-submenu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-h-bg-color-responsive'] = $theme_options['above-header-submenu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-submenu-active-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-a-color-responsive'] = $theme_options['above-header-submenu-active-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-submenu-active-bg-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['font-size-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-size-menu3-sub-menu'] = $theme_options['font-size-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-weight-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-weight-menu3-sub-menu'] = $theme_options['font-weight-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['line-height-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-line-height-menu3-sub-menu'] = $theme_options['line-height-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-family-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-family-menu3-sub-menu'] = $theme_options['font-family-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['text-transform-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-text-transform-menu3-sub-menu'] = $theme_options['text-transform-above-header-dropdown-menu'];
-			}
-			
-			if ( isset( $theme_options['above-header-submenu-spacing'] ) ) {
-				$theme_options['header-menu3-submenu-spacing'] = $theme_options['above-header-submenu-spacing'];
-			}
+			$new_above_header_section_1_item = 'menu-3';
 			break;
 
 		case 'search':
@@ -1491,9 +1389,6 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_1_item = 'search';
 				if ( isset( $theme_options['above-header-section-1-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['above-header-section-1-search-box-type'];
-				}
-				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-search-icon-color'] = $theme_options['above-header-text-color-responsive'];
 				}
 			}
 			break;
@@ -1504,15 +1399,6 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['above-header-section-1-html'] ) ) {
 					$theme_options['header-html-3'] = $theme_options['above-header-section-1-html'];
 				}
-				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-html-3color'] = $theme_options['above-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
-					$theme_options['header-html-3link-color'] = $theme_options['above-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-html-3link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
-				}
 			}
 			
 			break;
@@ -1522,16 +1408,6 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_1_item = 'widget-3';
 				if ( isset( $widget_options['above-header-widget-1'] ) ) {
 					$widget_options['header-widget-3'] = $widget_options['above-header-widget-1'];
-				}
-				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-3-color']       = $theme_options['above-header-text-color-responsive'];
-					$theme_options['header-widget-3-title-color'] = $theme_options['above-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
-					$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-widget-3-link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -1554,109 +1430,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 	$new_above_header_section_2_item = '';
 	switch ( $above_header_section_2 ) {
 		case 'menu':
-			$new_above_header_section_2_item                    = 'menu-3';
-			$theme_options['header-menu3-menu-stack-on-mobile'] = false;
-			/**
-			 * Menu - 3
-			 */
-			if ( isset( $theme_options['above-header-submenu-container-animation'] ) ) {
-				$theme_options['header-menu3-submenu-container-animation'] = $theme_options['above-header-submenu-container-animation'];
-			}
-			if ( isset( $theme_options['above-header-submenu-border'] ) ) {
-				$theme_options['header-menu3-submenu-border'] = $theme_options['above-header-submenu-border'];
-			}
-			if ( isset( $theme_options['above-header-submenu-b-color'] ) ) {
-				$theme_options['header-menu3-submenu-b-color'] = $theme_options['above-header-submenu-b-color'];
-			}
-			if ( isset( $theme_options['above-header-submenu-item-border'] ) ) {
-				$theme_options['header-menu3-submenu-item-border'] = $theme_options['above-header-submenu-item-border'];
-			}
-			if ( isset( $theme_options['above-header-submenu-item-b-color'] ) ) {
-				$theme_options['header-menu3-submenu-item-b-color'] = $theme_options['above-header-submenu-item-b-color'];
-			}
-
-			if ( isset( $theme_options['above-header-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu3-color-responsive'] = $theme_options['above-header-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-menu-bg-obj-responsive'] ) ) {
-				$theme_options['header-menu3-bg-obj-responsive'] = $theme_options['above-header-menu-bg-obj-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-menu-text-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-h-color-responsive'] = $theme_options['above-header-menu-text-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-menu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-h-bg-color-responsive'] = $theme_options['above-header-menu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-current-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu3-a-color-responsive'] = $theme_options['above-header-current-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-current-menu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-font-size'] ) ) {
-				$theme_options['header-menu3-font-size'] = $theme_options['above-header-font-size'];
-			}
-			if ( isset( $theme_options['above-header-font-weight'] ) ) {
-				$theme_options['header-menu3-font-weight'] = $theme_options['above-header-font-weight'];
-			}
-			if ( isset( $theme_options['above-header-line-height'] ) ) {
-				$theme_options['header-menu3-line-height'] = $theme_options['above-header-line-height'];
-			}
-			if ( isset( $theme_options['above-header-font-family'] ) ) {
-				$theme_options['header-menu3-font-family'] = $theme_options['above-header-font-family'];
-			}
-			if ( isset( $theme_options['above-header-text-transform'] ) ) {
-				$theme_options['header-menu3-text-transform'] = $theme_options['above-header-text-transform'];
-			}
-
-			if ( isset( $theme_options['above-header-menu-spacing'] ) ) {
-				$theme_options['header-menu3-menu-spacing'] = $theme_options['above-header-menu-spacing'];
-			}
-
-			// Menu 3 - Submenu.
-			if ( isset( $theme_options['above-header-submenu-text-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-color-responsive'] = $theme_options['above-header-submenu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-submenu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-submenu-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-h-color-responsive'] = $theme_options['above-header-submenu-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-submenu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-h-bg-color-responsive'] = $theme_options['above-header-submenu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['above-header-submenu-active-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-a-color-responsive'] = $theme_options['above-header-submenu-active-color-responsive'];
-			}
-			if ( isset( $theme_options['above-header-submenu-active-bg-color-responsive'] ) ) {
-				$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['font-size-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-size-menu3-sub-menu'] = $theme_options['font-size-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-weight-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-weight-menu3-sub-menu'] = $theme_options['font-weight-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['line-height-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-line-height-menu3-sub-menu'] = $theme_options['line-height-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-family-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-family-menu3-sub-menu'] = $theme_options['font-family-above-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['text-transform-above-header-dropdown-menu'] ) ) {
-				$theme_options['header-text-transform-menu3-sub-menu'] = $theme_options['text-transform-above-header-dropdown-menu'];
-			}
-
-			if ( isset( $theme_options['above-header-submenu-spacing'] ) ) {
-				$theme_options['header-menu3-submenu-spacing'] = $theme_options['above-header-submenu-spacing'];
-			}
+			$new_above_header_section_2_item = 'menu-3';
 			break;
 
 		case 'search':
@@ -1664,9 +1438,6 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_2_item = 'search';
 				if ( isset( $theme_options['above-header-section-2-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['above-header-section-2-search-box-type'];
-				}
-				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-search-icon-color'] = $theme_options['above-header-text-color-responsive'];
 				}
 			}
 			break;
@@ -1677,15 +1448,6 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['above-header-section-2-html'] ) ) {
 					$theme_options['header-html-3'] = $theme_options['above-header-section-2-html'];
 				}
-				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-html-3color'] = $theme_options['above-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
-					$theme_options['header-html-3link-color'] = $theme_options['above-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-html-3link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
-				}
 			}
 			
 			break;
@@ -1695,16 +1457,6 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_2_item = 'widget-3';
 				if ( isset( $widget_options['above-header-widget-2'] ) ) {
 					$widget_options['header-widget-3'] = $widget_options['above-header-widget-2'];
-				}
-				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-3-color']       = $theme_options['above-header-text-color-responsive'];
-					$theme_options['header-widget-3-title-color'] = $theme_options['above-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
-					$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-widget-3-link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -1720,6 +1472,142 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 				$new_above_header_section_2_item = 'edd-cart';
 			}
 			break;
+	}
+
+	if ( 'menu' === $above_header_section_1 || 'menu' === $above_header_section_2 ) {
+		$theme_options['header-menu3-menu-stack-on-mobile'] = false;
+		/**
+		 * Menu - 3
+		 */
+		if ( isset( $theme_options['above-header-submenu-container-animation'] ) ) {
+			$theme_options['header-menu3-submenu-container-animation'] = $theme_options['above-header-submenu-container-animation'];
+		}
+		if ( isset( $theme_options['above-header-submenu-border'] ) ) {
+			$theme_options['header-menu3-submenu-border'] = $theme_options['above-header-submenu-border'];
+		}
+		if ( isset( $theme_options['above-header-submenu-b-color'] ) ) {
+			$theme_options['header-menu3-submenu-b-color'] = $theme_options['above-header-submenu-b-color'];
+		}
+		if ( isset( $theme_options['above-header-submenu-item-border'] ) ) {
+			$theme_options['header-menu3-submenu-item-border'] = $theme_options['above-header-submenu-item-border'];
+		}
+		if ( isset( $theme_options['above-header-submenu-item-b-color'] ) ) {
+			$theme_options['header-menu3-submenu-item-b-color'] = $theme_options['above-header-submenu-item-b-color'];
+		}
+
+		if ( isset( $theme_options['above-header-menu-text-color-responsive'] ) ) {
+			$theme_options['header-menu3-color-responsive'] = $theme_options['above-header-menu-text-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-menu-bg-obj-responsive'] ) ) {
+			$theme_options['header-menu3-bg-obj-responsive'] = $theme_options['above-header-menu-bg-obj-responsive'];
+		}
+
+		if ( isset( $theme_options['above-header-menu-text-hover-color-responsive'] ) ) {
+			$theme_options['header-menu3-h-color-responsive'] = $theme_options['above-header-menu-text-hover-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-menu-bg-hover-color-responsive'] ) ) {
+			$theme_options['header-menu3-h-bg-color-responsive'] = $theme_options['above-header-menu-bg-hover-color-responsive'];
+		}
+
+		if ( isset( $theme_options['above-header-current-menu-text-color-responsive'] ) ) {
+			$theme_options['header-menu3-a-color-responsive'] = $theme_options['above-header-current-menu-text-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-current-menu-bg-color-responsive'] ) ) {
+			$theme_options['header-menu3-a-bg-color-responsive'] = $theme_options['above-header-current-menu-bg-color-responsive'];
+		}
+
+		if ( isset( $theme_options['above-header-font-size'] ) ) {
+			$theme_options['header-menu3-font-size'] = $theme_options['above-header-font-size'];
+		}
+		if ( isset( $theme_options['above-header-font-weight'] ) ) {
+			$theme_options['header-menu3-font-weight'] = $theme_options['above-header-font-weight'];
+		}
+		if ( isset( $theme_options['above-header-line-height'] ) ) {
+			$theme_options['header-menu3-line-height'] = $theme_options['above-header-line-height'];
+		}
+		if ( isset( $theme_options['above-header-font-family'] ) ) {
+			$theme_options['header-menu3-font-family'] = $theme_options['above-header-font-family'];
+		}
+		if ( isset( $theme_options['above-header-text-transform'] ) ) {
+			$theme_options['header-menu3-text-transform'] = $theme_options['above-header-text-transform'];
+		}
+
+		if ( isset( $theme_options['above-header-menu-spacing'] ) ) {
+			$theme_options['header-menu3-menu-spacing'] = $theme_options['above-header-menu-spacing'];
+		}
+
+		// Menu 3 - Submenu.
+		if ( isset( $theme_options['above-header-submenu-text-color-responsive'] ) ) {
+			$theme_options['header-menu3-submenu-color-responsive'] = $theme_options['above-header-submenu-text-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-submenu-bg-color-responsive'] ) ) {
+			$theme_options['header-menu3-submenu-bg-color-responsive'] = $theme_options['above-header-submenu-bg-color-responsive'];
+		}
+
+		if ( isset( $theme_options['above-header-submenu-hover-color-responsive'] ) ) {
+			$theme_options['header-menu3-submenu-h-color-responsive'] = $theme_options['above-header-submenu-hover-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-submenu-bg-hover-color-responsive'] ) ) {
+			$theme_options['header-menu3-submenu-h-bg-color-responsive'] = $theme_options['above-header-submenu-bg-hover-color-responsive'];
+		}
+
+		if ( isset( $theme_options['above-header-submenu-active-color-responsive'] ) ) {
+			$theme_options['header-menu3-submenu-a-color-responsive'] = $theme_options['above-header-submenu-active-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-submenu-active-bg-color-responsive'] ) ) {
+			$theme_options['header-menu3-submenu-a-bg-color-responsive'] = $theme_options['above-header-submenu-active-bg-color-responsive'];
+		}
+
+		if ( isset( $theme_options['font-size-above-header-dropdown-menu'] ) ) {
+			$theme_options['header-font-size-menu3-sub-menu'] = $theme_options['font-size-above-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['font-weight-above-header-dropdown-menu'] ) ) {
+			$theme_options['header-font-weight-menu3-sub-menu'] = $theme_options['font-weight-above-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['line-height-above-header-dropdown-menu'] ) ) {
+			$theme_options['header-line-height-menu3-sub-menu'] = $theme_options['line-height-above-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['font-family-above-header-dropdown-menu'] ) ) {
+			$theme_options['header-font-family-menu3-sub-menu'] = $theme_options['font-family-above-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['text-transform-above-header-dropdown-menu'] ) ) {
+			$theme_options['header-text-transform-menu3-sub-menu'] = $theme_options['text-transform-above-header-dropdown-menu'];
+		}
+		
+		if ( isset( $theme_options['above-header-submenu-spacing'] ) ) {
+			$theme_options['header-menu3-submenu-spacing'] = $theme_options['above-header-submenu-spacing'];
+		}
+	}
+
+	if ( 'search' === $above_header_section_1 || 'search' === $above_header_section_2 ) {
+		if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+			$theme_options['header-search-icon-color'] = $theme_options['above-header-text-color-responsive'];
+		}
+	}
+
+	if ( 'text-html' === $above_header_section_1 || 'text-html' === $above_header_section_2 ) {
+		if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+			$theme_options['header-html-3color'] = $theme_options['above-header-text-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
+			$theme_options['header-html-3link-color'] = $theme_options['above-header-link-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
+			$theme_options['header-html-3link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
+		}
+	}
+
+	if ( 'widget' === $above_header_section_1 || 'widget' === $above_header_section_3 ) {
+		if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
+			$theme_options['header-widget-3-color']       = $theme_options['above-header-text-color-responsive'];
+			$theme_options['header-widget-3-title-color'] = $theme_options['above-header-text-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
+			$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
+		}
+		if ( isset( $theme_options['above-header-link-hover-color-responsive'] ) ) {
+			$theme_options['header-widget-3-link-h-color'] = $theme_options['above-header-link-hover-color-responsive'];
+		}
 	}
 
 	switch ( $above_header_layout ) {
@@ -1816,109 +1704,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 	$new_below_header_section_1_item = '';
 	switch ( $below_header_section_1 ) {
 		case 'menu':
-			$new_below_header_section_1_item                    = 'menu-2';
-			$theme_options['header-menu2-menu-stack-on-mobile'] = false;
-			/**
-			 * Menu - 2
-			 */
-			if ( isset( $theme_options['below-header-submenu-container-animation'] ) ) {
-				$theme_options['header-menu2-submenu-container-animation'] = $theme_options['below-header-submenu-container-animation'];
-			}
-			if ( isset( $theme_options['below-header-submenu-border'] ) ) {
-				$theme_options['header-menu2-submenu-border'] = $theme_options['below-header-submenu-border'];
-			}
-			if ( isset( $theme_options['below-header-submenu-b-color'] ) ) {
-				$theme_options['header-menu2-submenu-b-color'] = $theme_options['below-header-submenu-b-color'];
-			}
-			if ( isset( $theme_options['below-header-submenu-item-border'] ) ) {
-				$theme_options['header-menu2-submenu-item-border'] = $theme_options['below-header-submenu-item-border'];
-			}
-			if ( isset( $theme_options['below-header-submenu-item-b-color'] ) ) {
-				$theme_options['header-menu2-submenu-item-b-color'] = $theme_options['below-header-submenu-item-b-color'];
-			}
-
-			if ( isset( $theme_options['below-header-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu2-color-responsive'] = $theme_options['below-header-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-menu-bg-obj-responsive'] ) ) {
-				$theme_options['header-menu2-bg-obj-responsive'] = $theme_options['below-header-menu-bg-obj-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-menu-text-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-h-color-responsive'] = $theme_options['below-header-menu-text-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-menu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-h-bg-color-responsive'] = $theme_options['below-header-menu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-current-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu2-a-color-responsive'] = $theme_options['below-header-current-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-current-menu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-font-size'] ) ) {
-				$theme_options['header-menu2-font-size'] = $theme_options['below-header-font-size'];
-			}
-			if ( isset( $theme_options['below-header-font-weight'] ) ) {
-				$theme_options['header-menu2-font-weight'] = $theme_options['below-header-font-weight'];
-			}
-			if ( isset( $theme_options['below-header-line-height'] ) ) {
-				$theme_options['header-menu2-line-height'] = $theme_options['below-header-line-height'];
-			}
-			if ( isset( $theme_options['below-header-font-family'] ) ) {
-				$theme_options['header-menu2-font-family'] = $theme_options['below-header-font-family'];
-			}
-			if ( isset( $theme_options['below-header-text-transform'] ) ) {
-				$theme_options['header-menu2-text-transform'] = $theme_options['below-header-text-transform'];
-			}
-
-			if ( isset( $theme_options['below-header-menu-spacing'] ) ) {
-				$theme_options['header-menu2-menu-spacing'] = $theme_options['below-header-menu-spacing'];
-			}
-
-			// Menu 2 - Submenu.
-			if ( isset( $theme_options['below-header-submenu-text-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-color-responsive'] = $theme_options['below-header-submenu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-submenu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-submenu-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-h-color-responsive'] = $theme_options['below-header-submenu-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-submenu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-h-bg-color-responsive'] = $theme_options['below-header-submenu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-submenu-active-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-a-color-responsive'] = $theme_options['below-header-submenu-active-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-submenu-active-bg-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['font-size-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-size-menu2-sub-menu'] = $theme_options['font-size-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-weight-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-weight-menu2-sub-menu'] = $theme_options['font-weight-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['line-height-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-line-height-menu2-sub-menu'] = $theme_options['line-height-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-family-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-family-menu2-sub-menu'] = $theme_options['font-family-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['text-transform-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-text-transform-menu2-sub-menu'] = $theme_options['text-transform-below-header-dropdown-menu'];
-			}
-			
-			if ( isset( $theme_options['below-header-submenu-spacing'] ) ) {
-				$theme_options['header-menu2-submenu-spacing'] = $theme_options['below-header-submenu-spacing'];
-			}
+			$new_below_header_section_1_item = 'menu-2';
 			break;
 
 		case 'search':
@@ -1926,9 +1712,6 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_1_item = 'search';
 				if ( isset( $theme_options['below-header-section-1-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['below-header-section-1-search-box-type'];
-				}
-				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-search-icon-color'] = $theme_options['below-header-text-color-responsive'];
 				}
 			}
 			break;
@@ -1939,15 +1722,6 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['below-header-section-1-html'] ) ) {
 					$theme_options['header-html-2'] = $theme_options['below-header-section-1-html'];
 				}
-				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-html-2color'] = $theme_options['below-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
-					$theme_options['header-html-2link-color'] = $theme_options['below-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-html-2link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
-				}
 			}
 			
 			break;
@@ -1957,16 +1731,6 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_1_item = 'widget-2';
 				if ( isset( $widget_options['below-header-widget-1'] ) ) {
 					$widget_options['header-widget-2'] = $widget_options['below-header-widget-1'];
-				}
-				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-2-color']       = $theme_options['below-header-text-color-responsive'];
-					$theme_options['header-widget-2-title-color'] = $theme_options['below-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
-					$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-widget-2-link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -1989,109 +1753,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 	$new_below_header_section_2_item = '';
 	switch ( $below_header_section_2 ) {
 		case 'menu':
-			$new_below_header_section_2_item                    = 'menu-2';
-			$theme_options['header-menu2-menu-stack-on-mobile'] = false;
-			/**
-			 * Menu - 2
-			 */
-			if ( isset( $theme_options['below-header-submenu-container-animation'] ) ) {
-				$theme_options['header-menu2-submenu-container-animation'] = $theme_options['below-header-submenu-container-animation'];
-			}
-			if ( isset( $theme_options['below-header-submenu-border'] ) ) {
-				$theme_options['header-menu2-submenu-border'] = $theme_options['below-header-submenu-border'];
-			}
-			if ( isset( $theme_options['below-header-submenu-b-color'] ) ) {
-				$theme_options['header-menu2-submenu-b-color'] = $theme_options['below-header-submenu-b-color'];
-			}
-			if ( isset( $theme_options['below-header-submenu-item-border'] ) ) {
-				$theme_options['header-menu2-submenu-item-border'] = $theme_options['below-header-submenu-item-border'];
-			}
-			if ( isset( $theme_options['below-header-submenu-item-b-color'] ) ) {
-				$theme_options['header-menu2-submenu-item-b-color'] = $theme_options['below-header-submenu-item-b-color'];
-			}
-
-			if ( isset( $theme_options['below-header-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu2-color-responsive'] = $theme_options['below-header-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-menu-bg-obj-responsive'] ) ) {
-				$theme_options['header-menu2-bg-obj-responsive'] = $theme_options['below-header-menu-bg-obj-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-menu-text-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-h-color-responsive'] = $theme_options['below-header-menu-text-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-menu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-h-bg-color-responsive'] = $theme_options['below-header-menu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-current-menu-text-color-responsive'] ) ) {
-				$theme_options['header-menu2-a-color-responsive'] = $theme_options['below-header-current-menu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-current-menu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-font-size'] ) ) {
-				$theme_options['header-menu2-font-size'] = $theme_options['below-header-font-size'];
-			}
-			if ( isset( $theme_options['below-header-font-weight'] ) ) {
-				$theme_options['header-menu2-font-weight'] = $theme_options['below-header-font-weight'];
-			}
-			if ( isset( $theme_options['below-header-line-height'] ) ) {
-				$theme_options['header-menu2-line-height'] = $theme_options['below-header-line-height'];
-			}
-			if ( isset( $theme_options['below-header-font-family'] ) ) {
-				$theme_options['header-menu2-font-family'] = $theme_options['below-header-font-family'];
-			}
-			if ( isset( $theme_options['below-header-text-transform'] ) ) {
-				$theme_options['header-menu2-text-transform'] = $theme_options['below-header-text-transform'];
-			}
-
-			if ( isset( $theme_options['below-header-menu-spacing'] ) ) {
-				$theme_options['header-menu2-menu-spacing'] = $theme_options['below-header-menu-spacing'];
-			}
-
-			// Menu 2 - Submenu.
-			if ( isset( $theme_options['below-header-submenu-text-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-color-responsive'] = $theme_options['below-header-submenu-text-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-submenu-bg-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-submenu-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-h-color-responsive'] = $theme_options['below-header-submenu-hover-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-submenu-bg-hover-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-h-bg-color-responsive'] = $theme_options['below-header-submenu-bg-hover-color-responsive'];
-			}
-
-			if ( isset( $theme_options['below-header-submenu-active-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-a-color-responsive'] = $theme_options['below-header-submenu-active-color-responsive'];
-			}
-			if ( isset( $theme_options['below-header-submenu-active-bg-color-responsive'] ) ) {
-				$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
-			}
-
-			if ( isset( $theme_options['font-size-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-size-menu2-sub-menu'] = $theme_options['font-size-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-weight-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-weight-menu2-sub-menu'] = $theme_options['font-weight-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['line-height-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-line-height-menu2-sub-menu'] = $theme_options['line-height-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['font-family-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-font-family-menu2-sub-menu'] = $theme_options['font-family-below-header-dropdown-menu'];
-			}
-			if ( isset( $theme_options['text-transform-below-header-dropdown-menu'] ) ) {
-				$theme_options['header-text-transform-menu2-sub-menu'] = $theme_options['text-transform-below-header-dropdown-menu'];
-			}
-
-			if ( isset( $theme_options['below-header-submenu-spacing'] ) ) {
-				$theme_options['header-menu2-submenu-spacing'] = $theme_options['below-header-submenu-spacing'];
-			}
+			$new_below_header_section_2_item = 'menu-2';
 			break;
 
 		case 'search':
@@ -2099,9 +1761,6 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_2_item = 'search';
 				if ( isset( $theme_options['below-header-section-2-search-box-type'] ) ) {
 					$theme_options['header-search-box-type'] = $theme_options['below-header-section-2-search-box-type'];
-				}
-				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-search-icon-color'] = $theme_options['below-header-text-color-responsive'];
 				}
 			}
 			break;
@@ -2112,17 +1771,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				if ( isset( $theme_options['below-header-section-2-html'] ) ) {
 					$theme_options['header-html-2'] = $theme_options['below-header-section-2-html'];
 				}
-				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-html-2color'] = $theme_options['below-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
-					$theme_options['header-html-2link-color'] = $theme_options['below-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-html-2link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
-				}
 			}
-			
 			break;
 
 		case 'widget':
@@ -2130,16 +1779,6 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_2_item = 'widget-2';
 				if ( isset( $widget_options['below-header-widget-2'] ) ) {
 					$widget_options['header-widget-2'] = $widget_options['below-header-widget-2'];
-				}
-				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-2-color']       = $theme_options['below-header-text-color-responsive'];
-					$theme_options['header-widget-2-title-color'] = $theme_options['below-header-text-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
-					$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
-				}
-				if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
-					$theme_options['header-widget-2-link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
 				}
 			}
 			break;
@@ -2155,6 +1794,142 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 				$new_below_header_section_2_item = 'edd-cart';
 			}
 			break;
+	}
+
+	if ( 'menu' === $below_header_section_1 || 'menu' === $below_header_section_2 ) {
+		$theme_options['header-menu2-menu-stack-on-mobile'] = false;
+		/**
+		 * Menu - 2
+		 */
+		if ( isset( $theme_options['below-header-submenu-container-animation'] ) ) {
+			$theme_options['header-menu2-submenu-container-animation'] = $theme_options['below-header-submenu-container-animation'];
+		}
+		if ( isset( $theme_options['below-header-submenu-border'] ) ) {
+			$theme_options['header-menu2-submenu-border'] = $theme_options['below-header-submenu-border'];
+		}
+		if ( isset( $theme_options['below-header-submenu-b-color'] ) ) {
+			$theme_options['header-menu2-submenu-b-color'] = $theme_options['below-header-submenu-b-color'];
+		}
+		if ( isset( $theme_options['below-header-submenu-item-border'] ) ) {
+			$theme_options['header-menu2-submenu-item-border'] = $theme_options['below-header-submenu-item-border'];
+		}
+		if ( isset( $theme_options['below-header-submenu-item-b-color'] ) ) {
+			$theme_options['header-menu2-submenu-item-b-color'] = $theme_options['below-header-submenu-item-b-color'];
+		}
+
+		if ( isset( $theme_options['below-header-menu-text-color-responsive'] ) ) {
+			$theme_options['header-menu2-color-responsive'] = $theme_options['below-header-menu-text-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-menu-bg-obj-responsive'] ) ) {
+			$theme_options['header-menu2-bg-obj-responsive'] = $theme_options['below-header-menu-bg-obj-responsive'];
+		}
+
+		if ( isset( $theme_options['below-header-menu-text-hover-color-responsive'] ) ) {
+			$theme_options['header-menu2-h-color-responsive'] = $theme_options['below-header-menu-text-hover-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-menu-bg-hover-color-responsive'] ) ) {
+			$theme_options['header-menu2-h-bg-color-responsive'] = $theme_options['below-header-menu-bg-hover-color-responsive'];
+		}
+
+		if ( isset( $theme_options['below-header-current-menu-text-color-responsive'] ) ) {
+			$theme_options['header-menu2-a-color-responsive'] = $theme_options['below-header-current-menu-text-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-current-menu-bg-color-responsive'] ) ) {
+			$theme_options['header-menu2-a-bg-color-responsive'] = $theme_options['below-header-current-menu-bg-color-responsive'];
+		}
+
+		if ( isset( $theme_options['below-header-font-size'] ) ) {
+			$theme_options['header-menu2-font-size'] = $theme_options['below-header-font-size'];
+		}
+		if ( isset( $theme_options['below-header-font-weight'] ) ) {
+			$theme_options['header-menu2-font-weight'] = $theme_options['below-header-font-weight'];
+		}
+		if ( isset( $theme_options['below-header-line-height'] ) ) {
+			$theme_options['header-menu2-line-height'] = $theme_options['below-header-line-height'];
+		}
+		if ( isset( $theme_options['below-header-font-family'] ) ) {
+			$theme_options['header-menu2-font-family'] = $theme_options['below-header-font-family'];
+		}
+		if ( isset( $theme_options['below-header-text-transform'] ) ) {
+			$theme_options['header-menu2-text-transform'] = $theme_options['below-header-text-transform'];
+		}
+
+		if ( isset( $theme_options['below-header-menu-spacing'] ) ) {
+			$theme_options['header-menu2-menu-spacing'] = $theme_options['below-header-menu-spacing'];
+		}
+
+		// Menu 2 - Submenu.
+		if ( isset( $theme_options['below-header-submenu-text-color-responsive'] ) ) {
+			$theme_options['header-menu2-submenu-color-responsive'] = $theme_options['below-header-submenu-text-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-submenu-bg-color-responsive'] ) ) {
+			$theme_options['header-menu2-submenu-bg-color-responsive'] = $theme_options['below-header-submenu-bg-color-responsive'];
+		}
+
+		if ( isset( $theme_options['below-header-submenu-hover-color-responsive'] ) ) {
+			$theme_options['header-menu2-submenu-h-color-responsive'] = $theme_options['below-header-submenu-hover-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-submenu-bg-hover-color-responsive'] ) ) {
+			$theme_options['header-menu2-submenu-h-bg-color-responsive'] = $theme_options['below-header-submenu-bg-hover-color-responsive'];
+		}
+
+		if ( isset( $theme_options['below-header-submenu-active-color-responsive'] ) ) {
+			$theme_options['header-menu2-submenu-a-color-responsive'] = $theme_options['below-header-submenu-active-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-submenu-active-bg-color-responsive'] ) ) {
+			$theme_options['header-menu2-submenu-a-bg-color-responsive'] = $theme_options['below-header-submenu-active-bg-color-responsive'];
+		}
+
+		if ( isset( $theme_options['font-size-below-header-dropdown-menu'] ) ) {
+			$theme_options['header-font-size-menu2-sub-menu'] = $theme_options['font-size-below-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['font-weight-below-header-dropdown-menu'] ) ) {
+			$theme_options['header-font-weight-menu2-sub-menu'] = $theme_options['font-weight-below-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['line-height-below-header-dropdown-menu'] ) ) {
+			$theme_options['header-line-height-menu2-sub-menu'] = $theme_options['line-height-below-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['font-family-below-header-dropdown-menu'] ) ) {
+			$theme_options['header-font-family-menu2-sub-menu'] = $theme_options['font-family-below-header-dropdown-menu'];
+		}
+		if ( isset( $theme_options['text-transform-below-header-dropdown-menu'] ) ) {
+			$theme_options['header-text-transform-menu2-sub-menu'] = $theme_options['text-transform-below-header-dropdown-menu'];
+		}
+		
+		if ( isset( $theme_options['below-header-submenu-spacing'] ) ) {
+			$theme_options['header-menu2-submenu-spacing'] = $theme_options['below-header-submenu-spacing'];
+		}
+	}
+
+	if ( 'search' === $below_header_section_1 || 'search' === $below_header_section_2 ) {
+		if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+			$theme_options['header-search-icon-color'] = $theme_options['below-header-text-color-responsive'];
+		}
+	}
+
+	if ( 'text-html' === $below_header_section_1 || 'text-html' === $below_header_section_2 ) {
+		if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+			$theme_options['header-html-2color'] = $theme_options['below-header-text-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
+			$theme_options['header-html-2link-color'] = $theme_options['below-header-link-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
+			$theme_options['header-html-2link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
+		}
+	}
+
+	if ( 'widget' === $below_header_section_1 || 'widget' === $below_header_section_2 ) {
+		if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
+			$theme_options['header-widget-2-color']       = $theme_options['below-header-text-color-responsive'];
+			$theme_options['header-widget-2-title-color'] = $theme_options['below-header-text-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
+			$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
+		}
+		if ( isset( $theme_options['below-header-link-hover-color-responsive'] ) ) {
+			$theme_options['header-widget-2-link-h-color'] = $theme_options['below-header-link-hover-color-responsive'];
+		}
 	}
 	
 	switch ( $below_header_layout ) {
