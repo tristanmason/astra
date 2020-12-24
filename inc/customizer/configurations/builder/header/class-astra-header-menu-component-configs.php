@@ -131,7 +131,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
 									'operator' => '==',
-									'value'    => 'overline',
+									'value'    => 'underline',
 								),
 								array(
 									'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
@@ -142,7 +142,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						'section'     => $_section,
 						'control'     => 'ast-slider',
-						'priority'    => 30.5,
+						'priority'    => 30,
 						'title'       => __( 'Border Position', 'astra' ),
 						'input_attrs' => array(
 							'min'  => 0,
