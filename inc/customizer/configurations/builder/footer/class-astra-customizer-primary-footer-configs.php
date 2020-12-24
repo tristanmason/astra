@@ -160,8 +160,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-responsive-select',
 					'section'   => $_section,
-					'priority'  => 32,
-					'title'     => __( 'Layout', 'astra' ),
+					'priority'  => 5,
+					'title'     => __( 'Inner Elements Layout', 'astra' ),
 					'choices'   => array(
 						'stack'  => __( 'Stack', 'astra' ),
 						'inline' => __( 'Inline', 'astra' ),
