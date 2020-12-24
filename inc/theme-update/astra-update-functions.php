@@ -1195,19 +1195,19 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 			
 			// Text Color.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-text-color'] ) ) {
-				$theme_options['sticky-header-button1-text-color'] = $theme_options['header-main-rt-sticky-section-button-text-color'];
+				$theme_options['sticky-header-button1-text-color']['desktop'] = $theme_options['header-main-rt-sticky-section-button-text-color'];
 			}
 			// BG Color.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-back-color'] ) ) {
-				$theme_options['sticky-header-button1-back-color'] = $theme_options['header-main-rt-sticky-section-button-back-color'];
+				$theme_options['sticky-header-button1-back-color']['desktop'] = $theme_options['header-main-rt-sticky-section-button-back-color'];
 			}
 			// Text Hover Color.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-text-h-color'] ) ) {
-				$theme_options['sticky-header-button1-text-h-color'] = $theme_options['header-main-rt-sticky-section-button-text-h-color'];
+				$theme_options['sticky-header-button1-text-h-color']['desktop'] = $theme_options['header-main-rt-sticky-section-button-text-h-color'];
 			}
 			// BG Hover Color.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-back-h-color'] ) ) {
-				$theme_options['sticky-header-button1-back-h-color'] = $theme_options['header-main-rt-sticky-section-button-back-h-color'];
+				$theme_options['sticky-header-button1-back-h-color']['desktop'] = $theme_options['header-main-rt-sticky-section-button-back-h-color'];
 			}
 			// Border Width.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-size'] ) ) {
@@ -1215,11 +1215,11 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 			}
 			// Border Color.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-color'] ) ) {
-				$theme_options['sticky-header-button1-border-color'] = $theme_options['header-main-rt-sticky-section-button-border-color'];
+				$theme_options['sticky-header-button1-border-color']['desktop'] = $theme_options['header-main-rt-sticky-section-button-border-color'];
 			}
 			// Border Hover Color.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-h-color'] ) ) {
-				$theme_options['sticky-header-button1-border-h-color'] = $theme_options['header-main-rt-sticky-section-button-border-h-color'];
+				$theme_options['sticky-header-button1-border-h-color']['desktop'] = $theme_options['header-main-rt-sticky-section-button-border-h-color'];
 			}
 			// Border Radius.
 			if ( isset( $theme_options['header-main-rt-sticky-section-button-border-radius'] ) ) {
