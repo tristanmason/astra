@@ -405,8 +405,8 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 function astra_gutenberg_pattern_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['guntenberg-pattern-compat-css'] ) ) {
-		$theme_options['guntenberg-pattern-compat-css'] = false;
+	if ( ! isset( $theme_options['guntenberg-button-pattern-compat-css'] ) ) {
+		$theme_options['guntenberg-button-pattern-compat-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

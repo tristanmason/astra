@@ -903,7 +903,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $mobile_screen_media_text_block_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( self::gutenberg_patterns_compat() ) {
+			if ( self::gutenberg_button_patterns_compat() ) {
 
 				// Outline Gutenberg button compatibility CSS.
 				$theme_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
@@ -1315,14 +1315,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if ( self::gutenberg_patterns_compat() ) {
+				if ( self::gutenberg_button_patterns_compat() ) {
 					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link'] = array(
-						'border-style'        => 'solid',
-						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
-						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
-						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
-						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
-						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+						'border'        => 'none',
 						'background-color'    => esc_attr( $btn_bg_color ),
 						'color'               => esc_attr( $btn_text_color ),
 						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
@@ -1332,6 +1327,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding'         => '15px 30px',
+					);
+					$global_button_page_builder_desktop['.wp-block-button.is-style-outline .wp-block-button__link'] = array(
+						'border-style'        => 'solid',
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
+						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'padding-top'         => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
 						'padding-right'       => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
 						'padding-bottom'      => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
@@ -1341,6 +1345,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$global_button_page_builder_tablet = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+							'border'        => 'none',
+							'padding'    => '15px 30px',
+						),
+						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
 							'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
 							'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
@@ -1351,6 +1359,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$global_button_page_builder_mobile = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+							'border'        => 'none',
+							'padding'    => '15px 30px',
+						),
+						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
 							'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
 							'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
@@ -2529,10 +2541,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function gutenberg_patterns_compat() {
+		public static function gutenberg_button_patterns_compat() {
 			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['guntenberg-pattern-compat-css'] = isset( $astra_settings['guntenberg-pattern-compat-css'] ) ? false : true;
-			return apply_filters( 'astra_gutenberg_patterns_compatibility', $astra_settings['guntenberg-pattern-compat-css'] );
+			$astra_settings['guntenberg-button-pattern-compat-css'] = isset( $astra_settings['guntenberg-button-pattern-compat-css'] ) ? false : true;
+			return apply_filters( 'astra_gutenberg_patterns_compatibility', $astra_settings['guntenberg-button-pattern-compat-css'] );
 		}
 	}
 }
