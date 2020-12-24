@@ -1086,7 +1086,25 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	$new_menu_item_mobile          = '';
 	$new_menu_item_mobile_outside  = '';
 
-	$theme_options['mobile-header-type'] = ( isset( $theme_options['mobile-menu-style'] ) ) ? $theme_options['mobile-menu-style'] : 'dropdown';
+	if ( isset( $theme_options['mobile-menu-style'] ) ) {
+		switch ( $theme_options['mobile-menu-style'] ) {
+			case 'default':
+				$theme_options['mobile-header-type'] = 'dropdown';
+				break;
+			case 'flyout':
+				$theme_options['mobile-header-type'] = 'off-canvas';
+				if ( isset( $theme_options['flyout-mobile-menu-alignment'] ) ) {
+					$theme_options['off-canvas-slide'] = $theme_options['flyout-mobile-menu-alignment'];
+				}
+				break;
+			case 'fullscreen':
+				$theme_options['mobile-header-type'] = 'full-width';
+				break;
+			default:
+				$theme_options['mobile-header-type'] = 'dropdown';
+				break;
+		}
+	}
 
 	switch ( $last_menu_item ) {
 		case 'search':
@@ -1506,7 +1524,8 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 					$widget_options['header-widget-3'] = $widget_options['above-header-widget-1'];
 				}
 				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-3-color'] = $theme_options['above-header-text-color-responsive'];
+					$theme_options['header-widget-3-color']       = $theme_options['above-header-text-color-responsive'];
+					$theme_options['header-widget-3-title-color'] = $theme_options['above-header-text-color-responsive'];
 				}
 				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
 					$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
@@ -1678,7 +1697,8 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 					$widget_options['header-widget-3'] = $widget_options['above-header-widget-2'];
 				}
 				if ( isset( $theme_options['above-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-3-color'] = $theme_options['above-header-text-color-responsive'];
+					$theme_options['header-widget-3-color']       = $theme_options['above-header-text-color-responsive'];
+					$theme_options['header-widget-3-title-color'] = $theme_options['above-header-text-color-responsive'];
 				}
 				if ( isset( $theme_options['above-header-link-color-responsive'] ) ) {
 					$theme_options['header-widget-3-link-color'] = $theme_options['above-header-link-color-responsive'];
@@ -1939,7 +1959,8 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 					$widget_options['header-widget-2'] = $widget_options['below-header-widget-1'];
 				}
 				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-2-color'] = $theme_options['below-header-text-color-responsive'];
+					$theme_options['header-widget-2-color']       = $theme_options['below-header-text-color-responsive'];
+					$theme_options['header-widget-2-title-color'] = $theme_options['below-header-text-color-responsive'];
 				}
 				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
 					$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
@@ -2111,7 +2132,8 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 					$widget_options['header-widget-2'] = $widget_options['below-header-widget-2'];
 				}
 				if ( isset( $theme_options['below-header-text-color-responsive'] ) ) {
-					$theme_options['header-widget-2-color'] = $theme_options['below-header-text-color-responsive'];
+					$theme_options['header-widget-2-color']       = $theme_options['below-header-text-color-responsive'];
+					$theme_options['header-widget-2-title-color'] = $theme_options['below-header-text-color-responsive'];
 				}
 				if ( isset( $theme_options['below-header-link-color-responsive'] ) ) {
 					$theme_options['header-widget-2-link-color'] = $theme_options['below-header-link-color-responsive'];
@@ -2222,13 +2244,13 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 		$theme_options['section-below-footer-builder-padding'] = $theme_options['footer-sml-spacing'];
 	}
 
-	if ( '' === $footer_layout ) {
-		return array(
-			'theme_options'  => $theme_options,
-			'used_elements'  => $used_elements,
-			'widget_options' => $widget_options,
-		);
-	}
+	// if ( '' === $footer_layout ) {
+	// return array(
+	// 'theme_options'  => $theme_options,
+	// 'used_elements'  => $used_elements,
+	// 'widget_options' => $widget_options,
+	// );
+	// }
 
 	$theme_options['footer-desktop-items'] = array(
 		'above'   =>
@@ -2265,6 +2287,9 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 	$footer_section_2   = ( isset( $theme_options['footer-sml-section-2'] ) ) ? $theme_options['footer-sml-section-2'] : '';
 	$new_section_2_item = '';
 	$used_elements[]    = $new_section_2_item;
+
+	var_dump( $footer_section_1 );
+	var_dump( $footer_section_2 );
 
 	switch ( $footer_section_1 ) {
 		case 'custom':
@@ -2346,7 +2371,41 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 				'tablet'  => 'flex-start',
 				'mobile'  => 'center',
 			);
-			$new_section_1_item                     = 'footer-menu';
+			$new_section_1_item                     = 'menu';
+			if ( isset( $theme_options['footer-link-color'] ) ) {
+				$theme_options['footer-menu-color-responsive'] = array(
+					'desktop' => $theme_options['footer-link-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			if ( isset( $theme_options['footer-link-h-color'] ) ) {
+				$theme_options['footer-menu-h-color-responsive'] = array(
+					'desktop' => $theme_options['footer-link-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+
+			if ( isset( $theme_options['font-size-footer-content'] ) ) {
+				$theme_options['footer-menu-font-size'] = $theme_options['font-size-footer-content'];
+			}
+			
+			if ( isset( $theme_options['font-weight-footer-content'] ) ) {
+				$theme_options['footer-menu-font-weight'] = $theme_options['font-weight-footer-content'];
+			}
+			
+			if ( isset( $theme_options['line-height-footer-content'] ) ) {
+				$theme_options['footer-menu-line-height'] = $theme_options['line-height-footer-content'];
+			}
+			
+			if ( isset( $theme_options['font-family-footer-content'] ) ) {
+				$theme_options['footer-menu-font-family'] = $theme_options['font-family-footer-content'];
+			}
+			
+			if ( isset( $theme_options['text-transform-footer-content'] ) ) {
+				$theme_options['footer-menu-text-transform'] = $theme_options['text-transform-footer-content'];
+			}
 			break;
 	}
 
@@ -2459,12 +2518,46 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 			break;
 
 		case 'menu':
-			$new_section_2_item                     = 'footer-menu';
+			$new_section_2_item                     = 'menu';
 			$theme_options['footer-menu-alignment'] = array(
 				'desktop' => 'flex-end',
 				'tablet'  => 'flex-end',
 				'mobile'  => 'center',
 			);
+			if ( isset( $theme_options['footer-link-color'] ) ) {
+				$theme_options['footer-menu-color-responsive'] = array(
+					'desktop' => $theme_options['footer-link-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+			if ( isset( $theme_options['footer-link-h-color'] ) ) {
+				$theme_options['footer-menu-h-color-responsive'] = array(
+					'desktop' => $theme_options['footer-link-h-color'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+
+			if ( isset( $theme_options['font-size-footer-content'] ) ) {
+				$theme_options['footer-menu-font-size'] = $theme_options['font-size-footer-content'];
+			}
+			
+			if ( isset( $theme_options['font-weight-footer-content'] ) ) {
+				$theme_options['footer-menu-font-weight'] = $theme_options['font-weight-footer-content'];
+			}
+			
+			if ( isset( $theme_options['line-height-footer-content'] ) ) {
+				$theme_options['footer-menu-line-height'] = $theme_options['line-height-footer-content'];
+			}
+			
+			if ( isset( $theme_options['font-family-footer-content'] ) ) {
+				$theme_options['footer-menu-font-family'] = $theme_options['font-family-footer-content'];
+			}
+			
+			if ( isset( $theme_options['text-transform-footer-content'] ) ) {
+				$theme_options['footer-menu-text-transform'] = $theme_options['text-transform-footer-content'];
+			}
 			break;
 	}
 
