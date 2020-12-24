@@ -24,25 +24,26 @@ $mx-col-md: 768px;
 }
 
 .ast-pagination {
-    display: inline-block;
-    width: 100%;
     padding-top: 2em;
     @media(min-width: $col-lg) {
         padding-left: 3.33333em;
         padding-right: 3.33333em;
     }
     .page-numbers {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         width: 2.33333em;
         height: 2.33333em;
         font-size: 16px;
         font-size: 1.06666rem;
         line-height: calc(2.33333em - 3px);
-        text-align: center;
     }
 
     .nav-links {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        position: relative;
         width: 100%;
     }
 
@@ -80,8 +81,8 @@ $mx-col-md: 768px;
         }
     }
     .next.page-numbers {
-        float: right;
-        text-align: right;
+        right: 0;
+        position: absolute;
         @media(max-width: $mx-col-md) {
             .page-navigation{
                 padding-right: 0;
