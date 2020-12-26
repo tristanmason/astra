@@ -230,6 +230,15 @@
 			}
 		},
 
+		deleteControlsBySection: function (section) {
+
+			_.each( section.controls(), function (control) {
+				control.container.remove();
+				api.control.remove( control.id );
+			});
+
+		},
+
 		resetControlsBySection: function ( section_id ){
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
@@ -682,10 +691,62 @@
 			console.clear();
 			console.log( AstraBuilderCustomizerData )
 
-			sessionStorage.removeItem('clone-in-progress');
+			sessionStorage.removeItem('cloneInProgress');
+
 
 			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
-				let cloneData = JSON.parse( sessionStorage.getItem('clone-in-progress') );
+
+				let forceRemoveSection = JSON.parse ( sessionStorage.getItem('forceRemoveComponent') );
+
+				if( ! forceRemoveSection ) {
+					return;
+				}
+
+				if( api.section(forceRemoveSection.section).expanded ) {
+					api.section(forceRemoveSection.section).collapse();
+				}
+
+				const component_track = api('astra-settings[cloned-component-track]').get();
+
+				let removing_index= forceRemoveSection.section.match(/\d+$/)[0];
+				let existing_component_count = component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ];
+
+				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
+				api.section.remove( forceRemoveSection.section );
+
+				let finalArray = component_track['removed-items'];
+				finalArray.push(forceRemoveSection.section);
+				finalArray = finalArray.filter(function(el, index, arr) {
+					return index == arr.indexOf(el);
+				});
+
+				// If removing last item.
+				if( existing_component_count == removing_index  ) {
+					while (true) {
+						existing_component_count = existing_component_count - 1;
+						component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ] = existing_component_count;
+
+						var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]/g, existing_component_count) );
+						if (index !== -1) {
+							finalArray.splice(index, 1);
+						} else {
+							var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]/g, removing_index) );
+							if (index !== -1) {
+								finalArray.splice(index, 1);
+							}
+							break;
+						}
+					}
+				}
+
+				api('astra-settings[cloned-component-track]').set( { ...component_track, 'removed-items': finalArray }  );
+
+				sessionStorage.removeItem('forceRemoveComponent');
+
+			});
+
+			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
+				let cloneData = JSON.parse( sessionStorage.getItem('cloneInProgress') );
 				if( ! cloneData ){
 					return;
 				}
@@ -703,11 +764,15 @@
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
 
-				sessionStorage.removeItem('clone-in-progress');
+				sessionStorage.removeItem('cloneInProgress');
 
 			} );
 
 			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
+				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
+			});
+
+			document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
 				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
 			});
 

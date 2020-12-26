@@ -18,15 +18,12 @@ const ItemComponent = props => {
 			choices[props.item]['clone'] &&
 
 			<div className="ast-slideup">
-
 				<span title="Clone"
-					onClick={e => {
-					e.stopPropagation();
-					props.cloneItem(props.item);
-				}} className=" tooltip dashicons dashicons-admin-page">
-
+					  onClick={e => {
+						  e.stopPropagation();
+						  props.cloneItem(props.item);
+					  }} className=" tooltip dashicons dashicons-admin-page">
 				</span>
-
 				<span title="Reset to default"
 					  onClick={e => {
 						  e.stopPropagation();
@@ -37,10 +34,18 @@ const ItemComponent = props => {
 						  });
 						  document.dispatchEvent(event);
 					  }}
-					  className=" tooltip dashicons dashicons-image-rotate"></span>
+					  className=" tooltip dashicons dashicons-image-rotate">
+				</span>
+				<span title="Delete"
+					  onClick={e => {
+						  e.stopPropagation();
+						  sessionStorage.setItem('forceRemoveComponent',  JSON.stringify(choices[props.item])  )
+						  delete choices[props.item];
+						  props.removeItem(props.item);
 
-				<span  title="Delete" className="tooltip dashicons dashicons-trash"></span>
-
+					  }}
+					  className="tooltip dashicons dashicons-trash">
+				</span>
 			</div>
 		}
 

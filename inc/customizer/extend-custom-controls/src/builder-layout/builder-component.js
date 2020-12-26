@@ -131,7 +131,7 @@ const BuilderComponent = props => {
 	const cloneItem = ( item, row, zone ) => {
 
 		// Skip clone if already is in progress.
-		if( sessionStorage.getItem('clone-in-progress') ) {
+		if( sessionStorage.getItem('cloneInProgress') ) {
 			return;
 		}
 
@@ -154,7 +154,7 @@ const BuilderComponent = props => {
 		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
 		cloneData.section = clone_section;
 
-		sessionStorage.setItem('clone-in-progress', JSON.stringify({
+		sessionStorage.setItem('cloneInProgress', JSON.stringify({
 			'clone_index': clone_index,
 			'clone_to_section': clone_section,
 			'clone_from_section' : choices[item]['section']

@@ -178,7 +178,7 @@ final class Astra_Builder_Helper {
 	 *
 	 * @var int
 	 */
-	public static $component_count_array = 10;
+	public static $component_count_array = array();
 
 	/**
 	 *  No. Of. Footer Widgets.
