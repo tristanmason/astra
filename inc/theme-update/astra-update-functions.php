@@ -1084,8 +1084,6 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	$last_menu_item_mobile_flag    = ( isset( $theme_options['hide-custom-menu-mobile'] ) ) ? $theme_options['hide-custom-menu-mobile'] : '';
 	$last_menu_item_mobile_outside = ( isset( $theme_options['header-display-outside-menu'] ) ) ? $theme_options['header-display-outside-menu'] : '';
 	$new_menu_item                 = '';
-	$new_menu_item_mobile          = '';
-	$new_menu_item_mobile_outside  = '';
 
 	$theme_options['mobile-header-type'] = 'dropdown';
 
