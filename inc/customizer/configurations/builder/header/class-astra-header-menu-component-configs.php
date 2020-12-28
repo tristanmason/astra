@@ -100,7 +100,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'      => 'control',
 						'control'   => 'select',
 						'section'   => $_section,
-						'priority'  => 30,
+						'priority'  => 10,
 						'title'     => __( 'Menu Hover Style', 'astra' ),
 						'choices'   => array(
 							''          => __( 'None', 'astra' ),
@@ -108,47 +108,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'underline' => __( 'Underline', 'astra' ),
 							'overline'  => __( 'Over Line', 'astra' ),
 						),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'context'   => Astra_Builder_Helper::$design_tab,
 						'transport' => 'postMessage',
 						'partial'   => array(
 							'selector'        => '#ast-hf-menu-' . $index,
 							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
-						),
-					),
-
-					/**
-					 * Option: Animation border Top Offset
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-animation-border-position]',
-						'default'     => astra_get_option( 'header-' . $_prefix . '-menu-animation-border-position' ),
-						'type'        => 'control',
-						'context'     => array(
-							'relation' => 'AND',
-							Astra_Builder_Helper::$general_tab_config,
-							array(
-								'relation' => 'OR',
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
-									'operator' => '==',
-									'value'    => 'underline',
-								),
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
-									'operator' => '==',
-									'value'    => 'overline',
-								),
-							),
-						),
-						'section'     => $_section,
-						'transport'   => 'postMessage',
-						'control'     => 'ast-slider',
-						'priority'    => 30,
-						'title'       => __( 'Border Position', 'astra' ),
-						'input_attrs' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 20,
 						),
 					),
 

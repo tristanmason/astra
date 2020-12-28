@@ -3808,25 +3808,27 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-desktop .ast-menu-hover-style-overline > .menu-item > .menu-link:before {
   content: "";
   position: absolute;
-  width: 1px;
-  left: 0px;
-  height: 2px;
+  width: 100%;
+  right: 50%;
+  height: 1px;
   background-color: transparent;
-  transition: all .3s ease;
+  transform: scale(0, 0) translate(-50%, 0);
+  transition: transform .3s ease-in-out, color .0s ease-in-out;
 }
 
 .ast-desktop .ast-menu-hover-style-underline > .menu-item:hover > .menu-link:before,
 .ast-desktop .ast-menu-hover-style-overline > .menu-item:hover > .menu-link:before {
-  width: 100%;
+  width: calc(100% - 1.2em);
   background-color: currentColor;
+  transform: scale(1, 1) translate(50%, 0);
 }
 
 .ast-desktop .ast-menu-hover-style-underline > .menu-item > .menu-link:before {
-  bottom: -6px;
+  bottom: 0;
 }
 
 .ast-desktop .ast-menu-hover-style-overline > .menu-item > .menu-link:before {
-  top: -6px;
+  top: 0;
 }
 
 .ast-desktop .ast-menu-hover-style-zoom > .menu-item > .menu-link:hover {
