@@ -232,6 +232,44 @@
 			}
 		},
 
+		deleteControlsBySection: function (section) {
+
+			_.each( section.controls(), function (control) {
+				control.container.remove();
+				api.control.remove( control.id );
+			});
+
+		},
+
+		resetControlsBySection: function ( section_id ){
+
+			if ('undefined' != typeof AstraBuilderCustomizerData) {
+				let controls = AstraBuilderCustomizerData.js_configs.controls[section_id] || [];
+
+				if (controls) {
+					for (let i = 0; i < controls.length; i++) {
+						let config = controls[i];
+
+
+						let val = config['reset_default'] ?  config['reset_default'] : '';
+						api(config.id).set( val );
+
+						if ('ast-settings-group' === config['type']) {
+
+							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
+							if (sub_controls) {
+								for (let i = 0; i < sub_controls.length; i++) {
+									let sub_config = sub_controls[i];
+									val = sub_config['reset_default'] ?  sub_config['reset_default'] : '';
+									api(sub_config.id).set( val );
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+
 		cloneControlsBySection: function (section, clone_index) {
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
@@ -654,21 +692,50 @@
 
 			AstCustomizerAPI.setDefaultControlContext();
 
-			sessionStorage.removeItem('clone-in-progress');
+			console.clear();
+			console.log( AstraBuilderCustomizerData )
+
+			sessionStorage.removeItem('cloneInProgress');
+
 
 			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
-				let cloneData = JSON.parse( sessionStorage.getItem('clone-in-progress') );
+
+				let forceRemoveSection = JSON.parse ( sessionStorage.getItem('forceRemoveComponent') );
+
+				if( ! forceRemoveSection ) {
+					return;
+				}
+
+
+				if( api.section(forceRemoveSection.section).expanded ) {
+					api.section(forceRemoveSection.section).collapse();
+				}
+
+				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
+				api.section.remove( forceRemoveSection.section );
+
+				sessionStorage.removeItem('forceRemoveComponent');
+
+			});
+
+			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
+				let cloneData = JSON.parse( sessionStorage.getItem('cloneInProgress') );
 				if( ! cloneData ){
 					return;
 				}
 
 				let clone_to_section =  cloneData.clone_to_section,
 					clone_from_section =  cloneData.clone_from_section,
-					clone_from_id =  clone_from_section.match(/\d+$/)[0],
 					clone_index =  cloneData.clone_index;
 
-				AstCustomizerAPI.addSection( clone_to_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section] );
-				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section), clone_from_id );
+				let section_config = AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section];
+
+				if( ! section_config ) {
+					section_config = AstraBuilderCustomizerData.js_configs.sections[clone_to_section];
+				}
+
+				AstCustomizerAPI.addSection( clone_to_section, section_config );
+				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section) );
 				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
 
 				if( clone_from_section.startsWith('sidebar-widgets-') ){
@@ -688,9 +755,18 @@
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
 
-				sessionStorage.removeItem('clone-in-progress');
+				sessionStorage.removeItem('cloneInProgress');
 
 			} );
+
+			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
+				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
+			});
+
+			document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
+				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
+			});
+
 		} );
 
 	});

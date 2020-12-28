@@ -1296,30 +1296,30 @@ function prepare_divider_defaults( $defaults, $index ) {
 
 	$defaults[ 'header-divider-' . $index . '-layout' ]    = 'vertical';
 	$defaults[ 'header-divider-' . $index . '-style' ]     = 'solid';
-	$defaults[ 'header-divider-' . $index . '-color' ]     = '#3a3a3a';
+	$defaults[ 'header-divider-' . $index . '-color' ]     = '';
 	$defaults[ 'header-divider-' . $index . '-size' ]      = array(
-		'desktop' => 50,
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => '50',
+		'tablet'  => '50',
+		'mobile'  => '50',
 	);
 	$defaults[ 'header-divider-' . $index . '-thickness' ] = array(
-		'desktop' => 1,
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => '1',
+		'tablet'  => '1',
+		'mobile'  => '1',
 	);
 
 	$defaults[ 'footer-divider-' . $index . '-layout' ]    = 'horizontal';
 	$defaults[ 'footer-divider-' . $index . '-style' ]     = 'solid';
-	$defaults[ 'footer-divider-' . $index . '-color' ]     = '#3a3a3a';
+	$defaults[ 'footer-divider-' . $index . '-color' ]     = '';
 	$defaults[ 'footer-divider-' . $index . '-size' ]      = array(
-		'desktop' => 50,
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => '50',
+		'tablet'  => '50',
+		'mobile'  => '50',
 	);
 	$defaults[ 'footer-divider-' . $index . '-thickness' ] = array(
-		'desktop' => 1,
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => '1',
+		'tablet'  => '1',
+		'mobile'  => '1',
 	);
 	$defaults[ 'footer-divider-' . $index . '-alignment' ] = array(
 		'desktop' => 'center',
@@ -1369,6 +1369,7 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'font-family-' . $_section ]               = 'inherit';
 	$defaults[ 'line-height-' . $_section ]               = '';
 	$defaults[ 'text-transform-' . $_section ]            = '';
+
 
 	$_section = 'section-fb-html-' . $index;
 
