@@ -188,7 +188,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * Enqueue Scripts
 		 */
 		public function enqueue_scripts() {
-			global $wp_query;
 
 			if ( false === self::enqueue_theme_assets() ) {
 				return;
@@ -270,18 +269,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
 			} 
 
-			if ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) {
-				$inline_css_key = 'astra-theme-pagination-css'; // Load Pagination CSS file after static CSS and before Inline CSS..
-				// Register.
-				wp_register_style( 'astra-theme-pagination-css', $css_uri . 'blog-pagination' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
-				// Enqueue.
-				wp_enqueue_style( 'astra-theme-pagination-css' );
-				// RTL support.
-				wp_style_add_data( 'astra-theme-pagination-css', 'rtl', 'replace' );
-			} else {
-				$inline_css_key = 'astra-theme-css';
-			}
-
 
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
@@ -296,7 +283,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			if ( ! class_exists( 'Astra_Cache' ) ) {
 				$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
-				wp_add_inline_style( $inline_css_key, $theme_css_data );
+				wp_add_inline_style( 'astra-theme-css', $theme_css_data );
 			}
 
 			if ( astra_is_amp_endpoint() ) {

@@ -126,9 +126,6 @@ module.exports = function (grunt) {
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                     },
-                    {
-                        'assets/css/unminified/blog-pagination.css': 'sass/site/blog/blog-pagination.scss',
-                    },
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
@@ -352,10 +349,6 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/compatibility/edd-rtl.css',
                         dest: 'assets/css/minified/compatibility/edd.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/blog-pagination-rtl.css',
-                        dest: 'assets/css/minified/blog-pagination.min-rtl.css',
                     },
                 ]
             }
