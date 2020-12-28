@@ -1206,9 +1206,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	// Mobile Trigger defaults.
-
-	$defaults['mobile-header-toggle-btn-color']       = '#0274be';
-	$defaults['mobile-header-toggle-btn-bg-color']    = '#eeeeee';
 	$defaults['header-trigger-icon']                  = 'menu';
 	$defaults['mobile-header-toggle-icon-size']       = 20;
 	$defaults['mobile-header-toggle-btn-style']       = 'minimal';
@@ -1218,7 +1215,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'bottom' => 1,
 		'left'   => 1,
 	);
-	$defaults['mobile-header-toggle-border-color']    = '#eeeeee';
 	$defaults['mobile-header-toggle-border-radius']   = 2;
 
 	// HTML Footer defaults.

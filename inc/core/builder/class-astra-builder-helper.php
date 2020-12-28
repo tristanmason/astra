@@ -1002,10 +1002,12 @@ final class Astra_Builder_Helper {
 							if ( ! is_array( $grid ) ) {
 								continue;
 							}
-
-							$result              = array_values( $grid );
-							$loaded_component    = call_user_func_array( 'array_merge', $result );
-							$loaded_components[] = is_array( $loaded_component ) ? $loaded_component : array();
+							
+							$result = array_values( $grid );
+							if ( is_array( $result ) ) {
+								$loaded_component    = call_user_func_array( 'array_merge', $result );
+								$loaded_components[] = is_array( $loaded_component ) ? $loaded_component : array();
+							}
 						}
 					}
 				}
