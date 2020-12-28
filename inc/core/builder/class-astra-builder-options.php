@@ -568,14 +568,18 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => '',
 		);
 
+		$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
 		$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
 
 		/**
 		 * Submenu
 		 */
-		$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]  = false;
-		$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ] = '#eaeaea';
-		$defaults[ 'header-' . $_prefix . '-submenu-border' ]       = array(
+		$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]   = false;
+		$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ]  = '#eaeaea';
+		$defaults[ 'header-' . $_prefix . '-submenu-border-radius' ] = '';
+		$defaults[ 'header-' . $_prefix . '-submenu-top-offset' ]    = '';
+		$defaults[ 'header-' . $_prefix . '-submenu-width' ]         = '';
+		$defaults[ 'header-' . $_prefix . '-submenu-border' ]        = array(
 			'top'    => 2,
 			'bottom' => 0,
 			'left'   => 0,
@@ -586,7 +590,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		 * Menu Stack on Mobile.
 		 */
 		$defaults[ 'header-' . $_prefix . '-menu-stack-on-mobile' ] = true;
-		
+
 		/**
 		 * Menu - Typography.
 		 */
@@ -1086,10 +1090,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Off-Canvas defaults.
 	 */
-	$defaults['off-canvas-layout']                 = 'side-panel';
-	$defaults['off-canvas-slide']                  = 'right';
-	$defaults['header-builder-menu-toggle-target'] = 'icon';
-	$defaults['off-canvas-background']             = array(
+	$defaults['off-canvas-layout']                  = 'side-panel';
+	$defaults['off-canvas-slide']                   = 'right';
+	$defaults['header-builder-menu-toggle-target']  = 'icon';
+	$defaults['header-offcanvas-content-alignment'] = 'flex-start';
+	$defaults['off-canvas-background']              = array(
 		'background-color'      => '#ffffff',
 		'background-image'      => '',
 		'background-repeat'     => 'repeat',
@@ -1097,8 +1102,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'background-size'       => 'auto',
 		'background-attachment' => 'scroll',
 	);
-	$defaults['off-canvas-close-color']            = '#3a3a3a';
-	$defaults['mobile-header-type']                = 'off-canvas';
+	$defaults['off-canvas-close-color']             = '#3a3a3a';
+	$defaults['mobile-header-type']                 = 'off-canvas';
 
 	$defaults['footer-menu-layout'] = array(
 		'desktop' => 'horizontal',

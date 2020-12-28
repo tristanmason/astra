@@ -979,6 +979,63 @@ body.admin-bar {
 	}
 }
 
+/** Hover menu style CSS */
+.ast-desktop .ast-menu-hover-style-underline,
+.ast-desktop .ast-menu-hover-style-overline {
+	>.menu-item {
+		>.menu-link {
+			&:before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				right: 50%;
+				height: 1px;
+				background-color: transparent;
+				transform: scale(0, 0) translate(-50%, 0);
+				transition: transform .3s ease-in-out, color .0s ease-in-out;
+			}
+		}
+		&:hover {
+			>.menu-link {
+				&:before {
+					width: calc(100% - 1.2em);
+					background-color: currentColor;
+					transform: scale(1, 1) translate(50%, 0);
+				}
+			}
+		}
+	}
+}
+
+.ast-desktop .ast-menu-hover-style-underline {
+	>.menu-item {
+		>.menu-link {
+			&:before {
+				bottom: 0;
+			}
+		}
+	}
+}
+
+.ast-desktop .ast-menu-hover-style-overline {
+	>.menu-item {
+		>.menu-link {
+			&:before {
+				top: 0;
+			}
+		}
+	}
+}
+
+.ast-desktop .ast-menu-hover-style-zoom {
+	>.menu-item {
+		>.menu-link:hover {
+			transition: all .3s ease;
+			transform: scale(1.2);
+		}
+	}
+}
+
 /** Search CSS for New HFB Dropdown/Off-Canvas */
 .ast-mobile-header-content,
 .ast-mobile-popup-drawer .ast-mobile-popup-content {

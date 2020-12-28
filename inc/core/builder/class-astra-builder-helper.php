@@ -833,9 +833,9 @@ final class Astra_Builder_Helper {
 
 		$off_canvas_slide   = astra_get_option( 'off-canvas-slide' );
 		$mobile_header_type = astra_get_option( 'mobile-header-type' );
+		$content_alignment  = astra_get_option( 'header-offcanvas-content-alignment' );
 
-
-		$side_class = '';
+		$side_class = 'content-align-' . $content_alignment . ' ';
 
 		if ( $mobile_header_type ) {
 
@@ -845,14 +845,14 @@ final class Astra_Builder_Helper {
 
 					if ( 'left' === $off_canvas_slide ) {
 
-						$side_class = 'ast-mobile-popup-left';
+						$side_class .= 'ast-mobile-popup-left';
 					} else {
 
-						$side_class = 'ast-mobile-popup-right';
+						$side_class .= 'ast-mobile-popup-right';
 					}
 				}
 			} else {
-				$side_class = 'ast-mobile-popup-full-width';
+				$side_class .= 'ast-mobile-popup-full-width';
 			}
 		}
 		?>

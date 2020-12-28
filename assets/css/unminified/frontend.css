@@ -3986,6 +3986,39 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   }
 }
 
+/** Hover menu style CSS */
+.ast-desktop .ast-menu-hover-style-underline > .menu-item > .menu-link:before,
+.ast-desktop .ast-menu-hover-style-overline > .menu-item > .menu-link:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  right: 50%;
+  height: 1px;
+  background-color: transparent;
+  transform: scale(0, 0) translate(-50%, 0);
+  transition: transform .3s ease-in-out, color .0s ease-in-out;
+}
+
+.ast-desktop .ast-menu-hover-style-underline > .menu-item:hover > .menu-link:before,
+.ast-desktop .ast-menu-hover-style-overline > .menu-item:hover > .menu-link:before {
+  width: calc(100% - 1.2em);
+  background-color: currentColor;
+  transform: scale(1, 1) translate(50%, 0);
+}
+
+.ast-desktop .ast-menu-hover-style-underline > .menu-item > .menu-link:before {
+  bottom: 0;
+}
+
+.ast-desktop .ast-menu-hover-style-overline > .menu-item > .menu-link:before {
+  top: 0;
+}
+
+.ast-desktop .ast-menu-hover-style-zoom > .menu-item > .menu-link:hover {
+  transition: all .3s ease;
+  transform: scale(1.2);
+}
+
 /** Search CSS for New HFB Dropdown/Off-Canvas */
 .ast-mobile-header-content .ast-search-menu-icon,
 .ast-mobile-header-content .ast-search-menu-icon.slide-search,
@@ -4638,7 +4671,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.inline-on-mobile .menu-item.ast-submenu-expanded > .sub-menu {
   display: block;
-  width: 150px;
   position: absolute;
   right: auto;
   left: 0;
@@ -4676,6 +4708,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.stack-on-mobile {
   flex-wrap: wrap;
+}
+
+.ast-header-break-point .inline-on-mobile .sub-menu {
+  width: 150px;
 }
 
 /*----------  Forms  ----------*/
