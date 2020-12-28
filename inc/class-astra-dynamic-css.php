@@ -607,10 +607,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
-			if ( 'no-sidebar' !== astra_page_layout() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
-			}
-
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
