@@ -369,7 +369,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'operator' => '>=',
 							'value'    => 1,
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 				),
 
@@ -874,7 +874,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				$_configs = array_merge( $_configs, $_old_content_configs );
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$pro_elements_transparent_config = array(
 					/**
