@@ -1880,7 +1880,7 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 
-.ast-slideup {
+.ahfb-slide-up {
 	display: flex;
 	align-items: center;
 	position: absolute;
@@ -1897,12 +1897,12 @@ button.components-button.ahfb-sorter-item-expand {
 	border-radius: 4px 4px 0 0;
 }
 
-.ast-slideup span {
+.ahfb-slide-up span {
 	font-size: 12px;
 	padding-left: 2px;
 }
 
-.ahfb-builder-item:hover .ast-slideup {
+.ahfb-builder-item:hover .ahfb-slide-up {
 	opacity: 1;
 	visibility: visible;
 	color: #444444;

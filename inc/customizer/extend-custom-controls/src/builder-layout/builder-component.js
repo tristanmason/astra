@@ -112,6 +112,10 @@ const BuilderComponent = props => {
 
 	const isCloneEnabled = () => {
 
+		if( ! astra.customizer.is_pro ) {
+			return;
+		}
+
 		let component_count = component_track.get();
 		Object.keys(component_count).forEach(function( component_type, value) {
 			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {

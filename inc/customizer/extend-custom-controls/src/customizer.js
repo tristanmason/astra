@@ -633,7 +633,14 @@
 		}
 	}
 
+	const clear_sessions = function() {
+		sessionStorage.removeItem('cloneInProgress');
+		sessionStorage.removeItem('forceRemoveComponent');
+	}
+
 	api.bind('ready', function () {
+
+		clear_sessions();
 
 		api.state.create('astra-customizer-tab');
 		api.state('astra-customizer-tab').set('general');
@@ -687,9 +694,6 @@
 		api.previewer.bind('ready', function () {
 
 			AstCustomizerAPI.setDefaultControlContext();
-
-			console.clear();
-			console.log( AstraBuilderCustomizerData )
 
 			sessionStorage.removeItem('cloneInProgress');
 

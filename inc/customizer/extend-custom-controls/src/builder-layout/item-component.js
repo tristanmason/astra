@@ -57,7 +57,7 @@ const ItemComponent = props => {
 		{
 			choices[props.item]['clone'] &&
 
-			<div className="ast-slideup">
+			<div className="ahfb-slide-up">
 				<span title="Clone"
 					  onClick={e => {
 						  e.stopPropagation();
