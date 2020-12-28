@@ -89,10 +89,19 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 
+			$tmp_section = 'sidebar-widgets-footer-widget-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			self::$footer_items[ 'widget-' . $index ] = array(
 				'name'    => 'Widget ' . $index,
 				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-footer-widget-' . $index,
+				'section' => $tmp_section,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'widget',
+				'builder' => 'footer',
 			);
 		}
 

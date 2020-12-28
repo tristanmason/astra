@@ -82,10 +82,16 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
 
+			$tmp_section = 'sidebar-widgets-header-widget-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
 				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-' . $index,
+				'section' => $tmp_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'widget',
 				'builder' => 'header',
