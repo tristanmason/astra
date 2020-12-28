@@ -702,44 +702,13 @@
 					return;
 				}
 
+
 				if( api.section(forceRemoveSection.section).expanded ) {
 					api.section(forceRemoveSection.section).collapse();
 				}
 
-				const component_track = api('astra-settings[cloned-component-track]').get();
-
-				let removing_index= forceRemoveSection.section.match(/\d+$/)[0];
-				let existing_component_count = component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ];
-
 				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
 				api.section.remove( forceRemoveSection.section );
-
-				let finalArray = component_track['removed-items'];
-				finalArray.push(forceRemoveSection.section);
-				finalArray = finalArray.filter(function(el, index, arr) {
-					return index == arr.indexOf(el);
-				});
-
-				// If removing last item.
-				if( existing_component_count == removing_index  ) {
-					while (true) {
-						existing_component_count = existing_component_count - 1;
-						component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ] = existing_component_count;
-
-						var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]/g, existing_component_count) );
-						if (index !== -1) {
-							finalArray.splice(index, 1);
-						} else {
-							var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]/g, removing_index) );
-							if (index !== -1) {
-								finalArray.splice(index, 1);
-							}
-							break;
-						}
-					}
-				}
-
-				api('astra-settings[cloned-component-track]').set( { ...component_track, 'removed-items': finalArray }  );
 
 				sessionStorage.removeItem('forceRemoveComponent');
 
@@ -753,11 +722,16 @@
 
 				let clone_to_section =  cloneData.clone_to_section,
 					clone_from_section =  cloneData.clone_from_section,
-					clone_from_id =  clone_from_section.match(/\d+$/)[0],
 					clone_index =  cloneData.clone_index;
 
-				AstCustomizerAPI.addSection( clone_to_section, AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section] );
-				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section), clone_from_id );
+				let section_config = AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section];
+
+				if( ! section_config ) {
+					section_config = AstraBuilderCustomizerData.js_configs.sections[clone_to_section];
+				}
+
+				AstCustomizerAPI.addSection( clone_to_section, section_config );
+				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section) );
 				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {

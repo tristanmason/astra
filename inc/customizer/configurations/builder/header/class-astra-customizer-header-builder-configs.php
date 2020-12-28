@@ -36,12 +36,20 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
+		$cloned_component_track = astra_get_option( 'cloned-component-track' );
+
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
+
+			$tmp_section = 'section-hb-button-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
 
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
-				'section' => 'section-hb-button-' . $index,
+				'section' => $tmp_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'button',
 				'builder' => 'header',
@@ -53,10 +61,16 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
 
+			$tmp_section = 'section-hb-html-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
-				'section' => 'section-hb-html-' . $index,
+				'section' => $tmp_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'html',
 				'builder' => 'header',
@@ -80,10 +94,16 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
 
+			$tmp_section = 'section-hb-divider-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
 				'icon'    => 'minus',
-				'section' => 'section-hb-divider-' . $index,
+				'section' => $tmp_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'divider',
 				'builder' => 'header',
@@ -121,10 +141,16 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
 
+			$tmp_section = 'section-hb-social-icons-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
-				'section' => 'section-hb-social-icons-' . $index,
+				'section' => $tmp_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'social-icons',
 				'builder' => 'header',

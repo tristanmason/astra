@@ -544,7 +544,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( isset( $config['clone_type'] ) && isset( $config['clone_index'] ) ) {
 
 				if ( isset( Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] ) ) {
-					if ( Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] < $config['clone_index'] ) {
+					if ( in_array( $section_name, Astra_Builder_Helper::$component_count_array['removed-items'], true ) || Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] < $config['clone_index'] ) {
 						self::$js_configs['clone_sections'][ $section_name ] = $config;
 					} else {
 						self::$js_configs['sections'][ $section_name ] = $config;
