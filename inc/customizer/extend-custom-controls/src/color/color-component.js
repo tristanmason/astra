@@ -17,6 +17,7 @@ const ColorComponent = props => {
 			...prevState,
 			value: value
 		}));
+		
 		props.control.setting.set(value);
 	
 	};
@@ -31,17 +32,27 @@ const ColorComponent = props => {
 	
 		if( e.detail.radiochange == "true" ){			
 			var current_color;		
-			if(props.control.params.label == "Text Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][0]
-			}else if(props.control.params.label == "Theme Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][1]
-			}else if(props.control.params.label == "Link Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][2]
-			}else if(props.control.params.label == "Link Hover Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][3]
-			}else if(props.control.params.label == "Heading Color ( H1 - H6 )"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][4]
-			}
+
+			switch(props.control.params.label) {
+				case "Text Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][0]
+				break;
+				case "Theme Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][1]
+				break;
+				case "Link Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][2]
+				break;
+				case "Link Hover Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][3]
+				break;
+				case "Heading Color ( H1 - H6 )":
+					current_color = e.detail.palette[e.detail.palette.patterntype][4]
+
+				break;
+				default:
+					current_color = '';
+			}			
 			
 		}else{
 
