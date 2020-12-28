@@ -1523,5 +1523,53 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['edd-header-cart-total-display'] = true;
 	$defaults['edd-header-cart-title-display'] = true;
 
+	/**
+	 * Account element.
+	*/
+	$defaults['header-account-type']            = 'default';
+	$defaults['header-account-login-style']     = 'icon';
+	$defaults['header-account-action-type']     = 'link';
+	$defaults['header-account-link-type']       = 'default';
+	$defaults['header-account-logout-style']    = 'icon';
+	$defaults['header-account-logged-out-text'] = __( 'Log In', 'astra' );
+	$defaults['header-account-logged-in-text']  = __( 'My Account', 'astra' );
+	$defaults['header-account-logout-action']   = 'link';
+	$defaults['header-account-image-width']     = array(
+		'desktop' => '40',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-account-icon-size']       = array(
+		'desktop' => 18,
+		'tablet'  => 18,
+		'mobile'  => 18,
+	);
+
+	$defaults['header-account-icon-color'] = '';
+
+	$defaults['header-account-login-link'] = array(
+		'url'      => '',
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
+
+	$defaults['header-account-logout-link'] = array(
+		'url'      => esc_url( wp_login_url() ),
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
+
+	$defaults['header-account-type-text-font-size'] = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	$defaults['header-account-type-text-color'] = '';
+	$defaults['header-account-woo-menu']        = false;
+
 	return $defaults;
 }

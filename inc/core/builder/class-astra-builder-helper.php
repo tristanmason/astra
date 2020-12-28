@@ -558,15 +558,20 @@ final class Astra_Builder_Helper {
 		self::$header_desktop_items = apply_filters(
 			'astra_header_desktop_items',
 			array(
-				'logo'   => array(
+				'logo'    => array(
 					'name'    => __( 'Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 				),
-				'search' => array(
+				'search'  => array(
 					'name'    => __( 'Search', 'astra' ),
 					'icon'    => 'search',
 					'section' => 'section-header-search',
+				),
+				'account' => array(
+					'name'    => __( 'Account', 'astra' ),
+					'icon'    => 'admin-users',
+					'section' => 'section-header-account',
 				),
 			)
 		);
@@ -630,6 +635,11 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Mobile Menu', 'astra' ),
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-menu',
+				),
+				'account'        => array(
+					'name'    => __( 'Account', 'astra' ),
+					'icon'    => 'admin-users',
+					'section' => 'section-header-account',
 				),
 			)
 		);

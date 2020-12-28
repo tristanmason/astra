@@ -108,6 +108,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );
 				add_action( 'astra_header_woo_cart', array( $this, 'header_woo_cart' ) );
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
+				add_action( 'astra_header_account', array( $this, 'header_account' ) );
 
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
 
@@ -195,6 +196,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 				echo Astra_Edd::get_instance()->edd_mini_cart_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
+		}
+
+		/**
+		 * Render account icon.
+		 */
+		public function header_account() {
+			Astra_Builder_UI_Controller::render_account();
 		}
 
 		/**
