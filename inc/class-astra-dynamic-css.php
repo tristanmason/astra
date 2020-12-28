@@ -547,7 +547,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			
 			global $wp_query;
 
-			if ( ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) || is_single() ) {
+			if ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) {
 				// Pagination.
 				$css_output['.ast-pagination a, .page-links .page-link, .single .post-navigation a'] = array(
 					'color' => esc_attr( $link_color ),
@@ -555,6 +555,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$css_output['.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover'] = array(
 					'color' => esc_attr( $link_hover_color ),
+				);
+				$css_output['.ast-pagination']                    = array(
+					'padding-top' => '1.5em',
+					'text-align'  => 'center',
+				);
+				$css_output['.ast-pagination .next.page-numbers'] = array(
+					'display' => 'inherit',
+					'float'   => 'none',
 				);
 			}
 
@@ -937,7 +945,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
 				),
-				'#primary, #secondary'               => array(
+				'#primary, #secondary'       => array(
 					'padding' => '1.5em 0',
 					'margin'  => 0,
 				),
@@ -946,16 +954,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'flex-direction' => 'column-reverse',
 					'width'          => '100%',
 				),
-				'.ast-author-box img.avatar'         => array(
+				'.ast-author-box img.avatar' => array(
 					'margin' => '20px 0 0 0',
-				),
-				'.ast-pagination'                    => array(
-					'padding-top' => '1.5em',
-					'text-align'  => 'center',
-				),
-				'.ast-pagination .next.page-numbers' => array(
-					'display' => 'inherit',
-					'float'   => 'none',
 				),
 			);
 
