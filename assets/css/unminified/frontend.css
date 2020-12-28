@@ -4496,7 +4496,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.inline-on-mobile .menu-item.ast-submenu-expanded > .sub-menu {
   display: block;
-  width: 150px;
   position: absolute;
   right: auto;
   left: 0;
@@ -4534,6 +4533,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-header-break-point .ast-mobile-header-wrap .site-container .ast-flex.stack-on-mobile {
   flex-wrap: wrap;
+}
+
+.ast-header-break-point .inline-on-mobile .sub-menu {
+  width: 150px;
 }
 
 /*----------  Forms  ----------*/
