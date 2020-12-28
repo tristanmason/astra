@@ -3267,18 +3267,6 @@ body .entry-content .wp-block-latest-posts li {
   vertical-align: middle;
 }
 
-.ast-hb-account-login-wrapper .ast-hb-account-login-bg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: #000;
-  opacity: .7;
-  z-index: 1000010;
-  transition: all 0.3s;
-}
-
 .ast-hb-account-login-wrapper .ast-hb-account-login {
   position: fixed;
   right: 50%;
@@ -3290,6 +3278,18 @@ body .entry-content .wp-block-latest-posts li {
   background-color: #f1f1f1;
   z-index: 1000011;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.ast-hb-account-login-wrapper .ast-hb-account-login-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #000;
+  opacity: .7;
+  z-index: 1000010;
+  transition: all 0.3s;
 }
 
 .ast-hb-account-login-wrapper .ast-hb-login-header .ast-hb-login-close {
@@ -3325,13 +3325,10 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-header-account-link.ast-account-action-link,
 .ast-header-account-link.ast-account-action-login,
-.ast-header-break-point .ast-header-account-link {
-  cursor: pointer;
-  pointer-events: all;
-}
-
+.ast-header-break-point .ast-header-account-link,
 .ast-header-account-link.ast-account-action-login.customize-unpreviewable {
   cursor: pointer;
+  pointer-events: all;
 }
 
 .ast-header-break-point .ast-main-header-bar-alignment,
@@ -3340,7 +3337,11 @@ body .entry-content .wp-block-latest-posts li {
   display: none;
 }
 
-.ast-hb-account-login-wrapper .ast-hb-login-header {
+.ast-header-account-wrap .ast-hb-account-login-wrapper {
+  visibility: hidden;
+}
+
+.ast-header-account-wrap .ast-hb-account-login-wrapper .ast-hb-login-header {
   -js-display: flex;
   position: absolute;
   left: 0;
@@ -3350,22 +3351,18 @@ body .entry-content .wp-block-latest-posts li {
   min-height: calc(1.2em + 24px);
 }
 
-.ast-hb-account-login-wrapper .ast-hb-account-login {
+.ast-header-account-wrap .ast-hb-account-login-wrapper .ast-hb-account-login {
   transform: scale(0.7);
   opacity: 0;
   transition: all 0.3s;
   overflow: auto;
 }
 
-.ast-header-account-wrap .ast-hb-account-login-wrapper {
-  visibility: hidden;
-}
-
 .ast-header-account-wrap .ast-hb-account-login-wrapper.show {
   visibility: visible;
 }
 
-.ast-hb-account-login-wrapper.show .ast-hb-account-login {
+.ast-header-account-wrap .ast-hb-account-login-wrapper.show .ast-hb-account-login {
   transform: scale(1) translateY(-50%);
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -3384,26 +3381,15 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 /* menu */
-.ast-main-header-bar-alignment {
+.ast-desktop .ast-main-header-bar-alignment {
   position: relative;
 }
 
-.main-header-bar .main-header-bar-navigation .ast-account-nav-menu {
+.ast-desktop .main-header-bar .main-header-bar-navigation .ast-account-nav-menu {
   line-height: 1.45;
 }
 
 .ast-desktop .ast-account-nav-menu {
-  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
-}
-
-.ast-desktop .ast-primary-header-bar .main-header-menu.ast-account-nav-menu > .menu-item,
-.ast-desktop .ast-above-header-bar .main-header-menu.ast-account-nav-menu > .menu-item,
-.ast-desktop .ast-below-header-bar .main-header-menu.ast-account-nav-menu > .menu-item {
-  height: auto;
-  line-height: unset;
-}
-
-.ast-account-nav-menu {
   width: 260px;
   background: #fff;
   right: -999em;
@@ -3413,55 +3399,40 @@ body .entry-content .wp-block-latest-posts li {
   list-style: none;
   margin: 0;
   padding-right: 0;
-  border-top-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-style: solid;
+  border: 0;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
-.ast-account-nav-menu .sub-menu {
+.ast-desktop .ast-account-nav-menu .sub-menu {
   left: auto;
   top: 0;
   margin-right: 0;
 }
 
-.ast-account-nav-menu .menu-item {
-  position: relative;
-  -js-display: flex;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.ast-account-nav-menu .menu-item.focus > .sub-menu,
-.ast-account-nav-menu .menu-item:hover > .sub-menu {
+.ast-desktop .ast-account-nav-menu .menu-item.focus > .sub-menu,
+.ast-desktop .ast-account-nav-menu .menu-item:hover > .sub-menu {
   right: 100%;
 }
 
-.ast-account-nav-menu .menu-item .menu-link {
-  border-style: none;
+.ast-desktop .ast-account-nav-menu .menu-item .menu-link {
   padding: .9em 1em;
-  display: block;
-  word-wrap: break-word;
 }
 
-.ast-account-nav-menu .menu-item {
+.ast-desktop .ast-account-nav-menu .menu-item {
   border-style: none;
 }
 
-.ast-account-nav-menu .menu-item.menu-item-has-children > .menu-link:after {
+.ast-desktop .ast-account-nav-menu .menu-item.menu-item-has-children > .menu-link:after {
   position: absolute;
   left: 1em;
   top: 50%;
   transform: translate(0, -50%) rotate(-270deg);
 }
 
-.ast-account-nav-menu .menu-item-has-children > .menu-link:after {
+.ast-desktop .ast-account-nav-menu .menu-item-has-children > .menu-link:after {
   content: "\e900";
   display: inline-block;
   font-family: Astra;
-  font-size: 9px;
   font-size: .6rem;
   font-weight: 700;
   text-rendering: auto;
@@ -3469,21 +3440,22 @@ body .entry-content .wp-block-latest-posts li {
   line-height: normal;
 }
 
-.ast-account-nav-menu .menu-link,
-.ast-account-nav-menu > a {
-  transition: all .2s linear;
-}
-
-.ast-header-account-wrap.focus .ast-account-nav-menu,
-.ast-header-account-wrap:hover .ast-account-nav-menu {
-  left: -100%;
-  right: auto;
+.ast-desktop .ast-primary-header-bar .main-header-menu.ast-account-nav-menu > .menu-item,
+.ast-desktop .ast-above-header-bar .main-header-menu.ast-account-nav-menu > .menu-item,
+.ast-desktop .ast-below-header-bar .main-header-menu.ast-account-nav-menu > .menu-item {
+  height: auto;
+  line-height: unset;
 }
 
 .site-header-section-left .ast-header-account-wrap.focus .ast-account-nav-menu,
 .site-header-section-left .ast-header-account-wrap:hover .ast-account-nav-menu {
   right: -100%;
   left: auto;
+}
+
+.ast-header-account-wrap.focus .ast-account-nav-menu, .ast-header-account-wrap:hover .ast-account-nav-menu {
+  left: -100%;
+  right: auto;
 }
 
 .ast-header-account-wrap .woocommerce-MyAccount-navigation-link.is-active a {
