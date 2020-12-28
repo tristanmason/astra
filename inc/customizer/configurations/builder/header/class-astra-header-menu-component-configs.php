@@ -210,7 +210,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-width]',
 						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-width' ),
 						'type'        => 'control',
-						'context'   => array(
+						'context'     => array(
 							Astra_Builder_Helper::$design_tab,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-stack-on-mobile]',
