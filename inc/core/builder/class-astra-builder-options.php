@@ -84,6 +84,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet'  => '',
 		'mobile'  => '',
 	);
+	$defaults['hb-stack']                    = array(
+		'desktop' => 'stack',
+		'tablet'  => 'stack',
+		'mobile'  => 'stack',
+	);
 
 	$defaults['hb-header-main-sep']          = 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
@@ -147,6 +152,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'desktop' => 50,
 		'tablet'  => '',
 		'mobile'  => '',
+	);
+	$defaults['hba-stack']                          = array(
+		'desktop' => 'stack',
+		'tablet'  => 'stack',
+		'mobile'  => 'stack',
 	);
 	$defaults['hba-header-separator']               = 1;
 	$defaults['hba-header-bottom-border-color']     = '#eaeaea';
@@ -225,13 +235,18 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	/**
-	 * Above Header Defaults.
+	 * Below Header Defaults.
 	 */
 	$defaults['hbb-header-layout'] = 'below-header-layout-1';
 	$defaults['hbb-header-height'] = array(
 		'desktop' => 60,
 		'tablet'  => '',
 		'mobile'  => '',
+	);
+	$defaults['hbb-stack']         = array(
+		'desktop' => 'stack',
+		'tablet'  => 'stack',
+		'mobile'  => 'stack',
 	);
 
 	$defaults['hbb-header-separator']           = 1;
@@ -1251,54 +1266,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults[ 'font-family-section-fb-html-' . $index ]    = 'inherit';
 		$defaults[ 'text-transform-section-fb-html-' . $index ] = '';
 		$defaults[ 'line-height-section-fb-html-' . $index ]    = '';
-	}
-
-	// Divider Footer defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_divider; $index++ ) {
-
-		$defaults[ 'footer-divider-' . $index . '-layout' ] = 'horizontal';
-		$defaults[ 'footer-divider-' . $index . '-style' ]  = 'solid';
-		$defaults[ 'footer-divider-' . $index . '-color' ]  = '#3a3a3a';
-
-		$defaults[ 'footer-divider-' . $index . '-size' ] = array(
-			'desktop' => 50,
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'footer-divider-' . $index . '-thickness' ] = array(
-			'desktop' => 1,
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'footer-divider-' . $index . '-alignment' ] = array(
-			'desktop' => 'center',
-			'tablet'  => 'center',
-			'mobile'  => 'center',
-		);
-
-	}
-
-	// Divider header defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
-
-		$defaults[ 'header-divider-' . $index . '-layout' ] = 'vertical';
-		$defaults[ 'header-divider-' . $index . '-style' ]  = 'solid';
-		$defaults[ 'header-divider-' . $index . '-color' ]  = '#3a3a3a';
-
-		$defaults[ 'header-divider-' . $index . '-size' ] = array(
-			'desktop' => 50,
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-divider-' . $index . '-thickness' ] = array(
-			'desktop' => 1,
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
 	}
 
 	// Widget Header defaults.

@@ -3184,38 +3184,6 @@ body .entry-content .wp-block-latest-posts li {
   position: relative;
 }
 
-.footer-widget-area.ast-footer-divider-element {
-  position: relative;
-  align-items: center;
-}
-
-.ast-hb-divider-layout-horizontal .ast-divider-layout-horizontal {
-  width: 100%;
-}
-
-.ast-mobile-popup-content .ast-header-divider-element {
-  justify-content: center;
-}
-
-.ast-header-divider-element {
-  position: relative;
-}
-
-.site-footer-section,
-.ast-fb-divider-layout-vertical.ast-footer-divider-element,
-.ast-hb-divider-layout-vertical.ast-header-divider-element {
-  height: 100%;
-}
-
-.footer-widget-area .ast-divider-wrapper {
-  display: inline-block;
-}
-
-.ast-fb-divider-layout-vertical .ast-divider-layout-vertical,
-.ast-fb-divider-layout-vertical .ast-divider-layout-horizontal {
-  position: absolute;
-}
-
 .ast-builder-layout-element {
   align-items: center;
 }
@@ -3860,10 +3828,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   opacity: 0.5;
 }
 
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
-  opacity: 0.5;
-}
-
 .ast-header-search .ast-search-menu-icon .search-form .search-field::placeholder {
   opacity: 0.5;
 }
@@ -3884,12 +3848,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 /** Above header z-index for Sticky Above Header Submenu */
 .ast-above-header-bar.ast-header-sticked {
   z-index: 9;
-}
-
-/** Default Spacing for Mobile Header elements except Menu */
-.ast-mobile-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
-.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
-  margin: 15px 20px;
 }
 
 /* Footer menu spacing between each menu items. */

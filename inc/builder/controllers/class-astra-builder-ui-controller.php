@@ -125,29 +125,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				echo '</div>';
 				echo '</div>';
 			}
-
-		}
-
-		/**
-		 * Prepare divider Markup.
-		 *
-		 * @param string $index Key of the divider Control.
-		 */
-		public static function render_divider_markup( $index = 'header-divider-1' ) {
-
-			$layout = astra_get_option( $index . '-layout' );
-			?>
-
-			<div class="ast-divider-wrapper ast-divider-layout-<?php echo esc_attr( $layout ); ?>">
-				<?php 
-				if ( is_customize_preview() ) {
-					self::render_customizer_edit_button();
-				} 
-				?>
-				<div class="ast-builder-divider-element"></div>
-			</div>
-
-			<?php
 		}
 		
 		/**
