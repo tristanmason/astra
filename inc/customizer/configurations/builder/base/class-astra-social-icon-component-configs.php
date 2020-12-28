@@ -278,6 +278,44 @@ class Astra_Social_Icon_Component_Configs {
 				),
 
 				/**
+				* Option: Social Label Color
+				*/
+				array(
+					'name'       => $builder_type . '-social-' . $index . '-label-color',
+					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-label-color' ),
+					'transport'  => 'postMessage',
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-group]',
+					'section'    => $_section,
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 8,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Label Color', 'astra' ),
+				),
+
+				/**
+				* Option: Social Label Hover Color
+				*/
+				array(
+					'name'       => $builder_type . '-social-' . $index . '-label-h-color',
+					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-label-h-color' ),
+					'transport'  => 'postMessage',
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-group]',
+					'section'    => $_section,
+					'tab'        => __( 'Hover', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 8,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Label Color', 'astra' ),
+				),
+
+				/**
 				* Option: Social Background Color
 				*/
 				array(

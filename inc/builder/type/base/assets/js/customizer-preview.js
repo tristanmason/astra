@@ -253,6 +253,21 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover'
 		);
 
+		// Icon Label Color.
+		astra_color_responsive_css(
+			context + '-soc-label-color',
+			'astra-settings[' + builder_type + '-social-' + index + '-label-color]',
+			'color',
+			selector + ' .ast-social-color-type-custom .ast-builder-social-element .social-item-label'
+		);
+
+		astra_color_responsive_css(
+			context + '-soc-label-color-h',
+			'astra-settings[' + builder_type + '-social-' + index + '-label-h-color]',
+			'color',
+			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label'
+		);
+
 		// Icon Background Space.
 		astra_css(
 			'astra-settings[' + builder_type + '-social-' + index + '-bg-space]',

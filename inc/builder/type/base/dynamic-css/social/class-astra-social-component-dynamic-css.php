@@ -82,6 +82,17 @@ class Astra_Social_Component_Dynamic_CSS {
 			$social_icons_h_bg_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-bg-h-color' ), 'tablet' );
 			$social_icons_h_bg_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-bg-h-color' ), 'mobile' );
 
+			// Normal Responsive Label Colors.
+			$social_icons_label_color_desktop = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-label-color' ), 'desktop' );
+			$social_icons_label_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-label-color' ), 'tablet' );
+			$social_icons_label_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-label-color' ), 'mobile' );
+
+			// Hover Responsive Label Colors.
+			$social_icons_label_h_color_desktop = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-label-h-color' ), 'desktop' );
+			$social_icons_label_h_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-label-h-color' ), 'tablet' );
+			$social_icons_label_h_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-social-' . $index . '-label-h-color' ), 'mobile' );
+
+
 			$margin = astra_get_option( $_section . '-margin' );
 
 			/**
@@ -134,6 +145,13 @@ class Astra_Social_Component_Dynamic_CSS {
 				$css_output_desktop[ $selector . ' .ast-builder-social-element:hover svg' ]                         = array(
 					'fill' => $social_icons_h_color_desktop,
 				);
+
+				if ( isset( $social_icons_label_color_desktop ) && ! empty( $social_icons_label_color_desktop ) ) {
+					$css_output_desktop[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_label_color_desktop;
+				}
+				if ( isset( $social_icons_label_h_color_desktop ) && ! empty( $social_icons_label_h_color_desktop ) ) {
+					$css_output_desktop[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_label_h_color_desktop;
+				}
 			}
 
 			/**
@@ -174,6 +192,13 @@ class Astra_Social_Component_Dynamic_CSS {
 				$css_output_tablet[ $selector . ' .ast-builder-social-element:hover svg' ] = array(
 					'fill' => $social_icons_h_color_tablet,
 				);
+
+				if ( isset( $social_icons_label_color_tablet ) && ! empty( $social_icons_label_color_tablet ) ) {
+					$css_output_tablet[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_label_color_tablet;
+				}
+				if ( isset( $social_icons_label_h_color_tablet ) && ! empty( $social_icons_label_h_color_tablet ) ) {
+					$css_output_tablet[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_label_h_color_tablet;
+				}
 			}
 
 			/**
@@ -214,6 +239,13 @@ class Astra_Social_Component_Dynamic_CSS {
 				$css_output_mobile[ $selector . ' .ast-builder-social-element:hover svg' ] = array(
 					'fill' => $social_icons_h_color_mobile,
 				);
+
+				if ( isset( $social_icons_label_color_mobile ) && ! empty( $social_icons_label_color_mobile ) ) {
+					$css_output_mobile[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_label_color_mobile;
+				}
+				if ( isset( $social_icons_label_h_color_mobile ) && ! empty( $social_icons_label_h_color_mobile ) ) {
+					$css_output_mobile[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_label_h_color_mobile;
+				}
 			}
 
 			if ( 'footer' === $builder_type ) {
