@@ -594,6 +594,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			if ( 'no-sidebar' !== astra_page_layout() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
+			}
+
+			if ( is_singular() && comments_open() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::get_single_post_comment_css() );
+			}
+
+			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
+			}
+
+			if ( 'no-sidebar' !== astra_page_layout() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
+			}
+
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -2214,18 +2230,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// trim white space for faster page loading.
 			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
-
-			if ( is_singular() && comments_open() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::get_single_post_comment_css() );
-			}
-
-			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
-			}
-
-			if ( 'no-sidebar' !== astra_page_layout() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
-			}
 
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
