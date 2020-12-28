@@ -683,6 +683,7 @@ final class Astra_Builder_Helper {
 			'footer-social-icons' => 1,
 			'header-divider'      => 0,
 			'footer-divider'      => 0,
+			'removed-items'       => array(),
 		);
 
 		$component_keys_count = array_merge(
