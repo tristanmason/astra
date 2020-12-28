@@ -210,7 +210,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-width]',
 						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-width' ),
 						'type'        => 'control',
-						'context'     => Astra_Builder_Helper::$design_tab,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-stack-on-mobile]',
+								'operator' => '==',
+								'value'    => false,
+							),
+						),
 						'section'     => $_section,
 						'control'     => 'ast-slider',
 						'priority'    => 21,
