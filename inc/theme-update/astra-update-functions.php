@@ -288,6 +288,7 @@ function astra_icons_svg_compatibility() {
 	if ( ! isset( $theme_options['can-update-astra-icons-svg'] ) ) {
 		// Set a flag to check if we need to add icons as SVG.
 		$theme_options['can-update-astra-icons-svg'] = false;
+		update_option( 'astra-settings', $theme_options );
 	}
 }
 
