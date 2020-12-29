@@ -123,6 +123,26 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Content alignment option for offcanvas
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-offcanvas-content-alignment]',
+					'default'  => astra_get_option( 'header-offcanvas-content-alignment' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => $_section,
+					'context'  => Astra_Builder_Helper::$responsive_general_tab,
+					'priority' => 45,
+					'title'    => __( 'Content Alignment', 'astra' ),
+					'suffix'   => '',
+					'choices'  => array(
+						'flex-start' => __( 'Left', 'astra' ),
+						'center'     => __( 'Center', 'astra' ),
+						'flex-end'   => __( 'Right', 'astra' ),
+					),
+				),
+
 				// Option Group: Off-Canvas Colors Group.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',

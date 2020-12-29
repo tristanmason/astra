@@ -232,4 +232,66 @@
 	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-bg-h-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 
+	// Icon Color.
+	astra_css(
+		'astra-settings[transparent-account-icon-color]',
+		'fill',
+		'.ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
+	);
+
+	// logged out text Color.
+	astra_css(
+		'astra-settings[transparent-account-type-text-color]',
+		'color',
+		'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text'
+	);
+	
+	// Menu - Normal Color
+	astra_color_responsive_css(
+		'transparent-astra-account-menu-color-preview',
+		'astra-settings[transparent-account-menu-color-responsive]',
+		'color',
+		'.ast-theme-transparent-header .ast-header-account-wrap .main-header-menu .menu-item > .menu-link'
+	);
+
+	// Menu - Hover Color
+	astra_color_responsive_css(
+		'transparent-astra-account-menu-h-color-preview',
+		'astra-settings[transparent-account-menu-h-color-responsive]',
+		'color',
+		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item:hover > .menu-link'
+	);
+
+	// Menu - Active Color
+	astra_color_responsive_css(
+		'transparent-astra-account-menu-active-color-preview',
+		'astra-settings[transparent-account-menu-a-color-responsive]',
+		'color',
+		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item.current-menu-item > .menu-link'
+	);
+
+	// Menu - Hover Background
+	astra_color_responsive_css(
+		'transparent-astra-account-menu-bg-preview',
+		'astra-settings[transparent-account-menu-bg-obj-responsive]',
+		'background',
+		'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation ul'
+	);
+
+	// Menu - Hover Background
+	astra_color_responsive_css(
+		'transparent-astra-account-menu-bg-preview',
+		'astra-settings[transparent-account-menu-h-bg-color-responsive]',
+		'background',
+		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item:hover > .menu-link'
+	);
+
+	// Menu - Active Background
+	astra_color_responsive_css(
+		'transparent-astra-account-menu',
+		'astra-settings[transparent-account-menu-a-bg-color-responsive]',
+		'background',
+		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item.current-menu-item > .menu-link'
+	);
+
 } )( jQuery );
