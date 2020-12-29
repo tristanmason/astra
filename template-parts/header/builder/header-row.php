@@ -33,7 +33,6 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 					 */
 					do_action( "astra_header_{$row}_container_before" );
 					?>
-					<div class="site-container">
 						<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap ast-builder-grid-row <?php echo ( Astra_Builder_Helper::has_side_columns( $row ) ? 'ast-builder-grid-row-has-sides' : 'ast-grid-center-col-layout-only ast-flex' ); ?> <?php echo ( Astra_Builder_Helper::has_center_column( $row ) ? 'ast-grid-center-col-layout' : 'ast-builder-grid-row-no-center' ); ?>">
 							<?php if ( Astra_Builder_Helper::has_side_columns( $row ) ) { ?>
 								<div class="site-header-<?php echo esc_attr( $row ); ?>-section-left site-header-section ast-flex site-header-section-left">
@@ -90,7 +89,6 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 								</div>
 							<?php } ?>
 						</div>
-					</div>
 					<?php
 					/**
 					 * Astra Render after Site Content.
