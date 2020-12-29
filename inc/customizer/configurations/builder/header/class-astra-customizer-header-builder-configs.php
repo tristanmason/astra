@@ -82,37 +82,24 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
 
-			$item = array(
-				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
-				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-' . $index,
-			);
-
-			Astra_Builder_Helper::$header_desktop_items[ 'widget-' . $index ] = $item;
-			Astra_Builder_Helper::$header_mobile_items[ 'widget-' . $index ]  = $item;
-		}
-
-		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
-
-			$tmp_section = 'section-hb-divider-' . $index;
+			$tmp_section = 'sidebar-widgets-header-widget-' . $index;
 
 			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
 				continue;
 			}
 
 			$item = array(
-				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
-				'icon'    => 'minus',
+				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
+				'icon'    => 'wordpress',
 				'section' => $tmp_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'divider',
+				'type'    => 'widget',
 				'builder' => 'header',
 			);
 
-			Astra_Builder_Helper::$header_desktop_items[ 'divider-' . $index ] = $item;
-			Astra_Builder_Helper::$header_mobile_items[ 'divider-' . $index ]  = $item;
+			Astra_Builder_Helper::$header_desktop_items[ 'widget-' . $index ] = $item;
+			Astra_Builder_Helper::$header_mobile_items[ 'widget-' . $index ]  = $item;
 		}
-
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 

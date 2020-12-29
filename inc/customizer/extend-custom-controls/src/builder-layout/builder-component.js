@@ -118,17 +118,11 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get();
 
-		console.log( component_count );
-
 		Object.keys(component_count).forEach(function( component_type, value) {
 
 			if( 'removed-items' === component_type || 'flag' === component_type ) {
 				return;
 			}
-
-
-
-
 
 			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
 				for (let key in choices) {
@@ -151,20 +145,14 @@ const BuilderComponent = props => {
 
 			let tmp_choice = tmp_choices[choice],
 				tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-
-
 			let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
-			console.log(is_to_delete);
-			console.log(tmp_component_type);
-			console.log("-----------");
+
 			switch (component_count[tmp_component_type]) {
 				case 1:
 					is_to_delete = false;
 					break;
 				case 2:
-					if(  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) {
-						is_to_delete = false;
-					}
+					is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) ? false : true;
 					break;
 			}
 

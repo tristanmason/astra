@@ -6,6 +6,8 @@
 
 	var expandedPanel = '';
 
+	var defaultContextSet = '';
+
 	/**
 	 * Resize Preview Frame when show / hide Builder.
 	 */
@@ -326,7 +328,7 @@
 
 		setDefaultControlContext: function () {
 
-			if( 'undefined' === typeof AstraBuilderCustomizerData ) {
+			if( 'undefined' === typeof AstraBuilderCustomizerData || defaultContextSet ) {
 				return ;
 			}
 			let skip_context = AstraBuilderCustomizerData.js_configs.skip_context || [];
@@ -355,6 +357,8 @@
 				}
 
 			});
+
+			defaultContextSet = true;
 		},
 
 		initializeConfigs: function () {

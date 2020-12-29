@@ -94,6 +94,14 @@ switch ( $component_slug ) {
 		<?php
 		break;
 
+	case 'account':
+		?>
+		<div class="ast-builder-layout-element site-header-focus-item ast-header-account" data-section="section-header-account">
+			<?php do_action( 'astra_header_account' ); ?>
+		</div>
+		<?php
+		break;
+
 	case 'woo-cart':
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			?>
@@ -122,7 +130,7 @@ switch ( $component_slug ) {
 			}
 			?>
 			<div class="header-widget-area-inner site-info-inner">
-				<?php dynamic_sidebar( 'header-widget-1' ); ?>
+				<?php astra_get_sidebar( 'header-widget-1' ); ?>
 			</div>
 		</aside>
 		<?php
@@ -136,7 +144,7 @@ switch ( $component_slug ) {
 			}
 			?>
 			<div class="header-widget-area-inner site-info-inner">
-				<?php dynamic_sidebar( 'header-widget-2' ); ?>
+				<?php astra_get_sidebar( 'header-widget-2' ); ?>
 			</div>
 		</aside>
 		<?php
