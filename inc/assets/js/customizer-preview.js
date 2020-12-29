@@ -103,6 +103,8 @@ function astra_builder_advanced_css( section, selector ) {
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
                 astra_add_dynamic_css( section + '-padding-toggle-button', dynamicStyle );
+            } else {
+                astra_add_dynamic_css( section + '-padding-toggle-button', '' );
             }
         } );
     } );
@@ -146,6 +148,8 @@ function astra_builder_advanced_css( section, selector ) {
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
                 astra_add_dynamic_css( section + '-margin-toggle-button', dynamicStyle );
+            } else {
+                astra_add_dynamic_css( section + '-margin-toggle-button', '' );
             }
         } );
     } );

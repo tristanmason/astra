@@ -101,28 +101,6 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			Astra_Builder_Helper::$header_mobile_items[ 'widget-' . $index ]  = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
-
-			$tmp_section = 'section-hb-divider-' . $index;
-
-			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
-				continue;
-			}
-
-			$item = array(
-				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
-				'icon'    => 'minus',
-				'section' => $tmp_section,
-				'clone'   => defined( 'ASTRA_EXT_VER' ),
-				'type'    => 'divider',
-				'builder' => 'header',
-			);
-
-			Astra_Builder_Helper::$header_desktop_items[ 'divider-' . $index ] = $item;
-			Astra_Builder_Helper::$header_mobile_items[ 'divider-' . $index ]  = $item;
-		}
-
-
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 
 			switch ( $index ) {

@@ -173,6 +173,27 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hba-stack]',
+					'default'   => astra_get_option( 'hba-stack' ),
+					'type'      => 'control',
+					'control'   => 'ast-responsive-select',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Inner Elements Layout', 'astra' ),
+					'choices'   => array(
+						'stack'  => __( 'Stack', 'astra' ),
+						'inline' => __( 'Inline', 'astra' ),
+					),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'partial'   => array(
+						'selector'            => '.site-above-footer-wrap',
+						'container_inclusive' => false,
+						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'above_footer' ),
+					),
+				),
+
 				// Section: Above Footer Border.
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[hba-footer-separator]',

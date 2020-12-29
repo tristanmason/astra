@@ -50,7 +50,17 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 						'menu_' . $index => __( 'Menu ', 'astra' ) . $index,
 					)
 				);
-			}       
+			}
+				
+			/**
+			 * Register the Account menus.
+			 */
+			register_nav_menus(
+				array(
+					'loggedin_account_menu' => __( 'Logged In Account Menu', 'astra' ),
+				)
+			);
+
 		}
 
 		/**

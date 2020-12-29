@@ -195,13 +195,6 @@ final class Astra_Builder_Helper {
 	public static $num_of_footer_html;
 
 	/**
-	 *  No. Of. Footer divider.
-	 *
-	 * @var int
-	 */
-	public static $num_of_footer_divider;
-
-	/**
 	 *  No. Of. Header Widgets.
 	 *
 	 * @var int
@@ -235,13 +228,6 @@ final class Astra_Builder_Helper {
 	 * @var int
 	 */
 	public static $num_of_header_html;
-
-	/**
-	 *  No. Of. Header divider.
-	 *
-	 * @var int
-	 */
-	public static $num_of_header_divider;
 
 	/**
 	 *  No. Of. Footer Columns.
@@ -284,6 +270,13 @@ final class Astra_Builder_Helper {
 	 * @var array
 	 */
 	public static $header_desktop_items = null;
+
+	/**
+	 * Footer Desktop Items
+	 *
+	 * @var array
+	 */
+	public static $footer_desktop_items = null;
 
 	/**
 	 * Header Mobile Items
@@ -338,9 +331,6 @@ final class Astra_Builder_Helper {
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['header-social-icons'] : 1;
 		self::$num_of_footer_social_icons = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['footer-social-icons'] : 1;
-
-		self::$num_of_header_divider = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['header-divider'] : 0;
-		self::$num_of_footer_divider = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['footer-divider'] : 0;
 
 		self::$num_of_footer_columns = defined( 'ASTRA_EXT_VER' ) ? apply_filters( 'astra_footer_column_count', 6 ) : 6;
 
@@ -582,17 +572,38 @@ final class Astra_Builder_Helper {
 		self::$header_desktop_items = apply_filters(
 			'astra_header_desktop_items',
 			array(
-				'logo'   => array(
+				'logo'    => array(
 					'name'    => __( 'Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
-					'delete'  => false
+					'delete'  => false,
 				),
-				'search' => array(
+				'search'  => array(
 					'name'    => __( 'Search', 'astra' ),
 					'icon'    => 'search',
 					'section' => 'section-header-search',
-					'delete'  => false
+					'delete'  => false,
+				),
+				'account' => array(
+					'name'    => __( 'Account', 'astra' ),
+					'icon'    => 'admin-users',
+					'section' => 'section-header-account',
+				),
+			)
+		);
+
+		self::$footer_desktop_items = apply_filters(
+			'astra_footer_desktop_items',
+			array(
+				'copyright' => array(
+					'name'    => 'Copyright',
+					'icon'    => 'nametag',
+					'section' => 'section-footer-copyright',
+				),
+				'menu'      => array(
+					'name'    => 'Footer Menu',
+					'icon'    => 'menu',
+					'section' => 'section-footer-menu',
 				),
 			)
 		);
@@ -641,6 +652,11 @@ final class Astra_Builder_Helper {
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-menu',
 				),
+				'account'        => array(
+					'name'    => __( 'Account', 'astra' ),
+					'icon'    => 'admin-users',
+					'section' => 'section-header-account',
+				),
 			)
 		);
 
@@ -683,8 +699,6 @@ final class Astra_Builder_Helper {
 			'footer-widget'       => 4,
 			'header-social-icons' => 1,
 			'footer-social-icons' => 1,
-			'header-divider'      => 0,
-			'footer-divider'      => 0,
 			'removed-items'       => array(),
 		);
 
@@ -714,10 +728,6 @@ final class Astra_Builder_Helper {
 		// Social Icons.
 		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
 		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
-
-		// Divider.
-		$component_keys_count['header-divider'] = ( self::$component_limit >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : self::$component_limit;
-		$component_keys_count['footer-divider'] = ( self::$component_limit >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : self::$component_limit;
 
 		return $component_keys_count;
 	}
@@ -840,9 +850,9 @@ final class Astra_Builder_Helper {
 
 		$off_canvas_slide   = astra_get_option( 'off-canvas-slide' );
 		$mobile_header_type = astra_get_option( 'mobile-header-type' );
+		$content_alignment  = astra_get_option( 'header-offcanvas-content-alignment' );
 
-
-		$side_class = '';
+		$side_class = 'content-align-' . $content_alignment . ' ';
 
 		if ( $mobile_header_type ) {
 
@@ -852,14 +862,14 @@ final class Astra_Builder_Helper {
 
 					if ( 'left' === $off_canvas_slide ) {
 
-						$side_class = 'ast-mobile-popup-left';
+						$side_class .= 'ast-mobile-popup-left';
 					} else {
 
-						$side_class = 'ast-mobile-popup-right';
+						$side_class .= 'ast-mobile-popup-right';
 					}
 				}
 			} else {
-				$side_class = 'ast-mobile-popup-full-width';
+				$side_class .= 'ast-mobile-popup-full-width';
 			}
 		}
 		?>
@@ -1010,9 +1020,11 @@ final class Astra_Builder_Helper {
 								continue;
 							}
 
-							$result              = array_values( $grid );
-							$loaded_component    = call_user_func_array( 'array_merge', $result );
-							$loaded_components[] = is_array( $loaded_component ) ? $loaded_component : array();
+							$result = array_values( $grid );
+							if ( is_array( $result ) ) {
+								$loaded_component    = call_user_func_array( 'array_merge', $result );
+								$loaded_components[] = is_array( $loaded_component ) ? $loaded_component : array();
+							}
 						}
 					}
 				}
