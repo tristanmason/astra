@@ -3229,6 +3229,10 @@ body .entry-content .wp-block-latest-posts li {
   padding-left: 0;
 }
 
+.site-header-section.ast-flex {
+  flex-wrap: nowrap;
+}
+
 .site-header-section .ast-builder-menu {
   align-items: center;
 }
@@ -4072,6 +4076,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 
