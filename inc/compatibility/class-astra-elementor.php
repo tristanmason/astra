@@ -87,6 +87,26 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				/* Parse CSS from array() */
 				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
 
+				$elementor_base_css = array(
+					'.elementor-image-gallery .gallery-icon, .elementor-image-gallery .gallery-icon' => array(
+						'border' => 'none',
+					),
+					'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+						'max-width' => '100%',
+						'left'      => '0 !important',
+					),
+					'.elementor-post.elementor-grid-item.hentry' => array(
+						'margin-bottom' => '0',
+					),
+					'.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product, .elementor-element .elementor-wc-products .woocommerce[class*=\'columns-\'] ul.products li.product' => array(
+						'width'  => 'auto',
+						'margin' => '0',
+						'float'  => 'none',
+					),
+				);
+				// Load base static CSS when Elmentor is activated.
+				$parse_css .= astra_parse_css( $elementor_base_css );
+
 				$dynamic_css .= $parse_css;
 			}
 
