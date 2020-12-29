@@ -742,19 +742,6 @@
 				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section) );
 				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
 
-				if( clone_from_section.startsWith('sidebar-widgets-') ){
-					let parent_id = clone_to_section.startsWith('sidebar-widgets-header-widget-') ?
-						'sidebars_widgets[header-widget-1]' : 'sidebars_widgets[footer-widget-1]';
-					parent_id = parent_id.replace(/[0-9]/g, clone_index);
-					_.each(  wp.customize.section( clone_from_section ).controls(), function( control ) {
-						if( control.hasOwnProperty('widgetControlEmbedded') ) {
-						 wp.customize.control(parent_id).addWidget(control.params.widget_id_base).updateWidget({
-								instance: control.setting()
-							})
-						}
-					});
-				}
-
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
