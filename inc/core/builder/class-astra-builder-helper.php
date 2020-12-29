@@ -586,11 +586,13 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
+					'delete'  => false
 				),
 				'search' => array(
 					'name'    => __( 'Search', 'astra' ),
 					'icon'    => 'search',
 					'section' => 'section-header-search',
+					'delete'  => false
 				),
 			)
 		);
