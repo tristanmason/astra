@@ -4,7 +4,17 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {useState} from 'react';
 
 const ColorComponent = props => {
-	let value = props.control.setting.get();
+	let value
+	if(props.control.setting.get().includes("palette")){
+		var regex = /\d+/g;
+		var string = props.control.setting.get();
+		var matches = string.match(regex);
+		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
+		value = updated_palette[updated_palette.patterntype][matches]
+	}else{
+		 value = props.control.setting.get();
+	}
+
 	let defaultValue = props.control.params.default;
 	
 	const [state, setState] = useState({
@@ -12,14 +22,19 @@ const ColorComponent = props => {
 	});
 	
 	const updateValues = (value) => {
-
 		setState(prevState => ({
 			...prevState,
 			value: value
 		}));
 		
-		props.control.setting.set(value);
-	
+		if(props.control.container[0].getAttribute('paleteindex')){			
+			props.control.setting.set('var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')');
+		}else{
+			props.control.setting.set(value);
+		}
+			
+
+		
 	};
 
 	const updatepaletteuse = (value,index) =>{

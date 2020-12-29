@@ -260,6 +260,10 @@ const ColorPaletteComponent = props => {
 		props.control.setting.set(value);
 	};
 
+	const htmlpalette = Object.values(state[state.patterntype]).map( ( item, index ) => {
+		document.documentElement.style.setProperty('--global-palette' + index, item );		
+	} );
+
 	return <Fragment>
 		
 		<label className="customizer-text">
