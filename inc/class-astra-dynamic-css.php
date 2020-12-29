@@ -1065,10 +1065,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
 							'padding-left' => '20px',
 						),
-						'.ast-right-sidebar #secondary' => array(
-							'padding-left' => 0,
-						),
-						'.ast-left-sidebar #primary'    => array(
+						'.ast-right-sidebar #secondary, .ast-left-sidebar #primary' => array(
 							'padding-left' => 0,
 						),
 						'.ast-left-sidebar #secondary'  => array(
