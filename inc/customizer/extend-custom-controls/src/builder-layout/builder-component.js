@@ -118,17 +118,11 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get();
 
-		console.log( component_count );
-
 		Object.keys(component_count).forEach(function( component_type, value) {
 
 			if( 'removed-items' === component_type || 'flag' === component_type ) {
 				return;
 			}
-
-
-
-
 
 			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
 				for (let key in choices) {
