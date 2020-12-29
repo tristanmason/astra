@@ -1044,6 +1044,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-pagination .next.page-numbers' => array(
 						'padding-left' => '.5em',
 					),
+					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+						'padding-right' => '20px',
+					),
+					'ast-page-builder-template.ast-right-sidebar #secondary' => array(
+						'padding-left' => '20px',
+					),
 				);
 			} else {
 				$static_layout_lang_direction_css = array(
@@ -1068,7 +1074,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.ast-right-sidebar #secondary, .ast-left-sidebar #primary' => array(
 							'padding-left' => 0,
 						),
-						'.ast-left-sidebar #secondary'  => array(
+						'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+							'padding-left' => '20px',
+						),
+						'ast-page-builder-template.ast-right-sidebar #secondary' => array(
+							'padding-right' => '20px',
+						),
+						'.ast-left-sidebar #secondary' => array(
 							'padding-right' => 0,
 						),
 					);
@@ -2620,7 +2632,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function load_sidebar_static_css() {
 
-			return '
+			 $sidebar_static_css = '
 			#secondary {
 				margin: 4em 0 2.5em;
 				word-break: break-word;
@@ -2634,30 +2646,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			#secondary li:last-child {
 				margin-bottom: 0;
 			}
-			.ast-page-builder-template.ast-left-sidebar #secondary {
-				padding-left: 20px;
-			}
-			
-			.ast-page-builder-template.ast-right-sidebar #secondary {
-				padding-right: 20px;
-			}
-			@media (min-width: 993px) {
-				.ast-left-sidebar #secondary {
-					padding-right: 60px;
-				}
-				
-				.ast-right-sidebar #secondary {
-					padding-left: 60px;
-				} 
-			}
-			@media (max-width: 992px) {
-				.ast-right-sidebar #secondary {
-					padding-left: 30px;
-				}
-				.ast-left-sidebar #secondary {
-					padding-right: 30px;
-				} 
-			}	
 			@media (max-width: 768px) {
 				.js_active .ast-plain-container.ast-single-post #secondary {
 				  margin-top: 1.5em;
@@ -2674,6 +2662,47 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 			';
+			if ( is_rtl() ) {
+				$sidebar_static_css .= '
+				@media (min-width: 993px) {
+					.ast-left-sidebar #secondary {
+						padding-left: 60px;
+					}
+					
+					.ast-right-sidebar #secondary {
+						padding-right: 60px;
+					} 
+				}
+				@media (max-width: 992px) {
+					.ast-right-sidebar #secondary {
+						padding-right: 30px;
+					}
+					.ast-left-sidebar #secondary {
+						padding-left: 30px;
+					} 
+				}';
+			} else {
+				$sidebar_static_css .= '
+				@media (min-width: 993px) {
+					.ast-left-sidebar #secondary {
+						padding-right: 60px;
+					}
+					
+					.ast-right-sidebar #secondary {
+						padding-left: 60px;
+					} 
+				}
+				@media (max-width: 992px) {
+					.ast-right-sidebar #secondary {
+						padding-left: 30px;
+					}
+					.ast-left-sidebar #secondary {
+						padding-right: 30px;
+					} 
+				}';
+			}
+			return $sidebar_static_css;
+			
 		}
 
 		/**
