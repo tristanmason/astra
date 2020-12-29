@@ -76,19 +76,27 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 				return;
 			}
 
+
 			// Register Footer Widgets.
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
+			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+
+
+				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, 'footer' ) ) {
+					continue;
+				}
+
 				$this->register_sidebar( $index, 'footer' );
 			}
 
-			// Register Header Widgets.
-			$header_widgets_count = Astra_Builder_Helper::$num_of_header_widgets;
+			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
-			if ( $header_widgets_count ) {
-				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-					$this->register_sidebar( $index, 'header' );
+				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, 'header' ) ) {
+					continue;
 				}
+
+				$this->register_sidebar( $index, 'header' );
 			}
+
 		}
 
 
