@@ -588,6 +588,7 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Account', 'astra' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
+					'delete'  => false,
 				),
 			)
 		);
@@ -599,11 +600,13 @@ final class Astra_Builder_Helper {
 					'name'    => 'Copyright',
 					'icon'    => 'nametag',
 					'section' => 'section-footer-copyright',
+					'delete'  => false,
 				),
 				'menu'      => array(
 					'name'    => 'Footer Menu',
 					'icon'    => 'menu',
 					'section' => 'section-footer-menu',
+					'delete'  => false,
 				),
 			)
 		);
