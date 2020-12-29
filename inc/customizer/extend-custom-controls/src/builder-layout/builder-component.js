@@ -152,9 +152,7 @@ const BuilderComponent = props => {
 					is_to_delete = false;
 					break;
 				case 2:
-					if(  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) {
-						is_to_delete = false;
-					}
+					is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) ? false : true;
 					break;
 			}
 
