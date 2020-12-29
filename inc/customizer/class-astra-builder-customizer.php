@@ -223,14 +223,12 @@ final class Astra_Builder_Customizer {
 		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/class-astra-social-icon-component-configs.php';
 		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/class-astra-html-component-configs.php';
 		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/class-astra-button-component-configs.php';
-		require_once ASTRA_THEME_DIR . 'inc/customizer/configurations/builder/base/class-astra-divider-component-configs.php';
 
 		// Base Dynamic CSS Files.
 		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/html/class-astra-html-component-dynamic-css.php';
 		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/social/class-astra-social-component-dynamic-css.php';
 		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/button/class-astra-button-component-dynamic-css.php';
 		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/widget/class-astra-widget-component-dynamic-css.php';
-		require_once ASTRA_THEME_DIR . 'inc/builder/type/base/dynamic-css/divider/class-astra-divider-component-dynamic-css.php';
 
 		$this->load_header_components();
 		$this->load_footer_components();
@@ -252,10 +250,10 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/menu/class-astra-header-menu-component.php';
 		require_once $header_components_path . '/html/class-astra-header-html-component.php';
 		require_once $header_components_path . '/search/class-astra-header-search-component.php';
+		require_once $header_components_path . '/account/class-astra-header-account-component.php';
 		require_once $header_components_path . '/social-icon/class-astra-header-social-icon-component.php';
 		require_once $header_components_path . '/widget/class-astra-header-widget-component.php';
 		require_once $header_components_path . '/mobile-trigger/class-astra-mobile-trigger.php';
-		require_once $header_components_path . '/divider/class-astra-header-divider-component.php';
 		require_once $header_components_path . '/mobile-menu/class-astra-mobile-menu-component.php';
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
@@ -289,7 +287,6 @@ final class Astra_Builder_Customizer {
 		require_once $footer_components_path . '/above-footer/class-astra-above-footer.php';
 		require_once $footer_components_path . '/primary-footer/class-astra-primary-footer.php';
 		require_once $footer_components_path . '/widget/class-astra-footer-widget-component.php';
-		require_once $footer_components_path . '/divider/class-astra-footer-divider-component.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
@@ -330,6 +327,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-html-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-menu-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-account-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
 
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
@@ -340,7 +338,6 @@ final class Astra_Builder_Customizer {
 			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
 		}
 
-		require_once $header_config_path . '/class-astra-header-divider-component-configs.php';
 		require_once $header_config_path . '/class-astra-mobile-menu-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
@@ -364,7 +361,6 @@ final class Astra_Builder_Customizer {
 		require_once $footer_config_path . '/class-astra-footer-html-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-button-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-widget-component-configs.php';
-		require_once $footer_config_path . '/class-astra-footer-divider-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
@@ -385,7 +381,6 @@ final class Astra_Builder_Customizer {
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			require_once $header_config_path . '/class-astra-customizer-edd-cart-configs.php';
 		}
-
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }

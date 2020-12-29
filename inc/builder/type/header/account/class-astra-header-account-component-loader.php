@@ -1,12 +1,12 @@
 <?php
 /**
- * Mobile Trigger Loader.
+ * Account Styling Loader for Astra theme.
  *
  * @package     astra-builder
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
- * @link        https://www.brainstormforce.com
- * @since       3.0.0
+ * @author      Astra
+ * @copyright   Copyright (c) 2020, Astra
+ * @link        https://wpastra.com/
+ * @since x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,27 +14,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class Mobile Trigger Loader.
+ * Customizer Initialization
  *
- * Loads config files.
- *
- * @since 3.0.0
+ * @since x.x.x
  */
-class Astra_Mobile_Trigger_Loader {
+class Astra_Header_Account_Component_Loader {
 
 	/**
 	 * Constructor
 	 *
-	 * @since 3.0.0
+	 * @since x.x.x
 	 */
 	public function __construct() {
+
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 	}
 
 	/**
 	 * Customizer Preview
 	 *
-	 * @since 3.0.0
+	 * @since x.x.x
 	 */
 	public function preview_scripts() {
 		/**
@@ -43,7 +42,7 @@ class Astra_Mobile_Trigger_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'astra-mobile-trigger-customizer-preview-js', ASTRA_MOBILE_TRIGGER_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'astra-header-builder-account-customizer-preview-js', ASTRA_HEADER_ACCOUNT_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
 	}
 }
@@ -51,4 +50,4 @@ class Astra_Mobile_Trigger_Loader {
 /**
 *  Kicking this off by creating the object of the class.
 */
-new Astra_Mobile_Trigger_Loader();
+new Astra_Header_Account_Component_Loader();
