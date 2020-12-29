@@ -20,7 +20,7 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 	$row_label = ( 'primary' === $row ) ? 'main' : $row;
 
 	?>
-		<div class="ast-<?php echo esc_attr( $row_label ); ?>-header-wrap <?php echo 'primary' === $row ? 'main-header-bar-wrap' : ''; ?> <?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?>">
+		<div class="ast-<?php echo esc_attr( $row_label ); ?>-header-wrap <?php echo 'primary' === $row ? 'main-header-bar-wrap' : ''; ?> <?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?> site-<?php echo esc_attr( $row ); ?>-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
 			<div class="ast-builder-grid-row-container-inner">
 			<?php
 			if ( is_customize_preview() ) {
