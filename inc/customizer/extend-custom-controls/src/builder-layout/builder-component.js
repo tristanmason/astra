@@ -151,12 +151,8 @@ const BuilderComponent = props => {
 
 			let tmp_choice = tmp_choices[choice],
 				tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-
-
 			let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
-			console.log(is_to_delete);
-			console.log(tmp_component_type);
-			console.log("-----------");
+
 			switch (component_count[tmp_component_type]) {
 				case 1:
 					is_to_delete = false;
