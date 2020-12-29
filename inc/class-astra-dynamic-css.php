@@ -2945,14 +2945,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-icon-shopping-basket:before {
 				content: "\f291";
 			}
-			.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-				width: 2em;
-				height: 2em;
-				font-size: 1.4em;
-				line-height: 2;
-				vertical-align: middle;
-				text-align: right;
-			}
 			';
 		}
 
