@@ -310,7 +310,6 @@
 			}
 			.menu-item.ast-submenu-expanded > .sub-menu {
 				display: block;
-				width: 150px;
 				position: absolute;
 				right: auto;
 				left: 0;
@@ -346,6 +345,11 @@
 		}
 		&.stack-on-mobile {
 			flex-wrap: wrap;
+		}
+	}
+	.inline-on-mobile {
+		.sub-menu {
+			width: 150px;
 		}
 	}
 }
