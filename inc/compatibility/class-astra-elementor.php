@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
 
 				$elementor_base_css = array(
-					'.elementor-image-gallery .gallery-icon' => array(
+					'.elementor-image-gallery .gallery-icon, .elementor-image-gallery .gallery-icon' => array(
 						'border' => 'none',
 					),
 					'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
@@ -98,18 +98,10 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					'.elementor-post.elementor-grid-item.hentry' => array(
 						'margin-bottom' => '0',
 					),
-					'.elementor-element .elementor-wc-products .woocommerce[class*=\'columns-\'] ul.products li.product' => array(
+					'.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product, .elementor-element .elementor-wc-products .woocommerce[class*=\'columns-\'] ul.products li.product' => array(
 						'width'  => 'auto',
 						'margin' => '0',
 						'float'  => 'none',
-					),
-					'.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product' => array(
-						'width'  => 'auto',
-						'margin' => '0',
-						'float'  => 'none',
-					),
-					'.elementor-image-gallery .gallery-icon' => array(
-						'border' => 'none',
 					),
 				);
 				// Load base static CSS when Elmentor is activated.

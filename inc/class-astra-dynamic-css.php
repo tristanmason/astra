@@ -2945,18 +2945,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-icon-shopping-basket:before {
 				content: "\f291";
 			}
-			.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-site-header-cart, .ast-header-break-point.astra-hfb-header .ast-site-header-cart {
-				padding: 0;
-			}
-			  
-			.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.astra-hfb-header .ast-cart-menu-wrap {
-				width: 2em;
-				height: 2em;
-				font-size: 1.4em;
-				line-height: 2;
-				vertical-align: middle;
-				text-align: right;
-			}
 			.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
 				width: 2em;
 				height: 2em;
