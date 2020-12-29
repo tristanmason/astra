@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return string Generated CSS.
 		 */
 		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
-
+			global $wp_query;
 			/**
 			 *
 			 * Contents
@@ -630,6 +630,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				$parse_css .= astra_parse_css( $footer_css_output );
+			}
+
+			if ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::pagination_static_css() );
 			}
 
 			/**
@@ -2086,7 +2090,41 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$button_bg_color   = astra_get_option( 'transparent-header-button-bg-color' );
 				$button_bg_h_color = astra_get_option( 'transparent-header-button-bg-h-color' );
 
-				$divider_color = astra_get_option( 'transparent-header-divider-color' );
+				$divider_color                = astra_get_option( 'transparent-header-divider-color' );
+				$account_icon_color           = astra_get_option( 'transparent-account-icon-color' );
+				$account_loggedout_text_color = astra_get_option( 'transparent-account-type-text-color' );
+
+				// Menu colors.
+				$account_menu_resp_color           = astra_get_option( 'transparent-account-menu-color-responsive' );
+				$account_menu_resp_bg_color        = astra_get_option( 'transparent-account-menu-bg-obj-responsive' );
+				$account_menu_resp_color_hover     = astra_get_option( 'transparent-account-menu-h-color-responsive' );
+				$account_menu_resp_bg_color_hover  = astra_get_option( 'transparent-account-menu-h-bg-color-responsive' );
+				$account_menu_resp_color_active    = astra_get_option( 'transparent-account-menu-a-color-responsive' );
+				$account_menu_resp_bg_color_active = astra_get_option( 'transparent-account-menu-a-bg-color-responsive' );
+
+				$account_menu_resp_color_desktop = ( isset( $account_menu_resp_color['desktop'] ) ) ? $account_menu_resp_color['desktop'] : '';
+				$account_menu_resp_color_tablet  = ( isset( $account_menu_resp_color['tablet'] ) ) ? $account_menu_resp_color['tablet'] : '';
+				$account_menu_resp_color_mobile  = ( isset( $account_menu_resp_color['mobile'] ) ) ? $account_menu_resp_color['mobile'] : '';
+			
+				$account_menu_resp_bg_color_desktop = ( isset( $account_menu_resp_bg_color['desktop'] ) ) ? $account_menu_resp_bg_color['desktop'] : '';
+				$account_menu_resp_bg_color_tablet  = ( isset( $account_menu_resp_bg_color['tablet'] ) ) ? $account_menu_resp_bg_color['tablet'] : '';
+				$account_menu_resp_bg_color_mobile  = ( isset( $account_menu_resp_bg_color['mobile'] ) ) ? $account_menu_resp_bg_color['mobile'] : '';
+			
+				$account_menu_resp_color_hover_desktop = ( isset( $account_menu_resp_color_hover['desktop'] ) ) ? $account_menu_resp_color_hover['desktop'] : '';
+				$account_menu_resp_color_hover_tablet  = ( isset( $account_menu_resp_color_hover['tablet'] ) ) ? $account_menu_resp_color_hover['tablet'] : '';
+				$account_menu_resp_color_hover_mobile  = ( isset( $account_menu_resp_color_hover['mobile'] ) ) ? $account_menu_resp_color_hover['mobile'] : '';
+
+				$account_menu_resp_bg_color_hover_desktop = ( isset( $account_menu_resp_bg_color_hover['desktop'] ) ) ? $account_menu_resp_bg_color_hover['desktop'] : '';
+				$account_menu_resp_bg_color_hover_tablet  = ( isset( $account_menu_resp_bg_color_hover['tablet'] ) ) ? $account_menu_resp_bg_color_hover['tablet'] : '';
+				$account_menu_resp_bg_color_hover_mobile  = ( isset( $account_menu_resp_bg_color_hover['mobile'] ) ) ? $account_menu_resp_bg_color_hover['mobile'] : '';
+
+				$account_menu_resp_color_active_desktop = ( isset( $account_menu_resp_color_active['desktop'] ) ) ? $account_menu_resp_color_active['desktop'] : '';
+				$account_menu_resp_color_active_tablet  = ( isset( $account_menu_resp_color_active['tablet'] ) ) ? $account_menu_resp_color_active['tablet'] : '';
+				$account_menu_resp_color_active_mobile  = ( isset( $account_menu_resp_color_active['mobile'] ) ) ? $account_menu_resp_color_active['mobile'] : '';
+
+				$account_menu_resp_bg_color_active_desktop = ( isset( $account_menu_resp_bg_color_active['desktop'] ) ) ? $account_menu_resp_bg_color_active['desktop'] : '';
+				$account_menu_resp_bg_color_active_tablet  = ( isset( $account_menu_resp_bg_color_active['tablet'] ) ) ? $account_menu_resp_bg_color_active['tablet'] : '';
+				$account_menu_resp_bg_color_active_mobile  = ( isset( $account_menu_resp_bg_color_active['mobile'] ) ) ? $account_menu_resp_bg_color_active['mobile'] : '';
 				
 				$transparent_header_builder_desktop_css = array(
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
@@ -2139,6 +2177,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-divider-element .ast-divider-wrapper'         => array(
 						'border-color' => esc_attr( $divider_color ),
 					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path, .ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
+						'fill' => esc_attr( $account_icon_color ),
+					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color_desktop ),
+					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover_desktop,
+						'background' => $account_menu_resp_bg_color_hover_desktop,
+					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active_desktop,
+						'background' => $account_menu_resp_bg_color_active_desktop,
+					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation ul' => array(
+						'background' => $account_menu_resp_bg_color_desktop,
+					),
+					'.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text' => array(
+						'color' => $account_loggedout_text_color,
+					),
 				);
 
 				$parse_css .= astra_parse_css( $transparent_header_builder_desktop_css );
@@ -2159,6 +2217,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['tablet'] ),
 					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color_tablet ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover_tablet,
+						'background' => $account_menu_resp_bg_color_hover_tablet,
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active_tablet,
+						'background' => $account_menu_resp_bg_color_active_tablet,
+					),
+					'.ast-theme-transparent-header .account-main-navigation ul' => array(
+						'background' => $account_menu_resp_bg_color_tablet,
+					),
 				);
 
 				$parse_css .= astra_parse_css( $transparent_header_builder_tablet_css, '', astra_get_tablet_breakpoint() );
@@ -2178,6 +2250,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
+						'color' => esc_attr( $account_menu_resp_color_mobile ),
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item:hover > .menu-link'    => array(
+						'color'      => $account_menu_resp_color_hover_mobile,
+						'background' => $account_menu_resp_bg_color_hover_mobile,
+					),
+					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item.current-menu-item > .menu-link' => array(
+						'color'      => $account_menu_resp_color_active_mobile,
+						'background' => $account_menu_resp_bg_color_active_mobile,
+					),
+					'.ast-theme-transparent-header .account-main-navigation ul' => array(
+						'background' => $account_menu_resp_bg_color_mobile,
 					),
 				);
 
@@ -2942,6 +3028,139 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				content: "\f291";
 			}
 			';
+		}
+
+		/**
+		 * Load static Pagination CSS.
+		 *
+		 * @since 3.0.0
+		 * @return string static css for Pagination.
+		 */
+		public static function pagination_static_css() {
+			return '
+			.post-navigation a,
+			.ast-pagination .prev.page-numbers,
+			.ast-pagination .next.page-numbers {
+			  padding: 0 1.5em;
+			  height: 2.33333em;
+			  line-height: calc(2.33333em - 3px);
+			}
+			.post-navigation a {
+			  background: transparent;
+			  font-size: 16px;
+			  font-size: 1.06666rem;
+			}
+			.ast-pagination {
+			  display: inline-block;
+			  width: 100%;
+			  padding-top: 2em;
+			}
+			@media (min-width: 993px) {
+			  .ast-pagination {
+				padding-left: 3.33333em;
+				padding-right: 3.33333em;
+			  }
+			}
+			.ast-pagination .page-numbers {
+			  display: inline-block;
+			  width: 2.33333em;
+			  height: 2.33333em;
+			  font-size: 16px;
+			  font-size: 1.06666rem;
+			  line-height: calc(2.33333em - 3px);
+			  text-align: center;
+			}
+			.ast-pagination .nav-links {
+			  display: inline-block;
+			  width: 100%;
+			}
+			@media (max-width: 420px) {
+			  .ast-pagination .prev.page-numbers,
+			  .ast-pagination .next.page-numbers {
+				width: 100%;
+				text-align: center;
+				margin: 0;
+			  }
+			}
+			.ast-pagination .prev.page-numbers,
+			.ast-pagination .prev.page-numbers:visited,
+			.ast-pagination .prev.page-numbers:focus,
+			.ast-pagination .next.page-numbers,
+			.ast-pagination .next.page-numbers:visited,
+			.ast-pagination .next.page-numbers:focus {
+			  display: inline-block;
+			  width: auto;
+			}
+			@media (min-width: 769px) {
+			  .ast-pagination .prev.page-numbers.next,
+			  .ast-pagination .prev.page-numbers:visited.next,
+			  .ast-pagination .prev.page-numbers:focus.next,
+			  .ast-pagination .next.page-numbers.next,
+			  .ast-pagination .next.page-numbers:visited.next,
+			  .ast-pagination .next.page-numbers:focus.next {
+				margin-right: 0;
+			  }
+			}
+			.ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
+			.ast-pagination .prev.page-numbers:visited.dots,
+			.ast-pagination .prev.page-numbers:visited.dots:hover,
+			.ast-pagination .prev.page-numbers:visited.dots:focus,
+			.ast-pagination .prev.page-numbers:focus.dots,
+			.ast-pagination .prev.page-numbers:focus.dots:hover,
+			.ast-pagination .prev.page-numbers:focus.dots:focus,
+			.ast-pagination .next.page-numbers.dots,
+			.ast-pagination .next.page-numbers.dots:hover,
+			.ast-pagination .next.page-numbers.dots:focus,
+			.ast-pagination .next.page-numbers:visited.dots,
+			.ast-pagination .next.page-numbers:visited.dots:hover,
+			.ast-pagination .next.page-numbers:visited.dots:focus,
+			.ast-pagination .next.page-numbers:focus.dots,
+			.ast-pagination .next.page-numbers:focus.dots:hover,
+			.ast-pagination .next.page-numbers:focus.dots:focus {
+			  border: 2px solid #eaeaea;
+			  background: transparent;
+			}
+			
+			.ast-pagination .prev.page-numbers.dots,
+			.ast-pagination .prev.page-numbers:visited.dots,
+			.ast-pagination .prev.page-numbers:focus.dots,
+			.ast-pagination .next.page-numbers.dots,
+			.ast-pagination .next.page-numbers:visited.dots,
+			.ast-pagination .next.page-numbers:focus.dots {
+			  cursor: default;
+			}
+			
+			.ast-pagination .next.page-numbers {
+			  float: right;
+			  text-align: right;
+			}
+			
+			@media (max-width: 768px) {
+			  .ast-pagination .next.page-numbers .page-navigation {
+				padding-right: 0;
+			  }
+			}
+			
+			@media (max-width: 768px) {
+			  .ast-pagination .prev_next {
+				display: inline-block;
+				width: 100%;
+			  }
+			}
+			
+			.ast-pagination .prev_next .next .ast-right-arrow,
+			.ast-pagination .prev_next .prev .ast-left-arrow {
+			  font-size: 1em;
+			  line-height: 1em;
+			}
+			
+			@media (min-width: 769px) {
+			  .ast-pagination .prev_next {
+				float: right;
+			  }
+			}
+			';
+
 		}
 	}
 }

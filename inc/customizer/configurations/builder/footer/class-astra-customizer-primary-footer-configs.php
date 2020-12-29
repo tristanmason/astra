@@ -154,6 +154,27 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hb-stack]',
+					'default'   => astra_get_option( 'hb-stack' ),
+					'type'      => 'control',
+					'control'   => 'ast-responsive-select',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Inner Elements Layout', 'astra' ),
+					'choices'   => array(
+						'stack'  => __( 'Stack', 'astra' ),
+						'inline' => __( 'Inline', 'astra' ),
+					),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'partial'   => array(
+						'selector'            => '.site-primary-footer-wrap',
+						'container_inclusive' => false,
+						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'primary_footer' ),
+					),
+				),
+
 				// Option: Footer Separator.
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[hb-footer-main-sep]',

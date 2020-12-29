@@ -92,6 +92,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
+					 * Option: Menu hover style
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
+						'default'   => astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' ),
+						'type'      => 'control',
+						'control'   => 'select',
+						'section'   => $_section,
+						'priority'  => 10,
+						'title'     => __( 'Menu Hover Style', 'astra' ),
+						'choices'   => array(
+							''          => __( 'None', 'astra' ),
+							'zoom'      => __( 'Zoom In', 'astra' ),
+							'underline' => __( 'Underline', 'astra' ),
+							'overline'  => __( 'Over Line', 'astra' ),
+						),
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'transport' => 'postMessage',
+						'partial'   => array(
+							'selector'        => '#ast-hf-menu-' . $index,
+							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						),
+					),
+
+					/**
 					 * Option: Primary Header Button Colors Divider
 					 */
 					array(
@@ -130,38 +155,129 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 
+					// Option: Submenu Container Divider.
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-container-divider]',
+						'section'  => $_section,
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'title'    => __( 'Submenu Container', 'astra' ),
+						'priority' => 20,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$design_tab,
+					),
+
+					/**
+					 * Option: Submenu width
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-width]',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-width' ),
+						'type'        => 'control',
+						'context'     => array(
+							Astra_Builder_Helper::$design_tab,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-stack-on-mobile]',
+								'operator' => '==',
+								'value'    => false,
+							),
+						),
+						'section'     => $_section,
+						'control'     => 'ast-slider',
+						'priority'    => 21,
+						'title'       => __( 'Width', 'astra' ),
+						'input_attrs' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+					),
+
+					/**
+					 * Option: Submenu Top Offset
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-top-offset]',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-top-offset' ),
+						'type'        => 'control',
+						'context'     => Astra_Builder_Helper::$design_tab,
+						'section'     => $_section,
+						'control'     => 'ast-slider',
+						'priority'    => 22,
+						'title'       => __( 'Top Offset', 'astra' ),
+						'input_attrs' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+					),
+
+					/**
+					 * Group: Submenu Container Style
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-group]',
+						'default'   => astra_get_option( 'header-' . $_prefix . '-submenu-border-group' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Border', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'priority'  => 23,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
 					// Option: Sub-Menu Border.
 					array(
-						'name'           => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border]',
+						'name'           => 'header-' . $_prefix . '-submenu-border',
 						'default'        => astra_get_option( 'header-' . $_prefix . '-submenu-border' ),
-						'type'           => 'control',
+						'parent'         => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-group]',
+						'type'           => 'sub-control',
 						'control'        => 'ast-border',
 						'transport'      => 'postMessage',
 						'section'        => $_section,
 						'linked_choices' => true,
-						'priority'       => 15,
-						'title'          => __( 'Submenu Container Border', 'astra' ),
+						'priority'       => 1,
+						'title'          => __( 'Border', 'astra' ),
 						'choices'        => array(
 							'top'    => __( 'Top', 'astra' ),
 							'right'  => __( 'Right', 'astra' ),
 							'bottom' => __( 'Bottom', 'astra' ),
 							'left'   => __( 'Left', 'astra' ),
 						),
-						'context'        => Astra_Builder_Helper::$design_tab,
 					),
 
 					// Option: Submenu Container Border Color.
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-b-color]',
+						'name'      => 'header-' . $_prefix . '-submenu-b-color',
 						'default'   => astra_get_option( 'header-' . $_prefix . '-submenu-b-color' ),
-						'type'      => 'control',
+						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-group]',
+						'type'      => 'sub-control',
 						'control'   => 'ast-color',
 						'transport' => 'postMessage',
 						'default'   => '',
 						'title'     => __( 'Border Color', 'astra' ),
 						'section'   => $_section,
-						'priority'  => 20,
-						'context'   => Astra_Builder_Helper::$design_tab,
+						'priority'  => 2,
+					),
+
+					/**
+					 * Option: Submenu Button Radius
+					 */
+					array(
+						'name'        => 'header-' . $_prefix . '-submenu-border-radius',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-border-radius' ),
+						'type'        => 'sub-control',
+						'parent'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-group]',
+						'section'     => $_section,
+						'control'     => 'ast-slider',
+						'priority'    => 3,
+						'title'       => __( 'Border Radius', 'astra' ),
+						'input_attrs' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
 					),
 
 					// Option: Submenu Divider Checkbox.

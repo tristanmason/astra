@@ -71,6 +71,12 @@ class Astra_Header_Menu_Component {
 			$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 		}
 
+		// Menu hover animation.
+		$menu_hover_animation = astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' );
+		if ( '' !== $menu_hover_animation ) {
+			$submenu_class .= ' ast-menu-hover-style-' . esc_attr( $menu_hover_animation ) . ' ';
+		}
+
 		/**
 		 * Filter the classes(array) for Menu (<ul>).
 		 *
