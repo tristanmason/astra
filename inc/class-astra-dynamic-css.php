@@ -1020,10 +1020,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( $is_site_rtl ) {
 				$static_layout_lang_direction_css = array(
-					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+					'.ast-page-builder-template.ast-left-sidebar #secondary, ast-page-builder-template.ast-right-sidebar #secondary' => array(
 						'padding-left' => '20px',
 					),
-					'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
+					'.ast-page-builder-template.ast-right-sidebar #secondary, .ast-page-builder-template.ast-left-sidebar #secondary' => array(
 						'padding-right' => '20px',
 					),
 					'.ast-right-sidebar #primary'        => array(
@@ -1044,12 +1044,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-pagination .next.page-numbers' => array(
 						'padding-left' => '.5em',
 					),
-					'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
-						'padding-right' => '20px',
-					),
-					'ast-page-builder-template.ast-right-sidebar #secondary' => array(
-						'padding-left' => '20px',
-					),
 				);
 			} else {
 				$static_layout_lang_direction_css = array(
@@ -1065,20 +1059,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 				if ( 'no-sidebar' !== astra_page_layout() ) {
 					$static_layout_lang_direction_css_sidebar = array(
-						'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
+						'.ast-page-builder-template.ast-left-sidebar #secondary, .ast-page-builder-template.ast-right-sidebar #secondary' => array(
 							'padding-right' => '20px',
 						),
-						'.ast-page-builder-template.ast-right-sidebar #secondary' => array(
+						'.ast-page-builder-template.ast-right-sidebar #secondary, .ast-page-builder-template.ast-left-sidebar #secondary' => array(
 							'padding-left' => '20px',
 						),
 						'.ast-right-sidebar #secondary, .ast-left-sidebar #primary' => array(
 							'padding-left' => 0,
-						),
-						'.ast-page-builder-template.ast-left-sidebar #secondary' => array(
-							'padding-left' => '20px',
-						),
-						'ast-page-builder-template.ast-right-sidebar #secondary' => array(
-							'padding-right' => '20px',
 						),
 						'.ast-left-sidebar #secondary' => array(
 							'padding-right' => 0,
