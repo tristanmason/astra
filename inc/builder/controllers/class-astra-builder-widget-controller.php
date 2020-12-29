@@ -80,7 +80,6 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 			// Register Footer Widgets.
 			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
-
 				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, 'footer' ) ) {
 					continue;
 				}
