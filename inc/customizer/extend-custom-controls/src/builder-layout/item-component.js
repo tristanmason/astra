@@ -42,7 +42,10 @@ const ItemComponent = props => {
 			}
 		}
 
-		wp.customize('astra-settings[cloned-component-track]').set( { ...component_track, 'removed-items': finalArray }  );
+		wp.customize('astra-settings[cloned-component-track]').set( { ...component_track,
+				'removed-items': finalArray,
+				flag: ! component_track.flag
+			} );
 
 	}
 
@@ -55,15 +58,15 @@ const ItemComponent = props => {
 					{undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ''}
 				</span>
 		{
-			choices[props.item]['clone'] &&
+
 
 			<div className="ahfb-slide-up">
-				<span title="Clone"
+				{ choices[props.item]['clone'] && <span title="Clone"
 					  onClick={e => {
 						  e.stopPropagation();
 						  props.cloneItem(props.item);
 					  }} className=" tooltip dashicons dashicons-admin-page">
-				</span>
+				</span> }
 				<span title="Reset to default"
 					  onClick={e => {
 						  e.stopPropagation();

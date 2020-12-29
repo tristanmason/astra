@@ -117,27 +117,39 @@ const BuilderComponent = props => {
 		}
 
 		let component_count = component_track.get();
+
+		console.log( component_count );
+
 		Object.keys(component_count).forEach(function( component_type, value) {
+
+			if( 'removed-items' === component_type || 'flag' === component_type ) {
+				return;
+			}
+
+
+
+
+
 			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
 				for (let key in choices) {
 					if (choices.hasOwnProperty(key)) {
 						let tmp_choice = choices[key];
 						if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
 							let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-							if( component_type === tmp_component_type  ) {
-								tmp_choice['clone'] = false;
-							}
+							let tmp_section = tmp_choice.section.replace(/[0-9]/g, '');
+							let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
+							tmp_choice['clone'] = ( component_type === tmp_component_type && is_clone == -1 ) ? false: true;
 						}
 					}
 				}
 			}
 		});
 
-		let choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
+		let tmp_choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
-		Object.keys(choices).forEach(function( choice) {
+		Object.keys(tmp_choices).forEach(function( choice) {
 
-			let tmp_choice = choices[choice],
+			let tmp_choice = tmp_choices[choice],
 				tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
 
 			let is_to_delete = true;
