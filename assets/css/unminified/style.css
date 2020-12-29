@@ -2091,10 +2091,6 @@ textarea,
   margin-bottom: 2em;
 }
 
-.elementor-image-gallery .gallery-icon {
-  border: none;
-}
-
 /* Astra Respnosive oEmbed Video container */
 .ast-oembed-container {
   position: relative;
@@ -5091,31 +5087,6 @@ input[type="color"]::-webkit-color-swatch {
   left: 0 !important;
   padding-right: 0 !important;
   padding-left: 0 !important;
-}
-
-/**
- * Astra Theme compatibility with Elementor
- */
-.ast-left-sidebar .elementor-section.elementor-section-stretched,
-.ast-right-sidebar .elementor-section.elementor-section-stretched {
-  max-width: 100%;
-  left: 0 !important;
-}
-
-.elementor-post.elementor-grid-item.hentry {
-  margin-bottom: 0;
-}
-
-.elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
-  width: auto;
-  margin: 0;
-  float: none;
-}
-
-.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product {
-  width: auto;
-  margin: 0;
-  float: none;
 }
 
 /**

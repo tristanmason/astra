@@ -343,6 +343,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			AstraToggleSetup();
 		}
+
+		accountPopupTrigger();
+		
 	}
 
 	window.addEventListener( 'load', function() {
@@ -361,6 +364,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
 
 		init();
+
+		accountPopupTrigger();
+
 	} );
 
 	window.addEventListener('resize', function () {
@@ -434,6 +440,30 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					}
 				}
 			}
+		}
+	}
+
+	var accountPopupTrigger = function () {
+		// Account login form popup.
+		var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' )[0];
+
+		if( undefined !== header_account_trigger ) {
+
+			var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
+			var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
+			
+			header_account_trigger.onclick = function( event ) {
+				event.preventDefault();
+				event.stopPropagation();
+				if ( ! login_popup.classList.contains( 'show' ) ) {
+					login_popup.classList.add( 'show' );
+				}
+			};
+
+			header_account__close_trigger.onclick = function( event ) {
+				event.preventDefault();
+				login_popup.classList.remove( 'show' );
+			};
 		}
 	}
 
