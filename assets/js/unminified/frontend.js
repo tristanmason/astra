@@ -351,14 +351,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 		var popupClose = document.getElementById( 'menu-toggle-close' );
 		var submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
-		var discardClickCart = document.querySelector( '.ast-header-woo-cart .cart-container' );
-		console.log(discardClickCart);
-		discardClickCart.addEventListener( "click", function( e ) {
-			console.log(this)
-			// debugger
-			e.preventDefault();
-			return false;
-		} );
 		
 		if ( undefined === mobileHeaderType ) {
 
