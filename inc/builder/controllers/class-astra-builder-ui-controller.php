@@ -125,29 +125,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				echo '</div>';
 				echo '</div>';
 			}
-
-		}
-
-		/**
-		 * Prepare divider Markup.
-		 *
-		 * @param string $index Key of the divider Control.
-		 */
-		public static function render_divider_markup( $index = 'header-divider-1' ) {
-
-			$layout = astra_get_option( $index . '-layout' );
-			?>
-
-			<div class="ast-divider-wrapper ast-divider-layout-<?php echo esc_attr( $layout ); ?>">
-				<?php 
-				if ( is_customize_preview() ) {
-					self::render_customizer_edit_button();
-				} 
-				?>
-				<div class="ast-builder-divider-element"></div>
-			</div>
-
-			<?php
 		}
 		
 		/**
@@ -285,5 +262,192 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			<?php
 		}
 
+		/**
+		 * Account HTML.
+		 */
+		public static function render_account() {
+
+			$is_logged_in = is_user_logged_in();
+
+			$link_href        = '';
+			$new_tab          = '';
+			$link_rel         = '';
+			$account_link     = '';
+			$link_url         = '';
+			$logout_preview   = astra_get_option( 'header-account-logout-preview' );
+			$is_customizer    = is_customize_preview();
+			$logged_out_style = astra_get_option( 'header-account-logout-style' );
+
+			if ( ! $is_logged_in && 'none' === $logged_out_style ) {
+				return;
+			}
+
+			$icon_skin = ( '' !== astra_get_option( 'header-account-icon-type' ) ) ? astra_get_option( 'header-account-icon-type' ) : 'account-1';
+
+			?>
+
+			<div class="ast-header-account-wrap">
+				<?php
+				if ( $is_customizer ) {
+					self::render_customizer_edit_button();
+				}
+
+				?>
+
+				<?php if ( $is_logged_in && ( ( ( ( ! $logout_preview ) || ( 'none' === $logged_out_style && $logout_preview ) ) && $is_customizer ) || ( ! $is_customizer ) ) ) { ?>
+
+					<?php 
+
+					$account_type = astra_get_option( 'header-account-type' );
+
+					$login_profile_type = astra_get_option( 'header-account-login-style' );
+
+					$action_type = astra_get_option( 'header-account-action-type' );
+					$link_type   = astra_get_option( 'header-account-link-type' );
+
+					$account_link = astra_get_option( 'header-account-login-link' );
+					
+					$logged_in_text = astra_get_option( 'header-account-logged-in-text' );
+
+					if ( 'default' !== $account_type && 'default' === $link_type && defined( 'ASTRA_EXT_VER' ) ) {
+						$new_tab = 'target=_self';
+						if ( 'woocommerce' === $account_type && class_exists( 'WooCommerce' ) ) {
+
+							$woocommerce_link = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
+
+							$link_url = ( $woocommerce_link ) ? $woocommerce_link : '';
+
+						} elseif ( 'lifterlms' === $account_type && class_exists( 'LifterLMS' ) ) {
+
+							$lifterlms_link = get_permalink( llms_get_page_id( 'myaccount' ) );
+
+							$link_url = ( $lifterlms_link ) ? $lifterlms_link : '';
+						}
+					} elseif ( '' !== $account_link && '' !== $account_link['url'] ) {
+
+						$link_url = $account_link['url'];
+						
+						$new_tab = ( $account_link['new_tab'] ? 'target=_blank' : 'target=_self' );
+
+						$link_rel = ( ! empty( $account_link['link_rel'] ) ? 'rel=' . esc_attr( $account_link['link_rel'] ) : '' );
+					}
+					
+					$link_href = ( '' !== $link_url ) ? 'href=' . esc_url( $link_url ) : '';
+
+					$link_classes = 'ast-header-account-link ast-header-account-type-' . $login_profile_type . ' ast-account-action-' . $action_type;
+					?>
+					<div class="ast-header-account-inner-wrap">
+						<a class="<?php echo esc_attr( $link_classes ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
+
+							<?php 
+							if ( 'avatar' === $login_profile_type ) {
+
+								echo get_avatar( get_current_user_id() );
+
+							} elseif ( 'icon' === $login_profile_type ) {
+								echo self::fetch_svg_icon( $icon_skin ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							} elseif ( 'text' === $login_profile_type ) { 
+								?>
+								<span class="ast-header-account-text"><?php echo esc_attr( $logged_in_text ); ?></span>
+							<?php } ?>
+						</a>
+						<?php 
+						if ( defined( 'ASTRA_EXT_VER' ) && 'menu' === $action_type ) {
+							Astra_Header_Account_Component::account_menu_markup();
+						}
+						?>
+					</div>
+				<?php } elseif ( ( 'none' !== $logged_out_style ) && ( ( ! $is_logged_in ) || ( $is_logged_in && $logout_preview && $is_customizer ) ) ) { ?>
+
+					<?php
+					$logged_out_style_class = '';
+					$action_type            = astra_get_option( 'header-account-logout-action' );
+					$logged_out_style_class = 'ast-header-account-link ast-header-account-type-' . $logged_out_style . ' ast-account-action-' . $action_type;
+					$logged_out_text        = astra_get_option( 'header-account-logged-out-text' );
+					$login_link             = astra_get_option( 'header-account-logout-link' );
+					$show_lost_password     = astra_get_option( 'header-account-login-lostpass' );
+					$show_register          = ( get_option( 'users_can_register' ) && astra_get_option( 'header-account-login-register' ) );
+
+					if ( '' !== $login_link && '' !== $login_link['url'] ) {
+
+						$current_url   = home_url( add_query_arg( array(), $GLOBALS['wp']->request ) );
+						$default_login = wp_login_url();
+
+						if ( $default_login === $login_link['url'] ) {
+							$login_link['url'] = wp_login_url( $current_url );
+						}
+						
+						$link_url = $login_link['url'];
+						$new_tab  = ( $login_link['new_tab'] ? 'target=_blank' : 'target=_self' );
+
+						$link_rel = ( ! empty( $login_link['link_rel'] ) ? 'rel=' . esc_attr( $login_link['link_rel'] ) : '' );
+					}
+										
+					$link_href = 'href=' . esc_url( $link_url ) . '';
+					?>
+					<a class="<?php echo esc_attr( $logged_out_style_class ); ?>" aria-label="<?php esc_attr_e( 'Account icon link', 'astra' ); ?>" <?php echo esc_attr( $link_href . ' ' . $new_tab . ' ' . $link_rel ); ?> >
+						<?php if ( 'icon' === $logged_out_style ) { ?>
+							<?php echo self::fetch_svg_icon( $icon_skin ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php } elseif ( 'text' === $logged_out_style ) { ?>	
+							<span class="ast-header-account-text"><?php echo esc_attr( $logged_out_text ); ?></span>
+						<?php } ?>
+					</a>
+					<?php if ( defined( 'ASTRA_EXT_VER' ) && 'login' === $action_type ) { ?>
+						<div id="ast-hb-account-login-wrap" class="ast-hb-account-login-wrapper">
+							<div class="ast-hb-account-login-bg"></div>
+							<div class="ast-hb-account-login">
+								<div class="ast-hb-login-header">
+									<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="Close popup">
+										<span class="ast-svg-iconset">
+											<?php echo self::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										</span>
+									</button>
+								</div>
+								<div class="ast-hb-login-body">
+									<div class="ast-hb-account-login-form">
+										<?php
+										$args = array(
+											'echo'     => true,
+											'remember' => true,
+											'value_remember' => true,
+										);                                      
+										echo wp_login_form( $args );
+										?>
+									</div>
+									<div class="ast-hb-account-login-form-footer">
+										<?php
+										if ( $show_lost_password || $show_register ) {
+											if ( $show_register ) {
+												$register_url = wp_registration_url();
+												?>
+												<a class="ast-header-account-footer-link" href="<?php echo esc_url( $register_url ); ?>" >
+													<span class="ast-header-account-register"><?php echo esc_attr( __( 'Register', 'astra' ) ); ?></span>
+												</a>
+												<?php
+											}
+											if ( $show_lost_password ) {
+												$lostpass_url = wp_lostpassword_url();
+												?>
+												<a class="ast-header-account-footer-link" href="<?php echo esc_url( $lostpass_url ); ?>" >
+													<span class="ast-header-account-lostpass"><?php echo esc_attr( __( 'Lost your password?', 'astra' ) ); ?></span>
+												</a>
+												<?php
+											}
+										}
+										?>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+				<?php } ?>
+
+			</div>
+
+			<?php
+		}
+
 	}
 }
+
+?>
