@@ -96,14 +96,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
 					self::$methods[] = 'header_social_' . $index;
 
-				}
-
-				// Menus.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
+					// Menus.
 					add_action( 'astra_header_menu_' . $index, array( $this, 'menu_' . $index ) );
 					self::$methods[] = 'menu_' . $index;
-				}
 
+				}
 
 				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );

@@ -302,123 +302,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+
 		$defaults = prepare_button_defaults( $defaults, $index );
 		$defaults = prepare_html_defaults( $defaults, $index );
 		$defaults = prepare_social_icon_defaults( $defaults, $index );
-	}
+		$defaults = prepare_widget_defaults( $defaults, $index );
+		$defaults = prepare_menu_defaults( $defaults, $index );
 
-	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-		$_prefix = 'menu' . $index;
-
-		// Specify all the default values for Menu from here.
-		$defaults[ 'header-' . $_prefix . '-bg-color' ]   = '';
-		$defaults[ 'header-' . $_prefix . '-color' ]      = '';
-		$defaults[ 'header-' . $_prefix . '-h-bg-color' ] = '';
-		$defaults[ 'header-' . $_prefix . '-h-color' ]    = '';
-		$defaults[ 'header-' . $_prefix . '-a-bg-color' ] = '';
-		$defaults[ 'header-' . $_prefix . '-a-color' ]    = '';
-
-		$defaults[ 'header-' . $_prefix . '-bg-obj-responsive' ] = array(
-			'desktop' => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-			),
-			'tablet'  => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-			),
-			'mobile'  => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-			),
-		);
-
-		$defaults[ 'header-' . $_prefix . '-color-responsive' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-' . $_prefix . '-h-bg-color-responsive' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-' . $_prefix . '-h-color-responsive' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-' . $_prefix . '-a-bg-color-responsive' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-' . $_prefix . '-a-color-responsive' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
-		$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
-
-		/**
-		 * Submenu
-		 */
-		$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]   = false;
-		$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ]  = '#eaeaea';
-		$defaults[ 'header-' . $_prefix . '-submenu-border-radius' ] = '';
-		$defaults[ 'header-' . $_prefix . '-submenu-top-offset' ]    = '';
-		$defaults[ 'header-' . $_prefix . '-submenu-width' ]         = '';
-		$defaults[ 'header-' . $_prefix . '-submenu-border' ]        = array(
-			'top'    => 2,
-			'bottom' => 0,
-			'left'   => 0,
-			'right'  => 0,
-		);
-
-		/**
-		 * Menu Stack on Mobile.
-		 */
-		$defaults[ 'header-' . $_prefix . '-menu-stack-on-mobile' ] = true;
-
-		/**
-		 * Menu - Typography.
-		 */
-		$defaults[ 'header-' . $_prefix . '-font-size' ]      = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-		$defaults[ 'header-' . $_prefix . '-font-weight' ]    = 'inherit';
-		$defaults[ 'header-' . $_prefix . '-font-family' ]    = 'inherit';
-		$defaults[ 'header-' . $_prefix . '-text-transform' ] = '';
-		$defaults[ 'header-' . $_prefix . '-line-height' ]    = '';
-
-		/**
-		 * Header Types - Defaults
-		 */
-		$defaults['transparent-header-main-sep']       = '';
-		$defaults['transparent-header-main-sep-color'] = '';
 	}
 
 	/**
@@ -877,134 +767,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'left'   => 1,
 	);
 	$defaults['mobile-header-toggle-border-radius']   = 2;
-
-	// Widget Header defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-
-		// Colors.
-		$defaults[ 'header-widget-' . $index . '-title-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-widget-' . $index . '-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-widget-' . $index . '-link-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'header-widget-' . $index . '-link-h-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		/**
-		 * Title Typography.
-		 */
-
-		$defaults[ 'header-widget-' . $index . '-font-family' ]    = 'inherit';
-		$defaults[ 'header-widget-' . $index . '-font-weight' ]    = 'inherit';
-		$defaults[ 'header-widget-' . $index . '-text-transform' ] = '';
-		$defaults[ 'header-widget-' . $index . '-line-height' ]    = '';
-		$defaults[ 'header-widget-' . $index . '-font-size' ]      = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-
-		/**
-		 * Content Typography.
-		 */
-		$defaults[ 'header-widget-' . $index . '-content-font-family' ]    = 'inherit';
-		$defaults[ 'header-widget-' . $index . '-content-font-weight' ]    = 'inherit';
-		$defaults[ 'header-widget-' . $index . '-content-text-transform' ] = '';
-		$defaults[ 'header-widget-' . $index . '-content-line-height' ]    = '';
-		$defaults[ 'header-widget-' . $index . '-content-font-size' ]      = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-	}
-
-	// Widget Footer defaults.
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
-		$defaults[ 'footer-widget-alignment-' . $index ] = array(
-			'desktop' => 'left',
-			'tablet'  => 'center',
-			'mobile'  => 'center',
-		);
-
-		// Colors.
-		$defaults[ 'footer-widget-' . $index . '-title-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'footer-widget-' . $index . '-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'footer-widget-' . $index . '-link-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		$defaults[ 'footer-widget-' . $index . '-link-h-color' ] = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
-
-		/**
-		 * Title Typography.
-		 */
-		$defaults[ 'footer-widget-' . $index . '-font-family' ]    = 'inherit';
-		$defaults[ 'footer-widget-' . $index . '-font-weight' ]    = 'inherit';
-		$defaults[ 'footer-widget-' . $index . '-text-transform' ] = '';
-		$defaults[ 'footer-widget-' . $index . '-line-height' ]    = '';
-		$defaults[ 'footer-widget-' . $index . '-font-size' ]      = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-
-		/**
-		 * Content Typography.
-		 */
-		$defaults[ 'footer-widget-' . $index . '-content-font-family' ]    = 'inherit';
-		$defaults[ 'footer-widget-' . $index . '-content-font-weight' ]    = 'inherit';
-		$defaults[ 'footer-widget-' . $index . '-content-text-transform' ] = '';
-		$defaults[ 'footer-widget-' . $index . '-content-line-height' ]    = '';
-		$defaults[ 'footer-widget-' . $index . '-content-font-size' ]      = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-	}
 
 	/**
 	 * Mobile trigger - Label Typography.
@@ -1572,6 +1334,252 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 		'tablet'  => 'center',
 		'mobile'  => 'center',
 	);
+
+	return $defaults;
+}
+
+/**
+ * Prepare Widget Defaults.
+ *
+ * @param array   $defaults defaults.
+ * @param integer $index index.
+ */
+function prepare_widget_defaults( $defaults, $index ) {
+
+	// Widget Header defaults.
+
+	// Colors.
+	$defaults[ 'header-widget-' . $index . '-title-color' ]  = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults[ 'header-widget-' . $index . '-color' ]        = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults[ 'header-widget-' . $index . '-link-color' ]   = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults[ 'header-widget-' . $index . '-link-h-color' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	// Title Typography.
+	$defaults[ 'header-widget-' . $index . '-font-family' ]    = 'inherit';
+	$defaults[ 'header-widget-' . $index . '-font-weight' ]    = 'inherit';
+	$defaults[ 'header-widget-' . $index . '-text-transform' ] = '';
+	$defaults[ 'header-widget-' . $index . '-line-height' ]    = '';
+	$defaults[ 'header-widget-' . $index . '-font-size' ]      = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+
+	// Content Typography.
+	$defaults[ 'header-widget-' . $index . '-content-font-family' ]    = 'inherit';
+	$defaults[ 'header-widget-' . $index . '-content-font-weight' ]    = 'inherit';
+	$defaults[ 'header-widget-' . $index . '-content-text-transform' ] = '';
+	$defaults[ 'header-widget-' . $index . '-content-line-height' ]    = '';
+	$defaults[ 'header-widget-' . $index . '-content-font-size' ]      = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	// Widget Footer defaults.
+
+	// Colors.
+	$defaults[ 'footer-widget-' . $index . '-title-color' ]  = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults[ 'footer-widget-' . $index . '-color' ]        = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults[ 'footer-widget-' . $index . '-link-color' ]   = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults[ 'footer-widget-' . $index . '-link-h-color' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	// Title Typography.
+	$defaults[ 'footer-widget-' . $index . '-font-family' ]    = 'inherit';
+	$defaults[ 'footer-widget-' . $index . '-font-weight' ]    = 'inherit';
+	$defaults[ 'footer-widget-' . $index . '-text-transform' ] = '';
+	$defaults[ 'footer-widget-' . $index . '-line-height' ]    = '';
+	$defaults[ 'footer-widget-' . $index . '-font-size' ]      = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	// Content Typography.
+	$defaults[ 'footer-widget-' . $index . '-content-font-family' ]    = 'inherit';
+	$defaults[ 'footer-widget-' . $index . '-content-font-weight' ]    = 'inherit';
+	$defaults[ 'footer-widget-' . $index . '-content-text-transform' ] = '';
+	$defaults[ 'footer-widget-' . $index . '-content-line-height' ]    = '';
+	$defaults[ 'footer-widget-' . $index . '-content-font-size' ]      = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	$defaults[ 'footer-widget-alignment-' . $index ] = array(
+		'desktop' => 'left',
+		'tablet'  => 'center',
+		'mobile'  => 'center',
+	);
+
+
+	return $defaults;
+}
+
+/**
+ * Prepare menu Defaults.
+ *
+ * @param array   $defaults defaults.
+ * @param integer $index index.
+ */
+function prepare_menu_defaults( $defaults, $index ) {
+
+	$_prefix = 'menu' . $index;
+
+	// Specify all the default values for Menu from here.
+	$defaults[ 'header-' . $_prefix . '-bg-color' ]   = '';
+	$defaults[ 'header-' . $_prefix . '-color' ]      = '';
+	$defaults[ 'header-' . $_prefix . '-h-bg-color' ] = '';
+	$defaults[ 'header-' . $_prefix . '-h-color' ]    = '';
+	$defaults[ 'header-' . $_prefix . '-a-bg-color' ] = '';
+	$defaults[ 'header-' . $_prefix . '-a-color' ]    = '';
+
+	$defaults[ 'header-' . $_prefix . '-bg-obj-responsive' ] = array(
+		'desktop' => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+		'tablet'  => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+		'mobile'  => array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		),
+	);
+
+	$defaults[ 'header-' . $_prefix . '-color-responsive' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	$defaults[ 'header-' . $_prefix . '-h-bg-color-responsive' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	$defaults[ 'header-' . $_prefix . '-h-color-responsive' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	$defaults[ 'header-' . $_prefix . '-a-bg-color-responsive' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	$defaults[ 'header-' . $_prefix . '-a-color-responsive' ] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+
+	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+
+	/**
+	 * Submenu
+	 */
+	$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]   = false;
+	$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ]  = '#eaeaea';
+	$defaults[ 'header-' . $_prefix . '-submenu-border-radius' ] = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-top-offset' ]    = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-width' ]         = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-border' ]        = array(
+		'top'    => 2,
+		'bottom' => 0,
+		'left'   => 0,
+		'right'  => 0,
+	);
+
+	/**
+	 * Menu Stack on Mobile.
+	 */
+	$defaults[ 'header-' . $_prefix . '-menu-stack-on-mobile' ] = true;
+
+	/**
+	 * Menu - Typography.
+	 */
+	$defaults[ 'header-' . $_prefix . '-font-size' ]      = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+	$defaults[ 'header-' . $_prefix . '-font-weight' ]    = 'inherit';
+	$defaults[ 'header-' . $_prefix . '-font-family' ]    = 'inherit';
+	$defaults[ 'header-' . $_prefix . '-text-transform' ] = '';
+	$defaults[ 'header-' . $_prefix . '-line-height' ]    = '';
+
+	/**
+	 * Header Types - Defaults
+	 */
+	$defaults['transparent-header-main-sep']       = '';
+	$defaults['transparent-header-main-sep-color'] = '';
 
 	return $defaults;
 }
