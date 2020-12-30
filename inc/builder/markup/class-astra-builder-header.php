@@ -104,15 +104,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					self::$methods[] = 'header_social_' . $index;
 				}
 
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
-					add_action( 'astra_header_divider_' . $index, array( $this, 'header_divider_' . $index ) );
-					self::$methods[] = 'header_divider_' . $index;
-				}
-
 				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );
 				add_action( 'astra_header_woo_cart', array( $this, 'header_woo_cart' ) );
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
+				add_action( 'astra_header_account', array( $this, 'header_account' ) );
 
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
 
@@ -151,16 +147,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					if ( $index ) {
 						Astra_Builder_UI_Controller::render_social_icon( $index, 'header' );
 					}
-				} elseif ( 0 === strpos( $func, 'header_divider_' ) ) {
-					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
-					if ( $index ) {
-						Astra_Builder_UI_Controller::render_divider_markup( str_replace( '_', '-', $func ) );
-					}
 				}
 			}
 		}
-
-
 
 		/**
 		 * Inherit Header base layout.
@@ -209,6 +198,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 				echo Astra_Edd::get_instance()->edd_mini_cart_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
+		}
+
+		/**
+		 * Render account icon.
+		 */
+		public function header_account() {
+			Astra_Builder_UI_Controller::render_account();
 		}
 
 		/**
