@@ -91,10 +91,6 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					'.elementor-image-gallery .gallery-icon, .elementor-image-gallery .gallery-icon' => array(
 						'border' => 'none',
 					),
-					'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
-						'max-width' => '100%',
-						'left'      => '0 !important',
-					),
 					'.elementor-post.elementor-grid-item.hentry' => array(
 						'margin-bottom' => '0',
 					),
@@ -106,6 +102,24 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				);
 				// Load base static CSS when Elmentor is activated.
 				$parse_css .= astra_parse_css( $elementor_base_css );
+
+				if ( is_rtl() ) {
+					$elementor_rtl_support_css = array(
+						'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+							'max-width' => '100%',
+							'right'     => '0 !important',
+						),
+					);
+				} else {
+					$elementor_rtl_support_css = array(
+						'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+							'max-width' => '100%',
+							'left'      => '0 !important',
+						),
+					);
+				}
+				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
+				
 
 				$dynamic_css .= $parse_css;
 			}
