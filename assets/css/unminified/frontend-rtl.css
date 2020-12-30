@@ -1627,6 +1627,8 @@ body {
 
 .main-navigation {
   height: 100%;
+  -js-display: inline-flex;
+  display: inline-flex;
 }
 
 .main-navigation ul {
@@ -1634,7 +1636,6 @@ body {
   margin: 0;
   padding-right: 0;
   position: relative;
-  height: 100%;
 }
 
 .main-header-menu .menu-link,
