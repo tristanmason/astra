@@ -119,6 +119,9 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => $name,
 				'icon'    => 'menu',
 				'section' => 'section-hb-menu-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'menu',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'menu-' . $index ] = $item;
