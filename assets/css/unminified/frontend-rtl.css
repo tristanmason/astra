@@ -3098,6 +3098,7 @@ body .entry-content .wp-block-latest-posts li {
   grid-template-columns: auto auto;
   align-items: center;
   grid-column-gap: 20px;
+  overflow-wrap: anywhere;
 }
 
 .ast-builder-footer-grid-columns {
