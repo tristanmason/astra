@@ -1505,7 +1505,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-mobile-menu-font-family']    = 'inherit';
 	$defaults['header-mobile-menu-text-transform'] = '';
 	$defaults['header-mobile-menu-line-height']    = '';
-		
+
 	/**
 	 * Woo-Cart.
 	 */
@@ -1514,6 +1514,25 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-icon-radius']   = 3;
 	$defaults['woo-header-cart-total-display'] = true;
 	$defaults['woo-header-cart-title-display'] = true;
+
+	// Cart tray > General Color styles.
+	$defaults['primary-woo-cart-text-color']       = '';
+	$defaults['primary-woo-cart-link-color']       = '';
+	$defaults['primary-woo-cart-background-color'] = '';
+	$defaults['primary-woo-cart-separator-color']  = '';
+	$defaults['primary-woo-cart-link-hover-color'] = '';
+
+	// Cart tray > Cart Button styles.
+	$defaults['primary-woo-cart-btn-text-color']       = '';
+	$defaults['primary-woo-cart-btn-background-color'] = '';
+	$defaults['primary-woo-cart-btn-text-hover-color'] = '';
+	$defaults['primary-woo-cart-btn-bg-hover-color']   = '';
+
+	// Cart tray > Checkout Button styles.
+	$defaults['primary-woo-checkout-btn-text-color']       = '';
+	$defaults['primary-woo-checkout-btn-background-color'] = '';
+	$defaults['primary-woo-checkout-btn-text-hover-color'] = '';
+	$defaults['primary-woo-checkout-btn-bg-hover-color']   = '';
 
 	/**
 	 * EDD-Cart.

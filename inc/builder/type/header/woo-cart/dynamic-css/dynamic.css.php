@@ -37,6 +37,20 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_h_color            = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
 	$theme_h_color           = astra_get_foreground_color( $theme_color );
+
+	$woo_tray_text_color             = astra_get_option( 'primary-woo-cart-text-color' );
+	$woo_tray_link_color = astra_get_option( 'primary-woo-cart-link-color' );
+	$woo_tray_bg_color  = astra_get_option( 'primary-woo-cart-background-color' );
+	$woo_tray_separator_color             = astra_get_option( 'primary-woo-cart-separator-color' );
+	$woo_tray_link_h_color = astra_get_option( 'primary-woo-cart-link-hover-color' );
+	$woo_cart_btn_text_color  = astra_get_option( 'primary-woo-cart-btn-text-color' );
+	$woo_cart_btn_bg_color             = astra_get_option( 'primary-woo-cart-btn-background-color' );
+	$woo_cart_btn_text_h_color = astra_get_option( 'primary-woo-cart-btn-text-hover-color' );
+	$woo_cart_btn_bg_h_color  = astra_get_option( 'primary-woo-cart-btn-bg-hover-color' );
+	$woo_checkout_btn_text_color             = astra_get_option( 'primary-woo-checkout-btn-text-color' );
+	$woo_checkout_btn_bg_color = astra_get_option( 'primary-woo-checkout-btn-background-color' );
+	$woo_checkout_btn_text_h_color  = astra_get_option( 'primary-woo-checkout-btn-text-hover-color' );
+	$woo_checkout_btn_bg_h_color  = astra_get_option( 'primary-woo-checkout-btn-bg-hover-color' );
 	
 	$header_cart_icon = '';
 	/**
