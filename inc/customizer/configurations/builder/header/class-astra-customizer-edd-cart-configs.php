@@ -182,11 +182,11 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'name'     => ASTRA_THEME_SETTINGS . '[section-edd-cart-tray-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'section'   => $_section,
+					'section'  => $_section,
 					'title'    => __( 'Cart Tray', 'astra' ),
 					'priority' => 60,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Cart general colors.
@@ -215,7 +215,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Cart Link / Text Color.
@@ -231,7 +231,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Cart Background Color.
@@ -247,7 +247,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Cart Separator Color.
@@ -263,7 +263,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Checkout Button colors.
@@ -293,7 +293,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 75,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Checkout Button Background Color.
@@ -310,7 +310,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 75,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Checkout Button Hover Text Color.
@@ -327,7 +327,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 75,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Checkout Button Hover Background Color.
@@ -344,7 +344,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 75,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

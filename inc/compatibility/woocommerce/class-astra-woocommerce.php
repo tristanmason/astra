@@ -894,7 +894,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
 					'background' => $link_color,
 				),
-				'.woocommerce a.remove:hover' => array(
+				'.woocommerce a.remove:hover'             => array(
 					'color'            => esc_attr( $link_color ),
 					'border-color'     => esc_attr( $link_color ),
 					'background-color' => esc_attr( '#ffffff' ),
@@ -907,7 +907,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					/**
 					 * Cart in menu
 					 */
-					'.ast-site-header-cart a'                 => array(
+					'.ast-site-header-cart a'          => array(
 						'color' => esc_attr( $text_color ),
 					),
 
@@ -920,7 +920,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'color'        => esc_attr( $link_color ),
 					),
 
-					'.ast-cart-menu-wrap:hover .count'        => array(
+					'.ast-cart-menu-wrap:hover .count' => array(
 						'color'            => esc_attr( $cart_h_color ),
 						'background-color' => esc_attr( $link_color ),
 					),

@@ -32,15 +32,14 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$selector                = '.ast-edd-site-header-cart';
 	$theme_color             = astra_get_option( 'theme-color' );
-	$link_color       = astra_get_option( 'link-color', $theme_color );
+	$link_color              = astra_get_option( 'link-color', $theme_color );
 	$header_cart_icon_style  = astra_get_option( 'edd-header-cart-icon-style' );
 	$header_cart_icon_color  = astra_get_option( 'edd-header-cart-icon-color', $theme_color );
 	$header_cart_icon_radius = astra_get_option( 'edd-header-cart-icon-radius' );
 	$cart_h_color            = astra_get_foreground_color( $header_cart_icon_color );
 
-	$btn_color = astra_get_option( 'button-color' );
-	$theme_color  = astra_get_option( 'theme-color' );
-	$btn_bg_color   = astra_get_option( 'button-bg-color', $theme_color );
+	$btn_color    = astra_get_option( 'button-color' );
+	$btn_bg_color = astra_get_option( 'button-bg-color', $theme_color );
 
 	if ( empty( $btn_color ) ) {
 		$btn_color = astra_get_foreground_color( $theme_color );
@@ -49,17 +48,17 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * - EDD cart styles.
 	 */
-	$cart_text_color            = astra_get_option( 'primary-edd-cart-text-color' );
-	$cart_link_color            = astra_get_option( 'primary-edd-cart-link-color', $link_color );
-	$cart_bg_color              = astra_get_option( 'primary-edd-cart-background-color' );
-	$cart_separator_color       = astra_get_option( 'primary-edd-cart-separator-color' );
+	$cart_text_color      = astra_get_option( 'primary-edd-cart-text-color' );
+	$cart_link_color      = astra_get_option( 'primary-edd-cart-link-color', $link_color );
+	$cart_bg_color        = astra_get_option( 'primary-edd-cart-background-color' );
+	$cart_separator_color = astra_get_option( 'primary-edd-cart-separator-color' );
 
 	$checkout_button_text_color   = astra_get_option( 'primary-edd-checkout-btn-text-color', $btn_color );
 	$checkout_button_bg_color     = astra_get_option( 'primary-edd-checkout-btn-background-color', $btn_bg_color );
 	$checkout_button_text_h_color = astra_get_option( 'primary-edd-checkout-btn-text-hover-color', $btn_color );
 	$checkout_button_bg_h_color   = astra_get_option( 'primary-edd-checkout-btn-bg-hover-color', $btn_bg_color );
 
-	$header_cart_icon        = '';
+	$header_cart_icon = '';
 	/**
 	 * EDD Cart CSS.
 	 */
@@ -84,13 +83,13 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => esc_attr( $cart_link_color ),
 		),
 		$selector . ' .widget_edd_cart_widget a.edd-remove-from-cart:after' => array(
-			'color' => esc_attr( $cart_link_color ),
+			'color'        => esc_attr( $cart_link_color ),
 			'border-color' => esc_attr( $cart_link_color ),
 		),
 		$selector . ' .widget_edd_cart_widget span, ' . $selector . ' .widget_edd_cart_widget strong, ' . $selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color ),
 		),
-		$selector . ' .widget_edd_cart_widget' => array(
+		$selector . ' .widget_edd_cart_widget'        => array(
 			'background-color' => esc_attr( $cart_bg_color ),
 			'border-color'     => esc_attr( $cart_bg_color ),
 		),

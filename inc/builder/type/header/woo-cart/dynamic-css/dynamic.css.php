@@ -41,11 +41,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * - WooCommerce cart styles.
 	 */
-	$cart_text_color            = astra_get_option( 'primary-woo-cart-text-color' );
-	$cart_link_color            = astra_get_option( 'primary-woo-cart-link-color' );
-	$cart_bg_color              = astra_get_option( 'primary-woo-cart-background-color' );
-	$cart_separator_color       = astra_get_option( 'primary-woo-cart-separator-color' );
-	$cart_h_link_color          = astra_get_option( 'primary-woo-cart-link-hover-color' );
+	$cart_text_color      = astra_get_option( 'primary-woo-cart-text-color' );
+	$cart_link_color      = astra_get_option( 'primary-woo-cart-link-color' );
+	$cart_bg_color        = astra_get_option( 'primary-woo-cart-background-color' );
+	$cart_separator_color = astra_get_option( 'primary-woo-cart-separator-color' );
+	$cart_h_link_color    = astra_get_option( 'primary-woo-cart-link-hover-color' );
 
 	$cart_button_text_color   = astra_get_option( 'primary-woo-cart-btn-text-color' );
 	$cart_button_bg_color     = astra_get_option( 'primary-woo-cart-btn-background-color' );
@@ -63,14 +63,14 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	 */
 	$css_output_desktop = array(
 
-		$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
+		$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap' => array(
 			'color' => $theme_color,
 		),
 		$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
 			'color'        => $theme_color,
 			'border-color' => $theme_color,
 		),
-		$selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after'  => array(
+		$selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $theme_color ),
 		),
@@ -137,7 +137,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	);
 
 	/* Parse CSS from array() */
-	$css_output  = astra_parse_css( $css_output_desktop );
+	$css_output = astra_parse_css( $css_output_desktop );
 
 	if ( 'none' !== $header_cart_icon_style ) {
 
