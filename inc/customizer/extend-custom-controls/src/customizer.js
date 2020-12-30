@@ -253,7 +253,7 @@
 
 						let val = config['reset_default'] ?  config['reset_default'] : '';
 						api(config.id).set( val );
-
+						api.control(config.id).renderContent();
 						if ('ast-settings-group' === config['type']) {
 
 							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
@@ -262,6 +262,7 @@
 									let sub_config = sub_controls[i];
 									val = sub_config['reset_default'] ?  sub_config['reset_default'] : '';
 									api(sub_config.id).set( val );
+									api.control(sub_config.id).renderContent();
 								}
 							}
 						}
