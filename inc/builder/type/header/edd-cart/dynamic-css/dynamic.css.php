@@ -83,7 +83,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'color'        => esc_attr( $header_cart_icon_color ),
 			),
 			// Outline icon hover colors.
-			$selector . ' .ast-edd-cart-menu-wrap:hover .count'        => array(
+			$selector . ' .ast-edd-cart-menu-wrap:hover .count' => array(
 				'color'            => esc_attr( $cart_h_color ),
 				'background-color' => esc_attr( $header_cart_icon_color ),
 			),
