@@ -640,7 +640,7 @@ var main_header_masthead = document.getElementById('masthead');
                 var sibling = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
                 if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
                     sibling.classList.add( 'ast-dropdown-active' );
-                    sibling.querySelector( '.search-field' ).setAttribute('autocompvare','off');
+                    sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
                     setTimeout(function() {
                      sibling.querySelector( '.search-field' ).focus();
                     },200);
