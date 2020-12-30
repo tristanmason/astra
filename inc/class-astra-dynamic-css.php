@@ -603,7 +603,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::get_single_post_comment_css() );
 			}
 
-			if ( Astra_Builder_Helper::is_component_loaded( 'header', 'woo-cart' ) || Astra_Builder_Helper::is_component_loaded( 'header', 'edd-cart' ) ) {
+			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
@@ -3196,6 +3196,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 					padding-left: 2px;
+				}	
 				';
 			}
 			return $cart_static_css;
