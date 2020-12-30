@@ -136,22 +136,15 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 	);
 
-	if ( 'none' != $header_cart_icon_style ) {
+	/* Parse CSS from array() */
+	$css_output  = astra_parse_css( $css_output_desktop );
+
+	if ( 'none' !== $header_cart_icon_style ) {
 
 		$header_cart_icon = array(
 
 			$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
 				'color' => $icon_color,
-			),
-			$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
-				'color'        => $icon_color,
-				'border-color' => $icon_color,
-			),
-
-			// Default icon colors.
-			'.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after, .ast-site-header-cart .ast-addon-cart-wrap .count' => array(
-				'border-color' => esc_attr( $icon_color ),
-				'color'        => esc_attr( $icon_color ),
 			),
 			// Outline icon hover colors.
 			'.ast-site-header-cart .ast-cart-menu-wrap:hover .count, .ast-site-header-cart .ast-addon-cart-wrap:hover .count' => array(
@@ -181,12 +174,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 		);
 
-		$header_cart_icon = astra_parse_css( $header_cart_icon );
+		$css_output .= astra_parse_css( $header_cart_icon );
 	}
-	
-	/* Parse CSS from array() */
-	$css_output  = astra_parse_css( $css_output_desktop );
-	$css_output .= $header_cart_icon;
 
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
 
