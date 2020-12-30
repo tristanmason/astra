@@ -26,6 +26,10 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_mobile_menu_dynamic_css', 11 );
  */
 function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'mobile-menu', 'header' ) ) {
+		return $dynamic_css;
+	}
+
 	$_section = 'section-header-mobile-menu';
 
 	$selector = '.ast-builder-menu-mobile .main-navigation';

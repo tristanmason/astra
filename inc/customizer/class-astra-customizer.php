@@ -57,7 +57,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static $js_configs;
 
-
 		/**
 		 * Instance
 		 *
@@ -317,6 +316,35 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						);
+					}
+
+					if ( empty( $val ) ) {
+
+						$default_responsive_spacing = array(
+							'desktop'      => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'tablet'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'mobile'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						);
+
+						astra_update_option( $data[1], $default_responsive_spacing );
 					}
 					break;
 				case 'ast-radio-image':
@@ -596,11 +624,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-
 			if ( 'image' === $config['type'] ) {
-
 				$this->prepare_preload_controls( $config );
-				return;
 			}
 
 			if ( isset( $config['active_callback'] ) ) {
@@ -644,7 +669,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			} else {
 				$wp_customize->add_control( astra_get_prop( $config, 'name' ), $config );
 			}
-
 		}
 
 		/**
@@ -737,13 +761,20 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'choices'         => self::get_choices(),
 					'js_configs'      => self::get_js_configs(),
 					'tabbed_sections' => self::get_tabbed_sections(),
+					'is_site_rtl'     => is_rtl(),
 				)
 			);
+
+			if ( is_rtl() ) {
+				$builder_customizer_css_file = 'ast-builder-customizer-rtl';
+			} else {
+				$builder_customizer_css_file = 'ast-builder-customizer';
+			}
 
 			// Enqueue Builder CSS.
 			wp_enqueue_style(
 				'ahfb-customizer-style',
-				ASTRA_THEME_URI . 'inc/assets/css/ast-builder-customizer.css',
+				ASTRA_THEME_URI . 'inc/assets/css/' . $builder_customizer_css_file . '.css',
 				array( 'wp-components' ),
 				ASTRA_THEME_VERSION
 			);
@@ -808,13 +839,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 		}
 
-
-
-
-
-
-
-
 		/**
 		 * Include Customizer Configuration files.
 		 *
@@ -852,8 +876,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
-
-
 
 		/**
 		 * Register custom section and panel.

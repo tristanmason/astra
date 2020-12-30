@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_total_display = astra_get_option( 'woo-header-cart-total-display' );
 			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
 			$cart_title_display = astra_get_option( 'woo-header-cart-title-display' );
-			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra-addon' ) );
+			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 
 			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
 			$cart_total_markup = '';
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function header_cart_icon_class( $classes ) {
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
-				return;
+				return $classes;
 			}
 
 			$header_cart_icon_style = astra_get_option( 'woo-header-cart-icon-style' );

@@ -32,7 +32,7 @@ class Astra_Html_Component_Dynamic_CSS {
 	public static function astra_html_dynamic_css( $builder_type = 'header' ) {
 
 		$generated_css = '';
-		
+
 		$number_of_html = ( 'header' === $builder_type ) ? Astra_Builder_Helper::$num_of_header_html : Astra_Builder_Helper::$num_of_footer_html;
 
 		for ( $index = 1; $index <= $number_of_html; $index++ ) {

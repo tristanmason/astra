@@ -53,8 +53,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$this->remove_existing_actions();
 
-				add_action( 'astra_header', array( $this, 'prepare_header_builder_markup' ) );
-
 				add_action( 'body_class', array( $this, 'add_body_class' ) );
 
 				// Header Desktop Builder.
@@ -106,15 +104,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					self::$methods[] = 'header_social_' . $index;
 				}
 
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
-					add_action( 'astra_header_divider_' . $index, array( $this, 'header_divider_' . $index ) );
-					self::$methods[] = 'header_divider_' . $index;
-				}
-
 				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );
 				add_action( 'astra_header_woo_cart', array( $this, 'header_woo_cart' ) );
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
+				add_action( 'astra_header_account', array( $this, 'header_account' ) );
 
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
 
@@ -151,16 +145,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					if ( $index ) {
 						Astra_Builder_UI_Controller::render_social_icon( $index, 'header' );
 					}
-				} elseif ( 0 === strpos( $func, 'header_divider_' ) ) {
-					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
-					if ( $index ) {
-						Astra_Builder_UI_Controller::render_divider_markup( str_replace( '_', '-', $func ) );
-					}
-				}           
+				}
 			}
 		}
-
-
 
 		/**
 		 * Inherit Header base layout.
@@ -171,44 +158,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			do_action( 'astra_header' );
 		}
 
-
-		/**
-		 * Inherit Header base layout.
-		 */
-		public function prepare_header_builder_markup() {
-
-			// Before header markup.
-			do_action( 'astra_header_markup_before' );
-			?>
-			<header
-				<?php
-				echo astra_attr(
-					'header',
-					array(
-						'id'    => 'masthead',
-						'class' => join( ' ', astra_get_header_classes() ),
-					)
-				);
-				?>
-			>
-				<?php 
-				astra_masthead_top();
-
-				astra_masthead();
-
-				astra_masthead_bottom();
-				
-				do_action( 'astra_sticky_header_markup' );
-				do_action( 'astra_bottom_header_after_markup' ); 
-				?>
-			</header><!-- #masthead -->
-
-			<?php
-
-			// After header markup.
-			do_action( 'astra_header_markup_after' );
-		}
-
 		/**
 		 * Remove existing Header to load Header Builder.
 		 *
@@ -217,8 +166,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function remove_existing_actions() {
 			remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
-			remove_action( 'astra_header', 'astra_header_markup' );
-
 			remove_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
 			remove_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
@@ -249,6 +196,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 				echo Astra_Edd::get_instance()->edd_mini_cart_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
+		}
+
+		/**
+		 * Render account icon.
+		 */
+		public function header_account() {
+			Astra_Builder_UI_Controller::render_account();
 		}
 
 		/**
@@ -460,7 +414,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function header_mobile_menu_markup() {
 			Astra_Mobile_Menu_Component::menu_markup();
 		}
-		
+
 		/**
 		 * Defines all constants
 		 *

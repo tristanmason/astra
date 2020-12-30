@@ -369,7 +369,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'operator' => '>=',
 							'value'    => 1,
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 				),
 
@@ -792,33 +792,63 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'title'     => __( 'Background Color', 'astra' ),
 					),
 
-					/**
-					 * Option: Transparent Header Builder - Divider Elements configs.
-					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-divider-colors-group]',
-						'default'   => '',
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'default'   => astra_get_option( 'transparent-account-colors' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Divider', 'astra' ),
+						'title'     => __( 'Account', 'astra' ),
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 65,
-						'context'   => Astra_Builder_Helper::$design_tab,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '==',
+									'value'    => 'icon',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+									'operator' => '==',
+									'value'    => 'text',
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+									'operator' => '!=',
+									'value'    => 'none',
+								),
+							),
+						),
 					),
 
-					// Option: Search Color.
 					array(
-						'name'      => 'transparent-header-divider-color',
+						'name'      => 'transparent-account-icon-color',
 						'default'   => '',
-						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-divider-colors-group]',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
 						'type'      => 'sub-control',
 						'control'   => 'ast-color',
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 5,
-						'title'     => __( 'Color', 'astra' ),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'title'     => __( 'Icon Color', 'astra' ),
+						'context'   => Astra_Builder_Helper::$design_tab_config,
+					),
+
+					array(
+						'name'      => 'transparent-account-type-text-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-account-colors]',
+						'type'      => 'sub-control',
+						'section'   => $_section,
+						'priority'  => 6,
+						'transport' => 'postMessage',
+						'control'   => 'ast-color',
+						'section'   => 'section-transparent-header',
+						'title'     => __( 'Text Color', 'astra' ),
+						'context'   => Astra_Builder_Helper::$design_tab_config,
 					),
 				);
 
@@ -842,6 +872,170 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				);
 
 				$_configs = array_merge( $_configs, $_old_content_configs );
+			}
+
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
+
+				$pro_elements_transparent_config = array(
+					/**
+					 * Option: Transparent Header Builder - Divider Elements configs.
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-divider-colors-group]',
+						'default'   => '',
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Divider', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 64,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Search Color.
+					array(
+						'name'      => 'transparent-header-divider-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-divider-colors-group]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 5,
+						'title'     => __( 'Color', 'astra' ),
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'default'   => astra_get_option( 'transparent-account-menu-colors' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Account Menu', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 66,
+						'context'   => array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+								'operator' => '==',
+								'value'    => 'menu',
+							),
+						),
+					),
+
+					// Option: Menu Color.
+					array(
+						'name'       => 'transparent-account-menu-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Normal', 'astra' ),
+						'section'    => 'section-transparent-header',
+						'title'      => __( 'Link / Text Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 7,
+						'context'    => array(
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+								'operator' => '==',
+								'value'    => 'menu',
+							),
+							Astra_Builder_Helper::$design_tab,
+						),
+					),
+
+					// Option: Background Color.
+					array(
+						'name'       => 'transparent-account-menu-bg-obj-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'section'    => 'section-transparent-header',
+						'title'      => __( 'Background Color', 'astra' ),
+						'tab'        => __( 'Normal', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 8,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Menu Hover Color.
+					array(
+						'name'       => 'transparent-account-menu-h-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'tab'        => __( 'Hover', 'astra' ),
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'title'      => __( 'Link Color', 'astra' ),
+						'section'    => 'section-transparent-header',
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 19,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Menu Hover Background Color.
+					array(
+						'name'       => 'transparent-account-menu-h-bg-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'title'      => __( 'Background Color', 'astra' ),
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Hover', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 21,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Active Menu Color.
+					array(
+						'name'       => 'transparent-account-menu-a-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'section'    => 'section-transparent-header',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'tab'        => __( 'Active', 'astra' ),
+						'title'      => __( 'Link Color', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 31,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+
+					// Option: Active Menu Background Color.
+					array(
+						'name'       => 'transparent-account-menu-a-bg-color-responsive',
+						'default'    => '',
+						'parent'     => ASTRA_THEME_SETTINGS . '[transparent-account-menu-colors]',
+						'type'       => 'sub-control',
+						'control'    => 'ast-responsive-color',
+						'transport'  => 'postMessage',
+						'section'    => 'section-transparent-header',
+						'title'      => __( 'Background Color', 'astra' ),
+						'tab'        => __( 'Active', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+						'priority'   => 33,
+						'context'    => Astra_Builder_Helper::$design_tab,
+					),
+				);
+
+				$_configs = array_merge( $_configs, $pro_elements_transparent_config );
 			}
 
 			return array_merge( $configurations, $_configs );

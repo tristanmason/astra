@@ -3,6 +3,10 @@ v3.0.0-beta.2
 - New: Divider Element - Horizontal & Vertical Divider for both Header and Footer
 - New: WooCommerce Cart and EDD Cart Element for Header
 - New: Added new Mobile Menu element.
+- Improvement: Load CSS only when their respective options are enabled - Frontend optimization.
+- Improvement: Remove .wp-smiley CSS - Frontend optimization.
+- Improvement: Remove unused extra CSS from main CSS file - Frontend optimization.
+- Improvement: Replace flex related CSS with the predefined CSS classes present in theme - Frontend optimization.
 - Improvement: Faster Customizer experience with respect to Design/General Tab change.
 - Improvement: Ability to add any number Elements in Header and Footer using a filter from child theme.
 - Improvement: Loaded animation CSS only when needed.
