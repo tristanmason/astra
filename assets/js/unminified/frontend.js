@@ -193,24 +193,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	}
 
-	if ( undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
-
-		mobileHeaderType = mobileHeader.dataset.type;
-
-		// Mobile Header Cart Flyout.
-		var woo_cart = mobileHeader.querySelector( '.ast-header-woo-cart' );
-		var edd_cart = mobileHeader.querySelector( '.ast-header-edd-cart' );
-		var cart_close = document.querySelector( '.astra-cart-drawer-close' );
-
-		woo_cart.addEventListener("click", cartFlyoutOpen, false);
-		edd_cart.addEventListener("click", cartFlyoutOpen, false);
-		woo_cart.cart_type = 'woocommerce';
-		edd_cart.cart_type = 'edd';
-
-		cart_close.addEventListener("click", cartFlyoutClose, false);
-
-	}
-
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
 	
 	/**
@@ -425,6 +407,31 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
+
+		if ( undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
+
+			mobileHeaderType = mobileHeader.dataset.type;
+	
+			// Mobile Header Cart Flyout.
+			var woo_cart = mobileHeader.querySelector( '.ast-header-woo-cart' );
+			var edd_cart = mobileHeader.querySelector( '.ast-header-edd-cart' );
+			var cart_close = document.querySelector( '.astra-cart-drawer-close' );
+	
+			if ( undefined !== woo_cart && '' !== woo_cart && null !== woo_cart ) {
+	
+				woo_cart.addEventListener("click", cartFlyoutOpen, false);
+				woo_cart.cart_type = 'woocommerce';
+			}
+			if ( undefined !== edd_cart && '' !== edd_cart && null !== edd_cart ) {
+	
+				edd_cart.addEventListener("click", cartFlyoutOpen, false);
+				edd_cart.cart_type = 'edd';
+			}
+			if ( undefined !== cart_close && '' !== cart_close && null !== cart_close ) {
+	
+				cart_close.addEventListener("click", cartFlyoutClose, false);
+			}
+		}
 		
 	}
 

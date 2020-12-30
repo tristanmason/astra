@@ -444,6 +444,10 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$view_shopping_cart = apply_filters( 'astra_edd_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 			$edd_cart_link      = apply_filters( 'astra_edd_cart_link', edd_get_checkout_uri() );
+
+			if ( is_customize_preview() ) {
+				$edd_cart_link = '#';
+			}
 			?>
 			<a class="ast-edd-cart-container" href="<?php echo esc_url( $edd_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 
