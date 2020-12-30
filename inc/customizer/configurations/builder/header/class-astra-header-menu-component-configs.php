@@ -35,7 +35,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$html_config = array();
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
+			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 				$_section = 'section-hb-menu-' . $index;
 				$_prefix  = 'menu' . $index;
@@ -68,11 +68,13 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 					// Section: Primary Header.
 					array(
-						'name'     => $_section,
-						'type'     => 'section',
-						'title'    => $edit_menu_title,
-						'panel'    => 'panel-header-builder-group',
-						'priority' => 40,
+						'name'        => $_section,
+						'type'        => 'section',
+						'title'       => $edit_menu_title,
+						'panel'       => 'panel-header-builder-group',
+						'priority'    => 40,
+						'clone_index' => $index,
+						'clone_type'  => 'header-menu',
 					),
 
 					/**

@@ -307,7 +307,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults = prepare_social_icon_defaults( $defaults, $index );
 	}
 
-	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
+	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 		$_prefix = 'menu' . $index;
 
 		// Specify all the default values for Menu from here.
