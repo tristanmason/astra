@@ -2505,6 +2505,10 @@ body .entry-content .wp-block-latest-posts li {
   padding-left: 0;
 }
 
+.site-header-section.ast-flex {
+  flex-wrap: nowrap;
+}
+
 .site-header-section .ast-builder-menu {
   align-items: center;
 }
