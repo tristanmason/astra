@@ -178,6 +178,21 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'description' => '',
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: WOO cart tray Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-tray-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'   => $_section,
+					'title'    => __( 'Cart Tray', 'astra' ),
+					'priority' => 60,
+					'settings' => array(),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
 				// Cart general colors.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-woo-cart-colors]',

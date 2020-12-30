@@ -1548,7 +1548,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['primary-edd-cart-link-color']       = '';
 	$defaults['primary-edd-cart-background-color'] = '';
 	$defaults['primary-edd-cart-separator-color']  = '';
-	$defaults['primary-edd-cart-link-hover-color'] = '';
 
 	// Cart tray > Checkout Button styles.
 	$defaults['primary-edd-checkout-btn-text-color']       = '';

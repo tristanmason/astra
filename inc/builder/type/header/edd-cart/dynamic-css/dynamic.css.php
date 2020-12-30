@@ -53,7 +53,6 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_link_color            = astra_get_option( 'primary-edd-cart-link-color', $link_color );
 	$cart_bg_color              = astra_get_option( 'primary-edd-cart-background-color' );
 	$cart_separator_color       = astra_get_option( 'primary-edd-cart-separator-color' );
-	$cart_h_link_color          = astra_get_option( 'primary-edd-cart-link-hover-color', $link_color );
 
 	$checkout_button_text_color   = astra_get_option( 'primary-edd-checkout-btn-text-color', $btn_color );
 	$checkout_button_bg_color     = astra_get_option( 'primary-edd-checkout-btn-background-color', $btn_bg_color );
@@ -84,11 +83,12 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .widget_edd_cart_widget a, ' . $selector . ' .widget_edd_cart_widget a.edd-remove-from-cart, ' . $selector . ' .widget_edd_cart_widget .cart-total' => array(
 			'color' => esc_attr( $cart_link_color ),
 		),
+		$selector . ' .widget_edd_cart_widget a.edd-remove-from-cart:after' => array(
+			'color' => esc_attr( $cart_link_color ),
+			'border-color' => esc_attr( $cart_link_color ),
+		),
 		$selector . ' .widget_edd_cart_widget span, ' . $selector . ' .widget_edd_cart_widget strong, ' . $selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color ),
-		),
-		$selector . ' .widget_edd_cart_widget a:hover' => array(
-			'color' => esc_attr( $cart_h_link_color ),
 		),
 		$selector . ' .widget_edd_cart_widget' => array(
 			'background-color' => esc_attr( $cart_bg_color ),
@@ -97,8 +97,8 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .widget_edd_cart_widget:before, ' . $selector . ' .widget_edd_cart_widget:after' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color ),
 		),
-		$selector . ' .widget_edd_cart_widget a.edd-remove-from-cart:hover, ' . $selector . ' .widget_edd_cart_widget a:hover' => array(
-			'color' => esc_attr( $cart_h_link_color ),
+		$selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $selector . ' .widget_edd_cart_widget .edd-cart-meta, ' . $selector . ' .widget_edd_cart_widget .edd-cart-number-of-items' => array(
+			'border-bottom-color' => esc_attr( $cart_separator_color ),
 		),
 
 		/**

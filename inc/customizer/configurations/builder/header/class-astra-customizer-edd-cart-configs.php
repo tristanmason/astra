@@ -174,6 +174,21 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'description' => '',
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: EDD cart tray Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-edd-cart-tray-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'   => $_section,
+					'title'    => __( 'Cart Tray', 'astra' ),
+					'priority' => 60,
+					'settings' => array(),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
 				// Cart general colors.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-edd-cart-colors]',
@@ -194,7 +209,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'parent'     => ASTRA_THEME_SETTINGS . '[primary-edd-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
 					'name'       => 'primary-edd-cart-text-color',
 					'default'    => astra_get_option( 'primary-edd-cart-text-color' ),
 					'title'      => __( 'Text Color', 'astra' ),
@@ -211,7 +225,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'parent'     => ASTRA_THEME_SETTINGS . '[primary-edd-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
 					'name'       => 'primary-edd-cart-link-color',
 					'default'    => astra_get_option( 'primary-edd-cart-link-color' ),
 					'title'      => __( 'Link Color', 'astra' ),
@@ -228,7 +241,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'section'    => $_section,
 					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
 					'name'       => 'primary-edd-cart-background-color',
 					'default'    => astra_get_option( 'primary-edd-cart-background-color' ),
 					'title'      => __( 'Background Color', 'astra' ),
@@ -245,27 +257,9 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'section'    => $_section,
 					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
 					'name'       => 'primary-edd-cart-separator-color',
 					'default'    => astra_get_option( 'primary-edd-cart-separator-color' ),
 					'title'      => __( 'Separator Color', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
-					'priority'   => 65,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
-				// Option: Cart Link Color.
-				array(
-					'type'       => 'sub-control',
-					'control'    => 'ast-color',
-					'tab'        => __( 'Hover', 'astra' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[primary-edd-cart-colors]',
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'name'       => 'primary-edd-cart-link-hover-color',
-					'default'    => astra_get_option( 'primary-edd-cart-link-hover-color' ),
-					'title'      => __( 'Link Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,
