@@ -97,7 +97,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .widget_edd_cart_widget:before, ' . $selector . ' .widget_edd_cart_widget:after' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color ),
 		),
-		$selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $selector . ' .widget_edd_cart_widget .edd-cart-meta, ' . $selector . ' .widget_edd_cart_widget .edd-cart-number-of-items' => array(
+		$selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $selector . ' .widget_edd_cart_widget .edd-cart-meta' => array(
 			'border-bottom-color' => esc_attr( $cart_separator_color ),
 		),
 
