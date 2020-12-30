@@ -188,14 +188,7 @@
     align-self: center;
     vertical-align: middle;
 }
-.ast-header-account-link {
-	pointer-events: none;
-}
-.ast-header-account-link.ast-account-action-link,
-.ast-header-break-point .ast-header-account-link {
-	cursor: pointer;
-	pointer-events: all;
-}
+
 .ast-header-account-type-avatar {
 	.avatar {
 		display: inline;
