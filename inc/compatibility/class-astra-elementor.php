@@ -88,9 +88,6 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
 
 				$elementor_base_css = array(
-					'.elementor-image-gallery .gallery-icon, .elementor-image-gallery .gallery-icon' => array(
-						'border' => 'none',
-					),
 					'.elementor-post.elementor-grid-item.hentry' => array(
 						'margin-bottom' => '0',
 					),
