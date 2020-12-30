@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since x.x.x
+ * @since 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Initialization
  *
- * @since x.x.x
+ * @since 3.0.0
  */
 class Astra_Header_Account_Component_Loader {
 
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 */
 	public function __construct() {
 
@@ -33,7 +33,7 @@ class Astra_Header_Account_Component_Loader {
 	/**
 	 * Customizer Preview
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 */
 	public function preview_scripts() {
 		/**

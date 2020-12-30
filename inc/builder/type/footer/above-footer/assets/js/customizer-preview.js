@@ -92,7 +92,7 @@
 			var dynamicStyle = '';
 
 			if ( 'content' == layout ) {
-				dynamicStyle = selector + ' .site-container {';
+				dynamicStyle = selector + ' .ast-builder-grid-row {';
 				dynamicStyle += 'max-width: ' + AstraBuilderPrimaryFooterData.footer_content_width + 'px;';
 				dynamicStyle += 'margin-left: auto;';
 				dynamicStyle += 'margin-right: auto;';
@@ -100,7 +100,7 @@
 			}
 
 			if ( 'full' == layout ) {
-				dynamicStyle = selector + ' .site-container {';
+				dynamicStyle = selector + ' .ast-builder-grid-row {';
 					dynamicStyle += 'max-width: 100%;';
 					dynamicStyle += 'padding-right: 35px; padding-left: 35px;';
 				dynamicStyle += '} ';
