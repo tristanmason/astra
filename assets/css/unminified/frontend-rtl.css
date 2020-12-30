@@ -1634,6 +1634,7 @@ body {
   margin: 0;
   padding-right: 0;
   position: relative;
+  height: 100%;
 }
 
 .main-header-menu .menu-link,
