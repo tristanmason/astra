@@ -78,13 +78,13 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/**
 		 * General Woo Cart tray color for widget
 		 */
-		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a' => array(
+		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a:not(.button)' => array(
 			'color' => esc_attr( $cart_link_color ),
 		),
-		'.ast-site-header-cart-data span, .ast-site-header-cart-data strong, .ast-site-header-cart-data .woocommerce-mini-cart__empty-message, .ast-site-header-cart-data .total .woocommerce-Price-amount, .ast-site-header-cart-data .total .woocommerce-Price-amount .woocommerce-Price-currencySymbol, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove' => array(
+		'.ast-site-header-cart-data span, .ast-site-header-cart-data strong, .ast-site-header-cart-data .woocommerce-mini-cart__empty-message, .ast-site-header-cart-data .total .woocommerce-Price-amount, .ast-site-header-cart-data .total .woocommerce-Price-amount .woocommerce-Price-currencySymbol, .ast-header-woo-cart .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove' => array(
 			'color' => esc_attr( $cart_text_color ),
 		),
-		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a:hover' => array(
+		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color ),
 		),
 		'#ast-site-header-cart .widget_shopping_cart' => array(
@@ -113,11 +113,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/**
 		 * Cart button color for widget
 		 */
-		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a.button.wc-forward' => array(
+		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a.button.wc-forward:not(.checkout)' => array(
 			'color'            => esc_attr( $cart_button_text_color ),
 			'background-color' => esc_attr( $cart_button_bg_color ),
 		),
-		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a.button.wc-forward:hover' => array(
+		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a.button.wc-forward:not(.checkout):hover' => array(
 			'color'            => esc_attr( $cart_button_text_h_color ),
 			'background-color' => esc_attr( $cart_button_bg_h_color ),
 		),
