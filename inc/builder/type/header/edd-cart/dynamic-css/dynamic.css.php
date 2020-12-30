@@ -42,15 +42,15 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	 */
 	$css_output_desktop = array(
 
-		$selector . ' .ast-edd-cart-menu-wrap .count' => array(
+		$selector . ' .ast-edd-cart-menu-wrap .count, ' . $selector . ' .ast-edd-cart-menu-wrap .count:after' => array(
 			'color'        => $theme_color,
 			'border-color' => $theme_color,
 		),
-		$selector . ' .ast-edd-cart-menu-wrap .count:after' => array(
-			'color'        => $theme_color,
-			'border-color' => $theme_color,
+		$selector . ' .ast-edd-cart-menu-wrap:hover .count' => array(
+			'color'            => esc_attr( $cart_h_color ),
+			'background-color' => esc_attr( $theme_color ),
 		),
-		$selector . ' .ast-icon-shopping-cart'        => array(
+		$selector . ' .ast-icon-shopping-cart' => array(
 			'color' => $theme_color,
 		),
 	);
@@ -58,7 +58,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * Header Cart color
 	 */
-	if ( 'none' != $header_cart_icon_style ) {
+	if ( 'none' !== $header_cart_icon_style ) {
 
 		/**
 		 * Header Cart Icon colors
@@ -83,7 +83,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'color'        => esc_attr( $header_cart_icon_color ),
 			),
 			// Outline icon hover colors.
-			'.ast-edd-cart-menu-wrap:hover .count'        => array(
+			$selector . ' .ast-edd-cart-menu-wrap:hover .count'        => array(
 				'color'            => esc_attr( $cart_h_color ),
 				'background-color' => esc_attr( $header_cart_icon_color ),
 			),
