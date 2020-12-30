@@ -1462,20 +1462,6 @@ body {
   margin: 4em 0;
 }
 
-#secondary {
-  margin: 4em 0 2.5em;
-  word-break: break-word;
-  line-height: 2;
-}
-
-#secondary li {
-  margin-bottom: 0.25em;
-}
-
-#secondary li:last-child {
-  margin-bottom: 0;
-}
-
 .ast-separate-container {
   background-color: #f5f5f5;
 }
@@ -1561,14 +1547,6 @@ body {
   margin-bottom: 0;
 }
 
-.ast-page-builder-template.ast-left-sidebar #secondary {
-  padding-left: 20px;
-}
-
-.ast-page-builder-template.ast-right-sidebar #secondary {
-  padding-right: 20px;
-}
-
 .ast-page-builder-template.single .post-navigation {
   padding-bottom: 2em;
 }
@@ -1591,14 +1569,8 @@ body {
   .ast-right-sidebar #primary {
     padding-right: 60px;
   }
-  .ast-right-sidebar #secondary {
-    padding-left: 60px;
-  }
   .ast-left-sidebar #primary {
     padding-left: 60px;
-  }
-  .ast-left-sidebar #secondary {
-    padding-right: 60px;
   }
 }
 
@@ -1612,14 +1584,8 @@ body {
   .ast-right-sidebar #primary {
     padding-right: 30px;
   }
-  .ast-right-sidebar #secondary {
-    padding-left: 30px;
-  }
   .ast-left-sidebar #primary {
     padding-left: 30px;
-  }
-  .ast-left-sidebar #secondary {
-    padding-right: 30px;
   }
 }
 
@@ -2397,12 +2363,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .widget_calendar #today {
   background: #0274be;
-}
-
-.ast-separate-container.ast-two-container #secondary .widget {
-  background-color: #fff;
-  padding: 2em;
-  margin-bottom: 2em;
 }
 
 /*----------  Builder  ----------*/
@@ -4679,12 +4639,6 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 768px) {
   .js_active .ast-plain-container.ast-single-post .entry-header {
-    margin-top: 1.5em;
-  }
-}
-
-@media (max-width: 768px) {
-  .js_active .ast-plain-container.ast-single-post #secondary {
     margin-top: 1.5em;
   }
 }
