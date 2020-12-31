@@ -555,23 +555,28 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 		);
 
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section,
-		array(
-			Astra_Builder_Helper::$design_tab_config,
-			array(
-				'relation' => 'OR',
+		$_configs = array_merge(
+			$_configs,
+			Astra_Builder_Base_Configuration::prepare_typography_options(
+				$_section,
 				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-					'operator' => '==',
-					'value'    => 'text',
-				),
-				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-					'operator' => '==',
-					'value'    => 'text',
-				),
-			),
-		) ) );
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+					),
+				) 
+			) 
+		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 

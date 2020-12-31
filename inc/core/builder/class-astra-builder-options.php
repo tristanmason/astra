@@ -1560,7 +1560,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'link_rel' => '',
 	);
 
-	$defaults['header-account-type-text-font-size'] = array(
+	$defaults['font-size-section-header-account'] = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
