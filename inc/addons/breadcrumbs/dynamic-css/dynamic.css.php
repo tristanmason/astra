@@ -57,11 +57,11 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'',
 		''
 	);
-
+	
 	if ( 'none' === $breadcrumb_position ) {
 		return $dynamic_css;
 	}
-	
+
 	/**
 	 * Set CSS Params
 	 */

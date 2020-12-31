@@ -1860,21 +1860,3 @@ button.components-button.ahfb-sorter-item-expand {
         font-size: 7px;
     }
 }
-
-/**
- * Adding new UI CSS for launching new HF Builder as requirement for test drive marketing.
- */
-#accordion-panel-panel-header-builder-group h3 .ahfb-highlight, #accordion-panel-panel-footer-builder-group h3 .ahfb-highlight {
-    color: #fff;
-    background: linear-gradient(90deg, rgba(73,44,221,1) 0%, rgba(173,56,226,1) 100%);
-    font-size: 0.7em;
-    font-weight: 600;
-    position: relative;
-    padding: 0.3em 0.6em 0.4em;
-    top: -2px;
-    left: 5px;
-    letter-spacing: 0.5px;
-    line-height: 1em;
-    text-transform: uppercase;
-    border-radius: 2px;
-}

@@ -39,27 +39,7 @@ final class Astra_Builder_Admin {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_ast-migrate-to-builder', array( $this, 'migrate_to_builder' ) );
-		add_action( 'astra_welcome_page_content', array( $this, 'announcement_astra_hf_builder' ), 1 );
 		add_action( 'astra_welcome_page_content', array( $this, 'migrate_to_builder_box' ), 5 );
-	}
-
-	/**
-	 * Added postbox to announce & added quick video for Astra HF Builder.
-	 *
-	 * @since 3.0.0
-	 * @return void
-	 */
-	public function announcement_astra_hf_builder() {
-		?>
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Getting Started with Header Footer Builder', 'astra' ); ?></span></h2>
-					<div class="ast-quick-setting-section">
-						<div class="iframe-wrap">
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/l_Y5ZlxPeZU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <?php // phpcs:ignore WPThemeReview.ThouShallNotUse.ForbiddenIframe.Found ?>
-						</div>
-					</div>
-			</div>
-		<?php
 	}
 
 	/**
