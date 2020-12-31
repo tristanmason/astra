@@ -4,42 +4,92 @@ import {Dashicon} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 const ResponsiveColorComponent = props => {
+	var dbvalue= props.control.setting.get();
+	var temp_dbval = Object.assign({},dbvalue);
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
-
+	let value
+	if(temp_dbval.desktop && temp_dbval.desktop.includes("palette")){
+		var regex = /\d+/g;
+		var string = temp_dbval.desktop;
+		var matches = string.match(regex);
+		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
+		temp_dbval.desktop = updated_palette[updated_palette.patterntype][matches]
+		value = temp_dbval
+	}else{		
+		 value = props.control.setting.get();
+	}
+	
+	
+	const [props_value, setPropsValue] = useState(value);
 
 	const updateValues = ( value, key ) => {
-		const obj = {
+		
+		let obj = {
 			...props_value
 		};
-		obj[key] = value;
-		props.control.setting.set(obj);
-		setPropsValue(obj);
-	};
-
-	const updatePaletteState = (e) =>{
+		
 	
-		if(e.detail.radiochange == "true"){			
-			var current_color;		
-			if(props.control.params.label == "Text Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][0]
-			}else if(props.control.params.label == "Theme Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][1]
-			}else if(props.control.params.label == "Link Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][2]
-			}else if(props.control.params.label == "Link Hover Color"){
-				current_color = e.detail.palette[e.detail.palette.patterntype][3]
+		if(key == "desktop"){
+		
+			if(props.control.container[0].getAttribute('paleteindex')){	
+				obj[key] = 'var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')';
+				
+			}else{
+				obj[key] = value;
 			}
 		}else{
 
-			if( props_value.value != e.detail.prevcolor ){
-					return
+			obj[key] = value;
+			
+		}
+
+
+		setPropsValue(obj);
+		props.control.setting.set(obj);
+	};
+
+	const updatepaletteuse = (value,index,defaultset) =>{
+		
+		props.control.container[0].setAttribute('paleteused', value);
+		props.control.container[0].setAttribute('paleteindex', index);		
+		props.control.container[0].setAttribute('defaultset', defaultset);		
+
+	}
+
+	const updatePaletteState = (e) =>{
+	
+		if( e.detail.radiochange == "true" ){			
+			var current_color;		
+
+			switch(props.control.params.label) {
+				case "Text Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][0]
+				break;
+				case "Theme Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][1]
+				break;
+				case "Link Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][2]
+				break;
+				case "Link Hover Color":
+					current_color = e.detail.palette[e.detail.palette.patterntype][3]
+				break;
+				case "Heading Color ( H1 - H6 )":
+					current_color = e.detail.palette[e.detail.palette.patterntype][4]
+
+				break;
+				default:
+					current_color = '';
+			}			
+			
+		}else{
+
+			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background Color") && (props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index )  && (props_value.desktop == e.detail.prevcolor)){
+				var current_color = e.detail.newcolor;	
+			}else{
+				return
 			}
 			
-			if( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" ){
-				var current_color = e.detail.newcolor;		
-	
-			}
 		}
 		updateValues(current_color,"desktop")
 	}
@@ -88,10 +138,14 @@ const ResponsiveColorComponent = props => {
 	};
 
 	const renderSettings = ( key ) => {
+	
 		return <AstraColorPickerControl
-			color={undefined !== props_value[key] && props_value[key] ? props_value[key] : ''}
+			color={undefined !== value[key] && value[key] ? value[key] : ''}
 			onChangeComplete={(color, backgroundType) => handleChangeComplete(color, key)} backgroundType={'color'}
-			allowGradient={false} allowImage={false}/>;
+			allowGradient={false} allowImage={false}
+			defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
+			isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''} 
+			container ={props.control.container[0]}/>;
 	};
 
 	const handleChangeComplete = ( color, key ) => {

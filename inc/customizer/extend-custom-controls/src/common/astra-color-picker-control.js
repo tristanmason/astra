@@ -155,21 +155,25 @@ class AstraColorPickerControl extends Component {
 		})
 		
 		if( this.props.container ){	
-			if(this.props.color == finalpaletteColors[0]['color']){
-				this.props.container.setAttribute('paleteindex', '0');
-				this.props.container.setAttribute('paleteused', 'true');				
-			}else if(this.props.color == finalpaletteColors[1]['color']){
-				this.props.container.setAttribute('paleteindex', '1');
-				this.props.container.setAttribute('paleteused', 'true');				
-			}else if(this.props.color == finalpaletteColors[2]['color']){
-				this.props.container.setAttribute('paleteindex', '2');
-				this.props.container.setAttribute('paleteused', 'true');				
-			}else if(this.props.color == finalpaletteColors[3]['color']){
-				this.props.container.setAttribute('paleteindex', '3');
-				this.props.container.setAttribute('paleteused', 'true');			
-			}else if(this.props.color == finalpaletteColors[4]['color']){
-				this.props.container.setAttribute('paleteindex', '4');
-				this.props.container.setAttribute('paleteused', 'true');			
+			if( this.props.container.getAttribute('defaultset') == null){
+				this.props.container.setAttribute('defaultset', 'yes');
+				
+				if(this.props.color == finalpaletteColors[0]['color']){
+					this.props.container.setAttribute('paleteindex', '0');
+					this.props.container.setAttribute('paleteused', 'true');
+				}else if(this.props.color == finalpaletteColors[1]['color']){
+					this.props.container.setAttribute('paleteindex', '1');
+					this.props.container.setAttribute('paleteused', 'true');				
+				}else if(this.props.color == finalpaletteColors[2]['color']){
+					this.props.container.setAttribute('paleteindex', '2');
+					this.props.container.setAttribute('paleteused', 'true');				
+				}else if(this.props.color == finalpaletteColors[3]['color']){
+					this.props.container.setAttribute('paleteindex', '3');
+					this.props.container.setAttribute('paleteused', 'true');			
+				}else if(this.props.color == finalpaletteColors[4]['color']){
+					this.props.container.setAttribute('paleteindex', '4');
+					this.props.container.setAttribute('paleteused', 'true');			
+				}
 			}
 		}
 
@@ -310,7 +314,7 @@ class AstraColorPickerControl extends Component {
 
 	onChangeComplete( color ) {
 		if( this.props.isPaletteUsed){
-			this.props.isPaletteUsed(false,'');
+			this.props.isPaletteUsed(false,'','no');
 		}
 
 		let newColor;
@@ -327,7 +331,7 @@ class AstraColorPickerControl extends Component {
 	onPaletteChangeComplete( color,index ) {
 		
 		if( this.props.isPaletteUsed ){
-			this.props.isPaletteUsed(true,index);			
+			this.props.isPaletteUsed(true,index,'no');			
 		}
 		this.setState( { color: color } );
 		if ( this.state.refresh === true ) {

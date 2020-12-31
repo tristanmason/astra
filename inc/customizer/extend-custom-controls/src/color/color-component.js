@@ -37,9 +37,11 @@ const ColorComponent = props => {
 		
 	};
 
-	const updatepaletteuse = (value,index) =>{
+	const updatepaletteuse = (value,index,defaultset) =>{		
 		props.control.container[0].setAttribute('paleteused', value);
-		props.control.container[0].setAttribute('paleteindex', index);		
+		props.control.container[0].setAttribute('paleteindex', index);	
+		props.control.container[0].setAttribute('defaultset', defaultset);		
+
 
 	}
 
@@ -150,7 +152,7 @@ const ColorComponent = props => {
 									 allowGradient={false}
 									 allowImage={false}
 									 defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
-									 isPaletteUsed={(value,index) => updatepaletteuse(value,index)}
+									 isPaletteUsed={(value,index,defaultset) => updatepaletteuse(value,index,defaultset)}
 									 container ={props.control.container[0]}
 									 />
 									 

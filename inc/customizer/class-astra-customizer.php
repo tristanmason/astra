@@ -1061,7 +1061,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-responsive-color',
 				array(
 					'callback'         => 'Astra_Control_Responsive_Color',
-					'santize_callback' => 'sanitize_responsive_color',
+					'santize_callback' => '',
 				)
 			);
 
