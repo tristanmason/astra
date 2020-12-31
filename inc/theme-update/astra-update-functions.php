@@ -391,7 +391,7 @@ function astra_gutenberg_core_blocks_design_compatibility() {
  */
 function astra_header_builder_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
-
+	error_log($theme_options['theme-auto-version']);
 	// Set flag to not load button specific CSS.
 	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
 		$theme_options['is-header-footer-builder'] = false;
