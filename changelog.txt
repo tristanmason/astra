@@ -1,3 +1,21 @@
+v3.0.0-beta.3
+- New: Account element added for Header Builder.
+- Improvement: Added customizer partial refresh support in a few options.
+- Improvement: Added Stack and Inline option for Footer.
+- Improvement: Builder - Menu - Added Submenu container width option.
+- Improvement: Builder - Menu - Added Submenu container radius option.
+- Improvement: Builder - Menu - Added Submenu container top offset.
+- Improvement: Builder - Menu - Added menu hover animation styles.
+- Improvement: Builder - Offcanvas - Added container alignment option.
+- Fix: RTL website issues in the customizer.
+- Fix: Fixed an issue with a black patch being shown while transitioning between show/hide click of the builder.
+- Fix: Removed extra localized variable declaration.
+- Fix: Fixed an issue in Header/Footer Builder, Socials element where the eye icon was misaligned.
+- Fix: Margin and Padding option for Header / Footer Elements not working with defaults issue fixed.
+- Fix: Sticky Header background color not working in some cases issue fixed.
+- Fix: Page Header - Display Below Header option not working issue fixed.
+- Fux: Builder - Social spacing option not accepting 0 as a value issue fixed.
+
 v3.0.0-beta.2
 - New: Visibility options - Now user can hide few options as per devices.
 - New: Divider Element - Horizontal & Vertical Divider for both Header and Footer
