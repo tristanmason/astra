@@ -471,7 +471,7 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 		$button_classes    = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
-		if( '' !== $custom_class ) {
+		if ( '' !== $custom_class ) {
 			$button_classes = $button_classes . ' ' . $custom_class;
 		}
 

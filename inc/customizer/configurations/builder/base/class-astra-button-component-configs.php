@@ -350,11 +350,11 @@ class Astra_Button_Component_Configs {
 					'name'     => ASTRA_THEME_SETTINGS . '[section-button-advanced-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'section'   => $_section,
+					'section'  => $_section,
 					'title'    => __( 'Advanced', 'astra' ),
 					'priority' => 230,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
