@@ -71,6 +71,9 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_desktop, 'px' ),
 		),
+		$selector . ' .ast-header-account-text' => array(
+			'color' => esc_attr( astra_get_option( 'header-account-type-text-color' ) ),
+		),
 		$margin_selector => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
