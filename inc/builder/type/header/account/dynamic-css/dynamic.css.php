@@ -3,7 +3,7 @@
  * Account - Dynamic CSS
  *
  * @package Astra
- * @since x.x.x
+ * @since 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +22,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_account_dynamic_css' );
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Account.
  *
- * @since x.x.x
+ * @since 3.0.0
  */
 function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
