@@ -1316,18 +1316,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				if ( self::gutenberg_button_patterns_compat() ) {
-					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link'] = array(
-						'border'        => 'none',
-						'background-color'    => esc_attr( $btn_bg_color ),
-						'color'               => esc_attr( $btn_text_color ),
-						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
-						'font-weight'         => esc_attr( $theme_btn_font_weight ),
-						'line-height'         => esc_attr( $theme_btn_line_height ),
-						'text-transform'      => esc_attr( $theme_btn_text_transform ),
-						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
-						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
-						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
-						'padding'         => '15px 30px',
+					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link']                  = array(
+						'border'           => 'none',
+						'background-color' => esc_attr( $btn_bg_color ),
+						'color'            => esc_attr( $btn_text_color ),
+						'font-family'      => astra_get_font_family( $theme_btn_font_family ),
+						'font-weight'      => esc_attr( $theme_btn_font_weight ),
+						'line-height'      => esc_attr( $theme_btn_line_height ),
+						'text-transform'   => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'font-size'        => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+						'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding'          => '15px 30px',
 					);
 					$global_button_page_builder_desktop['.wp-block-button.is-style-outline .wp-block-button__link'] = array(
 						'border-style'        => 'solid',
@@ -1344,9 +1344,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$global_button_page_builder_tablet = array(
 						'.wp-block-button .wp-block-button__link' => array(
-							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
-							'border'        => 'none',
-							'padding'    => '15px 30px',
+							'font-size' => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+							'border'    => 'none',
+							'padding'   => '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -1358,9 +1358,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$global_button_page_builder_mobile = array(
 						'.wp-block-button .wp-block-button__link' => array(
-							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
-							'border'        => 'none',
-							'padding'    => '15px 30px',
+							'font-size' => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+							'border'    => 'none',
+							'padding'   => '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -2542,7 +2542,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gutenberg_button_patterns_compat() {
-			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-button-pattern-compat-css'] = isset( $astra_settings['guntenberg-button-pattern-compat-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_patterns_compatibility', $astra_settings['guntenberg-button-pattern-compat-css'] );
 		}

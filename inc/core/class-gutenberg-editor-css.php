@@ -441,7 +441,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				// Added CSS compatibility support for Gutenberg pattern.
 				$button_patterns_compat_css = array(
 					'.wp-block-button .wp-block-button__link' => array(
-						'border'        => 'none',
+						'border'         => 'none',
 						'padding-top'    => '15px',
 						'padding-right'  => '30px',
 						'padding-bottom' => '15px',
@@ -454,10 +454,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
 						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
 						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
-						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
-						'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
-						'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
-						'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
+						'padding-top'         => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+						'padding-right'       => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+						'padding-bottom'      => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+						'padding-left'        => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
 					),
 					'.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
 						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
@@ -466,7 +466,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'color' => esc_attr( $btn_text_hover_color ) . ' !important',
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
-						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
+						'border-color' => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
 					),
 				);
 
@@ -475,8 +475,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				// Tablet CSS.
 				$button_patterns_tablet_compat_css = array(
 					'.wp-block-button .wp-block-button__link' => array(
-						'border'        => 'none',
-						'padding'    => '15px 30px',
+						'border'  => 'none',
+						'padding' => '15px 30px',
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -491,8 +491,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				// Mobile CSS.
 				$button_patterns_mobile_compat_css = array(
 					'.wp-block-button .wp-block-button__link' => array(
-						'border'        => 'none',
-						'padding'    => '15px 30px',
+						'border'  => 'none',
+						'padding' => '15px 30px',
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
