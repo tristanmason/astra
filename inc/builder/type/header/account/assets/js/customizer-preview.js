@@ -24,39 +24,11 @@
 		selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle, .ast-mobile-popup-content' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), .ast-mobile-popup-content ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
 	);
 
-	// Text size.
-	astra_responsive_font_size(
-		'astra-settings[header-account-type-text-font-size]',
-		selector + ' .ast-header-account-text'
-	);
-
-	// Typography.
-	astra_generate_outside_font_family_css(
-		'astra-settings[header-account-font-family]',
-		selector + ' .ast-header-account-text'
-	);
-	astra_generate_font_weight_css(
-		'astra-settings[header-account-font-family]',
-		'astra-settings[header-account-font-weight]',
-		'font-weight',
-		selector + ' .ast-header-account-text'
-	);
-	astra_css(
-		'astra-settings[header-account-text-transform]',
-		'text-transform',
-		selector + ' .ast-header-account-text'
-	);
-	astra_css(
-		'astra-settings[header-account-line-height]',
-		'line-height',
-		selector + ' .ast-header-account-text'
-	);
-	astra_css(
-		'astra-settings[header-account-letter-spacing]',
-		'letter-spacing',
-		selector + ' .ast-header-account-text',
-		'px'
-	);
+	// Typography CSS Generation.
+    astra_responsive_font_size(
+        'astra-settings[font-size-section-header-account]',
+        selector + ' .ast-header-account-text',
+    );
 
 	// Text size.
 	astra_css(
