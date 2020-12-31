@@ -105,58 +105,6 @@
 	position: relative;
 }
 
-.ast-divider-layout-vertical, .ast-divider-layout-horizontal {
-	border-style: solid;
-	border-color: #3a3a3a;
-}
-
-.ast-divider-layout-vertical {
-	border-right-width: 1px;
-	height: 50%;
-}
-
-.ast-divider-layout-horizontal {
-	border-top-width: 1px;
-	width: 50%;
-}
-
-.footer-widget-area.ast-footer-divider-element {
-	display: flex;
-	position: relative;
-	align-items: center;
-}
-.ast-hb-divider-layout-horizontal {
-	.ast-divider-layout-horizontal {
-		width: 100%;
-	}
-}
-.ast-mobile-popup-content {
-	.ast-header-divider-element {
-		justify-content: center;
-	}
-}
-.ast-header-divider-element {
-	position: relative;
-	display: flex;
-}
-.site-footer-section,
-.ast-fb-divider-layout-vertical.ast-footer-divider-element,
-.ast-hb-divider-layout-vertical.ast-header-divider-element {
-  height: 100%;
-}
-.footer-widget-area {
-	.ast-divider-wrapper {
-		display: inline-block;
-	}
-}
-
-.ast-fb-divider-layout-vertical {
-	.ast-divider-layout-vertical,
-	.ast-divider-layout-horizontal {
-		position: absolute;
-	}
-}
-
 .ast-builder-layout-element {
 	align-items: center;
 	.ast-footer-social-wrap {
