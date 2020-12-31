@@ -306,6 +306,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$_prefix = 'button' . $index;
 
 		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );
+		$defaults[ 'header-' . $_prefix . '-custom-class' ]   = '';
 		$defaults[ 'header-' . $_prefix . '-link-option' ]    = array(
 			'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 			'new_tab'  => false,
@@ -382,6 +383,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$_prefix = 'button' . $index;
 
 		$defaults[ 'footer-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );
+		$defaults[ 'footer-' . $_prefix . '-custom-class' ]   = '';
 		$defaults[ 'footer-' . $_prefix . '-link-option' ]    = array(
 			'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 			'new_tab'  => false,

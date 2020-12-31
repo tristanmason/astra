@@ -341,6 +341,41 @@ class Astra_Button_Component_Configs {
 						'em' => 'em',
 					),
 				),
+
+				/**
+				 * Option: Divider
+				 * Option: Advanced Button Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-button-advanced-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'   => $_section,
+					'title'    => __( 'Advanced', 'astra' ),
+					'priority' => 230,
+					'settings' => array(),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				* Option: Button Custom Class
+				*/
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-custom-class]',
+					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-custom-class' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'section'   => $_section,
+					'priority'  => 240,
+					'title'     => __( 'Custom Class', 'astra' ),
+					'transport' => 'postMessage',
+					'partial'   => array(
+						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
+						'container_inclusive' => false,
+						'render_callback'     => array( $class_obj, 'button_' . $index ),
+					),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
 			);
 
 			if ( 'footer' === $builder_type ) {

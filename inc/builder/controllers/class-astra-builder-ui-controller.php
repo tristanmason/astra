@@ -228,8 +228,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
+			$custom_class = astra_get_option( $builder_type . '-button' . $index . '-custom-class' );
 			echo '<div class="ast-builder-button-wrap">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo astra_get_custom_button( $builder_type . '-button' . $index . '-text', $builder_type . '-button' . $index . '-link-option', 'header-button' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo astra_get_custom_button( $builder_type . '-button' . $index . '-text', $builder_type . '-button' . $index . '-link-option', 'header-button', $custom_class ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 

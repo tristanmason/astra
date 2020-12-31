@@ -453,9 +453,10 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 	 * @param string $button_text Button Text.
 	 * @param string $button_options Button Link.
 	 * @param string $button_style Button Style.
+	 * @param string $custom_class Custom Class.
 	 * @return String Button added by user in options panel.
 	 */
-	function astra_get_custom_button( $button_text = '', $button_options = '', $button_style = '' ) {
+	function astra_get_custom_button( $button_text = '', $button_options = '', $button_style = '', $custom_class = '' ) {
 
 		$custom_html    = '';
 		$button_classes = '';
@@ -470,10 +471,14 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 		$button_classes    = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
+		if( '' !== $custom_class ) {
+			$button_classes = $button_classes . ' ' . $custom_class;
+		}
+
 		if ( '1' == $outside_menu_item ) {
 			$custom_html = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '><div class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</div></a>';
 		} else {
-			$custom_html  = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '><div class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</div></a>';
+			$custom_html  = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '><div class="' . esc_attr( $button_classes ) . '">' . esc_attr( do_shortcode( $button_text ) ) . '</div></a>';
 			$custom_html .= '<a class="menu-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '>' . esc_attr( do_shortcode( $button_text ) ) . '</a>';
 		}
 
