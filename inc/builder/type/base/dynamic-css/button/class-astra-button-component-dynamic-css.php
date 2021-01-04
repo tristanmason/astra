@@ -37,7 +37,7 @@ class Astra_Button_Component_Dynamic_CSS {
 
 		for ( $index = 1; $index <= $number_of_button; $index++ ) {
 
-			if ( ! Astra_Builder_Helper::is_component_loaded( 'button-' . $index, $builder_type ) ) {
+			if ( ! Astra_Builder_Helper::is_component_loaded( 'button-' . $index, 'all' ) ) {
 				continue;
 			}
 
