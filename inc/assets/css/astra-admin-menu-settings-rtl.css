@@ -285,11 +285,6 @@ a.astra-starter-sites-detail-link {
  * Adding new UI CSS for launching new HF Builder as requirement for test drive marketing.
  */
 
-.ast-quick-setting-section .iframe-wrap iframe {
-    width: 100%;
-    vertical-align: middle;
-}
-
 .ast-hf-builder-activated .ast-quick-links .footer .highlight-ahfb, .ast-hf-builder-activated .ast-quick-links .header .highlight-ahfb {
     color: #fff;
     background: linear-gradient(-90deg, rgba(73,44,221,1) 0%, rgba(173,56,226,1) 100%);

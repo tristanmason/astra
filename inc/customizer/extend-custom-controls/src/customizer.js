@@ -136,14 +136,6 @@
 				isSiteRTL = true;
 			}
 
-			if ('panel-footer-builder-group' === id || 'panel-header-builder-group' === id) {
-				if( isSiteRTL ) {
-					$('#accordion-panel-' + id).find('.accordion-section-title').prepend("<span class=\'ahfb-highlight\'> New </span>");
-				} else {
-					$('#accordion-panel-' + id).find('.accordion-section-title').append("<span class=\'ahfb-highlight\'> New </span>");
-				}
-			}
-
 			// Scroll to footer.
 			if ('panel-footer-builder-group' === id) {
 				$('#accordion-panel-' + id).on('click', function () {

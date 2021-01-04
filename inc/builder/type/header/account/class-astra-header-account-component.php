@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 	/**
 	 * Heading Initial Setup
 	 *
-	 * @since x.x.x
+	 * @since 3.0.0
 	 */
 	class Astra_Header_Account_Component {
 
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			/**
 			 * Filter the classes(array) for Menu (<ul>).
 			 *
-			 * @since  x.x.x
+			 * @since  3.0.0
 			 * @var Array
 			 */
 			$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-account-nav-menu' ) );
