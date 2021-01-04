@@ -1275,6 +1275,11 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 			$new_menu_item                                  = 'woo-cart';
 			$theme_options['woo-header-cart-total-display'] = false;
 			$theme_options['woo-header-cart-title-display'] = false;
+			error_log( 'Before Migration: ' . json_encode( $theme_options['woo-header-cart-icon-color'] ) );
+			if ( ! empty( $theme_options['woo-header-cart-icon-color'] ) ) {
+				$theme_options['header-woo-cart-icon-color'] = $theme_options['woo-header-cart-icon-color'];
+			}
+			error_log( 'After Migration: ' . json_encode( $theme_options['header-woo-cart-icon-color'] ) );
 			break;
 
 		case 'edd':
