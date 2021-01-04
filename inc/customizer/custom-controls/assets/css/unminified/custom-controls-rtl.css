@@ -637,7 +637,7 @@
 }
 /** Modal Color Picker - Group Param */
 .ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 13px 0px 0px;
+	padding: 16px 14px 0px 20px;
 	margin-bottom: -8px;
 }
 .ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
@@ -1359,7 +1359,7 @@
 }
 /** Modal Color Picker - Group Param */
 .ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 13px 0px 0px;
+	padding: 16px 14px 0px 20px;
 	margin-bottom: -8px;
 }
 .ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {

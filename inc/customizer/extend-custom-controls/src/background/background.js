@@ -5,8 +5,22 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {__} from '@wordpress/i18n';
 
 const Background = props => {
+	var dbvalue= props.control.setting.get();
+	var temp_dbval = Object.assign({},dbvalue);
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	let value
+	if(temp_dbval['background-color'] && temp_dbval['background-color'].includes("palette")){
+		var regex = /\d+/g;
+		var string = temp_dbval['background-color'];
+		var matches = string.match(regex);
+		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
+		temp_dbval['background-color'] = updated_palette[updated_palette.patterntype][matches]
+		value = temp_dbval
+	}else{		
+		 value = props.control.setting.get();
+	}
+
+	const [props_value, setPropsValue] = useState(value);
 
 	const updateBackgroundType = () => {
 		let obj = {
@@ -33,6 +47,14 @@ const Background = props => {
 			}
 		}
 	};
+
+	const updatepaletteuse = (value,index,defaultset) =>{
+		
+		props.control.container[0].setAttribute('paleteused', value);
+		props.control.container[0].setAttribute('paleteindex', index);		
+		props.control.container[0].setAttribute('defaultset', defaultset);		
+
+	}
 
 	const renderReset = () => {
 		return <span className="customize-control-title">
@@ -109,7 +131,10 @@ const Background = props => {
 				onSelectImage={(media, backgroundType) => onSelectImage(media, backgroundType)}
 				onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
 				backgroundType={undefined !== props_value['background-type'] && props_value['background-type'] ? props_value['background-type'] : 'color'}
-				allowGradient={true} allowImage={true} />
+				allowGradient={true} allowImage={true} 
+				defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
+				isPaletteUsed={ (value,index,defaultset) => updatepaletteuse(value,index,defaultset)} 
+				container ={props.control.container[0]} />
 		</>;
 	};
 
@@ -131,8 +156,17 @@ const Background = props => {
 		};
 		obj['background-color'] = value;
 		obj['background-type'] = backgroundType;
-		props.control.setting.set(obj);
+		
 		setPropsValue( obj );
+
+		if(props.control.container[0].getAttribute('paleteindex')){	
+			obj['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')';
+
+			props.control.setting.set(obj);
+		}else{
+			props.control.setting.set(obj);
+		}
+
 	};
 
 	const {

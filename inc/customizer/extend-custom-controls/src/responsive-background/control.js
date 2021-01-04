@@ -4,7 +4,7 @@ import {astraGetResponsiveBgJs} from '../common/responsive-helper';
 export const responsiveBackgroundControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
 		let control = this;
-	ReactDOM.render( <ResponsiveBackground control={ control } />, control.container[0] );
+	ReactDOM.render( <ResponsiveBackground control={ control } customizer={ wp.customize }/>, control.container[0] );
 	},
 	ready: function() {
 		astraGetResponsiveBgJs( this, '' );

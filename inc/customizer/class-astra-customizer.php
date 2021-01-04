@@ -1015,7 +1015,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-background',
 				array(
 					'callback'          => 'Astra_Control_Background',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'sanitize_callback' => '',
 				)
 			);
 
@@ -1073,7 +1073,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-responsive-background',
 				array(
 					'callback'         => 'Astra_Control_Responsive_Background',
-					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_background' ),
+					'santize_callback' => '',
 				)
 			);
 
@@ -1477,19 +1477,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @param string $output Html tag output.
 		 */
 		public function add_style_tag_to_html_element( $output ) {
-
-			$dbvalue = get_option( ASTRA_THEME_SETTINGS )['global-color-palette'];
-			$array   = $dbvalue[ $dbvalue['patterntype'] ];
+			
+			if(isset(get_option( ASTRA_THEME_SETTINGS )['global-color-palette'])){
 				
-			$finalpalette = array();
-			foreach ( $array as $key => $value ) {
-				if ( $value ) {
-					array_push( $finalpalette, '--global-palette' . $key . ':' . $value );
+				$dbvalue = get_option( ASTRA_THEME_SETTINGS )['global-color-palette'];
+				$array   = $dbvalue[ $dbvalue['patterntype'] ];
+					
+				$finalpalette = array();
+				foreach ( $array as $key => $value ) {
+					if ( $value ) {
+						array_push( $finalpalette, '--global-palette' . $key . ':' . $value );
+					}
 				}
+			
+				$output .= 'style="' . implode( ';', $finalpalette ) . '"';
+				return $output;
 			}
-		
-			$output .= 'style="' . implode( ';', $finalpalette ) . '"';
-			return $output;
+
 		}
 	}
 }
