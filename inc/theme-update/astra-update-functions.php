@@ -1273,13 +1273,11 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 
 		case 'woocommerce':
 			$new_menu_item                                  = 'woo-cart';
-			$theme_options['woo-header-cart-total-display'] = false;
-			$theme_options['woo-header-cart-title-display'] = false;
-			error_log( 'Before Migration: ' . json_encode( $theme_options['woo-header-cart-icon-color'] ) );
+			$theme_options['woo-header-cart-total-display'] = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : false;
+			$theme_options['woo-header-cart-title-display'] = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : false;
 			if ( ! empty( $theme_options['woo-header-cart-icon-color'] ) ) {
 				$theme_options['header-woo-cart-icon-color'] = $theme_options['woo-header-cart-icon-color'];
 			}
-			error_log( 'After Migration: ' . json_encode( $theme_options['header-woo-cart-icon-color'] ) );
 			break;
 
 		case 'edd':
@@ -1501,8 +1499,8 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
 				$new_above_header_section_1_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$theme_options['woo-header-cart-total-display'] = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : false;
+				$theme_options['woo-header-cart-title-display'] = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : false;
 			}
 			break;
 
@@ -1552,8 +1550,8 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
 				$new_above_header_section_2_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$theme_options['woo-header-cart-total-display'] = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : false;
+				$theme_options['woo-header-cart-title-display'] = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : false;
 			}
 			break;
 
@@ -1882,8 +1880,8 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
 				$new_below_header_section_1_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$theme_options['woo-header-cart-total-display'] = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : false;
+				$theme_options['woo-header-cart-title-display'] = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : false;
 			}
 			break;
 
@@ -1932,8 +1930,8 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
 				$new_below_header_section_2_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$theme_options['woo-header-cart-total-display'] = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : false;
+				$theme_options['woo-header-cart-title-display'] = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : false;
 			}
 			break;
 
