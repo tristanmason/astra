@@ -1238,6 +1238,9 @@
     align-items: center;
     flex-direction: inherit;
 }
+.astra-color-picker-wrap .components-popover__content {
+    width: max-content;
+}
 /** Gradient Color Picker -> RGBA & HSLA range fields */
 .customize-control .ast-gradient-color-picker .is-alpha-enabled .components-base-control__field [type="number"] {
     width: 100%;
@@ -1891,10 +1894,6 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
   margin-right: 0px;
-}
-
-.ast-field-settings-modal .customize-control-content .astra-color-picker-wrap .components-popover__content {
-  width: max-content;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
