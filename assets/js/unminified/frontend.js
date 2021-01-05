@@ -123,6 +123,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 };
 
 ( function() {
+	'use strict';
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
 	    main_header_masthead = document.getElementById('masthead'),
@@ -142,6 +143,46 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
+
+	if ( 'querySelector' in document && 'addEventListener' in window ) {
+
+		var navLinks = document.querySelectorAll( 'nav .main-navigation ul a' );
+
+		/**
+		 * Sets or removes .focus class on an element on focus.
+		 */
+		var toggleFocus = function() {
+			var self = this;
+			console.log( self );
+
+			// Move up through the ancestors of the current link until we hit .main-navigation.
+			while ( -1 === self.className.indexOf( 'main-navigation' ) ) {
+				if ( 'li' === self.tagName.toLowerCase() ) {
+					self.classList.toggle( 'focus' );
+				}
+
+				self = self.parentElement;
+			}
+		}
+
+		// Each time a menu link is focused or blurred, toggle focus.
+		for ( var i = 0; i < navLinks.length; i++ ) {
+
+			navLinks[i].addEventListener( 'keyup', function (event) {
+				console.log( event );
+				if(event.keyCode === 9) {
+					if (event.shiftKey === true) {
+						console.log("BACKWARD");
+					} else {
+						console.log("FORWARD");
+					}
+				}
+			});
+
+			navLinks[i].addEventListener( 'focus', toggleFocus, true );
+			navLinks[i].addEventListener( 'blur', toggleFocus, true );
+		}
+	}
 
 	/**
 	 * Updates the header type.
@@ -173,7 +214,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/**
 	 * Opens the Popup when trigger is clicked.
 	 */
-	popupTriggerClick = function ( event ) {
+	var popupTriggerClick = function ( event ) {
 
 		var popupWrap = document.getElementById( 'ast-mobile-popup' );
 
@@ -466,7 +507,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraToggleSubMenu = function() {
+	var AstraToggleSubMenu = function() {
 
 		var parent_li = this.parentNode;
 
@@ -512,11 +553,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	AstraNavigationMenu = function( parentList ) {
+	var AstraNavigationMenu = function( parentList ) {
 		console.warn( 'AstraNavigationMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future.' );
 	};
 
-	AstraToggleMenu = function( astra_menu_toggle ) {
+	var AstraToggleMenu = function( astra_menu_toggle ) {
 		console.warn('AstraToggleMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future. Use AstraToggleSubMenu() instead.');
 
 		// Add Eventlisteners for Submenu.
@@ -527,7 +568,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	AstraToggleSetup = function () {
+	var AstraToggleSetup = function () {
 		var __main_header_all = document.querySelectorAll('#ast-mobile-header');
 
 		menu_toggle_all 	 = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
@@ -564,7 +605,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	astraNavMenuToggle = function ( event ) {
+	var astraNavMenuToggle = function ( event ) {
 
 		event.preventDefault();
 		var __main_header_all = document.querySelectorAll('#masthead > #ast-mobile-header .main-header-bar-navigation');
@@ -705,7 +746,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		var button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			button = container.getElementsByTagName( 'a' )[0];
 			if ( 'undefined' === typeof button ) {
@@ -713,7 +754,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		menu = container.getElementsByTagName( 'ul' )[0];
+		var menu = container.getElementsByTagName( 'ul' )[0];
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
@@ -739,8 +780,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		};
 
 		// Get all the link elements within the menu.
-		links    = menu.getElementsByTagName( 'a' );
-		subMenus = menu.getElementsByTagName( 'ul' );
+		var links    = menu.getElementsByTagName( 'a' );
+		var subMenus = menu.getElementsByTagName( 'ul' );
 
 		// Set menu items with submenus to aria-haspopup="true".
 		for ( var i = 0; i < subMenus.length; i++ ) {
@@ -749,8 +790,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( var i = 0; i < links.length; i++ ) {
-			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}
 	}
@@ -799,23 +838,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
             }
         }
    	}
-
-	/**
-	 * Sets or removes .focus class on an element on focus.
-	 */
-	function toggleFocus() {
-		var self = this;
-		console.log( self );
-
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				self.classList.toggle( 'focus' );
-			}
-
-			self = self.parentElement;
-		}
-	}
 
 	/* Add class if mouse clicked and remove if tab pressed */
 	if ( 'querySelector' in document && 'addEventListener' in window ) {
