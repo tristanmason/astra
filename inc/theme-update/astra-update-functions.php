@@ -393,15 +393,13 @@ function astra_header_builder_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['is-header-footer-builder'] ) && '3.0.0-beta.1' !== $theme_options['theme-auto-version'] && '3.0.0-beta.2' !== $theme_options['theme-auto-version'] ) {
+	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
 		$theme_options['is-header-footer-builder'] = false;
 		update_option( 'astra-settings', $theme_options );
-		astra_header_builder_migration();
 	}
-	if ( ! isset( $theme_options['header-footer-builder-notice'] ) && '3.0.0-beta.1' !== $theme_options['theme-auto-version'] && '3.0.0-beta.2' !== $theme_options['theme-auto-version'] ) {
+	if ( ! isset( $theme_options['header-footer-builder-notice'] ) ) {
 		$theme_options['header-footer-builder-notice'] = false;
 		update_option( 'astra-settings', $theme_options );
-		astra_header_builder_migration();
 	}
 }
 
@@ -448,6 +446,8 @@ function astra_header_builder_migration() {
 
 	$theme_options  = $options['theme_options'];
 	$widget_options = $options['widget_options'];
+
+	$theme_options['v3-option-migration'] = true;
 
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'sidebars_widgets', $widget_options );
@@ -1410,6 +1410,14 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 
 	if ( isset( $theme_options['header-main-sep-color'] ) ) {
 		$theme_options['hb-header-main-sep-color'] = $theme_options['header-main-sep-color'];
+	}
+
+	if ( isset( $theme_options['header-bg-obj-responsive'] ) ) {
+		$theme_options['hb-header-bg-obj-responsive'] = $theme_options['header-bg-obj-responsive'];
+	}
+
+	if ( isset( $theme_options['header-spacing'] ) ) {
+		$theme_options['section-primary-header-builder-padding'] = $theme_options['header-spacing'];
 	}
 	
 	return array(
