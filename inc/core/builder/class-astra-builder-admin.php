@@ -113,7 +113,9 @@ final class Astra_Builder_Admin {
 		$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
 		$migrate = ( $migrate ) ? true : false;
 		astra_update_option( 'is-header-footer-builder', $migrate );
-		astra_header_builder_migration();
+		if ( $migrate ) {
+			astra_header_builder_migration();
+		}
 		wp_send_json_success();
 	}
 
