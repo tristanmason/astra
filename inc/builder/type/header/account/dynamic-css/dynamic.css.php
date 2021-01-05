@@ -53,15 +53,6 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$margin          = astra_get_option( 'header-account-margin' );
 	$margin_selector = '.ast-header-account-wrap';
 
-	$text_font_size = astra_get_option( 'header-account-type-text-font-size' );
-	$text_color     = astra_get_option( 'header-account-type-text-color' );
-
-	$text_font_family    = astra_get_option( 'header-account-font-family' );
-	$text_font_weight    = astra_get_option( 'header-account-font-weight' );
-	$text_text_transform = astra_get_option( 'header-account-text-transform' );
-	$text_line_height    = astra_get_option( 'header-account-line-height' );
-	$text_letter_spacing = astra_get_option( 'header-account-letter-spacing' );
-	
 	/**
 	 * Account CSS.
 	 */
@@ -80,21 +71,15 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_desktop, 'px' ),
 		),
-		$margin_selector => array(
+		$selector . ' .ast-header-account-text' => array(
+			'color' => esc_attr( astra_get_option( 'header-account-type-text-color' ) ),
+		),
+		$margin_selector                        => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
-		),
-		$selector . ' .ast-header-account-text, .ast-mobile-popup-content ' . $selector . ' .ast-header-account-text' => array(
-			'font-family'    => astra_get_font_family( $text_font_family ),
-			'font-weight'    => esc_attr( $text_font_weight ),
-			'line-height'    => esc_attr( $text_line_height ),
-			'text-transform' => esc_attr( $text_text_transform ),
-			'letter-spacing' => astra_get_css_value( $text_letter_spacing, 'px' ),
-			'font-size'      => astra_responsive_font( $text_font_size, 'desktop' ),
-			'color'          => esc_attr( $text_color ),
 		),
 	);
 
@@ -107,15 +92,12 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_tablet, 'px' ),
 		),
-		$margin_selector                        => array(
+		$margin_selector => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
-		),
-		$selector . ' .ast-header-account-text' => array(
-			'font-size' => astra_responsive_font( $text_font_size, 'tablet' ),
 		),
 	);
 
@@ -128,15 +110,12 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_mobile, 'px' ),
 		),
-		$margin_selector                        => array(
+		$margin_selector => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
-		),
-		$selector . ' .ast-header-account-text' => array(
-			'font-size' => astra_responsive_font( $text_font_size, 'mobile' ),
 		),
 	);
 
@@ -146,6 +125,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector . ' .ast-header-account-text' );
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
 
