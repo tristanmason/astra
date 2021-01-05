@@ -316,6 +316,35 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'mobile-unit'  => 'px',
 						);
 					}
+
+					if ( empty( $val ) ) {
+
+						$default_responsive_spacing = array(
+							'desktop'      => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'tablet'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'mobile'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						);
+
+						astra_update_option( $data[1], $default_responsive_spacing );
+					}
 					break;
 				case 'ast-radio-image':
 					$configuration['value'] = $val;
@@ -731,13 +760,20 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'choices'         => self::get_choices(),
 					'js_configs'      => self::get_js_configs(),
 					'tabbed_sections' => self::get_tabbed_sections(),
+					'is_site_rtl'     => is_rtl(),
 				)
 			);
+
+			if ( is_rtl() ) {
+				$builder_customizer_css_file = 'ast-builder-customizer-rtl';
+			} else {
+				$builder_customizer_css_file = 'ast-builder-customizer';
+			}
 
 			// Enqueue Builder CSS.
 			wp_enqueue_style(
 				'ahfb-customizer-style',
-				ASTRA_THEME_URI . 'inc/assets/css/ast-builder-customizer.css',
+				ASTRA_THEME_URI . 'inc/assets/css/' . $builder_customizer_css_file . '.css',
 				array( 'wp-components' ),
 				ASTRA_THEME_VERSION
 			);

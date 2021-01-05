@@ -105,8 +105,12 @@
 			});
 			$section.on('click', '.ahfb-builder-tab-toggle', function (e) {
 				e.preventDefault();
-				$section.toggleClass('ahfb-builder-hide');
-				resizePreviewer();
+				api.previewer.container.css({"bottom": '0px'});
+				setTimeout(function () {
+					$section.toggleClass('ahfb-builder-hide');
+					resizePreviewer();
+				}, 120);
+
 			});
 		}
 	};
@@ -126,9 +130,10 @@
 			var Constructor = api.panelConstructor[data.type] || api.Panel, options;
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
+			var isSiteRTL = false;
 
-			if ('panel-footer-builder-group' === id || 'panel-header-builder-group' === id) {
-				$('#accordion-panel-' + id).find('.accordion-section-title').append("<span class=\'ahfb-highlight\'> New </span>");
+			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.is_site_rtl) {
+				isSiteRTL = true;
 			}
 
 			// Scroll to footer.

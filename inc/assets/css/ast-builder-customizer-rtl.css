@@ -1418,11 +1418,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     border-left: 1px solid #A0AEC0;
 }
 
-.ahfb-sorter-item-panel-header .ahfb-sorter-visiblity .dashicon, .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand .dashicon {
-    width: 14px;
-    height: 14px;
-}
-
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove {
     border-radius: 0;
     position: relative;
@@ -1553,7 +1548,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     content: '';
     width: 18px;
     height: 2px;
-    right: 9px;
+    right: 13px;
     background: #656565;
     border-radius: 5px;
     transform: rotate(45deg);
@@ -1864,22 +1859,4 @@ button.components-button.ahfb-sorter-item-expand {
     .ahfb-tiny-text .ahfb-radio-container-control .components-button.is-tertiary {
         font-size: 7px;
     }
-}
-
-/**
- * Adding new UI CSS for launching new HF Builder as requirement for test drive marketing.
- */
-#accordion-panel-panel-header-builder-group h3 .ahfb-highlight, #accordion-panel-panel-footer-builder-group h3 .ahfb-highlight {
-    color: #fff;
-    background: linear-gradient(-90deg, rgba(73,44,221,1) 0%, rgba(173,56,226,1) 100%);
-    font-size: 0.7em;
-    font-weight: 600;
-    position: relative;
-    padding: 0.3em 0.6em 0.4em;
-    top: -2px;
-    right: 5px;
-    letter-spacing: 0.5px;
-    line-height: 1em;
-    text-transform: uppercase;
-    border-radius: 2px;
 }
