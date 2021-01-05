@@ -393,12 +393,12 @@ function astra_header_builder_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['is-header-footer-builder'] ) ) {
+	if ( ! isset( $theme_options['is-header-footer-builder'] ) && '3.0.0-beta.1' !== $theme_options['theme-auto-version'] && '3.0.0-beta.2' !== $theme_options['theme-auto-version'] ) {
 		$theme_options['is-header-footer-builder'] = false;
 		update_option( 'astra-settings', $theme_options );
 		astra_header_builder_migration();
 	}
-	if ( ! isset( $theme_options['header-footer-builder-notice'] ) ) {
+	if ( ! isset( $theme_options['header-footer-builder-notice'] ) && '3.0.0-beta.1' !== $theme_options['theme-auto-version'] && '3.0.0-beta.2' !== $theme_options['theme-auto-version'] ) {
 		$theme_options['header-footer-builder-notice'] = false;
 		update_option( 'astra-settings', $theme_options );
 		astra_header_builder_migration();
@@ -1272,9 +1272,10 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 			break;
 
 		case 'woocommerce':
-			$new_menu_item                                  = 'woo-cart';
-			$theme_options['woo-header-cart-total-display'] = false;
-			$theme_options['woo-header-cart-title-display'] = false;
+			$new_menu_item = 'woo-cart';
+			if ( ! empty( $theme_options['woo-header-cart-icon-color'] ) ) {
+				$theme_options['header-woo-cart-icon-color'] = $theme_options['woo-header-cart-icon-color'];
+			}
 			break;
 
 		case 'edd':
@@ -1495,9 +1496,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
-				$new_above_header_section_1_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$new_above_header_section_1_item = 'woo-cart';
 			}
 			break;
 
@@ -1546,9 +1545,7 @@ function astra_above_header_builder_migration( $theme_options, $used_elements, $
 
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
-				$new_above_header_section_2_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$new_above_header_section_2_item = 'woo-cart';
 			}
 			break;
 
@@ -1876,9 +1873,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
-				$new_below_header_section_1_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$new_below_header_section_1_item = 'woo-cart';
 			}
 			break;
 
@@ -1926,9 +1921,7 @@ function astra_below_header_builder_migration( $theme_options, $used_elements, $
 
 		case 'woocommerce':
 			if ( ! in_array( 'woo-cart', $used_elements ) ) {
-				$new_below_header_section_2_item                = 'woo-cart';
-				$theme_options['woo-header-cart-total-display'] = false;
-				$theme_options['woo-header-cart-title-display'] = false;
+				$new_below_header_section_2_item = 'woo-cart';
 			}
 			break;
 
