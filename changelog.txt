@@ -1,7 +1,7 @@
-v3.0.0-beta.3
+v3.0.0
 - New: Account element added for Header Builder.
-- Improvement: Remove old CSS that is already supported by browsers.
-- Improvement: Remove unused grid layout related CSS.
+- Improvement: Removed old CSS that is already supported by browsers.
+- Improvement: Removed unused grid layout related CSS.
 - Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.
 - Improvement: Conditionally loaded Elementor, EDD, Comment and Pagination related CSS only when they are used.
 - Improvement: Replaced flex related CSS with theme predefined CSS classes.
@@ -12,15 +12,13 @@ v3.0.0-beta.3
 - Improvement: Builder - Menu - Added Submenu container radius option.
 - Improvement: Builder - Menu - Added Submenu container top offset.
 - Improvement: Builder - Menu - Added menu hover animation styles.
-- Improvement: Builder - Offcanvas - Added container alignment option.
-- Fix: RTL website issues in the customizer.
-- Fix: Fixed an issue with a black patch being shown while transitioning between show/hide click of the builder.
-- Fix: Removed extra localized variable declaration.
-- Fix: Fixed an issue in Header/Footer Builder, Socials element where the eye icon was misaligned.
-- Fix: Margin and Padding option for Header / Footer Elements not working with defaults issue fixed.
-- Fix: Sticky Header background color not working in some cases issue fixed.
-- Fix: Page Header - Display Below Header option not working issue fixed.
-- Fix: Builder - Social spacing option not accepting 0 as a value issue fixed.
+- Improvement: Builder - Off-Canvas - Added container alignment option.
+- Improvement: Removed extra localized variable declaration.
+- Fix: RTL fixes for customizer custom controls.
+- Fix: Black patch being shown while transitioning between show/hide click of the builder.
+- Fix: Socials element edit pencil icon was misaligned in Header and Footer.
+- Fix: Margin and Padding option for Header / Footer Elements not working with defaults.
+- Fix: Builder - Social spacing option not accepting 0 as a value.
 
 v3.0.0-beta.2
 - New: Visibility options - Now user can hide few options as per devices.
@@ -28,8 +26,8 @@ v3.0.0-beta.2
 - New: WooCommerce Cart and EDD Cart Element for Header
 - New: Added new Mobile Menu element.
 - Improvement: Load CSS only when their respective options are enabled - Frontend optimization.
-- Improvement: Remove .wp-smiley CSS - Frontend optimization.
-- Improvement: Remove unused extra CSS from main CSS file - Frontend optimization.
+- Improvement: Removed .wp-smiley CSS - Frontend optimization.
+- Improvement: Removed unused extra CSS from main CSS file - Frontend optimization.
 - Improvement: Replace flex related CSS with the predefined CSS classes present in theme - Frontend optimization.
 - Improvement: Faster Customizer experience with respect to Design/General Tab change.
 - Improvement: Ability to add any number Elements in Header and Footer using a filter from child theme.
