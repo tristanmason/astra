@@ -447,10 +447,10 @@ function astra_header_builder_migration() {
 	$theme_options  = $options['theme_options'];
 	$widget_options = $options['widget_options'];
 
+	$theme_options['v3-option-migration'] = true;
+
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'sidebars_widgets', $widget_options );
-
-	update_option( 'astra-v3-option-migration', true );
 
 	error_log( 'Astra: Migrating Header Footer Builder Options - Process Done' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
