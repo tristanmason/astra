@@ -931,7 +931,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'link_rel' => '',
 	);
 
-	$defaults['header-account-type-text-font-size'] = array(
+	$defaults['font-size-section-header-account'] = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1206,24 +1206,24 @@ function prepare_html_defaults( $defaults, $index ) {
  */
 function prepare_social_icon_defaults( $defaults, $index ) {
 
-	$defaults[ 'header-social-' . $index . '-space' ]          = array(
+	$defaults[ 'header-social-' . $index . '-space' ]        = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'header-social-' . $index . '-bg-space' ]       = '';
-	$defaults[ 'header-social-' . $index . '-size' ]           = array(
+	$defaults[ 'header-social-' . $index . '-bg-space' ]     = '';
+	$defaults[ 'header-social-' . $index . '-size' ]         = array(
 		'desktop' => 18,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'header-social-' . $index . '-radius' ]         = '';
-	$defaults[ 'header-social-' . $index . '-color' ]          = '';
-	$defaults[ 'header-social-' . $index . '-h-color' ]        = '';
-	$defaults[ 'header-social-' . $index . '-bg-color' ]       = '';
-	$defaults[ 'header-social-' . $index . '-bg-h-color' ]     = '';
-	$defaults[ 'header-social-' . $index . '-label-toggle' ]   = false;
-	$defaults[ 'header-social-' . $index . '-color-type' ]     = 'custom';
+	$defaults[ 'header-social-' . $index . '-radius' ]       = '';
+	$defaults[ 'header-social-' . $index . '-color' ]        = '';
+	$defaults[ 'header-social-' . $index . '-h-color' ]      = '';
+	$defaults[ 'header-social-' . $index . '-bg-color' ]     = '';
+	$defaults[ 'header-social-' . $index . '-bg-h-color' ]   = '';
+	$defaults[ 'header-social-' . $index . '-label-toggle' ] = false;
+	$defaults[ 'header-social-' . $index . '-color-type' ]   = 'custom';
 	$defaults[ 'font-size-section-hb-social-icons-' . $index ] = array(
 		'desktop'      => '',
 		'tablet'       => '',
@@ -1232,7 +1232,7 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults[ 'header-social-icons-' . $index ]               = array(
+	$defaults[ 'header-social-icons-' . $index ] = array(
 		'items' =>
 			array(
 				array(
@@ -1260,7 +1260,7 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 					'enabled'    => true,
 					'source'     => 'icon',
 					'url'        => '',
-					'color'      => '#292929',
+					'color'      => '#8a3ab9',
 					'background' => 'transparent',
 					'icon'       => 'instagram',
 					'label'      => 'Instagram',
@@ -1268,24 +1268,24 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 			),
 	);
 
-	$defaults[ 'footer-social-' . $index . '-space' ]          = array(
+	$defaults[ 'footer-social-' . $index . '-space' ]        = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'footer-social-' . $index . '-bg-space' ]       = '';
-	$defaults[ 'footer-social-' . $index . '-size' ]           = array(
+	$defaults[ 'footer-social-' . $index . '-bg-space' ]     = '';
+	$defaults[ 'footer-social-' . $index . '-size' ]         = array(
 		'desktop' => 18,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'footer-social-' . $index . '-radius' ]         = '';
-	$defaults[ 'footer-social-' . $index . '-color' ]          = '';
-	$defaults[ 'footer-social-' . $index . '-h-color' ]        = '';
-	$defaults[ 'footer-social-' . $index . '-bg-color' ]       = '';
-	$defaults[ 'footer-social-' . $index . '-bg-h-color' ]     = '';
-	$defaults[ 'footer-social-' . $index . '-label-toggle' ]   = false;
-	$defaults[ 'footer-social-' . $index . '-color-type' ]     = 'custom';
+	$defaults[ 'footer-social-' . $index . '-radius' ]       = '';
+	$defaults[ 'footer-social-' . $index . '-color' ]        = '';
+	$defaults[ 'footer-social-' . $index . '-h-color' ]      = '';
+	$defaults[ 'footer-social-' . $index . '-bg-color' ]     = '';
+	$defaults[ 'footer-social-' . $index . '-bg-h-color' ]   = '';
+	$defaults[ 'footer-social-' . $index . '-label-toggle' ] = false;
+	$defaults[ 'footer-social-' . $index . '-color-type' ]   = 'custom';
 	$defaults[ 'font-size-section-fb-social-icons-' . $index ] = array(
 		'desktop'      => '',
 		'tablet'       => '',
@@ -1294,7 +1294,7 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults[ 'footer-social-icons-' . $index ]               = array(
+	$defaults[ 'footer-social-icons-' . $index ] = array(
 		'items' =>
 			array(
 				array(
@@ -1322,14 +1322,14 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 					'enabled'    => true,
 					'source'     => 'icon',
 					'url'        => '',
-					'color'      => '#292929',
+					'color'      => '#8a3ab9',
 					'background' => 'transparent',
 					'icon'       => 'instagram',
 					'label'      => 'Instagram',
 				),
 			),
 	);
-	$defaults[ 'footer-social-' . $index . '-alignment' ]      = array(
+	$defaults[ 'footer-social-' . $index . '-alignment' ] = array(
 		'desktop' => 'center',
 		'tablet'  => 'center',
 		'mobile'  => 'center',
