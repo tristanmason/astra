@@ -966,7 +966,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 					'enabled'    => true,
 					'source'     => 'icon',
 					'url'        => '',
-					'color'      => '#292929',
+					'color'      => '#8a3ab9',
 					'background' => 'transparent',
 					'icon'       => 'instagram',
 					'label'      => 'Instagram',
@@ -1036,7 +1036,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 					'enabled'    => true,
 					'source'     => 'icon',
 					'url'        => '',
-					'color'      => '#292929',
+					'color'      => '#8a3ab9',
 					'background' => 'transparent',
 					'icon'       => 'instagram',
 					'label'      => 'Instagram',
@@ -1562,7 +1562,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'link_rel' => '',
 	);
 
-	$defaults['header-account-type-text-font-size'] = array(
+	$defaults['font-size-section-header-account'] = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
