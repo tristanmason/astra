@@ -54,7 +54,9 @@ const ResponsiveBackground = props => {
 			
 		}
 
-		props.control.setting.set(obj);
+		setTimeout( function () {
+			props.control.setting.set(obj);
+		 }, 1 );
 	};
 
 	const updatePaletteState = (e) =>{
