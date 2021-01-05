@@ -1411,6 +1411,14 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 	if ( isset( $theme_options['header-main-sep-color'] ) ) {
 		$theme_options['hb-header-main-sep-color'] = $theme_options['header-main-sep-color'];
 	}
+
+	if ( isset( $theme_options['header-bg-obj-responsive'] ) ) {
+		$theme_options['hb-header-bg-obj-responsive'] = $theme_options['header-bg-obj-responsive'];
+	}
+
+	if ( isset( $theme_options['header-spacing'] ) ) {
+		$theme_options['section-primary-header-builder-padding'] = $theme_options['header-spacing'];
+	}
 	
 	return array(
 		'theme_options'  => $theme_options,
