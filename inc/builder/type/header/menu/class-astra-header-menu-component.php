@@ -89,8 +89,7 @@ class Astra_Header_Menu_Component {
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
-				'id'         => 'site-navigation',
-				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
+				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item ast-site-navigation',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)
 		);
@@ -136,10 +135,11 @@ class Astra_Header_Menu_Component {
 					echo astra_attr(
 						'site-navigation',
 						array(
-							'id' => 'site-navigation',
+							'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item ast-site-navigation',
+							'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 						)
 					);
-					echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+					echo '>';
 						wp_page_menu( $fallback_menu_args );
 					echo '</nav>';
 				echo '</div>';

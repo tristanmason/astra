@@ -67,8 +67,7 @@ class Astra_Mobile_Menu_Component {
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
-				'id'         => 'site-navigation',
-				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
+				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item ast-site-navigation',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)
 		);
@@ -114,8 +113,7 @@ class Astra_Mobile_Menu_Component {
 					echo astra_attr(
 						'site-navigation',
 						array(
-							'id' => 'site-navigation',
-							'class'      => 'ast-flex-grow-1 navigation-accessibility',
+							'class'      => 'ast-flex-grow-1 ast-site-navigation navigation-accessibility ast-site-navigation',
 							'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 						)
 					);

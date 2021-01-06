@@ -828,8 +828,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$items_wrap .= astra_attr(
 				'site-navigation',
 				array(
-					'id'         => 'site-navigation',
-					'class'      => 'ast-flex-grow-1 navigation-accessibility',
+					'class'      => 'ast-flex-grow-1 navigation-accessibility ast-site-navigation',
 					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
 			);
@@ -863,10 +862,11 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 						echo astra_attr(
 							'site-navigation',
 							array(
-								'id' => 'site-navigation',
+								'class'      => 'ast-flex-grow-1 navigation-accessibility ast-site-navigation',
+								'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 							)
 						);
-						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+						echo '>';
 							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';

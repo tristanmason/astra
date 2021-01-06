@@ -2568,7 +2568,7 @@ body {
   margin-right: auto;
 }
 
-#site-navigation {
+#site-navigation, .ast-site-navigation {
   height: 100%;
 }
 
