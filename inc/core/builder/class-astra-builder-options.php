@@ -1410,21 +1410,56 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Global Color Palette.
 	 */
 	$defaults['global-color-palette'] = array(
-		'pattern1'    => array(
+		'pattern1'         => array(
 			'#3a3a3a',
 			'#0274be',
 			'#0274b2',
 			'#3a3a31',
-			'',
+			'#3a3a3b',
 		),
-		'pattern2'    => array(
+		'pattern2'         => array(
 			'#cd5c5c',
 			'#f08080',
 			'#fa8072',
 			'#e9967a',
-			'',
+			'#7f5301',
 		),
-		'patterntype' => 'pattern1',
+		'patterntype'      => 'pattern1',
+		'isVisible'        => false,
+		'customImportText' => '',
+		'importError'      => false,
+		'presetPalette'    => array(
+			array(
+				'#92589D',
+				'#98899B',
+				'#F3E273',
+				'#B69F47',
+				'#23DE8D',
+			),
+			array(
+				'#733492',
+				'#AC238C',
+				'#24B460',
+				'#C0C2BA',
+				'#CBCB38',
+			),
+			array(
+				'#E224EF',
+				'#3D10B2',
+				'#7A9140',
+				'#0401D6',
+				'#D3830B',
+			),
+			array(
+				'#2A7DD7',
+				'#72258F',
+				'#16396A',
+				'#A512F8',
+				'#1034E6',
+			),
+			
+		),
+
 	);
 	/**
 	* Mobile Menu

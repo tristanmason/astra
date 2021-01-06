@@ -4,10 +4,11 @@ import {Fragment} from '@wordpress/element';
 
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
+const { __ } = wp.i18n;
 
 import {useState} from 'react';
 
-import { SelectControl,Dashicon,RadioControl } from '@wordpress/components';
+import { SelectControl,Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl } from '@wordpress/components';
 
 
 
@@ -264,6 +265,123 @@ const ColorPaletteComponent = props => {
 		document.documentElement.style.setProperty('--global-palette' + index, item );		
 	} );
 
+	const toggleVisible = () => {
+		let obj = {
+			...state
+		};
+		obj['isVisible'] = true
+		setState(obj)
+	};
+	const toggleClose = () => {
+		let obj = {
+			...state
+		};
+		obj['isVisible'] = false
+		if ( state.isVisible === true ) {
+			setState(obj)			
+		}
+	};
+	
+	const handlePresetPalette = (item) => {
+	
+		
+		let obj = {
+			...state
+		}
+
+		let presetPalette = {
+			...state.presetPalette
+		}
+
+		
+		obj[obj.patterntype] = presetPalette[item]		
+		obj['importError'] = false
+		obj['isVisible'] = false
+		obj['customImportText'] = ''
+
+		setState(obj)	
+		props.control.setting.set( obj );
+		
+
+		var event = new CustomEvent( "colorpaletteglobal", 
+			{ 
+				"detail":{"palette":obj,"radiochange":"true",}
+			} 
+		);
+		
+		document.dispatchEvent(event);
+
+	}
+
+
+	const addcustomImportText = ( text ) =>{
+		let obj = {
+			...state
+		};
+		obj['customImportText'] = text
+		setState(obj)		
+		
+	}
+
+	const handleTextImport = () =>{
+
+		const importText = state.customImportText;
+
+		if ( ! importText ) {
+			setState(prevState => ({
+				...prevState,
+				importError: true
+			}));
+			return;
+		}
+		function testJSON(text) { 
+            if (typeof text !== "string") { 
+                return false; 
+            } 
+            try { 
+                JSON.parse(text); 
+                return true; 
+            } catch (error) { 
+                return false; 
+            } 
+        }
+		
+		if ( testJSON(importText) && Object.keys( JSON.parse( importText ) ).length === 5 ) {
+			var customImportText = JSON.parse( importText );
+	
+			let obj = {
+				...state
+			}
+			
+			obj[obj.patterntype] = customImportText
+			
+			obj['importError'] = false
+			obj['isVisible'] = false
+			obj['customImportText'] = ''
+
+			
+			obj.presetPalette.push(customImportText); //Keep copy of imported palette.
+
+			setState(obj)	
+			props.control.setting.set( obj );
+		
+
+			var event = new CustomEvent( "colorpaletteglobal", 
+				{ 
+					"detail":{"palette":obj,"radiochange":"true",}
+				} 
+			);
+			
+			document.dispatchEvent(event);
+		}else{
+			setState(prevState => ({
+				...prevState,
+				importError: true
+			}));
+		}
+
+	}
+	
 	return <Fragment>
 		
 		<label className="customizer-text">
@@ -284,9 +402,118 @@ const ColorPaletteComponent = props => {
 			onChange={ value => handleRadioChange(value) }
     	/>
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
-		<p>
+		{/* <p>
 			{ descriptionHtml }	
-		</p>
+		</p> */}
+		<div className={'astra-palette-import-wrap'}>
+			<Button className={ 'astra-palette-import' } onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
+				<Dashicon icon="open-folder" />
+			</Button>
+			{ state.isVisible && (
+                <Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-import">
+                   <TabPanel className="astra-palette-popover-tabs"
+						activeClass="active-tab"
+						initialTabName={ 'import'}
+						tabs={ [
+							{
+								name: 'import',
+								title: __( 'Select a Color Set', 'astra' ),
+								className: 'astra-color-presets',
+							},
+							{
+								name: 'custom',
+								title: __( 'Import', 'astra' ),
+								className: 'astra-export-import',
+							}
+						] }>
+							{
+								( tab ) => {
+									let tabout;
+									if ( tab.name ) {
+										if ( 'import' === tab.name ) {
+											tabout = (
+												<Fragment>
+													{ Object.keys( state.presetPalette ).map( ( item, index ) => { 
+														
+														return ( 
+															<Button
+																className={ 'astra-palette-item' }
+																style={ {
+																	height: '100%',
+																	width: '100%',
+																} }
+																onClick={ () => handlePresetPalette( item ) }
+																tabIndex={ 0 }
+																key={index}
+															>
+																{ Object.keys( state.presetPalette[item] ).map( ( color, subIndex ) => {
+																	return (
+																		<div key={ subIndex } style={ {
+																			width: 30,
+																			height: 30,
+																			marginBottom: 0,
+																			marginRight: 20,
+																			transform: 'scale(1)',
+																			transition: '100ms transform ease',
+																		} } className="astra-palette-item-wrap">
+																			<span
+																				className={ 'astra-palette-item' }
+																				style={ {
+																					height: '100%',
+																					display: 'block',
+																					width: '100%',
+																					border: '1px solid #929ba4',
+																					color: `${ state.presetPalette[item][color] }`,
+																					borderRadius: '4px',								
+																					boxShadow: `inset 0 0 0 ${ 30 / 2 }px`,
+																					transition: '100ms box-shadow ease',
+																				} }
+																				>
+																			</span>
+																		</div>
+																	)
+																} ) }
+															</Button>
+														)
+													} )}
+												</Fragment>
+											);
+										} else {
+											tabout = (
+												<Fragment>
+													<div >
+														<h4>Required Format</h4>
+														<p className="palette-format">{`{"0":"#dc4040","1":"#0274be","2":"#0274b2","3":"#3a3a31","4":"#fffff3"}`}</p>
+													</div>	
+													<TextareaControl
+														label="Import color set from text data."
+														help="Follow format from export above."
+														value={ state.customImportText }
+														onChange={ ( text ) => addcustomImportText(text) }
+													/>
+													{ state.importError && (
+														<p style={{color:'red'}}>{ __( 'Error with Import data', 'astra') }</p>
+													) }
+													<Button
+														className={ 'astra-import-button' }
+														isPrimary
+														disabled={ state.customImportText ? false : true }
+														onClick={ () => handleTextImport() }
+													>
+														{ __('Import', 'astra' ) }
+													</Button>
+												</Fragment>
+												
+											);
+										}
+									}
+									return <div>{ tabout }</div>;
+								}
+							}
+					</TabPanel>
+                </Popover>
+            ) }
+		</div>
 	</Fragment>;
 };
 

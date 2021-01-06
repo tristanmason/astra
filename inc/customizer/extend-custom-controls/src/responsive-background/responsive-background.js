@@ -12,9 +12,7 @@ const ResponsiveBackground = props => {
 
 	
 	var dbvalue= props.control.setting.get();
-	// console.log(dbvalue);
 	var temp_dbval = Object.assign({},dbvalue);
-	// console.log(dbvalue);
 
 	var value
 	if(temp_dbval.desktop['background-color'] && temp_dbval.desktop['background-color'].includes("palette")){

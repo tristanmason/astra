@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 				// Option: Base Heading Color.
 				array(
-					'default'   => '',
+					'default'   => '#3a3a3b',
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',

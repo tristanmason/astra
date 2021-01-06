@@ -1478,7 +1478,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function add_style_tag_to_html_element( $output ) {
 			
-			if(isset(get_option( ASTRA_THEME_SETTINGS )['global-color-palette'])){
+			if ( isset( get_option( ASTRA_THEME_SETTINGS )['global-color-palette'] ) ) {
 				
 				$dbvalue = get_option( ASTRA_THEME_SETTINGS )['global-color-palette'];
 				$array   = $dbvalue[ $dbvalue['patterntype'] ];
