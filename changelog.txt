@@ -1,5 +1,5 @@
 v3.0.0
-- New: Account element added for Header Builder.
+- New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
 - Improvement: Removed old CSS that is already supported by browsers.
 - Improvement: Removed unused grid layout related CSS.
 - Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.
