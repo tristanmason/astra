@@ -725,6 +725,11 @@
     border-color: #007cba;
 }
 
+
+.components-button.components-color-picker__saturation-pointer:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):hover{
+    box-shadow: 0 0 0 1px #fff, inset 0 0 0 1px #000, 0 0 0 2px #000;
+}
+
 .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):hover {
     color: #777777;
     box-shadow: none;
