@@ -222,6 +222,9 @@ const BuilderComponent = props => {
 		}
 	};
 
+	// console.log(props.items);
+	// console.log(state.value);
+
 	return <div className="ahfb-control-field ahfb-builder-items">
 		{controlParams.rows.includes('popup') &&
 		<RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}

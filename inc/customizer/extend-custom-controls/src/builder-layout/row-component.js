@@ -60,6 +60,8 @@ const RowComponent = props => {
 		}
 	}
 
+	console.log(props.row);
+
 	return <div className={`ahfb-builder-areas ahfb-builder-mode-${mode} ${centerClass}`} data-row={props.row} data-row-section={'section-' + props.row + '-' + mode + '-builder'}>
 		<Button className="ahfb-row-actions" title={ ( props.row === 'popup' ? __( 'Off Canvas', 'astra' ) : ( props.row + ' ' + mode ).charAt(0).toUpperCase() + ( props.row + ' ' + mode ).slice(1).toLowerCase() ) } onClick={() => props.focusPanel(props.row + '-' + mode)}>
 			<Dashicon icon="admin-generic"/>
@@ -86,8 +88,10 @@ const RowComponent = props => {
 				if ('popup' !== props.row && 'astra-settings[header-desktop-items]' === props.controlParams.group && props.row + '_right' === zone && 'footer' !== mode) {
 					besideItems = props.items[props.row + '_right_center'];
 				}
-				console.log(props.items);
-				console.log(zone);
+
+				// console.log(props.items);
+				// console.log(zone);
+
 				return enableRow && <DropComponent
 					removeItem={(remove, removeRow, removeZone) => props.removeItem(remove, removeRow, removeZone)}
 					focusItem={focus => props.focusItem(focus)} hideDrop={() => props.hideDrop()}
