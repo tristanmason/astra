@@ -88,9 +88,11 @@ const SocialComponent = props => {
 
 	let availibleSocialOptions = [];
 	controlParams.options.map((option) => {
-		availibleSocialOptions.push(option);
+		if (!value.items.some(obj => obj.id === option.value)) {
+			availibleSocialOptions.push(option);
+		}
 	});
-	
+
 	const [state, setState] = useState({
 		value: value,
 		isVisible: false,
@@ -197,9 +199,10 @@ const SocialComponent = props => {
 			update.push(newItem);
 			updateState.items = update;
 			let availibleSocialOptions = [];
-			
 			controlParams.options.map(option => {
-				availibleSocialOptions.push(option);
+				if (!update.some(obj => obj.id === option.value)) {
+					availibleSocialOptions.push(option);
+				}
 			});
 
 			setState(prevState => ({
@@ -261,15 +264,11 @@ const SocialComponent = props => {
 		});
 	}
 	;
-console.log(currentList);
-	
-console.log(theItems);
-console.log(controlParams);
 
 	controlParams.options.map(option => {
-		// if (!theItems.some(obj => obj.id === option.value)) {
+		if (!theItems.some(obj => obj.id === option.value)) {
 			availibleSocialOptions.push(option);
-		// }
+		}
 	});
 
 	const toggleClose = () => {
