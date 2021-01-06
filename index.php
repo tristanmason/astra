@@ -24,20 +24,21 @@ get_header(); ?>
 
 <?php endif ?>
 	<div id="primary" <?php astra_primary_class(); ?>>
-		<?php astra_primary_content_top(); ?>
+		<?php 
+		astra_primary_content_top();
+		
+		astra_content_loop();
 
-		<?php astra_content_loop(); ?>
+		astra_pagination();
 
-		<?php astra_pagination(); ?>
-
-		<?php astra_primary_content_bottom(); ?>
-
+		astra_primary_content_bottom(); 
+		?>
 	</div><!-- #primary -->
+<?php 
+if ( astra_page_layout() == 'right-sidebar' ) :
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
+	get_sidebar();
 
-	<?php get_sidebar(); ?>
+endif;
 
-<?php endif ?>
-
-<?php get_footer(); ?>
+get_footer();

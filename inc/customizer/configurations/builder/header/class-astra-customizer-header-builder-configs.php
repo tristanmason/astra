@@ -72,19 +72,6 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			Astra_Builder_Helper::$header_mobile_items[ 'widget-' . $index ]  = $item;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_divider; $index++ ) {
-
-			$item = array(
-				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
-				'icon'    => 'minus',
-				'section' => 'section-hb-divider-' . $index,
-			);
-
-			Astra_Builder_Helper::$header_desktop_items[ 'divider-' . $index ] = $item;
-			Astra_Builder_Helper::$header_mobile_items[ 'divider-' . $index ]  = $item;
-		}
-
-
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 
 			switch ( $index ) {

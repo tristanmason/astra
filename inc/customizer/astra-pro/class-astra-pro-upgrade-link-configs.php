@@ -36,6 +36,16 @@ if ( ! class_exists( 'Astra_Pro_Upgrade_Link_Configs' ) ) {
 					'priority'         => 1,
 					'section_callback' => 'Astra_Pro_Customizer',
 				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[astra-pro-section-notice]',
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'control'   => 'ast-hidden',
+					'section'   => 'astra-pro',
+					'priority'  => 0,
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );
