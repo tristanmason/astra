@@ -443,7 +443,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && false === Astra_Ext_Extension::is_active( 'advanced-footer' ) ) ) {
 
 				$config = array(
 
