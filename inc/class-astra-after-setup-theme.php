@@ -105,7 +105,6 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			add_theme_support(
 				'html5',
 				array(
-					'navigation-widgets',
 					'search-form',
 					'gallery',
 					'caption',
