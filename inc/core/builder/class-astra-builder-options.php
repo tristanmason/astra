@@ -1544,10 +1544,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['edd-header-cart-title-display'] = true;
 
 	// Cart tray > General Color styles.
-	$defaults['primary-edd-cart-text-color']       = '';
-	$defaults['primary-edd-cart-link-color']       = '';
-	$defaults['primary-edd-cart-background-color'] = '';
-	$defaults['primary-edd-cart-separator-color']  = '';
+	$defaults['header-edd-cart-text-color']       = '';
+	$defaults['header-edd-cart-link-color']       = '';
+	$defaults['header-edd-cart-background-color'] = '';
+	$defaults['header-edd-cart-separator-color']  = '';
 
 	// Cart tray > Checkout Button styles.
 	$defaults['primary-edd-checkout-btn-text-color']       = '';
