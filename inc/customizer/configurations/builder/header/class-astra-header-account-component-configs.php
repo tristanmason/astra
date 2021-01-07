@@ -467,7 +467,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'  => 'ast-heading',
 				'section'  => $_section,
 				'title'    => __( 'Profile Text', 'astra' ),
-				'priority' => 5,
+				'priority' => 10,
 				'settings' => array(),
 				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
@@ -488,156 +488,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option:  Logged Out text Typography
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'default'   => astra_get_option( 'header-account-type-text-typography' ),
-				'type'      => 'control',
-				'control'   => 'ast-settings-group',
-				'title'     => __( 'Typography', 'astra' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'context'   => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-					),
-				),
-				'priority'  => 5,
-			),
-
-			/**
-			 * Option: Font Family
-			 */
-			array(
-				'name'      => 'header-account-font-family',
-				'type'      => 'sub-control',
-				'parent'    => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'section'   => $_section,
-				'control'   => 'ast-font',
-				'font_type' => 'ast-font-family',
-				'title'     => __( 'Family', 'astra' ),
-				'default'   => astra_get_option( 'header-account-font-family' ),
-				'connect'   => ASTRA_THEME_SETTINGS . '[header-account-font-weight]',
-				'priority'  => 1,
-			),
-
-			// Option: Menu Font Size.
-			array(
-				'name'        => 'header-account-type-text-font-size',
-				'default'     => astra_get_option( 'header-account-type-text-font-size' ),
-				'parent'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'section'     => $_section,
-				'type'        => 'sub-control',
-				'priority'    => 2,
-				'title'       => __( 'Size', 'astra' ),
-				'control'     => 'ast-responsive',
-				'transport'   => 'postMessage',
-				'input_attrs' => array(
-					'min' => 0,
-				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-				'context'     => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Button Font Weight
-			 */
-			array(
-				'name'              => 'header-account-font-weight',
-				'type'              => 'sub-control',
-				'parent'            => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'section'           => $_section,
-				'control'           => 'ast-font',
-				'font_type'         => 'ast-font-weight',
-				'title'             => __( 'Weight', 'astra' ),
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-				'default'           => astra_get_option( 'header-account-font-weight' ),
-				'connect'           => 'header-account-font-family',
-				'priority'          => 3,
-			),
-
-			/**
-			 * Option: Button Text Transform
-			 */
-			array(
-				'name'      => 'header-account-text-transform',
-				'transport' => 'postMessage',
-				'default'   => astra_get_option( 'header-account-text-transform' ),
-				'title'     => __( 'Text Transform', 'astra' ),
-				'type'      => 'sub-control',
-				'parent'    => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'section'   => $_section,
-				'control'   => 'ast-select',
-				'priority'  => 4,
-				'choices'   => array(
-					''           => __( 'Inherit', 'astra' ),
-					'none'       => __( 'None', 'astra' ),
-					'capitalize' => __( 'Capitalize', 'astra' ),
-					'uppercase'  => __( 'Uppercase', 'astra' ),
-					'lowercase'  => __( 'Lowercase', 'astra' ),
-				),
-			),
-
-			/**
-			 * Option: Theme Button Line Height
-			 */
-			array(
-				'name'              => 'header-account-line-height',
-				'control'           => 'ast-slider',
-				'transport'         => 'postMessage',
-				'type'              => 'sub-control',
-				'default'           => astra_get_option( 'header-account-line-height' ),
-				'parent'            => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'section'           => $_section,
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-				'title'             => __( 'Line Height', 'astra' ),
-				'suffix'            => '',
-				'priority'          => 5,
-				'input_attrs'       => array(
-					'min'  => 1,
-					'step' => 0.01,
-					'max'  => 5,
-				),
-			),
-
-			/**
-			 * Option: Theme Button Line Height
-			 */
-			array(
-				'name'              => 'header-account-letter-spacing',
-				'control'           => 'ast-slider',
-				'transport'         => 'postMessage',
-				'type'              => 'sub-control',
-				'default'           => '',
-				'parent'            => ASTRA_THEME_SETTINGS . '[header-account-type-text-typography]',
-				'section'           => $_section,
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-				'title'             => __( 'Letter Spacing', 'astra' ),
-				'suffix'            => '',
-				'priority'          => 6,
-				'input_attrs'       => array(
-					'min'  => 1,
-					'step' => 1,
-					'max'  => 100,
-				),
-			),
-
-			/**
 			* Option: account Color.
 			*/
 			array(
@@ -645,7 +495,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'default'   => $defaults['header-account-type-text-color'],
 				'type'      => 'control',
 				'section'   => $_section,
-				'priority'  => 5,
+				'priority'  => 16,
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Color', 'astra' ),
@@ -703,6 +553,29 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'context'        => Astra_Builder_Helper::$design_tab,
 			),
+		);
+
+		$_configs = array_merge(
+			$_configs,
+			Astra_Builder_Base_Configuration::prepare_typography_options(
+				$_section,
+				array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+					),
+				) 
+			) 
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
