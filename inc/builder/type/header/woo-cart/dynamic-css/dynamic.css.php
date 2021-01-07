@@ -47,10 +47,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_separator_color = astra_get_option( 'header-woo-cart-separator-color' );
 	$cart_h_link_color    = astra_get_option( 'header-woo-cart-link-hover-color' );
 
-	$cart_button_text_color   = astra_get_option( 'primary-woo-cart-btn-text-color' );
-	$cart_button_bg_color     = astra_get_option( 'primary-woo-cart-btn-background-color' );
-	$cart_button_text_h_color = astra_get_option( 'primary-woo-cart-btn-text-hover-color' );
-	$cart_button_bg_h_color   = astra_get_option( 'primary-woo-cart-btn-bg-hover-color' );
+	$cart_button_text_color   = astra_get_option( 'header-woo-cart-btn-text-color' );
+	$cart_button_bg_color     = astra_get_option( 'header-woo-cart-btn-background-color' );
+	$cart_button_text_h_color = astra_get_option( 'header-woo-cart-btn-text-hover-color' );
+	$cart_button_bg_h_color   = astra_get_option( 'header-woo-cart-btn-bg-hover-color' );
 
 	$checkout_button_text_color   = astra_get_option( 'primary-woo-checkout-btn-text-color' );
 	$checkout_button_bg_color     = astra_get_option( 'primary-woo-checkout-btn-background-color' );
