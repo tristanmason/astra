@@ -89,7 +89,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .widget_edd_cart_widget span, ' . $selector . ' .widget_edd_cart_widget strong, ' . $selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color ),
 		),
-		$selector . ' .widget_edd_cart_widget'        => array(
+		$selector . ' .widget_edd_cart_widget' => array(
 			'background-color' => esc_attr( $cart_bg_color ),
 			'border-color'     => esc_attr( $cart_bg_color ),
 		),
