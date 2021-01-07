@@ -4,12 +4,11 @@ import {Fragment} from '@wordpress/element';
 
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
-const { __ } = wp.i18n;
-
 import {useState} from 'react';
 
 import { SelectControl,Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl } from '@wordpress/components';
 
+const { __ } = wp.i18n;
 
 
 const ColorPaletteComponent = props => {
@@ -163,7 +162,7 @@ const ColorPaletteComponent = props => {
 						disablePalette = { true }
 					/>
 				</div>
-				<div className="ast-color-picker-palette-5 ast-color-palette-inline" title="Custom Color">
+				<div className="ast-color-picker-palette-5 ast-color-palette-inline" title="Heading Color ( H1 - H6 )">
 					<AstraColorPickerControl 
 						color={undefined !== state.pattern1 && state.pattern1 ?  state.pattern1[4]  : ''}
 						onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',4)}
@@ -423,7 +422,7 @@ const ColorPaletteComponent = props => {
 							{
 								name: 'custom',
 								title: __( 'Import', 'astra' ),
-								className: 'astra-export-import',
+								className: 'astra-import',
 							}
 						] }>
 							{
@@ -487,7 +486,7 @@ const ColorPaletteComponent = props => {
 													</div>	
 													<TextareaControl
 														label="Import color set from text data."
-														help="Follow format from export above."
+														help="Follow format from above."
 														value={ state.customImportText }
 														onChange={ ( text ) => addcustomImportText(text) }
 													/>

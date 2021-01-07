@@ -11178,9 +11178,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
+
 var __ = wp.i18n.__;
-
-
 
 var ColorPaletteComponent = function ColorPaletteComponent(props) {
   var value = props.control.setting.get();
@@ -11327,7 +11327,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     disablePalette: true
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-picker-palette-5 ast-color-palette-inline",
-    title: "Custom Color"
+    title: "Heading Color ( H1 - H6 )"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     color: undefined !== state.pattern1 && state.pattern1 ? state.pattern1[4] : '',
     onChangeComplete: function onChangeComplete(color, backgroundType) {
@@ -11577,7 +11577,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     }, {
       name: 'custom',
       title: __('Import', 'astra'),
-      className: 'astra-export-import'
+      className: 'astra-import'
     }]
   }, function (tab) {
     var tabout;
@@ -11628,7 +11628,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
           className: "palette-format"
         }, "{\"0\":\"#dc4040\",\"1\":\"#0274be\",\"2\":\"#0274b2\",\"3\":\"#3a3a31\",\"4\":\"#fffff3\"}")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["TextareaControl"], {
           label: "Import color set from text data.",
-          help: "Follow format from export above.",
+          help: "Follow format from above.",
           value: state.customImportText,
           onChange: function onChange(text) {
             return addcustomImportText(text);
@@ -11779,33 +11779,34 @@ var ColorComponent = function ColorComponent(props) {
   var updatePaletteState = function updatePaletteState(e) {
     if (e.detail.radiochange == "true") {
       var current_color;
+      var current_index = props.control.container[0].getAttribute('paleteindex');
 
       switch (props.control.params.label) {
         case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0];
+          current_color = e.detail.palette[e.detail.palette.patterntype][current_index];
           break;
 
         case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1];
+          current_color = e.detail.palette[e.detail.palette.patterntype][current_index];
           break;
 
         case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2];
+          current_color = e.detail.palette[e.detail.palette.patterntype][current_index];
           break;
 
         case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3];
+          current_color = e.detail.palette[e.detail.palette.patterntype][current_index];
           break;
 
         case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4];
+          current_color = e.detail.palette[e.detail.palette.patterntype][current_index];
           break;
 
         default:
           current_color = '';
       }
     } else {
-      if ((props.control.params.label == "Text Color" || props.control.params.label == "Theme Color" || props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )") && props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index && state.value == e.detail.prevcolor) {
+      if ((props.control.params.label == "Text Color" || props.control.params.label == "Theme Color" || props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Border Color" || props.control.params.label == "Toggle Button Color" || props.control.params.label == "Divider Color" || props.control.params.label == "Bottom Border Color" || props.control.params.label == "Top Border Color" || props.control.params.label == "Background Color" || props.control.params.label == "Color" || props.control.params.label == "Icon Color" || props.control.params.label == "Close Icon Color" || props.control.params.label == "Hover Color") && props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index) {
         var current_color = e.detail.newcolor;
       } else {
         return;
@@ -15256,7 +15257,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
           current_color = '';
       }
     } else {
-      if ((props.control.params.label == "Text Color" || props.control.params.label == "Theme Color" || props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background" || props.control.params.label == "Background Color" || props.control.params.label == "Color & Image" || props.control.params.label == "Background Color & Image") && props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index && state.value['desktop']['background-color'] == e.detail.prevcolor) {
+      if ((props.control.params.label == "Text Color" || props.control.params.label == "Theme Color" || props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background" || props.control.params.label == "Background Color" || props.control.params.label == "Color & Image" || props.control.params.label == "Background Color & Image") && props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index) {
         var deviceObj = _objectSpread({}, obj['desktop']);
 
         var current_color = e.detail.newcolor;
@@ -15681,7 +15682,7 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
           current_color = '';
       }
     } else {
-      if ((props.control.params.label == "Text Color" || props.control.params.label == "Theme Color" || props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background Color") && props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index && props_value.desktop == e.detail.prevcolor) {
+      if ((props.control.params.label == "Text Color" || props.control.params.label == "Link / Text Color" || props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Separator Color" || props.control.params.label == "Border Color" || props.control.params.label == "Content" || props.control.params.label == "Title" || props.control.params.label == "Link Hover" || props.control.params.label == "Link" || props.control.params.label == "Background Color" || props.control.params.label == "Color" || props.control.params.label == "Icon Color" || props.control.params.label == "Hover Color" || props.control.params.label == "Link Active / Hover Color" || props.control.params.label == "Site Title Color" || props.control.params.label == "Background Overlay") && props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index) {
         var current_color = e.detail.newcolor;
       } else {
         return;
