@@ -67,12 +67,12 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 			),
 		);
 	} else {
-		$site_content_width = astra_get_option( 'site-content-width', 1200 );
+		$site_content_width       = astra_get_option( 'site-content-width', 1200 );
 		$genral_global_responsive = array(
 			'.site-header-focus-item + .ast-breadcrumbs-wrapper' => array(
-				'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
-				'margin-left'  => 'auto',
-				'margin-right' => 'auto',
+				'max-width'     => astra_get_css_value( $site_content_width + 40, 'px' ),
+				'margin-left'   => 'auto',
+				'margin-right'  => 'auto',
 				'padding-left'  => '20px',
 				'padding-right' => '20px',
 			),
