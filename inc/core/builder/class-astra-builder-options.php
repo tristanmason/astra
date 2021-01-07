@@ -1516,11 +1516,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-title-display'] = true;
 
 	// Cart tray > General Color styles.
-	$defaults['primary-woo-cart-text-color']       = '';
-	$defaults['primary-woo-cart-link-color']       = '';
-	$defaults['primary-woo-cart-background-color'] = '';
-	$defaults['primary-woo-cart-separator-color']  = '';
-	$defaults['primary-woo-cart-link-hover-color'] = '';
+	$defaults['header-woo-cart-text-color']       = '';
+	$defaults['header-woo-cart-link-color']       = '';
+	$defaults['header-woo-cart-background-color'] = '';
+	$defaults['header-woo-cart-separator-color']  = '';
+	$defaults['header-woo-cart-link-hover-color'] = '';
 
 	// Cart tray > Cart Button styles.
 	$defaults['primary-woo-cart-btn-text-color']       = '';

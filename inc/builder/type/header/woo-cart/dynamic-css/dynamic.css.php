@@ -41,11 +41,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * - WooCommerce cart styles.
 	 */
-	$cart_text_color      = astra_get_option( 'primary-woo-cart-text-color' );
-	$cart_link_color      = astra_get_option( 'primary-woo-cart-link-color' );
-	$cart_bg_color        = astra_get_option( 'primary-woo-cart-background-color' );
-	$cart_separator_color = astra_get_option( 'primary-woo-cart-separator-color' );
-	$cart_h_link_color    = astra_get_option( 'primary-woo-cart-link-hover-color' );
+	$cart_text_color      = astra_get_option( 'header-woo-cart-text-color' );
+	$cart_link_color      = astra_get_option( 'header-woo-cart-link-color' );
+	$cart_bg_color        = astra_get_option( 'header-woo-cart-background-color' );
+	$cart_separator_color = astra_get_option( 'header-woo-cart-separator-color' );
+	$cart_h_link_color    = astra_get_option( 'header-woo-cart-link-hover-color' );
 
 	$cart_button_text_color   = astra_get_option( 'primary-woo-cart-btn-text-color' );
 	$cart_button_bg_color     = astra_get_option( 'primary-woo-cart-btn-background-color' );
