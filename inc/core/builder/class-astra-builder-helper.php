@@ -573,6 +573,11 @@ final class Astra_Builder_Helper {
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
 				),
+				'mobile-trigger' => array(
+					'name'    => __( 'Toggle Button', 'astra' ),
+					'icon'    => 'menu-alt',
+					'section' => 'section-header-mobile-trigger',
+				),
 			)
 		);
 
