@@ -238,7 +238,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'       => 35,
 				),
-
 			);
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -470,7 +469,195 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 				);
 				$_configs = array_merge( $_configs, $_trans_config );
+			}
 
+			if( ! Astra_Dynamic_CSS::gutenberg_button_patterns_compat() ) {
+				$gb_outline_btn_config = array(
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[gb-outline-button-color-styling-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => 'section-buttons',
+						'title'    => __( 'Gutenberg Outline Button', 'astra' ),
+						'priority' => 40,
+						'settings' => array(),
+					),
+
+					/**
+					 * Group: GB Outline Button Colors Group
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[gb-outline-button-color-group]',
+						'default'   => astra_get_option( 'gb-outline-button-color-group' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Color', 'astra' ),
+						'section'   => 'section-buttons',
+						'transport' => 'postMessage',
+						'priority'  => 45,
+					),
+
+					/**
+					 * Group: GB Outline Button Border Group
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[gb-outline-button-border-group]',
+						'default'   => astra_get_option( 'gb-outline-button-border-group' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Border', 'astra' ),
+						'section'   => 'section-buttons',
+						'transport' => 'postMessage',
+						'priority'  => 50,
+					),
+
+					/**
+					 * Option: GB Outline Button Color
+					 */
+					array(
+						'name'    => 'button-color',
+						'default' => '',
+						'type'    => 'sub-control',
+						'parent'  => ASTRA_THEME_SETTINGS . '[gb-outline-button-color-group]',
+						'section' => 'section-buttons',
+						'tab'     => __( 'Normal', 'astra' ),
+						'control' => 'ast-color',
+						'title'   => __( 'Text Color', 'astra' ),
+					),
+
+					/**
+					 * Option: GB Outline Button Hover Color
+					 */
+					array(
+						'name'     => 'button-h-color',
+						'default'  => '',
+						'type'     => 'sub-control',
+						'parent'   => ASTRA_THEME_SETTINGS . '[gb-outline-button-color-group]',
+						'section'  => 'section-buttons',
+						'tab'      => __( 'Hover', 'astra' ),
+						'control'  => 'ast-color',
+						'title'    => __( 'Text Color', 'astra' ),
+						'priority' => 39,
+					),
+
+					/**
+					 * Option: GB Outline Button Background Color
+					 */
+					array(
+						'name'    => 'button-bg-color',
+						'default' => '',
+						'type'    => 'sub-control',
+						'parent'  => ASTRA_THEME_SETTINGS . '[gb-outline-button-color-group]',
+						'section' => 'section-buttons',
+						'tab'     => __( 'Normal', 'astra' ),
+						'control' => 'ast-color',
+						'title'   => __( 'Background Color', 'astra' ),
+					),
+
+					/**
+					 * Option: GB Outline Button Background Hover Color
+					 */
+					array(
+						'name'     => 'button-bg-h-color',
+						'default'  => '',
+						'type'     => 'sub-control',
+						'parent'   => ASTRA_THEME_SETTINGS . '[gb-outline-button-color-group]',
+						'section'  => 'section-buttons',
+						'tab'      => __( 'Hover', 'astra' ),
+						'control'  => 'ast-color',
+						'title'    => __( 'Background Color', 'astra' ),
+						'priority' => 40,
+					),
+
+					/**
+					 * Option: GB Outline Button Border Size
+					 */
+					array(
+						'type'           => 'sub-control',
+						'parent'         => ASTRA_THEME_SETTINGS . '[gb-outline-button-border-group]',
+						'section'        => 'section-buttons',
+						'control'        => 'ast-border',
+						'name'           => 'gb-outline-button-border-group-border-size',
+						'transport'      => 'postMessage',
+						'linked_choices' => true,
+						'priority'       => 10,
+						'default'        => astra_get_option( 'gb-outline-button-border-group-border-size' ),
+						'title'          => __( 'Width', 'astra' ),
+						'choices'        => array(
+							'top'    => __( 'Top', 'astra' ),
+							'right'  => __( 'Right', 'astra' ),
+							'bottom' => __( 'Bottom', 'astra' ),
+							'left'   => __( 'Left', 'astra' ),
+						),
+					),
+
+					/**
+					 * Option: GB Outline Button Border Color
+					 */
+					array(
+						'name'      => 'gb-outline-button-border-group-border-color',
+						'default'   => astra_get_option( 'gb-outline-button-border-group-border-color' ),
+						'transport' => 'postMessage',
+						'type'      => 'sub-control',
+						'parent'    => ASTRA_THEME_SETTINGS . '[gb-outline-button-border-group]',
+						'section'   => 'section-buttons',
+						'control'   => 'ast-color',
+						'priority'  => 12,
+						'title'     => __( 'Color', 'astra' ),
+					),
+
+					/**
+					 * Option: GB Outline Button Border Hover Color
+					 */
+					array(
+						'name'      => 'gb-outline-button-border-group-border-h-color',
+						'default'   => astra_get_option( 'gb-outline-button-border-group-border-h-color' ),
+						'transport' => 'postMessage',
+						'type'      => 'sub-control',
+						'parent'    => ASTRA_THEME_SETTINGS . '[gb-outline-button-border-group]',
+						'section'   => 'section-buttons',
+						'control'   => 'ast-color',
+						'priority'  => 14,
+						'title'     => __( 'Hover Color', 'astra' ),
+					),
+
+					/**
+					 * Option: GB Outline Button Padding Section
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[gb-outline-padding-styling-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => 'section-buttons',
+						'title'    => __( 'Spacing', 'astra' ),
+						'priority' => 55,
+						'settings' => array(),
+					),
+
+					/**
+					 * Option: GB Outline Button Padding
+					 */
+					array(
+						'name'           => ASTRA_THEME_SETTINGS . '[gb-outline-button-padding]',
+						'default'        => astra_get_option( 'gb-outline-button-padding' ),
+						'type'           => 'control',
+						'control'        => 'ast-responsive-spacing',
+						'section'        => 'section-buttons',
+						'title'          => __( 'Padding', 'astra' ),
+						'linked_choices' => true,
+						'transport'      => 'postMessage',
+						'unit_choices'   => array( 'px', 'em', '%' ),
+						'choices'        => array(
+							'top'    => __( 'Top', 'astra' ),
+							'right'  => __( 'Right', 'astra' ),
+							'bottom' => __( 'Bottom', 'astra' ),
+							'left'   => __( 'Left', 'astra' ),
+						),
+						'priority'       => 60,
+					),
+				);
+
+				$_configs = array_merge( $_configs, $gb_outline_btn_config );
 			}
 
 			return array_merge( $configurations, $_configs );
