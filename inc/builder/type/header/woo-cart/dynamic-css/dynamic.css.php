@@ -52,10 +52,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_button_text_h_color = astra_get_option( 'header-woo-cart-btn-text-hover-color' );
 	$cart_button_bg_h_color   = astra_get_option( 'header-woo-cart-btn-bg-hover-color' );
 
-	$checkout_button_text_color   = astra_get_option( 'primary-woo-checkout-btn-text-color' );
-	$checkout_button_bg_color     = astra_get_option( 'primary-woo-checkout-btn-background-color' );
-	$checkout_button_text_h_color = astra_get_option( 'primary-woo-checkout-btn-text-hover-color' );
-	$checkout_button_bg_h_color   = astra_get_option( 'primary-woo-checkout-btn-bg-hover-color' );
+	$checkout_button_text_color   = astra_get_option( 'header-woo-checkout-btn-text-color' );
+	$checkout_button_bg_color     = astra_get_option( 'header-woo-checkout-btn-background-color' );
+	$checkout_button_text_h_color = astra_get_option( 'header-woo-checkout-btn-text-hover-color' );
+	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
 
 	$header_cart_icon = '';
 	/**

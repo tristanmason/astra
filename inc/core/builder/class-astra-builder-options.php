@@ -1529,10 +1529,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-woo-cart-btn-bg-hover-color']   = '';
 
 	// Cart tray > Checkout Button styles.
-	$defaults['primary-woo-checkout-btn-text-color']       = '';
-	$defaults['primary-woo-checkout-btn-background-color'] = '';
-	$defaults['primary-woo-checkout-btn-text-hover-color'] = '';
-	$defaults['primary-woo-checkout-btn-bg-hover-color']   = '';
+	$defaults['header-woo-checkout-btn-text-color']       = '';
+	$defaults['header-woo-checkout-btn-background-color'] = '';
+	$defaults['header-woo-checkout-btn-text-hover-color'] = '';
+	$defaults['header-woo-checkout-btn-bg-hover-color']   = '';
 
 	/**
 	 * EDD-Cart.
