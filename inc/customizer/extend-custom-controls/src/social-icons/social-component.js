@@ -292,7 +292,7 @@ const SocialComponent = props => {
 										  toggleEnabled={(enable, itemIndex) => toggleEnableItem(enable, itemIndex)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
 										  onChangeURL={(url, itemIndex) => onChangeURL(url, itemIndex)}
-										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
+										  key={item.id} index={index} item={item} controlParams={controlParams} control={ props.control } />;
 
 				})}
 			</ReactSortable>

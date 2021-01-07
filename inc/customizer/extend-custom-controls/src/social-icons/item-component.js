@@ -1,16 +1,36 @@
 import {useState} from 'react';
 
 const {__} = wp.i18n;
-const {Dashicon, Tooltip, TextControl, Button} = wp.components;
+const {Dashicon, Tooltip, TextControl, Button, Popover, TabPanel } = wp.components;
+import AstraColorPickerControl from '../common/astra-color-picker-control';
+import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 
 const ItemComponent = props => {
 
 	const Icons = window.svgIcons;
 
 	const [state, setState] = useState({
-		open: false
+		open: false,
+		isVisible: false,
+		colors: {}
 	});
 
+	const toggleClose = () => {
+		let obj = {
+			...state
+		};
+		obj['isVisible'] = false
+		if ( state.isVisible === true ) {
+			setState(obj)			
+		}
+	};
+	const toggleVisible = () => {
+		let obj = {
+			...state
+		};
+		obj['isVisible'] = true
+		setState(obj)
+	};
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({
@@ -50,6 +70,50 @@ const ItemComponent = props => {
 			<TextControl label={__('URL', 'astra')} value={props.item.url ? props.item.url : ''} onChange={value => {
 				props.onChangeURL(value, props.index);
 			}}/>
+			<p> { __( 'Colors', 'astra' ) } </p>
+			<Button className={ 'astra-palette-import' } onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
+				<Dashicon icon="open-folder" />
+			</Button>
+			{ state.isVisible && (
+				<Popover
+					position="bottom center"
+					onClose={ toggleClose }
+				>
+					<TabPanel className="ast-social-color-tabs" activeClass="active-tab"
+							tabs={ [
+								{
+									name: "normal",
+									title: __( 'Normal', 'astra' ),
+									className: "ast-normal-tab ast-responsive-tabs",
+								},
+								{
+									name: "hover",
+									title:  __( 'Hover', 'astra' ),
+									className: "ast-hover-tab ast-responsive-tabs",
+								},
+							] }>
+							{
+								( tab ) => {
+									let tabout
+
+									if ( "normal" === tab.name ) {
+										props.control.params.responsive = true;
+										tabout = (
+											<div className="ast-social-icon-color">
+												<ResponsiveColorComponent control={props.control} customizer={ wp.customize }/>
+											</div>
+										)
+									} else if ( "hover" === tab.name ) {
+										tabout = (
+											__( 'Hover', 'astra' )
+										)
+									} 
+									return <div>{ tabout }</div>
+								}
+							}
+						</TabPanel>
+				</Popover>
+			) }
 		</div>}
 	</div>;
 };
