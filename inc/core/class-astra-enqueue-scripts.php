@@ -88,10 +88,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			global $pagenow;
 			$screen = get_current_screen();
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-				$classes .= ' ast-hf-builder-activated';
-			}
-
 			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) ) {
 				return;
 			}
