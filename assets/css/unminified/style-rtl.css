@@ -2146,20 +2146,6 @@ body {
   margin: 4em 0;
 }
 
-#secondary {
-  margin: 4em 0 2.5em;
-  word-break: break-word;
-  line-height: 2;
-}
-
-#secondary li {
-  margin-bottom: 0.25em;
-}
-
-#secondary li:last-child {
-  margin-bottom: 0;
-}
-
 .ast-separate-container {
   background-color: #f5f5f5;
 }
@@ -2245,14 +2231,6 @@ body {
   margin-bottom: 0;
 }
 
-.ast-page-builder-template.ast-left-sidebar #secondary {
-  padding-right: 20px;
-}
-
-.ast-page-builder-template.ast-right-sidebar #secondary {
-  padding-left: 20px;
-}
-
 .ast-page-builder-template.single .post-navigation {
   padding-bottom: 2em;
 }
@@ -2275,14 +2253,8 @@ body {
   .ast-right-sidebar #primary {
     padding-left: 60px;
   }
-  .ast-right-sidebar #secondary {
-    padding-right: 60px;
-  }
   .ast-left-sidebar #primary {
     padding-right: 60px;
-  }
-  .ast-left-sidebar #secondary {
-    padding-left: 60px;
   }
 }
 
@@ -2296,14 +2268,8 @@ body {
   .ast-right-sidebar #primary {
     padding-left: 30px;
   }
-  .ast-right-sidebar #secondary {
-    padding-right: 30px;
-  }
   .ast-left-sidebar #primary {
     padding-right: 30px;
-  }
-  .ast-left-sidebar #secondary {
-    padding-left: 30px;
   }
 }
 
@@ -2341,6 +2307,8 @@ body {
 
 .main-navigation {
   height: 100%;
+  -js-display: inline-flex;
+  display: inline-flex;
 }
 
 .main-navigation ul {
@@ -4285,12 +4253,6 @@ body .entry-content .wp-block-latest-posts li {
   background: #0274be;
 }
 
-.ast-separate-container.ast-two-container #secondary .widget {
-  background-color: #fff;
-  padding: 2em;
-  margin-bottom: 2em;
-}
-
 /*----------  Footer  ----------*/
 /* 2 - Small Footer */
 /**
@@ -4980,143 +4942,6 @@ input[type="color"]::-webkit-color-swatch {
   max-width: 100%;
 }
 
-/*--------------------------------------------------------------
-## Blog Paginations
---------------------------------------------------------------*/
-/* ============================================================
-  NEXT PAGINATION
-============================================================ */
-.post-navigation a,
-.ast-pagination .prev.page-numbers,
-.ast-pagination .next.page-numbers {
-  padding: 0 1.5em;
-  height: 2.33333em;
-  line-height: calc(2.33333em - 3px);
-}
-
-.post-navigation a {
-  background: transparent;
-  font-size: 16px;
-  font-size: 1.06666rem;
-}
-
-.ast-pagination {
-  display: inline-block;
-  width: 100%;
-  padding-top: 2em;
-}
-
-@media (min-width: 993px) {
-  .ast-pagination {
-    padding-right: 3.33333em;
-    padding-left: 3.33333em;
-  }
-}
-
-.ast-pagination .page-numbers {
-  display: inline-block;
-  width: 2.33333em;
-  height: 2.33333em;
-  font-size: 16px;
-  font-size: 1.06666rem;
-  line-height: calc(2.33333em - 3px);
-  text-align: center;
-}
-
-.ast-pagination .nav-links {
-  display: inline-block;
-  width: 100%;
-}
-
-@media (max-width: 420px) {
-  .ast-pagination .prev.page-numbers,
-  .ast-pagination .next.page-numbers {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-  }
-}
-
-.ast-pagination .prev.page-numbers,
-.ast-pagination .prev.page-numbers:visited,
-.ast-pagination .prev.page-numbers:focus,
-.ast-pagination .next.page-numbers,
-.ast-pagination .next.page-numbers:visited,
-.ast-pagination .next.page-numbers:focus {
-  display: inline-block;
-  width: auto;
-}
-
-@media (min-width: 769px) {
-  .ast-pagination .prev.page-numbers.next,
-  .ast-pagination .prev.page-numbers:visited.next,
-  .ast-pagination .prev.page-numbers:focus.next,
-  .ast-pagination .next.page-numbers.next,
-  .ast-pagination .next.page-numbers:visited.next,
-  .ast-pagination .next.page-numbers:focus.next {
-    margin-left: 0;
-  }
-}
-
-.ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
-.ast-pagination .prev.page-numbers:visited.dots,
-.ast-pagination .prev.page-numbers:visited.dots:hover,
-.ast-pagination .prev.page-numbers:visited.dots:focus,
-.ast-pagination .prev.page-numbers:focus.dots,
-.ast-pagination .prev.page-numbers:focus.dots:hover,
-.ast-pagination .prev.page-numbers:focus.dots:focus,
-.ast-pagination .next.page-numbers.dots,
-.ast-pagination .next.page-numbers.dots:hover,
-.ast-pagination .next.page-numbers.dots:focus,
-.ast-pagination .next.page-numbers:visited.dots,
-.ast-pagination .next.page-numbers:visited.dots:hover,
-.ast-pagination .next.page-numbers:visited.dots:focus,
-.ast-pagination .next.page-numbers:focus.dots,
-.ast-pagination .next.page-numbers:focus.dots:hover,
-.ast-pagination .next.page-numbers:focus.dots:focus {
-  border: 2px solid #eaeaea;
-  background: transparent;
-}
-
-.ast-pagination .prev.page-numbers.dots,
-.ast-pagination .prev.page-numbers:visited.dots,
-.ast-pagination .prev.page-numbers:focus.dots,
-.ast-pagination .next.page-numbers.dots,
-.ast-pagination .next.page-numbers:visited.dots,
-.ast-pagination .next.page-numbers:focus.dots {
-  cursor: default;
-}
-
-.ast-pagination .next.page-numbers {
-  float: left;
-  text-align: left;
-}
-
-@media (max-width: 768px) {
-  .ast-pagination .next.page-numbers .page-navigation {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .ast-pagination .prev_next {
-    display: inline-block;
-    width: 100%;
-  }
-}
-
-.ast-pagination .prev_next .next .ast-right-arrow,
-.ast-pagination .prev_next .prev .ast-left-arrow {
-  font-size: 1em;
-  line-height: 1em;
-}
-
-@media (min-width: 769px) {
-  .ast-pagination .prev_next {
-    float: left;
-  }
-}
-
 /*----------  404  ----------*/
 .ast-404-layout-1 {
   text-align: center;
@@ -5255,12 +5080,6 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
-@media (max-width: 768px) {
-  .js_active .ast-plain-container.ast-single-post #secondary {
-    margin-top: 1.5em;
-  }
-}
-
 .js_active .ast-plain-container.ast-left-sidebar .vc_row[data-vc-full-width], .js_active .ast-plain-container.ast-right-sidebar .vc_row[data-vc-full-width],
 .js_active .ast-page-builder-template.ast-left-sidebar .vc_row[data-vc-full-width],
 .js_active .ast-page-builder-template.ast-right-sidebar .vc_row[data-vc-full-width] {
@@ -5274,31 +5093,6 @@ input[type="color"]::-webkit-color-swatch {
   right: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
-}
-
-/**
- * Astra Theme compatibility with Elementor
- */
-.ast-left-sidebar .elementor-section.elementor-section-stretched,
-.ast-right-sidebar .elementor-section.elementor-section-stretched {
-  max-width: 100%;
-  right: 0 !important;
-}
-
-.elementor-post.elementor-grid-item.hentry {
-  margin-bottom: 0;
-}
-
-.elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
-  width: auto;
-  margin: 0;
-  float: none;
-}
-
-.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product {
-  width: auto;
-  margin: 0;
-  float: none;
 }
 
 /**
