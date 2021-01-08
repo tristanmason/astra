@@ -58,8 +58,7 @@ const ItemComponent = props => {
 					{undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ''}
 				</span>
 		{
-
-
+			astra.customizer.is_pro &&
 			<div className="ahfb-slide-up">
 				{ choices[props.item]['clone'] && <span title="Clone"
 					  onClick={e => {
