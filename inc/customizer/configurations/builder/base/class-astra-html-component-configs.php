@@ -90,8 +90,9 @@ class Astra_Html_Component_Configs {
 						'id' => $builder_type . '-html-' . $index,
 					),
 					'partial'     => array(
-						'selector'        => '.ast-' . $builder_type . '-html-' . $index,
-						'render_callback' => array( $class_obj, $builder_type . '_html_' . $index ),
+						'selector'         => '.ast-' . $builder_type . '-html-' . $index,
+						'render_callback'  => array( $class_obj, $builder_type . '_html_' . $index ),
+						'fallback_refresh' => false,
 					),
 					'context'     => Astra_Builder_Helper::$general_tab,
 				),

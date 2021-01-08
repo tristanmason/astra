@@ -203,11 +203,15 @@ const BuilderComponent = props => {
 		cloneData.section = clone_section;
 		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
 
-		sessionStorage.setItem('cloneInProgress', JSON.stringify({
-			'clone_index': clone_index,
-			'clone_to_section': clone_section,
-			'clone_from_section' : choices[item]['section']
-		}));
+		sessionStorage.setItem('cloneInProgress', true);
+
+		var event = new CustomEvent('AstraBuilderCloneSectionControls', {
+			'detail': {
+				'clone_to_section': clone_section,
+				'clone_from_section' : choices[item]['section']
+			}
+		});
+		document.dispatchEvent(event);
 
 		component_track.set( { ...component_count, ...updated_count } );
 

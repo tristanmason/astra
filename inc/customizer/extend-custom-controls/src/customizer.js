@@ -204,7 +204,10 @@
 			if(  false !== is_cloning_index ) {
 				let clone_from_id = id;
 				clone_from_id = clone_from_id.replace(/[0-9]/g, is_cloning_index);
-				api(id).set( api(clone_from_id).get() );
+				let val = api(clone_from_id).get();
+				if( val ) {
+					api(id).set( val );
+				}
 			}
 
 			// Change description to tooltip.
@@ -689,25 +692,26 @@
 
 			});
 
-			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
-				let cloneData = JSON.parse( sessionStorage.getItem('cloneInProgress') );
-				if( ! cloneData ){
+			document.addEventListener('AstraBuilderCloneSectionControls', function (e) {
+
+				let cloneData = e.detail;
+
+				if (!cloneData) {
 					return;
 				}
 
-				let clone_to_section =  cloneData.clone_to_section,
-					clone_from_section =  cloneData.clone_from_section,
-					clone_index =  cloneData.clone_index;
+				let clone_to_section = cloneData.clone_to_section,
+					clone_from_section = cloneData.clone_from_section;
 
 				let section_config = AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section];
 
-				if( ! section_config ) {
+				if (!section_config) {
 					section_config = AstraBuilderCustomizerData.js_configs.sections[clone_to_section];
 				}
 
-				AstCustomizerAPI.addSection( clone_to_section, section_config );
+				AstCustomizerAPI.addSection(clone_to_section, section_config);
 				is_cloning_index = clone_from_section.match(/\d+$/)[0];
-				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section) );
+				AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section));
 				is_cloning_index = false;
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
@@ -716,7 +720,7 @@
 
 				sessionStorage.removeItem('cloneInProgress');
 
-			} );
+			});
 
 			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
 				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);

@@ -96,6 +96,7 @@ class Astra_Button_Component_Configs {
 						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
 						'container_inclusive' => false,
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
