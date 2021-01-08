@@ -1,3 +1,6 @@
+v3.1.0
+- Improvement: Optimize is_component_loaded function to reduce unwantend dynainc CSS loading.
+
 v3.0.0
 - New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
 - Improvement: Removed old CSS that is already supported by browsers.
@@ -14,7 +17,6 @@ v3.0.0
 - Improvement: Builder - Menu - Added menu hover animation styles.
 - Improvement: Builder - Off-Canvas - Added container alignment option.
 - Improvement: Removed extra localized variable declaration.
-- Improvement: Optimize is_component_loaded function to reduce unwantend dynainc CSS loading.
 - Fix: RTL fixes for customizer custom controls.
 - Fix: Black patch being shown while transitioning between show/hide click of the builder.
 - Fix: Socials element edit pencil icon was misaligned in Header and Footer.
