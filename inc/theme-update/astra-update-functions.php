@@ -2732,7 +2732,7 @@ function astra_footer_widgets_migration( $theme_options, $used_elements, $widget
 
 		$theme_options['hba-footer-column'] = $column;
 		$theme_options['hba-footer-layout'] = $layout;
-		if ( issset( $theme_options['footer-desktop-items'] ) ) {
+		if ( isset( $theme_options['footer-desktop-items'] ) ) {
 			$theme_options['footer-desktop-items']['above'] = $items;
 		}
 
