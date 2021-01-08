@@ -20,8 +20,9 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 	$row_label = ( 'primary' === $row ) ? 'main' : $row;
 
 	?>
-		<div class="ast-<?php echo esc_attr( $row_label ); ?>-header-wrap <?php echo 'primary' === $row ? 'main-header-bar-wrap' : ''; ?>" >
-		<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?>  ast-builder-grid-row-container site-header-focus-item" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
+	<div class="ast-<?php echo esc_attr( $row_label ); ?>-header-wrap <?php echo 'primary' === $row ? 'main-header-bar-wrap' : ''; ?> ">
+		<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?> ast-builder-grid-row-container site-header-focus-item" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
+			<div class="ast-builder-grid-row-container-inner">
 			<?php
 			if ( is_customize_preview() ) {
 				Astra_Builder_UI_Controller::render_grid_row_customizer_edit_button( 'Header', $row );
@@ -95,7 +96,8 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 					 */
 					do_action( "astra_header_{$row}_container_after" );
 					?>
+				</div>	
 			</div>
-		</div>
+			</div>
 	<?php
 }
