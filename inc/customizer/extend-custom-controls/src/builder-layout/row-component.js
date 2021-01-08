@@ -60,8 +60,6 @@ const RowComponent = props => {
 		}
 	}
 
-	console.log(props.row);
-
 	return <div className={`ahfb-builder-areas ahfb-builder-mode-${mode} ${centerClass}`} data-row={props.row} data-row-section={'section-' + props.row + '-' + mode + '-builder'}>
 		<Button className="ahfb-row-actions" title={ ( props.row === 'popup' ? __( 'Off Canvas', 'astra' ) : ( props.row + ' ' + mode ).charAt(0).toUpperCase() + ( props.row + ' ' + mode ).slice(1).toLowerCase() ) } onClick={() => props.focusPanel(props.row + '-' + mode)}>
 			<Dashicon icon="admin-generic"/>
