@@ -1,3 +1,7 @@
+v3.1.0
+- Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
+- Fix: Above Footer & Below Footer showing up unwanted border in the customizer preview.
+
 v3.0.0
 - New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
 - Improvement: Removed old CSS that is already supported by browsers.
