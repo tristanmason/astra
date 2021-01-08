@@ -73,7 +73,7 @@ class Astra_Header_Menu_Component_Loader {
 			'astra-heading-menu-customizer-preview-js',
 			'AstraBuilderMenuData',
 			array(
-				'component_limit'  => Astra_Builder_Helper::$component_limit,
+				'component_limit'    => Astra_Builder_Helper::$component_limit,
 				'tablet_break_point' => astra_get_tablet_breakpoint(),
 				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)

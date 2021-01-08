@@ -251,6 +251,22 @@ final class Astra_Builder_Helper {
 	public static $num_of_footer_social_icons;
 
 	/**
+	 * No. Of. Header Dividers.
+	 *
+	 * @since 3.0.0
+	 * @var int
+	 */
+	public static $num_of_header_divider;
+
+	/**
+	 * No. Of. Footer Dividers.
+	 *
+	 * @since 3.0.0
+	 * @var int
+	 */
+	public static $num_of_footer_divider;
+
+	/**
 	 *  Check if migrated to new HFB.
 	 *
 	 * @var int
@@ -331,6 +347,10 @@ final class Astra_Builder_Helper {
 
 		self::$num_of_header_social_icons = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['header-social-icons'] : 1;
 		self::$num_of_footer_social_icons = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['footer-social-icons'] : 1;
+
+		// Divider.
+		self::$num_of_header_divider = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['header-divider'] : 0;
+		self::$num_of_footer_divider = defined( 'ASTRA_EXT_VER' ) ? self::$component_count_array['footer-divider'] : 0;
 
 		self::$num_of_footer_columns = defined( 'ASTRA_EXT_VER' ) ? apply_filters( 'astra_footer_column_count', 6 ) : 6;
 
@@ -702,6 +722,8 @@ final class Astra_Builder_Helper {
 			'footer-widget'       => 4,
 			'header-social-icons' => 1,
 			'footer-social-icons' => 1,
+			'header-divider'      => 0,
+			'footer-divider'      => 0,
 			'removed-items'       => array(),
 		);
 
@@ -731,6 +753,11 @@ final class Astra_Builder_Helper {
 		// Social Icons.
 		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
 		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
+
+		// Divider.
+		$component_keys_count['header-divider'] = ( self::$component_limit >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : self::$component_limit;
+		$component_keys_count['footer-divider'] = ( self::$component_limit >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : self::$component_limit;
+
 
 		return $component_keys_count;
 	}

@@ -48,9 +48,9 @@ class Astra_Header_Widget_Component_Loader {
 			'astra-header-widget-customizer-preview-js',
 			'AstraBuilderWidgetData',
 			array(
-				'component_limit' => Astra_Builder_Helper::$component_limit,
-				'tablet_break_point'  => astra_get_tablet_breakpoint(),
-				'mobile_break_point'  => astra_get_mobile_breakpoint(),
+				'component_limit'    => Astra_Builder_Helper::$component_limit,
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)
 		);
 	}
