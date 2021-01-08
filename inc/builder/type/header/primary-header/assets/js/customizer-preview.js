@@ -18,7 +18,7 @@
 
 			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				var dynamicStyle = '';
-				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar , .ast-primary-header-bar .site-primary-header-wrap {';
 				dynamicStyle += 'min-height: ' + size.desktop + 'px;';
 				dynamicStyle += '} ';
 				dynamicStyle += '.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {';
@@ -26,13 +26,13 @@
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar , .ast-primary-header-bar .site-primary-header-wrap {';
 				dynamicStyle += 'min-height: ' + size.tablet + 'px;';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar , .ast-primary-header-bar .site-primary-header-wrap {';
 				dynamicStyle += 'min-height: ' + size.mobile + 'px;';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';

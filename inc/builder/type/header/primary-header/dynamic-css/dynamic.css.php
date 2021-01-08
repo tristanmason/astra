@@ -42,7 +42,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 
 	$common_css_output = array(
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar, .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item' => array(
@@ -116,13 +116,13 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$tablet_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'tablet' ),
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar, .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_tablet, 'px' ),
 		),
 	);
 	$mobile_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'mobile' ),
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar , .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_mobile, 'px' ),
 		),
 	);
