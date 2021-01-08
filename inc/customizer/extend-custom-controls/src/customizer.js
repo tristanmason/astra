@@ -8,6 +8,8 @@
 
 	var defaultContextSet = '';
 
+	var is_cloning_index = false;
+
 	/**
 	 * Resize Preview Frame when show / hide Builder.
 	 */
@@ -199,6 +201,12 @@
 			options = _.extend({params: data}, data);
 			api.control.add(new Constructor(id, options));
 
+			if(  false !== is_cloning_index ) {
+				let clone_from_id = id;
+				clone_from_id = clone_from_id.replace(/[0-9]/g, is_cloning_index);
+				api(id).set( api(clone_from_id).get() );
+			}
+
 			// Change description to tooltip.
 			change_description_as_tooltip(api.control(id));
 
@@ -255,43 +263,6 @@
 									val = sub_config['reset_default'] ?  sub_config['reset_default'] : '';
 									api(sub_config.id).set( val );
 									api.control(sub_config.id).renderContent();
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-
-		cloneControlsBySection: function (section, clone_index) {
-
-			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
-				if (controls) {
-					for (let i = 0; i < controls.length; i++) {
-						let config = controls[i];
-						let clone_id = config.id.replace(/[0-9]/g, clone_index);
-						let control= api.control(clone_id);
-						if( control ){
-							let val = api.control(config.id).setting.get();
-							if( val ) {
-								control.setting.set( val );
-							}
-						}
-
-						if ('ast-settings-group' === config['type']) {
-							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
-							if (sub_controls) {
-								for (let i = 0; i < sub_controls.length; i++) {
-									let sub_config = sub_controls[i];
-									let sub_clone_id = sub_config.id.replace(/[0-9]/g, clone_index);
-									let sub_control= api.control(sub_clone_id);
-									if( sub_control ){
-										let val = api.control(sub_config.id).setting.get();
-										if( val ) {
-											sub_control.setting.set( val );
-										}
-									}
 								}
 							}
 						}
@@ -735,8 +706,9 @@
 				}
 
 				AstCustomizerAPI.addSection( clone_to_section, section_config );
+				is_cloning_index = clone_from_section.match(/\d+$/)[0];
 				AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section) );
-				AstCustomizerAPI.cloneControlsBySection(  api.section(clone_from_section), clone_index );
+				is_cloning_index = false;
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
