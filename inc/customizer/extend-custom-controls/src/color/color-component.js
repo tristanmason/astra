@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 const ColorComponent = props => {
 	let value
-	if(props.control.setting.get().includes("palette")){
+	if(props.control.setting.get() && props.control.setting.get().includes("palette")){
 		var regex = /\d+/g;
 		var string = props.control.setting.get();
 		var matches = string.match(regex);
