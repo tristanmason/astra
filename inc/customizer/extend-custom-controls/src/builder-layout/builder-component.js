@@ -161,21 +161,27 @@ const BuilderComponent = props => {
 
 	const prepare_element = function (cloneData, clone_index) {
 
-		if ('menu' === cloneData.type) {
-			switch (clone_index) {
-				case 1:
-					cloneData.name = 'Primary Menu';
-					break;
-				case 2:
-					cloneData.name = 'Secondary Menu';
-					break;
-				default:
-					cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
-					break;
-			}
+		switch ( cloneData.type ) {
 
-		} else {
-			cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
+			case 'menu':
+				switch (clone_index) {
+					case 1:
+						cloneData.name = 'Primary Menu';
+						break;
+					case 2:
+						cloneData.name = 'Secondary Menu';
+						break;
+					default:
+						cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
+						break;
+				}
+				break;
+
+			default:
+				let name = cloneData.name.replace(/[0-9]/g, '');
+				cloneData.name = name + ' ' + clone_index;
+				break;
+
 		}
 
 		cloneData.section = cloneData.section.replace(/[0-9]/g, clone_index);
