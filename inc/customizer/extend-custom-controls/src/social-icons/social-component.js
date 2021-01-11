@@ -46,7 +46,7 @@ const SocialComponent = props => {
 		'options': [
 			{value: 'facebook', label: __('Facebook', 'astra'), color: '#557dbc', background: 'transparent'},
 			{value: 'twitter', label: __('Twitter', 'astra'), color: '#7acdee', background: 'transparent'},
-			{value: 'instagram', label: __('Instagram', 'astra'), color: '#292929', background: 'transparent'},
+			{value: 'instagram', label: __('Instagram', 'astra'), color: '#8a3ab9', background: 'transparent'},
 			{value: 'youtube', label: __('YouTube', 'astra'), color: '#e96651', background: 'transparent'},
 			{value: 'facebook_group', label: __('Facebook Group', 'astra'), color: '#3D87FB', background: 'transparent'},
 			{value: 'vimeo', label: __('Vimeo', 'astra'), color: '#8ecfde', background: 'transparent'},

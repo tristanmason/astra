@@ -1616,6 +1616,8 @@ body {
 
 .main-navigation {
   height: 100%;
+  -js-display: inline-flex;
+  display: inline-flex;
 }
 
 .main-navigation ul {
