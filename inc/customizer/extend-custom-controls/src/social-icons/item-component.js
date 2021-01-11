@@ -78,6 +78,7 @@ const ItemComponent = props => {
 				<Popover
 					position="bottom center"
 					onClose={ toggleClose }
+					className="ast-social-color-popover"
 				>
 					<TabPanel className="ast-social-color-tabs" activeClass="active-tab"
 							tabs={ [

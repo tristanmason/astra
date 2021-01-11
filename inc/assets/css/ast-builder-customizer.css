@@ -1860,3 +1860,25 @@ button.components-button.ahfb-sorter-item-expand {
         font-size: 7px;
     }
 }
+
+/** Social Control CSS */
+
+.ast-social-icon-color {
+    position: relative;
+}
+.ast-social-icon-color .ast-responsive-btns {
+    position: absolute;
+    right: 5px;
+    top: -4.5px;
+    display: inline;
+}
+.ast-social-icon-color .customize-control-content {
+    position: absolute;
+    right: 30px;
+    top: -4.5px;
+    display: inline;
+}
+.ast-social-color-popover .components-popover__content {
+    width: 250px;
+    height: 150px;
+}

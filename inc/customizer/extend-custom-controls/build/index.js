@@ -17150,7 +17150,8 @@ var ItemComponent = function ItemComponent(props) {
     icon: "open-folder"
   })), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Popover, {
     position: "bottom center",
-    onClose: toggleClose
+    onClose: toggleClose,
+    className: "ast-social-color-popover"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(TabPanel, {
     className: "ast-social-color-tabs",
     activeClass: "active-tab",
@@ -17401,6 +17402,8 @@ var SocialComponent = function SocialComponent(props) {
       availibleSocialOptions.push(option);
     }
   });
+  console.log(props.control);
+  console.log(value);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])({
     value: value,

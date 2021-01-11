@@ -92,6 +92,8 @@ const SocialComponent = props => {
 			availibleSocialOptions.push(option);
 		}
 	});
+console.log(props.control)
+console.log(value)
 
 	const [state, setState] = useState({
 		value: value,
