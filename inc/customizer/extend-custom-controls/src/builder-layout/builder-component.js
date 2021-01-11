@@ -118,45 +118,42 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get();
 
-		Object.keys(component_count).forEach(function( component_type, value) {
-
-			if( 'removed-items' === component_type || 'flag' === component_type ) {
-				return;
-			}
-
-			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
-				for (let key in choices) {
-					if (choices.hasOwnProperty(key)) {
-						let tmp_choice = choices[key];
-						if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
-							let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-							let tmp_section = tmp_choice.section.replace(/[0-9]/g, '');
-							let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
-							tmp_choice['clone'] = ( component_type === tmp_component_type && is_clone == -1 ) ? false: true;
-						}
-					}
-				}
-			}
-		});
+		AstraBuilderCustomizerData.component_limit = parseInt(AstraBuilderCustomizerData.component_limit);
 
 		let tmp_choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
 		Object.keys(tmp_choices).forEach(function( choice) {
 
-			let tmp_choice = tmp_choices[choice],
-				tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-			let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
+			let tmp_choice = tmp_choices[choice];
 
-			switch (component_count[tmp_component_type]) {
-				case 1:
-					is_to_delete = false;
-					break;
-				case 2:
-					is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) ? false : true;
-					break;
+			if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
+
+				let is_to_clone = tmp_choice.hasOwnProperty('clone') ? tmp_choice['clone']: true;
+				let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
+
+				let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
+
+				if( component_count[tmp_component_type] < AstraBuilderCustomizerData.component_limit ) {
+					is_to_clone = true;
+				}  else {
+					let tmp_section = tmp_choice.section.replace(/[0-9]/g, '');
+					let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
+					is_to_clone = is_clone !== -1;
+				}
+
+				tmp_choice['clone'] = is_to_clone;
+
+				switch (component_count[tmp_component_type]) {
+					case 1:
+						is_to_delete = false;
+						break;
+					case 2:
+						is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) ? false : true;
+						break;
+				}
+
+				tmp_choice['delete'] = is_to_delete;
 			}
-
-			tmp_choice['delete'] = is_to_delete;
 
 		});
 

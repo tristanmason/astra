@@ -609,7 +609,7 @@
 
 	const clear_sessions = function() {
 		sessionStorage.removeItem('cloneInProgress');
-		sessionStorage.removeItem('forceRemoveComponent');
+		sessionStorage.removeItem('forceRemoveInProgress');
 	}
 
 	api.bind('ready', function () {
@@ -679,22 +679,7 @@
 
 				// Clear clone process if partially refreshed.
 				sessionStorage.removeItem('cloneInProgress');
-
-				let forceRemoveSection = JSON.parse ( sessionStorage.getItem('forceRemoveComponent') );
-
-				if( ! forceRemoveSection ) {
-					return;
-				}
-
-
-				if( api.section(forceRemoveSection.section).expanded ) {
-					api.section(forceRemoveSection.section).collapse();
-				}
-
-				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
-				api.section.remove( forceRemoveSection.section );
-
-				sessionStorage.removeItem('forceRemoveComponent');
+				sessionStorage.removeItem('forceRemoveInProgress');
 
 			});
 
@@ -732,7 +717,20 @@
 			});
 
 			document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
-				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
+
+				let forceRemoveSection = e.detail;
+
+				if( ! forceRemoveSection ) {
+					return;
+				}
+
+				if( api.section(forceRemoveSection.section).expanded ) {
+					api.section(forceRemoveSection.section).collapse();
+				}
+
+				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
+				api.section.remove( forceRemoveSection.section );
+
 			});
 
 		} );
