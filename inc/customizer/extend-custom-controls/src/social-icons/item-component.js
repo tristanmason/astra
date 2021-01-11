@@ -1,14 +1,20 @@
 import {useState} from 'react';
 
 const {__} = wp.i18n;
-const {Dashicon, Tooltip, TextControl, Button} = wp.components;
+const {Dashicon, Tooltip, TextControl, Button } = wp.components;
+import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
+import UAGBIcon from "../../../../assets/images/ast-social-icons"
+import renderSVG from "../../../../assets/js/ast-render-svg"
+
+
+let svg_icons = Object.keys( UAGBIcon )
 
 const ItemComponent = props => {
 
 	const Icons = window.svgIcons;
 
 	const [state, setState] = useState({
-		open: false
+		open: false,
 	});
 
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
@@ -50,6 +56,16 @@ const ItemComponent = props => {
 			<TextControl label={__('URL', 'astra')} value={props.item.url ? props.item.url : ''} onChange={value => {
 				props.onChangeURL(value, props.index);
 			}}/>
+			<p className="ast-social-icon-picker-label">{ __( "Icon" ) }</p>
+			<FontIconPicker
+				icons={svg_icons}
+				renderFunc= {renderSVG}
+				theme="default"
+				value={props.item.icon}
+				onChange={ value => { props.onChangeIcon(value, props.index); } }
+				isMulti={false}
+				noSelectedPlaceholder= { __( "Select Icon" ) }
+			/>
 		</div>}
 	</div>;
 };

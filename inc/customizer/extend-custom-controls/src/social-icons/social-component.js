@@ -97,6 +97,7 @@ const SocialComponent = props => {
 		value: value,
 		isVisible: false,
 		control: (undefined !== availibleSocialOptions[0] && undefined !== availibleSocialOptions[0].value ? availibleSocialOptions[0].value : ''),
+		icon : ''
 	});
 
 	const updateValues = (value) => {
@@ -117,9 +118,19 @@ const SocialComponent = props => {
 	};
 
 	const saveArrayUpdate = (value, index) => {
+		console.log(value)
 		let updateState = state.value;
 		let items = updateState.items;
+		// console.log(updateState)
+		// console.log(items)
+
 		const newItems = items.map((item, thisIndex) => {
+		console.log(index)
+		console.log(thisIndex)
+		console.log(item)
+
+		console.log(value)
+
 			if (index === thisIndex) {
 				item = {
 					...item,
@@ -128,6 +139,8 @@ const SocialComponent = props => {
 			}
 			return item;
 		});
+		// console.log(newItems)
+
 		updateState.items = newItems;
 		setState(prevState => ({
 			...prevState,
@@ -280,6 +293,12 @@ const SocialComponent = props => {
 		}
 	};
 
+	const onChangeIcon = ( icon, itemIndex ) => {
+		saveArrayUpdate({
+			icon: icon
+		}, itemIndex);
+	};
+
 	return <div className="ahfb-control-field ahfb-sorter-items">
 		<div className="ahfb-sorter-row">
 			<ReactSortable animation={100} onStart={() => onDragStop()} onEnd={() => onDragStop()}
@@ -291,6 +310,7 @@ const SocialComponent = props => {
 					return <ItemComponent removeItem={remove => removeItem(remove)}
 										  toggleEnabled={(enable, itemIndex) => toggleEnableItem(enable, itemIndex)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
+										  onChangeIcon={( icon, index ) => onChangeIcon( icon, index ) }
 										  onChangeURL={(url, itemIndex) => onChangeURL(url, itemIndex)}
 										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
 

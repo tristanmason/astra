@@ -40,10 +40,36 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				self::$ast_svgs = apply_filters( 'astra_svg_icons', self::$ast_svgs );
 			}
 
-			$output .= isset( self::$ast_svgs[ $icon ] ) ? self::$ast_svgs[ $icon ] : '';
-			$output .= '</span>';
+			$social_svg = self::fetch_social_svg_icon( $icon );
 
+			$output .= isset( self::$ast_svgs[ $icon ] ) ? self::$ast_svgs[ $icon ] : ( isset( $social_svg ) ? $social_svg : '' );
+			$output .= '</span>';
+			
 			return $output;
+		}
+		/**
+		 * Get an Social SVG Icon
+		 *
+		 * @param string $icon the icon name.
+		 */
+		public static function fetch_social_svg_icon( $icon ) {
+			
+			$viewbox = '';
+			ob_start();
+			include_once ASTRA_THEME_DIR . 'inc/assets/images/ast-social-icons.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			$social_svgs = json_decode( ob_get_clean(), true );
+			$social_svgs = $social_svgs[ $icon ];
+			
+			$viewbox_array = ( isset( $social_svgs['svg'] ) && isset( $social_svgs['svg']['brands'] ) ) ? $social_svgs['svg']['brands']['viewBox'] : $social_svgs['svg']['solid']['viewBox'];
+
+			$path = ( isset( $social_svgs['svg'] ) && isset( $social_svgs['svg']['brands'] ) ) ? $social_svgs['svg']['brands']['path'] : $social_svgs['svg']['solid']['path'];
+			
+			if ( is_array( $viewbox_array ) ) {
+				$viewbox = join( ' ', $viewbox_array );
+				
+			}
+			
+			return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' . $viewbox . '"><path d="' . $path . '"></path></svg>';
 		}
 
 		/**
