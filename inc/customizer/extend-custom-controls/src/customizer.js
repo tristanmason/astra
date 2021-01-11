@@ -677,6 +677,9 @@
 
 			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
 
+				// Clear clone process if partially refreshed.
+				sessionStorage.removeItem('cloneInProgress');
+
 				let forceRemoveSection = JSON.parse ( sessionStorage.getItem('forceRemoveComponent') );
 
 				if( ! forceRemoveSection ) {
@@ -721,7 +724,6 @@
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
 
-				sessionStorage.removeItem('cloneInProgress');
 
 			});
 
