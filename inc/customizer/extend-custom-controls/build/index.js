@@ -10556,6 +10556,29 @@ var BuilderComponent = function BuilderComponent(props) {
     });
   };
 
+  var prepare_element = function prepare_element(cloneData, clone_index) {
+    if ('menu' === cloneData.type) {
+      switch (clone_index) {
+        case 1:
+          cloneData.name = 'Primary Menu';
+          break;
+
+        case 2:
+          cloneData.name = 'Secondary Menu';
+          break;
+
+        default:
+          cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
+          break;
+      }
+    } else {
+      cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
+    }
+
+    cloneData.section = cloneData.section.replace(/[0-9]/g, clone_index);
+    return cloneData;
+  };
+
   var _cloneItem = function cloneItem(item, row, zone) {
     // Skip clone if already is in progress.
     if (sessionStorage.getItem('cloneInProgress')) {
@@ -10575,7 +10598,7 @@ var BuilderComponent = function BuilderComponent(props) {
 
     if (clone_section_index != -1) {
       clone_section = tmp_removed_items[clone_section_index];
-      clone_index = clone_section.match(/\d+$/)[0];
+      clone_index = parseInt(clone_section.match(/\d+$/)[0]);
       tmp_removed_items.splice(clone_section_index, 1);
       updated_count['removed-items'] = tmp_removed_items;
     } else {
@@ -10590,8 +10613,7 @@ var BuilderComponent = function BuilderComponent(props) {
     }
 
     var clone_type_id = cloneData.type + '-' + clone_index;
-    cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
-    cloneData.section = clone_section;
+    cloneData = prepare_element(cloneData, clone_index);
     AstraBuilderCustomizerData.choices[controlParams.group][clone_type_id] = cloneData;
     sessionStorage.setItem('cloneInProgress', true);
     var event = new CustomEvent('AstraBuilderCloneSectionControls', {

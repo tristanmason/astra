@@ -162,13 +162,36 @@ const BuilderComponent = props => {
 
 	}
 
+	const prepare_element = function (cloneData, clone_index) {
+
+		if ('menu' === cloneData.type) {
+			switch (clone_index) {
+				case 1:
+					cloneData.name = 'Primary Menu';
+					break;
+				case 2:
+					cloneData.name = 'Secondary Menu';
+					break;
+				default:
+					cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
+					break;
+			}
+
+		} else {
+			cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
+		}
+
+		cloneData.section = cloneData.section.replace(/[0-9]/g, clone_index);
+
+		return cloneData;
+	}
+
 	const cloneItem = ( item, row, zone ) => {
 
 		// Skip clone if already is in progress.
 		if( sessionStorage.getItem('cloneInProgress') ) {
 			return;
 		}
-
 
 		let component_count = component_track.get(),
 			cloneData = Object.assign({},choices[item] ),
@@ -182,7 +205,7 @@ const BuilderComponent = props => {
 
 		if( clone_section_index != -1 ) {
 			clone_section = tmp_removed_items[clone_section_index];
-			clone_index = clone_section.match(/\d+$/)[0];
+			clone_index = parseInt( clone_section.match(/\d+$/)[0] );
 			tmp_removed_items.splice(clone_section_index, 1);
 			updated_count['removed-items'] = tmp_removed_items;
 
@@ -199,8 +222,8 @@ const BuilderComponent = props => {
 
 		let clone_type_id = cloneData.type + '-' + clone_index;
 
-		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
-		cloneData.section = clone_section;
+		cloneData = prepare_element(cloneData, clone_index);
+
 		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
 
 		sessionStorage.setItem('cloneInProgress', true);
