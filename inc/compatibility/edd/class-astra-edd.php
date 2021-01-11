@@ -122,14 +122,26 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_contents_count = $cart_items;
 
 			// Cart Icon markup with total number of items.
-			$cart_icon = sprintf(
-				'<span class="astra-icon ast-icon-shopping-%1$s %2$s"	
-							%3$s
-						></span>',
-				( $icon ) ? $icon : '',
-				( $cart_count_display ) ? '' : 'no-cart-total',
-				( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
-			);
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$cart_icon = sprintf(
+					'<span class="astra-icon ast-icon-shopping-%1$s %2$s"
+								%3$s
+							></span>',
+					( $icon ) ? $icon : '',
+					( $cart_count_display ) ? '' : 'no-cart-total',
+					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
+				);
+			} else {
+				$cart_icon = sprintf(
+					'<span class="astra-icon ast-icon-shopping-%1$s %2$s"
+								%3$s
+							>%4$s</span>',
+					( $icon ) ? $icon : '',
+					( $cart_count_display ) ? '' : 'no-cart-total',
+					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
+					( $icon ) ? Astra_Icons::get_icons( $icon ) : '',
+				);
+			}
 
 			// Theme's default icon with cart title and cart total.
 			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'edd' ) ) ) {
@@ -413,7 +425,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_menu_classes = apply_filters( 'astra_edd_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
 
 			ob_start();
-			if ( is_customize_preview() && Astra_Builder_Helper::$is_header_footer_builder_active ) { 
+			if ( is_customize_preview() && Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
@@ -453,7 +465,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						if ( apply_filters( 'astra_edd_default_header_cart_icon', true ) ) {
 							?>
 							<div class="ast-edd-cart-menu-wrap">
-								<span class="count"> 
+								<span class="count">
 									<?php
 									if ( apply_filters( 'astra_edd_header_cart_total', true ) ) {
 										$cart_items = count( edd_get_cart_contents() );
