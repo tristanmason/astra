@@ -959,12 +959,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if (undefined === main_header_masthead || null === main_header_masthead) {
 			return;
 		}
-
 		var window_width = body.clientWidth;
 		var break_point = astra.break_point;
 
-		var desktop_header = main_header_masthead.querySelector("#ast-desktop-header");
-		var mobile_header = main_header_masthead.querySelector("#ast-mobile-header");
+		var desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
+		var mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
 		if (window_width <= break_point) { // Rendering Mobile
 
