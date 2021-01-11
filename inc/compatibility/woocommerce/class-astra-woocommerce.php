@@ -150,14 +150,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Cart Icon markup with total number of items.
-			$cart_icon = sprintf(
-				'<i class="astra-icon ast-icon-shopping-%1$s %2$s"	
-							%3$s
-						></i>',
-				( $icon ) ? $icon : '',
-				( $cart_count_display ) ? '' : 'no-cart-total',
-				( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
-			);
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$cart_icon = sprintf(
+					'<i class="astra-icon ast-icon-shopping-%1$s %2$s"
+								%3$s
+							></i>',
+					( $icon ) ? $icon : '',
+					( $cart_count_display ) ? '' : 'no-cart-total',
+					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
+				);
+			} else {
+				$cart_icon = sprintf(
+					'<i class="astra-icon ast-icon-shopping-%1$s %2$s"
+								%3$s
+							>%4$s</i>',
+					( $icon ) ? $icon : '',
+					( $cart_count_display ) ? '' : 'no-cart-total',
+					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
+					( $icon ) ? Astra_Icons::get_icons( $icon ) : '',
+				);
+			}
 
 			// Theme's default icon with cart title and cart total.
 			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
@@ -1530,7 +1542,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
 
 			ob_start();
-			if ( is_customize_preview() && Astra_Builder_Helper::$is_header_footer_builder_active ) { 
+			if ( is_customize_preview() && Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
