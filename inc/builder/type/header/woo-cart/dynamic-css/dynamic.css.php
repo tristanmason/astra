@@ -64,15 +64,15 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$css_output_desktop = array(
 
 		$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap' => array(
-			'color' => $theme_color,
+			'color' => $icon_color,
 		),
 		$selector . ' .ast-cart-menu-wrap .count, ' . $selector . ' .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-addon-cart-wrap .count, ' . $selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
-			'color'        => $theme_color,
-			'border-color' => $theme_color,
+			'color'        => $icon_color,
+			'border-color' => $icon_color,
 		),
 		$selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
 			'color'            => esc_attr( $theme_h_color ),
-			'background-color' => esc_attr( $theme_color ),
+			'background-color' => esc_attr( $icon_color ),
 		),
 
 		/**
