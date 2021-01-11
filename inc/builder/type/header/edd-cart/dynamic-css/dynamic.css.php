@@ -89,11 +89,11 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .widget_edd_cart_widget span, ' . $selector . ' .widget_edd_cart_widget strong, ' . $selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color ),
 		),
-		$selector . ' .widget_edd_cart_widget' => array(
+		'.ast-builder-layout-element ' . $selector . ' .widget_edd_cart_widget' => array(
 			'background-color' => esc_attr( $cart_bg_color ),
 			'border-color'     => esc_attr( $cart_bg_color ),
 		),
-		$selector . ' .widget_edd_cart_widget:before, ' . $selector . ' .widget_edd_cart_widget:after' => array(
+		'.ast-builder-layout-element ' . $selector . ' .widget_edd_cart_widget:before, .ast-builder-layout-element ' . $selector . ' .widget_edd_cart_widget:after' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color ),
 		),
 		$selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $selector . ' .widget_edd_cart_widget .edd-cart-meta' => array(
