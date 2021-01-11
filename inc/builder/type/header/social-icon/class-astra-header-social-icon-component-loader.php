@@ -50,7 +50,7 @@ class Astra_Header_Social_Icon_Component_Loader {
 			array(
 				'tablet_break_point' => astra_get_tablet_breakpoint(),
 				'mobile_break_point' => astra_get_mobile_breakpoint(),
-				'component_limit'    => Astra_Builder_Helper::$component_limit,
+				'component_limit'    => defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_social_icons,
 			)
 		);
 	}

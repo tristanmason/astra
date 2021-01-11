@@ -76,9 +76,9 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 				return;
 			}
 
-
 			// Register Footer Widgets.
-			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
+			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, 'footer' ) ) {
 					continue;
@@ -87,7 +87,8 @@ if ( ! class_exists( 'Astra_Builder_Widget_Controller' ) ) {
 				$this->register_sidebar( $index, 'footer' );
 			}
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
+			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'widget-' . $index, 'header' ) ) {
 					continue;

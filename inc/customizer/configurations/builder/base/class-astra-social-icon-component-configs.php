@@ -40,9 +40,12 @@ class Astra_Social_Icon_Component_Configs {
 		if ( 'footer' === $builder_type ) {
 			$class_obj              = Astra_Builder_Footer::get_instance();
 			$number_of_social_icons = Astra_Builder_Helper::$num_of_footer_social_icons;
+			$component_limit        = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_social_icons;
+		} else {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_social_icons;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
 

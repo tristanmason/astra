@@ -253,7 +253,14 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_widget_options( $type = 'header' ) {
 		$html_config = array();
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+
+		if ( 'footer' === $type ) {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
+		} else {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
+		}
+
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
 

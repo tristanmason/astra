@@ -35,15 +35,15 @@ class Astra_Html_Component_Configs {
 
 		$html_config = array();
 
-		$class_obj      = Astra_Builder_Header::get_instance();
-		$number_of_html = Astra_Builder_Helper::$num_of_header_html;
-
 		if ( 'footer' === $builder_type ) {
-			$class_obj      = Astra_Builder_Footer::get_instance();
-			$number_of_html = Astra_Builder_Helper::$num_of_footer_html;
+			$class_obj       = Astra_Builder_Footer::get_instance();
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_html;
+		} else {
+			$class_obj       = Astra_Builder_Header::get_instance();
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_html;
 		}
 
-		for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
 
