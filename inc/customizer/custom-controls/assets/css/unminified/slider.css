@@ -15,6 +15,7 @@
   transition: background 0.3s;
   background-color: rgba(0, 0, 0, 0.1);
   height: 5px;
+  cursor: pointer;
   padding: 0;
   -webkit-box-flex: 1;
   -ms-flex: 1;

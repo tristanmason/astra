@@ -11,11 +11,13 @@ const SliderComponent = props => {
 		description,
 		suffix,
 		link,
+		unit,
 		inputAttrs,
 		name
 	} = props.control.params;
 
 	let labelHtml = null,
+		unitHtml = null,
 		descriptionHtml = null,
 		suffixHtml = null,
 		inp_array = [],

@@ -43,30 +43,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 
 			$defaults = Astra_Theme_Options::defaults();
 
-			$_configs = array(
+			if( Astra_Addon_Builder_Helper::$is_header_footer_builder_active ) {
+				$content_colors_control_title = __( 'Content Colors', 'astra' );
+			} else {
+				$content_colors_control_title = __( 'Content', 'astra' );
+			}
 
-				/**
-				 * Option: Divider
-				 * Option: breadcrumb color Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Colors', 'astra' ),
-					'priority' => 72,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
-					),
-				),
+			$_configs = array(
 
 				/*
 				 * Breadcrumb Color
@@ -76,7 +59,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'default'   => astra_get_option( 'section-breadcrumb-color' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
+					'title'     => $content_colors_control_title,
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'priority'  => 72,
@@ -166,6 +149,34 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'priority'   => 25,
 				),
 			);
+
+			if ( ! Astra_Addon_Builder_Helper::$is_header_footer_builder_active ) {
+
+				array_push(
+					$_configs,
+					/**
+					 * Option: Divider
+					 * Option: breadcrumb color Section divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => 'section-breadcrumb',
+						'title'    => __( 'Colors', 'astra' ),
+						'priority' => 72,
+						'settings' => array(),
+						'context'  => array(
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+								'operator' => '!=',
+								'value'    => 'none',
+							),
+							Astra_Builder_Helper::$general_tab_config,
+						),
+					)
+				);
+			}
 
 			return array_merge( $configurations, $_configs );
 		}
