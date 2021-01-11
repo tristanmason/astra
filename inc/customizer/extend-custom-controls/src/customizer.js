@@ -204,9 +204,12 @@
 			if(  false !== is_cloning_index ) {
 				let clone_from_id = id;
 				clone_from_id = clone_from_id.replace(/[0-9]/g, is_cloning_index);
-				let val = api(clone_from_id).get();
-				if( val ) {
-					api(id).set( val );
+
+				if( api.control(clone_from_id) ) {
+					let val = api(clone_from_id).get();
+					if( val ) {
+						api(id).set( val );
+					}
 				}
 			}
 
