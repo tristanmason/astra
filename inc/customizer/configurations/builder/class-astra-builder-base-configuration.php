@@ -187,7 +187,8 @@ final class Astra_Builder_Base_Configuration {
 				'title'    => __( 'Visibility', 'astra' ),
 				'priority' => 300,
 				'settings' => array(),
-				'context'  => ( 'footer' === $builder_type ) ? Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
+				'context'  => ( 'footer' === $builder_type ) ?
+					Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
 			),
 
 			/**
@@ -255,9 +256,11 @@ final class Astra_Builder_Base_Configuration {
 
 
 		if ( 'footer' === $type ) {
-			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
 		} else {
-			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
 		}
 
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
@@ -512,7 +515,7 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
-			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, $type ) );
+			$html_config[] = self::prepare_visibility_tab( $_section, $type );
 
 			$html_config[] = $_configs;
 		}
