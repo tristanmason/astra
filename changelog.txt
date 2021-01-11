@@ -1,5 +1,5 @@
 v3.1.0
-- Improvement: Builder - Search - Transparent placeholder text and color options.
+- Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 
 v3.0.0
