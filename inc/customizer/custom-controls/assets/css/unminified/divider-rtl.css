@@ -26,3 +26,8 @@
   margin: 0;
   text-transform: uppercase;
 }
+
+#customize-control-astra-settings-header-button-divider,
+#customize-control-astra-settings-footer-button-divider {
+  display: list-item !important;
+}
