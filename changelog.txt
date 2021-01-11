@@ -1,5 +1,6 @@
-v3.0.0.1 - Development Version
+v3.1.0
 - Improvement: Builder - Search - Transparent placeholder text and color options.
+- Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 
 v3.0.0
 - New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
