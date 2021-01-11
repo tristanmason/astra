@@ -104,6 +104,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
 		var prefix = 'button' + index;
 		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
+		var button_selector = '.ast-' + builder_type + '-button-' + index + '[data-section*="section-' + context + '-button-"] .ast-builder-button-wrap';
 
 		// Button Text Color.
 		astra_color_responsive_css(
@@ -136,7 +137,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		// Button Typography.
 		astra_responsive_font_size(
 			'astra-settings[' + builder_type + '-' + prefix + '-font-size]',
-			selector + ' .ast-custom-button'
+			button_selector + ' .ast-custom-button'
 		);
 
 		// Border Radius.

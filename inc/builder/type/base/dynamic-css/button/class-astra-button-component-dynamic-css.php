@@ -42,6 +42,7 @@ class Astra_Button_Component_Dynamic_CSS {
 			}
 
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-button-' . $index : 'section-fb-button-' . $index;
+			$context = ( 'header' === $builder_type ) ? 'hb' : 'fb';
 			$margin   = astra_get_option( $_section . '-margin' );
 			$_prefix  = 'button' . $index;
 
@@ -80,15 +81,20 @@ class Astra_Button_Component_Dynamic_CSS {
 			$css_output_desktop = array(
 
 				/**
+				 * Button font size.
+				 */
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button'       => array(
+					// Typography.
+					'font-size'           => astra_responsive_font( $button_font_size, 'desktop' ),
+				),
+
+				/**
 				 * Button Colors.
 				 */
 				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
 					// Colors.
 					'color'               => $button_color_desktop,
 					'background'          => $button_bg_color_desktop,
-
-					// Typography.
-					'font-size'           => astra_responsive_font( $button_font_size, 'desktop' ),
 
 					// Border.
 					'border-color'        => $button_border_color_desktop,
@@ -111,6 +117,15 @@ class Astra_Button_Component_Dynamic_CSS {
 			 * Button CSS.
 			 */
 			$css_output_tablet = array(
+
+				
+				/**
+				 * Button font size.
+				 */
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button'       => array(
+					// Typography.
+					'font-size'           => astra_responsive_font( $button_font_size, 'tablet' ),
+				),
 
 				/**
 				 * Button Colors.
@@ -136,6 +151,14 @@ class Astra_Button_Component_Dynamic_CSS {
 			 * Button CSS.
 			 */
 			$css_output_mobile = array(
+				
+				/**
+				 * Button font size.
+				 */
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button'       => array(
+					// Typography.
+					'font-size'           => astra_responsive_font( $button_font_size, 'mobile' ),
+				),
 
 				/**
 				 * Button Colors.
