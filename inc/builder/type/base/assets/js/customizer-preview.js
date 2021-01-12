@@ -105,7 +105,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var prefix = 'button' + index;
 		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
 		var button_selector = '.ast-' + builder_type + '-button-' + index + '[data-section*="section-' + context + '-button-"] .ast-builder-button-wrap';
-
+		
 		// Button Text Color.
 		astra_color_responsive_css(
 			context + '-button-color',
@@ -163,7 +163,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		);
 
 		// Advanced CSS Generation.
-		astra_builder_advanced_css( section, selector + ' .ast-custom-button' );
+		astra_builder_advanced_css( section, button_selector + ' .ast-custom-button' );
 
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector, 'block' );
