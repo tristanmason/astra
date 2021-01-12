@@ -1034,6 +1034,35 @@ body.admin-bar {
 		.woocommerce-mini-cart__buttons .button.checkout  {
 			margin-right: 0;
 		}
+		.edd-cart-item {
+			padding: .5em 2.6em .5em 1.5em;
+			.edd-remove-from-cart {
+				right: 1.2em;
+				&::after {
+					width: 20px;
+					height: 20px;
+					line-height: 16px;
+				}
+			}
+		}
+		.edd-cart-number-of-items {
+			margin-bottom: 0;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			padding-bottom: 1em;
+			text-align: center;
+			padding-top: 1em;
+		}
+		.edd_total {
+			padding: .5em 1.5em;
+			margin: 0;
+			text-align: center;
+		}
+		.cart_item.edd_checkout {
+			padding: 1em 1.5em 0;
+			text-align: center;
+			margin-top: 0;
+		}
 	}
 }
 body.admin-bar .astra-cart-drawer {

@@ -3310,6 +3310,41 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   margin-left: 0;
 }
 
+.astra-cart-drawer .astra-cart-drawer-content .edd-cart-item {
+  padding: .5em 1.5em .5em 2.6em;
+}
+
+.astra-cart-drawer .astra-cart-drawer-content .edd-cart-item .edd-remove-from-cart {
+  left: 1.2em;
+}
+
+.astra-cart-drawer .astra-cart-drawer-content .edd-cart-item .edd-remove-from-cart::after {
+  width: 20px;
+  height: 20px;
+  line-height: 16px;
+}
+
+.astra-cart-drawer .astra-cart-drawer-content .edd-cart-number-of-items {
+  margin-bottom: 0;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  padding-bottom: 1em;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.astra-cart-drawer .astra-cart-drawer-content .edd_total {
+  padding: .5em 1.5em;
+  margin: 0;
+  text-align: center;
+}
+
+.astra-cart-drawer .astra-cart-drawer-content .cart_item.edd_checkout {
+  padding: 1em 1.5em 0;
+  text-align: center;
+  margin-top: 0;
+}
+
 body.admin-bar .astra-cart-drawer {
   top: 46px;
 }
