@@ -136,7 +136,7 @@ const BuilderComponent = props => {
 				if( component_count[tmp_component_type] < AstraBuilderCustomizerData.component_limit ) {
 					is_to_clone = true;
 				}  else {
-					let tmp_section = tmp_choice.section.replace(/[0-9]/g, '');
+					let tmp_section = tmp_choice.section.replace(/[0-9]+/g, '');
 					let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
 					is_to_clone = is_clone !== -1;
 				}
@@ -148,7 +148,7 @@ const BuilderComponent = props => {
 						is_to_delete = false;
 						break;
 					case 2:
-						is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) ? false : true;
+						is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
 						break;
 				}
 
@@ -178,13 +178,13 @@ const BuilderComponent = props => {
 				break;
 
 			default:
-				let name = cloneData.name.replace(/[0-9]/g, '');
+				let name = cloneData.name.replace(/[0-9]+/g, '');
 				cloneData.name = name + ' ' + clone_index;
 				break;
 
 		}
 
-		cloneData.section = cloneData.section.replace(/[0-9]/g, clone_index);
+		cloneData.section = cloneData.section.replace(/[0-9]+/g, clone_index);
 
 		return cloneData;
 	}
@@ -198,7 +198,7 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get(),
 			cloneData = Object.assign({},choices[item] ),
-			clone_section = cloneData.section.replace(/[0-9]/g, ''),
+			clone_section = cloneData.section.replace(/[0-9]+/g, ''),
 			clone_index,
 			tmp_removed_items = component_count['removed-items'],
 			clone_section_index = tmp_removed_items.findIndex(element => element.includes(clone_section)),
@@ -214,7 +214,7 @@ const BuilderComponent = props => {
 
 		} else {
 			clone_index = component_count[ component_type ] + 1;
-			clone_section = cloneData.section.replace(/[0-9]/g, clone_index);
+			clone_section = cloneData.section.replace(/[0-9]+/g, clone_index);
 			updated_count[ component_type ] = clone_index;
 		}
 

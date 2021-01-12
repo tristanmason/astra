@@ -196,8 +196,7 @@
 
 			if (false !== is_cloning_index) {
 				let clone_from_id = id;
-				clone_from_id = clone_from_id.replace(/[0-9]/g, is_cloning_index);
-
+				clone_from_id = clone_from_id.replace(/[0-9]+/g, is_cloning_index);
 				if (api.control(clone_from_id)) {
 					let val = api(clone_from_id).get();
 					if (val) {
@@ -707,11 +706,13 @@
 					return;
 				}
 
-				if (api.section(forceRemoveSection.section).expanded) {
-					api.section(forceRemoveSection.section).collapse();
+				let section = api.section(forceRemoveSection.section);
+
+				if (section && section.expanded) {
+					section.collapse();
 				}
 
-				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
+				AstCustomizerAPI.deleteControlsBySection(section);
 				api.section.remove(forceRemoveSection.section);
 
 			});
