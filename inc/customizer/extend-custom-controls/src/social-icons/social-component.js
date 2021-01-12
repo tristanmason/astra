@@ -118,18 +118,9 @@ const SocialComponent = props => {
 	};
 
 	const saveArrayUpdate = (value, index) => {
-		console.log(value)
 		let updateState = state.value;
 		let items = updateState.items;
-		// console.log(updateState)
-		// console.log(items)
-
 		const newItems = items.map((item, thisIndex) => {
-		console.log(index)
-		console.log(thisIndex)
-		console.log(item)
-
-		console.log(value)
 
 			if (index === thisIndex) {
 				item = {
@@ -139,7 +130,6 @@ const SocialComponent = props => {
 			}
 			return item;
 		});
-		// console.log(newItems)
 
 		updateState.items = newItems;
 		setState(prevState => ({
