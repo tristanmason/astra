@@ -98,7 +98,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$css_output_tablet = array(
 
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),
-		'.site-footer'              => astra_get_responsive_background_obj( $global_footer_bg, 'tablet' ),
+		'.site-footer'                       => astra_get_responsive_background_obj( $global_footer_bg, 'tablet' ),
 		$selector . ' .ast-builder-grid-row' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_tablet, 'px' ),
 			'grid-row-gap'    => astra_get_css_value( $inner_spacing_tablet, 'px' ),
@@ -115,7 +115,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$css_output_mobile = array(
 
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'mobile' ),
-		'.site-footer'              => astra_get_responsive_background_obj( $global_footer_bg, 'mobile' ),
+		'.site-footer'                       => astra_get_responsive_background_obj( $global_footer_bg, 'mobile' ),
 		$selector . ' .ast-builder-grid-row' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_mobile, 'px' ),
 			'grid-row-gap'    => astra_get_css_value( $inner_spacing_mobile, 'px' ),

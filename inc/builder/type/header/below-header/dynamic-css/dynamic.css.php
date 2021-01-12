@@ -121,12 +121,12 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 
 	
 	// We have removed ast-builder-grid-row-container-inner div so to manage display property for mobile and table we have added this CSS.
-	$mobile_display_css = array (
+	$mobile_display_css = array(
 		'.ast-mobile-header-wrap .ast-below-header-bar' => array(
-			'display' => 'grid'
-		)
+			'display' => 'grid',
+		),
 	);
-	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( astra_parse_css( $mobile_display_css ) );
+	$dynamic_css       .= Astra_Enqueue_Scripts::trim_css( astra_parse_css( $mobile_display_css ) );
 
 	return $dynamic_css;
 }
