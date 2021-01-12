@@ -463,7 +463,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if( menu_toggle_close ) {
 			menu_toggle_close.click();
 		}
+		// Close Cart
+		var cart_close = document.querySelector( '.astra-cart-drawer-close' );
 
+		if ( undefined !== cart_close && '' !== cart_close && null !== cart_close ) {
+			cart_close.click();
+		}
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
 
