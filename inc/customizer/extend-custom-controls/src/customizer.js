@@ -245,16 +245,21 @@
 				return false;
 			}
 
+			const control_defaults = JSON.parse(JSON.stringify(AstraBuilderCustomizerData.defaults));
 			const controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section_id]);
 			for (const [control_id, config] of Object.entries(controls)) {
-				let val = config['reset_default'] ? config['reset_default'] : '';
-				api(config.id).set(val);
-				api.control(config.id).renderContent();
+
+				if( control_defaults.hasOwnProperty(config.id) ) {
+					api(config.id).set( control_defaults[config.id] );
+					api.control(config.id).renderContent();
+				}
+
 				if ('ast-settings-group' === config['type']) {
 					const sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || []);
 					for (const [sub_control_id, sub_config] of Object.entries(sub_controls)) {
-						val = sub_config['reset_default'] ? sub_config['reset_default'] : '';
-						api(sub_config.id).set(val);
+						if( control_defaults.hasOwnProperty(sub_control_id.id) ) {
+							api(sub_config.id).set(control_defaults[sub_control_id.id]);
+						}
 					}
 				}
 			}
