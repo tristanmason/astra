@@ -3102,11 +3102,6 @@ input[type="text"].select2-search__field {
   text-transform: uppercase;
 }
 
-#customize-control-astra-settings-header-button-divider,
-#customize-control-astra-settings-footer-button-divider {
-  display: list-item !important;
-}
-
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }
