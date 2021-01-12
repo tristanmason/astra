@@ -123,22 +123,6 @@ final class Astra_Builder_Customizer {
 	}
 
 	/**
-	 * Function to remove old Header and Footer panels from Plugin.
-	 *
-	 * @since 3.0.0
-	 * @return void
-	 */
-	public function remove_old_header_footer() {
-
-		self::$removed_panels[] = 'panel-header-group';
-
-		self::$removed_sections[] = 'section-footer-small';
-		self::$removed_sections[] = 'section-footer-group';
-		self::$removed_sections[] = 'section-footer-adv';
-
-	}
-
-	/**
 	 * Attach customize_controls_print_footer_scripts preview styles conditionally.
 	 *
 	 * @since 3.0.0

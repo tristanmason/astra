@@ -188,13 +188,11 @@
 		addControl: function (id, data) {
 
 			// Return if control already exists.
-			if (api.control(id)) {
-				return;
+			if ( ! api.control(id)) {
+				var Constructor = api.controlConstructor[data.type] || api.Control, options;
+				options = _.extend({params: data}, data);
+				api.control.add(new Constructor(id, options));
 			}
-
-			var Constructor = api.controlConstructor[data.type] || api.Control, options;
-			options = _.extend({params: data}, data);
-			api.control.add(new Constructor(id, options));
 
 			if (false !== is_cloning_index) {
 				let clone_from_id = id;
