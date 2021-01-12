@@ -999,7 +999,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-color',
 				array(
 					'callback'          => 'Astra_Control_Color',
-					'sanitize_callback' => '',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				)
 			);
 
@@ -1015,7 +1015,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-background',
 				array(
 					'callback'          => 'Astra_Control_Background',
-					'sanitize_callback' => '',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
 				)
 			);
 
@@ -1061,7 +1061,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-responsive-color',
 				array(
 					'callback'         => 'Astra_Control_Responsive_Color',
-					'santize_callback' => '',
+					'santize_callback' => 'sanitize_responsive_color',
 				)
 			);
 
@@ -1073,7 +1073,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-responsive-background',
 				array(
 					'callback'         => 'Astra_Control_Responsive_Background',
-					'santize_callback' => '',
+					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_background' ),
 				)
 			);
 
@@ -1477,23 +1477,20 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @param string $output Html tag output.
 		 */
 		public function add_style_tag_to_html_element( $output ) {
+			$global_palette = astra_get_option( 'global-color-palette' );
+		
+			$array = $global_palette[ $global_palette['patterntype'] ];
+								
+			$finalpalette = array();
 			
-			if ( isset( get_option( ASTRA_THEME_SETTINGS )['global-color-palette'] ) ) {
-				
-				$dbvalue = get_option( ASTRA_THEME_SETTINGS )['global-color-palette'];
-				$array   = $dbvalue[ $dbvalue['patterntype'] ];
-					
-				$finalpalette = array();
-				foreach ( $array as $key => $value ) {
-					if ( $value ) {
-						array_push( $finalpalette, '--global-palette' . $key . ':' . $value );
-					}
+			foreach ( $array as $key => $value ) {
+				if ( $value ) {
+					array_push( $finalpalette, '--global-palette' . $key . ':' . $value );
 				}
-			
-				$output .= 'style="' . implode( ';', $finalpalette ) . '"';
-				return $output;
 			}
-
+		
+			$output .= 'style="' . implode( ';', $finalpalette ) . '"';
+			return $output;
 		}
 	}
 }

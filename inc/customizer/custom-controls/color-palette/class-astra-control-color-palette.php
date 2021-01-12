@@ -1,14 +1,14 @@
 <?php
 /**
- * Customizer Control: Color Palette.
+ * Customizer Control: Global Color Palette.
  *
- * Creates a jQuery color palette control.
+ * Creates a global color palette control.
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
+ * @copyright   Copyright (c) 2021, Astra
  * @link        https://wpastra.com/
- * @since       1.0.0
+ * @since       x.x.x
  */
 
 // Exit if accessed directly.
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Color control (alpha).
+ * Global Color Palette control.
  */
 class Astra_Control_Color_Palette extends WP_Customize_Control {
 

@@ -5,17 +5,17 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {__} from '@wordpress/i18n';
 
 const Background = props => {
-	var dbvalue= props.control.setting.get();
-	var temp_dbval = Object.assign({},dbvalue);
+	var dbValue= props.control.setting.get();
+	var tempDbValue = Object.assign({},dbValue);
 
 	let value
-	if(temp_dbval['background-color'] && temp_dbval['background-color'].includes("palette")){
+	if(tempDbValue['background-color'] && tempDbValue['background-color'].includes("palette")){
 		var regex = /\d+/g;
-		var string = temp_dbval['background-color'];
+		var string = tempDbValue['background-color'];
 		var matches = string.match(regex);
 		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
-		temp_dbval['background-color'] = updated_palette[updated_palette.patterntype][matches]
-		value = temp_dbval
+		tempDbValue['background-color'] = updated_palette[updated_palette.patterntype][matches]
+		value = tempDbValue
 	}else{		
 		 value = props.control.setting.get();
 	}
@@ -48,10 +48,10 @@ const Background = props => {
 		}
 	};
 
-	const updatepaletteuse = (value,index,defaultset) =>{
+	const updatePaletteuse = (value,index,defaultset) =>{
 		
-		props.control.container[0].setAttribute('paleteused', value);
-		props.control.container[0].setAttribute('paleteindex', index);		
+		props.control.container[0].setAttribute('paletteused', value);
+		props.control.container[0].setAttribute('paletteindex', index);		
 		props.control.container[0].setAttribute('defaultset', defaultset);		
 
 	}
@@ -133,7 +133,7 @@ const Background = props => {
 				backgroundType={undefined !== props_value['background-type'] && props_value['background-type'] ? props_value['background-type'] : 'color'}
 				allowGradient={true} allowImage={true} 
 				defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
-				isPaletteUsed={ (value,index,defaultset) => updatepaletteuse(value,index,defaultset)} 
+				isPaletteUsed={ (value,index,defaultset) => updatePaletteuse(value,index,defaultset)} 
 				container ={props.control.container[0]} />
 		</>;
 	};
@@ -159,8 +159,8 @@ const Background = props => {
 		
 		setPropsValue( obj );
 
-		if(props.control.container[0].getAttribute('paleteindex')){	
-			obj['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')';
+		if(props.control.container[0].getAttribute('paletteindex')){	
+			obj['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 
 			props.control.setting.set(obj);
 		}else{

@@ -158,25 +158,25 @@ class AstraColorPickerControl extends Component {
 			if( this.props.container.getAttribute('defaultset') == null){
 				
 				if(this.props.color == finalpaletteColors[0]['color']){
-					this.props.container.setAttribute('paleteindex', '0');
-					this.props.container.setAttribute('paleteused', 'true');
+					this.props.container.setAttribute('paletteindex', '0');
+					this.props.container.setAttribute('paletteused', 'true');
 					this.props.container.setAttribute('defaultset', 'yes');
 				}else if(this.props.color == finalpaletteColors[1]['color']){
-					this.props.container.setAttribute('paleteindex', '1');
+					this.props.container.setAttribute('paletteindex', '1');
 					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paleteused', 'true');				
+					this.props.container.setAttribute('paletteused', 'true');				
 				}else if(this.props.color == finalpaletteColors[2]['color']){
-					this.props.container.setAttribute('paleteindex', '2');
+					this.props.container.setAttribute('paletteindex', '2');
 					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paleteused', 'true');				
+					this.props.container.setAttribute('paletteused', 'true');				
 				}else if(this.props.color == finalpaletteColors[3]['color']){
-					this.props.container.setAttribute('paleteindex', '3');
+					this.props.container.setAttribute('paletteindex', '3');
 					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paleteused', 'true');			
+					this.props.container.setAttribute('paletteused', 'true');			
 				}else if(this.props.color == finalpaletteColors[4]['color']){
-					this.props.container.setAttribute('paleteindex', '4');
+					this.props.container.setAttribute('paletteindex', '4');
 					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paleteused', 'true');			
+					this.props.container.setAttribute('paletteused', 'true');			
 				}
 			}
 		}

@@ -409,6 +409,10 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				return '';
 			}
 
+			if( strpos( $color, '--global-palette' ) ) {
+				return $color;
+			}
+
 			if ( false === strpos( $color, 'rgba' ) ) {
 				/* Hex sanitize */
 				return self::sanitize_hex_color( $color );

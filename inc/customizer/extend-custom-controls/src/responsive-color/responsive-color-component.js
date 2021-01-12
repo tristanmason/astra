@@ -4,8 +4,8 @@ import {Dashicon} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 const ResponsiveColorComponent = props => {
-	var dbvalue= props.control.setting.get();
-	var temp_dbval = Object.assign({},dbvalue);
+	var dbValue= props.control.setting.get();
+	var temp_dbval = Object.assign({},dbValue);
 
 	let value
 	if(temp_dbval.desktop && temp_dbval.desktop.includes("palette")){
@@ -18,21 +18,19 @@ const ResponsiveColorComponent = props => {
 	}else{		
 		 value = props.control.setting.get();
 	}
-	
-	
+		
 	const [props_value, setPropsValue] = useState(value);
 
 	const updateValues = ( value, key ) => {
 		
 		let obj = {
 			...props_value
-		};
-		
+		};		
 	
-		if(key == "desktop"){
+		if( key === "desktop" ){
 		
-			if(props.control.container[0].getAttribute('paleteindex')){	
-				obj[key] = 'var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')';
+			if(props.control.container[0].getAttribute('paletteindex')){	
+				obj[key] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 				
 			}else{
 				obj[key] = value;
@@ -43,17 +41,15 @@ const ResponsiveColorComponent = props => {
 			
 		}
 
-
 		setPropsValue(obj);
 		props.control.setting.set(obj);
 	};
 
 	const updatepaletteuse = (value,index,defaultset) =>{
 		
-		props.control.container[0].setAttribute('paleteused', value);
-		props.control.container[0].setAttribute('paleteindex', index);		
+		props.control.container[0].setAttribute('paletteused', value);
+		props.control.container[0].setAttribute('paletteindex', index);		
 		props.control.container[0].setAttribute('defaultset', defaultset);		
-
 	}
 
 	const updatePaletteState = (e) =>{
@@ -85,7 +81,7 @@ const ResponsiveColorComponent = props => {
 		}else{
 
 			if( ( props.control.params.label == ( "Text Color" ) || props.control.params.label == ( "Link / Text Color" ) ||
-			props.control.params.label == ( "Link Color" ) || props.control.params.label == ( "Link Hover Color" ) || props.control.params.label == ( "Separator Color" ) || props.control.params.label == ( "Border Color" ) || props.control.params.label == ( "Content") || props.control.params.label == ( "Title" ) || props.control.params.label == ( "Link Hover" ) || props.control.params.label == ( "Link" ) || props.control.params.label == ( "Background Color" ) || props.control.params.label == ( "Color" ) || props.control.params.label == ( "Icon Color" ) || props.control.params.label == ( "Hover Color" ) || props.control.params.label == ( "Link Active / Hover Color" ) || props.control.params.label == ( "Site Title Color" ) || props.control.params.label == ( "Background Overlay" ) ) && (props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index ) ){
+			props.control.params.label == ( "Link Color" ) || props.control.params.label == ( "Link Hover Color" ) || props.control.params.label == ( "Separator Color" ) || props.control.params.label == ( "Border Color" ) || props.control.params.label == ( "Content") || props.control.params.label == ( "Title" ) || props.control.params.label == ( "Link Hover" ) || props.control.params.label == ( "Link" ) || props.control.params.label == ( "Background Color" ) || props.control.params.label == ( "Color" ) || props.control.params.label == ( "Icon Color" ) || props.control.params.label == ( "Hover Color" ) || props.control.params.label == ( "Link Active / Hover Color" ) || props.control.params.label == ( "Site Title Color" ) || props.control.params.label == ( "Background Overlay" ) ) && (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ) ){
 				var current_color = e.detail.newcolor;	
 			}else{
 				return

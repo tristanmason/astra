@@ -6,10 +6,7 @@ import {useEffect, useState} from 'react';
 
 const ResponsiveBackground = props => {
 
-
-	// let value = props.control.setting.get();
 	let defaultPropsValue = props.control.params.default;
-
 	
 	var dbvalue= props.control.setting.get();
 	var temp_dbval = Object.assign({},dbvalue);
@@ -32,10 +29,9 @@ const ResponsiveBackground = props => {
 
 	const updatepaletteuse = (value,index,defaultset) =>{		
 		
-		props.control.container[0].setAttribute('paleteused', value);
-		props.control.container[0].setAttribute('paleteindex', index);	
+		props.control.container[0].setAttribute('paletteused', value);
+		props.control.container[0].setAttribute('paletteindex', index);	
 		props.control.container[0].setAttribute('defaultset', defaultset);		
-
 
 	}
 
@@ -46,9 +42,9 @@ const ResponsiveBackground = props => {
 			value: obj
 		}));
 
-		if(props.control.container[0].getAttribute('paleteindex')){	
+		if(props.control.container[0].getAttribute('paletteindex')){	
 			
-			obj['desktop']['background-color']  = 'var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')';
+			obj['desktop']['background-color']  = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 			
 		}
 
@@ -89,7 +85,7 @@ const ResponsiveBackground = props => {
 			
 		}else{
 
-			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background" || props.control.params.label == "Background Color" || props.control.params.label == "Color & Image" || props.control.params.label == "Background Color & Image"  ) && (props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index )  ){
+			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background" || props.control.params.label == "Background Color" || props.control.params.label == "Color & Image" || props.control.params.label == "Background Color & Image"  ) && (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index )  ){
 				
 				var deviceObj = {
 					...obj['desktop']
@@ -275,9 +271,7 @@ const ResponsiveBackground = props => {
 		let deviceObj = {
 			...obj[key]
 		};
-
 		
-
 		deviceObj['background-color'] = value;
 		deviceObj['background-type'] = backgroundType;
 		obj[key] = deviceObj;

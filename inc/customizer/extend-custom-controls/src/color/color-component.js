@@ -27,29 +27,25 @@ const ColorComponent = props => {
 			value: value
 		}));
 		
-		if(props.control.container[0].getAttribute('paleteindex')){			
-			props.control.setting.set('var(--global-palette'+props.control.container[0].getAttribute('paleteindex')+')');
+		if(props.control.container[0].getAttribute('paletteindex')){			
+			props.control.setting.set('var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')');
 		}else{
 			props.control.setting.set(value);
 		}
-			
-
 		
 	};
 
 	const updatepaletteuse = (value,index,defaultset) =>{		
-		props.control.container[0].setAttribute('paleteused', value);
-		props.control.container[0].setAttribute('paleteindex', index);	
+		props.control.container[0].setAttribute('paletteused', value);
+		props.control.container[0].setAttribute('paletteindex', index);	
 		props.control.container[0].setAttribute('defaultset', defaultset);		
-
-
 	}
 
 	const updatePaletteState = (e) =>{
 	
 		if( e.detail.radiochange == "true" ){			
 			var current_color;		
-			var current_index =  props.control.container[0].getAttribute('paleteindex')
+			var current_index =  props.control.container[0].getAttribute('paletteindex')
 			switch(props.control.params.label) {
 				case "Text Color":
 					current_color = e.detail.palette[e.detail.palette.patterntype][current_index]
@@ -74,7 +70,7 @@ const ColorComponent = props => {
 		}else{
 			
 			if( ( props.control.params.label == ( "Text Color" ) || props.control.params.label == ( "Theme Color" ) ||
-			props.control.params.label == ( "Link Color" ) || props.control.params.label == ( "Link Hover Color" ) || props.control.params.label == ( "Heading Color ( H1 - H6 )" ) || props.control.params.label == ( "Border Color" ) || props.control.params.label == ( "Toggle Button Color") || props.control.params.label == ( "Divider Color" ) || props.control.params.label == ( "Bottom Border Color" ) || props.control.params.label == ( "Top Border Color" ) || props.control.params.label == ( "Background Color" ) || props.control.params.label == ( "Color" ) || props.control.params.label == ( "Icon Color" ) || props.control.params.label == ( "Close Icon Color" ) || props.control.params.label == ( "Hover Color" ) ) && (props.control.container[0].getAttribute('paleteindex') && props.control.container[0].getAttribute('paleteindex') == e.detail.index )  ){
+			props.control.params.label == ( "Link Color" ) || props.control.params.label == ( "Link Hover Color" ) || props.control.params.label == ( "Heading Color ( H1 - H6 )" ) || props.control.params.label == ( "Border Color" ) || props.control.params.label == ( "Toggle Button Color") || props.control.params.label == ( "Divider Color" ) || props.control.params.label == ( "Bottom Border Color" ) || props.control.params.label == ( "Top Border Color" ) || props.control.params.label == ( "Background Color" ) || props.control.params.label == ( "Color" ) || props.control.params.label == ( "Icon Color" ) || props.control.params.label == ( "Close Icon Color" ) || props.control.params.label == ( "Hover Color" ) ) && (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index )  ){
 				var current_color = e.detail.newcolor;	
 			}else{
 				return
