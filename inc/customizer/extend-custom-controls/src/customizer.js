@@ -255,8 +255,8 @@
 				if ('ast-settings-group' === config['type']) {
 					const sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || []);
 					for (const [sub_control_id, sub_config] of Object.entries(sub_controls)) {
-						if( control_defaults.hasOwnProperty(sub_control_id.id) ) {
-							api(sub_config.id).set(control_defaults[sub_control_id.id]);
+						if( control_defaults.hasOwnProperty(sub_config.id) ) {
+							api(sub_config.id).set(control_defaults[sub_config.id]);
 						}
 					}
 				}
