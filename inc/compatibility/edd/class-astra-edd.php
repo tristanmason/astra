@@ -139,7 +139,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					( $icon ) ? $icon : '',
 					( $cart_count_display ) ? '' : 'no-cart-total',
 					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
-					( $icon ) ? Astra_Icons::get_icons( $icon ) : '',
+					( $icon ) ? Astra_Icons::get_icons( $icon ) : ''
 				);
 			}
 
