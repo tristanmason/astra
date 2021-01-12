@@ -4,14 +4,14 @@
  * @return {array} The inline CSS class.
  */
 
-import UAGB_SVG_Icon from "../images/ast-social-icons"
+import astIcons from "../../../assets/svg/ast-social-icons"
 import parseSVG from "./ast-parse-svg"
 
 function renderSVG ( svg ) {
 
 	svg = parseSVG( svg )
 
-	var fontAwesome = UAGB_SVG_Icon[svg]
+	var fontAwesome = astIcons[svg]
 
 	if ( "undefined" != typeof fontAwesome ) {
 

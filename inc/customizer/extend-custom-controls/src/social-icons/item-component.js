@@ -3,11 +3,11 @@ import {useState} from 'react';
 const {__} = wp.i18n;
 const {Dashicon, Tooltip, TextControl, Button } = wp.components;
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
-import UAGBIcon from "../../../../assets/images/ast-social-icons"
+import astIcons from "../../../../../assets/svg/ast-social-icons"
 import renderSVG from "../../../../assets/js/ast-render-svg"
 
 
-let svg_icons = Object.keys( UAGBIcon )
+let svg_icons = Object.keys( astIcons )
 
 const ItemComponent = props => {
 
