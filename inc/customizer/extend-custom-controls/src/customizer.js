@@ -33,8 +33,8 @@
 			api.previewer.container.css('bottom', '');
 		}
 
-		$section.css( 'overflow', 'visible' );
-		$footer.css( 'overflow', 'visible' );
+		$section.css('overflow', 'visible');
+		$footer.css('overflow', 'visible');
 	}
 
 	/**
@@ -80,7 +80,6 @@
 				});
 
 
-
 				if (isExpanded) {
 
 					expandedPanel = panel.id;
@@ -88,16 +87,16 @@
 					$section.addClass('ahfb-' + builder + '-builder-active');
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-					if( 'header' === builder ) {
-						$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					if ('header' === builder) {
+						$('#sub-accordion-section-section-footer-builder').css('overflow', 'hidden');
 					} else {
-						$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+						$('#sub-accordion-section-section-header-builder').css('overflow', 'hidden');
 					}
 
 				} else {
 
-					$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
-					$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+					$('#sub-accordion-section-section-footer-builder').css('overflow', 'hidden');
+					$('#sub-accordion-section-section-header-builder').css('overflow', 'hidden');
 
 					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
@@ -178,14 +177,10 @@
 		},
 
 		addSubControl: function (parent_control_id) {
-
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id] || [];
-				if (sub_controls) {
-					for (let i = 0; i < sub_controls.length; i++) {
-						let config = sub_controls[i];
-						AstCustomizerAPI.addControl(config.id, config);
-					}
+				let sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id]);
+				for (const [section_id, config] of Object.entries(sub_controls)) {
+					AstCustomizerAPI.addControl(config.id, config);
 				}
 			}
 		},
@@ -201,14 +196,14 @@
 			options = _.extend({params: data}, data);
 			api.control.add(new Constructor(id, options));
 
-			if(  false !== is_cloning_index ) {
+			if (false !== is_cloning_index) {
 				let clone_from_id = id;
 				clone_from_id = clone_from_id.replace(/[0-9]/g, is_cloning_index);
 
-				if( api.control(clone_from_id) ) {
+				if (api.control(clone_from_id)) {
 					let val = api(clone_from_id).get();
-					if( val ) {
-						api(id).set( val );
+					if (val) {
+						api(id).set(val);
 					}
 				}
 			}
@@ -228,50 +223,38 @@
 		registerControlsBySection: function (section) {
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
-				if (controls) {
-					for (let i = 0; i < controls.length; i++) {
-						let config = controls[i];
-						this.addControl(config.id, config);
-					}
+				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
+				for (const [section_id, config] of Object.entries(controls)) {
+					this.addControl(config.id, config);
 				}
 			}
 		},
 
 		deleteControlsBySection: function (section) {
 
-			_.each( section.controls(), function (control) {
+			_.each(section.controls(), function (control) {
 				control.container.remove();
-				api.control.remove( control.id );
+				api.control.remove(control.id);
 			});
 
 		},
 
-		resetControlsBySection: function ( section_id ){
+		resetControlsBySection: function (section_id) {
 
-			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let controls = AstraBuilderCustomizerData.js_configs.controls[section_id] || [];
+			if (!AstraBuilderCustomizerData.js_configs.controls.hasOwnProperty(section_id)) {
+				return false;
+			}
 
-				if (controls) {
-					for (let i = 0; i < controls.length; i++) {
-						let config = controls[i];
-
-
-						let val = config['reset_default'] ?  config['reset_default'] : '';
-						api(config.id).set( val );
-						api.control(config.id).renderContent();
-						if ('ast-settings-group' === config['type']) {
-
-							let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || [];
-							if (sub_controls) {
-								for (let i = 0; i < sub_controls.length; i++) {
-									let sub_config = sub_controls[i];
-									val = sub_config['reset_default'] ?  sub_config['reset_default'] : '';
-									api(sub_config.id).set( val );
-									api.control(sub_config.id).renderContent();
-								}
-							}
-						}
+			const controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section_id]);
+			for (const [control_id, config] of Object.entries(controls)) {
+				let val = config['reset_default'] ? config['reset_default'] : '';
+				api(config.id).set(val);
+				api.control(config.id).renderContent();
+				if ('ast-settings-group' === config['type']) {
+					const sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || []);
+					for (const [sub_control_id, sub_config] of Object.entries(sub_controls)) {
+						val = sub_config['reset_default'] ? sub_config['reset_default'] : '';
+						api(sub_config.id).set(val);
 					}
 				}
 			}
@@ -280,42 +263,39 @@
 		setControlContextBySection: function (section) {
 
 			// Skip setting context when no tabs added inside section.
-			if( expandedSection.includes(section.id) ) {
-				return ;
+			if (expandedSection.includes(section.id)) {
+				return;
 			}
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
-				if (controls) {
-					for (let i = 0; i < controls.length; i++) {
-						let control = controls[i];
-						this.addControlContext(section.id, control.id);
-					}
+				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
+				for (const [control_id, config] of Object.entries(controls)) {
+					this.addControlContext(section.id, config.id);
 				}
-				expandedSection.push( section.id );
+				expandedSection.push(section.id);
 			}
 		},
 
 		setDefaultControlContext: function () {
 
-			if( 'undefined' === typeof AstraBuilderCustomizerData || defaultContextSet ) {
-				return ;
+			if ('undefined' === typeof AstraBuilderCustomizerData || defaultContextSet) {
+				return;
 			}
 			let skip_context = AstraBuilderCustomizerData.js_configs.skip_context || [];
 			// Set tab status as general for all wp default controls.
 			$.each(api.settings.controls, function (id, data) {
 
-				if ( -1 != (skip_context.indexOf(id) ) ) {
+				if (-1 != (skip_context.indexOf(id))) {
 					// Do not init context if skipped.
 					return;
 				}
 
-				if ( -1 == AstraBuilderCustomizerData.tabbed_sections.indexOf( api.control(id).section() ) ) {
-					return ;
+				if (-1 == AstraBuilderCustomizerData.tabbed_sections.indexOf(api.control(id).section())) {
+					return;
 				}
 
 				let rules = AstraBuilderCustomizerData.contexts[id];
-				if( rules ) {
+				if (rules) {
 					set_context(id, rules);
 				} else {
 					set_context(id, [
@@ -337,7 +317,7 @@
 
 				let panels = AstraBuilderCustomizerData.js_configs.panels || [];
 				let sections = AstraBuilderCustomizerData.js_configs.sections || [];
-				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || [] ) ;
+				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || []);
 
 				for (const [panel_id, config] of Object.entries(panels)) {
 					AstCustomizerAPI.addPanel(panel_id, config);
@@ -353,7 +333,7 @@
 				// Add controls to third party sections.
 				for (const [section_id, config] of Object.entries(controls)) {
 
-					if( "undefined"  === typeof api.section(section_id)  ) {
+					if ("undefined" === typeof api.section(section_id)) {
 						continue;
 					}
 
@@ -381,7 +361,7 @@
 	 * Change description to tooltip.
 	 * @param ctrl
 	 */
-	const change_description_as_tooltip = function(ctrl) {
+	const change_description_as_tooltip = function (ctrl) {
 
 		var desc = ctrl.container.find(".customize-control-description");
 		if (desc.length) {
@@ -401,7 +381,7 @@
 	 * @param control_id
 	 * @param control_rules
 	 */
-	const set_context = function(control_id, control_rules = null) {
+	const set_context = function (control_id, control_rules = null) {
 
 		if ('undefined' != typeof AstraBuilderCustomizerData) {
 			let rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
@@ -425,7 +405,7 @@
 						var result = false,
 							setting = getSetting(rule['setting']);
 
-						if( 'undefined' == typeof setting ) {
+						if ('undefined' == typeof setting) {
 							return false;
 						}
 
@@ -564,11 +544,11 @@
 	 * Highliting the active componenet.
 	 * @param customizer_section
 	 */
-	const highlight_active_component = function(customizer_section) {
+	const highlight_active_component = function (customizer_section) {
 		var builder_items = $('.ahfb-builder-drop .ahfb-builder-item');
 		$.each(builder_items, function (i, val) {
 			var component_section = $(val).attr('data-section');
-			if (component_section === customizer_section.id && $( '#sub-accordion-section-' + component_section ).hasClass('open')) {
+			if (component_section === customizer_section.id && $('#sub-accordion-section-' + component_section).hasClass('open')) {
 				$(val).addClass('active-builder-item');
 			} else {
 				$(val).removeClass('active-builder-item');
@@ -580,12 +560,12 @@
 	 * Highliting the active row.
 	 * @param customizer_section
 	 */
-	const highlight_active_row = function(customizer_section) {
+	const highlight_active_row = function (customizer_section) {
 		// Highlight builder rows.
 		var builder_rows = $('.ahfb-builder-items .ahfb-builder-areas');
 		$.each(builder_rows, function (i, val) {
 			var builder_row = $(val).attr('data-row-section');
-			if( builder_row === customizer_section.id && $( '#sub-accordion-section-' + builder_row ).hasClass('open') ) {
+			if (builder_row === customizer_section.id && $('#sub-accordion-section-' + builder_row).hasClass('open')) {
 				$(val).addClass('active-builder-row');
 			} else {
 				$(val).removeClass('active-builder-row');
@@ -596,18 +576,18 @@
 	/**
 	 * Set context using URL query params.
 	 */
-	const set_context_by_url_params = function() {
+	const set_context_by_url_params = function () {
 
-		let urlParams = new URLSearchParams( window.location.search );
-		let tab = urlParams.get( "context" );
+		let urlParams = new URLSearchParams(window.location.search);
+		let tab = urlParams.get("context");
 
-		if ( tab ) {
+		if (tab) {
 
-			api.state('astra-customizer-tab').set( tab );
+			api.state('astra-customizer-tab').set(tab);
 		}
 	}
 
-	const clear_sessions = function() {
+	const clear_sessions = function () {
 		sessionStorage.removeItem('cloneInProgress');
 		sessionStorage.removeItem('forceRemoveInProgress');
 	}
@@ -648,7 +628,7 @@
 					// Lazy Loaded Context.
 					AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
-					if ( ! isExpanded ) {
+					if (!isExpanded) {
 						// Setting general context when collapsed.
 						api.state('astra-customizer-tab').set('general');
 					}
@@ -675,7 +655,7 @@
 			sessionStorage.removeItem('cloneInProgress');
 
 
-			api.previewer.bind( 'AstraBuilderPartialContentRendered', function( message ) {
+			api.previewer.bind('AstraBuilderPartialContentRendered', function (message) {
 
 				// Clear clone process if partially refreshed.
 				sessionStorage.removeItem('cloneInProgress');
@@ -720,20 +700,20 @@
 
 				let forceRemoveSection = e.detail;
 
-				if( ! forceRemoveSection ) {
+				if (!forceRemoveSection) {
 					return;
 				}
 
-				if( api.section(forceRemoveSection.section).expanded ) {
+				if (api.section(forceRemoveSection.section).expanded) {
 					api.section(forceRemoveSection.section).collapse();
 				}
 
 				AstCustomizerAPI.deleteControlsBySection(api.section(forceRemoveSection.section));
-				api.section.remove( forceRemoveSection.section );
+				api.section.remove(forceRemoveSection.section);
 
 			});
 
-		} );
+		});
 
 	});
 
