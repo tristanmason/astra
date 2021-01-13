@@ -138,6 +138,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
 						'astra-theme-css' => 'frontend',
+						'grid-row-layout' => 'grid-row-layout',
 					),
 				);
 			} else {

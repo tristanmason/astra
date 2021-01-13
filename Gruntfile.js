@@ -125,6 +125,7 @@ module.exports = function (grunt) {
                     /* Link Pointer Style */
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
+                        'assets/css/unminified/grid-row-layout.css': 'sass/grid/grid-row-layout.scss',
                     },
                     /* Editor Style */
                     {

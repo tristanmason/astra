@@ -487,7 +487,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'line-height' => '1.45',
 					'color'       => esc_attr( $link_color ),
 				),
-				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
+				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *, .ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
 
@@ -523,9 +523,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Pagination.
 				'.ast-pagination a, .page-links .page-link, .single .post-navigation a' => array(
 					'color' => esc_attr( $link_color ),
-				),
-				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
-					'color' => esc_attr( $link_hover_color ),
 				),
 				
 				// toggle style
@@ -978,7 +975,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$static_secondary_layout_css = array(
-					'#secondary.secondary'               => array(
+					'#secondary.secondary, .ast-separate-container #secondary'  => array(
 						'padding-top' => 0,
 					),
 					'.ast-separate-container.ast-right-sidebar #secondary' => array(
@@ -994,9 +991,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-page-builder-template #secondary' => array(
 						'margin-top' => '1.5em',
-					),
-					'.ast-separate-container #secondary' => array(
-						'padding-top' => 0,
 					),
 					'.ast-separate-container.ast-two-container #secondary .widget' => array(
 						'margin-bottom' => '1.5em',
@@ -2096,7 +2090,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Transparent Header - Comonent header specific CSS compatibility */
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active && Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 
 				$html_text_color   = astra_get_option( 'transparent-header-html-text-color' );
 				$html_link_color   = astra_get_option( 'transparent-header-html-link-color' );
