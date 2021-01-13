@@ -32,6 +32,12 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			$_section = 'title_tagline';
 
+			if( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$display_title_priority = 6.5;
+			} else {
+				$display_title_priority = 7;
+			}
+
 			$_configs = array(
 
 				/**
@@ -234,7 +240,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => astra_get_option( 'display-site-title' ),
 					'section'   => 'title_tagline',
 					'title'     => __( 'Display Site Title', 'astra' ),
-					'priority'  => 7,
+					'priority'  => $display_title_priority,
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.site-branding',
