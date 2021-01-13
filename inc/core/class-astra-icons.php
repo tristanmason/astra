@@ -69,9 +69,17 @@ class Astra_Icons {
 			}
 
 			if ( 'search' === $icon ) {
-				$output = '<svg viewBox="0 0 512 512" aria-hidden="true" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z"/>
-                            </svg>';
+				$output = '<svg xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="142px" height="142px" viewBox="-62 -62 142 142" enable-background="new -62 -62 142 142" xml:space="preserve">
+				<title/>
+				<desc/>
+				<g id="Page-1">
+					<g id="Core" transform="translate(-339.000000, -381.000000)">
+						<g id="search" transform="translate(339.000000, 381.000000)">
+							<path id="Shape" d="M38.321,26.493h-6.307l-2.364-2.364C37.536,15.45,42.265,3.625,42.265-8.993     c0-28.39-22.872-51.257-51.257-51.257c-28.39,0-51.257,22.868-51.257,51.257c0,28.385,22.868,51.257,51.257,51.257     c12.618,0,24.443-4.729,33.122-12.614l2.364,2.364v6.307L65.922,77.75L77.75,65.922L38.321,26.493L38.321,26.493z M-8.993,26.493     c-19.714,0-35.486-15.771-35.486-35.486s15.771-35.486,35.486-35.486S26.493-28.707,26.493-8.993S10.722,26.493-8.993,26.493     L-8.993,26.493z"/>
+						</g>
+					</g>
+				</g>
+				</svg>';
 			}
 
 			if ( 'categories' === $icon ) {
