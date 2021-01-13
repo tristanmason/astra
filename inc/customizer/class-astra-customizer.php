@@ -1107,6 +1107,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			Astra_Customizer_Control_Base::add_control(
+				'ast-toggle-control',
+				array(
+					'callback'          => 'Astra_Control_Toggle',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_toggle_control' ),
+				)
+			);
+
 			/**
 			 * Helper files
 			 */

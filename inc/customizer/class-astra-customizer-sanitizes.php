@@ -658,6 +658,20 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			}
 			return $out_bg_obj;
 		}
+
+		/**
+		 * Sanitize Toggle Control param.
+		 *
+		 * @param bool $val for True|False
+		 *
+		 * @since x.x.x
+		 *
+		 * @return bool True|False
+		 */
+		public static function sanitize_toggle_control( $val ) {
+			// returns true if checkbox is checked.
+            return ( isset( $val ) ? true : false );
+		}
 	}
 }
 
