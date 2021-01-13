@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Enable on Complete Website', 'astra' ),
 					'priority' => 20,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 				),
 
 				/**
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Disable on 404, Search & Archives?', 'astra' ),
 					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
 					'priority'    => 25,
-					'control'     => 'checkbox',
+					'control'     => 'ast-toggle-control',
 				),
 
 				/**
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Disable on Blog page?', 'astra' ),
 					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
 					'priority'    => 25,
-					'control'     => 'checkbox',
+					'control'     => 'ast-toggle-control',
 				),
 
 				/**
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Disable on Latest Posts Page?', 'astra' ),
 					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
 					'priority'    => 25,
-					'control'     => 'checkbox',
+					'control'     => 'ast-toggle-control',
 				),
 
 				/**
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 					'title'    => __( 'Disable on Pages?', 'astra' ),
 					'priority' => 25,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 				),
 
 				/**
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 					'title'    => __( 'Disable on Posts?', 'astra' ),
 					'priority' => 25,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 				),
 
 				/**
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
 					'priority' => 30,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 				),
 
 				/**
@@ -262,7 +262,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						),
 					),
 					'priority' => 30.2,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 				),
 
 				/**

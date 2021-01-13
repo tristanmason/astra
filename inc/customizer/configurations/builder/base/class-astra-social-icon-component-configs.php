@@ -97,7 +97,7 @@ class Astra_Social_Icon_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-label-toggle]',
 					'default'   => astra_get_option( $builder_type . '-social-' . $index . '-label-toggle' ),
 					'type'      => 'control',
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
 					'priority'  => 2,
 					'title'     => __( 'Show Label', 'astra' ),

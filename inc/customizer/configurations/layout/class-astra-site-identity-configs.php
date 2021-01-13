@@ -292,7 +292,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							),
 						),
 					),
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
 					'title'     => __( 'Inline Logo & Site Title', 'astra' ),
 					'priority'  => 7,

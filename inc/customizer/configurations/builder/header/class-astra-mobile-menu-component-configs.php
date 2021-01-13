@@ -79,7 +79,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
 					'default'   => astra_get_option( 'header-mobile-menu-submenu-item-border' ),
 					'type'      => 'control',
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
 					'priority'  => 35,
 					'title'     => __( 'Item Divider', 'astra' ),

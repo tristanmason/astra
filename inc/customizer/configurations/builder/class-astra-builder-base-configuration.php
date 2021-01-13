@@ -196,7 +196,7 @@ final class Astra_Builder_Base_Configuration {
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
 				'type'      => 'control',
-				'control'   => 'checkbox',
+				'control'   => 'ast-toggle-control',
 				'default'   => '',
 				'section'   => $_section,
 				'priority'  => 320,
@@ -211,7 +211,7 @@ final class Astra_Builder_Base_Configuration {
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
 				'type'      => 'control',
-				'control'   => 'checkbox',
+				'control'   => 'ast-toggle-control',
 				'default'   => '',
 				'section'   => $_section,
 				'priority'  => 330,
@@ -229,7 +229,7 @@ final class Astra_Builder_Base_Configuration {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
 					'type'      => 'control',
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'default'   => '',
 					'section'   => $_section,
 					'priority'  => 320,

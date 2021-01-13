@@ -248,7 +248,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-preview]',
 				'default'   => '',
 				'type'      => 'control',
-				'control'   => 'checkbox',
+				'control'   => 'ast-toggle-control',
 				'section'   => $_section,
 				'title'     => __( 'Preview', 'astra' ),
 				'priority'  => 202,

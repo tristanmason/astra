@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Disable on Home Page?', 'astra' ),
 					'priority' => 25,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'description' => __( 'Latest posts page or when any page is selected as blog page', 'astra' ),
 					'title'       => __( 'Disable on Blog / Posts Page?', 'astra' ),
 					'priority'    => 25,
-					'control'     => 'checkbox',
+					'control'     => 'ast-toggle-control',
 					'context'     => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -154,7 +154,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Disable on Search?', 'astra' ),
 					'priority' => 30,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -175,7 +175,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Disable on Archive?', 'astra' ),
 					'priority' => 35,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -196,7 +196,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Disable on Single Page?', 'astra' ),
 					'priority' => 40,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => $_section,
 					'title'    => __( 'Disable on Single Post?', 'astra' ),
 					'priority' => 45,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -240,7 +240,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 					'title'       => __( 'Disable on Singular?', 'astra' ),
 					'priority'    => 50,
-					'control'     => 'checkbox',
+					'control'     => 'ast-toggle-control',
 					'context'     => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -262,7 +262,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 					'title'    => __( 'Disable on 404 Page?', 'astra' ),
 					'priority' => 55,
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
