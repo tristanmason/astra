@@ -3,19 +3,6 @@
   height: 25px;
 }
 
-#customize-control-astra-settings-global-color-palette .components-radio-control__option.activepalette {
-  background: white;
-  border-radius: 10px;
-}
-
-#customize-control-astra-settings-global-color-palette .components-radio-control__input[type="radio"]:checked::before {
-  border: unset;
-}
-
-#customize-control-astra-settings-global-color-palette .components-radio-control__option {
-  padding: 15px 10px;
-}
-
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
   display: unset;
   position: unset;
@@ -29,15 +16,7 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap {
-  position: absolute;
-  top: 26%;
-  right: 4%;
-}
-
-#customize-control-astra-settings-global-color-palette .ast-color-palette2-wrap {
-  position: absolute;
-  right: 4%;
-  top: 57%;
+  margin-left: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
@@ -64,11 +43,17 @@
 
 #customize-control-astra-settings-global-color-palette .components-button.astra-palette-item {
   height: 100%;
-  width: 100%;
+  width: 65%;
+  padding-right: 10px;
+  padding-left: 8px;
 }
 
 #customize-control-astra-settings-global-color-palette .components-button.astra-palette-item:hover {
   border: 1px solid;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-palette-individual-item-wrap:not(:last-child) {
+  margin-right: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-palette-individual-item {
@@ -79,6 +64,16 @@
   border-radius: 4px;
   box-shadow: inset 0 0 0 15px;
   transition: 100ms box-shadow ease;
+}
+
+#customize-control-astra-settings-global-color-palette .components-button.astra-palette-export, #customize-control-astra-settings-global-color-palette .components-button.astra-palette-delete {
+  padding: 0 9px 0 9px;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-palette-copy {
+  position: absolute;
+  right: 0;
+  top: 34px;
 }
 
 @media (min-width: 1800px) {

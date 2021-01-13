@@ -4,16 +4,7 @@
         width: 25px;
         height: 25px;
     }
-    .components-radio-control__option.activepalette {
-        background: white;
-        border-radius: 10px;
-    }
-    .components-radio-control__input[type="radio"]:checked::before {
-        border: unset;
-    }
-    .components-radio-control__option {
-        padding: 15px 10px;
-    }
+   
     .color-button-wrap {
         display: unset;
         position: unset;
@@ -25,16 +16,9 @@
         margin-left: 5px;
     }
     .ast-color-palette1-wrap {
-        position: absolute;
-        top: 26%;
-        right: 4%;
+        margin-left: 10px;
     }
-    
-    .ast-color-palette2-wrap {
-        position: absolute;
-        right: 4%;
-        top: 57%;
-    }
+
     .astra-color-picker-wrap {
         position: absolute;
         z-index: 1;
@@ -58,11 +42,17 @@
 
     .components-button.astra-palette-item {
         height: 100%;
-		width: 100%;
+        width: 65%;
+        padding-right: 10px;
+        padding-left: 8px;
     }
     .components-button.astra-palette-item:hover {
         border: 1px solid;
     }
+    .astra-palette-individual-item-wrap:not(:last-child) {
+        margin-right: 10px;
+    }
+
     .astra-palette-individual-item {
         height: 100%;
         display: block;
@@ -71,6 +61,16 @@
         border-radius: 4px;								
         box-shadow: inset 0 0 0 15px;
         transition: 100ms box-shadow ease;
+    }
+
+    .components-button.astra-palette-export, .components-button.astra-palette-delete {
+        padding: 0 9px 0 9px;
+    }
+    
+    .astra-palette-copy {
+        position: absolute;
+        right: 0;
+        top: 34px;
     }
 
     @media (min-width: 1800px) {

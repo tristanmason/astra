@@ -6,7 +6,8 @@ import testJSON from '../common/astra-common-function';
 
 import {useState} from 'react';
 
-import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl } from '@wordpress/components';
+import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton } from '@wordpress/components';
+import { Fragment } from 'react';
 
 const { __ } = wp.i18n;
 
@@ -38,22 +39,6 @@ const ColorPaletteComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	const handleRadioChange = (value) => {
-		let obj = {
-			...state
-		};
-		obj['patterntype'] = value
-		setState(obj)
-		props.control.setting.set( obj );
-
-		var event = new CustomEvent( "colorpaletteglobal", 
-				{ 
-					"detail":{"palette":obj,"radiochange":"true",}
-				} 
-			);
-			
-		document.dispatchEvent(event);
-	}
 	const handleChangeComplete = ( color,patterntype,index ) => {
 		let value;
 		
@@ -118,21 +103,6 @@ const ColorPaletteComponent = props => {
 						</div>
 					)
 				}) }				
-			</div>	
-			<div className="ast-color-palette2-wrap">			
-				{ Object.keys(state.pattern2).map((item,index)=>{
-					return (
-						<div className={`ast-color-picker-palette-${index+1} ast-color-palette-inline`} key={index}>
-							<AstraColorPickerControl
-								color={undefined !== state.pattern2 && state.pattern2 ? state.pattern2[index] : ''}
-								onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern2',index)}
-								backgroundType = { 'color' }
-								allowGradient={ false }
-								allowImage={ false }					
-							/>
-						</div>
-					)
-				}) }
 			</div>
 		</>
 	)
@@ -281,6 +251,54 @@ const ColorPaletteComponent = props => {
 
 	}
 	
+	const exportCopied = (item) => {
+		setState(prevState => ({
+			...prevState,
+			exportCopied: item
+		}));
+	};
+
+	const exportCopiedComplete = () => {
+		setState(prevState => ({
+			...prevState,
+			exportCopied: ''
+		}));
+	};
+
+
+	const deletePalette = (index,item) => {
+		
+		let obj = {
+			...state
+		}
+
+		const filteredItems = obj.presetPalette.slice(0, index).concat(obj.presetPalette.slice(index + 1, obj.presetPalette.length))
+
+		obj.presetPalette = filteredItems;
+		
+		setState(obj)	
+		props.control.setting.set( obj );
+
+	};
+
+	const paletteCopied = () => {
+
+		setState(prevState => ({
+			...prevState,
+			exportCopied: 'yes'
+		}));
+
+	};
+
+	const paletteCopiedComplete = () => {
+		
+		setState(prevState => ({
+			...prevState,
+			exportCopied: 'true'
+		}));
+
+	};
+
 	return <>
 		
 		<label className="customizer-text">
@@ -290,15 +308,15 @@ const ColorPaletteComponent = props => {
 		
 		<div className="ast-color-palette-wrapper">	
 			{ patternhtml }
-		</div>
-		<RadioControl       
-			selected={ state.patterntype }
-			options={ [
-				{ label: 'Pattern 1', value: 'pattern1' },
-				{ label: 'Pattern 2', value: 'pattern2' },
-			] }
-			onChange={ value => handleRadioChange(value) }
-    	/>
+			<ClipboardButton
+				text={ JSON.stringify(state.pattern1) }
+				onCopy={ () =>  paletteCopied() }
+				onFinishCopy={ () =>  paletteCopiedComplete() }
+				className='astra-palette-copy'
+			>
+				{ state.exportCopied  === 'yes' ? <Dashicon icon="yes" /> : <Dashicon icon="admin-page" /> }
+			</ClipboardButton>
+		</div>		
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
 		
 		<div className='astra-palette-import-wrap'>
@@ -332,6 +350,7 @@ const ColorPaletteComponent = props => {
 													{ Object.keys( state.presetPalette ).map( ( item, index ) => { 
 														
 														return ( 
+														<div key={index}>
 															<Button
 																className='astra-palette-item'
 																onClick={ () => handlePresetPalette( item ) }
@@ -341,13 +360,12 @@ const ColorPaletteComponent = props => {
 																{ Object.keys( state.presetPalette[item] ).map( ( color, subIndex ) => {
 																	return (
 																		<div key={ subIndex } style={ {
-																			width: 30,
-																			height: 30,
-																			marginBottom: 0,
-																			marginRight: 20,
+																			width: 25,
+																			height: 25,
+																			marginBottom: 0,		
 																			transform: 'scale(1)',
 																			transition: '100ms transform ease',
-																		} } className="astra-palette-item-wrap">
+																		} } className="astra-palette-individual-item-wrap">
 																			<span
 																				className='astra-palette-individual-item'
 																				style={ {
@@ -359,6 +377,20 @@ const ColorPaletteComponent = props => {
 																	)
 																} ) }
 															</Button>
+															<ClipboardButton
+																text={JSON.stringify(state.presetPalette[item])}
+																onCopy={ () =>  exportCopied(item) }
+																onFinishCopy={ () =>  exportCopiedComplete(item) }
+																className='astra-palette-export'
+															>
+																{ state.exportCopied === item ? <Dashicon icon="yes" /> : <Dashicon icon="admin-page" /> }
+															</ClipboardButton>
+															
+															<Button className='astra-palette-delete'  onClick={ () => { deletePalette(index,item) } } key={`delete-${index}`}>
+																<Dashicon icon="trash" />
+															</Button>
+														</div>
+															
 														)
 													} )}
 												</>
@@ -368,7 +400,7 @@ const ColorPaletteComponent = props => {
 												<>
 													<div >
 														<h4>Required Format</h4>
-														<p className="palette-format">{`{"0":"#dc4040","1":"#0274be","2":"#0274b2","3":"#3a3a31","4":"#fffff3"}`}</p>
+														<p className="palette-format">{`["#733492","#AC238C","#24B460","#C0C2BA","#CBCB38"]`}</p>
 													</div>	
 													<TextareaControl
 														label="Import color set from text data."

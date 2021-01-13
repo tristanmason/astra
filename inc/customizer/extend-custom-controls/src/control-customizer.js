@@ -99,25 +99,6 @@
 
 		});
 
-		/**
-		 * Add active class to colorpalette
-		 */
-		const ActiveColorPalette = () => {
-			var colorpalettediv = $('#customize-control-astra-settings-global-color-palette .components-radio-control');
-			$('input[type=radio]:not(:checked)', colorpalettediv).parent().removeClass("activepalette");
-			$('input[type=radio]:checked', colorpalettediv).parent().addClass("activepalette");	
-		}
-		api.section('section-colors-body').expanded.bind(function (isExpanded) {
-			ActiveColorPalette();
-		});
-		
-		api('astra-settings[global-color-palette]', function (value) {		
-			value.bind(function (value) {
-				ActiveColorPalette();				
-			});
-		});
-		
-
 	});
 
 })(jQuery, wp.customize);
