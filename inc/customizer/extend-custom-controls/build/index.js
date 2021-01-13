@@ -21725,9 +21725,9 @@ var AstToggleControl = function AstToggleControl(props) {
     }, props.control.params.title);
   }
 
-  var updateValues = function updateValues(value) {
-    setPropsValue(value);
-    props.control.setting.set(value);
+  var updateValues = function updateValues() {
+    setPropsValue(!props_value);
+    props.control.setting.set(!props_value);
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
@@ -21736,7 +21736,7 @@ var AstToggleControl = function AstToggleControl(props) {
     label: htmlTitle,
     checked: props_value,
     onChange: function onChange() {
-      return updateValues(event.target.value);
+      return updateValues();
     }
   })));
 };
