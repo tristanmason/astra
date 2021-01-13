@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {ReactSortable} from "react-sortablejs";
 import ItemComponent from './item-component';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const {__} = wp.i18n;
 const { Button, SelectControl} = wp.components;
@@ -98,6 +98,16 @@ const SocialComponent = props => {
 		isVisible: false,
 		control: (undefined !== availibleSocialOptions[0] && undefined !== availibleSocialOptions[0].value ? availibleSocialOptions[0].value : ''),
 	});
+
+	useEffect( () => {
+		// If settings are changed externally.
+		setState(prevState => ({
+			...prevState,
+			value: props.control.setting.get()
+		}));
+
+
+	}, [props]);
 
 	const updateValues = (value) => {
 		props.control.setting.set({
@@ -324,4 +334,4 @@ SocialComponent.propTypes = {
 	control: PropTypes.object.isRequired,
 };
 
-export default React.memo( SocialComponent );
+export default SocialComponent;

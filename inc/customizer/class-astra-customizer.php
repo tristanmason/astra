@@ -151,8 +151,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$defaults = $this->get_astra_customizer_configuration_defaults();
 
-			$default_values = Astra_Theme_Options::defaults();
-
 			foreach ( $configurations as $key => $configuration ) {
 
 				$config = wp_parse_args( $configuration, $defaults );
@@ -181,12 +179,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 
 					case 'sub-control':
-						$name                    = astra_get_prop( $config, 'name' );
-						$config['reset_default'] = isset( $default_values[ $name ] ) ? $default_values[ $name ] : '';
 						$this->prepare_javascript_sub_control_configs( $config );
 						break;
 					case 'control':
-						$config['reset_default'] = $this->get_default_value( astra_get_prop( $config, 'name' ), $default_values );
 						$this->prepare_javascript_control_configs( $config );
 						break;
 				}
@@ -374,7 +369,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						astra_update_option( $data[1], $default_responsive_spacing );
 					}
 
-					$configuration['reset_default'] = $default_responsive_spacing;
 					break;
 				case 'ast-radio-image':
 					$configuration['value'] = $val;
@@ -583,7 +577,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
-				'reset_default'     => astra_get_prop( $config, 'reset_default' ),
 				'sanitize_callback' => $sanitize_callback,
 			);
 
@@ -665,6 +658,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
 							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
 							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
+							'fallback_refresh'    => astra_get_prop( $config['partial'], 'fallback_refresh', true ),
 						)
 					);
 				}
@@ -792,6 +786,66 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
+		 * Prepare default values for the control.
+		 *
+		 * @return array
+		 */
+		private function get_control_defaults() {
+
+			$defaults       = array();
+			$default_values = Astra_Theme_Options::defaults();
+
+			// Controls.
+			foreach ( self::$js_configs['controls'] as $section_controls ) {
+				foreach ( $section_controls as $control ) {
+					$control_id = astra_get_prop( $control, 'name' );
+
+
+					if ( 'ast-responsive-spacing' === $control['control'] ) {
+							$defaults[ $control_id ] = array(
+								'desktop'      => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							);
+
+					} else {
+							$defaults[ $control_id ] = $this->get_default_value( $control_id, $default_values );
+					}
+				}
+			}
+
+			// Sub Controls.
+			foreach ( self::$js_configs['sub_controls'] as $section_controls ) {
+				foreach ( $section_controls as $control ) {
+					$control_id              = astra_get_prop( $control, 'name' );
+					$defaults[ $control_id ] = isset( $default_values[ $control_id ] ) ? $default_values[ $control_id ] : '';
+
+				}
+			}
+
+			return $defaults;
+
+		}
+
+		/**
 		 * Add customizer script.
 		 *
 		 * @since 3.0.0
@@ -809,6 +863,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'tabbed_sections' => self::get_tabbed_sections(),
 					'component_limit' => Astra_Builder_Helper::$component_limit,
 					'is_site_rtl'     => is_rtl(),
+					'defaults'        => $this->get_control_defaults(),
 				)
 			);
 

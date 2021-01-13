@@ -118,48 +118,75 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get();
 
-		Object.keys(component_count).forEach(function( component_type, value) {
-
-			if( 'removed-items' === component_type || 'flag' === component_type ) {
-				return;
-			}
-
-			if( component_count[component_type] >= AstraBuilderCustomizerData.component_limit ) {
-				for (let key in choices) {
-					if (choices.hasOwnProperty(key)) {
-						let tmp_choice = choices[key];
-						if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
-							let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-							let tmp_section = tmp_choice.section.replace(/[0-9]/g, '');
-							let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
-							tmp_choice['clone'] = ( component_type === tmp_component_type && is_clone == -1 ) ? false: true;
-						}
-					}
-				}
-			}
-		});
+		AstraBuilderCustomizerData.component_limit = parseInt(AstraBuilderCustomizerData.component_limit);
 
 		let tmp_choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
 		Object.keys(tmp_choices).forEach(function( choice) {
 
-			let tmp_choice = tmp_choices[choice],
-				tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
-			let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
+			let tmp_choice = tmp_choices[choice];
 
-			switch (component_count[tmp_component_type]) {
-				case 1:
-					is_to_delete = false;
-					break;
-				case 2:
-					is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]/g, 1 ) ) != -1 ) ? false : true;
-					break;
+			if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
+
+				let is_to_clone = tmp_choice.hasOwnProperty('clone') ? tmp_choice['clone']: true;
+				let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
+
+				let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
+
+				if( component_count[tmp_component_type] < AstraBuilderCustomizerData.component_limit ) {
+					is_to_clone = true;
+				}  else {
+					let tmp_section = tmp_choice.section.replace(/[0-9]+/g, '');
+					let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
+					is_to_clone = is_clone !== -1;
+				}
+
+				tmp_choice['clone'] = is_to_clone;
+
+				switch (component_count[tmp_component_type]) {
+					case 1:
+						is_to_delete = false;
+						break;
+					case 2:
+						is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
+						break;
+				}
+
+				tmp_choice['delete'] = is_to_delete;
 			}
-
-			tmp_choice['delete'] = is_to_delete;
 
 		});
 
+	}
+
+	const prepare_element = function (cloneData, clone_index) {
+
+		switch ( cloneData.type ) {
+
+			case 'menu':
+				switch (clone_index) {
+					case 1:
+						cloneData.name = 'Primary Menu';
+						break;
+					case 2:
+						cloneData.name = 'Secondary Menu';
+						break;
+					default:
+						cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
+						break;
+				}
+				break;
+
+			default:
+				let name = cloneData.name.replace(/[0-9]+/g, '');
+				cloneData.name = name + ' ' + clone_index;
+				break;
+
+		}
+
+		cloneData.section = cloneData.section.replace(/[0-9]+/g, clone_index);
+
+		return cloneData;
 	}
 
 	const cloneItem = ( item, row, zone ) => {
@@ -169,10 +196,9 @@ const BuilderComponent = props => {
 			return;
 		}
 
-
 		let component_count = component_track.get(),
 			cloneData = Object.assign({},choices[item] ),
-			clone_section = cloneData.section.replace(/[0-9]/g, ''),
+			clone_section = cloneData.section.replace(/[0-9]+/g, ''),
 			clone_index,
 			tmp_removed_items = component_count['removed-items'],
 			clone_section_index = tmp_removed_items.findIndex(element => element.includes(clone_section)),
@@ -182,13 +208,13 @@ const BuilderComponent = props => {
 
 		if( clone_section_index != -1 ) {
 			clone_section = tmp_removed_items[clone_section_index];
-			clone_index = clone_section.match(/\d+$/)[0];
+			clone_index = parseInt( clone_section.match(/\d+$/)[0] );
 			tmp_removed_items.splice(clone_section_index, 1);
 			updated_count['removed-items'] = tmp_removed_items;
 
 		} else {
 			clone_index = component_count[ component_type ] + 1;
-			clone_section = cloneData.section.replace(/[0-9]/g, clone_index);
+			clone_section = cloneData.section.replace(/[0-9]+/g, clone_index);
 			updated_count[ component_type ] = clone_index;
 		}
 
@@ -199,15 +225,19 @@ const BuilderComponent = props => {
 
 		let clone_type_id = cloneData.type + '-' + clone_index;
 
-		cloneData.name = cloneData.name.replace(/[0-9]/g, clone_index);
-		cloneData.section = clone_section;
+		cloneData = prepare_element(cloneData, clone_index);
+
 		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
 
-		sessionStorage.setItem('cloneInProgress', JSON.stringify({
-			'clone_index': clone_index,
-			'clone_to_section': clone_section,
-			'clone_from_section' : choices[item]['section']
-		}));
+		sessionStorage.setItem('cloneInProgress', true);
+
+		var event = new CustomEvent('AstraBuilderCloneSectionControls', {
+			'detail': {
+				'clone_to_section': clone_section,
+				'clone_from_section' : choices[item]['section']
+			}
+		});
+		document.dispatchEvent(event);
 
 		component_track.set( { ...component_count, ...updated_count } );
 
