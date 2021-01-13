@@ -1,27 +1,46 @@
-.customize-control-ast-sortable ul.ui-sortable {
+.customize-control-ast-sortable .sortable {
   cursor: default;
   .dashicons-visibility {
     cursor: pointer;
   }
-  li {
-    padding: 5px 10px;
-    border: 1px solid #333;
-    background: #fff;
+  div {
+    padding: 0 0 0 12px;
+    border: 1px solid #dddddd;
+    color: #556068;
+    background: #ffffff;
     cursor: move;
+    line-height: 38px;
+    margin: 0 0 10px;
+    border-radius: 3px;
     .dashicons {
-      &.dashicons-menu {
-        float: right;
-      }
       &.visibility {
-        margin-right: 10px;
+        float: right;
+        position: relative;
+        font-size: 18px;
+        padding: 9px 12px;
+        line-height: 20px;
+        border-left: 1px solid #ddd;
       }
     }
     &.invisible {
-      color: #aaa;
-      border: 1px dashed #aaa;
-      .dashicons.visibility {
-        color: #aaa;
+      opacity: 0.6;
+      .dashicons.visibility:after {
+        opacity: 1;
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 2px;
+        top: 18px;
+        left: 12px;
+        background: #656565;
+        border-radius: 5px;
+        transform: rotate(-45deg);
+        box-shadow: 0px 0px 0px 1px #fff;
+        transition: opacity 0.2s ease;
       }
+    }
+    &:hover {
+      opacity: 0.8;
     }
   }
 }

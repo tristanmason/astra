@@ -2033,6 +2033,7 @@ input[type="text"].select2-search__field {
   background-color: rgba(0, 0, 0, 0.1);
   height: 5px;
   padding: 0;
+  cursor: pointer;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -2107,7 +2108,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-slider .ast-responsive-slider-reset {
   color: rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: -34px;
+  top: -36px;
   left: 1.5em;
   display: inline-block;
   -webkit-transition: color 0.5s ease-in;
@@ -2744,6 +2745,7 @@ input[type="text"].select2-search__field {
   transition: background 0.3s;
   background-color: rgba(0, 0, 0, 0.1);
   height: 5px;
+  cursor: pointer;
   padding: 0;
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -2856,36 +2858,51 @@ input[type="text"].select2-search__field {
   top: -32px;
 }
 
-.customize-control-ast-sortable ul.ui-sortable {
+.customize-control-ast-sortable .sortable {
   cursor: default;
 }
 
-.customize-control-ast-sortable ul.ui-sortable .dashicons-visibility {
+.customize-control-ast-sortable .sortable .dashicons-visibility {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li {
-  padding: 5px 10px;
-  border: 1px solid #333;
-  background: #fff;
+.customize-control-ast-sortable .sortable div {
+  padding: 0 12px 0 0;
+  border: 1px solid #dddddd;
+  color: #556068;
+  background: #ffffff;
   cursor: move;
+  line-height: 38px;
+  margin: 0 0 10px;
+  border-radius: 3px;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.dashicons-menu {
+.customize-control-ast-sortable .sortable div .dashicons.visibility {
   float: left;
+  position: relative;
+  font-size: 18px;
+  padding: 9px 12px;
+  line-height: 20px;
+  border-right: 1px solid #ddd;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.visibility {
-  margin-left: 10px;
+.customize-control-ast-sortable .sortable div.invisible {
+  opacity: 0.6;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible {
-  color: #aaa;
-  border: 1px dashed #aaa;
-}
-
-.customize-control-ast-sortable ul.ui-sortable li.invisible .dashicons.visibility {
-  color: #aaa;
+.customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
+  opacity: 1;
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 2px;
+  top: 18px;
+  right: 12px;
+  background: #656565;
+  border-radius: 5px;
+  transform: rotate(45deg);
+  box-shadow: 0px 0px 0px 1px #fff;
+  transition: opacity 0.2s ease;
 }
 
 .select2-container {
@@ -4453,36 +4470,55 @@ input[type="text"].select2-search__field {
   top: -32px;
 }
 
-.customize-control-ast-sortable ul.ui-sortable {
+.customize-control-ast-sortable .sortable {
   cursor: default;
 }
 
-.customize-control-ast-sortable ul.ui-sortable .dashicons-visibility {
+.customize-control-ast-sortable .sortable .dashicons-visibility {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li {
-  padding: 5px 10px;
-  border: 1px solid #333;
-  background: #fff;
+.customize-control-ast-sortable .sortable div {
+  padding: 0 12px 0 0;
+  border: 1px solid #dddddd;
+  color: #556068;
+  background: #ffffff;
   cursor: move;
+  line-height: 38px;
+  margin: 0 0 10px;
+  border-radius: 3px;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.dashicons-menu {
+.customize-control-ast-sortable .sortable div .dashicons.visibility {
   float: left;
+  position: relative;
+  font-size: 18px;
+  padding: 9px 12px;
+  line-height: 20px;
+  border-right: 1px solid #ddd;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.visibility {
-  margin-left: 10px;
+.customize-control-ast-sortable .sortable div.invisible {
+  opacity: 0.6;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible {
-  color: #aaa;
-  border: 1px dashed #aaa;
+.customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
+  opacity: 1;
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 2px;
+  top: 18px;
+  right: 12px;
+  background: #656565;
+  border-radius: 5px;
+  transform: rotate(45deg);
+  box-shadow: 0px 0px 0px 1px #fff;
+  transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible .dashicons.visibility {
-  color: #aaa;
+.customize-control-ast-sortable .sortable div:hover {
+  opacity: 0.8;
 }
 
 .select2-container {
