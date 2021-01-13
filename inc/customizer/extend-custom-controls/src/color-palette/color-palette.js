@@ -298,6 +298,17 @@ const ColorPaletteComponent = props => {
 		}));
 
 	};
+	const addToPalettePopup = () => {
+		let obj = {
+			...state
+		}
+
+		obj.presetPalette.push(obj[obj.patterntype]); //Keep copy of imported palette.
+
+		setState(obj)	
+		props.control.setting.set( obj );
+
+	}
 
 	return <>
 		
@@ -308,14 +319,18 @@ const ColorPaletteComponent = props => {
 		
 		<div className="ast-color-palette-wrapper">	
 			{ patternhtml }
-			<ClipboardButton
+			{/* <ClipboardButton
 				text={ JSON.stringify(state.pattern1) }
 				onCopy={ () =>  paletteCopied() }
 				onFinishCopy={ () =>  paletteCopiedComplete() }
 				className='astra-palette-copy'
 			>
+				
 				{ state.exportCopied  === 'yes' ? <Dashicon icon="yes" /> : <Dashicon icon="admin-page" /> }
-			</ClipboardButton>
+			</ClipboardButton> */}
+			<Button className='astra-add-to-palette-popup'  onClick={ () => addToPalettePopup() } label="Allows you to add this in presets." showTooltip={true}>
+				<Dashicon icon="insert" />
+			</Button>
 		</div>		
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
 		
