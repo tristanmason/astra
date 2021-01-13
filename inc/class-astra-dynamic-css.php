@@ -524,31 +524,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-pagination a, .page-links .page-link, .single .post-navigation a' => array(
 					'color' => esc_attr( $link_color ),
 				),
-				
-				// toggle style
-				// Menu Toggle Minimal.
-				'.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle' => array(
-					'background' => 'transparent',
-					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
-				),
-
-				// Menu Toggle Outline.
-				'.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle' => array(
-					'background' => 'transparent',
-					'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
-					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
-				),
-
-				// Menu Toggle Fill.
-				'.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle' => array(
-					'background' => esc_attr( $mobile_header_toggle_btn_style_color ),
-					'color'      => $menu_btn_color,
-				),
 
 				// Menu Toggle Border Radius.
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
+				
 			);
 			
 			global $wp_query;
@@ -591,6 +572,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
+
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+
+				$old_header_mobile_toggle = array(
+					// toggle style
+					// Menu Toggle Minimal.
+					'.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle' => array(
+						'background' => 'transparent',
+						'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+					),
+
+					// Menu Toggle Outline.
+					'.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle' => array(
+						'background' => 'transparent',
+						'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
+						'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+					),
+
+					// Menu Toggle Fill.
+					'.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle' => array(
+						'background' => esc_attr( $mobile_header_toggle_btn_style_color ),
+						'color'      => $menu_btn_color,
+					),
+				);
+
+				$parse_css .= astra_parse_css( $old_header_mobile_toggle );
+			}
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
@@ -2724,11 +2732,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 2em;
 				margin-bottom: 2em;
 			}
-			@media (max-width: 768px) {
-				.js_active .ast-plain-container.ast-single-post #secondary {
-				  margin-top: 1.5em;
-				}
-			}
 			';
 			if ( is_rtl() ) {
 				$sidebar_static_css .= '
@@ -2740,14 +2743,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					.ast-right-sidebar #secondary {
 						padding-right: 60px;
 					} 
-				}
-				@media (max-width: 992px) {
-					.ast-right-sidebar #secondary {
-						padding-right: 30px;
-					}
-					.ast-left-sidebar #secondary {
-						padding-left: 30px;
-					} 
 				}';
 			} else {
 				$sidebar_static_css .= '
@@ -2758,14 +2753,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					
 					.ast-right-sidebar #secondary {
 						padding-left: 60px;
-					} 
-				}
-				@media (max-width: 992px) {
-					.ast-right-sidebar #secondary {
-						padding-left: 30px;
-					}
-					.ast-left-sidebar #secondary {
-						padding-right: 30px;
 					} 
 				}';
 			}
