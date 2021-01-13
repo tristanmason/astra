@@ -475,7 +475,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 	var tablet_break_point    = AstraBuilderWidgetData.tablet_break_point || 768,
         mobile_break_point    = AstraBuilderWidgetData.mobile_break_point || 544;
 
-	let widget_count = 'header' === builder_type ? AstraBuilderWidgetData.component_limit: AstraBuilderWidgetData.footer_widget_count;
+	let widget_count = 'header' === builder_type ? AstraBuilderWidgetData.header_widget_count: AstraBuilderWidgetData.footer_widget_count;
 
 	for ( var index = 1; index <= widget_count; index++ ) {
 
