@@ -792,15 +792,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function get_control_defaults() {
 
-			$defaults       = array();
-			$default_values = Astra_Theme_Options::defaults();
+			$defaults         = array();
+			$default_values   = Astra_Theme_Options::defaults();
+			$default_controls = array_merge( self::$js_configs['controls'], self::$js_configs['sub_controls'] );
 
-			// Controls.
-			foreach ( self::$js_configs['controls'] as $section_controls ) {
+			foreach ( $default_controls as $section_controls ) {
 				foreach ( $section_controls as $control ) {
 					$control_id = astra_get_prop( $control, 'name' );
-
-
 					if ( 'ast-responsive-spacing' === $control['control'] ) {
 							$defaults[ $control_id ] = array(
 								'desktop'      => array(
@@ -825,19 +823,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							);
-
 					} else {
 							$defaults[ $control_id ] = $this->get_default_value( $control_id, $default_values );
 					}
-				}
-			}
-
-			// Sub Controls.
-			foreach ( self::$js_configs['sub_controls'] as $section_controls ) {
-				foreach ( $section_controls as $control ) {
-					$control_id              = astra_get_prop( $control, 'name' );
-					$defaults[ $control_id ] = isset( $default_values[ $control_id ] ) ? $default_values[ $control_id ] : '';
-
 				}
 			}
 

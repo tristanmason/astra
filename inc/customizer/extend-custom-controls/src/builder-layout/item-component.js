@@ -8,7 +8,7 @@ const ItemComponent = props => {
 	const deleteItem = (props) => {
 
 
-		sessionStorage.setItem('forceRemoveInProgress', true);
+		sessionStorage.setItem('astra-builder-eradicate-in-progress', true);
 
 		var event = new CustomEvent('AstraBuilderDeleteSectionControls', {
 			'detail': choices[props.item]
@@ -79,6 +79,12 @@ const ItemComponent = props => {
 				<span title="Reset to default"
 					  onClick={e => {
 						  e.stopPropagation();
+
+						  // Skip clone if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-reset-in-progress') ) {
+							  return;
+						  }
+
 						  var event = new CustomEvent('AstraBuilderResetSectionControls', {
 							  'detail': {
 							  	'section_id': choices[props.item].section
@@ -93,7 +99,7 @@ const ItemComponent = props => {
 					  onClick={e => {
 
 						  // Skip clone if already is in progress.
-						  if( sessionStorage.getItem('forceRemoveInProgress') ) {
+						  if( sessionStorage.getItem('astra-builder-eradicate-in-progress') ) {
 							  return;
 						  }
 

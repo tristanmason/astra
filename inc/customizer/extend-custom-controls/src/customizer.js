@@ -229,7 +229,12 @@
 
 		deleteControlsBySection: function (section) {
 
-			_.each(section.controls(), function (control) {
+			if( ! section ) {
+				return false;
+			}
+
+			const controls = section.controls();
+			_.each( controls , function (control) {
 				control.container.remove();
 				api.control.remove(control.id);
 			});
@@ -589,14 +594,15 @@
 		}
 	}
 
-	const clear_sessions = function () {
-		sessionStorage.removeItem('cloneInProgress');
-		sessionStorage.removeItem('forceRemoveInProgress');
+	const astra_builder_clear_operation_session = function () {
+		sessionStorage.removeItem('astra-builder-clone-in-progress');
+		sessionStorage.removeItem('astra-builder-eradicate-in-progress');
+		sessionStorage.removeItem('astra-builder-reset-in-progress');
 	}
 
 	api.bind('ready', function () {
 
-		clear_sessions();
+		astra_builder_clear_operation_session();
 
 		api.state.create('astra-customizer-tab');
 		api.state('astra-customizer-tab').set('general');
@@ -653,15 +659,13 @@
 		api.previewer.bind('ready', function () {
 
 			AstCustomizerAPI.setDefaultControlContext();
-
-			sessionStorage.removeItem('cloneInProgress');
+			astra_builder_clear_operation_session();
 
 
 			api.previewer.bind('AstraBuilderPartialContentRendered', function (message) {
 
 				// Clear clone process if partially refreshed.
-				sessionStorage.removeItem('cloneInProgress');
-				sessionStorage.removeItem('forceRemoveInProgress');
+				astra_builder_clear_operation_session();
 
 			});
 
@@ -695,7 +699,10 @@
 			});
 
 			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
+
+				sessionStorage.setItem('astra-builder-reset-in-progress', true)
 				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
+
 			});
 
 			document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
