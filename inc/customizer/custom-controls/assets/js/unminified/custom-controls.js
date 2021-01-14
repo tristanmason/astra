@@ -24063,8 +24063,10 @@ var _assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/
 /* harmony import */ var _draggable_control__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./draggable/control */ "./src/draggable/control.js");
 /* harmony import */ var _header_type_button_control__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./header-type-button/control */ "./src/header-type-button/control.js");
 /* harmony import */ var _row_layout_control__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./row-layout/control */ "./src/row-layout/control.js");
-/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
-/* harmony import */ var _control_customizer__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./control-customizer */ "./src/control-customizer.js");
+/* harmony import */ var _toggle_control_control__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./toggle-control/control */ "./src/toggle-control/control.js");
+/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+/* harmony import */ var _control_customizer__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./control-customizer */ "./src/control-customizer.js");
+
 
 
 
@@ -24126,6 +24128,7 @@ wp.customize.controlConstructor['ast-html-editor'] = _html_editor_control__WEBPA
 wp.customize.controlConstructor['ast-builder'] = _builder_layout_control__WEBPACK_IMPORTED_MODULE_25__["BuilderControl"];
 wp.customize.controlConstructor['ast-draggable-items'] = _draggable_control__WEBPACK_IMPORTED_MODULE_28__["DraggableControl"];
 wp.customize.controlConstructor['ast-row-layout'] = _row_layout_control__WEBPACK_IMPORTED_MODULE_30__["RowLayoutControl"];
+wp.customize.controlConstructor['ast-toggle-control'] = _toggle_control_control__WEBPACK_IMPORTED_MODULE_31__["toggleControl"];
 
 
 
@@ -27824,6 +27827,95 @@ SortableComponent.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(SortableComponent));
+
+/***/ }),
+
+/***/ "./src/toggle-control/control.js":
+/*!***************************************!*\
+  !*** ./src/toggle-control/control.js ***!
+  \***************************************/
+/*! exports provided: toggleControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleControl", function() { return toggleControl; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _toggle_control_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggle-control-component.js */ "./src/toggle-control/toggle-control-component.js");
+
+
+var toggleControl = wp.customize.astraControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_toggle_control_component_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      control: control
+    }), control.container[0]);
+  }
+});
+
+/***/ }),
+
+/***/ "./src/toggle-control/toggle-control-component.js":
+/*!********************************************************!*\
+  !*** ./src/toggle-control/toggle-control-component.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+
+var AstToggleControl = function AstToggleControl(props) {
+  var htmlTitle = null;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.control.setting.get()),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      props_value = _useState2[0],
+      setPropsValue = _useState2[1];
+
+  if (props.control.params.title) {
+    htmlTitle = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      className: "toggle-control-label"
+    }, props.control.params.title);
+  }
+
+  var updateValues = function updateValues() {
+    setPropsValue(!props_value);
+    props.control.setting.set(!props_value);
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "ast-togglecontrol-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ToggleControl"], {
+    label: htmlTitle,
+    checked: props_value,
+    onChange: function onChange() {
+      return updateValues();
+    }
+  })));
+};
+
+AstToggleControl.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(AstToggleControl));
 
 /***/ }),
 
