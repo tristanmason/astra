@@ -38,7 +38,6 @@ const SliderComponent = props => {
 	}
 
 	const updateValues = ( newVal ) => {
-		console.log( newVal );
 		setPropsValue( newVal );
 		props.control.setting.set( newVal );
 	};

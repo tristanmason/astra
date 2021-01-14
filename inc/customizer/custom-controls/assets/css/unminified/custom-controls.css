@@ -2199,6 +2199,10 @@ input[type="text"].select2-search__field {
   margin-left: 5px;
 }
 
+.components-range-control .components-range-control__wrapper {
+  margin-left: 0;
+}
+
 .customize-control-ast-sortable .sortable {
   cursor: default;
 }

@@ -123,3 +123,7 @@
 .astra_range_value .ast-range-unit {
   margin-right: 5px;
 }
+
+.components-range-control .components-range-control__wrapper {
+  margin-right: 0;
+}

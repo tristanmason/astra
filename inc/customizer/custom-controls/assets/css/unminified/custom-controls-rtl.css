@@ -2739,16 +2739,6 @@ input[type="text"].select2-search__field {
   min-width: auto;
 }
 
-.customize-control-ast-slider .wrapper {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 .customize-control-ast-slider input[type=range] {
   -webkit-appearance: none;
   -webkit-transition: all 0.2s;
@@ -2873,11 +2863,6 @@ input[type="text"].select2-search__field {
 
 .astra_range_value .ast-range-unit {
   margin-right: 5px;
-}
-
-.ast-field-settings-modal .customize-control-ast-slider .ast-slider-reset {
-  left: -18px;
-  top: -32px;
 }
 
 .customize-control-ast-sortable .sortable {
@@ -4515,6 +4500,10 @@ input[type="text"].select2-search__field {
 
 .astra_range_value .ast-range-unit {
   margin-right: 5px;
+}
+
+.components-range-control .components-range-control__wrapper {
+  margin-right: 0;
 }
 
 .customize-control-ast-sortable .sortable {
