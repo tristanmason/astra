@@ -131,6 +131,25 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
+					 * Option: Submenu width
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-width]',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-width' ),
+						'type'        => 'control',
+						'context'     => Astra_Builder_Helper::$general_tab,
+						'section'     => $_section,
+						'control'     => 'ast-slider',
+						'priority'    => 30.5,
+						'title'       => __( 'Width', 'astra' ),
+						'input_attrs' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+					),
+
+					/**
 					 * Option: Submenu Container Animation
 					 */
 					array(
@@ -165,32 +184,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority' => 20,
 						'settings' => array(),
 						'context'  => Astra_Builder_Helper::$design_tab,
-					),
-
-					/**
-					 * Option: Submenu width
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-width]',
-						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-width' ),
-						'type'        => 'control',
-						'context'     => array(
-							Astra_Builder_Helper::$design_tab,
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-stack-on-mobile]',
-								'operator' => '==',
-								'value'    => false,
-							),
-						),
-						'section'     => $_section,
-						'control'     => 'ast-slider',
-						'priority'    => 21,
-						'title'       => __( 'Width', 'astra' ),
-						'input_attrs' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 200,
-						),
 					),
 
 					/**

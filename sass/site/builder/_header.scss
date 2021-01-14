@@ -694,6 +694,19 @@ body.admin-bar {
 .ast-off-canvas-active body.ast-main-header-nav-open {
 	overflow: hidden;
 }
+.astra-hfb-header {
+	// .ast-mobile-header-content {
+	// 	display: none;
+	// }
+	.menu-toggle.toggled {
+		.ast-mobile-svg {
+			display: none;
+		}
+		.ast-close-svg {
+			display: block;
+		}
+	}
+}
 .ast-mobile-header-wrap {
 	.ast-mobile-header-content {
 		display: none;

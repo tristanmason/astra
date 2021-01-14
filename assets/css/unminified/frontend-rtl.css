@@ -3009,6 +3009,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   overflow: hidden;
 }
 
+.astra-hfb-header .menu-toggle.toggled .ast-mobile-svg {
+  display: none;
+}
+
+.astra-hfb-header .menu-toggle.toggled .ast-close-svg {
+  display: block;
+}
+
 .ast-mobile-header-wrap .ast-mobile-header-content {
   display: none;
 }

@@ -28,7 +28,8 @@ const BuilderComponent = props => {
 
 	const [state, setState] = useState({
 		value: value,
-		layout: controlParams.layouts
+		layout: controlParams.layouts,
+		isPopup: false
 	});
 
 	const updateValues = (value, row = '') => {
@@ -222,8 +223,26 @@ const BuilderComponent = props => {
 		}
 	};
 
-	// console.log(props.items);
-	// console.log(state.value);
+	if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
+		let is_popup_flag = false;
+		controlParams.rows.map(row => {
+			var rowContents = state.value[row];
+	
+			for ( const [key, value] of Object.entries(rowContents) ) {
+				if( value == 'mobile-trigger' ) {
+					is_popup_flag = true;
+					return;
+				}
+			}
+		});
+
+		// setState(prevState => ({
+		// 	...prevState,
+		// 	isPopup: is_popup_flag
+		// }));
+	}
+
+	console.log(state.value);
 
 	return <div className="ahfb-control-field ahfb-builder-items">
 		{controlParams.rows.includes('popup') &&
