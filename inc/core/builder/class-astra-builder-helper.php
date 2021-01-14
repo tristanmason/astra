@@ -875,6 +875,14 @@ final class Astra_Builder_Helper {
 							do_action( 'astra_render_mobile_popup', 'popup', 'content' );
 						?>
 					</div>
+					<div class="ast-desktop-popup-content">
+						<?php
+							/**
+							 * Astra Off-Canvas
+							 */
+							do_action( 'astra_render_desktop_popup', 'popup', 'content' );
+						?>
+					</div>
 				</div>
 		</div>
 		</div>

@@ -81,6 +81,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 
+				add_action( 'astra_render_desktop_popup', array( $this, 'render_desktop_column' ), 10, 2 );
+
 				// Buttons.
 				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
 					add_action( 'astra_header_button_' . $index, array( $this, 'button_' . $index ) );
@@ -319,6 +321,16 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function render_mobile_column( $row, $column ) {
 			Astra_Builder_Helper::render_builder_markup( $row, $column, 'mobile', 'header' );
+		}
+
+		/**
+		 * Call desktop component header UI.
+		 *
+		 * @param string $row row.
+		 * @param string $column column.
+		 */
+		public function render_desktop_column( $row, $column ) {
+			Astra_Builder_Helper::render_builder_markup( $row, $column, 'desktop', 'header' );
 		}
 
 		/**
