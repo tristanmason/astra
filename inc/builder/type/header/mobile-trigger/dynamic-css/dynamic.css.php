@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_mobile_trigger_row_setting', 11 );
  */
 function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header' ) ) {
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
 		return $dynamic_css;
 	}
 
