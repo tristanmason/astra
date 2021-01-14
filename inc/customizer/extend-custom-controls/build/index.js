@@ -19174,13 +19174,7 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
-  var onResetClick = function onResetClick(e) {
-    e.preventDefault();
-    props.control.setting.set(props.control.params.default);
-    setPropsValue(props.control.params.default);
-  };
-
-  var updateValues = function updateValues(newVal) {
+  var updateValues = function updateValues(device, newVal) {
     var updateState = _objectSpread({}, props_value);
 
     updateState[device] = newVal;
@@ -19221,21 +19215,19 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
       max: max || 100,
       step: step || 1,
       allowReset: true,
-      onChange: updateValues(device, newVal)
+      onChange: function onChange(newVal) {
+        updateValues(device, newVal);
+      }
     }));
   };
 
   var _props$control$params2 = props.control.params,
       description = _props$control$params2.description,
       label = _props$control$params2.label;
-
-  var reset = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('Back to default', 'astra');
-
   var labelHtml = null;
   var responsiveHtml = null;
   var descriptionHtml = null;
   var inputHtml = null;
-  var resetHtml = null;
 
   if (label) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
@@ -19278,20 +19270,11 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
   }
 
   inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml('desktop', 'active'), renderInputHtml('tablet'), renderInputHtml('mobile'));
-  resetHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "ast-responsive-slider-reset",
-    onClick: function onClick(e) {
-      onResetClick(e);
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "dashicons dashicons-image-rotate ast-control-tooltip",
-    title: reset
-  }));
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
     key: 'customizer-text'
   }, labelHtml, responsiveHtml, descriptionHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "wrapper"
-  }, inputHtml, resetHtml));
+  }, inputHtml));
 };
 
 ResponsiveSliderComponent.propTypes = {

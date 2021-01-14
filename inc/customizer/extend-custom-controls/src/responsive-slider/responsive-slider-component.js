@@ -1,19 +1,13 @@
 import PropTypes from 'prop-types';
 import {RangeControl} from '@wordpress/components';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {__} from '@wordpress/i18n';
 
 const ResponsiveSliderComponent = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
 
-	const onResetClick = (e) => {
-		e.preventDefault();
-		props.control.setting.set(props.control.params.default);
-		setPropsValue(props.control.params.default);
-	};
-
-	const updateValues = (newVal) => {
+	const updateValues = (device, newVal) => {
 		let updateState = {...props_value};
 		updateState[device] = newVal;
 		props.control.setting.set(updateState);
@@ -46,7 +40,7 @@ const ResponsiveSliderComponent = props => {
 				max={ max || 100 }
 				step={ step || 1 }
 				allowReset
-				onChange={ updateValues(device, newVal ) }
+				onChange={ (newVal) => {updateValues(device, newVal )} }
 			/>
 		</div>;
 	};
@@ -56,13 +50,10 @@ const ResponsiveSliderComponent = props => {
 		label
 	} = props.control.params;
 
-	const reset = __('Back to default', 'astra');
-
 	let labelHtml = null;
 	let responsiveHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
-	let resetHtml = null;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
@@ -94,11 +85,7 @@ const ResponsiveSliderComponent = props => {
 		{renderInputHtml('tablet')}
 		{renderInputHtml('mobile')}
 	</>;
-	resetHtml = <div className="ast-responsive-slider-reset" onClick={e => {
-		onResetClick(e);
-	}}>
-		<span className="dashicons dashicons-image-rotate ast-control-tooltip" title={reset}></span>
-	</div>;
+
 	return <label key={'customizer-text'}>
 		{labelHtml}
 		{responsiveHtml}
@@ -106,7 +93,6 @@ const ResponsiveSliderComponent = props => {
 
 		<div className="wrapper">
 			{inputHtml}
-			{resetHtml}
 		</div>
 	</label>;
 
