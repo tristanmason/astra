@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import {RangeControl} from '@wordpress/components';
+import {useState, useEffect} from 'react';
 import {__} from '@wordpress/i18n';
 
 const ResponsiveSliderComponent = props => {
@@ -12,48 +13,41 @@ const ResponsiveSliderComponent = props => {
 		setPropsValue(props.control.params.default);
 	};
 
-	const onInputChange = (device) => {
+	const updateValues = (newVal) => {
 		let updateState = {...props_value};
-		updateState[device] = event.target.value;
+		updateState[device] = newVal;
 		props.control.setting.set(updateState);
 		setPropsValue(updateState);
 	};
 
 	const renderInputHtml = (device, active = '') => {
 		const {
-			inputAttrs,
+			input_attrs,
 			suffix
 		} = props.control.params;
 		let suffixHtml = null;
-		let inp_array = [];
+
+		const defaults = { min: 0, max: 500, step: 1 };
+		const controlProps = {
+			...defaults,
+			...( input_attrs || {} ),
+		};
+		const { min, max, step } = controlProps;
 
 		if (suffix) {
 			suffixHtml = <span className="ast-range-unit">{suffix}</span>;
 		}
 
-		if (undefined !== inputAttrs) {
-			let splited_values = inputAttrs.split(" ");
-			splited_values.map((item, i) => {
-				let item_values = item.split("=");
-
-				if (undefined !== item_values[1]) {
-					inp_array[item_values[0]] = item_values[1].replace(/"/g, "");
-				}
-			});
-		}
-
 		return <div className={`input-field-wrapper ${device} ${active}`}>
-			<input type="range" {...inp_array} value={props_value[device]}
-				   data-reset_value={props.control.params.default[device]} onChange={() => {
-				onInputChange(device);
-			}}/>
-			<div className="astra_range_value">
-				<input type="number" {...inp_array} data-id={device} className="ast-responsive-range-value-input"
-					   value={props_value[device]} onChange={() => {
-					onInputChange(device);
-				}}/>
-				{suffixHtml}
-			</div>
+			<RangeControl
+				resetFallbackValue={''}
+				value={ parseInt( props_value[device] ) === 0 ? 0 : props_value[device] || '' }
+				min={ min < 0 ? min : 0 }
+				max={ max || 100 }
+				step={ step || 1 }
+				allowReset
+				onChange={ updateValues(device, newVal ) }
+			/>
 		</div>;
 	};
 
