@@ -267,8 +267,48 @@
   left: 60px;
 }
 
+#customize-control-astra-settings-global-color-palette .astra-palette-import {
+  background: #0274be;
+  padding: 10px;
+  color: white;
+  margin-left: 15px;
+  height: 30px;
+  margin-top: 10px;
+}
+
 #customize-control-astra-settings-global-color-palette .astra-global-palette-import .components-popover__content {
-  padding: 0 25px 25px 25px;
+  width: 280px;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-global-palette-import .components-tab-panel__tabs {
+  padding: 15px 15px 0 15px;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-global-palette-import .palette-popupbutton {
+  padding: 5px;
+  border: 1px solid #ccc;
+  width: 50%;
+  display: block;
+  text-align: center;
+  height: 40px;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-global-palette-import .palette-popupbutton.active-tab {
+  background-color: #0185BA;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-global-palette-import .astra-color-presets {
+  border-radius: 3px 0px 0px 3px;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-global-palette-import .astra-import {
+  border-radius: 0px 3px 3px 0px;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-global-palette-import .components-tab-panel__tab-content {
+  padding: 15px;
 }
 
 #customize-control-astra-settings-global-color-palette p.palette-format {

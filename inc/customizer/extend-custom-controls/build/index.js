@@ -11416,22 +11416,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     props.control.setting.set(obj);
   };
 
-  var paletteCopied = function paletteCopied() {
-    setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        exportCopied: 'yes'
-      });
-    });
-  };
-
-  var paletteCopiedComplete = function paletteCopiedComplete() {
-    setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        exportCopied: 'true'
-      });
-    });
-  };
-
   var addToPalettePopup = function addToPalettePopup() {
     var obj = _objectSpread({}, state);
 
@@ -11467,7 +11451,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Dashicon"], {
     icon: "open-folder"
-  })), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Popover"], {
+  }), " Presets"), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Popover"], {
     position: "bottom center",
     onClose: toggleClose,
     className: "astra-global-palette-import"
@@ -11477,12 +11461,12 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     initialTabName: 'import',
     tabs: [{
       name: 'import',
-      title: __('Select a Color Set', 'astra'),
-      className: 'astra-color-presets'
+      title: __('Select a palette', 'astra'),
+      className: 'astra-color-presets palette-popupbutton'
     }, {
       name: 'custom',
       title: __('Import', 'astra'),
-      className: 'astra-import'
+      className: 'astra-import palette-popupbutton'
     }]
   }, function (tab) {
     var tabout;

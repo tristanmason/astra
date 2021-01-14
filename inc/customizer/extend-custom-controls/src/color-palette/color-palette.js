@@ -281,30 +281,13 @@ const ColorPaletteComponent = props => {
 
 	};
 
-	const paletteCopied = () => {
-
-		setState(prevState => ({
-			...prevState,
-			exportCopied: 'yes'
-		}));
-
-	};
-
-	const paletteCopiedComplete = () => {
-		
-		setState(prevState => ({
-			...prevState,
-			exportCopied: 'true'
-		}));
-
-	};
 	const addToPalettePopup = () => {
 		let obj = {
 			...state
 		}
 
 		obj.presetPalette.push(obj[obj.patterntype]); //Keep copy of imported palette.
-
+		
 		setState(obj)	
 		props.control.setting.set( obj );
 
@@ -319,15 +302,6 @@ const ColorPaletteComponent = props => {
 		
 		<div className="ast-color-palette-wrapper">	
 			{ patternhtml }
-			{/* <ClipboardButton
-				text={ JSON.stringify(state.pattern1) }
-				onCopy={ () =>  paletteCopied() }
-				onFinishCopy={ () =>  paletteCopiedComplete() }
-				className='astra-palette-copy'
-			>
-				
-				{ state.exportCopied  === 'yes' ? <Dashicon icon="yes" /> : <Dashicon icon="admin-page" /> }
-			</ClipboardButton> */}
 			<Button className='astra-add-to-palette-popup'  onClick={ () => addToPalettePopup() } label="Allows you to add this in presets." showTooltip={true}>
 				<Dashicon icon="insert" />
 			</Button>
@@ -336,7 +310,8 @@ const ColorPaletteComponent = props => {
 		
 		<div className='astra-palette-import-wrap'>
 			<Button className='astra-palette-import'  onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
-				<Dashicon icon="open-folder" />
+				{/* <Dashicon icon="open-folder" /> */}
+				 <Dashicon icon="open-folder" /> Presets
 			</Button>
 			{ state.isVisible && (
                 <Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-import">
@@ -346,13 +321,13 @@ const ColorPaletteComponent = props => {
 						tabs={ [
 							{
 								name: 'import',
-								title: __( 'Select a Color Set', 'astra' ),
-								className: 'astra-color-presets',
+								title: __( 'Select a palette', 'astra' ),
+								className: 'astra-color-presets palette-popupbutton',
 							},
 							{
 								name: 'custom',
 								title: __( 'Import', 'astra' ),
-								className: 'astra-import',
+								className: 'astra-import palette-popupbutton',
 							}
 						] }>
 							{

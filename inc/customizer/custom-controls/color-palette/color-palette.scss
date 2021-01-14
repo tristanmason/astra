@@ -29,8 +29,45 @@
         left: 60px;
     }
     
-    .astra-global-palette-import .components-popover__content {
-        padding: 0 25px 25px 25px;
+    .astra-palette-import {
+        background: #0274be;
+        padding: 10px;
+        color: white;
+        margin-left: 15px;
+        height: 30px;
+        margin-top: 10px;
+    }
+
+    .astra-global-palette-import {    
+        .components-popover__content {
+            width: 280px;
+        }    
+        .components-tab-panel__tabs {      
+            padding: 15px 15px 0 15px;
+        }
+        .palette-popupbutton{
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 50%;          
+            display: block;
+            text-align:center;
+            height: 40px;
+        }
+
+        .palette-popupbutton.active-tab {
+            background-color: #0185BA;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+        }
+        .astra-color-presets {
+            border-radius: 3px 0px 0px 3px;
+        }
+        .astra-import {
+            border-radius: 0px 3px 3px 0px;
+        }
+        .components-tab-panel__tab-content{
+            padding: 15px;
+        }
     }
 
     p.palette-format {
@@ -72,6 +109,8 @@
         right: 0;
         top: 34px;
     }
+
+    
 
     @media (min-width: 1800px) {
         .astra-color-picker-wrap {        
