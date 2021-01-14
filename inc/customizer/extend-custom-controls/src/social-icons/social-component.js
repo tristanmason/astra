@@ -64,6 +64,8 @@ const SocialComponent = props => {
 			{value: 'rss', label: __('RSS', 'astra'), color: '#f09124', background: 'transparent'},
 			{value: 'email', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
 			{value: 'phone', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
+			{value: 'email_2', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
+			{value: 'phone_2', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
 			{value: 'whatsapp', label: __('WhatsApp', 'astra'), color: '#5BBA67', background: 'transparent'},
 			{value: 'google_reviews', label: __('Google Reviews', 'astra'), color: '#dc4e41', background: 'transparent'},
 			{value: 'telegram', label: __('Telegram', 'astra'), color: '#229CCE', background: 'transparent'},
@@ -187,6 +189,8 @@ const SocialComponent = props => {
 		if (itemControl) {
 			let updateState = state.value;
 			let update = updateState.items;
+			let icon = ( 'email_2' === itemControl ) ? 'email' : ( 'phone_2' === itemControl ) ? 'phone' : itemControl;
+
 			const itemLabel = controlParams.options.filter(function (o) {
 				return o.value === itemControl;
 			});
@@ -196,7 +200,7 @@ const SocialComponent = props => {
 				'url': '',
 				'color': itemLabel[0].color,
 				'background': itemLabel[0].background,
-				'icon': itemControl,
+				'icon': icon,
 				'label': itemLabel[0].label
 			};
 			update.push(newItem);
