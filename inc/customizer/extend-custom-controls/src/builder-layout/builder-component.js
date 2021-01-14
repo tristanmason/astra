@@ -192,7 +192,7 @@ const BuilderComponent = props => {
 	const cloneItem = ( item, row, zone ) => {
 
 		// Skip clone if already is in progress.
-		if( sessionStorage.getItem('cloneInProgress') ) {
+		if( sessionStorage.getItem('astra-builder-clone-in-progress') ) {
 			return;
 		}
 
@@ -229,7 +229,7 @@ const BuilderComponent = props => {
 
 		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
 
-		sessionStorage.setItem('cloneInProgress', true);
+		sessionStorage.setItem('astra-builder-clone-in-progress', true);
 
 		var event = new CustomEvent('AstraBuilderCloneSectionControls', {
 			'detail': {
