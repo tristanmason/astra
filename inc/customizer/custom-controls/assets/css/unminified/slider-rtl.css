@@ -1,20 +1,10 @@
-.customize-control-ast-slider .wrapper {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 .customize-control-ast-slider input[type=range] {
   -webkit-appearance: none;
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 5px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  background-color: #c3c7ca;
+  height: 3px;
   cursor: pointer;
   padding: 0;
   -webkit-box-flex: 1;
@@ -25,10 +15,6 @@
 .customize-control-ast-slider input[type=range]:focus {
   box-shadow: none;
   outline: none;
-}
-
-.customize-control-ast-slider input[type=range]:hover, .customize-control-ast-slider input[type=range]:focus {
-  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .customize-control-ast-slider input[type=range]::-webkit-slider-thumb {
@@ -44,6 +30,11 @@
   border: none;
   border-radius: 50%;
   background-color: #3498D9;
+  transition: 0.2s;
+}
+
+.customize-control-ast-slider input[type=range]::-webkit-slider-thumb:hover, .customize-control-ast-slider input[type=range]::-webkit-slider-thumb:focus {
+  box-shadow: 0px 0px 0px 2px #3498D9, 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
 .customize-control-ast-slider input[type=range]::-moz-range-thumb {
@@ -52,6 +43,11 @@
   border: none;
   border-radius: 50%;
   background-color: #3498D9;
+  transition: 0.2s;
+}
+
+.customize-control-ast-slider input[type=range]::-moz-range-thumb:hover, .customize-control-ast-slider input[type=range]::-moz-range-thumb:focus {
+  box-shadow: 0px 0px 0px 2px #3498D9, 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
 .customize-control-ast-slider input[type=range]::-ms-thumb {
@@ -60,6 +56,11 @@
   border-radius: 50%;
   border: 0;
   background-color: #3498D9;
+  transition: 0.2s;
+}
+
+.customize-control-ast-slider input[type=range]::-ms-thumb:hover, .customize-control-ast-slider input[type=range]::-ms-thumb:focus {
+  box-shadow: 0px 0px 0px 2px #3498D9, 0px 8px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
 .customize-control-ast-slider input[type=range]::-moz-range-track {
@@ -121,9 +122,4 @@
 
 .astra_range_value .ast-range-unit {
   margin-right: 5px;
-}
-
-.ast-field-settings-modal .customize-control-ast-slider .ast-slider-reset {
-  left: -18px;
-  top: -32px;
 }
