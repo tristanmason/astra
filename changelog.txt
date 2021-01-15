@@ -2,6 +2,8 @@ v3.1.0
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
+- Fix: Color picker icon not visible on hover.
+- Fix: Font size not reverted back to the initial size when the value is deleted.
 
 v3.0.0
 - New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
