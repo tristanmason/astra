@@ -100,6 +100,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					}
 				}
 			}
+			echo apply_filters( 'astra_social_icons_after', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</div>';
 			echo '</div>';
 		}
