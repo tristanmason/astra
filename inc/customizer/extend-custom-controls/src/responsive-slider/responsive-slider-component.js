@@ -19,7 +19,8 @@ const ResponsiveSliderComponent = props => {
 			input_attrs,
 			suffix
 		} = props.control.params;
-		let suffixHtml = null;
+		let suffixHtml = null,
+			defaultVal = parseInt( props.control.params.default[device] ) === 0 ? 0 : Number( props.control.params.default[device] ) || 0 ;
 
 		const defaults = { min: 0, max: 500, step: 1 };
 		const controlProps = {
@@ -34,7 +35,7 @@ const ResponsiveSliderComponent = props => {
 
 		return <div className={`input-field-wrapper ${device} ${active}`}>
 			<RangeControl
-				resetFallbackValue={''}
+				resetFallbackValue={defaultVal}
 				value={ parseInt( props_value[device] ) === 0 ? 0 : props_value[device] || '' }
 				min={ min < 0 ? min : 0 }
 				max={ max || 100 }
