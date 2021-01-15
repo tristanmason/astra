@@ -289,6 +289,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			switch ( $configuration['type'] ) {
 
+				case 'ast-builder':
+					if ( is_array( $configuration['default'] ) && ! isset( $configuration['default']['popup'] ) ) {
+						$configuration['default']['popup'] = array();
+					}
+					break;
 				case 'ast-responsive-spacing':
 					if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
