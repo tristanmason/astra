@@ -1350,6 +1350,10 @@ input[type="text"].select2-search__field {
   position: relative;
 }
 
+.customize-control-ast-responsive-slider .wrapper .components-range-control__wrapper {
+  margin-left: 0;
+}
+
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1357,7 +1361,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-slider input[type=range] {
-  opacity: 1;
+  position: inherit;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -1372,10 +1376,9 @@ input[type="text"].select2-search__field {
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
-  display: inline-block;
-  float: right;
-  line-height: 1;
-  margin-top: 5px;
+  position: absolute;
+  right: 5px;
+  bottom: 17px;
 }
 
 .ast-responsive-slider-btns > li {

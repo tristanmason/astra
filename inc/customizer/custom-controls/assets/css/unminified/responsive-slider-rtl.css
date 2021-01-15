@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.customize-control-ast-responsive-slider .wrapper .components-range-control__wrapper {
+  margin-right: 0;
+}
+
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,7 +13,7 @@
 }
 
 .customize-control-ast-responsive-slider input[type=range] {
-  opacity: 1;
+  position: inherit;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -24,10 +28,9 @@
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
-  display: inline-block;
-  float: left;
-  line-height: 1;
-  margin-top: 5px;
+  position: absolute;
+  left: 5px;
+  bottom: 17px;
 }
 
 .ast-responsive-slider-btns > li {

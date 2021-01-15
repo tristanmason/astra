@@ -1,6 +1,9 @@
 .customize-control-ast-responsive-slider {
   .wrapper {
     position: relative;
+    .components-range-control__wrapper {
+      margin-left: 0;
+    }
   }
   .input-field-wrapper {
     display: -webkit-box;
@@ -8,7 +11,7 @@
     display: flex;
   }
   input[type=range] {
-   opacity: 1;
+   position: inherit;
   }
 }
 
@@ -24,10 +27,9 @@
  */
 
 .ast-responsive-slider-btns {
-  display: inline-block;
-  float: right;
-  line-height: 1;
-  margin-top: 5px;
+  position: absolute;
+  right: 5px;
+  bottom: 17px;
   > li {
     margin-bottom: 0;
     display: none;
@@ -43,6 +45,7 @@
     opacity: .75;
     outline: none;
     > i {
+      cursor: pointer;
       width: 15px;
       height: 15px;
       font-size: 15px;
