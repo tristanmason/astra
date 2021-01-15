@@ -6,6 +6,8 @@
 
 import astIcons from "../../../assets/svg/ast-social-icons"
 import parseSVG from "./ast-parse-svg"
+import React from 'react';
+
 function renderSVG ( svg ) {
 
 	svg = parseSVG( svg )
@@ -25,4 +27,4 @@ function renderSVG ( svg ) {
 
 }
 
-export default renderSVG
+export default React.memo(renderSVG);
