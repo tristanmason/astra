@@ -189,7 +189,7 @@ const SocialComponent = props => {
 		if (itemControl) {
 			let updateState = state.value;
 			let update = updateState.items;
-			let icon = ( 'email_2' === itemControl ) ? 'email' : ( 'phone_2' === itemControl ) ? 'phone' : itemControl;
+			let icon = itemControl.replace(/[\d_]+/g, '');
 
 			const itemLabel = controlParams.options.filter(function (o) {
 				return o.value === itemControl;
