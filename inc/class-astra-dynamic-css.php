@@ -2103,6 +2103,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$html_link_h_color = astra_get_option( 'transparent-header-html-link-h-color' );
 
 				$search_icon_color = astra_get_option( 'transparent-header-search-icon-color' );
+				$search_text_color = astra_get_option( 'transparent-header-search-box-placeholder-color' );
 
 				$search_box_bg_color = astra_get_option( 'transparent-header-search-box-background-color' );
 
@@ -2169,6 +2170,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-search .astra-search-icon, .ast-theme-transparent-header .ast-header-search .search-field::placeholder'         => array(
 						'color' => esc_attr( $search_icon_color ),
+					),
+					'.ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field::placeholder'         => array(
+						'color' => esc_attr( $search_text_color ),
 					),
 					'.ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-form, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-submit'         => array(
 						'background-color' => esc_attr( $search_box_bg_color ),
