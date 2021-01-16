@@ -404,6 +404,19 @@ function astra_header_builder_compatibility() {
 }
 
 /**
+ * Clears assets cache and regenerates new assets files.
+ *
+ * @since 3.0.1
+ *
+ * @return void
+ */
+function astra_clear_assets_cache() {
+	if ( is_callable( 'Astra_Minify::refresh_assets' ) ) {
+		Astra_Minify::refresh_assets();
+	}
+}
+
+/**
  * Header Footer builder - Migration of options.
  *
  * @since 3.0.0
