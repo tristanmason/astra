@@ -127,6 +127,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-body' ),
 					'priority'    => 10,
 					'title'       => __( 'Size', 'astra' ),
+					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
