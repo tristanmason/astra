@@ -280,6 +280,12 @@ return array(
 		),
 	),
 	array(
+		'Andika New Basic' => array(
+			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Angkor' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -877,6 +883,12 @@ return array(
 		'Blinker' => array(
 			'variants' => array( '100', '200', '300', 'regular', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Bodoni Moda' => array(
+			'variants' => array( 'regular', '500', '600', '700', '800', '900', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -2050,6 +2062,12 @@ return array(
 		),
 	),
 	array(
+		'Fraunces' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Freckle Face' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -2368,6 +2386,12 @@ return array(
 		),
 	),
 	array(
+		'Hachi Maru Pop' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Halant' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700' ), 
 			'category' => 'serif', 
@@ -2602,6 +2626,12 @@ return array(
 		),
 	),
 	array(
+		'Imbue' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Imprima' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
@@ -2701,6 +2731,12 @@ return array(
 		'Jaldi' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'JetBrains Mono' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
+			'category' => 'monospace', 
 		),
 	),
 	array(
@@ -3071,6 +3107,12 @@ return array(
 	),
 	array(
 		'Lancelot' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Langar' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),
@@ -4564,6 +4606,12 @@ return array(
 		),
 	),
 	array(
+		'Potta One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Pragati Narrow' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'sans-serif', 
@@ -5033,7 +5081,7 @@ return array(
 	),
 	array(
 		'Saira' => array(
-			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -6091,6 +6139,12 @@ return array(
 		'Yrsa' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Yusei Magic' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(

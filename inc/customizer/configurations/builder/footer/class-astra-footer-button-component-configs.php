@@ -35,7 +35,7 @@ class Astra_Footer_Button_Component_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$configurations = Astra_Button_Component_Configs::register_configuration( 'footer', 'section-fb-button-', $configurations );
+		$configurations = Astra_Button_Component_Configs::register_configuration( $configurations, 'footer', 'section-fb-button-' );
 
 		return $configurations;
 	}

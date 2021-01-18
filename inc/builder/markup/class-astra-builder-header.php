@@ -53,8 +53,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$this->remove_existing_actions();
 
-				add_action( 'astra_header', array( $this, 'prepare_header_builder_markup' ) );
-
 				add_action( 'body_class', array( $this, 'add_body_class' ) );
 
 				// Header Desktop Builder.
@@ -106,15 +104,18 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					self::$methods[] = 'header_social_' . $index;
 				}
 
-				add_action( 'astra_mobile_site_identity', array( $this, 'site_identity' ) );
+				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
 				add_action( 'astra_header_search', array( $this, 'header_search' ), 10, 1 );
 				add_action( 'astra_header_woo_cart', array( $this, 'header_woo_cart' ) );
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
+				add_action( 'astra_header_account', array( $this, 'header_account' ) );
 
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
+
+				add_action( 'astra_header_menu_mobile', array( $this, 'header_mobile_menu_markup' ) );
 			}
 
-			add_action( 'astra_site_identity', array( $this, 'site_identity' ) );
+			add_action( 'astra_site_identity', __CLASS__ . '::site_identity' );
 		}
 
 		/**
@@ -132,7 +133,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				} elseif ( 0 === strpos( $func, 'button_' ) ) {
 					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
 					if ( $index ) {
-						Astra_Builder_UI_Controller::render_button( 'header', $index );
+						Astra_Builder_UI_Controller::render_button( $index, 'header' );
 					}
 				} elseif ( 0 === strpos( $func, 'menu_' ) ) {
 					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
@@ -142,13 +143,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				} elseif ( 0 === strpos( $func, 'header_social_' ) ) {
 					$index = (int) substr( $func, strrpos( $func, '_' ) + 1 );
 					if ( $index ) {
-						Astra_Builder_UI_Controller::render_social_icon( 'header', $index );
+						Astra_Builder_UI_Controller::render_social_icon( $index, 'header' );
 					}
 				}
 			}
 		}
-
-
 
 		/**
 		 * Inherit Header base layout.
@@ -159,46 +158,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			do_action( 'astra_header' );
 		}
 
-
-		/**
-		 * Inherit Header base layout.
-		 */
-		public function prepare_header_builder_markup() {
-
-			// Before header markup.
-			do_action( 'astra_header_markup_before' );
-			?>
-
-			<header
-				<?php
-				echo astra_attr(
-					'header',
-					array(
-						'id'    => 'masthead',
-						'class' => join( ' ', astra_get_header_classes() ),
-					)
-				);
-				?>
-			>
-
-				<?php astra_masthead_top(); ?>
-
-				<?php astra_masthead(); ?>
-
-				<?php astra_masthead_bottom(); ?>
-
-				<?php do_action( 'astra_sticky_header_markup' ); ?>
-
-				<?php do_action( 'astra_bottom_header_after_markup' ); ?>
-
-			</header><!-- #masthead -->
-
-			<?php
-
-			// After header markup.
-			do_action( 'astra_header_markup_after' );
-		}
-
 		/**
 		 * Remove existing Header to load Header Builder.
 		 *
@@ -207,8 +166,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function remove_existing_actions() {
 			remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
-			remove_action( 'astra_header', 'astra_header_markup' );
-
 			remove_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
 			remove_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
@@ -242,6 +199,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		}
 
 		/**
+		 * Render account icon.
+		 */
+		public function header_account() {
+			Astra_Builder_UI_Controller::render_account();
+		}
+
+		/**
 		 * Render Search icon.
 		 *
 		 * @param  string $device   Device name.
@@ -253,7 +217,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		/**
 		 * Render site logo.
 		 */
-		public function site_identity() {
+		public static function site_identity() {
 			Astra_Builder_UI_Controller::render_site_identity();
 		}
 
@@ -282,7 +246,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function above_header() {
 
-
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 				get_template_part(
@@ -297,9 +260,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				set_query_var( 'row', 'above' );
 				get_template_part( 'template-parts/header/builder/header', 'row' );
 			}
-
-
-
 		}
 
 		/**
@@ -447,6 +407,12 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
+		}
+		/**
+		 *  Call Mobile Menu Markup.
+		 */
+		public function header_mobile_menu_markup() {
+			Astra_Mobile_Menu_Component::menu_markup();
 		}
 
 		/**

@@ -101,28 +101,35 @@ const ResponsiveSpacingComponent = props => {
 			</li>;
 		}
 
-		htmlChoices = Object.keys(choices).map(choiceID => {
-			let html = <li key={choiceID} {...inputAttrs} className='ast-spacing-input-item'>
-				<input type='number' className={`ast-spacing-input ast-spacing-${device} connected`} data-id={choiceID}
-					   value={props_value[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
-					   data-element-connect={id}/>
-				<span className="ast-spacing-title">{choices[choiceID]}</span>
-			</li>;
-			return html;
-		});
-		respHtml = Object.values(unit_choices).map(unitKey => {
-			let unitClass = '';
+		if( choices ) {
+			htmlChoices = Object.keys(choices).map(choiceID => {
+				let html = <li key={choiceID} {...inputAttrs} className='ast-spacing-input-item'>
+					<input type='number' className={`ast-spacing-input ast-spacing-${device} connected`} data-id={choiceID}
+						   value={props_value[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
+						   data-element-connect={id}/>
+					<span className="ast-spacing-title">{choices[choiceID]}</span>
+				</li>;
+				return html;
+			});
+		}
 
-			if (props_value[`${device}-unit`] === unitKey) {
-				unitClass = 'active';
-			}
+		if( unit_choices ) {
+			respHtml = Object.values(unit_choices).map(unitKey => {
+				let unitClass = '';
 
-			let html = <li key={unitKey} className={`single-unit ${unitClass}`}
-						   onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>
-				<span className="unit-text">{unitKey}</span>
-			</li>;
-			return html;
-		});
+				if (props_value[`${device}-unit`] === unitKey) {
+					unitClass = 'active';
+				}
+
+				let html = <li key={unitKey} className={`single-unit ${unitClass}`}
+							   onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>
+					<span className="unit-text">{unitKey}</span>
+				</li>;
+				return html;
+			});
+		}
+
+
 		return <ul key={device} className={`ast-spacing-wrapper ${device} ${active}`}>
 			{linkHtml}
 			{htmlChoices}

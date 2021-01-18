@@ -46,11 +46,25 @@ class Astra_Footer_Menu_Component {
 	public static function menu_markup() {
 
 		// Menu Layout.
-		$menu_layout_class = '';
-		$menu_layout       = astra_get_option( 'footer-menu-layout' );
+		$desktop_menu_layout_class = '';
+		$tablet_menu_layout_class  = '';
+		$mobile_menu_layout_class  = '';
+		$menu_layout               = astra_get_option( 'footer-menu-layout' );
 
-		if ( ! empty( $menu_layout ) ) {
-			$menu_layout_class = 'astra-footer-' . esc_attr( $menu_layout ) . '-menu';
+		$desktop_menu_layout = ( isset( $menu_layout['desktop'] ) ) ? $menu_layout['desktop'] : '';
+		$tablet_menu_layout  = ( isset( $menu_layout['tablet'] ) ) ? $menu_layout['tablet'] : '';
+		$mobile_menu_layout  = ( isset( $menu_layout['mobile'] ) ) ? $menu_layout['mobile'] : '';
+
+		if ( ! empty( $desktop_menu_layout ) ) {
+			$desktop_menu_layout_class = 'astra-footer-' . esc_attr( $desktop_menu_layout ) . '-menu';
+		}
+
+		if ( ! empty( $tablet_menu_layout ) ) {
+			$tablet_menu_layout_class = 'astra-footer-tablet-' . esc_attr( $tablet_menu_layout ) . '-menu';
+		}
+
+		if ( ! empty( $mobile_menu_layout ) ) {
+			$mobile_menu_layout_class = 'astra-footer-mobile-' . esc_attr( $mobile_menu_layout ) . '-menu';
 		}
 
 		/**
@@ -59,7 +73,7 @@ class Astra_Footer_Menu_Component {
 		 * @since  3.0.0
 		 * @var Array
 		 */
-		$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $menu_layout_class ) );
+		$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $desktop_menu_layout_class, $tablet_menu_layout_class, $mobile_menu_layout_class ) );
 
 		$items_wrap  = '<nav ';
 		$items_wrap .= astra_attr(

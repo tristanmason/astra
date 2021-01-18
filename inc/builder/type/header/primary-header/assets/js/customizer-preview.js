@@ -13,19 +13,34 @@
 	var tablet_break_point    = AstraBuilderPrimaryHeaderData.tablet_break_point || 768,
 		mobile_break_point    = AstraBuilderPrimaryHeaderData.mobile_break_point || 544;
 
-	// Header Height.
-	astra_css(
-		'astra-settings[hb-header-height]',
-		'min-height',
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap',
-		'px'
-	);
-	astra_css(
-		'astra-settings[hb-header-height]',
-		'height',
-		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item',
-		'px'
-	);
+	wp.customize( 'astra-settings[hb-header-height]', function( value ) {
+		value.bind( function( size ) {
+
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += 'min-height: ' + size.desktop + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {';
+				dynamicStyle += 'line-height: ' + size.desktop + 'px;';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += 'min-height: ' + size.tablet + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap {';
+				dynamicStyle += 'min-height: ' + size.mobile + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( 'hb-header-height', dynamicStyle );
+			}
+		} );
+	} );
 
 	// Primary Header - Layout > Content Width.
 	wp.customize( 'astra-settings[hb-header-main-layout-width]', function( setting ) {
@@ -34,14 +49,14 @@
 			var dynamicStyle = '';
 
 			if ( 'content' !== layout ) {
-				dynamicStyle += '#masthead .ast-container {';
+				dynamicStyle += '#masthead .ast-container, .site-header-focus-item + .ast-breadcrumbs-wrapper {';
 				dynamicStyle += 'max-width: unset;';
 				dynamicStyle += 'padding-left: 35px;';
 				dynamicStyle += 'padding-right: 35px;';
 				dynamicStyle += '} ';
 
 			} else {
-				dynamicStyle = '#masthead .ast-container {';
+				dynamicStyle = '#masthead .ast-container, .site-header-focus-item + .ast-breadcrumbs-wrapper {';
 				dynamicStyle += 'max-width: 100%';
 				dynamicStyle += 'padding-left: 20px;';
 				dynamicStyle += 'padding-right: 20px;';
@@ -96,6 +111,9 @@
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( 'section-primary-header-builder', '.ast-desktop .ast-primary-header-bar, .ast-header-break-point .ast-primary-header-bar' );
+
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( 'section-primary-header-builder', '.ast-primary-header-bar', 'block' );
 
 	// Advanced CSS for Header Builder - Margin.
 	wp.customize( 'astra-settings[section-header-builder-layout-margin]', function( value ) {

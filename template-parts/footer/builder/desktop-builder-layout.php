@@ -9,9 +9,8 @@
  */
 
 ?>
-
 <footer
-<?php
+<?php 
 echo astra_attr(
 	'footer',
 	array(
@@ -24,6 +23,9 @@ echo astra_attr(
 );
 ?>
 >
+	<?php
+		astra_footer_content_top();
+	?>
 	<div class="ast-main-footer-wrap">
 		<?php
 		/**
@@ -40,5 +42,7 @@ echo astra_attr(
 		do_action( 'astra_below_footer' );
 		?>
 	</div>
+	<?php
+		astra_footer_content_bottom();
+	?>
 </footer><!-- #colophon -->
-

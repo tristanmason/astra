@@ -54,34 +54,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Header Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-site-identity-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
 					'priority'    => 0,
 					'description' => '',
-				),
-
-				/**
-				 * Options: Site Tagline.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
-					'default'   => astra_get_option( 'site-tagline-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Tagline', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 20,
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
 				),
 
 				/**
@@ -113,7 +91,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => true,
-						'render_callback'     => array( Astra_Builder_Header::get_instance(), 'site_identity' ),
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
@@ -127,7 +105,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
 					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 15,
+					'priority' => 11,
 					'settings' => array(),
 					'context'  => array(
 						'relation' => 'AND',
@@ -146,25 +124,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 
-					),
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-title-color-group]',
-					'default'   => astra_get_option( 'site-identity-title-color-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
-					'section'   => 'title_tagline',
-					'transport' => 'postMessage',
-					'priority'  => 8,
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-							'operator' => '==',
-							'value'    => true,
-						),
 					),
 				),
 
@@ -196,25 +155,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Option: Site Tagline Color.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-color-site-tagline]',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'priority'  => 9,
-					'default'   => astra_get_option( 'header-color-site-tagline' ),
-					'title'     => __( 'Tagline', 'astra' ),
-					'section'   => 'title_tagline',
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
+
 
 				/**
 				 * Option: Margin heading
@@ -252,7 +193,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'context'        => Astra_Builder_Helper::$design_tab,
 				),
+				
 			);
+
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 			$wp_customize->remove_control( 'astra-settings[divider-section-site-identity-logo]' );
 

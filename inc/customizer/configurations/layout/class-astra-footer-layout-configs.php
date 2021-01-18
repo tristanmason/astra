@@ -131,6 +131,11 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'operator' => '==',
 							'value'    => array( 'custom' ),
 						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
 					),
 					'priority'  => 20,
 					'title'     => __( 'Section 1 Custom Text', 'astra' ),
@@ -143,7 +148,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-1:has(> .ast-footer-site-title)',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_1_credit' ),
+						'render_callback'     => 'Astra_Customizer_Partials::render_footer_sml_section_1_credit',
 					),
 				),
 
@@ -201,7 +206,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-2',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_2_credit' ),
+						'render_callback'     => 'Astra_Customizer_Partials::render_footer_sml_section_2_credit',
 					),
 					'partial'   => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2:has(> .ast-footer-site-title)',
@@ -272,6 +277,11 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
 							'operator' => '>=',
 							'value'    => 1,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
 						),
 					),
 					'priority'  => 45,
@@ -381,32 +391,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Footer Widgets Layout Layout
-				 */
-				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-adv]',
-					'type'    => 'control',
-					'control' => 'ast-radio-image',
-					'default' => astra_get_option( 'footer-adv' ),
-					'title'   => __( 'Layout', 'astra' ),
-					'section' => 'section-footer-adv',
-					'choices' => array(
-						'disabled' => array(
-							'label' => __( 'Disable', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
-						),
-						'layout-4' => array(
-							'label' => __( 'Layout 4', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4' ),
-						),
-					),
-					'partial' => array(
-						'selector'            => '.footer-adv .ast-container',
-						'container_inclusive' => false,
-					),
-				),
-
-				/**
 				 * Option: Footer Top Border
 				 */
 				array(
@@ -459,9 +443,37 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && false === Astra_Ext_Extension::is_active( 'advanced-footer' ) ) ) {
 
 				$config = array(
+
+					/**
+					 * Option: Footer Widgets Layout Layout
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[footer-adv]',
+						'type'     => 'control',
+						'priority' => 0,
+						'control'  => 'ast-radio-image',
+						'default'  => astra_get_option( 'footer-adv' ),
+						'title'    => __( 'Layout', 'astra' ),
+						'section'  => 'section-footer-adv',
+						'choices'  => array(
+							'disabled' => array(
+								'label' => __( 'Disable', 'astra' ),
+								'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
+							),
+							'layout-4' => array(
+								'label' => __( 'Layout 4', 'astra' ),
+								'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4' ),
+							),
+						),
+						'partial'  => array(
+							'selector'            => '.footer-adv .ast-container',
+							'container_inclusive' => false,
+						),
+					),
+
 					/**
 					 * Option: Divider
 					 */

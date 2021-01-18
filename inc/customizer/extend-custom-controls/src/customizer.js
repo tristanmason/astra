@@ -4,11 +4,7 @@
 
 	var expandedSection = [];
 
-	const context_less_sections = [ 'section-colors-body', 'section-colors-content', 'section-buttons',
-		'section-typography', 'section-body-typo', 'section-content-typo', 'sidebar-widgets-header-widget-', 'sidebar-widgets-footer-widget-',
-		'sidebar-widgets-sidebar-', 'sidebar-widgets-ast-widgets', 'static_front_page',
-		'custom_css', 'menu_locations', 'nav_menu'
-	];
+	var expandedPanel = '';
 
 	/**
 	 * Resize Preview Frame when show / hide Builder.
@@ -32,6 +28,7 @@
 		} else {
 			api.previewer.container.css('bottom', '');
 		}
+
 		$section.css( 'overflow', 'visible' );
 		$footer.css( 'overflow', 'visible' );
 	}
@@ -43,7 +40,6 @@
 
 		let builder = panel.id.includes("-header-") ? 'header' : 'footer';
 		var section = api.section('section-' + builder + '-builder');
-
 
 		if (section) {
 
@@ -79,14 +75,27 @@
 					control.container.trigger('init');
 				});
 
+
+
 				if (isExpanded) {
+
+					expandedPanel = panel.id;
 					$body.addClass('ahfb-' + builder + '-builder-is-active');
 					$section.addClass('ahfb-' + builder + '-builder-active');
+					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+
+					if( 'header' === builder ) {
+						$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					} else {
+						$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+					}
+
 				} else {
 
-					// Setting general context when collapsed.
-					api.state('astra-customizer-tab').set('general');
+					$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
 
+					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
 				}
@@ -96,8 +105,12 @@
 			});
 			$section.on('click', '.ahfb-builder-tab-toggle', function (e) {
 				e.preventDefault();
-				$section.toggleClass('ahfb-builder-hide');
-				resizePreviewer();
+				api.previewer.container.css({"bottom": '0px'});
+				setTimeout(function () {
+					$section.toggleClass('ahfb-builder-hide');
+					resizePreviewer();
+				}, 120);
+
 			});
 		}
 	};
@@ -117,9 +130,10 @@
 			var Constructor = api.panelConstructor[data.type] || api.Panel, options;
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
+			var isSiteRTL = false;
 
-			if ('panel-footer-builder-group' === id || 'panel-header-builder-group' === id) {
-				$('#accordion-panel-' + id).find('.accordion-section-title').append("<span class=\'ahfb-highlight\'> New </span>");
+			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.is_site_rtl) {
+				isSiteRTL = true;
 			}
 
 			// Scroll to footer.
@@ -211,7 +225,7 @@
 		setControlContextBySection: function (section) {
 
 			// Skip setting context when no tabs added inside section.
-			if( expandedSection.includes(section.id) || context_less_sections.includes(section.id)  ) {
+			if( expandedSection.includes(section.id) ) {
 				return ;
 			}
 
@@ -239,6 +253,10 @@
 				if ( -1 != (skip_context.indexOf(id) ) ) {
 					// Do not init context if skipped.
 					return;
+				}
+
+				if ( -1 == AstraBuilderCustomizerData.tabbed_sections.indexOf( api.control(id).section() ) ) {
+					return ;
 				}
 
 				let rules = AstraBuilderCustomizerData.contexts[id];
@@ -306,7 +324,7 @@
 	 * Change description to tooltip.
 	 * @param ctrl
 	 */
-	function change_description_as_tooltip(ctrl) {
+	const change_description_as_tooltip = function(ctrl) {
 
 		var desc = ctrl.container.find(".customize-control-description");
 		if (desc.length) {
@@ -326,7 +344,7 @@
 	 * @param control_id
 	 * @param control_rules
 	 */
-	function set_context(control_id, control_rules = null) {
+	const set_context = function(control_id, control_rules = null) {
 
 		if ('undefined' != typeof AstraBuilderCustomizerData) {
 			let rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
@@ -349,6 +367,10 @@
 
 						var result = false,
 							setting = getSetting(rule['setting']);
+
+						if( 'undefined' == typeof setting ) {
+							return false;
+						}
 
 						var operator = rule['operator'],
 							comparedValue = rule['value'],
@@ -473,6 +495,7 @@
 
 					bindSettings(rules);
 
+					element.active.validate = isDisplayed;
 					setActiveState();
 				};
 				api.control(control_id, initContext);
@@ -484,7 +507,7 @@
 	 * Highliting the active componenet.
 	 * @param customizer_section
 	 */
-	function highlight_active_component(customizer_section) {
+	const highlight_active_component = function(customizer_section) {
 		var builder_items = $('.ahfb-builder-drop .ahfb-builder-item');
 		$.each(builder_items, function (i, val) {
 			var component_section = $(val).attr('data-section');
@@ -500,7 +523,7 @@
 	 * Highliting the active row.
 	 * @param customizer_section
 	 */
-	function highlight_active_row(customizer_section) {
+	const highlight_active_row = function(customizer_section) {
 		// Highlight builder rows.
 		var builder_rows = $('.ahfb-builder-items .ahfb-builder-areas');
 		$.each(builder_rows, function (i, val) {
@@ -516,7 +539,7 @@
 	/**
 	 * Set context using URL query params.
 	 */
-	function set_context_by_url_params() {
+	const set_context_by_url_params = function() {
 
 		let urlParams = new URLSearchParams( window.location.search );
 		let tab = urlParams.get( "context" );
@@ -544,7 +567,7 @@
 			api.state('astra-customizer-tab').set($(this).attr('data-tab'));
 		});
 
-		var setCustomTabElementsDisplay = function () {
+		const setCustomTabElementsDisplay = function () {
 			var tabState = api.state('astra-customizer-tab').get(),
 				$tabs = $('.ahfb-compontent-tabs-button:not(.ahfb-nav-tabs-button)');
 			$tabs.removeClass('nav-tab-active').filter('.ahfb-' + tabState + '-tab').addClass('nav-tab-active');
@@ -559,10 +582,13 @@
 			section.expanded.bind(function (isExpanded) {
 				// Lazy Loaded Context.
 				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+
 				if ( ! isExpanded ) {
 					// Setting general context when collapsed.
 					api.state('astra-customizer-tab').set('general');
 				}
+
+				$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
 				var customizer_section = api.section(section.id);
 				set_context_by_url_params();

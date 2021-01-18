@@ -14,9 +14,11 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	var selector = '.ast-header-search';
+    var section = 'section-header-search';
 
 	// Icon Color.
-	astra_css(
+	astra_color_responsive_css(
+		'header-search-icon-color',
 		'astra-settings[header-search-icon-color]',
 		'color',
 		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 
@@ -97,5 +99,8 @@
             }
         } );
     } );
+
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( section, selector );
 
 } )( jQuery );

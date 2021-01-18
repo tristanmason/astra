@@ -26,6 +26,7 @@ const DividerComponent = props => {
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
+		separatorHtml = null
 	}
 
 	if (description) {

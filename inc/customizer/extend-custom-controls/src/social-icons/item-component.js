@@ -3,7 +3,6 @@ import {useState} from 'react';
 const {__} = wp.i18n;
 const {Dashicon, Tooltip, TextControl, Button} = wp.components;
 
-
 const ItemComponent = props => {
 
 	const Icons = window.svgIcons;

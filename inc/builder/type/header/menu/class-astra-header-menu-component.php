@@ -71,13 +71,19 @@ class Astra_Header_Menu_Component {
 			$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 		}
 
+		// Menu hover animation.
+		$menu_hover_animation = astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' );
+		if ( '' !== $menu_hover_animation ) {
+			$submenu_class .= ' ast-menu-hover-style-' . esc_attr( $menu_hover_animation ) . ' ';
+		}
+
 		/**
 		 * Filter the classes(array) for Menu (<ul>).
 		 *
 		 * @since  3.0.0
 		 * @var Array
 		 */
-		$menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $submenu_class, $stack_on_mobile_class ) );
+		$menu_classes = apply_filters( 'astra_' . $theme_location . '_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $submenu_class, $stack_on_mobile_class ) );
 
 		$items_wrap  = '<nav ';
 		$items_wrap .= astra_attr(
@@ -89,7 +95,7 @@ class Astra_Header_Menu_Component {
 			)
 		);
 		$items_wrap .= '>';
-		$items_wrap .= '<div class="main-navigation">';
+		$items_wrap .= '<div class="main-navigation ast-inline-flex">';
 		$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 		$items_wrap .= '</div>';
 		$items_wrap .= '</nav>';
@@ -98,7 +104,7 @@ class Astra_Header_Menu_Component {
 		$fallback_menu_args = array(
 			'theme_location' => $theme_location,
 			'menu_id'        => 'ast-hf-menu-' . $index,
-			'menu_class'     => 'main-navigation',
+			'menu_class'     => 'main-navigation ast-inline-flex',
 			'container'      => 'div',
 			'before'         => '<ul class="' . esc_attr( implode( ' ', $menu_classes ) ) . '">',
 			'after'          => '</ul>',
@@ -125,7 +131,7 @@ class Astra_Header_Menu_Component {
 			);
 		} else {
 			echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
-				echo '<div class="main-header-bar-navigation">';
+				echo '<div class="main-header-bar-navigation ast-flex-1">';
 					echo '<nav ';
 					echo astra_attr(
 						'site-navigation',

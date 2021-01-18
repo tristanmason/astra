@@ -10,6 +10,17 @@
 
 ( function( $ ) {
 
+    wp.customize( 'astra-settings[different-mobile-logo]', function ( value ) {
+        value.bind( function ( newval ) {
+
+			if ( '1' == newval ) {
+                jQuery('.site-header').addClass( 'ast-has-mobile-header-logo' );
+            } else {
+                jQuery('.site-header').removeClass( 'ast-has-mobile-header-logo' );
+            }
+        } );
+	} );
+
 	// Margin.
     wp.customize( 'astra-settings[title_tagline-margin]', function( value ) {
 		value.bind( function( margin ) {
@@ -53,6 +64,7 @@
     } );
 
     var selector = '.ast-builder-layout-element .ast-site-identity';
+	var section = 'title_tagline';
 
     // Title Color.
     astra_css(
@@ -74,4 +86,10 @@
         'color',
         selector + ' .site-description'
     );
+
+    var visibility_selector = '.ast-builder-layout-element[data-section="title_tagline"]';
+
+    // Advanced Visibility CSS Generation.
+    astra_builder_visibility_css( section, visibility_selector );
+    
 } )( jQuery );

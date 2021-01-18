@@ -55,7 +55,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+				'name'        => $_section . '-ast-context-tabs',
 				'section'     => $_section,
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
@@ -172,7 +172,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'   => astra_get_option( 'mobile-header-toggle-btn-color' ),
 				'type'      => 'control',
 				'control'   => 'ast-color',
-				'title'     => __( 'Icon Color', 'astra' ),
+				'title'     => __( 'Color', 'astra' ),
 				'section'   => $_section,
 				'transport' => 'postMessage',
 				'priority'  => 50,
