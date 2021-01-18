@@ -32,6 +32,12 @@ const BuilderComponent = props => {
 		isPopup: false
 	});
 
+	let contFlag = false;
+
+	if ( props.control.container ) {
+		contFlag = props.control.container[0].getAttribute( 'isPopup' );
+	}
+
 	const updateValues = (value, row = '') => {
 
 		let setting = props.control.setting;
@@ -138,6 +144,8 @@ const BuilderComponent = props => {
 
 		update[zone] = updateItems;
 		updateState[row][zone] = updateItems;
+		console.log('in remove');
+		setPopupFlag(true);
 
 		setState(prevState => ({
 			...prevState,
@@ -181,6 +189,7 @@ const BuilderComponent = props => {
 
 			update[zone] = updateItems;
 			updateState[row][zone] = updateItems;
+			setPopupFlag(true);
 			setState(prevState => ({
 				...prevState,
 				value: updateState
@@ -223,29 +232,40 @@ const BuilderComponent = props => {
 		}
 	};
 
-	if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
-		let is_popup_flag = false;
-		controlParams.rows.map(row => {
-			var rowContents = state.value[row];
-	
-			for ( const [key, value] of Object.entries(rowContents) ) {
-				if( value == 'mobile-trigger' ) {
-					is_popup_flag = true;
-					return;
-				}
-			}
-		});
+	const setPopupFlag = (refresh) => {
 
-		// setState(prevState => ({
-		// 	...prevState,
-		// 	isPopup: is_popup_flag
-		// }));
+		if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
+			let is_popup_flag = false;
+			controlParams.rows.map(row => {
+				var rowContents = state.value[row];
+			
+				for ( const [key, value] of Object.entries(rowContents) ) {
+					
+					if( value.includes('mobile-trigger') ) {
+						is_popup_flag = true;
+						return;
+					}
+				}
+			});
+
+			if ( refresh ) {
+				setState(prevState => ({
+					...prevState,
+					isPopup: is_popup_flag
+				}));
+			}
+			
+			if ( props.control.container ) {
+				props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
+				contFlag = is_popup_flag;
+			}
+		}
 	}
 
-	console.log(state.value);
+	setPopupFlag(false);
 
 	return <div className="ahfb-control-field ahfb-builder-items">
-		{controlParams.rows.includes('popup') &&
+		{ ( true === state.isPopup || true === contFlag ) && controlParams.rows.includes('popup') &&
 		<RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 					  focusItem={item => focusItem(item)}
 					  removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
