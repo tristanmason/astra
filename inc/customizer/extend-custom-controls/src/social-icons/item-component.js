@@ -16,6 +16,10 @@ const ItemComponent = props => {
 	const [state, setState] = useState({
 		open: false,
 	});
+	console.log(props.item.id);
+	let icon = props.item.id.replace(/[\d_]+$/g, '');
+	console.log(icon);
+
 
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
@@ -27,7 +31,7 @@ const ItemComponent = props => {
 			<Tooltip text={__('Toggle Item Visiblity', 'astra')}>
 				<Button className="ahfb-sorter-visiblity">
 							<span dangerouslySetInnerHTML={{
-								__html: Icons[props.item.id]
+								__html: Icons[icon]
 							}}/>
 				</Button>
 			</Tooltip>

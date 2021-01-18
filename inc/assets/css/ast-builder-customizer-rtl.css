@@ -1752,7 +1752,9 @@ button.components-button.ahfb-sorter-item-expand {
 
 .ahfb-sorter-drop-social_item_group .ahfb-sorter-item-panel-header .ahfb-sorter-visiblity svg {
     max-width: 12px;
-    fill: #556068;
+	fill: #556068;
+	width: 28px;
+	height: 28px;
 }
 
 .ahfb-sorter-drop-social_item_group .ahfb-sorter-item-panel-header .ahfb-sorter-visiblity.item-is-hidden {
