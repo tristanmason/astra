@@ -271,7 +271,7 @@ const SocialComponent = props => {
 		});
 	}
 	;
-
+	
 	const toggleClose = () => {
 		if (state.isVisible === true) {
 			setState(prevState => ({
