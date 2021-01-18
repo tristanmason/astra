@@ -57,7 +57,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 6,
 					'title'       => __( 'Size', 'astra' ),
-					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -92,7 +91,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 11,
 					'title'       => __( 'Size', 'astra' ),
-					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -127,7 +125,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-h3' ),
 					'transport'   => 'postMessage',
 					'title'       => __( 'Size', 'astra' ),
-					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -162,7 +159,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 21,
 					'title'       => __( 'Size', 'astra' ),
-					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -197,7 +193,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 26,
 					'title'       => __( 'Size', 'astra' ),
-					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -232,7 +227,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 31,
 					'title'       => __( 'Size', 'astra' ),
-					'responsive'  => true,
 					'input_attrs' => array(
 						'min' => 0,
 					),
