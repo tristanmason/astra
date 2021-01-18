@@ -87,9 +87,6 @@ const RowComponent = props => {
 					besideItems = props.items[props.row + '_right_center'];
 				}
 
-				// console.log(props.items);
-				// console.log(zone);
-
 				return enableRow && <DropComponent
 					removeItem={(remove, removeRow, removeZone) => props.removeItem(remove, removeRow, removeZone)}
 					focusItem={focus => props.focusItem(focus)} hideDrop={() => props.hideDrop()}
