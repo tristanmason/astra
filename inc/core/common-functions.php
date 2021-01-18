@@ -415,7 +415,7 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 				foreach ( $properties as $property => $value ) {
 
-					if ( '' === $value ) {
+					if ( '' == $value && 0 !== $value ) {
 						continue; }
 
 					$properties_added++;
@@ -1444,15 +1444,18 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 						$gen_bg_css['background-image'] = 'linear-gradient(to right, ' . $bg_color . ', ' . $bg_color . '), url(' . $bg_tab_img . ');';
 					} else {
 						$gen_bg_css['background-color'] = $bg_color . ';';
+						$gen_bg_css['background-image'] = 'none;';
 					}
 				} elseif ( 'tablet' === $device ) {
 					if ( $desktop_css ) {
 						$gen_bg_css['background-image'] = 'linear-gradient(to right, ' . $bg_color . ', ' . $bg_color . '), url(' . $bg_desk_img . ');';
 					} else {
 						$gen_bg_css['background-color'] = $bg_color . ';';
+						$gen_bg_css['background-image'] = 'none;';
 					}
 				} elseif ( '' === $bg_img ) {
 					$gen_bg_css['background-color'] = $bg_color . ';';
+					$gen_bg_css['background-image'] = 'none;';
 				}
 				break;
 

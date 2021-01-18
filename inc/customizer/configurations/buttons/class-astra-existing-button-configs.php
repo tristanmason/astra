@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 2.6.0
  */
 
 // No direct access, please.
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Sanitizes
  *
- * @since x.x.x
+ * @since 2.6.0
  */
 if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since x.x.x
+		 * @since 2.6.0
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -49,7 +49,20 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'title'    => __( 'Header Button', 'astra' ),
 					'settings' => array(),
 					'priority' => 17,
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+							'operator' => '===',
+							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
+
 				),
 				/**
 				 * Group: Primary Header Button Colors Group
@@ -63,7 +76,19 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 18,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+							'operator' => '===',
+							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
 				),
 				/**
 				 * Group: Primary Header Button Border Group
@@ -77,7 +102,19 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 19,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+							'operator' => '===',
+							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
 				),
 
 				/**
@@ -156,7 +193,19 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 20,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+							'operator' => '===',
+							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
 				),
 
 				/**
@@ -288,7 +337,19 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
 					'priority'       => 21,
-					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'context'        => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+							'operator' => '===',
+							'value'    => 'custom-button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
 					'default'        => astra_get_option( 'header-main-rt-section-button-padding' ),
 					'title'          => __( 'Padding', 'astra' ),
 					'choices'        => array(

@@ -280,6 +280,12 @@ return array(
 		),
 	),
 	array(
+		'Andika New Basic' => array(
+			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Angkor' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -377,7 +383,7 @@ return array(
 	),
 	array(
 		'Arimo' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -443,7 +449,7 @@ return array(
 	),
 	array(
 		'Assistant' => array(
-			'variants' => array( '200', '300', 'regular', '600', '700', '800' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -778,6 +784,30 @@ return array(
 		),
 	),
 	array(
+		'Big Shoulders Inline Display' => array(
+			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Big Shoulders Inline Text' => array(
+			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Big Shoulders Stencil Display' => array(
+			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Big Shoulders Stencil Text' => array(
+			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Big Shoulders Text' => array(
 			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
@@ -853,6 +883,12 @@ return array(
 		'Blinker' => array(
 			'variants' => array( '100', '200', '300', 'regular', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Bodoni Moda' => array(
+			'variants' => array( 'regular', '500', '600', '700', '800', '900', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -1090,6 +1126,12 @@ return array(
 		),
 	),
 	array(
+		'Castoro' => array(
+			'variants' => array( 'regular', 'italic' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Catamaran' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
@@ -1103,7 +1145,7 @@ return array(
 	),
 	array(
 		'Caveat' => array(
-			'variants' => array( 'regular', '700' ), 
+			'variants' => array( 'regular', '500', '600', '700' ), 
 			'category' => 'handwriting', 
 		),
 	),
@@ -1300,6 +1342,12 @@ return array(
 		),
 	),
 	array(
+		'Commissioner' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Concert One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -1457,7 +1505,7 @@ return array(
 	),
 	array(
 		'Cuprum' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -1625,7 +1673,7 @@ return array(
 	),
 	array(
 		'Domine' => array(
-			'variants' => array( 'regular', '700' ), 
+			'variants' => array( 'regular', '500', '600', '700' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -2014,6 +2062,12 @@ return array(
 		),
 	),
 	array(
+		'Fraunces' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Freckle Face' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -2218,6 +2272,12 @@ return array(
 		),
 	),
 	array(
+		'Goldman' => array(
+			'variants' => array( 'regular', '700' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Gorditas' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'display', 
@@ -2323,6 +2383,12 @@ return array(
 		'Habibi' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Hachi Maru Pop' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -2543,7 +2609,7 @@ return array(
 	),
 	array(
 		'Ibarra Real Nova' => array(
-			'variants' => array( 'regular', 'italic', '600', '600italic', '700', '700italic' ), 
+			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -2557,6 +2623,12 @@ return array(
 		'Iceland' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Imbue' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -2662,6 +2734,12 @@ return array(
 		),
 	),
 	array(
+		'JetBrains Mono' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
+			'category' => 'monospace', 
+		),
+	),
+	array(
 		'Jim Nightshade' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -2699,7 +2777,7 @@ return array(
 	),
 	array(
 		'Josefin Slab' => array(
-			'variants' => array( '100', '100italic', '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -2801,7 +2879,7 @@ return array(
 	),
 	array(
 		'Karla' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -3034,6 +3112,12 @@ return array(
 		),
 	),
 	array(
+		'Langar' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Lateef' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -3160,6 +3244,12 @@ return array(
 		),
 	),
 	array(
+		'Libre Barcode EAN13 Text' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Libre Baskerville' => array(
 			'variants' => array( 'regular', 'italic', '700' ), 
 			'category' => 'serif', 
@@ -3179,7 +3269,7 @@ return array(
 	),
 	array(
 		'Libre Franklin' => array(
-			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -3868,6 +3958,12 @@ return array(
 		),
 	),
 	array(
+		'Nerko One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Neucha' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -4396,6 +4492,12 @@ return array(
 		),
 	),
 	array(
+		'Piazzolla' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Piedra' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -4501,6 +4603,12 @@ return array(
 		'Port Lligat Slab' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Potta One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
 		),
 	),
 	array(
@@ -4745,7 +4853,7 @@ return array(
 	),
 	array(
 		'Red Rose' => array(
-			'variants' => array( '300', 'regular', '700' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700' ), 
 			'category' => 'display', 
 		),
 	),
@@ -4973,7 +5081,7 @@ return array(
 	),
 	array(
 		'Saira' => array(
-			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -5023,6 +5131,12 @@ return array(
 		'Sansita' => array(
 			'variants' => array( 'regular', 'italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Sansita Swashed' => array(
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'display', 
 		),
 	),
 	array(
@@ -5356,6 +5470,12 @@ return array(
 		),
 	),
 	array(
+		'Space Grotesk' => array(
+			'variants' => array( '300', 'regular', '500', '600', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Space Mono' => array(
 			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
 			'category' => 'monospace', 
@@ -5566,6 +5686,18 @@ return array(
 		),
 	),
 	array(
+		'Syne Mono' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'monospace', 
+		),
+	),
+	array(
+		'Syne Tactile' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Tajawal' => array(
 			'variants' => array( '200', '300', 'regular', '500', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
@@ -5623,6 +5755,12 @@ return array(
 		'Text Me One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Texturina' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -5689,6 +5827,12 @@ return array(
 		'Trirong' => array(
 			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Trispace' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -5944,6 +6088,12 @@ return array(
 		),
 	),
 	array(
+		'Xanh Mono' => array(
+			'variants' => array( 'regular', 'italic' ), 
+			'category' => 'monospace', 
+		),
+	),
+	array(
 		'Yanone Kaffeesatz' => array(
 			'variants' => array( '200', '300', 'regular', '500', '600', '700' ), 
 			'category' => 'sans-serif', 
@@ -5989,6 +6139,12 @@ return array(
 		'Yrsa' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Yusei Magic' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
