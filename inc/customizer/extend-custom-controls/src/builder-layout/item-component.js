@@ -73,6 +73,12 @@ const ItemComponent = props => {
 				{ choices[props.item]['clone'] && <span title="Clone"
 					  onClick={e => {
 						  e.stopPropagation();
+
+						  // Skip clone if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-clone-in-progress') ) {
+							  return;
+						  }
+
 						  props.cloneItem(props.item);
 					  }} className=" tooltip dashicons dashicons-admin-page">
 				</span> }
@@ -80,7 +86,7 @@ const ItemComponent = props => {
 					  onClick={e => {
 						  e.stopPropagation();
 
-						  // Skip clone if already is in progress.
+						  // Skip Reset if already is in progress.
 						  if( sessionStorage.getItem('astra-builder-reset-in-progress') ) {
 							  return;
 						  }
@@ -98,7 +104,7 @@ const ItemComponent = props => {
 				{ choices[props.item]['delete'] &&  <span title="Delete"
 					  onClick={e => {
 
-						  // Skip clone if already is in progress.
+						  // Skip Delete if already is in progress.
 						  if( sessionStorage.getItem('astra-builder-eradicate-in-progress') ) {
 							  return;
 						  }

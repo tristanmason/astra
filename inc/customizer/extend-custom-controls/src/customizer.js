@@ -219,6 +219,10 @@
 
 		registerControlsBySection: function (section) {
 
+			if( ! section ) {
+				return;
+			}
+
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [section_id, config] of Object.entries(controls)) {
@@ -679,6 +683,11 @@
 
 				let clone_to_section = cloneData.clone_to_section,
 					clone_from_section = cloneData.clone_from_section;
+
+				// Return if cloning section already presents.
+				if(api.section(clone_to_section)){
+					return;
+				}
 
 				let section_config = AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section];
 
