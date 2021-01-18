@@ -121,3 +121,27 @@
     width: 24em;
   }
 }
+
+#customize-control-astra-settings-global-color-palette .ast-color-palette-label {
+  width: 68%;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-color-palette-label input {
+  background: none;
+  border: none;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-color-palette-label input:focus {
+  border: 1px solid black;
+  outline: none;
+  box-shadow: none;
+  background: white;
+}
+
+#customize-control-astra-settings-global-color-palette .astra-add-new-color.is-primary {
+  margin: 0 auto;
+  display: block;
+}

@@ -137,8 +137,8 @@ class AstraColorPickerControl extends Component {
 		}
 		newdefaultpalette.forEach( singleColor => {
 			let paletteColors = {};
-			Object.assign( paletteColors, { name: count + '_' + singleColor } );
-			Object.assign( paletteColors, { color: singleColor } );
+			Object.assign( paletteColors, { name: count + '_' + singleColor[0] } );
+			Object.assign( paletteColors, { color: singleColor[0] } );
 			finalpaletteColors.push(paletteColors);
 			count ++;
 		});

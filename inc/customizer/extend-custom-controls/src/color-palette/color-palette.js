@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
@@ -6,7 +6,7 @@ import testJSON from '../common/astra-common-function';
 
 import {useState} from 'react';
 
-import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton } from '@wordpress/components';
+import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
 import { Fragment } from 'react';
 
 const { __ } = wp.i18n;
@@ -58,7 +58,7 @@ const ColorPaletteComponent = props => {
 		let obj = {
 			...state
 		};
-		var prevcolor = obj[obj.patterntype][index]
+		var prevcolor = obj[obj.patterntype][index][0]
 		
 	
 		let respectivePalette = {
@@ -70,10 +70,10 @@ const ColorPaletteComponent = props => {
 		}
 		
 		respectivePalette_index= value
-		respectivePalette[index] = respectivePalette_index
+		respectivePalette[index][0] = respectivePalette_index
 		obj[patterntype] = respectivePalette
 
-		var newcolor = obj[obj.patterntype][index]
+		var newcolor = obj[obj.patterntype][index][0]
 				
 		setState(obj)
 		props.control.setting.set( obj );		
@@ -87,22 +87,98 @@ const ColorPaletteComponent = props => {
 
 	};
 
+	const editLabel = (value,index) => {
+		
+
+		let obj = {
+			...state
+		};
+
+		let respectivePalette = {
+			...obj[obj.patterntype]
+		}
+		
+		let respectivePalette_index = {
+			...respectivePalette[index]
+		}
+		
+		respectivePalette_index= value
+		respectivePalette[index][1] = respectivePalette_index
+		obj[obj.patterntype] = respectivePalette
+
+		setState(obj)
+		props.control.setting.set( obj );		
+
+	}
+
+	const addNewColorToPalette = () => {
+		
+		var new_color_array = [ "#ffffff", "Custom Color" ];
+
+		
+		let obj = {
+			...state
+		};
+
+		let respectivePalette = {
+			...obj[obj.patterntype]
+		}
+		respectivePalette[Object.keys(respectivePalette).length] = new_color_array
+		
+		obj[obj.patterntype] = respectivePalette
+		
+		setState(obj)	
+		props.control.setting.set( obj );
+
+	}
+
+	const deleteCustomPalette = (index,item) => {
+		let obj = {
+			...state
+		}
+
+		// const filteredItems = obj.pattern1.slice(0, index).concat(obj.pattern1.slice(index + 1, obj.pattern1.length))
+		var palette = obj.pattern1
+		delete palette[index]
+
+		// obj.pattern1 = filteredItems;
+		
+		setState(obj)	
+		props.control.setting.set( obj );
+
+	}
+
 	var patternhtml = (
 		<>
 			<div className="ast-color-palette1-wrap">
 				{ Object.keys(state.pattern1).map((item,index)=>{
 					return (
-						<div className={`ast-color-picker-palette-${index+1} ast-color-palette-inline`} key={index}>
+						<div className={`ast-color-picker-palette-${index+1} `} key={index}>
+							<TextControl
+								className="ast-color-palette-label"
+								value={ state.pattern1[index][1] }
+								onChange={ ( value ) => editLabel(value,index) }
+							/>
+							<Button className='astra-palette-delete' 							
+							disabled ={(index <= 4) ? true :false }
+							onClick={ () => { deleteCustomPalette(index,item) } } >
+								<Dashicon icon="trash" />
+							</Button>
 							<AstraColorPickerControl
-								color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index] : ''}
+								color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''}
 								onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',index)}
 								backgroundType = { 'color' }
 								allowGradient={ false }
-								allowImage={ false }					
+								allowImage={ false }		
+								disablePalette={true}			
 							/>
 						</div>
 					)
-				}) }				
+				}) }
+				<Button className='astra-add-new-color'  isPrimary onClick={ () => addNewColorToPalette() }>
+					<Dashicon icon="plus" /> Add New Color
+				</Button>	
+
 			</div>
 		</>
 	)
@@ -141,7 +217,7 @@ const ColorPaletteComponent = props => {
 	};
 
 	const htmlpalette = Object.values(state[state.patterntype]).map( ( item, index ) => {
-		document.documentElement.style.setProperty('--global-palette' + index, item );		
+		document.documentElement.style.setProperty('--global-palette' + index, item[0] );		
 	} );
 
 	const toggleVisible = () => {
@@ -302,9 +378,9 @@ const ColorPaletteComponent = props => {
 		
 		<div className="ast-color-palette-wrapper">	
 			{ patternhtml }
-			<Button className='astra-add-to-palette-popup'  onClick={ () => addToPalettePopup() } label="Allows you to add this in presets." showTooltip={true}>
+			{/* <Button className='astra-add-to-palette-popup'  onClick={ () => addToPalettePopup() } label="Allows you to add this in presets." showTooltip={true}>
 				<Dashicon icon="insert" />
-			</Button>
+			</Button> */}
 		</div>		
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
 		

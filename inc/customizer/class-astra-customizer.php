@@ -1484,8 +1484,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$finalpalette = array();
 			
 			foreach ( $array as $key => $value ) {
-				if ( $value ) {
-					array_push( $finalpalette, '--global-palette' . $key . ':' . $value );
+				if ( $value[0] ) {
+					array_push( $finalpalette, '--global-palette' . $key . ':' . $value[0] );
 				}
 			}
 		

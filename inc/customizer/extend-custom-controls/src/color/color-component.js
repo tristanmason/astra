@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Dashicon} from '@wordpress/components';
+import {Dashicon,Popover,Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {useState} from 'react';
 
@@ -10,7 +10,7 @@ const ColorComponent = props => {
 		var string = props.control.setting.get();
 		var matches = string.match(regex);
 		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
-		value = updated_palette[updated_palette.patterntype][matches]
+		value = updated_palette[updated_palette.patterntype][matches][0]
 	}else{
 		 value = props.control.setting.get();
 	}
@@ -18,7 +18,8 @@ const ColorComponent = props => {
 	let defaultValue = props.control.params.default;
 	
 	const [state, setState] = useState({
-		value: value,	
+		value: value,
+		isVisible:false,	
 	});
 	
 	const updateValues = (value) => {
@@ -82,9 +83,62 @@ const ColorComponent = props => {
 	}
 	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 
+	const toggleClose = () => {
+		setState(prevState => ({
+			...prevState,
+			isVisible: false
+		}));
+	};
+	var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
+
 	const renderOperationButtons = () => {
 		return <span className="customize-control-title">
 				<>
+					<div className="ast-global-color-btn-wrap">
+						<button	className="ast-global-color-btn components-button" 
+						onClick={e => {
+							e.preventDefault();
+							setState(prevState => ({
+								...prevState,
+								isVisible: !state.isVisible
+							}));
+						}}>
+							<Dashicon icon='admin-site-alt3' style={{
+								width: 12,
+								height: 12,
+								fontSize: 12
+							}}/>
+						</button>
+						{ state.isVisible && (
+                			<Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-popup">
+							
+								{ Object.keys( globalpalette.pattern1 ).map( ( item, index ) => { 
+														
+									return ( 
+									
+										<Button
+										className='astra-global-color-btn'
+											// onClick={ () => handlePresetPalette( item ) }
+											tabIndex={ 0 }
+											key={index}
+										>
+
+											<div
+												className={ state.value == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker' }
+												style={{ background:globalpalette.pattern1[item][0] }} 
+											/>
+											<div className="astra-global-color-title">{ globalpalette.pattern1[item][1]}</div>
+											<div className="astra-global-color-hexcode">{ globalpalette.pattern1[item][0]}</div>
+
+											
+										</Button>										
+									
+										
+									)
+								} )}
+							</Popover>
+						)}
+					</div>
 					<div className="ast-color-btn-reset-wrap">
 						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"

@@ -363,6 +363,47 @@
 	top: 0px;
 	width: 20px;
 }
+/* Global Color palette picker button css */
+.ast-global-color-btn.components-button {
+    color: #006BA2;
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    box-shadow: inset 0 0 0 1px #007cba;
+}
+  
+.ast-global-color-btn-wrap {
+    position: absolute;
+    left: 75px;
+    top: 1.5px;
+}
+.astra-global-color-btn {
+    width: 100%;
+}
+.astra-global-color-sticker {
+    border: 1px solid #eaeaea;
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+}
+.astra-global-color-sticker.selected:before {
+    font-size: 18px;
+    content: '\2713';
+    text-shadow: 0px 0px 1px #000;
+    z-index: 1;
+    color: white;
+    font-weight: normal;
+}
+.astra-global-color-title {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+    text-align: right;
+}
+
+
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
     .ast-color-palette .components-circular-option-picker__option-wrapper {
