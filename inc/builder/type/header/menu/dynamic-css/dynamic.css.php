@@ -152,7 +152,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'color' => $menu_resp_color_active_desktop,
 			),
 			// Sub Menu.
-			$selector . ' .sub-menu, ' . $selector . ' .inline-on-mobile .sub-menu' => array(
+			$selector . ' .sub-menu, ' . $selector . ' .inline-on-mobile .sub-menu, ' . $selector . ' .main-header-menu.submenu-with-border .astra-megamenu, ' . $selector . ' .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper' => array(
 				'border-top-width'    => astra_get_css_value( $sub_menu_border_top, 'px' ),
 				'border-bottom-width' => astra_get_css_value( $sub_menu_border_bottom, 'px' ),
 				'border-right-width'  => astra_get_css_value( $sub_menu_border_right, 'px' ),
