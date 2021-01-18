@@ -80,12 +80,12 @@ const ResponsiveComponent = props => {
 	let descriptionHtml = null;
 	let inputHtml = null;
 
-	responsive = ( false === responsive ) ? false : true ;
+	let responsive_flag = ( false === responsive ) ? false : true ;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 
-		if (responsive) {
+		if (responsive_flag) {
 			responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-btns">
 				<li key={'desktop'} className="desktop active">
 					<button type="button" className="preview-desktop" data-device="desktop">
@@ -110,7 +110,7 @@ const ResponsiveComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	if (responsive) {
+	if (responsive_flag) {
 		inputHtml = <>
 			{renderInputHtml('desktop', 'active')}
 			{renderInputHtml('tablet')}
