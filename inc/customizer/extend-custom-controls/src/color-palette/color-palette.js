@@ -55,27 +55,28 @@ const ColorPaletteComponent = props => {
 	};
 
 	const updateValues = (value,patterntype,index) => {
+
 		let obj = {
 			...state
 		};
+		
+		let palette = {
+			...obj[patterntype]
+		};
+		let palette_index = {
+			...palette[index]
+		};
+		
+		palette_index[0] = value
+		palette[index] = palette_index
+		obj[patterntype] = palette
+
 		var prevcolor = obj[obj.patterntype][index][0]
 		
-	
-		let respectivePalette = {
-			...obj[obj.patterntype]
-		}
-		
-		let respectivePalette_index = {
-			...respectivePalette[index]
-		}
-		
-		respectivePalette_index= value
-		respectivePalette[index][0] = respectivePalette_index
-		obj[patterntype] = respectivePalette
-
 		var newcolor = obj[obj.patterntype][index][0]
-				
+		
 		setState(obj)
+		
 		props.control.setting.set( obj );		
 		
 		var passGlobalPalette = new CustomEvent( "colorpaletteglobal", 
