@@ -2177,22 +2177,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-form, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-submit'         => array(
 						'background-color' => esc_attr( $search_box_bg_color ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element' => array(
 						'background' => esc_attr( $social_bg_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element svg' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg' => array(
 						'fill' => esc_attr( $social_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover' => array(
 						'background' => esc_attr( $social_bg_hover_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element .social-item-label' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' => array(
 						'color' => esc_attr( $social_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover .social-item-label' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
 						'color' => esc_attr( $social_hover_color['desktop'] ),
 					),
 					'.ast-theme-transparent-header .widget-area.header-widget-area .widget-title' => array(
@@ -2246,22 +2246,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Max-width: Tablet Breakpoint CSS.
 				 */
 				$transparent_header_builder_tablet_css = array(
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element' => array(
 						'background' => esc_attr( $social_bg_color['tablet'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element svg' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg' => array(
 						'fill' => esc_attr( $social_color['tablet'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover' => array(
 						'background' => esc_attr( $social_bg_hover_color['tablet'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['tablet'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element .social-item-label' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' => array(
 						'color' => esc_attr( $social_color['tablet'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover .social-item-label' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
 						'color' => esc_attr( $social_hover_color['tablet'] ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
@@ -2286,22 +2286,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Max-width: Mobile Breakpoint CSS.
 				 */
 				$transparent_header_builder_mobile_css = array(
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element' => array(
 						'background' => esc_attr( $social_bg_color['mobile'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element svg' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg' => array(
 						'fill' => esc_attr( $social_color['mobile'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover' => array(
 						'background' => esc_attr( $social_bg_hover_color['mobile'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['mobile'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element .social-item-label' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' => array(
 						'color' => esc_attr( $social_color['mobile'] ),
 					),
-					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover .social-item-label' => array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
 						'color' => esc_attr( $social_hover_color['mobile'] ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
