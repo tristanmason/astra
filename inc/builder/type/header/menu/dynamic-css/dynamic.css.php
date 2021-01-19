@@ -94,8 +94,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		// Spacing.
 		$menu_spacing = astra_get_option( 'header-' . $_prefix . '-menu-spacing' );
 
-		$sub_menu_divider_color = ( true === $sub_menu_divider_toggle ) ? $sub_menu_divider_color : '';
-
 		$sub_menu_border_top = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['top'] ) ) ? $sub_menu_border['top'] : 0;
 
 		$sub_menu_border_bottom = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['bottom'] ) ) ? $sub_menu_border['bottom'] : 0;
@@ -280,41 +278,19 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$css_output_mobile[ $selector . ' .main-header-menu, ' . $selector . ' .main-header-menu .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 		if ( true === $sub_menu_divider_toggle ) {
-
 			// Sub Menu Divider.
-			$css_output_desktop[ $selector . ' .menu-item .sub-menu .menu-link' ]                       = array(
+			$css_output_desktop[ '.ast-desktop ' . $selector . ' .menu-item .sub-menu .menu-link' ] = array(
+				'border-bottom-width' => ( $sub_menu_divider_toggle ) ? '1px' : '0px',
 				'border-bottom-width' => '1px',
 				'border-color'        => $sub_menu_divider_color,
 				'border-style'        => 'solid',
 			);
-			$css_output_desktop[ $selector . ' .menu-item .sub-menu .menu-item:last-child .menu-link' ] = array(
-				'border-style' => 'none',
-			);
-			$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
-				'border-bottom-width' => '1px',
-				'border-color'        => $sub_menu_divider_color,
-				'border-style'        => 'solid',
-			);
-			$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link']    = array(
-				'border-style' => 'none',
-			);
-			$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
-				'border-bottom-width' => '1px',
-				'border-color'        => $sub_menu_divider_color,
-				'border-style'        => 'solid',
-			);
-			$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link']    = array(
-				'border-style' => 'none',
+			$css_output_desktop[ '.ast-desktop ' . $selector . ' .menu-item .sub-menu .menu-item:last-child .menu-link' ] = array(
+				'border-bottom-width' => 0,
 			);
 		} else {
 
-			$css_output_desktop[ '.ast-builder-menu-' . $index . ' .menu-item .sub-menu .menu-link' ] = array(
-				'border-style' => 'none',
-			);
-			$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
-				'border-style' => 'none',
-			);
-			$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .main-navigation .menu-item .menu-link' ] = array(
+			$css_output_desktop[ '.ast-desktop .ast-builder-menu-' . $index . ' .menu-item .sub-menu .menu-link' ] = array(
 				'border-style' => 'none',
 			);
 		}

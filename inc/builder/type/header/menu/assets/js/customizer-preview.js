@@ -238,7 +238,7 @@
 
 								var dynamicStyle = '';
 
-								dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link, .ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border.inline-on-mobile .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-'+ index +' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-'+ index +' .main-navigation .menu-item .menu-link';
+								dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link, .ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border.inline-on-mobile .sub-menu .menu-link';
 								dynamicStyle += '{';
 								dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
 								dynamicStyle += 'border-color:' + color + ';';
@@ -262,7 +262,7 @@
 						var color = wp.customize( 'astra-settings[header-menu'+ index +'-submenu-item-b-color]' ).get();
 
 						if( true === border  ) {
-							var dynamicStyle = '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-'+ index +' .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-'+ index +' .main-navigation .menu-item .menu-link';
+							var dynamicStyle = '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link';
 							dynamicStyle += '{';
 							dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
 							dynamicStyle += 'border-color:'        + color + ';';
