@@ -1,5 +1,5 @@
 v3.1.0
-- New: Toggle Menu design options for transparent header.
+- New: Toggle Menu design options for Transparent header.
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Fix: Above Footer & Below Footer showing up unwanted border in the customizer preview.
