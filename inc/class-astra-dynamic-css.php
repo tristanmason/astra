@@ -2234,7 +2234,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
+				if ( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
 
 					$transparent_toggle_selector = '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"]';
 
@@ -2252,11 +2252,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					/**
 					 * Off-Canvas CSS.
 					 */
-					$transparent_header_builder_desktop_css[$transparent_toggle_selector . ' .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg'] = array(
+					$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg' ] = array(
 						'fill' => $icon_color,
 					);
 
-					$transparent_header_builder_desktop_css[$transparent_toggle_selector . ' .ast-button-wrap .mobile-menu-wrap .mobile-menu'] = array(
+					$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .mobile-menu-wrap .mobile-menu' ] = array(
 						// Color.
 						'color' => $icon_color,
 					);
