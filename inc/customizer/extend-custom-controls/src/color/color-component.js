@@ -91,6 +91,12 @@ const ColorComponent = props => {
 	};
 	var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
 
+	const handleGlobalColorPopupBtn = (value,index,defaultset,color) => {
+	
+		updatepaletteuse(value,index,defaultset);
+		updateValues(color)
+	}
+
 	const renderOperationButtons = () => {
 		return <span className="customize-control-title">
 				<>
@@ -111,29 +117,34 @@ const ColorComponent = props => {
 						</button>
 						{ state.isVisible && (
                 			<Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-popup">
-							
+								<label className="astra-global-color-palette-manage-label">Global Colors</label>
+								<Button
+									className='astra-global-color-palette-manage'
+									onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }
+									tabIndex={ 0 }
+								>
+									<Dashicon icon='admin-generic' style={{
+										width: 12,
+										height: 12,
+										fontSize: 12
+									}}/>
+								</Button>
+								<hr/>
 								{ Object.keys( globalpalette.pattern1 ).map( ( item, index ) => { 
 														
 									return ( 
-									
 										<Button
 										className='astra-global-color-btn'
-											// onClick={ () => handlePresetPalette( item ) }
+											onClick={ () =>handleGlobalColorPopupBtn( true,index,'no',globalpalette.pattern1[item][0] ) }
 											tabIndex={ 0 }
 											key={index}
 										>
-
-											<div
-												className={ state.value == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker' }
+											<div className={ state.value == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker' }
 												style={{ background:globalpalette.pattern1[item][0] }} 
 											/>
 											<div className="astra-global-color-title">{ globalpalette.pattern1[item][1]}</div>
 											<div className="astra-global-color-hexcode">{ globalpalette.pattern1[item][0]}</div>
-
-											
-										</Button>										
-									
-										
+										</Button>
 									)
 								} )}
 							</Popover>
@@ -205,6 +216,7 @@ const ColorComponent = props => {
 									 defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
 									 isPaletteUsed={(value,index,defaultset) => updatepaletteuse(value,index,defaultset)}
 									 container ={props.control.container[0]}
+									 disablePalette={true}
 									 />
 									 
 

@@ -11279,12 +11279,13 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   };
 
   var deleteCustomPalette = function deleteCustomPalette(index, item) {
-    var obj = _objectSpread({}, state); // const filteredItems = obj.pattern1.slice(0, index).concat(obj.pattern1.slice(index + 1, obj.pattern1.length))
+    var obj = _objectSpread({}, state);
 
-
-    var palette = obj.pattern1;
-    delete palette[index]; // obj.pattern1 = filteredItems;
-
+    var result = Object.keys(obj.pattern1).map(function (key) {
+      return obj.pattern1[key];
+    });
+    var filteredItems = result.slice(0, index).concat(result.slice(index + 1, result.length));
+    obj.pattern1 = filteredItems;
     setState(obj);
     props.control.setting.set(obj);
   };
@@ -11781,6 +11782,11 @@ var ColorComponent = function ColorComponent(props) {
 
   var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
+  var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, color) {
+    updatepaletteuse(value, index, defaultset);
+    updateValues(color);
+  };
+
   var renderOperationButtons = function renderOperationButtons() {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "customize-control-title"
@@ -11807,10 +11813,27 @@ var ColorComponent = function ColorComponent(props) {
       position: "bottom center",
       onClose: toggleClose,
       className: "astra-global-palette-popup"
-    }, Object.keys(globalpalette.pattern1).map(function (item, index) {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+      className: "astra-global-color-palette-manage-label"
+    }, "Global Colors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+      className: "astra-global-color-palette-manage",
+      onClick: function onClick() {
+        return props.customizer.control('astra-settings[global-color-palette]').focus();
+      },
+      tabIndex: 0
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Dashicon"], {
+      icon: "admin-generic",
+      style: {
+        width: 12,
+        height: 12,
+        fontSize: 12
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalpalette.pattern1).map(function (item, index) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-        className: "astra-global-color-btn" // onClick={ () => handlePresetPalette( item ) }
-        ,
+        className: "astra-global-color-btn",
+        onClick: function onClick() {
+          return handleGlobalColorPopupBtn(true, index, 'no', globalpalette.pattern1[item][0]);
+        },
         tabIndex: 0,
         key: index
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -11886,7 +11909,8 @@ var ColorComponent = function ColorComponent(props) {
     isPaletteUsed: function isPaletteUsed(value, index, defaultset) {
       return updatepaletteuse(value, index, defaultset);
     },
-    container: props.control.container[0]
+    container: props.control.container[0],
+    disablePalette: true
   })));
 };
 

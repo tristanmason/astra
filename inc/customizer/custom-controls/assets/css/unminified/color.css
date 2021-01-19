@@ -402,6 +402,17 @@
     margin-right: 10px;
     text-align: left;
 }
+.astra-global-palette-popup .components-popover__content {
+    padding: 10px;
+}
+label.astra-global-color-palette-manage-label {
+    width: 85%;
+    display: inline-block;
+}
+button.components-button.astra-global-color-btn:focus {
+    border: none;
+    box-shadow: none;
+}
 
 
 @media (max-width: 1845px) {

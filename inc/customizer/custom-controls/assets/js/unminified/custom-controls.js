@@ -17978,7 +17978,20 @@ var ColorComponent = function ColorComponent(props) {
       position: "bottom center",
       onClose: toggleClose,
       className: "astra-global-palette-popup"
-    }, Object.keys(globalpalette.pattern1).map(function (item, index) {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+      className: "astra-global-color-palette-manage-label"
+    }, "Global Colors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+      className: "astra-global-color-palette-manage" // onClick={ () => handlePresetPalette( item ) }
+      ,
+      tabIndex: 0
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Dashicon"], {
+      icon: "admin-generic",
+      style: {
+        width: 12,
+        height: 12,
+        fontSize: 12
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalpalette.pattern1).map(function (item, index) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
         className: "astra-global-color-btn" // onClick={ () => handlePresetPalette( item ) }
         ,

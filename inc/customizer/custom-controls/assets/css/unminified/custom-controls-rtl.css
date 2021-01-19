@@ -787,6 +787,17 @@
     margin-left: 10px;
     text-align: right;
 }
+.astra-global-palette-popup .components-popover__content {
+    padding: 10px;
+}
+label.astra-global-color-palette-manage-label {
+    width: 85%;
+    display: inline-block;
+}
+button.components-button.astra-global-color-btn:focus {
+    border: none;
+    box-shadow: none;
+}
 
 
 @media (max-width: 1845px) {
@@ -1628,7 +1639,7 @@
 }
 .astra-global-color-sticker.selected:before {
     font-size: 18px;
-    content: '\e90e';
+    content: '\2713';
     text-shadow: 0px 0px 1px #000;
     z-index: 1;
     color: white;
@@ -1641,6 +1652,13 @@
     text-overflow: ellipsis;
     margin-left: 10px;
     text-align: right;
+}
+.astra-global-palette-popup .components-popover__content {
+    padding: 10px;
+}
+button.components-button.astra-global-color-btn:focus {
+    border: none;
+    box-shadow: none;
 }
 
 

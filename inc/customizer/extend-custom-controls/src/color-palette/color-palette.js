@@ -137,11 +137,9 @@ const ColorPaletteComponent = props => {
 			...state
 		}
 
-		// const filteredItems = obj.pattern1.slice(0, index).concat(obj.pattern1.slice(index + 1, obj.pattern1.length))
-		var palette = obj.pattern1
-		delete palette[index]
-
-		// obj.pattern1 = filteredItems;
+		var result = Object.keys(obj.pattern1).map((key) => obj.pattern1[key]);
+		const filteredItems = result.slice(0, index).concat(result.slice(index + 1, result.length))	
+		obj.pattern1 = filteredItems;
 		
 		setState(obj)	
 		props.control.setting.set( obj );
