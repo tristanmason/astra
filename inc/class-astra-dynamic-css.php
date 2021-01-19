@@ -2189,6 +2189,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['desktop'] ),
 					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element .social-item-label' => array(
+						'color' => esc_attr( $social_color['desktop'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover .social-item-label' => array(
+						'color' => esc_attr( $social_hover_color['desktop'] ),
+					),
 					'.ast-theme-transparent-header .widget-area.header-widget-area .widget-title' => array(
 						'color' => esc_attr( $widget_title_color ),
 					),
@@ -2252,6 +2258,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['tablet'] ),
 					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element .social-item-label' => array(
+						'color' => esc_attr( $social_color['tablet'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover .social-item-label' => array(
+						'color' => esc_attr( $social_hover_color['tablet'] ),
+					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
 						'color' => esc_attr( $account_menu_resp_color_tablet ),
 					),
@@ -2285,6 +2297,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover svg' => array(
 						'fill' => esc_attr( $social_hover_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element .social-item-label' => array(
+						'color' => esc_attr( $social_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-builder-social-element:hover .social-item-label' => array(
+						'color' => esc_attr( $social_hover_color['mobile'] ),
 					),
 					'.ast-theme-transparent-header .ast-account-nav-menu .menu-item .menu-link'         => array(
 						'color' => esc_attr( $account_menu_resp_color_mobile ),
