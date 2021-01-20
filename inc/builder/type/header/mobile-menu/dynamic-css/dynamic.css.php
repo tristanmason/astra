@@ -217,25 +217,18 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
-		$css_output_common[ $selector . ' .menu-item .sub-menu .menu-item:last-child .menu-link' ] = array(
-			'border-style' => 'none',
+		$css_output_common[ $selector . ' .main-header-menu' ] = array(
+			'border-color'        => $sub_menu_divider_color,
 		);
-
 		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ]                                = array(
 			'border-bottom-width' => '1px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
-		$css_output_mobile['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link'] = array(
-			'border-style' => 'none',
-		);
 		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ]                                = array(
 			'border-bottom-width' => '1px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
-		);
-		$css_output_tablet['.ast-header-break-point .ast-builder-menu .menu-item .sub-menu .menu-item:last-child .menu-link, .ast-header-break-point .ast-builder-menu .menu-item:last-child .menu-link'] = array(
-			'border-style' => 'none',
 		);
 	} else {
 
