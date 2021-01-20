@@ -280,7 +280,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		if ( true === $sub_menu_divider_toggle ) {
 			// Sub Menu Divider.
 			$css_output_desktop[ '.ast-desktop ' . $selector . ' .menu-item .sub-menu .menu-link' ]                       = array(
-				'border-bottom-width' => ( $sub_menu_divider_toggle ) ? '1px' : '0px',
 				'border-bottom-width' => '1px',
 				'border-color'        => $sub_menu_divider_color,
 				'border-style'        => 'solid',
