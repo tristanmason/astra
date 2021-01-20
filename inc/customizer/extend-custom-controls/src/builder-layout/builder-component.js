@@ -144,7 +144,7 @@ const BuilderComponent = props => {
 
 		update[zone] = updateItems;
 		updateState[row][zone] = updateItems;
-		console.log('in remove');
+		
 		setPopupFlag(true);
 
 		setState(prevState => ({
@@ -234,8 +234,9 @@ const BuilderComponent = props => {
 
 	const setPopupFlag = (refresh) => {
 
+		let is_popup_flag = false;
+
 		if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
-			let is_popup_flag = false;
 			controlParams.rows.map(row => {
 				var rowContents = state.value[row];
 			
@@ -247,18 +248,30 @@ const BuilderComponent = props => {
 					}
 				}
 			});
-
-			if ( refresh ) {
-				setState(prevState => ({
-					...prevState,
-					isPopup: is_popup_flag
-				}));
-			}
+		}
+		if ( 'astra-settings[header-mobile-items]' === props.control.id ) {
+			controlParams.rows.map(row => {
+				var rowContents = state.value[row];
 			
-			if ( props.control.container ) {
-				props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
-				contFlag = is_popup_flag;
-			}
+				for ( const [key, value] of Object.entries(rowContents) ) {
+					
+					if( value.includes('mobile-trigger') ) {
+						is_popup_flag = true;
+						return;
+					}
+				}
+			});
+		}
+		if ( refresh ) {
+			setState(prevState => ({
+				...prevState,
+				isPopup: is_popup_flag
+			}));
+		}
+		
+		if ( props.control.container ) {
+			props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
+			contFlag = is_popup_flag;
 		}
 	}
 
