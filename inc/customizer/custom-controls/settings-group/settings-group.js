@@ -377,6 +377,10 @@
 
                         control.initAstBorderControl( control_elem, control_type, control_type.name );
 
+                    case "ast-box-shadow":
+
+                        control.initAstBoxShadowControl( control_elem, control_type, control_type.name );
+
                     break;
                 }
 
@@ -436,6 +440,21 @@
                 } );
 
             } );
+        },
+
+        initAstBoxShadowControl: function( control_elem, control_type, name ) {
+
+            var control = this,
+                value            = control.setting._value,
+                control_name     = control_type.name;
+            
+            // Save the value.
+            this.container.on( 'change keyup paste', 'input.ast-box-shadow-input', function() {
+
+                // Update value on change.
+                control.saveBorderValue( 'box-shadow', jQuery( this ).val(), jQuery( this ), name );
+
+            });
         },
 
         generateFieldHtml: function ( fields_data, field_values ) {    
@@ -1165,6 +1184,34 @@
 
 
             control.container.find( 'input.ast-border-desktop' ).each( function() {
+                var spacing_input = jQuery( this ),
+                    item          = spacing_input.data( 'id' );
+
+                item_value = spacing_input.val();
+                newValue[ item ] = item_value;
+                
+                spacing_input.attr( 'value', item_value );
+
+            });
+
+            
+            control.container.trigger( 'ast_settings_changed', [control, element, newValue, name ] );
+        },
+
+        /**
+         * Saves the value.
+         */
+        saveBoxShadowValue: function( property, value, element, name ) {
+
+            var control = this,
+                newValue = {
+                    'top'   : '',
+                    'right' : '',
+                    'bottom' : '',
+                    'left'   : '',
+                };
+
+            control.container.find( 'input.ast-box-shadow-desktop' ).each( function() {
                 var spacing_input = jQuery( this ),
                     item          = spacing_input.data( 'id' );
 
