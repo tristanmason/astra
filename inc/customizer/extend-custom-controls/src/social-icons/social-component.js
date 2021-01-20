@@ -264,13 +264,7 @@ const SocialComponent = props => {
 		});
 	}
 	;
-
-	controlParams.options.map(option => {
-		if (!theItems.some(obj => obj.id === option.value)) {
-			availibleSocialOptions.push(option);
-		}
-	});
-
+	
 	const toggleClose = () => {
 		if (state.isVisible === true) {
 			setState(prevState => ({
