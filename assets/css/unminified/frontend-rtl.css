@@ -3228,18 +3228,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   transform: translate3d(0%, 0, 0);
 }
 
-.astra-cart-drawer .astra-mobile-cart-drawer-inner {
-  display: -moz-flex;
-  -js-display: flex;
-  display: flex;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  max-width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
 .astra-cart-drawer.active {
   transform: translate3d(100%, 0, 0);
   visibility: visible;
@@ -3260,15 +3248,7 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   margin: 0;
   padding: .6em 1em .4em;
   color: #ababab;
-  line-height: 1.675rem;
-  z-index: 10;
   background-color: transparent;
-  border: 0;
-  text-align: right;
-  font-size: 1em;
-  text-decoration: underline;
-  font-family: "apercu-italic","Roboto",sans-serif;
-  font-weight: normal;
 }
 
 .astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-close .ast-close-svg {
@@ -3278,11 +3258,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-title {
   padding-top: 5px;
-}
-
-.astra-cart-drawer .astra-cart-drawer-content {
-  -moz-flex: 1 0 auto;
-  flex: 1 0 auto;
 }
 
 .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart {
@@ -3325,12 +3300,9 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .astra-cart-drawer .astra-cart-drawer-content .edd-cart-number-of-items {
+  padding: 1em 1.5em 1em 1.5em;
   margin-bottom: 0;
-  padding-right: 1.5em;
-  padding-left: 1.5em;
-  padding-bottom: 1em;
   text-align: center;
-  padding-top: 1em;
 }
 
 .astra-cart-drawer .astra-cart-drawer-content .edd_total {
