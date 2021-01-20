@@ -794,12 +794,15 @@ label.astra-global-color-palette-manage-label {
     width: 85%;
     display: inline-block;
 }
-button.components-button.astra-global-color-btn:focus {
+button.components-button.astra-global-color-btn:focus , button.components-button.astra-global-color-palette-manage:focus {
     border: none;
     box-shadow: none;
 }
 
-
+.astra-global-palette-popup .components-popover__content {
+    margin-right: -50px;
+    width: 260px;
+}
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
     .ast-color-palette .components-circular-option-picker__option-wrapper {
@@ -1656,12 +1659,19 @@ button.components-button.astra-global-color-btn:focus {
 .astra-global-palette-popup .components-popover__content {
     padding: 10px;
 }
-button.components-button.astra-global-color-btn:focus {
+label.astra-global-color-palette-manage-label {
+    width: 85%;
+    display: inline-block;
+}
+button.components-button.astra-global-color-btn:focus , button.components-button.astra-global-color-palette-manage:focus {
     border: none;
     box-shadow: none;
 }
 
-
+.astra-global-palette-popup .components-popover__content {
+    margin-right: -50px;
+    width: 260px;
+}
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
     .ast-color-palette .components-circular-option-picker__option-wrapper {

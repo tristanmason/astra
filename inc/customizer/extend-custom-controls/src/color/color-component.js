@@ -101,7 +101,7 @@ const ColorComponent = props => {
 		return <span className="customize-control-title">
 				<>
 					<div className="ast-global-color-btn-wrap">
-						<button	className="ast-global-color-btn components-button" 
+						<button	className="ast-global-color-btn components-button is-secondary" 
 						onClick={e => {
 							e.preventDefault();
 							setState(prevState => ({
@@ -134,10 +134,11 @@ const ColorComponent = props => {
 														
 									return ( 
 										<Button
-										className='astra-global-color-btn'
+											className='astra-global-color-btn'
 											onClick={ () =>handleGlobalColorPopupBtn( true,index,'no',globalpalette.pattern1[item][0] ) }
 											tabIndex={ 0 }
 											key={index}
+											title={ globalpalette.pattern1[item][1]}
 										>
 											<div className={ state.value == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker' }
 												style={{ background:globalpalette.pattern1[item][0] }} 

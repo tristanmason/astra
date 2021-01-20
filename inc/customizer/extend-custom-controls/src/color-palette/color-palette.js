@@ -53,12 +53,14 @@ const ColorPaletteComponent = props => {
 		
 		updateValues(value,patterntype,index);
 	};
-
+	
 	const updateValues = (value,patterntype,index) => {
-
+		
 		let obj = {
 			...state
 		};
+
+		var prevcolor = obj[obj.patterntype][index][0]
 		
 		let palette = {
 			...obj[patterntype]
@@ -71,7 +73,6 @@ const ColorPaletteComponent = props => {
 		palette[index] = palette_index
 		obj[patterntype] = palette
 
-		var prevcolor = obj[obj.patterntype][index][0]
 		
 		var newcolor = obj[obj.patterntype][index][0]
 		
@@ -95,17 +96,16 @@ const ColorPaletteComponent = props => {
 			...state
 		};
 
-		let respectivePalette = {
+		let palette = {
 			...obj[obj.patterntype]
-		}
+		};
+		let palette_index = {
+			...palette[index]
+		};
 		
-		let respectivePalette_index = {
-			...respectivePalette[index]
-		}
-		
-		respectivePalette_index= value
-		respectivePalette[index][1] = respectivePalette_index
-		obj[obj.patterntype] = respectivePalette
+		palette_index[1] = value
+		palette[index] = palette_index
+		obj[obj.patterntype] = palette
 
 		setState(obj)
 		props.control.setting.set( obj );		
@@ -114,8 +114,8 @@ const ColorPaletteComponent = props => {
 
 	const addNewColorToPalette = () => {
 		
-		var new_color_array = [ "#ffffff", "Custom Color" ];
-
+		var label =  `Custom Color ${Object.keys(state[state.patterntype]).length - 4 }`
+		var new_color_array = [ "#ffffff", label ];
 		
 		let obj = {
 			...state
@@ -158,11 +158,11 @@ const ColorPaletteComponent = props => {
 								value={ state.pattern1[index][1] }
 								onChange={ ( value ) => editLabel(value,index) }
 							/>
-							<Button className='astra-palette-delete' 							
+							<span title={(index <= 4) ? "This color can't be deleted" :'' } ><Button className='astra-palette-delete' 							
 							disabled ={(index <= 4) ? true :false }
 							onClick={ () => { deleteCustomPalette(index,item) } } >
 								<Dashicon icon="trash" />
-							</Button>
+							</Button></span>
 							<AstraColorPickerControl
 								color={undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''}
 								onChangeComplete={(color, backgroundType) => handleChangeComplete(color,'pattern1',index)}
