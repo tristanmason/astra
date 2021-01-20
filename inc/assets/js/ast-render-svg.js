@@ -27,4 +27,4 @@ function renderSVG ( svg ) {
 
 }
 
-export default React.memo(renderSVG);
+export default renderSVG;
