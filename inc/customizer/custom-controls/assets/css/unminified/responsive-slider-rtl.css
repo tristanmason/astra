@@ -52,6 +52,7 @@
 }
 
 .ast-responsive-slider-btns button[type="button"] > i {
+  cursor: pointer;
   width: 15px;
   height: 15px;
   font-size: 15px;
