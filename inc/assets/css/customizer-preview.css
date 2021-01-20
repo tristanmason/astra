@@ -158,9 +158,3 @@
 .ast-builder-layout-element.site-header-focus-item.ast-header-woo-cart .customize-partial-edit-shortcut button {
     left: -25px;
 }
-
-/** Footer Cart Pencil icon */
-.site-footer-focus-item .ast-footer-social-wrap .customize-partial-edit-shortcut {
-    left: 45%;
-    top: -20px;
-}
