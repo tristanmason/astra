@@ -71,6 +71,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_header_builder_compatibility',
 				'astra_icons_svg_compatibility',
 			),
+			'3.0.1' => array(
+				'astra_clear_assets_cache',
+			),
 		);
 
 		/**
