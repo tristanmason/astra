@@ -2829,10 +2829,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				clear: both;
 			  }
 
-			  .ast-comment-cite-wrap {
-				text-align: left;
-			  }
-
 			  .ast-comment-cite-wrap cite {
 				font-style: normal;
 			  }
@@ -2844,6 +2840,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			  }
 
 			  .ast-comment-meta {
+				padding-left: 20px;
+				padding-right: 20px;
 				margin-bottom: 0.5em;
 			  }
 			  .comments-area {
@@ -2988,8 +2986,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					margin-left: 1.33333em;
 				}
 				.ast-comment-meta-wrap {
-					float: right;
-					clear: left;
+					display: flex;
+					justify-content: left;
 					padding: 0 0 1.33333em;
 				}
 				.ast-comment-time .timendate,
@@ -3037,8 +3035,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					margin-right: 1.33333em;
 				}
 				.ast-comment-meta-wrap {
-					float: left;
-					clear: right;
+					display: flex;
+					justify-content: right;
 					padding: 0 0 1.33333em;
 				}
 				.ast-comment-time .timendate,

@@ -159,7 +159,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								echo '>';
 
 									printf(
-										'<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
+										'<div class="ast-comment-cite-wrap"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
 										get_comment_author_link(),
 										// If current post author is also comment author, make it known visually.
 										( $comment->user_id === $post->post_author ) ? '<span class="ast-highlight-text ast-cmt-post-author"></span>' : ''
@@ -167,7 +167,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 
 								if ( apply_filters( 'astra_single_post_comment_time_enabled', true ) ) {
 									printf(
-										'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+										'<div class="ast-comment-time"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										esc_attr( get_comment_time( 'c' ) ),
 										/* translators: 1: date, 2: time */
