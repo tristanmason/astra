@@ -17042,13 +17042,14 @@ var ResponsiveComponent = function ResponsiveComponent(props) {
   var responsiveHtml = null;
   var descriptionHtml = null;
   var inputHtml = null;
+  var responsive_flag = false === responsive ? false : true;
 
   if (label) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "customize-control-title"
     }, label);
 
-    if (responsive) {
+    if (responsive_flag) {
       responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", {
         key: 'ast-resp-ul',
         className: "ast-responsive-btns"
@@ -17089,7 +17090,7 @@ var ResponsiveComponent = function ResponsiveComponent(props) {
     }, description);
   }
 
-  if (responsive) {
+  if (responsive_flag) {
     inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml('desktop', 'active'), renderInputHtml('tablet'), renderInputHtml('mobile'));
   } else {
     inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml('desktop', 'active', false));
