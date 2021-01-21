@@ -140,7 +140,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'        => array(
 					// Typography.
 					'font-size'    => astra_responsive_font( $button_font_size, 'mobile' ),
 
