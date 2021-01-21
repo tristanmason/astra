@@ -42,7 +42,7 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 	);
 	?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" data-section="section-<?php echo esc_attr( $row ); ?>-footer-builder">
-	
+
 		<?php
 		if ( is_customize_preview() ) {
 			Astra_Builder_UI_Controller::render_grid_row_customizer_edit_button( 'Footer', $row );
