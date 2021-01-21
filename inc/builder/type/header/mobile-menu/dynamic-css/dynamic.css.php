@@ -219,8 +219,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'border-style'        => 'solid',
 		);
 		$css_output_common[ $selector . ' .main-header-menu' ]               = array(
-			'border-top-width' => $sub_menu_divider_size . 'px',
-			'border-color'     => $sub_menu_divider_color,
+			'border-color' => $sub_menu_divider_color,
 		);
 		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ] = array(
 			'border-bottom-width' => $sub_menu_divider_size . 'px',
