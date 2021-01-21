@@ -529,6 +529,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
+			if ( ! $sanitize_callback ) {
+				$config = $this->sanitize_control( $config );
+			}
+
 			$new_config = array(
 				'name'              => $sub_control_name,
 				'datastore_type'    => 'option',
@@ -592,6 +596,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
 
+			if ( ! $sanitize_callback ) {
+				$config = $this->sanitize_control( $config );
+			}
+
 			$wp_customize->add_setting(
 				astra_get_prop( $config, 'name' ),
 				array(
@@ -641,6 +649,51 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( isset( $config['section'] ) ) {
 				self::$js_configs ['controls'] [ $config['section'] ] [] = $config;
 			}
+		}
+
+		/**
+		 * Map and add sanitize callback to JS configs.
+		 *
+		 * @param array $config js config array.
+		 * @return mixed
+		 */
+		public function sanitize_control( $config ) {
+
+			$control_type = isset( $config['control'] ) ? $config['control'] : '';
+			switch ( $control_type ) {
+				case 'color':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' );
+					break;
+				case 'ast-border':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_border' );
+					break;
+				case 'ast-html-editor':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_html' );
+					break;
+				case 'ast-color':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' );
+					break;
+				case 'ast-sortable':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' );
+					break;
+				case 'ast-radio-image':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' );
+					break;
+				case 'ast-link':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_link' );
+					break;
+				case 'ast-customizer-link':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' );
+					break;
+				case 'ast-responsive-slider':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' );
+					break;
+				default:
+					break;
+			}
+
+			return $config;
+
 		}
 
 		/**
