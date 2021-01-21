@@ -40,6 +40,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	// Sub Menu.
 	$sub_menu_border         = astra_get_option( 'header-mobile-menu-submenu-border' );
 	$sub_menu_divider_toggle = astra_get_option( 'header-mobile-menu-submenu-item-border' );
+	$sub_menu_divider_size  = astra_get_option( 'header-mobile-menu-submenu-item-b-size' );
 	$sub_menu_divider_color  = astra_get_option( 'header-mobile-menu-submenu-item-b-color' );
 
 	// Menu.
@@ -212,21 +213,22 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	if ( true === $sub_menu_divider_toggle ) {
 
-		$css_output_common[ $selector . ' .menu-item .sub-menu .menu-link' ]                       = array(
-			'border-bottom-width' => '1px',
+		$css_output_common[ $selector . ' .menu-item .sub-menu .menu-link' ]  = array(
+			'border-bottom-width' => $sub_menu_divider_size . 'px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
 		$css_output_common[ $selector . ' .main-header-menu' ] = array(
-			'border-color'        => $sub_menu_divider_color,
+			'border-top-width' => $sub_menu_divider_size . 'px',
+			'border-color'     => $sub_menu_divider_color,
 		);
 		$css_output_mobile[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ]                                = array(
-			'border-bottom-width' => '1px',
+			'border-bottom-width' => $sub_menu_divider_size . 'px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
 		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ]                                = array(
-			'border-bottom-width' => '1px',
+			'border-bottom-width' => $sub_menu_divider_size . 'px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);

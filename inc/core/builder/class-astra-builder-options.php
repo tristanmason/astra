@@ -1481,6 +1481,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		 * Submenu
 		*/
 	$defaults['header-mobile-menu-submenu-item-border']  = false;
+	$defaults['header-mobile-menu-submenu-item-b-size'] = '';
 	$defaults['header-mobile-menu-submenu-item-b-color'] = '#eaeaea';
 	$defaults['header-mobile-menu-submenu-border']       = array(
 		'top'    => 2,
