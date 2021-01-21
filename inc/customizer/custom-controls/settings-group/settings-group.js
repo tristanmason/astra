@@ -452,7 +452,7 @@
             this.container.on( 'change keyup paste', 'input.ast-box-shadow-input', function() {
 
                 // Update value on change.
-                control.saveBorderValue( 'box-shadow', jQuery( this ).val(), jQuery( this ), name );
+                control.saveBoxShadowValue( 'box-shadow', jQuery( this ).val(), jQuery( this ), name );
 
             });
         },

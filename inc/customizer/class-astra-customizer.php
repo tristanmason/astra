@@ -979,6 +979,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-heading',
+				array(
+					'callback'          => 'Astra_Control_Heading',
+					'sanitize_callback' => '',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'ast-hidden',
 				array(
 					'callback'          => 'Astra_Control_Hidden',
