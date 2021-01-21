@@ -1436,7 +1436,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-left'  => '0.54em',
 					'padding-right' => '0.54em',
 				),
-				'.ast-separate-container .comments-count-wrapper' => array(
+				'.ast-separate-container .comments-title' => array(
 					'padding' => '1.5em 1em',
 				),
 				'.ast-separate-container .ast-comment-list li.depth-1' => array(
@@ -1519,8 +1519,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.comments-area'                           => array(
 					'margin-top' => '1.5em',
 				),
-				'.ast-separate-container .comments-count-wrapper' => array(
-					'padding' => '2em 2.14em',
+				'.ast-separate-container .comments-title' => array(
+					'padding' => '1.43em 1.48em',
 				),
 				'.ast-separate-container .ast-comment-list li.depth-1' => array(
 					'padding' => '1.5em 2.14em',
@@ -2766,11 +2766,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since 3.0.0
 		 */
 		public static function get_single_post_comment_css() {
-			$single_post_comment_css = '.comments-count-wrapper {
+			$single_post_comment_css = '.comments-title {
 				padding: 2em 0;
 			  }
 
-			  .comments-count-wrapper .comments-title {
+			  .comments-title {
 				font-weight: normal;
 				word-wrap: break-word;
 			  }
@@ -2880,14 +2880,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			  .comments-area p.logged-in-as {
 				margin-bottom: 1em;
 			  }
-			  .ast-separate-container .comments-count-wrapper {
+			  .ast-separate-container .comments-title {
 				background-color: #fff;
-				padding: 2em 6.67em 0;
+				padding: 1.2em 3.99em 0;
 			  }
 
 			  @media (max-width: 1200px) {
-				.ast-separate-container .comments-count-wrapper {
-				  padding: 2em 3.34em;
+				.ast-separate-container .comments-title {
+				  padding: 1.2em 1.99em;
 				}
 			  }
 
