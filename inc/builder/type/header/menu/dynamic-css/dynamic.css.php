@@ -43,7 +43,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		// Sub Menu.
 		$sub_menu_border         = astra_get_option( 'header-' . $_prefix . '-submenu-border' );
 		$sub_menu_divider_toggle = astra_get_option( 'header-' . $_prefix . '-submenu-item-border' );
-		$sub_menu_divider_size  = astra_get_option( 'header-' . $_prefix . '-submenu-item-b-size' );
+		$sub_menu_divider_size   = astra_get_option( 'header-' . $_prefix . '-submenu-item-b-size' );
 		$sub_menu_divider_color  = astra_get_option( 'header-' . $_prefix . '-submenu-item-b-color' );
 		$sub_menu_border_radius  = astra_get_option( 'header-' . $_prefix . '-submenu-border-radius' );
 		$sub_menu_top_offset     = astra_get_option( 'header-' . $_prefix . '-submenu-top-offset' );

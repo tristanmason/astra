@@ -292,11 +292,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'        => 'control',
 						'control'     => 'ast-slider',
 						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-item-b-size' ),
-						'section'   => $_section,
+						'section'     => $_section,
 						'priority'    => 38,
-						'transport' => 'postMessage',
+						'transport'   => 'postMessage',
 						'title'       => __( 'Divider Size', 'astra' ),
-						'context'   => array(
+						'context'     => array(
 							Astra_Builder_Helper::$general_tab,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
