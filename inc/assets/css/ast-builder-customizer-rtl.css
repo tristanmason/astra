@@ -3368,6 +3368,7 @@ button.components-button.ahfb-sorter-item-expand {
 
 .rfipdropdown--default .rfipicons__cp {
 	border: 0 none;
+	border-radius: 0px;
 	border-bottom: 1px solid #bdbdbd;
 	-webkit-transition: border .25s, -webkit-box-shadow .25s;
 	transition: border .25s, -webkit-box-shadow .25s;
@@ -3428,8 +3429,6 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 .rfipdropdown--default .rfipsearch input {
-	border: 0 none;
-	border-bottom: 1px solid #bdbdbd;
 	-webkit-transition: border .25s, -webkit-box-shadow .25s;
 	transition: border .25s, -webkit-box-shadow .25s;
 	transition: box-shadow .25s, border .25s;
