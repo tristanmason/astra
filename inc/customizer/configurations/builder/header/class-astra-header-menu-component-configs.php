@@ -286,6 +286,32 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport' => 'postMessage',
 					),
 
+					// Option: Submenu Divider Size.
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-b-size]',
+						'type'        => 'control',
+						'control'     => 'ast-slider',
+						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-item-b-size' ),
+						'section'   => $_section,
+						'priority'    => 38,
+						'transport' => 'postMessage',
+						'title'       => __( 'Divider Size', 'astra' ),
+						'context'   => array(
+							Astra_Builder_Helper::$general_tab,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						),
+						'suffix'      => '',
+						'input_attrs' => array(
+							'min'  => 1,
+							'step' => 1,
+							'max'  => 10,
+						),
+					),
+
 					// Option: Submenu item Border Color.
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-b-color]',

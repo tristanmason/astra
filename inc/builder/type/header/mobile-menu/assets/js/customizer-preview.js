@@ -131,7 +131,6 @@
 
             // Sub Menu - Divider Size.
             wp.customize( 'astra-settings[header-mobile-menu-submenu-item-b-size]', function( value ) {
-                console.log( value );
                 value.bind( function( borderSize ) {
                     var selector = '.ast-header-break-point .ast-builder-menu-mobile .main-navigation';
                     var dynamicStyle = '';

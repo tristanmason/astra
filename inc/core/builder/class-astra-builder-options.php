@@ -575,6 +575,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		 * Submenu
 		 */
 		$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]   = false;
+		$defaults[ 'header-' . $_prefix . '-submenu-item-b-size' ]  = '';
 		$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ]  = '#eaeaea';
 		$defaults[ 'header-' . $_prefix . '-submenu-border-radius' ] = '';
 		$defaults[ 'header-' . $_prefix . '-submenu-top-offset' ]    = '';
