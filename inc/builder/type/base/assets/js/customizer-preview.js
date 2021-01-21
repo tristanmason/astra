@@ -103,7 +103,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var section = ( 'header' === builder_type ) ? 'section-hb-button-' + index : 'section-fb-button-' + index;
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
 		var prefix = 'button' + index;
-		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
+		var selector = '.ast-' + builder_type + '-button-' + index;
 
 		// Button Text Color.
 		astra_color_responsive_css(
@@ -170,7 +170,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		(function (index) {
 			wp.customize( 'astra-settings[' + builder_type + '-button'+ index +'-border-size]', function( setting ) {
 				setting.bind( function( border ) {
-					var dynamicStyle = '.ast-' + builder_type + '-button-'+ index +' .ast-builder-button-wrap .ast-custom-button {';
+					var dynamicStyle = '.ast-' + builder_type + '-button-'+ index +' .ast-custom-button {';
 					dynamicStyle += 'border-top-width:'  + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
 					dynamicStyle += 'border-left-width:'   + border.left + 'px;';

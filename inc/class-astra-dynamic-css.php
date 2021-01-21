@@ -2197,11 +2197,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover' => array(
 						'color' => esc_attr( $widget_link_hover_color ),
 					),
-					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
+					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' => array(
 						'color'      => esc_attr( $button_color ),
 						'background' => esc_attr( $button_bg_color ),
 					),
-					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' => array(
+					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button:hover' => array(
 						'color'      => esc_attr( $button_h_color ),
 						'background' => esc_attr( $button_bg_h_color ),
 					),
