@@ -44,7 +44,7 @@ const BuilderComponent = props => {
 
 		// If popup updated, partial refresh contents.
 		if ( 'popup' === row  ) {
-			let popup_control = props.customizer('astra-settings[header-mobile-popup-items]');
+			let popup_control = props.customizer(props.control.id);
 			popup_control.set( ! popup_control.get() );
 		}
 

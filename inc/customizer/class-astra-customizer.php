@@ -291,7 +291,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				case 'ast-builder':
 					if ( is_array( $configuration['default'] ) && ! isset( $configuration['default']['popup'] ) ) {
-						$configuration['default']['popup'] = array();
+						$configuration['default']['popup'] = array( 'popup_content' => array() );
 					}
 					break;
 				case 'ast-responsive-spacing':
