@@ -1505,7 +1505,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-mobile-menu-font-family']    = 'inherit';
 	$defaults['header-mobile-menu-text-transform'] = '';
 	$defaults['header-mobile-menu-line-height']    = '';
-		
+
 	/**
 	 * Woo-Cart.
 	 */
@@ -1515,6 +1515,25 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-total-display'] = true;
 	$defaults['woo-header-cart-title-display'] = true;
 
+	// Cart tray > General Color styles.
+	$defaults['header-woo-cart-text-color']       = '';
+	$defaults['header-woo-cart-link-color']       = '';
+	$defaults['header-woo-cart-background-color'] = '';
+	$defaults['header-woo-cart-separator-color']  = '';
+	$defaults['header-woo-cart-link-hover-color'] = '';
+
+	// Cart tray > Cart Button styles.
+	$defaults['header-woo-cart-btn-text-color']       = '';
+	$defaults['header-woo-cart-btn-background-color'] = '';
+	$defaults['header-woo-cart-btn-text-hover-color'] = '';
+	$defaults['header-woo-cart-btn-bg-hover-color']   = '';
+
+	// Cart tray > Checkout Button styles.
+	$defaults['header-woo-checkout-btn-text-color']       = '';
+	$defaults['header-woo-checkout-btn-background-color'] = '';
+	$defaults['header-woo-checkout-btn-text-hover-color'] = '';
+	$defaults['header-woo-checkout-btn-bg-hover-color']   = '';
+
 	/**
 	 * EDD-Cart.
 	*/
@@ -1523,6 +1542,18 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['edd-header-cart-icon-radius']   = 3;
 	$defaults['edd-header-cart-total-display'] = true;
 	$defaults['edd-header-cart-title-display'] = true;
+
+	// Cart tray > General Color styles.
+	$defaults['header-edd-cart-text-color']       = '';
+	$defaults['header-edd-cart-link-color']       = '';
+	$defaults['header-edd-cart-background-color'] = '';
+	$defaults['header-edd-cart-separator-color']  = '';
+
+	// Cart tray > Checkout Button styles.
+	$defaults['header-edd-checkout-btn-text-color']       = '';
+	$defaults['header-edd-checkout-btn-background-color'] = '';
+	$defaults['header-edd-checkout-btn-text-hover-color'] = '';
+	$defaults['header-edd-checkout-btn-bg-hover-color']   = '';
 
 	/**
 	 * Account element.
