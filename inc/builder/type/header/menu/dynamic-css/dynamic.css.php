@@ -165,6 +165,9 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .sub-menu, ' . $selector . ' .astra-full-megamenu-wrapper' => array(
 				'margin-top' => astra_get_css_value( $sub_menu_top_offset, 'px' ),
 			),
+			'.ast-desktop ' . $selector . ' .menu-item > .sub-menu:before, .ast-desktop ' . $selector . ' .menu-item > .astra-full-megamenu-wrapper:before' => array(
+				'height' => astra_calculate_spacing( $sub_menu_top_offset . 'px', '+', '5', 'px' ),
+			),
 			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
 				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
 				'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
