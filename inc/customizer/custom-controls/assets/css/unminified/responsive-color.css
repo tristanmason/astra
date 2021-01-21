@@ -75,6 +75,11 @@
   top: 3.5px;
 }
 
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-global-color-btn-wrap {
+  top: 3.5px;
+  right: 100px;
+}
+
 .ast-responsive-color .ast-color-btn-reset-wrap {
   right: 66px;
 }

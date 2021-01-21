@@ -97,6 +97,10 @@
   margin-top: 6px;
 }
 
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-global-color-btn-wrap {
+  left: 85px;
+}
+
 .ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-color-btn-reset-wrap {
   left: 59px;
 }
@@ -381,6 +385,11 @@
 #customize-control-astra-settings-global-color-palette .astra-add-new-color.is-primary {
   margin: 0 auto;
   display: block;
+}
+
+#customize-control-astra-settings-global-color-palette button.components-button.astra-palette-delete:disabled:hover {
+  cursor: not-allowed;
+  color: unset;
 }
 
  /** Remove Button Color */
@@ -966,6 +975,10 @@ button.components-button.astra-global-color-btn:focus , button.components-button
   margin-top: 6px;
 }
 
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-global-color-btn-wrap {
+  left: 85px;
+}
+
 .ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-color-btn-reset-wrap {
   left: 59px;
 }
@@ -1250,6 +1263,11 @@ button.components-button.astra-global-color-btn:focus , button.components-button
 #customize-control-astra-settings-global-color-palette .astra-add-new-color.is-primary {
   margin: 0 auto;
   display: block;
+}
+
+#customize-control-astra-settings-global-color-palette button.components-button.astra-palette-delete:disabled:hover {
+  cursor: not-allowed;
+  color: unset;
 }
 
  /** Remove Button Color */
@@ -2165,6 +2183,10 @@ input[type="text"].select2-search__field {
   left: 65px;
 }
 
+.customize-control-ast-responsive-background .ast-global-color-btn-wrap {
+  left: 95px;
+}
+
 /**
  * BG Media Button.
  */
@@ -2395,6 +2417,11 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   top: 3.5px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-global-color-btn-wrap {
+  top: 3.5px;
+  left: 100px;
 }
 
 .ast-responsive-color .ast-color-btn-reset-wrap {
@@ -3762,6 +3789,10 @@ input[type="text"].select2-search__field {
   left: 65px;
 }
 
+.customize-control-ast-responsive-background .ast-global-color-btn-wrap {
+  left: 95px;
+}
+
 /**
  * BG Media Button.
  */
@@ -3992,6 +4023,11 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   top: 3.5px;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-global-color-btn-wrap {
+  top: 3.5px;
+  left: 100px;
 }
 
 .ast-responsive-color .ast-color-btn-reset-wrap {

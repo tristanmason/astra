@@ -143,7 +143,11 @@
         margin: 0 auto;
         display: block;
     }
-    
+    button.components-button.astra-palette-delete:disabled:hover {
+        cursor: not-allowed;
+        color:unset;
+
+    }
 
 
 }

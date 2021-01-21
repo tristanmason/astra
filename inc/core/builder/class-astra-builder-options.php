@@ -1411,11 +1411,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['global-color-palette'] = array(
 		'pattern1'         => array(
-			array('#3a3a3a','Text Color'),
-			array('#0274be','Theme Color'),
-			array('#0274b2','Link Color'),
-			array('#3a3a31','Link Hover Color'),
-			array('#3a3a3b','Heading Color ( H1 - H6 )'),			
+			array( '#3a3a3a', 'Text Color' ),
+			array( '#0274be', 'Theme Color' ),
+			array( '#0274b2', 'Link Color' ),
+			array( '#3a3a31', 'Link Hover Color' ),
+			array( '#3a3a3b', 'Heading Color ( H1 - H6 )' ),           
 		),
 		'patterntype'      => 'pattern1',
 		'isVisible'        => false,

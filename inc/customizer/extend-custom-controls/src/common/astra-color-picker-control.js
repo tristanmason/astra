@@ -245,7 +245,11 @@ class AstraColorPickerControl extends Component {
 
 																</>
 															) }
-															{ belowColorPalette }
+															{ !disablePalette && (
+																<Fragment>
+																	{ belowColorPalette }											
+																</Fragment>
+															) }
 															<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 														</>
 													);

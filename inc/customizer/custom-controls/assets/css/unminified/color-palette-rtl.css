@@ -145,3 +145,8 @@
   margin: 0 auto;
   display: block;
 }
+
+#customize-control-astra-settings-global-color-palette button.components-button.astra-palette-delete:disabled:hover {
+  cursor: not-allowed;
+  color: unset;
+}

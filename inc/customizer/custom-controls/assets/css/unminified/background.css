@@ -97,6 +97,10 @@
   margin-top: 6px;
 }
 
+.ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-global-color-btn-wrap {
+  right: 85px;
+}
+
 .ast-field-settings-modal .customize-control-ast-background .customize-control-content .ast-color-btn-reset-wrap {
   right: 59px;
 }
