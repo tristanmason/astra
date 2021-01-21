@@ -49,14 +49,14 @@
 			var dynamicStyle = '';
 
 			if ( 'content' !== layout ) {
-				dynamicStyle += '#masthead .ast-container {';
+				dynamicStyle += '#masthead .ast-container, .site-header-focus-item + .ast-breadcrumbs-wrapper {';
 				dynamicStyle += 'max-width: unset;';
 				dynamicStyle += 'padding-left: 35px;';
 				dynamicStyle += 'padding-right: 35px;';
 				dynamicStyle += '} ';
 
 			} else {
-				dynamicStyle = '#masthead .ast-container {';
+				dynamicStyle = '#masthead .ast-container, .site-header-focus-item + .ast-breadcrumbs-wrapper {';
 				dynamicStyle += 'max-width: 100%';
 				dynamicStyle += 'padding-left: 20px;';
 				dynamicStyle += 'padding-right: 20px;';

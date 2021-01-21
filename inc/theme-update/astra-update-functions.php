@@ -404,6 +404,19 @@ function astra_header_builder_compatibility() {
 }
 
 /**
+ * Clears assets cache and regenerates new assets files.
+ *
+ * @since 3.0.1
+ *
+ * @return void
+ */
+function astra_clear_assets_cache() {
+	if ( is_callable( 'Astra_Minify::refresh_assets' ) ) {
+		Astra_Minify::refresh_assets();
+	}
+}
+
+/**
  * Header Footer builder - Migration of options.
  *
  * @since 3.0.0
@@ -421,8 +434,6 @@ function astra_header_builder_migration() {
 	$widget_options = get_option( 'sidebars_widgets', array() );
 
 	$used_elements = array();
-
-	error_log( 'Astra: Migrating Header Footer Builder Options - Process Start' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 	$options = array(
 		'theme_options'  => $theme_options,
@@ -451,8 +462,6 @@ function astra_header_builder_migration() {
 
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'sidebars_widgets', $widget_options );
-
-	error_log( 'Astra: Migrating Header Footer Builder Options - Process Done' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 }
 
@@ -1361,10 +1370,20 @@ function astra_primary_header_builder_migration( $theme_options, $used_elements,
 				'primary_right'        => array( 'logo' ),
 			);
 			break;
+
+		default:
+			$theme_options['header-desktop-items']['primary'] = array(
+				'primary_left'         => array( 'logo' ),
+				'primary_left_center'  => array(),
+				'primary_center'       => array(),
+				'primary_right_center' => array(),
+				'primary_right'        => array( 'menu-1' ),
+			);
 	}
 
 	// Header : Primary Header - Mobile Layout.
 	$mobile_layout = astra_get_option( 'header-main-menu-align' );
+
 	if ( 'stack' === $mobile_layout ) {
 		$theme_options['header-mobile-items']['popup'] = array( 'popup_content' => ( ( '' !== $new_menu_item_mobile && '' !== $new_menu_item_mobile_outside ) ) ? array( 'menu-1', $new_menu_item_mobile ) : array( 'menu-1' ) );
 		
@@ -2214,33 +2233,6 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 		$theme_options['section-below-footer-builder-padding'] = $theme_options['footer-sml-spacing'];
 	}
 
-	$theme_options['footer-desktop-items'] = array(
-		'above'   =>
-			array(
-				'above_1' => array(),
-				'above_2' => array(),
-				'above_3' => array(),
-				'above_4' => array(),
-				'above_5' => array(),
-			),
-		'primary' =>
-			array(
-				'primary_1' => array(),
-				'primary_2' => array(),
-				'primary_3' => array(),
-				'primary_4' => array(),
-				'primary_5' => array(),
-			),
-		'below'   =>
-			array(
-				'below_1' => array(),
-				'below_2' => array(),
-				'below_3' => array(),
-				'below_4' => array(),
-				'below_5' => array(),
-			),
-	);
-
 	// Footer Section 1.
 	$footer_section_1   = ( isset( $theme_options['footer-sml-section-1'] ) ) ? $theme_options['footer-sml-section-1'] : '';
 	$new_section_1_item = '';
@@ -2539,38 +2531,77 @@ function astra_footer_builder_migration( $theme_options, $used_elements, $widget
 		}
 	}
 
-	switch ( $footer_layout ) {
-		case 'footer-sml-layout-1':
-			$theme_options['footer-desktop-items']['below'] = array(
-				'below_1' => array( $new_section_1_item, $new_section_2_item ),
-				'below_2' => array(),
-				'below_3' => array(),
-				'below_4' => array(),
-				'below_5' => array(),
-			);
-			$theme_options['hbb-footer-column']             = 1;
-			$theme_options['hbb-footer-layout']             = array(
-				'desktop' => 'full',
-				'tablet'  => 'full',
-				'mobile'  => 'full',
-			);
-			break;
+	if ( '' !== $footer_layout ) {
 
-		case 'footer-sml-layout-2':
-			$theme_options['footer-desktop-items']['below'] = array(
-				'below_1' => array( $new_section_1_item ),
-				'below_2' => array( $new_section_2_item ),
-				'below_3' => array(),
-				'below_4' => array(),
-				'below_5' => array(),
-			);
-			$theme_options['hbb-footer-column']             = 2;
-			$theme_options['hbb-footer-layout']             = array(
-				'desktop' => '2-equal',
-				'tablet'  => '2-equal',
-				'mobile'  => 'full',
-			);
-			break;
+		$theme_options['footer-desktop-items'] = array(
+			'above'   =>
+				array(
+					'above_1' => array(),
+					'above_2' => array(),
+					'above_3' => array(),
+					'above_4' => array(),
+					'above_5' => array(),
+				),
+			'primary' =>
+				array(
+					'primary_1' => array(),
+					'primary_2' => array(),
+					'primary_3' => array(),
+					'primary_4' => array(),
+					'primary_5' => array(),
+				),
+			'below'   =>
+				array(
+					'below_1' => array(),
+					'below_2' => array(),
+					'below_3' => array(),
+					'below_4' => array(),
+					'below_5' => array(),
+				),
+		);
+
+		switch ( $footer_layout ) {
+			case 'footer-sml-layout-1':
+				$theme_options['footer-desktop-items']['below'] = array(
+					'below_1' => array( $new_section_1_item, $new_section_2_item ),
+					'below_2' => array(),
+					'below_3' => array(),
+					'below_4' => array(),
+					'below_5' => array(),
+				);
+				$theme_options['hbb-footer-column']             = 1;
+				$theme_options['hbb-footer-layout']             = array(
+					'desktop' => 'full',
+					'tablet'  => 'full',
+					'mobile'  => 'full',
+				);
+				break;
+
+			case 'footer-sml-layout-2':
+				$theme_options['footer-desktop-items']['below'] = array(
+					'below_1' => array( $new_section_1_item ),
+					'below_2' => array( $new_section_2_item ),
+					'below_3' => array(),
+					'below_4' => array(),
+					'below_5' => array(),
+				);
+				$theme_options['hbb-footer-column']             = 2;
+				$theme_options['hbb-footer-layout']             = array(
+					'desktop' => '2-equal',
+					'tablet'  => '2-equal',
+					'mobile'  => 'full',
+				);
+				break;
+
+			default:
+				$theme_options['footer-desktop-items']['below'] = array(
+					'below_1' => array( 'copyright' ),
+					'below_2' => array(),
+					'below_3' => array(),
+					'below_4' => array(),
+					'below_5' => array(),
+				);
+		}
 	}
 
 	return array(
@@ -2708,9 +2739,11 @@ function astra_footer_widgets_migration( $theme_options, $used_elements, $widget
 				break;
 		}
 
-		$theme_options['hba-footer-column']             = $column;
-		$theme_options['hba-footer-layout']             = $layout;
-		$theme_options['footer-desktop-items']['above'] = $items;
+		$theme_options['hba-footer-column'] = $column;
+		$theme_options['hba-footer-layout'] = $layout;
+		if ( isset( $theme_options['footer-desktop-items'] ) ) {
+			$theme_options['footer-desktop-items']['above'] = $items;
+		}
 
 		for ( $i = 1; $i <= $column; $i++ ) {
 
