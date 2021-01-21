@@ -30,7 +30,6 @@ if ( post_password_required() ) {
 	<?php astra_comments_before(); ?>
 
 	<?php if ( have_comments() ) : ?>
-		<div class="comments-count-wrapper">
 			<h3 class="comments-title">
 				<?php
 				$comments_title = apply_filters(
@@ -46,7 +45,6 @@ if ( post_password_required() ) {
 				echo esc_html( $comments_title );
 				?>
 			</h3>
-		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'astra' ); ?>">
