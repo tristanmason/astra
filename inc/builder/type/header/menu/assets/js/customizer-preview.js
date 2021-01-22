@@ -239,13 +239,13 @@
 
 								var dynamicStyle = '';
 
-								dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .menu-item .sub-menu .menu-link';
+								dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu .menu-item .sub-menu .menu-link';
 								dynamicStyle += '{';
 								dynamicStyle += 'border-bottom-width:' + ( ( borderSize ) ? borderSize + 'px;' : '0px;' );
 								dynamicStyle += 'border-color:' + color + ';';
 								dynamicStyle += 'border-style: solid;';
 								dynamicStyle += '}';
-								dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
+								dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
 
 								astra_add_dynamic_css('header-menu'+ index +'-submenu-item-b-color', dynamicStyle);
 							}
@@ -258,7 +258,7 @@
 				// Sub Menu - Divider Size.
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-item-b-size]', function( value ) {
 					value.bind( function( borderSize ) {
-						var selector = '.ast-desktop .ast-builder-menu-'+ index;
+						var selector = '.ast-desktop .ast-builder-menu-'+ index + ' .main-header-menu';
 						var dynamicStyle = '';
 						dynamicStyle += selector + ' .menu-item .sub-menu .menu-link {';
 						dynamicStyle += 'border-bottom-width: ' + borderSize + 'px;';
