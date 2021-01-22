@@ -2380,6 +2380,7 @@ body .entry-content .wp-block-latest-posts li {
   grid-template-columns: auto auto;
   align-items: center;
   grid-column-gap: 20px;
+  overflow-wrap: anywhere;
 }
 
 .ast-builder-footer-grid-columns {
@@ -2511,10 +2512,6 @@ body .entry-content .wp-block-latest-posts li {
   padding-right: 0;
 }
 
-.site-header-section.ast-flex {
-  flex-wrap: nowrap;
-}
-
 .site-header-section .ast-builder-menu {
   align-items: center;
 }
@@ -2633,6 +2630,13 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-builder-social-element .social-item-label {
   padding-left: 6px;
+}
+
+.ast-social-stack-desktop .ast-builder-social-element,
+.ast-social-stack-tablet .ast-builder-social-element,
+.ast-social-stack-mobile .ast-builder-social-element {
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .ahfb-svg-iconset {

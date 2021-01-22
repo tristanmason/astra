@@ -6,6 +6,7 @@
 	grid-template-columns: auto auto;
 	align-items: center;
 	grid-column-gap: 20px;
+	overflow-wrap: anywhere;
 }
 .ast-builder-footer-grid-columns {
 	grid-column-gap: 50px;
@@ -144,9 +145,6 @@
 			padding-right: 0;
 		}
 	}
-	&.ast-flex {
-		flex-wrap: nowrap;
-	}
 	.ast-builder-menu {
 		align-items: center;
 	}
@@ -271,6 +269,14 @@
 	}
 	.social-item-label {
 		padding-left: 6px;
+	}
+}
+.ast-social-stack-desktop,
+.ast-social-stack-tablet,
+.ast-social-stack-mobile {
+	.ast-builder-social-element {
+		margin-top: 6px;
+		margin-bottom: 6px;
 	}
 }
 .ahfb-svg-iconset {
