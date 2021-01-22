@@ -374,7 +374,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
+		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';     
+		
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
@@ -457,6 +458,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet'  => 'center',
 			'mobile'  => 'center',
 		);
+		
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
@@ -1605,3 +1607,4 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	return $defaults;
 }
+
