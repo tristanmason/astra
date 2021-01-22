@@ -1,6 +1,18 @@
 v3.1.0
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
+- Fix: Above Footer & Below Footer showing up unwanted border in the customizer preview.
+- Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
+- Fix: Color picker icon not visible on hover.
+- Fix: Font size not reverted back to the initial size when the value is deleted.
+- Fix: Builder - Social Icons - Icon, Label Custom Color & Official Color not working in some cases.
+- Fix: Dropdown link target option not working for menus inside offcanvas, when offcanvas type is Flyout or Full-Screen.
+- Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
+
+v3.0.1
+- Fix: Astra assets cache regeneration issue when Astra Pro is updated to v3.0.0 prior to theme. ( https://wpastra.com/docs/clear-astra-cache/ )
+- Fix: UI Tab switching in color options for RTL websites.
+- Fix: Builder - Duplicate listing of social icons in customizer.
 
 v3.0.0
 - New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
