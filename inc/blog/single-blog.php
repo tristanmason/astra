@@ -147,7 +147,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 					<article id="comment-<?php comment_ID(); ?>" class="ast-comment">
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="ast-comment-data-wrap">
-							<div class="ast-comment-meta-wrap">
+							<!-- <div class="ast-comment-meta-wrap"> -->
 								<?php
 								echo '<header ';
 								echo astra_attr(
@@ -178,7 +178,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								?>
 
 								</header> <!-- .ast-comment-meta -->
-							</div>
+							<!-- </div> -->
 							<section class="ast-comment-content comment">
 								<?php comment_text(); ?>
 								<div class="ast-comment-edit-reply-wrap">
