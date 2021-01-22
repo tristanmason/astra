@@ -64,6 +64,8 @@ const SocialComponent = props => {
 			{value: 'rss', label: __('RSS', 'astra'), color: '#f09124', background: 'transparent'},
 			{value: 'email', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
 			{value: 'phone', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
+			{value: 'email_2', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
+			{value: 'phone_2', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
 			{value: 'whatsapp', label: __('WhatsApp', 'astra'), color: '#5BBA67', background: 'transparent'},
 			{value: 'google_reviews', label: __('Google Reviews', 'astra'), color: '#dc4e41', background: 'transparent'},
 			{value: 'telegram', label: __('Telegram', 'astra'), color: '#229CCE', background: 'transparent'},
@@ -97,6 +99,7 @@ const SocialComponent = props => {
 		value: value,
 		isVisible: false,
 		control: (undefined !== availibleSocialOptions[0] && undefined !== availibleSocialOptions[0].value ? availibleSocialOptions[0].value : ''),
+		icon : ''
 	});
 
 	useEffect( () => {
@@ -130,6 +133,7 @@ const SocialComponent = props => {
 		let updateState = state.value;
 		let items = updateState.items;
 		const newItems = items.map((item, thisIndex) => {
+
 			if (index === thisIndex) {
 				item = {
 					...item,
@@ -138,6 +142,7 @@ const SocialComponent = props => {
 			}
 			return item;
 		});
+
 		updateState.items = newItems;
 		setState(prevState => ({
 			...prevState,
@@ -194,6 +199,8 @@ const SocialComponent = props => {
 		if (itemControl) {
 			let updateState = state.value;
 			let update = updateState.items;
+			let icon = itemControl.replace(/[\d_]+$/g, '');
+
 			const itemLabel = controlParams.options.filter(function (o) {
 				return o.value === itemControl;
 			});
@@ -203,7 +210,7 @@ const SocialComponent = props => {
 				'url': '',
 				'color': itemLabel[0].color,
 				'background': itemLabel[0].background,
-				'icon': itemControl,
+				'icon': icon,
 				'label': itemLabel[0].label
 			};
 			update.push(newItem);
@@ -274,7 +281,7 @@ const SocialComponent = props => {
 		});
 	}
 	;
-	
+
 	const toggleClose = () => {
 		if (state.isVisible === true) {
 			setState(prevState => ({
@@ -282,6 +289,12 @@ const SocialComponent = props => {
 				isVisible: false
 			}));
 		}
+	};
+
+	const onChangeIcon = ( icon, itemIndex ) => {
+		saveArrayUpdate({
+			icon: icon
+		}, itemIndex);
 	};
 
 	return <div className="ahfb-control-field ahfb-sorter-items">
@@ -295,6 +308,7 @@ const SocialComponent = props => {
 					return <ItemComponent removeItem={remove => removeItem(remove)}
 										  toggleEnabled={(enable, itemIndex) => toggleEnableItem(enable, itemIndex)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
+										  onChangeIcon={( icon, index ) => onChangeIcon( icon, index ) }
 										  onChangeURL={(url, itemIndex) => onChangeURL(url, itemIndex)}
 										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
 
