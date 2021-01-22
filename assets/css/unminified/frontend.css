@@ -2632,6 +2632,13 @@ body .entry-content .wp-block-latest-posts li {
   padding-left: 6px;
 }
 
+.ast-social-stack-desktop .ast-builder-social-element,
+.ast-social-stack-tablet .ast-builder-social-element,
+.ast-social-stack-mobile .ast-builder-social-element {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 .ahfb-svg-iconset {
   -js-display: inline-flex;
   display: inline-flex;
@@ -3163,10 +3170,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 

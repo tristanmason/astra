@@ -42,10 +42,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$output .= isset( self::$ast_svgs[ $icon ] ) ? self::$ast_svgs[ $icon ] : '';
 			$output .= '</span>';
-
+			
 			return $output;
 		}
-
+		
 		/**
 		 * Prepare Social Icon HTML.
 		 *
@@ -53,10 +53,11 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * @param string $builder_type the type of the builder.
 		 */
 		public static function render_social_icon( $index, $builder_type = 'header' ) {
-			$items      = astra_get_option( $builder_type . '-social-icons-' . $index );
-			$items      = isset( $items['items'] ) ? $items['items'] : array();
-			$show_label = astra_get_option( $builder_type . '-social-' . $index . '-label-toggle' );
-			$color_type = astra_get_option( $builder_type . '-social-' . $index . '-color-type' );
+			$items        = astra_get_option( $builder_type . '-social-icons-' . $index );
+			$items        = isset( $items['items'] ) ? $items['items'] : array();
+			$show_label   = astra_get_option( $builder_type . '-social-' . $index . '-label-toggle' );
+			$color_type   = astra_get_option( $builder_type . '-social-' . $index . '-color-type' );
+			$social_stack = astra_get_option( $builder_type . '-social-' . $index . '-stack', 'none' );
 
 			echo '<div class="ast-' . esc_attr( $builder_type ) . '-social-' . esc_attr( $index ) . '-wrap ast-' . esc_attr( $builder_type ) . '-social-wrap">';
 
@@ -64,7 +65,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				self::render_customizer_edit_button();
 			}
 
-			echo '<div class="' . esc_attr( $builder_type ) . '-social-inner-wrap element-social-inner-wrap social-show-label-' . ( $show_label ? 'true' : 'false' ) . ' ast-social-color-type-' . esc_attr( $color_type ) . ' ast-social-element-style-filled">';
+			echo '<div class="' . esc_attr( $builder_type ) . '-social-inner-wrap element-social-inner-wrap social-show-label-' . ( $show_label ? 'true' : 'false' ) . ' ast-social-color-type-' . esc_attr( $color_type ) . ' ast-social-stack-' . esc_attr( $social_stack ) . ' ast-social-element-style-filled">';
+
 			if ( is_array( $items ) && ! empty( $items ) ) {
 
 				foreach ( $items as $item ) {
@@ -98,6 +100,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					}
 				}
 			}
+			echo apply_filters( 'astra_social_icons_after', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</div>';
 			echo '</div>';
 		}
