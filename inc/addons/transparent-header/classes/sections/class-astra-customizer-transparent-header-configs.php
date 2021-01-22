@@ -877,6 +877,30 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$pro_elements_transparent_config = array(
+
+					/**
+					 * Search Box Background Color
+					 */
+					array(
+						'name'      => 'transparent-header-search-box-placeholder-color',
+						'default'   => astra_get_option( 'transparent-header-search-box-placeholder-color' ),
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-search-colors-group]',
+						'type'      => 'sub-control',
+						'section'   => 'section-transparent-header',
+						'priority'  => 6,
+						'transport' => 'postMessage',
+						'control'   => 'ast-color',
+						'title'     => __( 'Text/Placeholder Color', 'astra' ),
+						'context'   => array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+								'operator' => 'in',
+								'value'    => array( 'slide-search', 'search-box' ),
+							),
+						),
+					),
+					
 					/**
 					 * Option: Transparent Header Builder - Divider Elements configs.
 					 */

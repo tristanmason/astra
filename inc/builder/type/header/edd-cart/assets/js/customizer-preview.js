@@ -26,6 +26,25 @@
 		selector + ' .ast-edd-cart-menu-wrap .count, ' + selector + ' .ast-edd-cart-menu-wrap .count:after'
 	);
 
+	// EDD Cart Colors.
+	astra_css( 'astra-settings[header-edd-cart-text-color]', 'color', selector + ' .widget_edd_cart_widget span, ' + selector + ' .widget_edd_cart_widget strong, ' + selector + ' .widget_edd_cart_widget *' );
+
+	astra_css( 'astra-settings[header-edd-cart-link-color]', 'color', selector + ' .widget_edd_cart_widget a, ' + selector + ' .widget_edd_cart_widget a.edd-remove-from-cart, ' + selector + ' .widget_edd_cart_widget .cart-total, ' + selector + ' .widget_edd_cart_widget a.edd-remove-from-cart:after' );
+	astra_css( 'astra-settings[header-edd-cart-link-color]', 'border-color', selector + ' .widget_edd_cart_widget a.edd-remove-from-cart:after' );
+
+	astra_css( 'astra-settings[header-edd-cart-background-color]', 'background-color', '.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget' );
+	astra_css( 'astra-settings[header-edd-cart-background-color]', 'border-color', '.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget' );
+	astra_css( 'astra-settings[header-edd-cart-background-color]', 'border-bottom-color', '.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget:before, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget:after' );
+
+	astra_css( 'astra-settings[header-edd-cart-separator-color]', 'border-bottom-color', '.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-item, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-meta' );
+
+	astra_css( 'astra-settings[header-edd-checkout-btn-text-color]', 'color', '.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a' );
+	astra_css( 'astra-settings[header-edd-checkout-btn-background-color]', 'border-color', '.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a' );
+	astra_css( 'astra-settings[header-edd-checkout-btn-background-color]', 'background-color', '.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a' );
+
+	astra_css( 'astra-settings[header-edd-checkout-btn-text-hover-color]', 'color', '.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a:hover, .widget_edd_cart_widget .edd_checkout a:hover' );
+	astra_css( 'astra-settings[header-edd-checkout-btn-bg-hover-color]', 'background-color', '.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a:hover, .widget_edd_cart_widget .edd_checkout a:hover' );
+
 	/**
 	 * Cart icon style
 	 */
