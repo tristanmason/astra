@@ -96,7 +96,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Item Divider', 'astra' ),
 					'priority' => 70,
 					'settings' => array(),
-					'context'     => array(
+					'context'  => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',

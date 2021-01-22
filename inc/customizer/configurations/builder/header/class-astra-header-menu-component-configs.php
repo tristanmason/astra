@@ -118,14 +118,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 					// Option: Submenu Divider Heading.
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-divider-heading]',
-						'type'      => 'control',
-						'control'   => 'ast-heading',
-						'section'   => $_section,
-						'priority'  => 15,
-						'title'     => __( 'Item Divider', 'astra' ),
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-divider-heading]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'priority' => 15,
+						'title'    => __( 'Item Divider', 'astra' ),
 						'settings' => array(),
-						'context'     => array(
+						'context'  => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
