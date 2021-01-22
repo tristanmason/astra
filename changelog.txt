@@ -8,6 +8,7 @@ v3.1.0
 - Fix: Font size not reverted back to the initial size when the value is deleted.
 - Fix: Builder - Social Icons - Icon, Label Custom Color & Official Color not working in some cases.
 - Fix: Dropdown link target option not working for menus inside offcanvas, when offcanvas type is Flyout or Full-Screen.
+- Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
 - Fix: Submenu divider option adding heavy border around menu-items on responsive devices.
 
 v3.0.1
