@@ -2635,6 +2635,13 @@ body .entry-content .wp-block-latest-posts li {
   padding-left: 6px;
 }
 
+.ast-social-stack-desktop .ast-builder-social-element,
+.ast-social-stack-tablet .ast-builder-social-element,
+.ast-social-stack-mobile .ast-builder-social-element {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 .ahfb-svg-iconset {
   -js-display: inline-flex;
   display: inline-flex;
