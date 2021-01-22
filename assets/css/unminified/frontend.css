@@ -2380,6 +2380,7 @@ body .entry-content .wp-block-latest-posts li {
   grid-template-columns: auto auto;
   align-items: center;
   grid-column-gap: 20px;
+  overflow-wrap: anywhere;
 }
 
 .ast-builder-footer-grid-columns {
@@ -2509,10 +2510,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .site-header-section > div:last-child {
   padding-right: 0;
-}
-
-.site-header-section.ast-flex {
-  flex-wrap: nowrap;
 }
 
 .site-header-section .ast-builder-menu {
