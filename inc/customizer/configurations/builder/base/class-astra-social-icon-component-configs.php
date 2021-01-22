@@ -40,9 +40,12 @@ class Astra_Social_Icon_Component_Configs {
 		if ( 'footer' === $builder_type ) {
 			$class_obj              = Astra_Builder_Footer::get_instance();
 			$number_of_social_icons = Astra_Builder_Helper::$num_of_footer_social_icons;
+			$component_limit        = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_social_icons;
+		} else {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_social_icons;
 		}
 
-		for ( $index = 1; $index <= $number_of_social_icons; $index++ ) {
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
 
@@ -52,12 +55,14 @@ class Astra_Social_Icon_Component_Configs {
 				* Builder section
 				*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 90,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 90,
 					/* translators: 1: index */
-					'title'    => ( 1 === $number_of_social_icons ) ? __( 'Social Icons', 'astra' ) : sprintf( __( 'Social Icons %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_social_icons ) ? __( 'Social Icons', 'astra' ) : sprintf( __( 'Social Icons %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $builder_type . '-social-icons',
 				),
 
 				/**
@@ -88,6 +93,7 @@ class Astra_Social_Icon_Component_Configs {
 						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
 						'container_inclusive' => true,
 						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
@@ -411,7 +417,7 @@ class Astra_Social_Icon_Component_Configs {
 			}
 
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
-			
+
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
 				$_section,
 				array(

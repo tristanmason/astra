@@ -34,6 +34,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private static $contexts;
 
 		/**
+		 * Contexts.
+		 *
+		 * @access private
+		 * @var object
+		 */
+		private static $default_settings;
+
+		/**
 		 * Tabful sections.
 		 *
 		 * @access private
@@ -185,6 +193,22 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
+		 * Get control default.
+		 *
+		 * @param string $setting_key setting key.
+		 * @param array  $default_values default value array.
+		 * @return mixed|string
+		 */
+		private function get_default_value( $setting_key, $default_values ) {
+			$return = '';
+			preg_match( '#astra-settings\[(.*?)\]#', $setting_key, $match );
+			if ( ! empty( $match ) && isset( $match[1] ) ) {
+				$return = isset( $default_values[ $match[1] ] ) ? $default_values[ $match[1] ] : '';
+			}
+			return $return;
+		}
+
+		/**
 		 * Prepare tabbed sections for dynamic controls to optimize frontend JS calls.
 		 */
 		private function prepare_tabbed_sections() {
@@ -317,34 +341,34 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						);
 					}
 
+					$default_responsive_spacing = array(
+						'desktop'      => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'tablet'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'mobile'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					);
+
 					if ( empty( $val ) ) {
-
-						$default_responsive_spacing = array(
-							'desktop'      => array(
-								'top'    => '',
-								'right'  => '',
-								'bottom' => '',
-								'left'   => '',
-							),
-							'tablet'       => array(
-								'top'    => '',
-								'right'  => '',
-								'bottom' => '',
-								'left'   => '',
-							),
-							'mobile'       => array(
-								'top'    => '',
-								'right'  => '',
-								'bottom' => '',
-								'left'   => '',
-							),
-							'desktop-unit' => 'px',
-							'tablet-unit'  => 'px',
-							'mobile-unit'  => 'px',
-						);
-
 						astra_update_option( $data[1], $default_responsive_spacing );
 					}
+
 					break;
 				case 'ast-radio-image':
 					$configuration['value'] = $val;
@@ -503,12 +527,28 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$section_name = astra_get_prop( $config, 'name' );
 
+
+
 			unset( $config['type'] );
-			$config['type']                                = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
-			$config['active']                              = true;
-			$config['id']                                  = $section_name;
-			$config['customizeAction']                     = sprintf( 'Customizing ▸ %s', astra_get_prop( $config, 'title' ) );
-			self::$js_configs['sections'][ $section_name ] = $config;
+			$config['type']            = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
+			$config['active']          = true;
+			$config['id']              = $section_name;
+			$config['customizeAction'] = sprintf( 'Customizing ▸ %s', astra_get_prop( $config, 'title' ) );
+
+			if ( isset( $config['clone_type'] ) && isset( $config['clone_index'] ) ) {
+
+				if ( isset( Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] ) ) {
+					if ( in_array( $section_name, Astra_Builder_Helper::$component_count_array['removed-items'], true ) || Astra_Builder_Helper::$component_count_array[ $config['clone_type'] ] < $config['clone_index'] ) {
+						self::$js_configs['clone_sections'][ $section_name ] = $config;
+					} else {
+						self::$js_configs['sections'][ $section_name ] = $config;
+					}
+				}
+			} else {
+				self::$js_configs['sections'][ $section_name ] = $config;
+			}
+
+
 		}
 
 		/**
@@ -618,6 +658,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
 							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
 							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
+							'fallback_refresh'    => astra_get_prop( $config['partial'], 'fallback_refresh', true ),
 						)
 					);
 				}
@@ -745,6 +786,54 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
+		 * Prepare default values for the control.
+		 *
+		 * @return array
+		 */
+		private function get_control_defaults() {
+
+			$defaults         = array();
+			$default_values   = Astra_Theme_Options::defaults();
+			$default_controls = array_merge( self::$js_configs['controls'], self::$js_configs['sub_controls'] );
+
+			foreach ( $default_controls as $section_controls ) {
+				foreach ( $section_controls as $control ) {
+					$control_id = astra_get_prop( $control, 'name' );
+					if ( 'ast-responsive-spacing' === $control['control'] ) {
+							$defaults[ $control_id ] = array(
+								'desktop'      => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							);
+					} else {
+							$defaults[ $control_id ] = $this->get_default_value( $control_id, $default_values );
+					}
+				}
+			}
+
+			return $defaults;
+
+		}
+
+		/**
 		 * Add customizer script.
 		 *
 		 * @since 3.0.0
@@ -760,7 +849,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'choices'         => self::get_choices(),
 					'js_configs'      => self::get_js_configs(),
 					'tabbed_sections' => self::get_tabbed_sections(),
+					'component_limit' => Astra_Builder_Helper::$component_limit,
 					'is_site_rtl'     => is_rtl(),
+					'defaults'        => $this->get_control_defaults(),
 				)
 			);
 
