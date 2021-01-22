@@ -82,7 +82,7 @@ const ItemComponent = props => {
 						  props.cloneItem(props.item);
 					  }} className=" tooltip dashicons dashicons-admin-page">
 				</span> }
-				<span title="Reset to default"
+				<span title="Reset"
 					  onClick={e => {
 						  e.stopPropagation();
 

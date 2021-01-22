@@ -286,6 +286,10 @@
     transition: all 0.2s;
 }
 
+.ahfb-builder-item:hover {
+	border-radius: 0 3px 3px;
+}
+
 .ahfb-builder-item:hover, .ahfb-builder-item.active-builder-item {
     background: #e3e3e3;
     color: #111111;
@@ -1882,7 +1886,6 @@ button.components-button.ahfb-sorter-item-expand {
     border-radius: 2px;
 }
 
-
 .ahfb-slide-up {
 	display: flex;
 	align-items: center;
@@ -1891,24 +1894,38 @@ button.components-button.ahfb-sorter-item-expand {
 	transform: translateY(-100%);
 	opacity: 0;
 	visibility: hidden;
-	transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;
+	transition: all 0.2s;
 	top: 0px;
 	left: 0px;
-	height: 15px;
 	background-color: #e3e3e3;
-	padding-top: 10px;
-	border-radius: 4px 4px 0 0;
+	border-radius: 3px 3px 0 0;
 }
 
 .ahfb-slide-up span {
-	font-size: 12px;
-	padding-left: 2px;
+	width: 22px;
+    height: 12px;
+    font-size: 12px;
+    padding: 7px 2px;
+	line-height: 13px;
+	border-radius: 3px;
+	transition: all 0.2s;
 }
 
 .ahfb-builder-item:hover .ahfb-slide-up {
 	opacity: 1;
 	visibility: visible;
-	color: #444444;
+	color: #111111;
+    background: #e3e3e3;
+}
+
+.ahfb-builder-item.sortable-chosen .ahfb-slide-up {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ahfb-slide-up span:hover {
+    background: #007cba;
+    color: #ffffff;
 }
 
 /* Social Icons Control CSS */
