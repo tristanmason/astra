@@ -132,16 +132,16 @@ class Astra_Social_Component_Dynamic_CSS {
 			);
 
 			if ( 'custom' === $color_type || is_customize_preview() ) {
-				$css_output_desktop[ $selector . ' .ast-social-color-type-custom svg' ]['fill']                 = $social_icons_color_desktop;
-				$css_output_desktop[ $selector . ' .ast-builder-social-element' ]['background']                 = $social_icons_bg_color_desktop;
+				$css_output_desktop[ $selector . ' .ast-social-color-type-custom svg' ]['fill'] = $social_icons_color_desktop;
+				$css_output_desktop[ $selector . ' .ast-builder-social-element' ]['background'] = $social_icons_bg_color_desktop;
 
-				$css_output_desktop[ $selector . ' .ast-social-color-type-custom .ast-builder-social-element:hover' ]                             = array(
+				$css_output_desktop[ $selector . ' .ast-social-color-type-custom .ast-builder-social-element:hover' ] = array(
 					// Hover.
 					'color'      => $social_icons_h_color_desktop,
 					'background' => $social_icons_h_bg_color_desktop,
 				);
 				
-				$css_output_desktop[ $selector . ' .ast-social-color-type-custom .ast-builder-social-element:hover svg' ]                         = array(
+				$css_output_desktop[ $selector . ' .ast-social-color-type-custom .ast-builder-social-element:hover svg' ] = array(
 					'fill' => $social_icons_h_color_desktop,
 				);
 
@@ -178,7 +178,7 @@ class Astra_Social_Component_Dynamic_CSS {
 			);
 
 			if ( 'custom' === $color_type || is_customize_preview() ) {
-				$css_output_tablet[ $selector . ' .ast-social-color-type-custom svg' ]['fill']                 = $social_icons_color_tablet;
+				$css_output_tablet[ $selector . ' .ast-social-color-type-custom svg' ]['fill'] = $social_icons_color_tablet;
 
 				$css_output_tablet[ $selector . ' .ast-social-color-type-custom .ast-builder-social-element' ]['background'] = $social_icons_bg_color_tablet;
 
@@ -224,7 +224,7 @@ class Astra_Social_Component_Dynamic_CSS {
 			);
 
 			if ( 'custom' === $color_type || is_customize_preview() ) {
-				$css_output_mobile[ $selector . ' .ast-social-color-type-custom svg' ]['fill']                 = $social_icons_color_mobile;
+				$css_output_mobile[ $selector . ' .ast-social-color-type-custom svg' ]['fill'] = $social_icons_color_mobile;
 
 				$css_output_mobile[ $selector . ' .ast-social-color-type-custom .ast-builder-social-element' ]['background'] = $social_icons_bg_color_mobile;
 
