@@ -290,6 +290,7 @@
                         dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .main-header-menu';
                         dynamicStyle += '{';
                         dynamicStyle += 'border-top-width:' + ( ( true === border ) ? borderSize + 'px;' : '0px;' );
+                        dynamicStyle += 'border-style: solid;';
                         dynamicStyle += 'border-color:' + color + ';';
                         dynamicStyle += '}';
 
