@@ -960,6 +960,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 
 			Astra_Customizer_Control_Base::add_control(
+				'image',
+				array(
+					'callback'          => 'WP_Customize_Image_Control',
+					'sanitize_callback' => 'esc_url_raw',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'ast-font',
 				array(
 					'callback'          => 'Astra_Control_Typography',
