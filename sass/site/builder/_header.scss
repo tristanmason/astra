@@ -711,18 +711,7 @@ body.admin-bar {
 	.ast-mobile-header-content {
 		display: none;
 	}
-	.menu-toggle.toggled {
-		.ast-mobile-svg {
-			display: none;
-		}
-		.ast-close-svg {
-			display: block;
-		}
-	}
 	.menu-toggle {
-		.ast-close-svg {
-			display: none;
-		}
 		.mobile-menu-toggle-icon {
 			display: inline-flex;
 			align-self: center;
@@ -974,4 +963,44 @@ body.admin-bar {
 	.sub-menu {
 		background-color: transparent;
 	}
+}
+.menu-toggle {
+	.ast-close-svg {
+		display: none;
+	}
+	&.toggled {
+		.ast-mobile-svg {
+			display: none;
+		}
+		.ast-close-svg {
+			display: block;
+		}
+	}
+}
+/** Desktop Off-Canvas CSS */
+.ast-desktop .ast-mobile-popup-drawer {
+	.ast-mobile-popup-inner {
+		width: 285px;
+	}
+	&.ast-mobile-popup-full-width {
+		.ast-mobile-popup-inner {
+			width: 100%;
+		}
+	}
+	.ast-mobile-popup-overlay {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+.ast-off-canvas-active body.ast-main-header-nav-open.ast-desktop {
+	overflow: auto;
+}
+body.admin-bar.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+	top: 32px;
+}
+/** Default Spacing for Mobile Header elements except Menu */
+.ast-mobile-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
+.ast-desktop-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
+.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
+  margin: 15px 20px;
 }

@@ -175,6 +175,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	popupTriggerClick = function ( event ) {
 
+		var triggerType = event.currentTarget.trigger_type;
 		var popupWrap = document.getElementById( 'ast-mobile-popup' );
 
         if ( ! body.classList.contains( 'ast-popup-nav-open' ) ) {
@@ -188,7 +189,15 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( ! document.documentElement.classList.contains( 'ast-off-canvas-active' ) ) {
 			document.documentElement.classList.add( 'ast-off-canvas-active' );
 		}
-
+		
+		if ( 'desktop' === triggerType ) {
+			
+			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'none';
+		}
+		if ( 'mobile' === triggerType ) {
+			
+			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'none';
+		}
 		this.style.display = 'none';
 
 		popupWrap.classList.add( 'active', 'show' );
@@ -278,7 +287,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	function init( mobileHeaderType ) {
 
-		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
+		var popupTriggerMobile = document.querySelectorAll( '#ast-mobile-header .menu-toggle' );
+		var popupTriggerDesktop = document.querySelectorAll( '#ast-desktop-header .menu-toggle' );
 		
 		if ( undefined === mobileHeaderType ) {
 
@@ -293,11 +303,20 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
 				submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
 
-			for ( var item = 0;  item < popupTrigger.length; item++ ) {
+			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
-				popupTrigger[item].removeEventListener("click", astraNavMenuToggle, false);
+				popupTriggerMobile[item].removeEventListener("click", astraNavMenuToggle, false);
 				// Open the Popup when click on trigger
-				popupTrigger[item].addEventListener("click", popupTriggerClick, false);
+				popupTriggerMobile[item].addEventListener("click", popupTriggerClick, false);
+				popupTriggerMobile[item].trigger_type = 'mobile';
+
+			}
+			for ( var item = 0;  item < popupTriggerDesktop.length; item++ ) {
+
+				popupTriggerDesktop[item].removeEventListener("click", astraNavMenuToggle, false);
+				// Open the Popup when click on trigger
+				popupTriggerDesktop[item].addEventListener("click", popupTriggerClick, false);
+				popupTriggerDesktop[item].trigger_type = 'desktop';
 
 			}
 			for ( var item = 0;  item < submenuButtons.length; item++ ) {
@@ -334,10 +353,16 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			});
 			AstraToggleSetup();
 		} else if ( 'dropdown' === mobileHeaderType ) {
-			for ( var item = 0;  item < popupTrigger.length; item++ ) {
+			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
-				popupTrigger[item].removeEventListener("click", popupTriggerClick, false);
-				popupTrigger[item].addEventListener('click', astraNavMenuToggle, false);
+				popupTriggerMobile[item].removeEventListener("click", popupTriggerClick, false);
+				popupTriggerMobile[item].addEventListener('click', astraNavMenuToggle, false);
+
+			}
+			for ( var item = 0;  item < popupTriggerDesktop.length; item++ ) {
+
+				popupTriggerDesktop[item].removeEventListener("click", popupTriggerClick, false);
+				popupTriggerDesktop[item].addEventListener('click', astraNavMenuToggle, false);
 
 			}
 
