@@ -354,14 +354,12 @@
 	}
 }
 .ast-desktop {
-    .main-header-menu {
-        .menu-item > .sub-menu:before {
-			position: absolute;
-			content: '';
-			top: 0;
-			left: 0;
-			width: 100%;
-			transform: translateY(-100%);
-		}
+    .main-header-menu > .menu-item > .sub-menu:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: translateY(-100%);
 	}
 }

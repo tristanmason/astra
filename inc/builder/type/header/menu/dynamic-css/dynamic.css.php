@@ -162,10 +162,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'width'               => astra_get_css_value( $sub_menu_width, 'px' ),
 				'border-radius'       => astra_get_css_value( $sub_menu_border_radius, 'px' ),
 			),
-			$selector . ' .sub-menu, ' . $selector . ' .astra-full-megamenu-wrapper' => array(
+			$selector . ' .main-header-menu > .menu-item > .sub-menu, ' . $selector . ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper' => array(
 				'margin-top' => astra_get_css_value( $sub_menu_top_offset, 'px' ),
 			),
-			'.ast-desktop ' . $selector . ' .menu-item > .sub-menu:before, .ast-desktop ' . $selector . ' .menu-item > .astra-full-megamenu-wrapper:before' => array(
+			'.ast-desktop ' . $selector . ' .main-header-menu > .menu-item > .sub-menu:before, .ast-desktop ' . $selector . ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:before' => array(
 				'height' => astra_calculate_spacing( $sub_menu_top_offset . 'px', '+', '5', 'px' ),
 			),
 			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
