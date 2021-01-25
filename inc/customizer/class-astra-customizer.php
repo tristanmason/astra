@@ -569,6 +569,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
+			if ( ! $sanitize_callback ) {
+				$config = $this->sanitize_control( $config );
+			}
+
 			$new_config = array(
 				'name'              => $sub_control_name,
 				'datastore_type'    => 'option',
@@ -632,6 +636,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
 
+			if ( ! $sanitize_callback ) {
+				$config = $this->sanitize_control( $config );
+			}
+
 			$wp_customize->add_setting(
 				astra_get_prop( $config, 'name' ),
 				array(
@@ -682,6 +690,51 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( isset( $config['section'] ) ) {
 				self::$js_configs ['controls'] [ $config['section'] ] [] = $config;
 			}
+		}
+
+		/**
+		 * Map and add sanitize callback to JS configs.
+		 *
+		 * @param array $config js config array.
+		 * @return mixed
+		 */
+		public function sanitize_control( $config ) {
+
+			$control_type = isset( $config['control'] ) ? $config['control'] : '';
+			switch ( $control_type ) {
+				case 'color':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' );
+					break;
+				case 'ast-border':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_border' );
+					break;
+				case 'ast-html-editor':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_html' );
+					break;
+				case 'ast-color':
+					$config['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' );
+					break;
+				case 'ast-sortable':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' );
+					break;
+				case 'ast-radio-image':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' );
+					break;
+				case 'ast-link':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_link' );
+					break;
+				case 'ast-customizer-link':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' );
+					break;
+				case 'ast-responsive-slider':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' );
+					break;
+				default:
+					break;
+			}
+
+			return $config;
+
 		}
 
 		/**
@@ -998,118 +1051,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 
 			Astra_Customizer_Control_Base::add_control(
-				'color',
-				array(
-					'callback'          => 'WP_Customize_Color_Control',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-sortable',
-				array(
-					'callback'          => 'Astra_Control_Sortable',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-radio-image',
-				array(
-					'callback'          => 'Astra_Control_Radio_Image',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-slider',
-				array(
-					'callback'          => 'Astra_Control_Slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive-slider',
-				array(
-					'callback'          => 'Astra_Control_Responsive_Slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive',
-				array(
-					'callback'          => 'Astra_Control_Responsive',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive-spacing',
-				array(
-					'callback'          => 'Astra_Control_Responsive_Spacing',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-divider',
-				array(
-					'callback'          => 'Astra_Control_Divider',
-					'sanitize_callback' => '',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-heading',
-				array(
-					'callback'          => 'Astra_Control_Heading',
-					'sanitize_callback' => '',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-hidden',
-				array(
-					'callback'          => 'Astra_Control_Hidden',
-					'sanitize_callback' => '',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-link',
-				array(
-					'callback'          => 'Astra_Control_Link',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-color',
-				array(
-					'callback'          => 'Astra_Control_Color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-description',
-				array(
-					'callback'          => 'Astra_Control_Description',
-					'sanitize_callback' => '',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-background',
-				array(
-					'callback'          => 'Astra_Control_Background',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
 				'image',
 				array(
 					'callback'          => 'WP_Customize_Image_Control',
@@ -1130,71 +1071,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				array(
 					'callback'          => 'Astra_Control_Font_Variant',
 					'sanitize_callback' => 'sanitize_text_field',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'number',
-				array(
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
-				)
-			);
-			Astra_Customizer_Control_Base::add_control(
-				'ast-border',
-				array(
-					'callback'         => 'Astra_Control_Border',
-					'santize_callback' => 'sanitize_border',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive-color',
-				array(
-					'callback'         => 'Astra_Control_Responsive_Color',
-					'santize_callback' => 'sanitize_responsive_color',
-				)
-			);
-
-			/**
-			 * Add Controls
-			 */
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive-background',
-				array(
-					'callback'         => 'Astra_Control_Responsive_Background',
-					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_background' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-customizer-link',
-				array(
-					'callback'         => 'Astra_Control_Customizer_Link',
-					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-settings-group',
-				array(
-					'callback' => 'Astra_Control_Settings_Group',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-select',
-				array(
-					'callback'          => 'Astra_Control_Select',
-					'sanitize_callback' => '',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive-select',
-				array(
-					'callback'          => 'Astra_Control_Responsive_Select',
-					'sanitize_callback' => '',
 				)
 			);
 

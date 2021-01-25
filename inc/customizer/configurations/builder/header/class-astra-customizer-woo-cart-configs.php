@@ -105,13 +105,14 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Icon color
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-color]',
-				'default'   => astra_get_option( 'header-woo-cart-icon-color' ),
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'transport' => 'postMessage',
-				'title'     => __( 'Color', 'astra' ),
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-color]',
+				'default'           => astra_get_option( 'header-woo-cart-icon-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Color', 'astra' ),
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
@@ -119,10 +120,10 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'section'   => $_section,
-				'priority'  => 45,
+				'section'           => $_section,
+				'priority'          => 45,
 			),
-			
+
 			/**
 			 * Option: Border Radius
 			 */
@@ -152,7 +153,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		);
 
 		$configurations = array_merge( $configurations, $_configs );
-		
+
 		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_configs = array(
 				/**

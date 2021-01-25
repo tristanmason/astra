@@ -302,18 +302,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option - Menu Space.
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[footer-main-menu-spacing]',
-					'default'        => astra_get_option( 'footer-main-menu-spacing' ),
-					'type'           => 'control',
-					'control'        => 'ast-responsive-spacing',
-					'transport'      => 'postMessage',
-					'section'        => $_section,
-					'context'        => Astra_Builder_Helper::$design_tab,
-					'priority'       => 210,
-					'title'          => __( 'Menu Space', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[footer-main-menu-spacing]',
+					'default'           => astra_get_option( 'footer-main-menu-spacing' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'transport'         => 'postMessage',
+					'section'           => $_section,
+					'context'           => Astra_Builder_Helper::$design_tab,
+					'priority'          => 210,
+					'title'             => __( 'Menu Space', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
@@ -325,23 +326,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
