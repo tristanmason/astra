@@ -159,29 +159,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Off-Canvas Background.
 				 */
 				array(
-					'name'      => 'off-canvas-background',
-					'transport' => 'postMessage',
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',
-					'section'   => $_section,
-					'title'     => '',
-					'control'   => 'ast-background',
-					'default'   => astra_get_option( 'off-canvas-background' ),
-					'priority'  => 35,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'name'              => 'off-canvas-background',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',
+					'section'           => $_section,
+					'title'             => '',
+					'control'           => 'ast-background',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'default'           => astra_get_option( 'off-canvas-background' ),
+					'priority'          => 35,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Off-Canvas Close Icon Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-close-color]',
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'off-canvas-close-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'section'   => $_section,
-					'priority'  => 30,
-					'title'     => __( 'Close Icon Color', 'astra' ),
-					'context'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-close-color]',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'off-canvas-close-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => $_section,
+					'priority'          => 30,
+					'title'             => __( 'Close Icon Color', 'astra' ),
+					'context'           => array(
 						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(

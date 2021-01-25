@@ -565,9 +565,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	AstraToggleSetup = function () {
-		var __main_header_all = document.querySelectorAll('#ast-mobile-header');
 
-		menu_toggle_all 	 = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+		if ( 'off-canvas' === mobileHeaderType || 'full-width' === mobileHeaderType ) {
+			var __main_header_all = document.querySelectorAll( '#ast-mobile-popup' ),
+				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+		} else {
+			var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
+				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+		}
 
 		if (menu_toggle_all.length > 0) {
 
@@ -727,7 +732,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                 var sibling = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
                 if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
                     sibling.classList.add( 'ast-dropdown-active' );
-                    sibling.querySelector( '.search-field' ).setAttribute('autocompvare','off');
+                    sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
                     setTimeout(function() {
                      sibling.querySelector( '.search-field' ).focus();
                     },200);

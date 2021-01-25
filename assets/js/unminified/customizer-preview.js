@@ -95,12 +95,13 @@ function astra_responsive_font_size( control, selector ) {
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
-				jQuery( 'style#' + control + '-' + css_property ).remove();
 
 				var fontSize = '',
 					tabletFontSize = '',
 					mobileFontSize = '',
 					css_property = 'font-size';
+
+				jQuery( 'style#' + control + '-' + css_property ).remove();
 
 				if ( '' != value.desktop ) {
 					fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
@@ -126,8 +127,7 @@ function astra_responsive_font_size( control, selector ) {
 				);
 
 			} else {
-
-				jQuery( 'style#' + control ).remove();
+				jQuery( 'style#' + control  + '-font-size' ).remove();
 			}
 
 		} );
@@ -1379,6 +1379,12 @@ function isJsonString( str ) {
 
 			sessionStorage.setItem('astPartialContentRendered', true);
 			document.dispatchEvent( new CustomEvent( "astPartialContentRendered",  { "detail": { 'response' : response } }) );
+
+		});
+
+		wp.customize.selectiveRefresh.bind('partial-content-rendered', function (response) {
+
+			wp.customize.preview.send( 'AstraBuilderPartialContentRendered', response );
 
 		});
 
