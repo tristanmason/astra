@@ -7,7 +7,8 @@ v3.1.0
 - Fix: Font size not reverted back to the initial size when the value is deleted.
 - Fix: Builder - Social Icons - Icon, Label Custom Color & Official Color not working in some cases.
 - Fix: Dropdown link target option not working for menus inside offcanvas, when offcanvas type is Flyout or Full-Screen.
-- Fix: Search box layout is breaking in offcanvas.
+- Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
+- Fix: Builder - Search box layout is breaking in offcanvas.
 
 v3.0.1
 - Fix: Astra assets cache regeneration issue when Astra Pro is updated to v3.0.0 prior to theme. ( https://wpastra.com/docs/clear-astra-cache/ )
