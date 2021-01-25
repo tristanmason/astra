@@ -658,5 +658,46 @@ module.exports = function (grunt) {
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
 
+     // Update Font Awesome library.
+     grunt.registerTask('font-awesome', function () {
+        this.async();
+        var request = require('request');
+        var fs = require('fs');
+
+        request('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json', function (error, response, body) {
+
+            if (response && response.statusCode == 200) {
+
+                console.log('Fonts successfully fetched!');
+
+                var fonts = JSON.parse(body);
+
+                for ( var $i in fonts ) {
+
+                    delete fonts[$i].changes;
+                    delete fonts[$i].ligatures;
+                    delete fonts[$i].unicode;
+                    delete fonts[$i].voted;
+
+                    for ( var $j in fonts[$i]['styles'] ) {
+                        var s_index = fonts[$i]['styles'][$j]
+                        if ( undefined !== fonts[$i].svg[s_index] ) {
+                            delete fonts[$i].svg[s_index].last_modified
+                            delete fonts[$i].svg[s_index].raw
+                            delete fonts[$i].svg[s_index].width
+                            delete fonts[$i].svg[s_index].height
+                        }
+                    }
+                }
+
+                fs.writeFile('assets/svg/ast-social-icons.json', JSON.stringify(fonts, null, 4), function (err) {
+                    if (!err) {
+                        console.log("Font-Awesome library updated!");
+                    }
+                });
+            }
+        });
+    });
+
     grunt.util.linefeed = '\n';
 };
