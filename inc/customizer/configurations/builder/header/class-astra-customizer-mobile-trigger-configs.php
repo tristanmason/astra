@@ -68,14 +68,15 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Header Html Editor.
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-trigger-icon]',
-				'type'        => 'control',
-				'control'     => 'ast-radio-image',
-				'default'     => astra_get_option( 'header-trigger-icon' ),
-				'title'       => __( 'Icons', 'astra' ),
-				'section'     => $_section,
-				'input_attrs' => array(),
-				'choices'     => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-trigger-icon]',
+				'type'              => 'control',
+				'control'           => 'ast-radio-image',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				'default'           => astra_get_option( 'header-trigger-icon' ),
+				'title'             => __( 'Icons', 'astra' ),
+				'section'           => $_section,
+				'input_attrs'       => array(),
+				'choices'           => array(
 					'menu'  => array(
 						'label' => __( 'menu', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu' ),
@@ -89,13 +90,13 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu3' ),
 					),
 				),
-				'transport'   => 'postMessage',
-				'partial'     => array(
+				'transport'         => 'postMessage',
+				'partial'           => array(
 					'selector'        => '.ast-button-wrap',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
-				'priority'    => 10,
-				'context'     => Astra_Builder_Helper::$general_tab,
+				'priority'          => 10,
+				'context'           => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -168,30 +169,32 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Toggle Button Color
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-color]',
-				'default'   => astra_get_option( 'mobile-header-toggle-btn-color' ),
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'priority'  => 50,
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-color]',
+				'default'           => astra_get_option( 'mobile-header-toggle-btn-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'title'             => __( 'Color', 'astra' ),
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'priority'          => 50,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
 			 * Option: Toggle Button Bg Color
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-bg-color]',
-				'default'   => astra_get_option( 'mobile-header-toggle-btn-bg-color' ),
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'title'     => __( 'Background Color', 'astra' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'priority'  => 50,
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-bg-color]',
+				'default'           => astra_get_option( 'mobile-header-toggle-btn-bg-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'title'             => __( 'Background Color', 'astra' ),
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'priority'          => 50,
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
@@ -234,15 +237,16 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Toggle Button Border Color
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-border-color]',
-				'default'   => astra_get_option( 'mobile-header-toggle-border-color' ),
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'title'     => __( 'Border Color', 'astra' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'priority'  => 65,
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-border-color]',
+				'default'           => astra_get_option( 'mobile-header-toggle-border-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'title'             => __( 'Border Color', 'astra' ),
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'priority'          => 65,
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
@@ -339,23 +343,24 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Margin Space
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $_section,
-				'priority'       => 220,
-				'title'          => __( 'Margin', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $_section,
+				'priority'          => 220,
+				'title'             => __( 'Margin', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
 

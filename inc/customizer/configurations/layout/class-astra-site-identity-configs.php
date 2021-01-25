@@ -109,12 +109,13 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Retina logo selector
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]',
-					'default'        => astra_get_option( 'ast-header-retina-logo' ),
-					'type'           => 'control',
-					'control'        => 'image',
-					'section'        => 'title_tagline',
-					'context'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]',
+					'default'           => astra_get_option( 'ast-header-retina-logo' ),
+					'type'              => 'control',
+					'control'           => 'image',
+					'sanitize_callback' => 'esc_url_raw',
+					'section'           => 'title_tagline',
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
 							'operator' => '!=',
@@ -122,11 +123,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-					'priority'       => 5,
-					'title'          => __( 'Retina Logo', 'astra' ),
-					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'transport'      => 'postMessage',
-					'partial'        => array(
+					'priority'          => 5,
+					'title'             => __( 'Retina Logo', 'astra' ),
+					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+					'transport'         => 'postMessage',
+					'partial'           => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
@@ -169,15 +170,16 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Mobile header logo
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[mobile-header-logo]',
-					'default'        => astra_get_option( 'mobile-header-logo' ),
-					'type'           => 'control',
-					'control'        => 'image',
-					'section'        => 'title_tagline',
-					'priority'       => 5,
-					'title'          => __( 'Mobile Logo (optional)', 'astra' ),
-					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'context'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-logo]',
+					'default'           => astra_get_option( 'mobile-header-logo' ),
+					'type'              => 'control',
+					'control'           => 'image',
+					'sanitize_callback' => 'esc_url_raw',
+					'section'           => 'title_tagline',
+					'priority'          => 5,
+					'title'             => __( 'Mobile Logo (optional)', 'astra' ),
+					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
 							'operator' => '==',
@@ -196,15 +198,16 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Logo Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]',
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'ast-header-responsive-logo-width' ),
-					'priority'    => 5,
-					'title'       => __( 'Logo Width', 'astra' ),
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'ast-header-responsive-logo-width' ),
+					'priority'          => 5,
+					'title'             => __( 'Logo Width', 'astra' ),
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 600,
