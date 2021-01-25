@@ -882,7 +882,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'section'   => 'section-transparent-header',
 						'transport' => 'postMessage',
 						'priority'  => 70,
-						'context'   => Astra_Builder_Helper::$design_tab_config,
+						'context'   => Astra_Builder_Helper::$design_tab,
 					),
 
 					/**
