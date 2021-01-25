@@ -13,7 +13,7 @@
 	var tablet_break_point    = AstraBuilderMenuData.tablet_break_point || 768,
 		mobile_break_point    = AstraBuilderMenuData.mobile_break_point || 544;
 
-	for ( var index = 1; index <= AstraBuilderMenuData.header_menu_count; index++ ) {
+	for ( var index = 1; index <= AstraBuilderMenuData.component_limit; index++ ) {
 
 		var prefix = 'menu' + index;
 		var selector = '.ast-builder-menu-' + index;
