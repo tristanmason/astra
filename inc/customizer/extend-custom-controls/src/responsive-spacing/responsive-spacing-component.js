@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const ResponsiveSpacingComponent = props => {
 
 	let value = props.control.setting.get()
 	value = (undefined === value || '' === value) ? props.control.params.value : value;
-	const [props_value, setPropsValue] = useState(value);
+	const [state, setState] = useState(value);
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== value ) {
+			setState(value);
+		}
+	}, [props]);
 
 	const onConnectedClick = () => {
 		let parent = event.target.parentElement.parentElement;
@@ -38,7 +45,7 @@ const ResponsiveSpacingComponent = props => {
 			choices
 		} = props.control.params;
 		let updateState = {
-			...props_value
+			...state
 		};
 		let deviceUpdateState = {
 			...updateState[device]
@@ -54,22 +61,22 @@ const ResponsiveSpacingComponent = props => {
 
 		updateState[device] = deviceUpdateState;
 		props.control.setting.set(updateState);
-		setPropsValue(updateState);
+		setState(updateState);
 	};
 
 	const onUnitChange = (device, unitKey = '') => {
 		let updateState = {
-			...props_value
+			...state
 		};
 		updateState[`${device}-unit`] = unitKey;
 		props.control.setting.set(updateState);
-		setPropsValue(updateState);
+		setState(updateState);
 	};
 
 	const renderResponsiveInput = (device) => {
 		return <input key={device} type='hidden' onChange={() => onUnitChange(device, '')}
 					  className={`ast-spacing-unit-input ast-spacing-${device}-unit`} data-device={`${device}`}
-					  value={props_value[`${device}-unit`]}></input>;
+					  value={state[`${device}-unit`]}></input>;
 	};
 
 	const renderInputHtml = (device, active = '') => {
@@ -105,7 +112,7 @@ const ResponsiveSpacingComponent = props => {
 			htmlChoices = Object.keys(choices).map(choiceID => {
 				let html = <li key={choiceID} {...inputAttrs} className='ast-spacing-input-item'>
 					<input type='number' className={`ast-spacing-input ast-spacing-${device} connected`} data-id={choiceID}
-						   value={props_value[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
+						   value={state[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
 						   data-element-connect={id}/>
 					<span className="ast-spacing-title">{choices[choiceID]}</span>
 				</li>;
@@ -117,7 +124,7 @@ const ResponsiveSpacingComponent = props => {
 			respHtml = Object.values(unit_choices).map(unitKey => {
 				let unitClass = '';
 
-				if (props_value[`${device}-unit`] === unitKey) {
+				if (state[`${device}-unit`] === unitKey) {
 					unitClass = 'active';
 				}
 
@@ -206,4 +213,4 @@ ResponsiveSpacingComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( ResponsiveSpacingComponent );
+export default ResponsiveSpacingComponent;
