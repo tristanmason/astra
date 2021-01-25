@@ -183,8 +183,8 @@
 /* Account Component */
 .ast-header-account-type-icon {
 	display: inline-flex;
-    align-self: center;
-    vertical-align: middle;
+	align-self: center;
+	vertical-align: middle;
 }
 
 .ast-header-account-type-avatar {
@@ -218,6 +218,10 @@
 		}
 	}
 }
+.footer-widget-area[data-section^="section-fb-html-"] .ast-builder-html-element {
+	text-align: center;
+}
+
 /**
  * AST HF Builder - Logo related CSS.
  * Align center section's Site title & Tagline center align.
@@ -308,6 +312,10 @@
 		}
 	}
 }
+[data-section^="section-fb-social-icons-"] .footer-social-inner-wrap {
+	text-align: center;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Button.
@@ -318,6 +326,11 @@
 		display: none;
 	}
 }
+
+[CLASS*="ast-footer-button-"][data-section^="section-fb-button-"] {
+	justify-content: center;
+}
+
 .ast-footer-html-inner {
 	p {
 		margin-bottom: 0;
@@ -401,8 +414,6 @@
  * AST HF Builder - Responsive CSS.
  * For desktop view.
  */
-
-
 
 #ast-mobile-header {
 	display: none;
@@ -772,7 +783,9 @@ body.admin-bar {
 		padding-right: 5.5em;
 	}
 }
-
+.site-footer-focus-item[CLASS*="ast-footer-button-"] {
+	display: flex;
+}
 
 @media screen and (max-width: 921px) {
 	.ast-mobile-popup-drawer {

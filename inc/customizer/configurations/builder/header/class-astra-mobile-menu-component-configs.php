@@ -139,6 +139,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'title'     => __( 'Divider Color', 'astra' ),
 					'section'   => $_section,
 					'priority'  => 75,
@@ -412,23 +413,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option - Menu Space.
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing]',
-					'default'        => astra_get_option( 'header-mobile-menu-menu-spacing' ),
-					'type'           => 'control',
-					'control'        => 'ast-responsive-spacing',
-					'transport'      => 'postMessage',
-					'section'        => $_section,
-					'priority'       => 150,
-					'title'          => __( 'Menu Space', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing]',
+					'default'           => astra_get_option( 'header-mobile-menu-menu-spacing' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'transport'         => 'postMessage',
+					'section'           => $_section,
+					'priority'          => 150,
+					'title'             => __( 'Menu Space', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -440,6 +442,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'        => $_section,
 					'priority'       => 220,
 					'title'          => __( 'Margin', 'astra' ),
