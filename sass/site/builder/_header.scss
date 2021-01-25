@@ -1013,7 +1013,7 @@ body.admin-bar {
 /** Desktop Off-Canvas CSS */
 .ast-desktop .ast-mobile-popup-drawer {
 	.ast-mobile-popup-inner {
-		width: 285px;
+		max-width: 20%;
 	}
 	&.ast-mobile-popup-full-width {
 		.ast-mobile-popup-inner {
