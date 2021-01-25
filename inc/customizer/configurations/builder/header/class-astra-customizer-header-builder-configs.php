@@ -36,12 +36,23 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
+		$cloned_component_track = Astra_Builder_Helper::$component_count_array;
+
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
+
+			$tmp_section = 'section-hb-button-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
 
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
-				'section' => 'section-hb-button-' . $index,
+				'section' => $tmp_section,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'button',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'button-' . $index ] = $item;
@@ -50,10 +61,19 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
 
+			$tmp_section = 'section-hb-html-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_html ) ? 'HTML' : 'HTML ' . $index,
 				'icon'    => 'text',
-				'section' => 'section-hb-html-' . $index,
+				'section' => $tmp_section,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'html',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'html-' . $index ] = $item;
@@ -62,10 +82,19 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_widgets; $index++ ) {
 
+			$tmp_section = 'sidebar-widgets-header-widget-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_widgets ) ? 'Widget' : 'Widget ' . $index,
 				'icon'    => 'wordpress',
-				'section' => 'sidebar-widgets-header-widget-' . $index,
+				'section' => $tmp_section,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'widget',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'widget-' . $index ] = $item;
@@ -90,6 +119,9 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'    => $name,
 				'icon'    => 'menu',
 				'section' => 'section-hb-menu-' . $index,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'menu',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'menu-' . $index ] = $item;
@@ -99,10 +131,19 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
 
+			$tmp_section = 'section-hb-social-icons-' . $index;
+
+			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+				continue;
+			}
+
 			$item = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_header_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
-				'section' => 'section-hb-social-icons-' . $index,
+				'section' => $tmp_section,
+				'clone'   => defined( 'ASTRA_EXT_VER' ),
+				'type'    => 'social-icons',
+				'builder' => 'header',
 			);
 
 			Astra_Builder_Helper::$header_desktop_items[ 'social-icons-' . $index ] = $item;
@@ -144,6 +185,20 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 0,
 				'description' => '',
+			),
+
+			/**
+			 * Header Clone Component Track.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[cloned-component-track]',
+				'section'   => 'section-header-builder-layout',
+				'type'      => 'control',
+				'control'   => 'ast-hidden',
+				'priority'  => 43,
+				'transport' => 'postMessage',
+				'partial'   => false,
+				'default'   => astra_get_option( 'cloned-component-track' ),
 			),
 
 			/**

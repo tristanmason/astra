@@ -36,13 +36,15 @@ class Astra_Button_Component_Configs {
 		if ( 'footer' === $builder_type ) {
 			$class_obj        = Astra_Builder_Footer::get_instance();
 			$number_of_button = Astra_Builder_Helper::$num_of_footer_button;
+			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_button;
 		} else {
 			$class_obj        = Astra_Builder_Header::get_instance();
 			$number_of_button = Astra_Builder_Helper::$num_of_header_button;
+			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_button;
 		}
 
 		$html_config = array();
-		for ( $index = 1; $index <= $number_of_button; $index++ ) {
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
 			$_prefix  = 'button' . $index;
@@ -57,12 +59,14 @@ class Astra_Button_Component_Configs {
 					* Header Builder section - Button Component Configs.
 					*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 50,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 50,
 					/* translators: %s Index */
-					'title'    => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $builder_type . '-button',
 				),
 
 				/**
@@ -94,6 +98,7 @@ class Astra_Button_Component_Configs {
 						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
 						'container_inclusive' => false,
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
