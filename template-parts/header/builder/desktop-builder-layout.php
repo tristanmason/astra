@@ -5,8 +5,14 @@
  * @package Astra Builder
  */
 
+$mobile_header_type = astra_get_option( 'mobile-header-type' );
+
+if ( 'full-width' === $mobile_header_type ) {
+
+	$mobile_header_type = 'off-canvas';
+}
 ?>
-<div id="ast-desktop-header">
+<div id="ast-desktop-header" data-toggle-type="<?php echo esc_attr( $mobile_header_type ); ?>">
 	<?php
 		astra_main_header_bar_top();
 
@@ -28,7 +34,7 @@
 		astra_main_header_bar_bottom();
 	?>
 <?php
-if ( 'dropdown' === astra_get_option( 'mobile-header-type' ) || is_customize_preview() ) {
+if ( 'dropdown' === $mobile_header_type || is_customize_preview() ) {
 	$content_alignment = astra_get_option( 'header-offcanvas-content-alignment', 'flex-start' );
 	$alignment_class   = 'content-align-' . $content_alignment . ' ';
 	?>

@@ -28,6 +28,7 @@
         value.bind( function ( newVal ) {
 			
 			var mobile_header = document.querySelectorAll( "#ast-mobile-header" );
+			var desktop_header = document.querySelectorAll( "#ast-desktop-header" );
 			var header_type = newVal;
 			var off_canvas_slide = ( typeof ( wp.customize._value['astra-settings[off-canvas-slide]'] ) != 'undefined' ) ? wp.customize._value['astra-settings[off-canvas-slide]']._value : 'right';
 
@@ -59,6 +60,9 @@
 			
 			for ( var k = 0; k < mobile_header.length; k++ ) {
 				mobile_header[k].setAttribute( 'data-type', header_type );
+			}
+			for ( var k = 0; k < desktop_header.length; k++ ) {
+				desktop_header[k].setAttribute( 'data-type', header_type );
 			}
 
 			var event = new CustomEvent( "astMobileHeaderTypeChange", 

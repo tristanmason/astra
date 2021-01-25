@@ -286,17 +286,22 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 * Main Init Function.
 	 */
 	function init( mobileHeaderType ) {
-
 		var popupTriggerMobile = document.querySelectorAll( '#ast-mobile-header .menu-toggle' );
 		var popupTriggerDesktop = document.querySelectorAll( '#ast-desktop-header .menu-toggle' );
 		
 		if ( undefined === mobileHeaderType ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
-			if( ! mobileHeader ) {
-				return ;
+			if( mobileHeader ) {
+				mobileHeaderType = mobileHeader.dataset.type;
+			} else {
+				var desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
+				if ( desktopHeader ) {
+					mobileHeaderType = desktopHeader.dataset.toggleType;
+				} else {
+					return;
+				}
 			}
-			mobileHeaderType = mobileHeader.dataset.type;
 		}
 
 		if ( 'off-canvas' === mobileHeaderType ) {
@@ -601,9 +606,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var desktop_header = document.querySelector('#masthead > #ast-desktop-header');
 		var desktop_toggle = document.querySelector( '#masthead > #ast-desktop-header .main-header-menu-toggle' );
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
-console.log(event.currentTarget.trigger_type);
+
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
-			console.log(desktop_menu);
 			astraToggleClass(desktop_menu, 'toggle-on');
 			astraToggleClass(desktop_toggle, 'toggled');
 			body.classList.add( "ast-header-break-point" );
