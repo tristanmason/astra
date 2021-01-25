@@ -199,6 +199,29 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 				),
+
+				/**
+				 * Option: Padded Layout Custom Width
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[popup-padding]',
+					'default'        => '',
+					'type'           => 'control',
+					'transport'      => 'postMessage',
+					'control'        => 'ast-responsive-spacing',
+					'section'        => $_section,
+					'priority'       => 210,
+					'title'          => __( 'Padding', 'astra' ),
+					'linked_choices' => true,
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'        => Astra_Builder_Helper::$design_tab,
+				),
 			);
 
 			return array_merge( $configurations, $_configs );
