@@ -134,16 +134,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Submenu item Border Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-b-color]',
-					'default'   => astra_get_option( 'header-mobile-menu-submenu-item-b-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
+					'name'              => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-b-color]',
+					'default'           => astra_get_option( 'header-mobile-menu-submenu-item-b-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'transport'         => 'postMessage',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'title'     => __( 'Divider Color', 'astra' ),
-					'section'   => $_section,
-					'priority'  => 75,
-					'context'   => array(
+					'title'             => __( 'Divider Color', 'astra' ),
+					'section'           => $_section,
+					'priority'          => 75,
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
@@ -437,24 +437,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

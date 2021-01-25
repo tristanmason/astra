@@ -218,16 +218,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 					// Option: Submenu item Border Color.
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-b-color]',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-submenu-item-b-color' ),
-						'type'      => 'control',
-						'control'   => 'ast-color',
+						'name'              => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-b-color]',
+						'default'           => astra_get_option( 'header-' . $_prefix . '-submenu-item-b-color' ),
+						'type'              => 'control',
+						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-						'transport' => 'postMessage',
-						'title'     => __( 'Divider Color', 'astra' ),
-						'section'   => $_section,
-						'priority'  => 21,
-						'context'   => array(
+						'transport'         => 'postMessage',
+						'title'             => __( 'Divider Color', 'astra' ),
+						'section'           => $_section,
+						'priority'          => 21,
+						'context'           => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
