@@ -233,7 +233,7 @@
 				wp.customize('astra-settings[header-menu'+ index +'-submenu-item-b-color]', function (value) {
 					value.bind(function (color) {
 						var insideBorder = wp.customize('astra-settings[header-menu'+ index +'-submenu-item-border]').get(),
-							borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
+							borderSize = wp.customize('astra-settings[header-menu'+ index +'-submenu-item-b-size]').get();
 						if ('' != color) {
 							if ( true == insideBorder ) {
 
@@ -276,7 +276,7 @@
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-item-border]', function( value ) {
 					value.bind( function( border ) {
 						var color = wp.customize( 'astra-settings[header-menu'+ index +'-submenu-item-b-color]' ).get(),
-							borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
+							borderSize = wp.customize('astra-settings[header-menu'+ index +'-submenu-item-b-size]').get();
 
 						if( true === border  ) {
 							var dynamicStyle = '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link';
