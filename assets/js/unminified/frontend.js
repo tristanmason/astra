@@ -193,10 +193,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( 'desktop' === triggerType ) {
 			
 			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'none';
+			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'block';
 		}
 		if ( 'mobile' === triggerType ) {
 			
 			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'none';
+			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'block';
 		}
 		this.style.display = 'none';
 
