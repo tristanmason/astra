@@ -211,7 +211,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'        => 'ast-responsive-spacing',
 					'section'        => $_section,
 					'priority'       => 210,
-					'title'          => __( 'Padding', 'astra' ),
+					'title'          => __( 'Popup Padding', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
 					'choices'        => array(
@@ -220,7 +220,23 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'        => array(
+						'relation' => 'AND',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'off-canvas',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'full-width',
+							),
+						),
+					),
 				),
 			);
 
