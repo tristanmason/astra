@@ -381,9 +381,11 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			control_clean_name = control_clean_name.replace(']', '');
 
 			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
+
 			if( jQuery( '#tmpl-' + template_id ).length ) {
 				fields_html += template(attr);
 			}
+
 			fields_html += '</li>';
 
 		});

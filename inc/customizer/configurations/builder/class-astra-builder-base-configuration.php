@@ -70,46 +70,48 @@ final class Astra_Builder_Base_Configuration {
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $section_id,
-				'priority'       => 210,
-				'title'          => __( 'Padding', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $section_id,
+				'priority'          => 210,
+				'title'             => __( 'Padding', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $section_id,
-				'priority'       => 220,
-				'title'          => __( 'Margin', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $section_id,
+				'priority'          => 220,
+				'title'             => __( 'Margin', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
 	}
@@ -472,17 +474,18 @@ final class Astra_Builder_Base_Configuration {
 				 * Option: Margin
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
