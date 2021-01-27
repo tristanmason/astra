@@ -73,19 +73,19 @@ const ResponsiveBackground = props => {
 
 			switch(props.control.params.label) {
 				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][0]
+					current_color = e.detail.palette[e.detail.palette.patterntype][0][0]
 				break;
 				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][1]
+					current_color = e.detail.palette[e.detail.palette.patterntype][1][0]
 				break;
 				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][2]
+					current_color = e.detail.palette[e.detail.palette.patterntype][2][0]
 				break;
 				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][3]
+					current_color = e.detail.palette[e.detail.palette.patterntype][3][0]
 				break;
 				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][4]
+					current_color = e.detail.palette[e.detail.palette.patterntype][4][0]
 
 				break;
 				default:
@@ -188,9 +188,9 @@ const ResponsiveBackground = props => {
 					}));
 				}}>
 					<Dashicon icon='admin-site-alt3' style={{
-						width: 12,
-						height: 12,
-						fontSize: 12
+						width: 14,
+						height: 14,
+						fontSize: 14
 					}}/>
 				</button>
 				{ state.isVisible && (

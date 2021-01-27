@@ -110,9 +110,9 @@ const ColorComponent = props => {
 							}));
 						}}>
 							<Dashicon icon='admin-site-alt3' style={{
-								width: 12,
-								height: 12,
-								fontSize: 12
+								width: 14,
+								height: 14,
+								fontSize: 14
 							}}/>
 						</button>
 						{ state.isVisible && (

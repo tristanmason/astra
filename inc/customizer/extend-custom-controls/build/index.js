@@ -9925,9 +9925,9 @@ var Background = function Background(props) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "admin-site-alt3",
       style: {
-        width: 12,
-        height: 12,
-        fontSize: 12
+        width: 14,
+        height: 14,
+        fontSize: 14
       }
     })), props_value.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Popover"], {
       position: "bottom center",
@@ -11485,29 +11485,16 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   var handlePresetPalette = function handlePresetPalette(item) {
     var obj = _objectSpread({}, state);
 
-    var presetPalette = _objectSpread({}, obj.presetPalette);
-
     var patternArray = _objectSpread({}, obj.pattern1);
 
     Object.keys(patternArray).map(function (index) {
       if (obj.presetPalette[item][index]) {
-        patternArray[index][0] = obj.presetPalette[item][index];
+        var patternArrayIndex = _objectSpread({}, patternArray[index]);
+
+        patternArrayIndex[0] = obj.presetPalette[item][index];
+        patternArray[index] = patternArrayIndex;
       }
     });
-    console.log(patternArray); // for (let index = 0; index < 5; index++) {
-    // 	patternrarray[index][0] = obj.presetPalette[item][index][0]
-    // }
-    // // Object.keys(presetPalette[item]).map( (  index ) => { 
-    // // 		var value =  presetPalette[item][index][0]
-    // // 	patternrarray[index][0] =value
-    // // })
-    // Object.keys(presetPalette[item]).forEach(function(key) {
-    // 	if (item[key] == null || item[key] == 0) {
-    // 	  item[key] = results[key];
-    // 	}
-    //   })
-    // obj['index'] = item
-
     obj['pattern1'] = patternArray;
     obj['importError'] = false;
     obj['isVisible'] = false;
@@ -11547,18 +11534,31 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
 
       var obj = _objectSpread({}, state);
 
+      var patternArray = _objectSpread({}, obj.pattern1);
+
+      Object.keys(patternArray).map(function (index) {
+        if (customImportText[index]) {
+          var patternArrayIndex = _objectSpread({}, patternArray[index]);
+
+          patternArrayIndex[0] = customImportText[index];
+          patternArray[index] = patternArrayIndex;
+        }
+      });
       obj.presetPalette.push(customImportText); //Keep copy of imported palette.
 
+      obj['pattern1'] = patternArray;
       obj['importError'] = false;
       obj['isVisible'] = false;
       obj['customImportText'] = '';
       setState(obj);
-      props.control.setting.set(obj); // var event = new CustomEvent( "colorpaletteglobal", 
-      // 	{ 
-      // 		"detail":{"palette":obj,"radiochange":"true",}
-      // 	} 
-      // );
-      // document.dispatchEvent(event);
+      props.control.setting.set(obj);
+      var event = new CustomEvent("colorpaletteglobal", {
+        "detail": {
+          "palette": obj,
+          "radiochange": "true"
+        }
+      });
+      document.dispatchEvent(event);
     } else {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -11913,9 +11913,9 @@ var ColorComponent = function ColorComponent(props) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Dashicon"], {
       icon: "admin-site-alt3",
       style: {
-        width: 12,
-        height: 12,
-        fontSize: 12
+        width: 14,
+        height: 14,
+        fontSize: 14
       }
     })), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Popover"], {
       position: "bottom center",
@@ -15384,23 +15384,23 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
 
       switch (props.control.params.label) {
         case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0];
+          current_color = e.detail.palette[e.detail.palette.patterntype][0][0];
           break;
 
         case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1];
+          current_color = e.detail.palette[e.detail.palette.patterntype][1][0];
           break;
 
         case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2];
+          current_color = e.detail.palette[e.detail.palette.patterntype][2][0];
           break;
 
         case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3];
+          current_color = e.detail.palette[e.detail.palette.patterntype][3][0];
           break;
 
         case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4];
+          current_color = e.detail.palette[e.detail.palette.patterntype][4][0];
           break;
 
         default:
@@ -15490,9 +15490,9 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Dashicon"], {
       icon: "admin-site-alt3",
       style: {
-        width: 12,
-        height: 12,
-        fontSize: 12
+        width: 14,
+        height: 14,
+        fontSize: 14
       }
     })), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Popover"], {
       position: "bottom center",
@@ -15892,23 +15892,23 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
 
       switch (props.control.params.label) {
         case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0];
+          current_color = e.detail.palette[e.detail.palette.patterntype][0][0];
           break;
 
         case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1];
+          current_color = e.detail.palette[e.detail.palette.patterntype][1][0];
           break;
 
         case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2];
+          current_color = e.detail.palette[e.detail.palette.patterntype][2][0];
           break;
 
         case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3];
+          current_color = e.detail.palette[e.detail.palette.patterntype][3][0];
           break;
 
         case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4];
+          current_color = e.detail.palette[e.detail.palette.patterntype][4][0];
           break;
 
         default:
@@ -15957,9 +15957,9 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "admin-site-alt3",
       style: {
-        width: 12,
-        height: 12,
-        fontSize: 12
+        width: 14,
+        height: 14,
+        fontSize: 14
       }
     })), props_value.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Popover"], {
       position: "bottom center",
