@@ -14,7 +14,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
 		let section = ( 'header' === builder_type ) ? 'section-hb-html-' + index : 'section-fb-html-' + index;
 
 		var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
-			mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;	
+			mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
         // HTML color.
         astra_color_responsive_css(
@@ -39,7 +39,7 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
             'color',
             selector + ' .ast-builder-html-element a:hover'
 		);
-		
+
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector, 'block' );
 
@@ -98,12 +98,17 @@ function astra_builder_html_css( builder_type = 'header', html_count ) {
  */
 function astra_builder_button_css( builder_type = 'header', button_count ) {
 
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
 	for ( var index = 1; index <= button_count; index++ ) {
 
 		var section = ( 'header' === builder_type ) ? 'section-hb-button-' + index : 'section-fb-button-' + index;
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
 		var prefix = 'button' + index;
 		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
+
+		astra_css( 'flex', 'display', '.ast-' + builder_type + '-button-' + index + '[data-section="' + section + '"]' );
 
 		// Button Text Color.
 		astra_color_responsive_css(
@@ -179,6 +184,34 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 					astra_add_dynamic_css( 'astra-settings[' + builder_type + '-button'+ index +'-border-size]', dynamicStyle );
 				} );
 			} );
+
+			if( 'footer' == builder_type ) {
+				wp.customize( 'astra-settings[footer-button-'+ index +'-alignment]', function( value ) {
+					value.bind( function( alignment ) {
+
+						if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
+							var dynamicStyle = '';
+							dynamicStyle += '.ast-footer-button-'+ index +'[data-section="section-fb-button-'+ index +'"] {';
+							dynamicStyle += 'justify-content: ' + alignment['desktop'] + ';';
+							dynamicStyle += '} ';
+
+							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+							dynamicStyle += '.ast-footer-button-'+ index +'[data-section="section-fb-button-'+ index +'"] {';
+							dynamicStyle += 'justify-content: ' + alignment['tablet'] + ';';
+							dynamicStyle += '} ';
+							dynamicStyle += '} ';
+
+							dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+							dynamicStyle += '.ast-footer-button-'+ index +'[data-section="section-fb-button-'+ index +'"] {';
+							dynamicStyle += 'justify-content: ' + alignment['mobile'] + ';';
+							dynamicStyle += '} ';
+							dynamicStyle += '} ';
+
+							astra_add_dynamic_css( 'footer-button-'+ index +'-alignment', dynamicStyle );
+						}
+					} );
+				} );
+			}
 		})(index);
 	}
 }
@@ -338,7 +371,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 						dynamicStyle += 'margin-right: ' + space + 'px;';
 						dynamicStyle += '} ';
 					}
-					
+
 					if ( spacing.tablet != '' ) {
 						space = spacing.tablet/2;
 						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
@@ -412,7 +445,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 					}
 				} );
 			} );
-		
+
 			if ( 'footer' === builder_type ) {
 				// Alignment.
 				wp.customize( 'astra-settings[footer-social-' + index + '-alignment]', function( value ) {
@@ -439,7 +472,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 						}
 					} );
 				} );
-	
+
 			}
 		})( index );
 	}
@@ -550,7 +583,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 					}
 				} );
 			} );
-			
+
 			if ( 'footer' === builder_type ) {
 
 				wp.customize( 'astra-settings[footer-widget-alignment-' + index + ']', function( value ) {
@@ -560,24 +593,24 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
 							dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
 							dynamicStyle += '} ';
-			
+
 							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
 							dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
 							dynamicStyle += '} ';
 							dynamicStyle += '} ';
-			
+
 							dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
 							dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
 							dynamicStyle += '} ';
 							dynamicStyle += '} ';
-			
+
 							astra_add_dynamic_css( 'footer-widget-alignment-' + index, dynamicStyle );
 						}
 					} );
-				} );			
-			
+				} );
+
 			}
 		})(index);
 
@@ -587,7 +620,7 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 
 /**
  * Apply Visibility CSS for the element
- * 
+ *
  * @param string section Section ID.
  * @param string selector Base Selector.
  * @param string default_property default CSS property.
@@ -596,7 +629,7 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
-		
+
 	// Header Desktop visibility.
 	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
 		setting.bind( function( desktop_visible ) {
@@ -628,7 +661,7 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
 
 			astra_add_dynamic_css( section + '-hide-tablet', dynamicStyle );
 		} );
-		
+
 	} );
 
 	// Header Mobile visibility.
