@@ -223,7 +223,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 
 			$content = astra_get_option( 'footer-copyright-editor' );
 			if ( $content || is_customize_preview() ) {
-				echo '<div class="ast-footer-copyright ast-footer-html-inner">';
+				echo '<div class="ast-footer-copyright">';
 						$content = str_replace( '[copyright]', '&copy;', $content );
 						$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
 						$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
