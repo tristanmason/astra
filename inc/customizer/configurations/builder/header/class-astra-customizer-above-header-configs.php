@@ -60,21 +60,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Section: Above Header Height.
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hba-header-height]',
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'hba-header-height' ),
-					'priority'    => 30,
-					'title'       => __( 'Height', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'suffix'      => '',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[hba-header-height]',
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'hba-header-height' ),
+					'priority'          => 30,
+					'title'             => __( 'Height', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => '',
+					'input_attrs'       => array(
 						'min'  => 30,
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'context'           => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Section: Above Header Border.
@@ -97,15 +98,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Section: Above Header Border Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-header-bottom-border-color]',
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'hba-header-bottom-border-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'section'   => $_section,
-					'priority'  => 50,
-					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[hba-header-bottom-border-color]',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'hba-header-bottom-border-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => $_section,
+					'priority'          => 50,
+					'title'             => __( 'Bottom Border Color', 'astra' ),
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hba-header-separator]',

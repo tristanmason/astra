@@ -1382,6 +1382,12 @@ function isJsonString( str ) {
 
 		});
 
+		wp.customize.selectiveRefresh.bind('partial-content-rendered', function (response) {
+
+			wp.customize.preview.send( 'AstraBuilderPartialContentRendered', response );
+
+		});
+
 		wp.customize.preview.bind( 'astPreviewDeviceChanged', function( device ) {
 			document.dispatchEvent( new CustomEvent( "astPreviewDeviceChanged",  { "detail": device }) );
 
