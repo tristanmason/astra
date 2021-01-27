@@ -177,6 +177,9 @@ const ColorPaletteComponent = props => {
 				<Button className='astra-add-new-color'  isPrimary onClick={ () => addNewColorToPalette() }>
 					<Dashicon icon="plus" /> Add New Color
 				</Button>	
+				<Button className='astra-palette-import' isPrimary onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
+				 	<Dashicon icon="open-folder" /> Presets
+				</Button>
 
 			</div>
 		</>
@@ -239,16 +242,45 @@ const ColorPaletteComponent = props => {
 	const handlePresetPalette = (item) => {
 	
 		
-		let obj = {
+		var obj = {
 			...state
 		}
-
-		let presetPalette = {
-			...state.presetPalette
+		
+		var presetPalette = {
+			...obj.presetPalette
 		}
 
+		var patternArray = {
+			...obj.pattern1
+		}
+
+		Object.keys(patternArray).map( (  index ) => { 
+			if(obj.presetPalette[item][index]){
+				patternArray[index][0] = obj.presetPalette[item][index]
+			}			
+		})
+		console.log(patternArray);
+
 		
-		obj[obj.patterntype] = presetPalette[item]		
+		// for (let index = 0; index < 5; index++) {
+			
+		// 	patternrarray[index][0] = obj.presetPalette[item][index][0]
+		// }
+		// // Object.keys(presetPalette[item]).map( (  index ) => { 
+			
+		
+		// // 		var value =  presetPalette[item][index][0]
+		// // 	patternrarray[index][0] =value
+		// // })
+
+		// Object.keys(presetPalette[item]).forEach(function(key) {
+		// 	if (item[key] == null || item[key] == 0) {
+		// 	  item[key] = results[key];
+		// 	}
+		//   })
+		
+		// obj['index'] = item
+		obj['pattern1'] = patternArray
 		obj['importError'] = false
 		obj['isVisible'] = false
 		obj['customImportText'] = ''
@@ -297,26 +329,25 @@ const ColorPaletteComponent = props => {
 				...state
 			}
 			
-			obj[obj.patterntype] = customImportText
+			obj.presetPalette.push(customImportText); //Keep copy of imported palette.
 			
 			obj['importError'] = false
 			obj['isVisible'] = false
 			obj['customImportText'] = ''
 
 			
-			obj.presetPalette.push(customImportText); //Keep copy of imported palette.
 
 			setState(obj)	
 			props.control.setting.set( obj );
 		
 
-			var event = new CustomEvent( "colorpaletteglobal", 
-				{ 
-					"detail":{"palette":obj,"radiochange":"true",}
-				} 
-			);
+			// var event = new CustomEvent( "colorpaletteglobal", 
+			// 	{ 
+			// 		"detail":{"palette":obj,"radiochange":"true",}
+			// 	} 
+			// );
 			
-			document.dispatchEvent(event);
+			// document.dispatchEvent(event);
 		}else{
 			setState(prevState => ({
 				...prevState,
@@ -383,11 +414,7 @@ const ColorPaletteComponent = props => {
 		</div>		
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
 		
-		<div className='astra-palette-import-wrap'>
-			<Button className='astra-palette-import'  onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
-				{/* <Dashicon icon="open-folder" /> */}
-				 <Dashicon icon="open-folder" /> Presets
-			</Button>
+		<div className='astra-palette-import-wrap'>			
 			{ state.isVisible && (
                 <Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-import">
                    <TabPanel className="astra-palette-popover-tabs"

@@ -30,12 +30,11 @@
     }
     
     .astra-palette-import {
-        background: #0274be;
+       
         padding: 10px;
         color: white;
         margin-left: 15px;
-        height: 30px;
-        margin-top: 10px;
+     
     }
 
     .astra-global-palette-import {    
@@ -140,8 +139,7 @@
     }
 
     .astra-add-new-color.is-primary {
-        margin: 0 auto;
-        display: block;
+       width: 60%;
     }
     button.components-button.astra-palette-delete:disabled:hover {
         cursor: not-allowed;

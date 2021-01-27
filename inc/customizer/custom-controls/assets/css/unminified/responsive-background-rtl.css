@@ -146,6 +146,10 @@
   left: 95px;
 }
 
+.customize-control-ast-responsive-background .astra-global-palette-popup .components-popover__content {
+  margin-right: -30px;
+}
+
 /**
  * BG Media Button.
  */

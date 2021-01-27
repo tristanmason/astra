@@ -49,19 +49,19 @@ const ColorComponent = props => {
 			var current_index =  props.control.container[0].getAttribute('paletteindex')
 			switch(props.control.params.label) {
 				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index]
+					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
 				break;
 				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index]
+					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
 				break;
 				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index]
+					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
 				break;
 				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index]
+					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
 				break;
 				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index]
+					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
 
 				break;
 				default:

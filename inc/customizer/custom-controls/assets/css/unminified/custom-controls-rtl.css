@@ -272,12 +272,9 @@
 }
 
 #customize-control-astra-settings-global-color-palette .astra-palette-import {
-  background: #0274be;
   padding: 10px;
   color: white;
   margin-right: 15px;
-  height: 30px;
-  margin-top: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-global-palette-import .components-popover__content {
@@ -383,8 +380,7 @@
 }
 
 #customize-control-astra-settings-global-color-palette .astra-add-new-color.is-primary {
-  margin: 0 auto;
-  display: block;
+  width: 60%;
 }
 
 #customize-control-astra-settings-global-color-palette button.components-button.astra-palette-delete:disabled:hover {
@@ -708,6 +704,9 @@
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     left: 59px;
+}
+.ast-field-settings-modal .ast-global-color-btn-wrap {
+    left: 85px;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     left: 78px;
@@ -1150,12 +1149,9 @@ button.components-button.astra-global-color-btn:focus , button.components-button
 }
 
 #customize-control-astra-settings-global-color-palette .astra-palette-import {
-  background: #0274be;
   padding: 10px;
   color: white;
   margin-right: 15px;
-  height: 30px;
-  margin-top: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-global-palette-import .components-popover__content {
@@ -1261,8 +1257,7 @@ button.components-button.astra-global-color-btn:focus , button.components-button
 }
 
 #customize-control-astra-settings-global-color-palette .astra-add-new-color.is-primary {
-  margin: 0 auto;
-  display: block;
+  width: 60%;
 }
 
 #customize-control-astra-settings-global-color-palette button.components-button.astra-palette-delete:disabled:hover {
@@ -1586,6 +1581,9 @@ button.components-button.astra-global-color-btn:focus , button.components-button
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     left: 59px;
+}
+.ast-field-settings-modal .ast-global-color-btn-wrap {
+    left: 85px;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     left: 78px;
@@ -2185,6 +2183,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .ast-global-color-btn-wrap {
   left: 95px;
+}
+
+.customize-control-ast-responsive-background .astra-global-palette-popup .components-popover__content {
+  margin-right: -30px;
 }
 
 /**
@@ -3791,6 +3793,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .ast-global-color-btn-wrap {
   left: 95px;
+}
+
+.customize-control-ast-responsive-background .astra-global-palette-popup .components-popover__content {
+  margin-right: -30px;
 }
 
 /**

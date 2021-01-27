@@ -315,6 +315,9 @@
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     right: 59px;
 }
+.ast-field-settings-modal .ast-global-color-btn-wrap {
+    right: 85px;
+}
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;
 }
