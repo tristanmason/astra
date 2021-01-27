@@ -1429,7 +1429,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $container_min_mobile_css, astra_get_mobile_breakpoint() );
 
 			$global_button_mobile = array(
-				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-archive-description' => array(
+				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .comments-title, .ast-separate-container .ast-archive-description, .ast-separate-container .comment-respond' => array(
 					'padding' => '1.5em 1em',
 				),
 				'.ast-separate-container #content .ast-container' => array(
@@ -1455,9 +1455,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
-				),
-				'.ast-separate-container .comment-respond' => array(
-					'padding' => '1.5em 1em',
 				),
 			);
 
@@ -1491,8 +1488,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
 			 */
 			$global_button_tablet = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(				'.ast-comment-meta'                        => array(
-nt_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
 				),
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
@@ -1520,8 +1517,9 @@ nt_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'
 					'padding' => '1.5em 2.14em',
 				),
 				'.ast-separate-container .comment-respond' => array(
-					'padding' 				'.ast-comment-meta' => array(
-
+					'padding' => '2em 2.14em',
+				),
+				'.ast-comment-meta'                        => array(
 					'padding' => '0 1.8888em 1.3333em',
 				),
 			);
