@@ -514,6 +514,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				
 			);
+
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {
+				$css_output['.single .ast-author-details .author-title'] = array(
+					'color' => esc_attr( $link_hover_color ),
+				);
+			}
 			
 			if ( is_astra_pagination_enabled() ) {
 				$css_output['.ast-pagination']                    = array(
