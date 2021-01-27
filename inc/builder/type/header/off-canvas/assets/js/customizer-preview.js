@@ -95,6 +95,32 @@
         } );
 	} );
 
+	wp.customize( 'astra-settings[popup-width]', function ( value ) {
+        value.bind( function ( newval ) {
+			var dynamicStyle = '';
+			if ( '' !== newval.desktop ) {
+                dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
+                dynamicStyle += 'max-width: ' + newval.desktop + '%;';
+				dynamicStyle += '} ';
+			}
+			if ( '' !== newval.tablet ) {
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
+				dynamicStyle += 'max-width: ' + newval.tablet + '%;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+			}
+			if ( '' !== newval.mobile ) {
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
+				dynamicStyle += 'max-width: ' + newval.mobile + '%;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+			}
+			astra_add_dynamic_css( 'popup-width', dynamicStyle );
+        } );
+	} );
+
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 

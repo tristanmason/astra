@@ -105,6 +105,32 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
+				 * Option: Popup Width.
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[popup-width]',
+					'section'     => $_section,
+					'priority'    => 32,
+					'transport'   => 'postMessage',
+					'default'     => astra_get_option( 'popup-width' ),
+					'title'       => __( 'Popup Width ( % )', 'astra' ),
+					'type'        => 'control',
+					'control'     => 'ast-responsive-slider',
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+							'operator' => '==',
+							'value'    => 'off-canvas',
+						),
+					),
+				),
+				/**
 				 * Option: Toggle on click of button or link.
 				 */
 				array(
@@ -203,7 +229,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Padded Layout Custom Width
+				 * Option: Popup Padding.
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[popup-padding]',
