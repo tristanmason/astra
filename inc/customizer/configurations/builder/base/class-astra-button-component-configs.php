@@ -107,20 +107,21 @@ class Astra_Button_Component_Configs {
 				* Option: Button Link
 				*/
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option]',
-					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-link-option' ),
-					'type'      => 'control',
-					'control'   => 'ast-link',
-					'section'   => $_section,
-					'priority'  => 30,
-					'title'     => __( 'Link', 'astra' ),
-					'transport' => 'postMessage',
-					'partial'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option]',
+					'default'           => astra_get_option( $builder_type . '-' . $_prefix . '-link-option' ),
+					'type'              => 'control',
+					'control'           => 'ast-link',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+					'section'           => $_section,
+					'priority'          => 30,
+					'title'             => __( 'Link', 'astra' ),
+					'transport'         => 'postMessage',
+					'partial'           => array(
 						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
 						'container_inclusive' => false,
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'           => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
