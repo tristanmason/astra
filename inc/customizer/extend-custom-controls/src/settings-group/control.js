@@ -11,7 +11,15 @@ import ResponsiveColorComponent from '../responsive-color/responsive-color-compo
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 
-import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor, astraGetBackground } from '../common/responsive-helper';
+import {
+	astraGetBackground,
+	astraGetColor,
+	astraGetResponsiveBgJs,
+	astraGetResponsiveColorJs,
+	astraGetResponsiveJs,
+	astraGetResponsiveSliderJs,
+	astraGetResponsiveSpacingJs
+} from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -148,16 +156,26 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">';
 			fields_html += '<ul class="ast-group-list">';
-			var counter = 0;
+			var counter = 0,
+				tabs_counter = 0,
+				tab_key = '',
+				li_class = '';
 
 			_.each( fields.tabs, function ( value, key ) {
 
-				var li_class = '';
-				if( 0 == counter ) {
-					li_class = "active";
+				switch(counter) {
+					case 0:
+						li_class = 'active';
+						tab_key = 'normal';
+					  break;
+					case 1:
+						tab_key = 'hover';
+					  break;
+					default:
+						tab_key = 'active';
 				}
 
-				fields_html += '<li class="'+ li_class + '"><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+				fields_html += '<li class="'+ li_class + '"><a href="#tab-' + tab_key + '"><span>' + key +  '</span></a></li>';
 				counter++;
 			});
 
@@ -167,7 +185,19 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			_.each( fields.tabs, function ( fields_data, key ) {
 
-				fields_html += '<div id="tab-'+ key +'" class="tab">';
+				switch(tabs_counter) {
+					case 0:
+						li_class = 'active';
+						tab_key = 'normal';
+					  break;
+					case 1:
+						tab_key = 'hover';
+					  break;
+					default:
+						tab_key = 'active';
+				}
+
+				fields_html += '<div id="tab-'+ tab_key +'" class="tab">';
 
 				var result = control.generateFieldHtml( fields_data, field_values );
 
@@ -182,6 +212,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				});
 
 				fields_html += '</div>';
+				tabs_counter++;
 			});
 
 			fields_html += '</div></div>';
