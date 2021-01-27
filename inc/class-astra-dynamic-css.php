@@ -1429,7 +1429,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $container_min_mobile_css, astra_get_mobile_breakpoint() );
 
 			$global_button_mobile = array(
-				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .comments-title, .ast-separate-container .ast-archive-description, .ast-separate-container .comment-respond' => array(
+				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .comments-title, .ast-separate-container .ast-archive-description' => array(
 					'padding' => '1.5em 1em',
 				),
 				'.ast-separate-container #content .ast-container' => array(
@@ -1455,6 +1455,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+				),
+				'.ast-separate-container .comment-respond' => array(
+					'padding' => '1.5em 1em',
 				),
 			);
 
@@ -2875,12 +2878,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			  .ast-separate-container .comments-title {
 				background-color: #fff;
 				padding: 1.2em 3.99em 0;
-			  }
-
-			  @media (max-width: 1200px) {
-				.ast-separate-container .comments-title {
-				  padding: 1.2em 1.99em;
-				}
 			  }
 
 			  .ast-separate-container .comments-area {
