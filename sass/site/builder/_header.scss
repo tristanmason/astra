@@ -892,6 +892,9 @@ body.admin-bar {
 			width: 100%;
   			padding-right: 5.5em;
 		}
+		&.ast-inline-search label {
+			width: 100%;
+		}
 	}
 	.ast-search-menu-icon .search-submit {
 		display: block;

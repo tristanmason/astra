@@ -3177,6 +3177,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   padding-right: 5.5em;
 }
 
+.ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label {
+  width: 100%;
+}
+
 .ast-mobile-header-content .ast-search-menu-icon .search-submit,
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-submit {
   display: block;
