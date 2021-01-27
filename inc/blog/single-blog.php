@@ -203,7 +203,6 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 									<p class="ast-highlight-text comment-awaiting-moderation"><?php echo esc_html( astra_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
 								<?php endif; ?>
 							</section> <!-- .ast-comment-content -->
-						
 					</article><!-- #comment-## -->
 				<!-- </li> -->
 				<?php
