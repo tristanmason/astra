@@ -48,11 +48,13 @@ const BuilderHeader = (props) => {
 					<a href="#"
 					   className={"nav-tab ahfb-general-tab ahfb-compontent-tabs-button " + (('general' === props.tab) ? "nav-tab-active" : "")}
 					   data-tab="general">
+						<span className="dashicons dashicons-admin-tools"> </span>
 						<span>{__('General', 'astra')}</span>
 					</a>
 					<a href="#"
 					   className={"nav-tab ahfb-design-tab ahfb-compontent-tabs-button " + (('design' === props.tab) ? "nav-tab-active" : "")}
 					   data-tab="design">
+						<span className="dashicons dashicons-admin-appearance"> </span>
 						<span>{__('Design', 'astra')}</span>
 					</a>
 				</div>
