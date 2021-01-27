@@ -1895,32 +1895,28 @@ button.components-button.ahfb-sorter-item-expand {
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.2s;
-	top: 0px;
+	top: 1px;
 	right: 0px;
 	background-color: #e3e3e3;
 	border-radius: 3px 3px 0 0;
+	border: 1px solid #ddd;
 }
 
 .ahfb-slide-up span {
-	width: 22px;
-    height: 12px;
-	font-size: 12px;
-	color: #777777;
-    padding: 7px 2px;
+	width: 11px;
+    height: 11px;
+	font-size: 11px;
+	color: #666666;
+    padding: 7px 5px;
 	line-height: 13px;
 	border-radius: 3px;
 	transition: all 0.2s;
 }
 
-.ahfb-slide-up span.dashicons-trash {
-	color: red;
-}
-
 .ahfb-builder-item:hover .ahfb-slide-up {
 	opacity: 1;
 	visibility: visible;
-	color: #111111;
-    background: #e3e3e3;
+	background: #ffffff;
 }
 
 .ahfb-builder-item.sortable-chosen .ahfb-slide-up {
@@ -1929,7 +1925,11 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 .ahfb-slide-up span.dashicons:hover {
-    color: #0274be;
+	color: #0274be;
+}
+
+.ahfb-slide-up span.dashicons-trash:hover {
+	color: red;
 }
 
 /* Social Icons Control CSS */
