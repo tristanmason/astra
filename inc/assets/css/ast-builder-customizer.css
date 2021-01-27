@@ -1904,11 +1904,16 @@ button.components-button.ahfb-sorter-item-expand {
 .ahfb-slide-up span {
 	width: 22px;
     height: 12px;
-    font-size: 12px;
+	font-size: 12px;
+	color: #777777;
     padding: 7px 2px;
 	line-height: 13px;
 	border-radius: 3px;
 	transition: all 0.2s;
+}
+
+.ahfb-slide-up span.dashicons-trash {
+	color: red;
 }
 
 .ahfb-builder-item:hover .ahfb-slide-up {
@@ -1923,9 +1928,8 @@ button.components-button.ahfb-sorter-item-expand {
     visibility: hidden;
 }
 
-.ahfb-slide-up span:hover {
-    background: #007cba;
-    color: #ffffff;
+.ahfb-slide-up span.dashicons:hover {
+    color: #0274be;
 }
 
 /* Social Icons Control CSS */
