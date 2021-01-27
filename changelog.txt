@@ -1,6 +1,5 @@
 v3.0.2
 - Fix: Builder - Primary Menu - Line height not being applied in frontend.
-
 v3.1.0
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
