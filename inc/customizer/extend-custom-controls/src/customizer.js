@@ -713,6 +713,12 @@
 					return;
 				}
 
+				let section = api.section( e.detail.section_id );
+				if (section && section.expanded) {
+					section.collapse();
+				}
+
+
 				sessionStorage.setItem('astra-builder-reset-in-progress', true)
 				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
 
