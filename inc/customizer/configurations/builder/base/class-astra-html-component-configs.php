@@ -185,23 +185,24 @@ class Astra_Html_Component_Configs {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

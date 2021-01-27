@@ -61,7 +61,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			if ( class_exists( 'LifterLMS' ) ) {
 				$account_choices['lifterlms'] = __( 'LifterLMS', 'astra' );
 			}
-	
+
 			if ( class_exists( 'WooCommerce' ) ) {
 				$account_choices['woocommerce'] = __( 'WooCommerce', 'astra' );
 			}
@@ -98,7 +98,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'operator' => '==',
 				'value'    => 'link',
 			);
-		
+
 		}
 
 		$_configs = array(
@@ -161,10 +161,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
 			),
-			
-			/** 
-			* Option: Logged Out Text   
-			*/  
+
+			/**
+			* Option: Logged Out Text
+			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-in-text]',
 				'default'   => astra_get_option( 'header-account-logged-in-text' ),
@@ -172,36 +172,37 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'text',
 				'section'   => $_section,
 				'title'     => __( 'Text', 'astra' ),
-				'priority'  => 3, 
+				'priority'  => 3,
 				'transport' => 'postMessage',
-				'context'   => array(   
-					array(  
+				'context'   => array(
+					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 						'operator' => '==',
-						'value'    => 'text',   
+						'value'    => 'text',
 					),
-					Astra_Builder_Helper::$general_tab_config,  
+					Astra_Builder_Helper::$general_tab_config,
 				),
-				'partial'   => array(   
-					'selector'        => '.ast-header-account', 
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),  
-				),  
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
 			),
 
 			/**
 			* Option: Account Log In Link
 			*/
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-login-link]',
-				'default'   => astra_get_option( 'header-account-login-link' ),
-				'type'      => 'control',
-				'control'   => 'ast-link',
-				'section'   => $_section,
-				'title'     => __( 'Account URL', 'astra' ),
-				'priority'  => 6,
-				'transport' => 'postMessage',
-				'context'   => $login_link_context,
-				'partial'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-login-link]',
+				'default'           => astra_get_option( 'header-account-login-link' ),
+				'type'              => 'control',
+				'control'           => 'ast-link',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+				'section'           => $_section,
+				'title'             => __( 'Account URL', 'astra' ),
+				'priority'          => 6,
+				'transport'         => 'postMessage',
+				'context'           => $login_link_context,
+				'partial'           => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
@@ -266,10 +267,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
 			),
-			
-			/** 
-			* Option: Logged Out Text   
-			*/  
+
+			/**
+			* Option: Logged Out Text
+			*/
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text]',
 				'default'   => astra_get_option( 'header-account-logged-out-text' ),
@@ -277,35 +278,36 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'text',
 				'section'   => $_section,
 				'title'     => __( 'Text', 'astra' ),
-				'priority'  => 203, 
+				'priority'  => 203,
 				'transport' => 'postMessage',
-				'context'   => array(   
-					array(  
+				'context'   => array(
+					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '==',
-						'value'    => 'text',   
+						'value'    => 'text',
 					),
-					Astra_Builder_Helper::$general_tab_config,  
+					Astra_Builder_Helper::$general_tab_config,
 				),
-				'partial'   => array(   
-					'selector'        => '.ast-header-account', 
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),  
-				),  
+				'partial'   => array(
+					'selector'        => '.ast-header-account',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
+				),
 			),
 
 			/**
 			* Option: Account Log Out Link
 			*/
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-link]',
-				'default'   => astra_get_option( 'header-account-logout-link' ),
-				'type'      => 'control',
-				'control'   => 'ast-link',
-				'section'   => $_section,
-				'title'     => __( 'Login URL', 'astra' ),
-				'priority'  => 205,
-				'transport' => 'postMessage',
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-logout-link]',
+				'default'           => astra_get_option( 'header-account-logout-link' ),
+				'type'              => 'control',
+				'control'           => 'ast-link',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+				'section'           => $_section,
+				'title'             => __( 'Login URL', 'astra' ),
+				'priority'          => 205,
+				'transport'         => 'postMessage',
+				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '!=',
@@ -341,20 +343,21 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Image Width
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-account-image-width]',
-				'section'     => $_section,
-				'priority'    => 2,
-				'transport'   => 'postMessage',
-				'default'     => astra_get_option( 'header-account-image-width' ),
-				'title'       => __( 'Image Width', 'astra' ),
-				'type'        => 'control',
-				'control'     => 'ast-responsive-slider',
-				'input_attrs' => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-image-width]',
+				'section'           => $_section,
+				'priority'          => 2,
+				'transport'         => 'postMessage',
+				'default'           => astra_get_option( 'header-account-image-width' ),
+				'title'             => __( 'Image Width', 'astra' ),
+				'type'              => 'control',
+				'control'           => 'ast-responsive-slider',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'input_attrs'       => array(
 					'min'  => 0,
 					'step' => 1,
 					'max'  => 100,
 				),
-				'context'     => array(
+				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 						'operator' => '==',
@@ -397,20 +400,21 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: account Size
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-account-icon-size]',
-				'section'     => $_section,
-				'priority'    => 4,
-				'transport'   => 'postMessage',
-				'default'     => $defaults['header-account-icon-size'],
-				'title'       => __( 'Icon Size', 'astra' ),
-				'type'        => 'control',
-				'control'     => 'ast-responsive-slider',
-				'input_attrs' => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-icon-size]',
+				'section'           => $_section,
+				'priority'          => 4,
+				'transport'         => 'postMessage',
+				'default'           => $defaults['header-account-icon-size'],
+				'title'             => __( 'Icon Size', 'astra' ),
+				'type'              => 'control',
+				'control'           => 'ast-responsive-slider',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'input_attrs'       => array(
 					'min'  => 0,
 					'step' => 1,
 					'max'  => 50,
 				),
-				'context'     => array(
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -432,15 +436,16 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: account Color.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-icon-color]',
-				'default'   => $defaults['header-account-icon-color'],
-				'type'      => 'control',
-				'section'   => $_section,
-				'priority'  => 5,
-				'transport' => 'postMessage',
-				'control'   => 'ast-color',
-				'title'     => __( 'Icon Color', 'astra' ),
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-icon-color]',
+				'default'           => $defaults['header-account-icon-color'],
+				'type'              => 'control',
+				'section'           => $_section,
+				'priority'          => 5,
+				'transport'         => 'postMessage',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'title'             => __( 'Icon Color', 'astra' ),
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -491,15 +496,16 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			* Option: account Color.
 			*/
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-type-text-color]',
-				'default'   => $defaults['header-account-type-text-color'],
-				'type'      => 'control',
-				'section'   => $_section,
-				'priority'  => 16,
-				'transport' => 'postMessage',
-				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra' ),
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-type-text-color]',
+				'default'           => $defaults['header-account-type-text-color'],
+				'type'              => 'control',
+				'section'           => $_section,
+				'priority'          => 16,
+				'transport'         => 'postMessage',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'title'             => __( 'Color', 'astra' ),
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -535,23 +541,24 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Margin Space
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[header-account-margin]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $_section,
-				'priority'       => 520,
-				'title'          => __( 'Margin', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-account-margin]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $_section,
+				'priority'          => 520,
+				'title'             => __( 'Margin', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
 
@@ -574,8 +581,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'value'    => 'text',
 						),
 					),
-				) 
-			) 
+				)
+			)
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );

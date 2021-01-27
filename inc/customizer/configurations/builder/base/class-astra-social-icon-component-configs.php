@@ -120,20 +120,21 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Social Icon Spacing
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-space]',
-					'section'     => $_section,
-					'priority'    => 2,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-space' ),
-					'title'       => __( 'Icon Spacing', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-space]',
+					'section'           => $_section,
+					'priority'          => 2,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-space' ),
+					'title'             => __( 'Icon Spacing', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 50,
 					),
-					'context'     => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -160,20 +161,21 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Social Icon Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-size]',
-					'section'     => $_section,
-					'priority'    => 1,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
-					'title'       => __( 'Icon Size', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-size]',
+					'section'           => $_section,
+					'priority'          => 1,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
+					'title'             => __( 'Icon Size', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 50,
 					),
-					'context'     => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -377,23 +379,24 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
