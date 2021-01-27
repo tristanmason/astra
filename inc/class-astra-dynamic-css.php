@@ -1519,6 +1519,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container .comment-respond' => array(
 					'padding' => '2em 2.14em',
 				),
+				'.ast-comment-meta'                        => array(
+					'padding' => '0 1.8888em 1.3333em',
+				),
 			);
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
@@ -2813,7 +2816,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			  .ast-comment {
 				padding: 1em 0;
 			  }
-			  .ast-comment-avatar-wrap img {
+			  .ast-comment-info img {
 				border-radius: 50%;
 			  }
 			  .ast-comment-cite-wrap cite {
@@ -2969,14 +2972,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					margin-right: 1em;
 				}
 					
-				.ast-comment-avatar-wrap {
-					float: right;
-					clear: left;
-					margin-left: 1.33333em;
-				}
+				
 				.ast-comment-meta {
 					justify-content: left;
-					padding: 0 0 1.33333em;
+					padding: 0 0 1.1222em;
 				}
 				.ast-comment-time .timendate,
 					.ast-comment-time .reply {
@@ -3017,17 +3016,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					margin-left: 1em;
 				}
 					
-				.ast-comment-avatar-wrap {
-					float: left;
-					clear: right;
-					margin-right: 1.33333em;
+				.ast-comment-info {
+					display: flex;
+    				position: relative;
 				}
 				.ast-comment-meta {
 					justify-content: right;
-					padding: 0 0 1.33333em;
+					padding: 0 3.4em 1.333em;
 				}
-				.ast-comment-time .timendate,
-					.ast-comment-time .reply {
+				.ast-comment-time .timendate{
 					margin-right: 0.5em;
 				}
 				.comments-area #wp-comment-cookies-consent {
