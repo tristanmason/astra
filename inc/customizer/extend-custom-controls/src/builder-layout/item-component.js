@@ -70,6 +70,13 @@ const ItemComponent = props => {
 		{
 			astra.customizer.is_pro &&
 			<div className="ahfb-slide-up">
+				<span title="Setting"
+					onClick={e => {
+						e.stopPropagation();
+						props.focusItem(undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : '');
+					}}
+					className=" tooltip dashicons dashicons-admin-generic">
+				</span>
 				{ choices[props.item]['clone'] && <span title="Clone"
 					  onClick={e => {
 						  e.stopPropagation();
