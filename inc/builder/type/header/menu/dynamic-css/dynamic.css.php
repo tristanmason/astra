@@ -120,12 +120,14 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$css_output_desktop = array(
 
 			// Menu.
-			$selector . ' .menu-item > .menu-link'       => array(
+			$selector                                    => array(
 				'font-family'    => astra_get_font_family( $menu_font_family ),
 				'font-weight'    => esc_attr( $menu_font_weight ),
 				'font-size'      => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
-				'line-height'    => esc_attr( $menu_line_height ),
 				'text-transform' => esc_attr( $menu_text_transform ),
+			),
+			$selector . ' .menu-item > .menu-link'       => array(
+				'line-height'    => esc_attr( $menu_line_height ),
 				'color'          => $menu_resp_color_desktop,
 				'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
