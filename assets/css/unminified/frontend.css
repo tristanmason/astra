@@ -1547,70 +1547,87 @@ body {
   margin-bottom: 0;
 }
 
-.ast-page-builder-template .ent  display: inline-flex;
+.ast-page-builder-template .entry-header.ast-no-title.ast-no-meta {
+  margin-bottom: 0;
 }
 
-.main-navigation ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-  position: relative;
+.ast-page-builder-template.single .post-navigation {
+  padding-bottom: 2em;
 }
 
-.main-header-menu .menu-link,
-.main-header-menu > a {
-  text-decoration: none;
-  padding: 0 1em;
-  display: inline-block;
-  transition: all 0.2s linear;
+.ast-page-builder-template .ast-archive-description {
+  margin-top: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.main-header-menu .menu-item {
-  position: relative;
-}
-
-.main-header-menu .menu-item:hover > .sub-menu,
-.main-header-menu .menu-item.focus > .sub-menu {
-  right: auto;
-  left: 0;
-}
-
-.main-header-menu .ast-left-align-sub-menu:hover > .sub-menu,
-.main-header-menu .ast-left-align-sub-menu.focus > .sub-menu {
-  right: 0;
-  left: auto;
-}
-
-@media (min-width: 769px) {
-  .main-header-menu .ast-sub-menu-goes-outside:hover > .sub-menu,
-  .main-header-menu .ast-sub-menu-goes-outside.focus > .sub-menu {
-    left: -100%;
+@media (min-width: 993px) {
+  .ast-separate-container.ast-right-sidebar #primary,
+  .ast-separate-container.ast-left-sidebar #primary,
+  .ast-separate-container #primary {
+    margin: 4em 0;
+    padding: 0;
   }
-  .main-header-menu .ast-left-align-sub-menu .sub-menu .menu-item:hover > .sub-menu,
-  .main-header-menu .ast-left-align-sub-menu .sub-menu .menu-item.focus > .sub-menu {
-    left: -100%;
+  .ast-right-sidebar #primary {
+    padding-right: 60px;
+  }
+  .ast-left-sidebar #primary {
+    padding-left: 60px;
   }
 }
 
-.main-header-menu .sub-menu {
-  width: 240px;
-  background: #ffffff;
-  left: -999em;
-  position: absolute;
-  top: 100%;
-  z-index: 99999;
+@media (max-width: 992px) {
+  .ast-separate-container.ast-right-sidebar #primary,
+  .ast-separate-container.ast-left-sidebar #primary,
+  .ast-separate-container #primary {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ast-right-sidebar #primary {
+    padding-right: 30px;
+  }
+  .ast-left-sidebar #primary {
+    padding-left: 30px;
+  }
 }
 
-@media (min-width: 769px) {
-  .main-header-menu .sub-menu .menu-item:hover > .sub-menu,
-  .main-header-menu .sub-menu .menu-item.focus > .sub-menu {
-    left: 100%;
-    right: auto;
-  }
-  .main-header-menu .sub-menu .ast-left-align-sub-menu:hover > .sub-menu,
-  .main-header-menu .sub-menu .ast-left-align-sub-menu.focus > .sub-menu,
-  .main-header-menu .sub-menu .ast-left-align-sub-menu:hover * .sub-menu,
-  .ma  -js-display: inline-flex;
+/*----------  Navigation  ----------*/
+/**
+ * 	Navigations
+ *
+ * @import
+ * 1 - Primary Menus
+ * 2 - Secondary Menus
+ * 3 - Header Top Menus
+ *
+ * Contents
+ * 1 - Toggle Button
+ *
+*/
+/**
+ * @import
+ */
+/* 1 - Primary Menus */
+.astra-search-icon::before {
+  content: "\e8b6";
+  font-family: 'Astra';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ast-search-icon .astra-search-icon {
+  font-size: 1.3em;
+}
+
+.main-navigation {
+  height: 100%;
+  -js-display: inline-flex;
   display: inline-flex;
 }
 
@@ -2363,6 +2380,7 @@ body .entry-content .wp-block-latest-posts li {
   grid-template-columns: auto auto;
   align-items: center;
   grid-column-gap: 20px;
+  overflow-wrap: anywhere;
 }
 
 .ast-builder-footer-grid-columns {
@@ -2492,10 +2510,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .site-header-section > div:last-child {
   padding-right: 0;
-}
-
-.site-header-section.ast-flex {
-  flex-wrap: nowrap;
 }
 
 .site-header-section .ast-builder-menu {
@@ -4500,146 +4514,6 @@ input[type="color"]::-webkit-color-swatch {
  *  .ast-order-5
  *  .ast-flex-grow-1
  *  .ast-flex-grow-2
- *  .ast-flex-grow-3
- *  .ast-flex-grow-4
- *  .ast-flex-grow-5
- *  .ast-flex-shrink-grow-1
- *  .ast-flex-shrink-grow-2
- *  .ast-flex-shrink-grow-3
- *  .ast-flex-shrink-grow-4
- *  .ast-flex-shrink-grow-5
- *  .ast-flex-basis-grow-1
- *  .ast-flex-basis-grow-2
- *  .ast-flex-basis-grow-3
- *  .ast-flex-basis-grow-4
- *  .ast-flex-basis-grow-5
- *  .ast-align-self-auto
- *  .ast-align-self-flex-start
- *  .ast-align-self-flex-end
- *  .ast-align-self-center
- *  .ast-align-self-baseline
- *  .ast-align-self-stretch
- */
-.ast {
-  /*
-    # LAYOUT
-    ———————————————-
-    display: flex | inline-flex;
-    ———————————————-
-     */
-  /*
-    ————————————————————————–
-    # CONTAINER (for PARENT)
-    ————————————————————————–
-
-    # FLOW
-    ————————————————————————–
-    flex-flow: <‘flex-direction’> || <‘flex-wrap’>
-    ————————————————————————–
-
-    # DIRECTION
-    ————————————————————————–
-    flex-direction: row | row-reverse | column | column-reverse;
-    ————————————————————————–
-     */
-  /*
-    # WRAP
-    ————————————————————————–
-    flex-wrap: nowrap | wrap | wrap-reverse;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # JUSTIFY CONTENT
-    ————————————————————————–
-    justify-content: flex-start | flex-end | center | space-between | space-around;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ALIGN – ITEMS
-    ————————————————————————–
-    align-items: flex-start | flex-end | center | baseline | stretch;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ALIGN – CONTENT
-    ————————————————————————–
-    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ITEMS (for CHILDs)
-    ————————————————————————–
-
-    # FLEX
-    ————————————————————————–
-    flex: none | [ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]
-    ————————————————————————–
-    ————————————————————————–
-
-    # ORDER
-    ————————————————————————–
-    order: <integer>;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # GROW
-    ————————————————————————–
-    flex-grow: <number>; default 0
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # SHRINK
-    ————————————————————————–
-    flex-shrink: <number>; default 1
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ALIGN SELF
-    ————————————————————————–
-    align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-     */
-}
-
-.ast-flex {
-  -js-display: flex;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.ast-flex-1 {
-  flex: 1;
-}
-
-.ast-flex-2 {
-  flex: 2;
-}
-
-.ast-flex-3 {
-  flex: 3;
-}
-
-.ast-flex-4 {
-  flex: 4;
-}
-
-.ast-flex-5 {
-  flex: 5;
-}
-
-.ast-inline-flex {
-  -js-display: inline-flex;
--flex-grow-2
  *  .ast-flex-grow-3
  *  .ast-flex-grow-4
  *  .ast-flex-grow-5
