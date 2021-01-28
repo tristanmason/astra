@@ -144,7 +144,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item:hover > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_hover_desktop,
 			),
-			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' . $selector . ' .current-menu-ancestor > .menu-link' => array(
 				'color'      => $menu_resp_color_active_desktop,
 				'background' => $menu_resp_bg_color_active_desktop,
 			),
@@ -210,7 +210,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item:hover > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_hover_tablet,
 			),
-			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' . $selector . ' .current-menu-ancestor > .menu-link, ' . $selector . ' .current-menu-ancestor > .ast-menu-toggle' => array(
 				'color'      => $menu_resp_color_active_tablet,
 				'background' => $menu_resp_bg_color_active_tablet,
 			),
@@ -257,7 +257,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item:hover  > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_hover_mobile,
 			),
-			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' . $selector . ' .current-menu-ancestor > .menu-link, ' . $selector . ' .current-menu-ancestor > .ast-menu-toggle' => array(
 				'color'      => $menu_resp_color_active_mobile,
 				'background' => $menu_resp_bg_color_active_mobile,
 			),
