@@ -864,6 +864,8 @@ body.admin-bar {
 		width: 100%;
 		margin-bottom: 1em;
 		margin-top: 1em;
+		padding-left: 20px;
+		padding-right: 20px;
 		position: relative;
 		display: block;
 		right: auto;
@@ -889,6 +891,9 @@ body.admin-bar {
 		.search-field {
 			width: 100%;
   			padding-right: 5.5em;
+		}
+		&.ast-inline-search label {
+			width: 100%;
 		}
 	}
 	.ast-search-menu-icon .search-submit {

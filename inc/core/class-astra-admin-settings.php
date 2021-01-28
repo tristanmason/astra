@@ -945,7 +945,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/nav-menu-addon/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More &#187;', 'astra' ),
 								'target_blank' => true,
 							),
@@ -1054,7 +1054,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/easy-digital-downloads-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More &#187;', 'astra' ),
 								'target_blank' => true,
 							),
