@@ -2871,11 +2871,11 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 }
 
 /** 
-* We have removed some unused/Old dynamic CSS so to make compatible this change with existing user/ Do not apply for change exising users.
-*
-* @since 3.1.0
-* @return void.
-*/
+ * We have removed some unused/Old dynamic CSS so to make compatible this change with existing user/ Do not apply for change exising users.
+ *
+ * @since 3.1.0
+ * @return void.
+ */
 function astra_check_backward_dynamic_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
