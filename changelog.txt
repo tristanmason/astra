@@ -3,6 +3,8 @@ v3.0.2
 - Improvement: Builder - Menu - Added divider size option in all Header Menus.
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
+- Improvement: Builder - Social Icons - Added ability to select icon from an Icon Picker for individual social elements
+- Improvement: Builder - Social Icons - Added a color option for labels of social icons.
 - Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Builder - Primary Menu - Line height not being applied in frontend.
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
