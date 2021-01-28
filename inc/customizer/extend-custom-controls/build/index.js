@@ -9881,7 +9881,7 @@ var Background = function Background(props) {
     props.control.container[0].setAttribute('defaultset', defaultset);
   };
 
-  var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
+  var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
   var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, colorvalue) {
     updatePaletteuse(value, index, defaultset);
@@ -9932,11 +9932,11 @@ var Background = function Background(props) {
     })), props_value.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Popover"], {
       position: "bottom center",
       onClose: toggleClose,
-      className: "astra-global-palette-popup"
+      className: "ast-global-palette-popup"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-      className: "astra-global-color-palette-manage-label"
+      className: "ast-global-color-palette-manage-label"
     }, "Global Colors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
-      className: "astra-global-color-palette-manage",
+      className: "ast-global-color-palette-manage",
       onClick: function onClick() {
         return props.customizer.control('astra-settings[global-color-palette]').focus();
       },
@@ -9948,25 +9948,25 @@ var Background = function Background(props) {
         height: 12,
         fontSize: 12
       }
-    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalpalette.pattern1).map(function (item, index) {
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalPalette.pattern1).map(function (item, index) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
-        className: "astra-global-color-btn",
+        className: "ast-global-color-individual-btn",
         onClick: function onClick() {
-          return handleGlobalColorPopupBtn(true, index, 'no', globalpalette.pattern1[item][0]);
+          return handleGlobalColorPopupBtn(true, index, 'no', globalPalette.pattern1[item][0]);
         },
         tabIndex: 0,
         key: index,
-        title: globalpalette.pattern1[item][1]
+        title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: props_value['background-color'] == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker',
+        className: props_value['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
-          background: globalpalette.pattern1[item][0]
+          background: globalPalette.pattern1[item][0]
         }
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-title"
-      }, globalpalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-hexcode"
-      }, globalpalette.pattern1[item][0]));
+        className: "ast-global-color-title"
+      }, globalPalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+        className: "ast-global-color-hexcode"
+      }, globalPalette.pattern1[item][0]));
     }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "ast-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
@@ -11267,7 +11267,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-
 var __ = wp.i18n.__;
 
 var ColorPaletteComponent = function ColorPaletteComponent(props) {
@@ -11377,7 +11376,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     props.control.setting.set(obj);
   };
 
-  var patternhtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  var patternhtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-palette1-wrap"
   }, Object.keys(state.pattern1).map(function (item, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -11392,7 +11391,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       title: index <= 4 ? "This color can't be deleted" : ''
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-      className: "astra-palette-delete",
+      className: "ast-palette-delete",
       disabled: index <= 4 ? true : false,
       onClick: function onClick() {
         deleteCustomPalette(index, item);
@@ -11410,15 +11409,15 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       disablePalette: true
     }));
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-    className: "astra-add-new-color",
+    className: "ast-add-new-color",
     isPrimary: true,
     onClick: function onClick() {
       return addNewColorToPalette();
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Dashicon"], {
     icon: "plus"
-  }), " Add New Color"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-    className: "astra-palette-import",
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, " Add New Color")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
+    className: "ast-palette-import",
     isPrimary: true,
     onClick: function onClick() {
       state.isVisible ? toggleClose() : toggleVisible();
@@ -11430,7 +11429,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   var renderOperationButtons = function renderOperationButtons() {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "customize-control-title"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "ast-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
       className: "ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
@@ -11593,16 +11592,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     props.control.setting.set(obj);
   };
 
-  var addToPalettePopup = function addToPalettePopup() {
-    var obj = _objectSpread({}, state);
-
-    obj.presetPalette.push(obj[obj.patterntype]); //Keep copy of imported palette.
-
-    setState(obj);
-    props.control.setting.set(obj);
-  };
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
     className: "customizer-text"
   }, labelHtml), renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-palette-wrapper"
@@ -11611,34 +11601,34 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     "data-palette": JSON.stringify(state[state.patterntype]),
     id: "ast-color-palette-hidden"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "astra-palette-import-wrap"
+    className: "ast-palette-import-wrap"
   }, state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Popover"], {
     position: "bottom center",
     onClose: toggleClose,
-    className: "astra-global-palette-import"
+    className: "ast-global-palette-import"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["TabPanel"], {
-    className: "astra-palette-popover-tabs",
+    className: "ast-palette-popover-tabs",
     activeClass: "active-tab",
     initialTabName: 'import',
     tabs: [{
       name: 'import',
       title: __('Select a palette', 'astra'),
-      className: 'astra-color-presets palette-popupbutton'
+      className: 'ast-color-presets palette-popupbutton'
     }, {
       name: 'custom',
       title: __('Import', 'astra'),
-      className: 'astra-import palette-popupbutton'
+      className: 'ast-import palette-popupbutton'
     }]
   }, function (tab) {
     var tabout;
 
     if (tab.name) {
       if ('import' === tab.name) {
-        tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object.keys(state.presetPalette).map(function (item, index) {
+        tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object.keys(state.presetPalette).map(function (item, index) {
           return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
             key: index
           }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-            className: "astra-palette-item",
+            className: "ast-palette-item",
             onClick: function onClick() {
               return handlePresetPalette(item);
             },
@@ -11654,9 +11644,9 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
                 transform: 'scale(1)',
                 transition: '100ms transform ease'
               },
-              className: "astra-palette-individual-item-wrap"
+              className: "ast-palette-individual-item-wrap"
             }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-              className: "astra-palette-individual-item",
+              className: "ast-palette-individual-item",
               style: {
                 color: "".concat(state.presetPalette[item][color])
               }
@@ -11669,13 +11659,13 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
             onFinishCopy: function onFinishCopy() {
               return exportCopiedComplete(item);
             },
-            className: "astra-palette-export"
+            className: "ast-palette-export"
           }, state.exportCopied === item ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Dashicon"], {
             icon: "yes"
           }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Dashicon"], {
             icon: "admin-page"
           })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-            className: "astra-palette-delete",
+            className: "ast-palette-delete",
             onClick: function onClick() {
               deletePalette(index, item);
             },
@@ -11685,7 +11675,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
           })));
         }));
       } else {
-        tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h4", null, "Required Format"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+        tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h4", null, "Required Format"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
           className: "palette-format"
         }, "[\"#733492\",\"#AC238C\",\"#24B460\",\"#C0C2BA\",\"#CBCB38\"]")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["TextareaControl"], {
           label: "Import color set from text data.",
@@ -11699,7 +11689,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
             color: 'red'
           }
         }, __('Error with Import data', 'astra')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-          className: "astra-import-button",
+          className: "ast-import-button",
           isPrimary: true,
           disabled: state.customImportText ? false : true,
           onClick: function onClick() {
@@ -11888,7 +11878,7 @@ var ColorComponent = function ColorComponent(props) {
     });
   };
 
-  var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
+  var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
   var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, color) {
     updatepaletteuse(value, index, defaultset);
@@ -11920,11 +11910,11 @@ var ColorComponent = function ColorComponent(props) {
     })), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Popover"], {
       position: "bottom center",
       onClose: toggleClose,
-      className: "astra-global-palette-popup"
+      className: "ast-global-palette-popup"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-      className: "astra-global-color-palette-manage-label"
+      className: "ast-global-color-palette-manage-label"
     }, "Global Colors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-      className: "astra-global-color-palette-manage",
+      className: "ast-global-color-palette-manage",
       onClick: function onClick() {
         return props.customizer.control('astra-settings[global-color-palette]').focus();
       },
@@ -11936,25 +11926,25 @@ var ColorComponent = function ColorComponent(props) {
         height: 12,
         fontSize: 12
       }
-    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalpalette.pattern1).map(function (item, index) {
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalPalette.pattern1).map(function (item, index) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-        className: "astra-global-color-btn",
+        className: "ast-global-color-individual-btn",
         onClick: function onClick() {
-          return handleGlobalColorPopupBtn(true, index, 'no', globalpalette.pattern1[item][0]);
+          return handleGlobalColorPopupBtn(true, index, 'no', globalPalette.pattern1[item][0]);
         },
         tabIndex: 0,
         key: index,
-        title: globalpalette.pattern1[item][1]
+        title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: state.value == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker',
+        className: state.value == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
-          background: globalpalette.pattern1[item][0]
+          background: globalPalette.pattern1[item][0]
         }
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-title"
-      }, globalpalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-hexcode"
-      }, globalpalette.pattern1[item][0]));
+        className: "ast-global-color-title"
+      }, globalPalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+        className: "ast-global-color-hexcode"
+      }, globalPalette.pattern1[item][0]));
     }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "ast-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
@@ -15455,7 +15445,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     }
   };
 
-  var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
+  var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
   var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, color, key) {
     var obj = _objectSpread({}, state.value);
@@ -15497,11 +15487,11 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     })), state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Popover"], {
       position: "bottom center",
       onClose: toggleClose,
-      className: "astra-global-palette-popup"
+      className: "ast-global-palette-popup"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-      className: "astra-global-color-palette-manage-label"
+      className: "ast-global-color-palette-manage-label"
     }, "Global Colors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-      className: "astra-global-color-palette-manage",
+      className: "ast-global-color-palette-manage",
       onClick: function onClick() {
         return props.customizer.control('astra-settings[global-color-palette]').focus();
       },
@@ -15513,25 +15503,25 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
         height: 12,
         fontSize: 12
       }
-    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalpalette.pattern1).map(function (item, index) {
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalPalette.pattern1).map(function (item, index) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-        className: "astra-global-color-btn",
+        className: "ast-global-color-individual-btn",
         onClick: function onClick() {
-          return handleGlobalColorPopupBtn(true, index, 'no', globalpalette.pattern1[item][0], 'desktop');
+          return handleGlobalColorPopupBtn(true, index, 'no', globalPalette.pattern1[item][0], 'desktop');
         },
         tabIndex: 0,
         key: index,
-        title: globalpalette.pattern1[item][1]
+        title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: state.value['desktop']['background-color'] == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker',
+        className: state.value['desktop']['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
-          background: globalpalette.pattern1[item][0]
+          background: globalPalette.pattern1[item][0]
         }
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-title"
-      }, globalpalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-hexcode"
-      }, globalpalette.pattern1[item][0]));
+        className: "ast-global-color-title"
+      }, globalPalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+        className: "ast-global-color-hexcode"
+      }, globalPalette.pattern1[item][0]));
     })));
   };
 
@@ -15926,7 +15916,7 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
   };
 
   document.addEventListener('colorpaletteglobal', updatePaletteState, false);
-  var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
+  var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
   var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, color, key) {
     updatepaletteuse(value, index, defaultset);
@@ -15964,11 +15954,11 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
     })), props_value.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Popover"], {
       position: "bottom center",
       onClose: toggleClose,
-      className: "astra-global-palette-popup"
+      className: "ast-global-palette-popup"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-      className: "astra-global-color-palette-manage-label"
+      className: "ast-global-color-palette-manage-label"
     }, "Global Colors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
-      className: "astra-global-color-palette-manage",
+      className: "ast-global-color-palette-manage",
       onClick: function onClick() {
         return props.customizer.control('astra-settings[global-color-palette]').focus();
       },
@@ -15980,25 +15970,25 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
         height: 12,
         fontSize: 12
       }
-    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalpalette.pattern1).map(function (item, index) {
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("hr", null), Object.keys(globalPalette.pattern1).map(function (item, index) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
-        className: "astra-global-color-btn",
+        className: "ast-global-color-individual-btn",
         onClick: function onClick() {
-          return handleGlobalColorPopupBtn(true, index, 'no', globalpalette.pattern1[item][0], 'desktop');
+          return handleGlobalColorPopupBtn(true, index, 'no', globalPalette.pattern1[item][0], 'desktop');
         },
         tabIndex: 0,
         key: index,
-        title: globalpalette.pattern1[item][1]
+        title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: value['desktop'] == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker',
+        className: value['desktop'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
-          background: globalpalette.pattern1[item][0]
+          background: globalPalette.pattern1[item][0]
         }
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-title"
-      }, globalpalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: "astra-global-color-hexcode"
-      }, globalpalette.pattern1[item][0]));
+        className: "ast-global-color-title"
+      }, globalPalette.pattern1[item][1]), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+        className: "ast-global-color-hexcode"
+      }, globalPalette.pattern1[item][0]));
     })));
   };
 

@@ -1,4 +1,4 @@
-import PropTypes, { array } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
@@ -7,7 +7,7 @@ import testJSON from '../common/astra-common-function';
 import {useState} from 'react';
 
 import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
-import { Fragment } from 'react';
+
 
 const { __ } = wp.i18n;
 
@@ -29,8 +29,6 @@ const ColorPaletteComponent = props => {
 	let labelHtml = null;
 	let descriptionHtml = null;
 
-	
-
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
@@ -41,7 +39,6 @@ const ColorPaletteComponent = props => {
 
 	const handleChangeComplete = ( color,patterntype,index ) => {
 		let value;
-		
 		
 		if (typeof color === 'string' || color instanceof String) {
 			value = color;
@@ -72,7 +69,6 @@ const ColorPaletteComponent = props => {
 		palette_index[0] = value
 		palette[index] = palette_index
 		obj[patterntype] = palette
-
 		
 		var newcolor = obj[obj.patterntype][index][0]
 		
@@ -158,7 +154,7 @@ const ColorPaletteComponent = props => {
 								value={ state.pattern1[index][1] }
 								onChange={ ( value ) => editLabel(value,index) }
 							/>
-							<span title={(index <= 4) ? "This color can't be deleted" :'' } ><Button className='astra-palette-delete' 							
+							<span title={(index <= 4) ? "This color can't be deleted" :'' } ><Button className='ast-palette-delete' 							
 							disabled ={(index <= 4) ? true :false }
 							onClick={ () => { deleteCustomPalette(index,item) } } >
 								<Dashicon icon="trash" />
@@ -174,13 +170,12 @@ const ColorPaletteComponent = props => {
 						</div>
 					)
 				}) }
-				<Button className='astra-add-new-color'  isPrimary onClick={ () => addNewColorToPalette() }>
-					<Dashicon icon="plus" /> Add New Color
+				<Button className='ast-add-new-color'  isPrimary onClick={ () => addNewColorToPalette() }>
+					<Dashicon icon="plus" /><span> Add New Color</span>
 				</Button>	
-				<Button className='astra-palette-import' isPrimary onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
+				<Button className='ast-palette-import' isPrimary onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } }>
 				 	<Dashicon icon="open-folder" /> Presets
 				</Button>
-
 			</div>
 		</>
 	)
@@ -301,7 +296,6 @@ const ColorPaletteComponent = props => {
 			return;
 		}
 		
-		
 		if ( testJSON(importText) && Object.keys( JSON.parse( importText ) ).length === 5 ) {
 			var customImportText = JSON.parse( importText );
 	
@@ -328,12 +322,9 @@ const ColorPaletteComponent = props => {
 			obj['isVisible'] = false
 			obj['customImportText'] = ''
 
-			
-
 			setState(obj)	
 			props.control.setting.set( obj );
 		
-
 			var event = new CustomEvent( "colorpaletteglobal", 
 				{ 
 					"detail":{"palette":obj,"radiochange":"true",}
@@ -380,18 +371,6 @@ const ColorPaletteComponent = props => {
 
 	};
 
-	const addToPalettePopup = () => {
-		let obj = {
-			...state
-		}
-
-		obj.presetPalette.push(obj[obj.patterntype]); //Keep copy of imported palette.
-		
-		setState(obj)	
-		props.control.setting.set( obj );
-
-	}
-
 	return <>
 		
 		<label className="customizer-text">
@@ -400,29 +379,26 @@ const ColorPaletteComponent = props => {
 		{renderOperationButtons()}
 		
 		<div className="ast-color-palette-wrapper">	
-			{ patternhtml }
-			{/* <Button className='astra-add-to-palette-popup'  onClick={ () => addToPalettePopup() } label="Allows you to add this in presets." showTooltip={true}>
-				<Dashicon icon="insert" />
-			</Button> */}
+			{ patternhtml }			
 		</div>		
 		<input type="hidden" data-palette={JSON.stringify(state[state.patterntype])} id="ast-color-palette-hidden"/>
 		
-		<div className='astra-palette-import-wrap'>			
+		<div className='ast-palette-import-wrap'>			
 			{ state.isVisible && (
-                <Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-import">
-                   <TabPanel className="astra-palette-popover-tabs"
+                <Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-import">
+                   <TabPanel className="ast-palette-popover-tabs"
 						activeClass="active-tab"
 						initialTabName={ 'import'}
 						tabs={ [
 							{
 								name: 'import',
 								title: __( 'Select a palette', 'astra' ),
-								className: 'astra-color-presets palette-popupbutton',
+								className: 'ast-color-presets palette-popupbutton',
 							},
 							{
 								name: 'custom',
 								title: __( 'Import', 'astra' ),
-								className: 'astra-import palette-popupbutton',
+								className: 'ast-import palette-popupbutton',
 							}
 						] }>
 							{
@@ -437,7 +413,7 @@ const ColorPaletteComponent = props => {
 														return ( 
 														<div key={index}>
 															<Button
-																className='astra-palette-item'
+																className='ast-palette-item'
 																onClick={ () => handlePresetPalette( item ) }
 																tabIndex={ 0 }
 																key={index}
@@ -450,9 +426,9 @@ const ColorPaletteComponent = props => {
 																			marginBottom: 0,		
 																			transform: 'scale(1)',
 																			transition: '100ms transform ease',
-																		} } className="astra-palette-individual-item-wrap">
+																		} } className="ast-palette-individual-item-wrap">
 																			<span
-																				className='astra-palette-individual-item'
+																				className='ast-palette-individual-item'
 																				style={ {
 																					color: `${ state.presetPalette[item][color] }`,																					
 																				} }
@@ -466,12 +442,12 @@ const ColorPaletteComponent = props => {
 																text={JSON.stringify(state.presetPalette[item])}
 																onCopy={ () =>  exportCopied(item) }
 																onFinishCopy={ () =>  exportCopiedComplete(item) }
-																className='astra-palette-export'
+																className='ast-palette-export'
 															>
 																{ state.exportCopied === item ? <Dashicon icon="yes" /> : <Dashicon icon="admin-page" /> }
 															</ClipboardButton>
 															
-															<Button className='astra-palette-delete'  onClick={ () => { deletePalette(index,item) } } key={`delete-${index}`}>
+															<Button className='ast-palette-delete'  onClick={ () => { deletePalette(index,item) } } key={`delete-${index}`}>
 																<Dashicon icon="trash" />
 															</Button>
 														</div>
@@ -497,7 +473,7 @@ const ColorPaletteComponent = props => {
 														<p style={{color:'red'}}>{ __( 'Error with Import data', 'astra') }</p>
 													) }
 													<Button
-														className='astra-import-button'
+														className='ast-import-button'
 														isPrimary
 														disabled={ state.customImportText ? false : true }
 														onClick={ () => handleTextImport() }

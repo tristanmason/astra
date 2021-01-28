@@ -380,16 +380,16 @@
     right: 75px;
     top: 2.5px;
 }
-.astra-global-color-btn {
+.ast-global-color-individual-btn {
     width: 100%;
 }
-.astra-global-color-sticker {
+.ast-global-color-sticker {
     border: 1px solid #eaeaea;
     height: 20px;
     width: 20px;
     margin-right: 10px;
 }
-.astra-global-color-sticker.selected:before {
+.ast-global-color-sticker.selected:before {
     font-size: 18px;
     content: '\2713';
     text-shadow: 0px 0px 1px #000;
@@ -397,7 +397,7 @@
     color: white;
     font-weight: normal;
 }
-.astra-global-color-title {
+.ast-global-color-title {
     width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -405,21 +405,23 @@
     margin-right: 10px;
     text-align: left;
 }
-.astra-global-palette-popup .components-popover__content {
-    padding: 10px;
+.ast-global-color-hexcode {
+    text-transform: uppercase;
 }
-label.astra-global-color-palette-manage-label {
+
+label.ast-global-color-palette-manage-label {
     width: 85%;
     display: inline-block;
 }
-button.components-button.astra-global-color-btn:focus , button.components-button.astra-global-color-palette-manage:focus {
+button.components-button.ast-global-color-individual-btn:focus , button.components-button.ast-global-color-palette-manage:focus {
     border: none;
     box-shadow: none;
 }
 
-.astra-global-palette-popup .components-popover__content {
+.ast-global-palette-popup .components-popover__content {
     margin-left: -50px;
     width: 260px;
+    padding: 10px;
 }
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */

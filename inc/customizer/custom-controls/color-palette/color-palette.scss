@@ -29,7 +29,7 @@
         left: 60px;
     }
     
-    .astra-palette-import {
+    .ast-palette-import {
        
         padding: 10px;
         color: white;
@@ -37,7 +37,7 @@
      
     }
 
-    .astra-global-palette-import {    
+    .ast-global-palette-import {    
         .components-popover__content {
             width: 280px;
         }    
@@ -58,10 +58,10 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
             color: #ffffff;
         }
-        .astra-color-presets {
+        .ast-color-presets {
             border-radius: 3px 0px 0px 3px;
         }
-        .astra-import {
+        .ast-import {
             border-radius: 0px 3px 3px 0px;
         }
         .components-tab-panel__tab-content{
@@ -76,20 +76,20 @@
         border: 1px solid;
     }
 
-    .components-button.astra-palette-item {
+    .components-button.ast-palette-item {
         height: 100%;
         width: 65%;
         padding-right: 10px;
         padding-left: 8px;
     }
-    .components-button.astra-palette-item:hover {
+    .components-button.ast-palette-item:hover {
         border: 1px solid;
     }
-    .astra-palette-individual-item-wrap:not(:last-child) {
+    .ast-palette-individual-item-wrap:not(:last-child) {
         margin-right: 10px;
     }
 
-    .astra-palette-individual-item {
+    .ast-palette-individual-item {
         height: 100%;
         display: block;
         width: 100%;
@@ -99,23 +99,8 @@
         transition: 100ms box-shadow ease;
     }
 
-    .components-button.astra-palette-export, .components-button.astra-palette-delete {
+    .components-button.ast-palette-export, .components-button.ast-palette-delete {
         padding: 0 9px 0 9px;
-    }
-    
-    .astra-add-to-palette-popup {
-        position: absolute;
-        right: 0;
-        top: 34px;
-    }
-
-    
-
-    @media (min-width: 1800px) {
-        .astra-color-picker-wrap {        
-            width: 24em;
-        }
-        
     }
 
     //New Css
@@ -138,16 +123,26 @@
         background: white;
     }
 
-    .astra-add-new-color.is-primary {
+    .ast-add-new-color.is-primary {
        width: 60%;
     }
-    button.components-button.astra-palette-delete:disabled:hover {
+    button.components-button.ast-palette-delete:disabled:hover {
         cursor: not-allowed;
         color:unset;
 
     }
 
+    .ast-add-new-color .dashicons-plus {
+        line-height: 25px;
+        margin-right: 10px;
+    }
 
+    @media (min-width: 1800px) {
+        .astra-color-picker-wrap {        
+            width: 24em;
+        }
+        
+    }
 }
 
 

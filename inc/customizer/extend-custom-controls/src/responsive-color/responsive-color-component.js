@@ -93,7 +93,7 @@ const ResponsiveColorComponent = props => {
 
 	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 
-	var globalpalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
+	var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
 
 	const handleGlobalColorPopupBtn = (value,index,defaultset,color,key) => {
 		updatepaletteuse(value,index,defaultset);		
@@ -125,10 +125,10 @@ const ResponsiveColorComponent = props => {
 					}}/>
 				</button>
 				{ props_value.isVisible && (
-					<Popover position={"bottom center"} onClose={ toggleClose } className="astra-global-palette-popup">
-						<label className="astra-global-color-palette-manage-label">Global Colors</label>
+					<Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-popup">
+						<label className="ast-global-color-palette-manage-label">Global Colors</label>
 						<Button
-							className='astra-global-color-palette-manage'
+							className='ast-global-color-palette-manage'
 							onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }
 							tabIndex={ 0 }
 						>
@@ -139,21 +139,21 @@ const ResponsiveColorComponent = props => {
 							}}/>
 						</Button>
 						<hr/>
-						{ Object.keys( globalpalette.pattern1 ).map( ( item, index ) => { 
+						{ Object.keys( globalPalette.pattern1 ).map( ( item, index ) => { 
 												
 							return ( 
 								<Button
-									className='astra-global-color-btn'
-									onClick={ () =>handleGlobalColorPopupBtn( true,index,'no',globalpalette.pattern1[item][0],'desktop' ) }
+									className='ast-global-color-individual-btn'
+									onClick={ () =>handleGlobalColorPopupBtn( true,index,'no',globalPalette.pattern1[item][0],'desktop' ) }
 									tabIndex={ 0 }
 									key={index}
-									title={ globalpalette.pattern1[item][1]}
+									title={ globalPalette.pattern1[item][1]}
 								>
-									<div className={value['desktop'] == globalpalette.pattern1[item][0] ? 'astra-global-color-sticker selected' : 'astra-global-color-sticker' }
-										style={{ background:globalpalette.pattern1[item][0] }} 
+									<div className={value['desktop'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+										style={{ background:globalPalette.pattern1[item][0] }} 
 									/>
-									<div className="astra-global-color-title">{ globalpalette.pattern1[item][1]}</div>
-									<div className="astra-global-color-hexcode">{ globalpalette.pattern1[item][0]}</div>
+									<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>
+									<div className="ast-global-color-hexcode">{ globalPalette.pattern1[item][0]}</div>
 								</Button>
 							)
 						} )}
