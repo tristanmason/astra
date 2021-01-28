@@ -1047,11 +1047,11 @@ final class Astra_Builder_Helper {
 	 * @since x.x.x
 	 * @return boolean true if it is an existing user , false if not.
 	 */
-	public static function apply_older_dynamic_css() {
+	public static function apply_optimize_dynamic_css() {
 
 		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['is-updated-dynamic-css'] = isset( $astra_settings['is-updated-dynamic-css'] ) ? $astra_settings['is-updated-dynamic-css'] : false;
-		return apply_filters( 'astra_apply_older_dynamic_css', $astra_settings['is-updated-dynamic-css'] );
+		return apply_filters( 'astra_apply_optimize_dynamic_css', $astra_settings['is-updated-dynamic-css'] );
 	}
 }
 
