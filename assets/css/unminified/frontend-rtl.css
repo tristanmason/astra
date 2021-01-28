@@ -3144,6 +3144,8 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   width: 100%;
   margin-bottom: 1em;
   margin-top: 1em;
+  padding-right: 20px;
+  padding-left: 20px;
   position: relative;
   display: block;
   left: auto;
@@ -3176,6 +3178,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field {
   width: 100%;
   padding-left: 5.5em;
+}
+
+.ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label {
+  width: 100%;
 }
 
 .ast-mobile-header-content .ast-search-menu-icon .search-submit,
@@ -3634,10 +3641,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-search-menu-icon.ast-dropdown-active .search-field {
   width: 235px;
-}
-
-.ast-header-search .ast-search-menu-icon.slide-search .search-submit, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-submit {
-  position: unset;
 }
 
 .ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
