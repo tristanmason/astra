@@ -1044,14 +1044,14 @@ final class Astra_Builder_Helper {
 	/**
 	 * For existing users, do not apply dynamic CSS chages.
 	 *
-	 * @since 3.1.0
+	 * @since x.x.x
 	 * @return boolean true if it is an existing user , false if not.
 	 */
-	public static function is_updated_dynamic_css_apply() {
+	public static function apply_older_dynamic_css() {
 
 		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['is-updated-dynamic-css'] = isset( $astra_settings['is-updated-dynamic-css'] ) ? $astra_settings['is-updated-dynamic-css'] : false;
-		return apply_filters( 'astra_is_updated_dynamic_css_apply', $astra_settings['is-updated-dynamic-css'] );
+		return apply_filters( 'astra_apply_older_dynamic_css', $astra_settings['is-updated-dynamic-css'] );
 	}
 }
 
