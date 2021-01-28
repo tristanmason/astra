@@ -1,4 +1,5 @@
 v3.1.0
+- Improvement: Added design options for Builder - Toggle Menu in Transparent header.
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Fix: Above Footer & Below Footer showing up unwanted border in the customizer preview.
@@ -8,6 +9,7 @@ v3.1.0
 - Fix: Builder - Social Icons - Icon, Label Custom Color & Official Color not working in some cases.
 - Fix: Dropdown link target option not working for menus inside offcanvas, when offcanvas type is Flyout or Full-Screen.
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
+- Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
 
 v3.0.1
