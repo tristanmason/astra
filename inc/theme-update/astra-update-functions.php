@@ -2880,7 +2880,7 @@ function astra_check_backward_dynamic_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['is-updated-dynamic-css'] ) ) {
-		$theme_options['is-updated-dynamic-css'] = false;
+		$theme_options['is-updated-dynamic-css'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
