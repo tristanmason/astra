@@ -772,7 +772,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function prepare_group_configs( $wp_customize ) {
 
-			$configurations = apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			$configurations = $this->get_customizer_configurations( $wp_customize );
 			$defaults       = $this->get_astra_customizer_configuration_defaults();
 
 			foreach ( $configurations as $key => $configuration ) {
