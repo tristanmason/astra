@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return string Generated CSS.
 		 */
 		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
-			global $wp_query;
+			
 			/**
 			 *
 			 * Contents

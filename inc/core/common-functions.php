@@ -1511,11 +1511,8 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 function is_astra_pagination_enabled() {
 	global  $wp_query;
 
-	if ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) ) {
-		return true;
-	}
-	return false;
-
+	return ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) );
+	
 }
 
 /** 
