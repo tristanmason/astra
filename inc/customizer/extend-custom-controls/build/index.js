@@ -19215,7 +19215,7 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
       className: "input-field-wrapper ".concat(device, " ").concat(active)
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
       resetFallbackValue: defaultVal,
-      value: parseInt(props_value[device]) === 0 ? 0 : props_value[device] || '',
+      value: parseInt(defaultVal) === 0 ? 0 : defaultVal || '',
       min: min < 0 ? min : 0,
       max: max || 100,
       step: step || 1,
@@ -20863,7 +20863,7 @@ var SliderComponent = function SliderComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
-    value: parseInt(props_value) === 0 ? 0 : props_value || '',
+    value: parseInt(defaultVal) === 0 ? 0 : defaultVal || '',
     onChange: updateValues,
     resetFallbackValue: defaultVal,
     min: min < 0 ? min : 0,
