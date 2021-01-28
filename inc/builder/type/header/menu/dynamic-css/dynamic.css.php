@@ -123,10 +123,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'font-family'    => astra_get_font_family( $menu_font_family ),
 				'font-weight'    => esc_attr( $menu_font_weight ),
 				'font-size'      => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
-				'line-height'    => esc_attr( $menu_line_height ),
 				'text-transform' => esc_attr( $menu_text_transform ),
 			),
 			$selector . ' .menu-item > .menu-link'       => array(
+				'line-height'    => esc_attr( $menu_line_height ),
 				'color'          => $menu_resp_color_desktop,
 				'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
@@ -143,7 +143,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item:hover > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_hover_desktop,
 			),
-			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' . $selector . ' .current-menu-ancestor > .menu-link' => array(
 				'color'      => $menu_resp_color_active_desktop,
 				'background' => $menu_resp_bg_color_active_desktop,
 			),
@@ -209,7 +209,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item:hover > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_hover_tablet,
 			),
-			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' . $selector . ' .current-menu-ancestor > .menu-link, ' . $selector . ' .current-menu-ancestor > .ast-menu-toggle' => array(
 				'color'      => $menu_resp_color_active_tablet,
 				'background' => $menu_resp_bg_color_active_tablet,
 			),
@@ -256,7 +256,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .menu-item:hover  > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_hover_mobile,
 			),
-			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item.current-menu-item > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' . $selector . ' .current-menu-ancestor > .menu-link, ' . $selector . ' .current-menu-ancestor > .ast-menu-toggle' => array(
 				'color'      => $menu_resp_color_active_mobile,
 				'background' => $menu_resp_bg_color_active_mobile,
 			),
