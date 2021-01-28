@@ -3213,22 +3213,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function pagination_static_css() {
 			$pagination_static_css_str = '
-			.post-navigation a,
 			.ast-pagination .prev.page-numbers,
 			.ast-pagination .next.page-numbers {
 			  padding: 0 1.5em;
 			  height: 2.33333em;
 			  line-height: calc(2.33333em - 3px);
 			}
-			.post-navigation a {
-			  background: transparent;
-			  font-size: 16px;
-			  font-size: 1.06666rem;
-			}
 			.ast-pagination {
 			  display: inline-block;
 			  width: 100%;
-			  padding-top: 2em;
 			}
 			.ast-pagination .page-numbers {
 			  display: inline-block;
@@ -3237,7 +3230,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			  font-size: 16px;
 			  font-size: 1.06666rem;
 			  line-height: calc(2.33333em - 3px);
-			  text-align: center;
 			}
 			.ast-pagination .nav-links {
 			  display: inline-block;
@@ -3251,55 +3243,51 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				margin: 0;
 			  }
 			}
-			.ast-pagination .prev.page-numbers,
-			.ast-pagination .prev.page-numbers:visited,
-			.ast-pagination .prev.page-numbers:focus,
-			.ast-pagination .next.page-numbers,
-			.ast-pagination .next.page-numbers:visited,
-			.ast-pagination .next.page-numbers:focus {
+			.ast-pagination .prev,
+			.ast-pagination .prev:visited,
+			.ast-pagination .prev:focus,
+			.ast-pagination .next,
+			.ast-pagination .next:visited,
+			.ast-pagination .next:focus {
 			  display: inline-block;
 			  width: auto;
 			}
-			.ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
-			.ast-pagination .prev.page-numbers:visited.dots,
-			.ast-pagination .prev.page-numbers:visited.dots:hover,
-			.ast-pagination .prev.page-numbers:visited.dots:focus,
-			.ast-pagination .prev.page-numbers:focus.dots,
-			.ast-pagination .prev.page-numbers:focus.dots:hover,
-			.ast-pagination .prev.page-numbers:focus.dots:focus,
-			.ast-pagination .next.page-numbers.dots,
-			.ast-pagination .next.page-numbers.dots:hover,
-			.ast-pagination .next.page-numbers.dots:focus,
-			.ast-pagination .next.page-numbers:visited.dots,
-			.ast-pagination .next.page-numbers:visited.dots:hover,
-			.ast-pagination .next.page-numbers:visited.dots:focus,
-			.ast-pagination .next.page-numbers:focus.dots,
-			.ast-pagination .next.page-numbers:focus.dots:hover,
-			.ast-pagination .next.page-numbers:focus.dots:focus {
-			  border: 2px solid #eaeaea;
-			  background: transparent;
-			}
-			
-			.ast-pagination .prev.page-numbers.dots,
-			.ast-pagination .prev.page-numbers:visited.dots,
-			.ast-pagination .prev.page-numbers:focus.dots,
-			.ast-pagination .next.page-numbers.dots,
-			.ast-pagination .next.page-numbers:visited.dots,
-			.ast-pagination .next.page-numbers:focus.dots {
-			  cursor: default;
-			}
-			
-			@media (max-width: 768px) {
-			  .ast-pagination .prev_next {
-				display: inline-block;
-				width: 100%;
-			  }
-			}
-			.ast-pagination .prev_next .next .ast-right-arrow,
-			.ast-pagination .prev_next .prev .ast-left-arrow {
-			  font-size: 1em;
-			  line-height: 1em;
+			.ast-page-builder-template .ast-pagination {
+				padding: 2em;
 			}';
+
+			if ( Astra_Builder_Helper::is_updated_dynamic_css_apply() ) {
+				
+				$pagination_static_css_str .= '
+				.ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
+				.ast-pagination .prev.page-numbers:visited.dots,
+				.ast-pagination .prev.page-numbers:visited.dots:hover,
+				.ast-pagination .prev.page-numbers:visited.dots:focus,
+				.ast-pagination .prev.page-numbers:focus.dots,
+				.ast-pagination .prev.page-numbers:focus.dots:hover,
+				.ast-pagination .prev.page-numbers:focus.dots:focus,
+				.ast-pagination .next.page-numbers.dots,
+				.ast-pagination .next.page-numbers.dots:hover,
+				.ast-pagination .next.page-numbers.dots:focus,
+				.ast-pagination .next.page-numbers:visited.dots,
+				.ast-pagination .next.page-numbers:visited.dots:hover,
+				.ast-pagination .next.page-numbers:visited.dots:focus,
+				.ast-pagination .next.page-numbers:focus.dots,
+				.ast-pagination .next.page-numbers:focus.dots:hover,
+				.ast-pagination .next.page-numbers:focus.dots:focus {
+					border: 2px solid #eaeaea;
+					background: transparent;
+				}
+				
+				.ast-pagination .prev.page-numbers.dots,
+				.ast-pagination .prev.page-numbers:visited.dots,
+				.ast-pagination .prev.page-numbers:focus.dots,
+				.ast-pagination .next.page-numbers.dots,
+				.ast-pagination .next.page-numbers:visited.dots,
+				.ast-pagination .next.page-numbers:focus.dots {
+					cursor: default;
+				}';
+			}
 			
 			if ( is_rtl() ) {
 				$pagination_static_css_str .= '
@@ -3308,33 +3296,34 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					  padding-right: 3.33333em;
 					  padding-left: 3.33333em;
 					}
-				  }
-				  @media (min-width: 769px) {
-					.ast-pagination .prev.page-numbers.next,
-					.ast-pagination .prev.page-numbers:visited.next,
-					.ast-pagination .prev.page-numbers:focus.next,
-					.ast-pagination .next.page-numbers.next,
-					.ast-pagination .next.page-numbers:visited.next,
-					.ast-pagination .next.page-numbers:focus.next {
-					  margin-left: 0;
-					}
-				  }
-				  .ast-pagination .next.page-numbers {
+				}
+				.ast-pagination .next.page-numbers {
 					float: left;
 					text-align: left;
-				  }
+				}
 				  
-				  @media (max-width: 768px) {
+				@media (max-width: 768px) {
 					.ast-pagination .next.page-numbers .page-navigation {
 					  padding-left: 0;
 					}
-				  }
-				  @media (min-width: 769px) {
-					.ast-pagination .prev_next {
-					  float: left;
-					}
-				  }';
+				}';
+				  
+				if ( Astra_Builder_Helper::is_updated_dynamic_css_apply() ) {
+
+					$pagination_static_css_str .= '
+					@media (min-width: 769px) {
+						.ast-pagination .prev.page-numbers.next,
+						.ast-pagination .prev.page-numbers:visited.next,
+						.ast-pagination .prev.page-numbers:focus.next,
+						.ast-pagination .next.page-numbers.next,
+						.ast-pagination .next.page-numbers:visited.next,
+						.ast-pagination .next.page-numbers:focus.next {
+							margin-left: 0;
+						}
+					}';
+				}           
 			} else {
+				
 				$pagination_static_css_str .= '
 				@media (min-width: 993px) {
 					.ast-pagination {
@@ -3342,31 +3331,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					  padding-right: 3.33333em;
 					}
 				}
-				@media (min-width: 769px) {
-					.ast-pagination .prev.page-numbers.next,
-					.ast-pagination .prev.page-numbers:visited.next,
-					.ast-pagination .prev.page-numbers:focus.next,
-					.ast-pagination .next.page-numbers.next,
-					.ast-pagination .next.page-numbers:visited.next,
-					.ast-pagination .next.page-numbers:focus.next {
-					  margin-right: 0;
-					}
-				}
 				.ast-pagination .next.page-numbers {
 					float: right;
-					text-align: right;
 				}
 				  
 				@media (max-width: 768px) {
 					.ast-pagination .next.page-numbers .page-navigation {
 					  padding-right: 0;
 					}
-				}
-				@media (min-width: 769px) {
-					.ast-pagination .prev_next {
-					  float: right;
-					}
 				}';
+
+				if ( Astra_Builder_Helper::is_updated_dynamic_css_apply() ) {
+
+					$pagination_static_css_str .= '
+					@media (min-width: 769px) {
+						.ast-pagination .prev.page-numbers.next,
+						.ast-pagination .prev.page-numbers:visited.next,
+						.ast-pagination .prev.page-numbers:focus.next,
+						.ast-pagination .next.page-numbers.next,
+						.ast-pagination .next.page-numbers:visited.next,
+						.ast-pagination .next.page-numbers:focus.next {
+							margin-right: 0;
+						}
+					}';
+				}           
 			}
 			return $pagination_static_css_str;
 
