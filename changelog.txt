@@ -3,6 +3,7 @@ v3.1.0
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Fix: Above Footer & Below Footer showing up unwanted border in the customizer preview.
+- Fix: Builder - Primary Menu - Line height not being applied in frontend.
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
 - Fix: Color picker icon not visible on hover.
 - Fix: Font size not reverted back to the initial size when the value is deleted.
