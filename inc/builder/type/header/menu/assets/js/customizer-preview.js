@@ -102,7 +102,7 @@
 				'astra-menu-active-color-preview',
 				'astra-settings[header-' + prefix + '-a-color-responsive]',
 				'color',
-				selector + ' .menu-item.current-menu-item > .menu-link, ' + selector + ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle'
+				selector + ' .menu-item.current-menu-item > .menu-link, ' + selector + ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' + selector + ' .current-menu-ancestor > .menu-link, ' + selector + '  .current-menu-ancestor > .ast-menu-toggle'
 			);
 
 			// Menu - Normal Background
@@ -123,7 +123,7 @@
 				'astra-builder',
 				'astra-settings[header-' + prefix + '-a-bg-color-responsive]',
 				'background',
-				selector + ' .menu-item.current-menu-item > .menu-link, ' + selector + ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle'
+				selector + ' .menu-item.current-menu-item > .menu-link, ' + selector + ' .inline-on-mobile .menu-item.current-menu-item > .ast-menu-toggle, ' + selector + ' .current-menu-ancestor > .menu-link, ' + selector + '  .current-menu-ancestor > .ast-menu-toggle'
 			);
 
 		/**
