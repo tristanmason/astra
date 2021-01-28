@@ -1,17 +1,17 @@
-v3.1.0
+v3.0.2
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
 - Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
-- Fix: Above Footer & Below Footer showing up unwanted border in the customizer preview.
+- Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Builder - Primary Menu - Line height not being applied in frontend.
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
 - Fix: Color picker icon not visible on hover.
 - Fix: Font size not reverted back to the initial size when the value is deleted.
 - Fix: Builder - Social Icons - Icon, Label Custom Color & Official Color not working in some cases.
-- Fix: Dropdown link target option not working for menus inside offcanvas, when offcanvas type is Flyout or Full-Screen.
-- Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
-- Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
-- Fix: Builder - Search box layout is breaking in offcanvas.
+- Fix: Dropdown link target option not working for menus inside off-canvas when the off-canvas type is Flyout or Full-Screen.
+- Fix: Overflowing content not wrapping as per grid layout on the responsive device for Header Footer builder layout.
+- Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads add-on.
+- Fix: Builder - Search box layout is breaking in the off-canvas.
 
 v3.0.1
 - Fix: Astra assets cache regeneration issue when Astra Pro is updated to v3.0.0 prior to theme. ( https://wpastra.com/docs/clear-astra-cache/ )
