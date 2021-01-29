@@ -214,15 +214,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Section: Above Footer Border Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-top-border-color]',
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'hba-footer-top-border-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'section'   => $_section,
-					'priority'  => 50,
-					'title'     => __( 'Border Color', 'astra' ),
-					'context'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[hba-footer-top-border-color]',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'hba-footer-top-border-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => $_section,
+					'priority'          => 50,
+					'title'             => __( 'Border Color', 'astra' ),
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hba-footer-separator]',
@@ -260,20 +261,21 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Inner Spacing
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hba-inner-spacing]',
-					'section'     => $_section,
-					'priority'    => 205,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'hba-inner-spacing' ),
-					'title'       => __( 'Inner Column Spacing', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[hba-inner-spacing]',
+					'section'           => $_section,
+					'priority'          => 205,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'hba-inner-spacing' ),
+					'title'             => __( 'Inner Column Spacing', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 200,
 					),
-					'context'     => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
