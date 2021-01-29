@@ -60,7 +60,7 @@
 		
 	} else {
 		// Button Typo
-		astra_generate_outside_font_family_css( 'astra-settings[font-family-button]', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+		astra_generate_outside_font_family_css( 'astra-settings[font-family-button]', 'button, .ast-button, .ast-custom-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 		astra_generate_font_weight_css( 'astra-settings[font-family-button]', 'astra-settings[font-weight-button]', 'font-weight', 'button, .ast-button, .ast-custom-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 		astra_css( 'astra-settings[text-transform-button]', 'text-transform', 'button, .ast-button, .ast-custom-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 		astra_responsive_font_size( 'astra-settings[font-size-button]', 'button, .ast-button, .ast-custom-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
