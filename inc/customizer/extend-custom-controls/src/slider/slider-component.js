@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import {__} from '@wordpress/i18n';
 import {RangeControl} from '@wordpress/components';
 import {useState} from 'react';
 
@@ -57,6 +56,7 @@ const SliderComponent = props => {
 				step={ step || 1 }
 				allowReset
 			/>
+			{suffixHtml}
 		</div>
 	</label>;
 };

@@ -70,46 +70,48 @@ final class Astra_Builder_Base_Configuration {
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $section_id,
-				'priority'       => 210,
-				'title'          => __( 'Padding', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $section_id,
+				'priority'          => 210,
+				'title'             => __( 'Padding', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $section_id,
-				'priority'       => 220,
-				'title'          => __( 'Margin', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $section_id,
+				'priority'          => 220,
+				'title'             => __( 'Margin', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
 	}
@@ -219,7 +221,8 @@ final class Astra_Builder_Base_Configuration {
 				'title'    => __( 'Visibility', 'astra' ),
 				'priority' => 300,
 				'settings' => array(),
-				'context'  => ( 'footer' === $builder_type ) ? Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
+				'context'  => ( 'footer' === $builder_type ) ?
+					Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
 			),
 
 			/**
@@ -285,25 +288,29 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_widget_options( $type = 'header' ) {
 		$html_config = array();
 
+
 		if ( 'footer' === $type ) {
-			$class_obj     = Astra_Builder_Footer::get_instance();
-			$no_of_widgets = Astra_Builder_Helper::$num_of_footer_widgets;
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
 		} else {
-			$class_obj     = Astra_Builder_Header::get_instance();
-			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
 		}
-		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
+
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
 
 			$_configs = array(
 
 				array(
-					'name'     => 'sidebar-widgets-' . $type . '-widget-' . $index,
-					'type'     => 'section',
-					'priority' => 5,
-					'title'    => __( 'Widget ', 'astra' ) . $index,
-					'panel'    => 'panel-' . $type . '-builder-group',
+					'name'        => 'sidebar-widgets-' . $type . '-widget-' . $index,
+					'type'        => 'section',
+					'priority'    => 5,
+					'title'       => __( 'Widget ', 'astra' ) . $index,
+					'panel'       => 'panel-' . $type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $type . '-widget',
 				),
 
 
@@ -427,17 +434,18 @@ final class Astra_Builder_Base_Configuration {
 				 * Option: Margin
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
@@ -598,6 +606,8 @@ final class Astra_Builder_Base_Configuration {
 
 			$_configs = array_merge( $_configs, $new_configs );
 
+			$html_config[] = self::prepare_visibility_tab( $_section, $type );
+			
 			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, $type ) );
 
 			$html_config[] = $_configs;

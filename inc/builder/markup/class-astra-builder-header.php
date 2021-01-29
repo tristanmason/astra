@@ -81,27 +81,25 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 
-				// Buttons.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_button; $index++ ) {
+
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+
+					// Buttons.
 					add_action( 'astra_header_button_' . $index, array( $this, 'button_' . $index ) );
 					self::$methods[] = 'button_' . $index;
-				}
 
-				// Menus.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
-					add_action( 'astra_header_menu_' . $index, array( $this, 'menu_' . $index ) );
-					self::$methods[] = 'menu_' . $index;
-				}
-
-				// Htmls.
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {
+					// Htmls.
 					add_action( 'astra_header_html_' . $index, array( $this, 'header_html_' . $index ) );
 					self::$methods[] = 'header_html_' . $index;
-				}
 
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_social_icons; $index++ ) {
+					// Social Icons.
 					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
 					self::$methods[] = 'header_social_' . $index;
+
+					// Menus.
+					add_action( 'astra_header_menu_' . $index, array( $this, 'menu_' . $index ) );
+					self::$methods[] = 'menu_' . $index;
+
 				}
 
 				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
