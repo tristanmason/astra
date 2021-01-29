@@ -134,10 +134,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'title_tagline',
 					'type'      => 'sub-control',
 					'control'   => 'ast-color',
+					'priority' => 5,
 					'default'   => astra_get_option( 'header-color-site-title' ),
 					'transport' => 'postMessage',
 					'title'     => __( 'Text Color', 'astra' ),
-					'tab'       => __( 'Normal', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -148,14 +148,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'title_tagline',
 					'type'      => 'sub-control',
 					'control'   => 'ast-color',
+					'priority' => 10,
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
 					'title'     => __( 'Hover Color', 'astra' ),
-					'tab'       => __( 'Hover', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
-
-
 
 				/**
 				 * Option: Margin heading

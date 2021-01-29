@@ -23,10 +23,9 @@ const ColorGroupComponent = props => {
 			<label className="customizer-text">
 				{htmlLabel}
 				{htmlHelp}
-				<span className="ast-adv-toggle-icon dashicons" data-control={name}></span>
 			</label>
 		</div>
-		<div className="ast-field-settings-wrap">
+		<div className="ast-field-color-group-wrap">
 		</div>
 	</>;
 };
