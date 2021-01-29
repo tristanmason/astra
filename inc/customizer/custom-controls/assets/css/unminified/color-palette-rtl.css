@@ -1,22 +1,14 @@
-#customize-control-astra-settings-global-color-palette .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-  width: 25px;
-  height: 25px;
-}
-
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
   display: unset;
   position: unset;
   left: unset;
   top: unset;
+  vertical-align: sub;
 }
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette-inline {
   display: inline-block;
   margin-right: 5px;
-}
-
-#customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap {
-  margin-right: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
@@ -71,29 +63,29 @@
   padding: 15px;
 }
 
-#customize-control-astra-settings-global-color-palette p.palette-format {
+#customize-control-astra-settings-global-color-palette .ast-global-palette-import .palette-format {
   word-break: break-all;
   padding: 10px;
   background-color: #f5f5f5;
   border: 1px solid;
 }
 
-#customize-control-astra-settings-global-color-palette .components-button.ast-palette-item {
+#customize-control-astra-settings-global-color-palette .ast-global-palette-import .components-button.ast-palette-item {
   height: 100%;
   width: 65%;
   padding-left: 10px;
   padding-right: 8px;
 }
 
-#customize-control-astra-settings-global-color-palette .components-button.ast-palette-item:hover {
+#customize-control-astra-settings-global-color-palette .ast-global-palette-import .components-button.ast-palette-item:hover {
   border: 1px solid;
 }
 
-#customize-control-astra-settings-global-color-palette .ast-palette-individual-item-wrap:not(:last-child) {
+#customize-control-astra-settings-global-color-palette .ast-global-palette-import .ast-palette-individual-item-wrap:not(:last-child) {
   margin-left: 10px;
 }
 
-#customize-control-astra-settings-global-color-palette .ast-palette-individual-item {
+#customize-control-astra-settings-global-color-palette .ast-global-palette-import .ast-palette-individual-item {
   height: 100%;
   display: block;
   width: 100%;
@@ -103,7 +95,7 @@
   transition: 100ms box-shadow ease;
 }
 
-#customize-control-astra-settings-global-color-palette .components-button.ast-palette-export, #customize-control-astra-settings-global-color-palette .components-button.ast-palette-delete {
+#customize-control-astra-settings-global-color-palette .ast-global-palette-import .components-button.ast-palette-export, #customize-control-astra-settings-global-color-palette .ast-global-palette-import .components-button.ast-palette-delete {
   padding: 0 9px 0 9px;
 }
 
