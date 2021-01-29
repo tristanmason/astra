@@ -662,7 +662,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Toggle Control param.
 		 *
-		 * @param bool $val for True|False
+		 * @param bool $val for True|False.
 		 *
 		 * @since x.x.x
 		 *
@@ -670,7 +670,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		public static function sanitize_toggle_control( $val ) {
 			// returns true if checkbox is checked.
-            return ( isset( $val ) && is_bool( $val ) ? $val : '' );
+			return ( isset( $val ) && is_bool( $val ) ? $val : '' );
 		}
 	}
 }

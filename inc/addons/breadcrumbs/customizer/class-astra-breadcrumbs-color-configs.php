@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 
 			$defaults = Astra_Theme_Options::defaults();
 
-			if( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$content_colors_control_title = __( 'Content Colors', 'astra' );
 			} else {
 				$content_colors_control_title = __( 'Content', 'astra' );

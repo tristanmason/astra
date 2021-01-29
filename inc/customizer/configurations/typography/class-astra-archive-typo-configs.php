@@ -181,8 +181,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'px' => 'px',
 							'em' => 'em',
 						),
-						'priority'  => 140,
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'priority'    => 140,
+						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -204,8 +204,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'px' => 'px',
 							'em' => 'em',
 						),
-						'priority'  => 140,
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'priority'    => 140,
+						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 				);
