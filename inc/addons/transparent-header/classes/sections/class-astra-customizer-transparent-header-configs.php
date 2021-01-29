@@ -869,6 +869,69 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'title'             => __( 'Text Color', 'astra' ),
 						'context'           => Astra_Builder_Helper::$design_tab_config,
 					),
+
+					/**
+					 * Options: Transparent Header - Toggle Button
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-toggle-colors]',
+						'default'   => astra_get_option( 'transparent-toggle-colors' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Menu Toggle', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 70,
+						'context'   => Astra_Builder_Helper::$design_tab,
+					),
+
+					/**
+					 * Option: Toggle Button Color
+					 */
+					array(
+						'name'      => 'transparent-header-toggle-btn-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-toggle-colors]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'title'     => __( 'Color', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 5,
+						'context'   => Astra_Builder_Helper::$design_tab_config,
+					),
+
+					/**
+					 * Option: Toggle Button Bg Color
+					 */
+					array(
+						'name'      => 'transparent-header-toggle-btn-bg-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-toggle-colors]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'title'     => __( 'Background Color', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 10,
+						'context'   => Astra_Builder_Helper::$design_tab_config,
+					),
+
+					/**
+					 * Option: Toggle Button Border Color
+					 */
+					array(
+						'name'      => 'transparent-header-toggle-border-color',
+						'default'   => '',
+						'parent'    => ASTRA_THEME_SETTINGS . '[transparent-toggle-colors]',
+						'type'      => 'sub-control',
+						'control'   => 'ast-color',
+						'title'     => __( 'Border Color', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 15,
+						'context'   => Astra_Builder_Helper::$design_tab_config,
+					),
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );

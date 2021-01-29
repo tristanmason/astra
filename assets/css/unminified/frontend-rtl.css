@@ -1744,6 +1744,7 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
+  border: 0;
   border-bottom-width: 1px;
   border-style: solid;
   border-color: #eaeaea;
@@ -1784,9 +1785,11 @@ body {
   padding-right: 60px;
 }
 
-.ast-header-break-point .ast-header-custom-item,
 .ast-header-break-point .main-header-menu {
   background-color: #f9f9f9;
+  border-top-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
 }
 
 .ast-header-break-point .main-header-menu .sub-menu {
@@ -3141,6 +3144,8 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   width: 100%;
   margin-bottom: 1em;
   margin-top: 1em;
+  padding-right: 20px;
+  padding-left: 20px;
   position: relative;
   display: block;
   left: auto;
@@ -3173,6 +3178,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field {
   width: 100%;
   padding-left: 5.5em;
+}
+
+.ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label {
+  width: 100%;
 }
 
 .ast-mobile-header-content .ast-search-menu-icon .search-submit,
@@ -3629,10 +3639,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   width: 235px;
 }
 
-.ast-header-search .ast-search-menu-icon.slide-search .search-submit, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-submit {
-  position: unset;
-}
-
 .ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
   -js-display: flex;
   display: flex;
@@ -3722,10 +3728,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-header-break-point .main-navigation {
   display: block;
   width: 100%;
-}
-
-.ast-header-break-point .main-navigation ul > .menu-item:first-child {
-  border-top: 0;
 }
 
 .ast-header-break-point .main-navigation ul ul {
