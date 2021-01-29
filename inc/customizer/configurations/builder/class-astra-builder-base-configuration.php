@@ -124,43 +124,74 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_typography_options( $section_id, $required_condition = array() ) {
 
 		$parent = ASTRA_THEME_SETTINGS . '[' . $section_id . '-typography]';
-		return array(
 
-			array(
-				'name'      => $parent,
-				'default'   => astra_get_option( $section_id . '-typography' ),
-				'type'      => 'control',
-				'control'   => 'ast-settings-group',
-				'title'     => __( 'Text Typography', 'astra' ),
-				'section'   => $section_id,
-				'transport' => 'postMessage',
-				'priority'  => 16,
-				'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
-			),
+		if ( defined( 'ASTRA_EXT_VER' ) ) {
 
-			/**
-			 * Option: Font Size
-			 */
-			array(
-				'name'        => 'font-size-' . $section_id,
-				'type'        => 'sub-control',
-				'parent'      => $parent,
-				'section'     => $section_id,
-				'control'     => 'ast-responsive',
-				'default'     => astra_get_option( 'font-size-' . $section_id ),
-				'transport'   => 'postMessage',
-				'priority'    => 14,
-				'title'       => __( 'Size', 'astra' ),
-				'input_attrs' => array(
-					'min' => 0,
+			$_configs = array(
+
+				array(
+					'name'      => $parent,
+					'default'   => astra_get_option( $section_id . '-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Text Typography', 'astra' ),
+					'section'   => $section_id,
+					'transport' => 'postMessage',
+					'priority'  => 16,
+					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			),
 
-		);
+				/**
+				 * Option: Font Size
+				 */
+				array(
+					'name'        => 'font-size-' . $section_id,
+					'type'        => 'sub-control',
+					'parent'      => $parent,
+					'section'     => $section_id,
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'font-size-' . $section_id ),
+					'transport'   => 'postMessage',
+					'priority'    => 14,
+					'title'       => __( 'Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+			);
+		} else {
+
+			$_configs = array(
+				
+				/**
+				 * Option: Font Size
+				 */
+				array(
+					'name'        => 'font-size-' . $section_id,
+					'type'        => 'control',
+					'section'     => $section_id,
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'font-size-' . $section_id ),
+					'transport'   => 'postMessage',
+					'priority'    => 16,
+					'title'       => __( 'Font Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+			);
+		}
+
+		return $_configs;
 	}
 
 	/**
