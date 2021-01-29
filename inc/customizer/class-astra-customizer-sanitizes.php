@@ -662,7 +662,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Toggle Control param.
 		 *
-		 * @param bool $val for True|False
+		 * @param bool $val for True|False.
 		 *
 		 * @since x.x.x
 		 *
