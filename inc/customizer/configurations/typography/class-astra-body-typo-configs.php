@@ -277,8 +277,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'section'           => 'section-content-typo',
-					'transport'         => 'postMessage',
 				),
 			);
 

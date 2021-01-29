@@ -212,7 +212,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  int|string $value Value of variable.
 		 * @return string|int Return empty if $value is not integer.
-		 * 
+		 *
 		 * @since 2.5.4
 		 */
 		public static function check_numberic_values( $value ) {
@@ -662,7 +662,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Toggle Control param.
 		 *
-		 * @param bool $val for True|False
+		 * @param bool $val for True|False.
 		 *
 		 * @since x.x.x
 		 *

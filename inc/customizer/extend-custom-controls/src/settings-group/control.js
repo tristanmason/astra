@@ -32,9 +32,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		var control = this,
 		value   = control.setting._value;
 
-		console.log( control );
-
-
 		control.registerToggleEvents();
 		this.container.on( 'ast_settings_changed', control.onOptionChange );
 
@@ -382,7 +379,11 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			control_clean_name = control_clean_name.replace(']', '');
 
 			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
-			fields_html += template(attr);
+
+			if( jQuery( '#tmpl-' + template_id ).length ) {
+				fields_html += template(attr);
+			}
+
 			fields_html += '</li>';
 
 		});
