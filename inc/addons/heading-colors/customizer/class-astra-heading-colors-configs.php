@@ -34,14 +34,15 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 				// Option: Base Heading Color.
 				array(
-					'default'   => '',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'priority'  => 18,
-					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
-					'title'     => __( 'Heading Color ( H1 - H6 )', 'astra' ),
-					'section'   => 'section-colors-body',
+					'default'           => '',
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'priority'          => 18,
+					'name'              => ASTRA_THEME_SETTINGS . '[heading-base-color]',
+					'title'             => __( 'Heading Color ( H1 - H6 )', 'astra' ),
+					'section'           => 'section-colors-body',
 				),
 
 				/**
@@ -276,7 +277,6 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'transport'         => 'postMessage',
 				),
 
 				/**

@@ -327,24 +327,25 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Breadcrumb Spacing
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[breadcrumb-spacing]',
-					'default'        => astra_get_option( 'breadcrumb-spacing' ),
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'priority'       => 83,
-					'title'          => __( 'Spacing', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[breadcrumb-spacing]',
+					'default'           => astra_get_option( 'breadcrumb-spacing' ),
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'priority'          => 83,
+					'title'             => __( 'Spacing', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
 
-					'section'        => $_section,
-					'context'        => array(
+					'section'           => $_section,
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 							'operator' => '!=',

@@ -237,6 +237,39 @@
 	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-bg-h-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
 
+	/**
+	 * Transparent Header menu-toggle Dynamic CSS.
+	 */
+	var toggle_selector = '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"]';
+
+	// Trigger Icon Color.
+	astra_css(
+		'astra-settings[transparent-header-toggle-btn-color]',
+		'fill',
+		toggle_selector + ' .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg'
+	);
+
+	// Trigger Label Color.
+	astra_css(
+		'astra-settings[transparent-header-toggle-btn-color]',
+		'color',
+		toggle_selector + ' .ast-button-wrap .mobile-menu-wrap .mobile-menu'
+	);
+
+	// Trigger Button Background Color.
+	astra_css(
+		'astra-settings[transparent-header-toggle-btn-bg-color]',
+		'background',
+		toggle_selector + ' .ast-button-wrap .menu-toggle.ast-mobile-menu-trigger-fill'
+	);
+
+	// Border Color.
+	astra_css(
+		'astra-settings[transparent-header-toggle-border-color]',
+		'border-color',
+		toggle_selector + ' .ast-button-wrap .menu-toggle.ast-mobile-menu-trigger-outline'
+	);
+
 	// Icon Color.
 	astra_css(
 		'astra-settings[transparent-account-icon-color]',
