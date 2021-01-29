@@ -187,6 +187,7 @@ final class Astra_Builder_Base_Configuration {
 						'px' => 'px',
 						'em' => 'em',
 					),
+					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
 			);
 		}
