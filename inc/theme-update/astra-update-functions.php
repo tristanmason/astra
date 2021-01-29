@@ -2869,3 +2869,18 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/** 
+ * We have removed some unused/Old dynamic CSS so to make compatible this change with existing user/ Do not apply for change exising users.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_check_backward_dynamic_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['is-updated-dynamic-css'] ) ) {
+		$theme_options['is-updated-dynamic-css'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
