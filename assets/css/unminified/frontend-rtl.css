@@ -3062,11 +3062,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   height: auto;
 }
 
-.ast-mobile-header-wrap .ast-builder-grid-row-container-inner {
-  display: grid;
-  align-items: center;
-}
-
 .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content {
   display: none;
 }
