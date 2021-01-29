@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			$_section = 'title_tagline';
 
-			if( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$display_title_priority = 6.5;
 			} else {
 				$display_title_priority = 7;

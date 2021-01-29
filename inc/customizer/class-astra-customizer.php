@@ -833,7 +833,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$parent = astra_get_prop( $config, 'parent' );
 
 					if ( empty( self::$color_group_configs[ $parent ] ) ) {
-						self::$color_group_configs[ $parent ] = array();
+						self::$color_group_configs[ $parent ]   = array();
 						self::$color_group_configs[ $parent ][] = $config;
 					}
 				}
@@ -1213,7 +1213,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
-							'settings'         => array(
+							'settings'               => array(
 								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
@@ -1234,10 +1234,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $tmpl,
+							'group_modal_tmpl'       => $tmpl,
 							'color_group_modal_tmpl' => $color_group_tmpl,
-							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
-							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'is_pro'                 => defined( 'ASTRA_EXT_VER' ),
+							'upgrade_link'           => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
