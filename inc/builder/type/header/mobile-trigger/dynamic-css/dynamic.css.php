@@ -88,8 +88,13 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 		),
 	);
 
+	// Execute all cases in customizer preview.
+	$is_customizer = false;
+	if ( is_customize_preview() ) {
+		$is_customizer = true;
+	}
 	switch ( $style ) {
-		case 'minimal':
+		case 'minimal': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 			$css_output_minimal = array(
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-minimal' => array(
 					// Color & Border.
@@ -98,11 +103,12 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 					'background' => 'transparent',
 				),
 			);
-			
-			$dynamic_css .= astra_parse_css( $css_output_minimal );
-			break;
+			$dynamic_css       .= astra_parse_css( $css_output_minimal );
+			if ( ! $is_customizer ) {
+				break;
+			}
 
-		case 'fill':
+		case 'fill': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 			$css_output_fill = array(
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill' => array(
 					// Color & Border.
@@ -112,11 +118,12 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 					'border-radius' => astra_get_css_value( $trigger_border_radius, 'px' ),
 				),
 			);
-	
-			$dynamic_css .= astra_parse_css( $css_output_fill );
-			break;
+			$dynamic_css    .= astra_parse_css( $css_output_fill );
+			if ( ! $is_customizer ) {
+				break;
+			}
 
-		case 'outline':
+		case 'outline': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 			$css_output_outline = array(
 
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' => array(
@@ -132,12 +139,14 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 					'border-radius'       => astra_get_css_value( $trigger_border_radius, 'px' ),
 				),
 			);
-	
-			$dynamic_css .= astra_parse_css( $css_output_outline );
-			break;
+			$dynamic_css       .= astra_parse_css( $css_output_outline );
+			if ( ! $is_customizer ) {
+				break;
+			}
 
 		default:
 			$dynamic_css .= '';
+			break;
 			
 	}
 
