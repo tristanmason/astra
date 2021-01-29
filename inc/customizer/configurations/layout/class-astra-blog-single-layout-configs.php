@@ -82,14 +82,15 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Display Post Structure
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'type'     => 'control',
-					'control'  => 'ast-sortable',
-					'section'  => 'section-blog-single',
-					'default'  => astra_get_option( 'blog-single-post-structure' ),
-					'priority' => 5,
-					'title'    => __( 'Structure', 'astra' ),
-					'choices'  => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+					'type'              => 'control',
+					'control'           => 'ast-sortable',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+					'section'           => 'section-blog-single',
+					'default'           => astra_get_option( 'blog-single-post-structure' ),
+					'priority'          => 5,
+					'title'             => __( 'Structure', 'astra' ),
+					'choices'           => array(
 						'single-image'      => __( 'Featured Image', 'astra' ),
 						'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
 					),
@@ -104,11 +105,12 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					 * Option: Single Post Meta
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[blog-single-meta]',
-						'type'     => 'control',
-						'control'  => 'ast-sortable',
-						'default'  => astra_get_option( 'blog-single-meta' ),
-						'context'  => array(
+						'name'              => ASTRA_THEME_SETTINGS . '[blog-single-meta]',
+						'type'              => 'control',
+						'control'           => 'ast-sortable',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+						'default'           => astra_get_option( 'blog-single-meta' ),
+						'context'           => array(
 							Astra_Builder_Helper::$general_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
@@ -116,10 +118,10 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 								'value'    => 'single-title-meta',
 							),
 						),
-						'section'  => 'section-blog-single',
-						'priority' => 5,
-						'title'    => __( 'Meta', 'astra' ),
-						'choices'  => array(
+						'section'           => 'section-blog-single',
+						'priority'          => 5,
+						'title'             => __( 'Meta', 'astra' ),
+						'choices'           => array(
 							'comments' => __( 'Comments', 'astra' ),
 							'category' => __( 'Category', 'astra' ),
 							'author'   => __( 'Author', 'astra' ),
