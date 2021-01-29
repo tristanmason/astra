@@ -6,6 +6,7 @@
 	grid-template-columns: auto auto;
 	align-items: center;
 	grid-column-gap: 20px;
+	overflow-wrap: anywhere;
 }
 .ast-builder-footer-grid-columns {
 	grid-column-gap: 50px;
@@ -143,9 +144,6 @@
 		&:last-child {
 			padding-right: 0;
 		}
-	}
-	&.ast-flex {
-		flex-wrap: nowrap;
 	}
 	.ast-builder-menu {
 		align-items: center;
