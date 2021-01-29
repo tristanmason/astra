@@ -944,11 +944,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
 		 */
 		private function get_customizer_configurations( $wp_customize ) {
+
 			if ( ! is_null( self::$configuration ) ) {
 				return self::$configuration;
 			}
 
-			return apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			self::$configuration = apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			return self::$configuration;
 		}
 
 		/**
