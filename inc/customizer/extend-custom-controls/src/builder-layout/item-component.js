@@ -67,6 +67,56 @@ const ItemComponent = props => {
 				<span className="ahfb-builder-item-text">
 					{undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ''}
 				</span>
+		{
+			astra.customizer.is_pro &&
+			<div className="ahfb-slide-up">
+				{ choices[props.item]['clone'] && <span title="Clone"
+					  onClick={e => {
+						  e.stopPropagation();
+
+						  // Skip clone if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-clone-in-progress') ) {
+							  return;
+						  }
+
+						  props.cloneItem(props.item);
+					  }} className=" tooltip dashicons dashicons-admin-page">
+				</span> }
+				<span title="Reset to default"
+					  onClick={e => {
+						  e.stopPropagation();
+
+						  // Skip Reset if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-reset-in-progress') ) {
+							  return;
+						  }
+
+						  var event = new CustomEvent('AstraBuilderResetSectionControls', {
+							  'detail': {
+							  	'section_id': choices[props.item].section
+							  }
+						  });
+						  document.dispatchEvent(event);
+					  }}
+					  className=" tooltip dashicons dashicons-image-rotate">
+				</span>
+
+				{ choices[props.item]['delete'] &&  <span title="Delete"
+					  onClick={e => {
+
+						  // Skip Delete if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-eradicate-in-progress') ) {
+							  return;
+						  }
+
+						  e.stopPropagation();
+						  deleteItem(props);
+						  props.removeItem(props.item);
+					  }}
+					  className="tooltip dashicons dashicons-trash">
+				</span> }
+			</div>
+		}
 
 		<Button className="ahfb-builder-item-icon" onClick={e => {
 			e.stopPropagation();
