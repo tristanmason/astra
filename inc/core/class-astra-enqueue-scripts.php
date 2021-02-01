@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => 'main',
+						'astra-theme-css' => 'frontend',
 					),
 				);
 			} else {
