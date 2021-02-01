@@ -1096,7 +1096,7 @@ final class Astra_Builder_Helper {
 	 */
 	public static function apply_flex_base_css() {
 
-		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings                     = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['is-flex-base-css'] = isset( $astra_settings['is-flex-base-css'] ) ? $astra_settings['is-flex-base-css'] : true;
 		return apply_filters( 'astra_apply_flex_base_css', $astra_settings['is-flex-base-css'] );
 	}
