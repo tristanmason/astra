@@ -1696,7 +1696,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '1.43em 1.48em',
 					),
-					'.ast-comment-meta'           => array(
+					'.ast-comment-meta'            => array(
 						'padding' => '0 1.8888em 1.3333em',
 					),
 					'.ast-separate-container .ast-comment-list li.depth-1' => array(
