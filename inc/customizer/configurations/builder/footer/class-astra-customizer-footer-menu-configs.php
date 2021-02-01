@@ -252,40 +252,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Option Group: Menu Typography.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
-					'default'   => astra_get_option( 'footer-menu-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Menu', 'astra' ),
-					'section'   => $_section,
-					'context'   => Astra_Builder_Helper::$design_tab,
-					'transport' => 'postMessage',
-					'priority'  => 120,
-				),
-
-				// Option: Menu Font Size.
-				array(
-					'name'        => 'footer-menu-font-size',
-					'default'     => astra_get_option( 'footer-menu-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
-					'section'     => $_section,
-					'type'        => 'sub-control',
-					'priority'    => 23,
-					'title'       => __( 'Size', 'astra' ),
-					'control'     => 'ast-responsive',
-					'transport'   => 'postMessage',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'context'     => Astra_Builder_Helper::$general_tab,
-				),
-
 				/**
 				 * Option: Margin heading
 				 */
@@ -302,18 +268,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option - Menu Space.
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[footer-main-menu-spacing]',
-					'default'        => astra_get_option( 'footer-main-menu-spacing' ),
-					'type'           => 'control',
-					'control'        => 'ast-responsive-spacing',
-					'transport'      => 'postMessage',
-					'section'        => $_section,
-					'context'        => Astra_Builder_Helper::$design_tab,
-					'priority'       => 210,
-					'title'          => __( 'Menu Space', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[footer-main-menu-spacing]',
+					'default'           => astra_get_option( 'footer-main-menu-spacing' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'transport'         => 'postMessage',
+					'section'           => $_section,
+					'context'           => Astra_Builder_Helper::$design_tab,
+					'priority'          => 210,
+					'title'             => __( 'Menu Space', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
@@ -325,25 +292,92 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
+
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+				$new_configs = array(
+
+					// Option Group: Menu Typography.
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
+						'default'   => astra_get_option( 'footer-menu-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Menu', 'astra' ),
+						'section'   => $_section,
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'transport' => 'postMessage',
+						'priority'  => 120,
+					),
+
+					// Option: Menu Font Size.
+					array(
+						'name'        => 'footer-menu-font-size',
+						'default'     => astra_get_option( 'footer-menu-font-size' ),
+						'parent'      => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
+						'section'     => $_section,
+						'type'        => 'sub-control',
+						'priority'    => 23,
+						'title'       => __( 'Size', 'astra' ),
+						'control'     => 'ast-responsive',
+						'transport'   => 'postMessage',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+						'context'     => Astra_Builder_Helper::$general_tab,
+					),
+				);
+			} else {
+
+				$new_configs = array(
+
+					// Option: Menu Font Size.
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[footer-menu-font-size]',
+						'default'     => astra_get_option( 'footer-menu-font-size' ),
+						'section'     => $_section,
+						'type'        => 'control',
+						'priority'    => 120,
+						'title'       => __( 'Menu Font Size', 'astra' ),
+						'control'     => 'ast-responsive',
+						'transport'   => 'postMessage',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+						'context'     => Astra_Builder_Helper::$design_tab,
+					),
+				);
+			}
+			
+			$_configs = array_merge( $_configs, $new_configs );
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, 'footer' ) );
 

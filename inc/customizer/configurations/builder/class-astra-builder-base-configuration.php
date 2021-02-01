@@ -70,46 +70,48 @@ final class Astra_Builder_Base_Configuration {
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $section_id,
-				'priority'       => 210,
-				'title'          => __( 'Padding', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $section_id,
+				'priority'          => 210,
+				'title'             => __( 'Padding', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
-				'name'           => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-				'default'        => '',
-				'type'           => 'control',
-				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-spacing',
-				'section'        => $section_id,
-				'priority'       => 220,
-				'title'          => __( 'Margin', 'astra' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
+				'default'           => '',
+				'type'              => 'control',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $section_id,
+				'priority'          => 220,
+				'title'             => __( 'Margin', 'astra' ),
+				'linked_choices'    => true,
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
 					'top'    => __( 'Top', 'astra' ),
 					'right'  => __( 'Right', 'astra' ),
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'context'        => Astra_Builder_Helper::$design_tab,
+				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
 	}
@@ -124,43 +126,75 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_typography_options( $section_id, $required_condition = array() ) {
 
 		$parent = ASTRA_THEME_SETTINGS . '[' . $section_id . '-typography]';
-		return array(
 
-			array(
-				'name'      => $parent,
-				'default'   => astra_get_option( $section_id . '-typography' ),
-				'type'      => 'control',
-				'control'   => 'ast-settings-group',
-				'title'     => __( 'Text Typography', 'astra' ),
-				'section'   => $section_id,
-				'transport' => 'postMessage',
-				'priority'  => 16,
-				'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
-			),
+		if ( defined( 'ASTRA_EXT_VER' ) ) {
 
-			/**
-			 * Option: Font Size
-			 */
-			array(
-				'name'        => 'font-size-' . $section_id,
-				'type'        => 'sub-control',
-				'parent'      => $parent,
-				'section'     => $section_id,
-				'control'     => 'ast-responsive',
-				'default'     => astra_get_option( 'font-size-' . $section_id ),
-				'transport'   => 'postMessage',
-				'priority'    => 14,
-				'title'       => __( 'Size', 'astra' ),
-				'input_attrs' => array(
-					'min' => 0,
+			$_configs = array(
+
+				array(
+					'name'      => $parent,
+					'default'   => astra_get_option( $section_id . '-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Text Typography', 'astra' ),
+					'section'   => $section_id,
+					'transport' => 'postMessage',
+					'priority'  => 16,
+					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			),
 
-		);
+				/**
+				 * Option: Font Size
+				 */
+				array(
+					'name'        => 'font-size-' . $section_id,
+					'type'        => 'sub-control',
+					'parent'      => $parent,
+					'section'     => $section_id,
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'font-size-' . $section_id ),
+					'transport'   => 'postMessage',
+					'priority'    => 14,
+					'title'       => __( 'Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+			);
+		} else {
+
+			$_configs = array(
+				
+				/**
+				 * Option: Font Size
+				 */
+				array(
+					'name'        => 'font-size-' . $section_id,
+					'type'        => 'control',
+					'section'     => $section_id,
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'font-size-' . $section_id ),
+					'transport'   => 'postMessage',
+					'priority'    => 16,
+					'title'       => __( 'Font Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'context'     => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+				),
+			);
+		}
+
+		return $_configs;
 	}
 
 	/**
@@ -187,7 +221,8 @@ final class Astra_Builder_Base_Configuration {
 				'title'    => __( 'Visibility', 'astra' ),
 				'priority' => 300,
 				'settings' => array(),
-				'context'  => ( 'footer' === $builder_type ) ? Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
+				'context'  => ( 'footer' === $builder_type ) ?
+					Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
 			),
 
 			/**
@@ -253,25 +288,29 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_widget_options( $type = 'header' ) {
 		$html_config = array();
 
+
 		if ( 'footer' === $type ) {
-			$class_obj     = Astra_Builder_Footer::get_instance();
-			$no_of_widgets = Astra_Builder_Helper::$num_of_footer_widgets;
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
 		} else {
-			$class_obj     = Astra_Builder_Header::get_instance();
-			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
 		}
-		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
+
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
 
 			$_configs = array(
 
 				array(
-					'name'     => 'sidebar-widgets-' . $type . '-widget-' . $index,
-					'type'     => 'section',
-					'priority' => 5,
-					'title'    => __( 'Widget ', 'astra' ) . $index,
-					'panel'    => 'panel-' . $type . '-builder-group',
+					'name'        => 'sidebar-widgets-' . $type . '-widget-' . $index,
+					'type'        => 'section',
+					'priority'    => 5,
+					'title'       => __( 'Widget ', 'astra' ) . $index,
+					'panel'       => 'panel-' . $type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $type . '-widget',
 				),
 
 
@@ -379,78 +418,6 @@ final class Astra_Builder_Base_Configuration {
 				),
 
 				/**
-				 * Option: Widget Title Typography
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
-					'default'   => astra_get_option( $type . '-widget-' . $index . '-text-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Title', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 90,
-				),
-
-				/**
-				 * Option: Widget Title Font Size
-				 */
-				array(
-					'name'        => $type . '-widget-' . $index . '-font-size',
-					'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'type'        => 'sub-control',
-					'section'     => $_section,
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'priority'    => 3,
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
-
-				/**
-				 * Option: Widget Content Typography
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
-					'default'   => astra_get_option( $type . '-widget-' . $index . '-content-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 91,
-				),
-
-				/**
-				 * Option: Widget Content Font Size
-				 */
-				array(
-					'name'        => $type . '-widget-' . $index . '-content-font-size',
-					'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'type'        => 'sub-control',
-					'section'     => $_section,
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'priority'    => 3,
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
-
-				/**
 				 * Option: Margin Heading heading
 				 */
 				array(
@@ -467,17 +434,18 @@ final class Astra_Builder_Base_Configuration {
 				 * Option: Margin
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
@@ -510,6 +478,136 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+				$new_configs = array(
+
+					/**
+					 * Option: Widget Title Typography
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
+						'default'   => astra_get_option( $type . '-widget-' . $index . '-text-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Title', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'priority'  => 90,
+					),
+
+					/**
+					 * Option: Widget Title Font Size
+					 */
+					array(
+						'name'        => $type . '-widget-' . $index . '-font-size',
+						'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
+						'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
+						'transport'   => 'postMessage',
+						'title'       => __( 'Size', 'astra' ),
+						'type'        => 'sub-control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 3,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+
+					/**
+					 * Option: Widget Content Typography
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
+						'default'   => astra_get_option( $type . '-widget-' . $index . '-content-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Content', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'priority'  => 91,
+					),
+
+					/**
+					 * Option: Widget Content Font Size
+					 */
+					array(
+						'name'        => $type . '-widget-' . $index . '-content-font-size',
+						'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
+						'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
+						'transport'   => 'postMessage',
+						'title'       => __( 'Size', 'astra' ),
+						'type'        => 'sub-control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 3,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+				);
+
+			} else {
+
+				$new_configs = array(
+
+					/**
+					 * Option: Widget Title Font Size
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-font-size]',
+						'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
+						'transport'   => 'postMessage',
+						'title'       => __( 'Title Font Size', 'astra' ),
+						'type'        => 'control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 90,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+
+					/**
+					 * Option: Widget Content Font Size
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-font-size]',
+						'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
+						'transport'   => 'postMessage',
+						'title'       => __( 'Content Font Size', 'astra' ),
+						'type'        => 'control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 91,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+				);
+
+			}
+
+			$_configs = array_merge( $_configs, $new_configs );
+
+			$html_config[] = self::prepare_visibility_tab( $_section, $type );
+			
 			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, $type ) );
 
 			$html_config[] = $_configs;

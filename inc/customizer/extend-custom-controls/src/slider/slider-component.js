@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import {__} from '@wordpress/i18n';
 import {RangeControl} from '@wordpress/components';
 import {useState} from 'react';
 
@@ -49,7 +48,7 @@ const SliderComponent = props => {
 
 		<div className="wrapper">
 			<RangeControl
-				value={ parseInt( props_value ) === 0 ? 0 : props_value || '' }
+				value={ parseInt( defaultVal ) === 0 ? 0 : defaultVal || '' }
 				onChange={ updateValues	}
 				resetFallbackValue={ defaultVal }
 				min={ min < 0 ? min : 0 }
@@ -57,6 +56,7 @@ const SliderComponent = props => {
 				step={ step || 1 }
 				allowReset
 			/>
+			{suffixHtml}
 		</div>
 	</label>;
 };

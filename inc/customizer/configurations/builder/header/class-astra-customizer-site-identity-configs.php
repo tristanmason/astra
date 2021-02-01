@@ -134,10 +134,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'title_tagline',
 					'type'      => 'sub-control',
 					'control'   => 'ast-color',
+					'priority'  => 5,
 					'default'   => astra_get_option( 'header-color-site-title' ),
 					'transport' => 'postMessage',
 					'title'     => __( 'Text Color', 'astra' ),
-					'tab'       => __( 'Normal', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -148,14 +148,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => 'title_tagline',
 					'type'      => 'sub-control',
 					'control'   => 'ast-color',
+					'priority'  => 10,
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
 					'title'     => __( 'Hover Color', 'astra' ),
-					'tab'       => __( 'Hover', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
-
-
 
 				/**
 				 * Option: Margin heading
@@ -175,25 +173,26 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
-				
+
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );

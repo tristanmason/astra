@@ -1,17 +1,25 @@
 import PropTypes from 'prop-types';
 import {RangeControl} from '@wordpress/components';
-import {useState} from 'react';
-import {__} from '@wordpress/i18n';
+import {useEffect, useState} from 'react';
 
 const ResponsiveSliderComponent = props => {
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	let prop_value = props.control.setting.get();
+
+	const [state, setState] = useState( prop_value );
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== prop_value ) {
+			setState(prop_value);
+		}
+	}, [props]);
 
 	const updateValues = (device, newVal) => {
-		let updateState = {...props_value};
+		let updateState = {...state};
 		updateState[device] = newVal;
 		props.control.setting.set(updateState);
-		setPropsValue(updateState);
+		setState(updateState);
 	};
 
 	const renderInputHtml = (device, active = '') => {
@@ -36,7 +44,7 @@ const ResponsiveSliderComponent = props => {
 		return <div className={`input-field-wrapper ${device} ${active}`}>
 			<RangeControl
 				resetFallbackValue={defaultVal}
-				value={ parseInt( props_value[device] ) === 0 ? 0 : props_value[device] || '' }
+				value={ parseInt( defaultVal ) === 0 ? 0 : defaultVal || '' }
 				min={ min < 0 ? min : 0 }
 				max={ max || 100 }
 				step={ step || 1 }
@@ -96,11 +104,10 @@ const ResponsiveSliderComponent = props => {
 			{inputHtml}
 		</div>
 	</label>;
-
 };
 
 ResponsiveSliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( ResponsiveSliderComponent );
+export default ResponsiveSliderComponent;

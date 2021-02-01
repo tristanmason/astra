@@ -36,13 +36,15 @@ class Astra_Button_Component_Configs {
 		if ( 'footer' === $builder_type ) {
 			$class_obj        = Astra_Builder_Footer::get_instance();
 			$number_of_button = Astra_Builder_Helper::$num_of_footer_button;
+			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_button;
 		} else {
 			$class_obj        = Astra_Builder_Header::get_instance();
 			$number_of_button = Astra_Builder_Helper::$num_of_header_button;
+			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_button;
 		}
 
 		$html_config = array();
-		for ( $index = 1; $index <= $number_of_button; $index++ ) {
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
 			$_prefix  = 'button' . $index;
@@ -57,12 +59,14 @@ class Astra_Button_Component_Configs {
 					* Header Builder section - Button Component Configs.
 					*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 50,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 50,
 					/* translators: %s Index */
-					'title'    => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_button ) ? __( 'Button', 'astra' ) : sprintf( __( 'Button %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $builder_type . '-button',
 				),
 
 				/**
@@ -94,6 +98,7 @@ class Astra_Button_Component_Configs {
 						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
 						'container_inclusive' => false,
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
@@ -102,20 +107,21 @@ class Astra_Button_Component_Configs {
 				* Option: Button Link
 				*/
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option]',
-					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-link-option' ),
-					'type'      => 'control',
-					'control'   => 'ast-link',
-					'section'   => $_section,
-					'priority'  => 30,
-					'title'     => __( 'Link', 'astra' ),
-					'transport' => 'postMessage',
-					'partial'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option]',
+					'default'           => astra_get_option( $builder_type . '-' . $_prefix . '-link-option' ),
+					'type'              => 'control',
+					'control'           => 'ast-link',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+					'section'           => $_section,
+					'priority'          => 30,
+					'title'             => __( 'Link', 'astra' ),
+					'transport'         => 'postMessage',
+					'partial'           => array(
 						'selector'            => '.ast-' . $builder_type . '-button-' . $index,
 						'container_inclusive' => false,
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'           => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -303,44 +309,6 @@ class Astra_Button_Component_Configs {
 						'max'  => 100,
 					),
 				),
-
-				/**
-				 * Option: Primary Header Button Typography
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Typography', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'context'   => Astra_Builder_Helper::$design_tab,
-					'priority'  => 90,
-				),
-
-				/**
-				 * Option: Primary Header Button Font Size
-				 */
-				array(
-					'name'        => $builder_type . '-' . $_prefix . '-font-size',
-					'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'type'        => 'sub-control',
-					'section'     => $_section,
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'priority'    => 3,
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
 			);
 
 			if ( 'footer' === $builder_type ) {
@@ -362,6 +330,78 @@ class Astra_Button_Component_Configs {
 				);
 			}
 
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+				$new_configs = array(
+
+					/**
+					 * Option: Primary Header Button Typography
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+						'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Typography', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'priority'  => 90,
+					),
+
+					/**
+					 * Option: Primary Header Button Font Size
+					 */
+					array(
+						'name'        => $builder_type . '-' . $_prefix . '-font-size',
+						'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
+						'parent'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+						'transport'   => 'postMessage',
+						'title'       => __( 'Size', 'astra' ),
+						'type'        => 'sub-control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 3,
+						'context'     => Astra_Builder_Helper::$general_tab,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+				);
+				
+			} else {
+
+				$new_configs = array(
+					/**
+					 * Option: Primary Header Button Font Size
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-font-size]',
+						'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
+						'transport'   => 'postMessage',
+						'title'       => __( 'Font Size', 'astra' ),
+						'type'        => 'control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 90,
+						'context'     => Astra_Builder_Helper::$design_tab,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+				);
+			}
+
+			$_configs = array_merge( $_configs, $new_configs );
+
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
@@ -369,7 +409,8 @@ class Astra_Button_Component_Configs {
 			$html_config[] = $_configs;
 		}
 
-		$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		
 		$configurations = array_merge( $configurations, $html_config );
 
 		return $configurations;

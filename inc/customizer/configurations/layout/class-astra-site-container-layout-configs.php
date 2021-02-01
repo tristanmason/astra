@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'default'   => astra_get_option( 'site-layout-outside-bg-obj-responsive' ),
-					'section'   => 'section-colors-body',
+					'section'   => defined( 'ASTRA_EXT_VER' ) ? 'section-colors-body' : 'section-colors-background',
 					'transport' => 'postMessage',
 					'priority'  => 25,
 					'title'     => __( 'Background', 'astra' ),
