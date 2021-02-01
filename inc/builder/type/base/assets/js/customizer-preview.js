@@ -590,18 +590,18 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 					value.bind( function( alignment ) {
 						if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
 							var dynamicStyle = '';
-							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
+							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] {';
 							dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
 							dynamicStyle += '} ';
 
 							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
+							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] {';
 							dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
 							dynamicStyle += '} ';
 							dynamicStyle += '} ';
 
 							dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
+							dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] {';
 							dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
 							dynamicStyle += '} ';
 							dynamicStyle += '} ';

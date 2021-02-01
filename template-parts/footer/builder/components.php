@@ -35,11 +35,9 @@ switch ( $component_slug ) {
 	case 'widget-1':
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-1">
-			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-1' );
 				?>
-			</div>
 		</aside>
 		<?php
 		break;
@@ -47,11 +45,9 @@ switch ( $component_slug ) {
 	case 'widget-2':
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-2">
-			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-2' );
 				?>
-			</div>
 		</aside>
 		<?php
 		break;
@@ -59,11 +55,9 @@ switch ( $component_slug ) {
 	case 'widget-3':
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-3">
-			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-3' );
 				?>
-			</div>
 		</aside>
 		<?php
 		break;
@@ -71,11 +65,9 @@ switch ( $component_slug ) {
 	case 'widget-4':
 		?>
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-4">
-			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-4' );
 				?>
-			</div>
 		</aside>
 		<?php
 		break;

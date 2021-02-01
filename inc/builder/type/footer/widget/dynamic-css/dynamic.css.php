@@ -46,19 +46,19 @@ function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		 */
 		$css_output_desktop = array(
 
-			$selector . ' .footer-widget-area-inner' => array(
+			$selector => array(
 				'text-align' => $desktop_alignment,
 			),
 		);
 
 		$css_output_tablet = array(
-			$selector . ' .footer-widget-area-inner' => array(
+			$selector => array(
 				'text-align' => $tablet_alignment,
 			),
 		);
 
 		$css_output_mobile = array(
-			$selector . ' .footer-widget-area-inner' => array(
+			$selector => array(
 				'text-align' => $mobile_alignment,
 			),
 		);
