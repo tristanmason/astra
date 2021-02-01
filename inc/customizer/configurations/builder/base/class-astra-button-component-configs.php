@@ -309,44 +309,6 @@ class Astra_Button_Component_Configs {
 						'max'  => 100,
 					),
 				),
-
-				/**
-				 * Option: Primary Header Button Typography
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Typography', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'context'   => Astra_Builder_Helper::$design_tab,
-					'priority'  => 90,
-				),
-
-				/**
-				 * Option: Primary Header Button Font Size
-				 */
-				array(
-					'name'        => $builder_type . '-' . $_prefix . '-font-size',
-					'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'type'        => 'sub-control',
-					'section'     => $_section,
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'priority'    => 3,
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
 			);
 
 			if ( 'footer' === $builder_type ) {
@@ -368,6 +330,78 @@ class Astra_Button_Component_Configs {
 				);
 			}
 
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+				$new_configs = array(
+
+					/**
+					 * Option: Primary Header Button Typography
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+						'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Typography', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'priority'  => 90,
+					),
+
+					/**
+					 * Option: Primary Header Button Font Size
+					 */
+					array(
+						'name'        => $builder_type . '-' . $_prefix . '-font-size',
+						'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
+						'parent'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+						'transport'   => 'postMessage',
+						'title'       => __( 'Size', 'astra' ),
+						'type'        => 'sub-control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 3,
+						'context'     => Astra_Builder_Helper::$general_tab,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+				);
+				
+			} else {
+
+				$new_configs = array(
+					/**
+					 * Option: Primary Header Button Font Size
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-font-size]',
+						'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
+						'transport'   => 'postMessage',
+						'title'       => __( 'Font Size', 'astra' ),
+						'type'        => 'control',
+						'section'     => $_section,
+						'control'     => 'ast-responsive',
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'priority'    => 90,
+						'context'     => Astra_Builder_Helper::$design_tab,
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+					),
+				);
+			}
+
+			$_configs = array_merge( $_configs, $new_configs );
+
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
@@ -375,7 +409,8 @@ class Astra_Button_Component_Configs {
 			$html_config[] = $_configs;
 		}
 
-		$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		
 		$configurations = array_merge( $configurations, $html_config );
 
 		return $configurations;
