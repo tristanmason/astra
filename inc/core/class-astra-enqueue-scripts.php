@@ -251,8 +251,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			// Submenu Container Animation for header builder.
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-				
-				for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
+
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 					$menu_animation_enable = astra_get_option( 'header-menu' . $index . '-submenu-container-animation' );
 
@@ -260,10 +260,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 						$menu_animation = 'is_animated';
 						break;
 					}
-				}           
+				}
 			} else {
 				$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
-			} 
+			}
 
 
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
