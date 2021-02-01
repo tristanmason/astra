@@ -23,9 +23,9 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-palette-import {
-  padding: 10px;
+  padding: 0 23px;
   color: white;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .ast-global-palette-import .components-popover__content {
@@ -119,7 +119,7 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-add-new-color.is-primary {
-  width: 60%;
+  width: 55%;
 }
 
 #customize-control-astra-settings-global-color-palette button.components-button.ast-palette-delete:disabled:hover {
@@ -128,7 +128,6 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-add-new-color .dashicons-plus {
-  line-height: 25px;
   margin-left: 10px;
 }
 

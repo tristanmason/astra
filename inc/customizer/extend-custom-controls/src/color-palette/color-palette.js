@@ -214,7 +214,8 @@ const ColorPaletteComponent = props => {
 	};
 
 	const htmlpalette = Object.values(state[state.patterntype]).map( ( item, index ) => {
-		document.documentElement.style.setProperty('--global-palette' + index, item[0] );		
+		const iframe = document.getElementsByTagName('iframe')[0]		
+		iframe.contentDocument.documentElement.style.setProperty('--global-palette' + index, item[0] );		
 	} );
 
 	const toggleVisible = () => {
