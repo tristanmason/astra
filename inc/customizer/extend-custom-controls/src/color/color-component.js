@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Dashicon,Popover,Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const ColorComponent = props => {
 	let value
@@ -21,7 +21,14 @@ const ColorComponent = props => {
 		value: value,
 		isVisible:false,	
 	});
-	
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state.value !== value ) {
+			setState(value);
+		}
+	}, [props]);
+
 	const updateValues = (value) => {
 		setState(prevState => ({
 			...prevState,
@@ -229,4 +236,4 @@ ColorComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo ( ColorComponent );
+export default ColorComponent;
