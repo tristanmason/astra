@@ -177,7 +177,7 @@ export function astraGetResponsiveSliderJs ( control ) {
 
     control.container.find( '.ast-responsive-slider-btns button i' ).on( 'click', function( event ) {
         event.preventDefault();
-        let device = jQuery(this).parent("button").attr('data-device');
+        let device = jQuery(this).parent('button').attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {
