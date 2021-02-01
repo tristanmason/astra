@@ -2880,7 +2880,7 @@ function astra_check_flex_base_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['is-flex-base-css'] ) ) {
-		$theme_options['is-flex-base-css'] = true;
+		$theme_options['is-flex-base-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
