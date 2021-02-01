@@ -116,14 +116,15 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Background color
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-color]',
-				'default'   => astra_get_option( 'edd-header-cart-icon-color' ),
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'title'     => __( 'Color', 'astra' ),
-				'transport' => 'postMessage',
-				'section'   => $_section,
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-color]',
+				'default'           => astra_get_option( 'edd-header-cart-icon-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'title'             => __( 'Color', 'astra' ),
+				'transport'         => 'postMessage',
+				'section'           => $_section,
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
@@ -131,7 +132,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'priority'  => 45,
+				'priority'          => 45,
 			),
 
 			/**
@@ -160,9 +161,9 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 200,
 				),
 			),
-			
+
 		);
-		
+
 		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_edd_configs = array(
 				array(

@@ -1,22 +1,31 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {__} from '@wordpress/i18n';
 
 const ResponsiveSliderComponent = props => {
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	let prop_value = props.control.setting.get();
+
+	const [state, setState] = useState( prop_value );
 
 	const onResetClick = (e) => {
 		e.preventDefault();
 		props.control.setting.set(props.control.params.default);
-		setPropsValue(props.control.params.default);
+		setState(props.control.params.default);
 	};
 
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== prop_value ) {
+			setState(prop_value);
+		}
+	}, [props]);
+
 	const onInputChange = (device) => {
-		let updateState = {...props_value};
+		let updateState = {...state};
 		updateState[device] = event.target.value;
 		props.control.setting.set(updateState);
-		setPropsValue(updateState);
+		setState(updateState);
 	};
 
 	const renderInputHtml = (device, active = '') => {
@@ -43,13 +52,13 @@ const ResponsiveSliderComponent = props => {
 		}
 
 		return <div className={`input-field-wrapper ${device} ${active}`}>
-			<input type="range" {...inp_array} value={props_value[device]}
+			<input type="range" {...inp_array} value={state[device]}
 				   data-reset_value={props.control.params.default[device]} onChange={() => {
 				onInputChange(device);
 			}}/>
 			<div className="astra_range_value">
 				<input type="number" {...inp_array} data-id={device} className="ast-responsive-range-value-input"
-					   value={props_value[device]} onChange={() => {
+					   value={state[device]} onChange={() => {
 					onInputChange(device);
 				}}/>
 				{suffixHtml}
@@ -122,4 +131,4 @@ ResponsiveSliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( ResponsiveSliderComponent );
+export default ResponsiveSliderComponent;

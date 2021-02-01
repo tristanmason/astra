@@ -154,9 +154,6 @@
 .ast-header-search .ast-search-menu-icon {
 	&.slide-search,
 	&.ast-inline-search {
-		.search-submit {
-			position: unset;
-		}
 		.search-form {
 			display: flex;
 			align-items: center;
@@ -252,9 +249,6 @@
 		display: block;
 		width: 100%;
 		ul {
-			> .menu-item:first-child {
-				border-top: 0;
-			}
 			ul {
 				left: auto;
 				right: auto;

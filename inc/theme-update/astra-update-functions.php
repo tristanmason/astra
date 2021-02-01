@@ -404,6 +404,19 @@ function astra_header_builder_compatibility() {
 }
 
 /**
+ * Clears assets cache and regenerates new assets files.
+ *
+ * @since 3.0.1
+ *
+ * @return void
+ */
+function astra_clear_assets_cache() {
+	if ( is_callable( 'Astra_Minify::refresh_assets' ) ) {
+		Astra_Minify::refresh_assets();
+	}
+}
+
+/**
  * Header Footer builder - Migration of options.
  *
  * @since 3.0.0
@@ -421,8 +434,6 @@ function astra_header_builder_migration() {
 	$widget_options = get_option( 'sidebars_widgets', array() );
 
 	$used_elements = array();
-
-	error_log( 'Astra: Migrating Header Footer Builder Options - Process Start' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 	$options = array(
 		'theme_options'  => $theme_options,
@@ -451,8 +462,6 @@ function astra_header_builder_migration() {
 
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'sidebars_widgets', $widget_options );
-
-	error_log( 'Astra: Migrating Header Footer Builder Options - Process Done' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 }
 
@@ -2857,6 +2866,21 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 
 	if ( ! isset( $theme_options['guntenberg-media-text-block-padding-css'] ) ) {
 		$theme_options['guntenberg-media-text-block-padding-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/** 
+ * We have removed some unused/Old dynamic CSS so to make compatible this change with existing user/ Do not apply for change exising users.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_check_flex_base_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['is-flex-base-css'] ) ) {
+		$theme_options['is-flex-base-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
