@@ -32,8 +32,7 @@ const ColorComponent = props => {
 							let value = JSON.parse(JSON.stringify(defaultValue));
 
 							if (undefined === value || '' === value) {
-								value = AstraBuilderCustomizerData.defaults[props.control.id];
-								// wp.customize.previewer.refresh();
+								value = 'unset';
 							}
 
 							updateValues(value);

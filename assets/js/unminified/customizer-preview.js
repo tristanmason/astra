@@ -73,6 +73,10 @@ function astra_color_responsive_css( addon, control, css_property, selector ) {
 					+ '</style>'
 				);
 
+				if( 'unset' === value.desktop || 'unset' === value.mobile || 'unset' === value.tablet ){
+					jQuery( 'style#' + control + '-' + addon ).remove();
+				}
+
 			} else {
 				wp.customize.preview.send( 'refresh' );
 				jQuery( 'style#' + control + '-' + addon ).remove();
@@ -281,6 +285,10 @@ function astra_css( control, css_property, selector, unit ) {
 					+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
 					+ '</style>'
 				);
+
+				if( 'unset' === new_value ){
+					jQuery( 'style#' + control + '-' + css_property ).remove();
+				}
 
 			} else {
 				// Remove old.

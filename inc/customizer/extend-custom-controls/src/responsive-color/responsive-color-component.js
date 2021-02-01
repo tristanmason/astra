@@ -39,8 +39,7 @@ const ResponsiveColorComponent = props => {
 						if (undefined !== value && '' !== value) {
 							for (let device in value) {
 								if (undefined === value[device] || '' === value[device]) {
-									value[device] = AstraBuilderCustomizerData.defaults[props.control.id][device];
-									// wp.customize.previewer.refresh();
+									value[device] = 'unset';
 								}
 							}
 						}
