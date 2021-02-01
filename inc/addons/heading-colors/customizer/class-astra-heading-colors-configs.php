@@ -276,7 +276,6 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'transport'         => 'postMessage',
 				),
 
 				/**

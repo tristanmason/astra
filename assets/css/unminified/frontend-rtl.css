@@ -1744,6 +1744,7 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
+  border: 0;
   border-bottom-width: 1px;
   border-style: solid;
   border-color: #eaeaea;
@@ -1784,9 +1785,11 @@ body {
   padding-right: 60px;
 }
 
-.ast-header-break-point .ast-header-custom-item,
 .ast-header-break-point .main-header-menu {
   background-color: #f9f9f9;
+  border-top-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
 }
 
 .ast-header-break-point .main-header-menu .sub-menu {
@@ -2580,6 +2583,10 @@ body .entry-content .wp-block-latest-posts li {
   margin-bottom: 0;
 }
 
+.footer-widget-area[data-section^="section-fb-html-"] .ast-builder-html-element {
+  text-align: center;
+}
+
 /**
  * AST HF Builder - Logo related CSS.
  * Align center section's Site title & Tagline center align.
@@ -2632,6 +2639,13 @@ body .entry-content .wp-block-latest-posts li {
   padding-right: 6px;
 }
 
+.ast-social-stack-desktop .ast-builder-social-element,
+.ast-social-stack-tablet .ast-builder-social-element,
+.ast-social-stack-mobile .ast-builder-social-element {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 .ahfb-svg-iconset {
   -js-display: inline-flex;
   display: inline-flex;
@@ -2661,6 +2675,10 @@ body .entry-content .wp-block-latest-posts li {
   margin-left: 0;
 }
 
+[data-section^="section-fb-social-icons-"] .footer-social-inner-wrap {
+  text-align: center;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Button.
@@ -2668,6 +2686,10 @@ body .entry-content .wp-block-latest-posts li {
 [data-section*="section-hb-button-"] .menu-link,
 [data-section*="section-fb-button-"] .menu-link {
   display: none;
+}
+
+[CLASS*="ast-footer-button-"][data-section^="section-fb-button-"] {
+  justify-content: center;
 }
 
 .ast-footer-html-inner p {
@@ -3070,6 +3092,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   padding-left: 5.5em;
 }
 
+.site-footer-focus-item[CLASS*="ast-footer-button-"] {
+  -js-display: flex;
+  display: flex;
+}
+
 @media screen and (max-width: 921px) {
   .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
     left: calc( 20px - 0.907em);
@@ -3117,6 +3144,8 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   width: 100%;
   margin-bottom: 1em;
   margin-top: 1em;
+  padding-right: 20px;
+  padding-left: 20px;
   position: relative;
   display: block;
   left: auto;
@@ -3149,6 +3178,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field {
   width: 100%;
   padding-left: 5.5em;
+}
+
+.ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label {
+  width: 100%;
 }
 
 .ast-mobile-header-content .ast-search-menu-icon .search-submit,
@@ -3605,10 +3639,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   width: 235px;
 }
 
-.ast-header-search .ast-search-menu-icon.slide-search .search-submit, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-submit {
-  position: unset;
-}
-
 .ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
   -js-display: flex;
   display: flex;
@@ -3698,10 +3728,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-header-break-point .main-navigation {
   display: block;
   width: 100%;
-}
-
-.ast-header-break-point .main-navigation ul > .menu-item:first-child {
-  border-top: 0;
 }
 
 .ast-header-break-point .main-navigation ul ul {
