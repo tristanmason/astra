@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react';
-import {Dashicon} from '@wordpress/components';
+import {Dashicon,Popover,Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 const ResponsiveColorComponent = props => {
@@ -13,13 +13,13 @@ const ResponsiveColorComponent = props => {
 		var string = temp_dbval.desktop;
 		var matches = string.match(regex);
 		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
-		temp_dbval.desktop = updated_palette[updated_palette.patterntype][matches]
+		temp_dbval.desktop = updated_palette[updated_palette.patterntype][matches][0]
 		value = temp_dbval
 	}else{		
 		 value = props.control.setting.get();
 	}
-		
-	const [props_value, setPropsValue] = useState(value);
+	const isVisible = false
+	const [props_value, setPropsValue] = useState(value,isVisible);
 
 	const updateValues = ( value, key ) => {
 		
@@ -59,19 +59,19 @@ const ResponsiveColorComponent = props => {
 
 			switch(props.control.params.label) {
 				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][0]
+					current_color = e.detail.palette[e.detail.palette.patterntype][0][0]
 				break;
 				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][1]
+					current_color = e.detail.palette[e.detail.palette.patterntype][1][0]
 				break;
 				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][2]
+					current_color = e.detail.palette[e.detail.palette.patterntype][2][0]
 				break;
 				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][3]
+					current_color = e.detail.palette[e.detail.palette.patterntype][3][0]
 				break;
 				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][4]
+					current_color = e.detail.palette[e.detail.palette.patterntype][4][0]
 
 				break;
 				default:
@@ -92,6 +92,77 @@ const ResponsiveColorComponent = props => {
 	}
 
 	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
+
+	var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
+
+	const handleGlobalColorPopupBtn = (value,index,defaultset,color,key) => {
+		updatepaletteuse(value,index,defaultset);		
+		updateValues(color,key);
+	}
+
+	const toggleClose = () => {
+		setPropsValue(prevState => ({
+			...prevState,
+			isVisible: !props_value.isVisible
+		}));
+	};
+
+	const renderGlobalPalette = () =>{
+		return (
+		<div className="ast-global-color-btn-wrap">
+				<button	className="ast-global-color-btn components-button is-secondary" 
+				onClick={e => {
+					e.preventDefault();
+					setPropsValue(prevState => ({
+						...prevState,
+						isVisible: !props_value.isVisible
+					}));
+				}}>
+					<Dashicon icon='admin-site-alt3' style={{
+						width: 14,
+						height: 14,
+						fontSize: 14
+					}}/>
+				</button>
+				{ props_value.isVisible && (
+					<Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-popup">
+						<label className="ast-global-color-palette-manage-label">Global Colors</label>
+						<Button
+							className='ast-global-color-palette-manage'
+							onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }
+							tabIndex={ 0 }
+						>
+							<Dashicon icon='admin-generic' style={{
+								width: 12,
+								height: 12,
+								fontSize: 12
+							}}/>
+						</Button>
+						<hr/>
+						{ Object.keys( globalPalette.pattern1 ).map( ( item, index ) => { 
+												
+							return ( 
+								<Button
+									className='ast-global-color-individual-btn'
+									onClick={ () =>handleGlobalColorPopupBtn( true,index,'no',globalPalette.pattern1[item][0],'desktop' ) }
+									tabIndex={ 0 }
+									key={index}
+									title={ globalPalette.pattern1[item][1]}
+								>
+									<div className={value['desktop'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+										style={{ background:globalPalette.pattern1[item][0] }} 
+									/>
+									<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>
+									<div className="ast-global-color-hexcode">{ globalPalette.pattern1[item][0]}</div>
+								</Button>
+							)
+						} )}
+					</Popover>
+				)}
+			</div>
+		)
+	}
+
 	const renderReset = ( key ) => {
 		let deleteBtnDisabled = true;
 		let devices = ['desktop', 'mobile', 'tablet'];
@@ -104,6 +175,7 @@ const ResponsiveColorComponent = props => {
 
 		return <span className="customize-control-title">
 			<>
+				
 				<div className="ast-color-btn-reset-wrap">
 					<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
@@ -142,7 +214,9 @@ const ResponsiveColorComponent = props => {
 			allowGradient={false} allowImage={false}
 			defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
 			isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''} 
-			container ={props.control.container[0]}/>;
+			container ={props.control.container[0]}
+			disablePalette={true}
+			/>;
 	};
 
 	const handleChangeComplete = ( color, key ) => {
@@ -211,6 +285,7 @@ const ResponsiveColorComponent = props => {
 		inputHtml = <>
 
 			<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active">
+				{renderGlobalPalette()}
 				{renderReset('desktop')}
 				{renderSettings('desktop')}
 			</div>

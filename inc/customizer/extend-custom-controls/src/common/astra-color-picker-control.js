@@ -137,8 +137,8 @@ class AstraColorPickerControl extends Component {
 		}
 		newdefaultpalette.forEach( singleColor => {
 			let paletteColors = {};
-			Object.assign( paletteColors, { name: count + '_' + singleColor } );
-			Object.assign( paletteColors, { color: singleColor } );
+			Object.assign( paletteColors, { name: count + '_' + singleColor[0] } );
+			Object.assign( paletteColors, { color: singleColor[0] } );
 			finalpaletteColors.push(paletteColors);
 			count ++;
 		});
@@ -245,7 +245,11 @@ class AstraColorPickerControl extends Component {
 
 																</>
 															) }
-															{ belowColorPalette }
+															{ !disablePalette && (
+																<Fragment>
+																	{ belowColorPalette }											
+																</Fragment>
+															) }
 															<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 														</>
 													);
