@@ -45,18 +45,15 @@ const Background = props => {
 
 						if (undefined !== value && '' !== value) {
 							if (undefined === value['background-color'] || '' === value['background-color']) {
-								value['background-color'] = AstraBuilderCustomizerData.defaults[props.control.id]['background-color'];
-								// wp.customize.previewer.refresh();
+								value['background-color'] = '';
 							}
 
 							if (undefined === value['background-image'] || '' === value['background-image']) {
-								value['background-image'] = AstraBuilderCustomizerData.defaults[props.control.id]['background-image'];
-								// wp.customize.previewer.refresh();
+								value['background-image'] = '';
 							}
 
 							if (undefined === value['background-media'] || '' === value['background-media']) {
 								value['background-media'] = '';
-								wp.customize.previewer.refresh();
 							}
 						}
 

@@ -323,7 +323,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	var bg_color	= bg_obj['background-color'];
 
 	if( '' === bg_color && '' === bg_img ) {
-		wp_customize.preview.send( 'refresh' );
+		jQuery( 'style#' + ctrl_name ).remove();
 	}else{
 		if( undefined !== bg_obj['background-type'] && '' !== bg_obj['background-type'] ) {
 
