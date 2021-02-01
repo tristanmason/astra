@@ -25,7 +25,7 @@ const AlignmentComponent = props => {
 		
 		if ( false === resp ) {
 
-			props_value_new = props_value.replace( "align-", "" );
+			let props_value_new = props_value.replace( "align-", "" );
 
 			if ( props_value_new !== props_value ) {
 
@@ -60,7 +60,7 @@ const AlignmentComponent = props => {
 			</div>;
 		}
 
-		props_value_new = props_value[device].replace( "align-", "" );
+		let props_value_new = props_value[device].replace( "align-", "" );
 
 		if ( props_value_new !== props_value[device] ) {
 			
