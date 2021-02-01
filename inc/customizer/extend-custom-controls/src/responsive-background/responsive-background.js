@@ -81,18 +81,15 @@ const ResponsiveBackground = props => {
 							if (undefined !== value && '' !== value) {
 								for (let device in value) {
 									if (undefined === value[device]['background-color'] || '' === value[device]['background-color']) {
-										value[device]['background-color'] = AstraBuilderCustomizerData.defaults[props.control.id][device]['background-color'];
-										// wp.customize.previewer.refresh();
+										value[device]['background-color'] = '';
 									}
 
 									if (undefined === value[device]['background-image'] || '' === value[device]['background-image']) {
-										value[device]['background-image'] = AstraBuilderCustomizerData.defaults[props.control.id][device]['background-image'];
-										// wp.customize.previewer.refresh();
+										value[device]['background-image'] = '';
 									}
 
 									if (undefined === value[device]['background-media'] || '' === value[device]['background-media']) {
 										value[device]['background-media'] = '';
-										wp.customize.previewer.refresh();
 									}
 								}
 							}
