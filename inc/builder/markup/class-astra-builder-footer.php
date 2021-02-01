@@ -62,20 +62,22 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 			// Core Components.
 			add_action( 'astra_footer_copyright', array( $this, 'footer_copyright' ), 10 );
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
-				add_action( 'astra_footer_html_' . $index, array( $this, 'footer_html_' . $index ) );
-				self::$methods[] = 'footer_html_' . $index;
-			}
+			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
+				// Buttons.
 				add_action( 'astra_footer_button_' . $index, array( $this, 'button_' . $index ) );
 				self::$methods[] = 'button_' . $index;
-			}
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_social_icons; $index++ ) {
+				// Htmls.
+				add_action( 'astra_footer_html_' . $index, array( $this, 'footer_html_' . $index ) );
+				self::$methods[] = 'footer_html_' . $index;
+
+				// Social Icons.
 				add_action( 'astra_footer_social_' . $index, array( $this, 'footer_social_' . $index ) );
 				self::$methods[] = 'footer_social_' . $index;
+
 			}
+
 
 			// Navigation menu.
 			add_action( 'astra_footer_menu', array( $this, 'footer_menu' ) );
@@ -263,7 +265,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		public function footer_html_4() {
 			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-4' );
 		}
-		
+
 		/**
 		 * Render Menu.
 		 */
