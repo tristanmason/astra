@@ -239,7 +239,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_site_identity() {
 			?>
-			<div class="site-branding">
 				<?php
 				if ( is_customize_preview() ) {
 					self::render_customizer_edit_button();
@@ -250,14 +249,13 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					echo astra_attr(
 						'site-identity',
 						array(
-							'class' => 'ast-site-identity',
+							'class' => 'site-branding ast-site-identity',
 						)
 					);
 				?>
 				>
 					<?php astra_logo(); ?>
 				</div>
-			</div>
 			<!-- .site-branding -->
 			<?php
 		}
