@@ -15,6 +15,8 @@ v3.1.0
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Builder - Search box layout is breaking in offcanvas.
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
+- Fix: Submenu divider option adding heavy border around menu-items on responsive devices.
+- Fix: Builder - Menu - Megamenu container get hides when hover in between Top Offset spacing.
 
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.
