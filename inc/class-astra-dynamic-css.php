@@ -1618,9 +1618,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( is_current_post_comment_enabled() ) {
 
 				$global_button_comment_mobile = array(
-					'.ast-separate-container .comments-count-wrapper' => array(
-						'padding' => '1.5em 1em',
-					),
 					'.ast-separate-container .ast-comment-list li.depth-1' => array(
 						'padding'       => '1.5em 1em',
 						'margin-bottom' => '1.5em',
@@ -1721,18 +1718,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.comments-area'               => array(
 						'margin-top' => '1.5em',
 					),
-					'.ast-separate-container .comments-count-wrapper' => array(
-						'padding' => '2em 2.14em',
+					'.ast-separate-container .comments-title' => array(
+						'padding' => '1.43em 1.48em',
+					),
+					'.ast-comment-meta'            => array(
+						'padding'   => '0 1.8888em 1.3333em',
+						'font-size' => ! empty( $body_font_size['tablet'] ) ? astra_get_font_css_value( (int) $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ) : '',
 					),
 					'.ast-separate-container .ast-comment-list li.depth-1' => array(
 						'padding' => '1.5em 2.14em',
 					),
 					'.ast-separate-container .comment-respond' => array(
 						'padding' => '2em 2.14em',
-					),
-					// Single Post Meta.
-					'.ast-comment-meta'            => array(
-						'font-size' => ! empty( $body_font_size['tablet'] ) ? astra_get_font_css_value( (int) $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ) : '',
 					),
 					'.comment-reply-title'         => array(
 						'font-size' => ! empty( $body_font_size['tablet'] ) ? astra_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ) : '',
@@ -3094,10 +3091,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				font-weight: normal;
 				line-height: 1.65;
 			  }
-
-			  .ast-comment-meta {
-				margin-bottom: 0.5em;
-			  }
 			  .comments-area {
 				border-top: 1px solid #eeeeee;
 				margin-top: 2em;
@@ -3231,12 +3224,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					font-size: 1rem;
 					margin-right: 1em;
 				}
-					
 				
 				.ast-comment-meta {
 					justify-content: left;
-					padding: 0 0 1.1222em;
+					padding: 0 3.4em 1.333em;
 				}
+				
 				.ast-comment-time .timendate,
 					.ast-comment-time .reply {
 					margin-left: 0.5em;
