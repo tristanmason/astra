@@ -69,7 +69,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	/* Width for Header */
 	if ( 'content' !== $astra_header_width ) {
-		$genral_global_responsive = array(
+		$general_global_responsive = array(
 			'#masthead .ast-container, .site-header-focus-item + .ast-breadcrumbs-wrapper' => array(
 				'max-width'     => '100%',
 				'padding-left'  => '35px',
@@ -78,11 +78,11 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 		);
 		
 		/* Parse CSS from array()*/
-		$parse_css .= astra_parse_css( $genral_global_responsive );
+		$parse_css .= astra_parse_css( $general_global_responsive );
 
 	} elseif ( 'astra_header_primary_container_after' == $header_breadcrumb_position ) {
-		$site_content_width       = astra_get_option( 'site-content-width', 1200 );
-		$genral_global_responsive = array(
+		$site_content_width        = astra_get_option( 'site-content-width', 1200 );
+		$general_global_responsive = array(
 			'.site-header-focus-item + .ast-breadcrumbs-wrapper' => array(
 				'max-width'     => astra_get_css_value( $site_content_width + 40, 'px' ),
 				'margin-left'   => 'auto',
@@ -93,7 +93,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 		);
 
 		/* Parse CSS from array()*/
-		$parse_css .= astra_parse_css( $genral_global_responsive );
+		$parse_css .= astra_parse_css( $general_global_responsive );
 	}
 
 	$padding_below_breakpoint = array(

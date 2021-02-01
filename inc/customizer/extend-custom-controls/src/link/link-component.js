@@ -3,11 +3,20 @@ import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
 import {Fragment} from '@wordpress/element';
 import {TextControl} from '@wordpress/components';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const LinkComponent = props => {
 
-	const [state, setState] = useState(props.control.setting.get());
+	let prop_value = props.control.setting.get();
+
+	const [state, setState] = useState( prop_value );
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== prop_value ) {
+			setState(prop_value);
+		}
+	}, [props]);
 
 	const onUrlChange = (value) => {
 		const obj = {
@@ -88,4 +97,4 @@ LinkComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( LinkComponent );
+export default LinkComponent;

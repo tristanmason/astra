@@ -124,14 +124,15 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				 * Option: Display Post Structure
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
-					'default'  => astra_get_option( 'blog-post-structure' ),
-					'type'     => 'control',
-					'control'  => 'ast-sortable',
-					'section'  => 'section-blog',
-					'priority' => 50,
-					'title'    => __( 'Post Structure', 'astra' ),
-					'choices'  => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+					'default'           => astra_get_option( 'blog-post-structure' ),
+					'type'              => 'control',
+					'control'           => 'ast-sortable',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+					'section'           => 'section-blog',
+					'priority'          => 50,
+					'title'             => __( 'Post Structure', 'astra' ),
+					'choices'           => array(
 						'image'      => __( 'Featured Image', 'astra' ),
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
 					),
@@ -146,13 +147,14 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					 * Option: Display Post Meta
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[blog-meta]',
-						'type'     => 'control',
-						'control'  => 'ast-sortable',
-						'section'  => 'section-blog',
-						'default'  => astra_get_option( 'blog-meta' ),
-						'priority' => 50,
-						'context'  => array(
+						'name'              => ASTRA_THEME_SETTINGS . '[blog-meta]',
+						'type'              => 'control',
+						'control'           => 'ast-sortable',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+						'section'           => 'section-blog',
+						'default'           => astra_get_option( 'blog-meta' ),
+						'priority'          => 50,
+						'context'           => array(
 							Astra_Builder_Helper::$general_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
@@ -160,8 +162,8 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 								'value'    => 'title-meta',
 							),
 						),
-						'title'    => __( 'Meta', 'astra' ),
-						'choices'  => array(
+						'title'             => __( 'Meta', 'astra' ),
+						'choices'           => array(
 							'comments' => __( 'Comments', 'astra' ),
 							'category' => __( 'Category', 'astra' ),
 							'author'   => __( 'Author', 'astra' ),
