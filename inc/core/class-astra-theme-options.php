@@ -31,6 +31,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		private static $instance;
 
 		/**
+		 * Customizer defaults.
+		 *
+		 * @access Private
+		 * @since 1.4.3
+		 * @var Array
+		 */
+		private static $defaults;
+
+		/**
 		 * Post id.
 		 *
 		 * @var $instance Post id.
@@ -82,8 +91,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * @return default values of the theme.
 		 */
 		public static function defaults() {
+
+			if ( ! is_null( self::$defaults ) ) {
+				return self::$defaults;
+			}
+
 			// Defaults list of options.
-			return apply_filters(
+			self::$defaults = apply_filters(
 				'astra_theme_defaults',
 				array(
 					// Blog Single.
@@ -453,6 +467,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'mobile-header-toggle-target'          => 'icon',
 				)
 			);
+
+			return self::$defaults;
 		}
 
 		/**
