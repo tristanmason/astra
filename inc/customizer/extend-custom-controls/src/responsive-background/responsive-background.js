@@ -94,7 +94,7 @@ const ResponsiveBackground = props => {
 			
 		}else{
 
-			if( ( props.control.params.label == "Text Color" || props.control.params.label == "Theme Color"|| props.control.params.label == "Link Color" || props.control.params.label == "Link Hover Color" || props.control.params.label == "Heading Color ( H1 - H6 )" || props.control.params.label == "Background" || props.control.params.label == "Background Color" || props.control.params.label == "Color & Image" || props.control.params.label == "Background Color & Image"  ) && (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index )  ){
+			if( props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ){
 				
 				var deviceObj = {
 					...obj['desktop']

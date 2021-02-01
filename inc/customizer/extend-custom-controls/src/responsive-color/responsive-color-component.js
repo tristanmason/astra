@@ -80,8 +80,7 @@ const ResponsiveColorComponent = props => {
 			
 		}else{
 
-			if( ( props.control.params.label == ( "Text Color" ) || props.control.params.label == ( "Link / Text Color" ) ||
-			props.control.params.label == ( "Link Color" ) || props.control.params.label == ( "Link Hover Color" ) || props.control.params.label == ( "Separator Color" ) || props.control.params.label == ( "Border Color" ) || props.control.params.label == ( "Content") || props.control.params.label == ( "Title" ) || props.control.params.label == ( "Link Hover" ) || props.control.params.label == ( "Link" ) || props.control.params.label == ( "Background Color" ) || props.control.params.label == ( "Color" ) || props.control.params.label == ( "Icon Color" ) || props.control.params.label == ( "Hover Color" ) || props.control.params.label == ( "Link Active / Hover Color" ) || props.control.params.label == ( "Site Title Color" ) || props.control.params.label == ( "Background Overlay" ) ) && (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ) ){
+			if( props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ){
 				var current_color = e.detail.newcolor;	
 			}else{
 				return
