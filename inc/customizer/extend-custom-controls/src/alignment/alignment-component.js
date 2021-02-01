@@ -6,7 +6,7 @@ import {__} from '@wordpress/i18n';
 const AlignmentComponent = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
-
+	
 	const onAlignChange = ( value, device='' ) => {
 		let updateState = {
 			...props_value
@@ -24,6 +24,14 @@ const AlignmentComponent = props => {
 	const renderInputHtml = ( device, active = '', resp = true ) => {
 		
 		if ( false === resp ) {
+
+			props_value_new = props_value.replace( "align-", "" );
+
+			if ( props_value_new !== props_value ) {
+
+				onAlignChange( props_value_new );
+			}
+			
 			return <div className="ast-alignmet-inner-wrap active">
                 <IconButton
                     key={ "left" }
@@ -50,6 +58,13 @@ const AlignmentComponent = props => {
                     isPrimary = { "right" === props_value }
                 />
 			</div>;
+		}
+
+		props_value_new = props_value[device].replace( "align-", "" );
+
+		if ( props_value_new !== props_value[device] ) {
+			
+			onAlignChange( props_value_new );
 		}
 
 		return <div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` }>

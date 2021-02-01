@@ -464,15 +464,10 @@ final class Astra_Builder_Base_Configuration {
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
 						'default'   => astra_get_option( $type . '-widget-alignment-' . $index ),
 						'type'      => 'control',
-						'control'   => 'ast-responsive-select',
+						'control'   => 'ast-alignment',
 						'section'   => $_section,
 						'priority'  => 5,
 						'title'     => __( 'Alignment', 'astra' ),
-						'choices'   => array(
-							'left'   => __( 'Left', 'astra' ),
-							'center' => __( 'Center', 'astra' ),
-							'right'  => __( 'Right', 'astra' ),
-						),
 						'transport' => 'postMessage',
 					)
 				);

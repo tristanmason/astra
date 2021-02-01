@@ -405,15 +405,10 @@ class Astra_Social_Icon_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-social-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-social-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-alignment',
 					'section'   => $_section,
 					'priority'  => 6,
 					'title'     => __( 'Alignment', 'astra' ),
-					'choices'   => array(
-						'left'   => __( 'Left', 'astra' ),
-						'center' => __( 'Center', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				);
