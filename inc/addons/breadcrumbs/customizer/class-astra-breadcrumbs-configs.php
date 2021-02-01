@@ -283,7 +283,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'transport' => 'postMessage',
 					'title'     => __( 'Alignment', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-alignment',
 					'priority'  => 65,
 					'choices'   => array(
 						'left'   => __( 'Left', 'astra' ),
@@ -298,6 +298,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
+					'responsive' => false
 				),
 
 				/**

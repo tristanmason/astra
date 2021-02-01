@@ -1,0 +1,26 @@
+.customize-control-ast-alignment .ast-alignment-inner-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.customize-control-ast-alignment .ast-alignment-inner-wrap {
+    display: none;
+}
+
+.customize-control-ast-alignment .ast-alignment-inner-wrap.active {
+    display: flex;
+}
+.customize-control-ast-alignment .components-button.has-icon {
+    padding: 6px;
+    min-width: 36px;
+    justify-content: center;
+}
+.customize-control-ast-alignment .components-button.is-primary {
+    white-space: nowrap;
+    background: #007cba;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: none;
+    outline: 1px solid transparent;
+}
