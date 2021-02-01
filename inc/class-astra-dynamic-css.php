@@ -2240,6 +2240,56 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				if ( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
+
+					$transparent_toggle_selector = '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"]';
+
+					$trigger_bg           = astra_get_option( 'transparent-header-toggle-btn-bg-color', $theme_color );
+					$trigger_border_color = astra_get_option( 'transparent-header-toggle-border-color', $trigger_bg );
+					$style                = astra_get_option( 'mobile-header-toggle-btn-style' );
+					$default              = '#ffffff';
+
+					if ( 'fill' !== $style ) {
+						$default = $theme_color;
+					}
+
+					$icon_color = astra_get_option( 'transparent-header-toggle-btn-color', $default );
+
+					/**
+					 * Off-Canvas CSS.
+					 */
+					$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg' ] = array(
+						'fill' => $icon_color,
+					);
+
+					$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .mobile-menu-wrap .mobile-menu' ] = array(
+						// Color.
+						'color' => $icon_color,
+					);
+
+					if ( 'fill' === $style ) {
+						$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill' ] = array(
+							'background' => esc_attr( $trigger_bg ),
+						);
+						$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill, ' . $transparent_toggle_selector . ' .ast-button-wrap .ast-mobile-menu-trigger-minimal' ] = array(
+							// Color & Border.
+							'color'  => esc_attr( $icon_color ),
+							'border' => 'none',
+						);
+					} elseif ( 'outline' === $style ) {
+						$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' ] = array(
+							// Background.
+							'background'   => 'transparent',
+							'color'        => esc_attr( $icon_color ),
+							'border-color' => $trigger_border_color,
+						);
+					} else {
+						$transparent_header_builder_desktop_css[ $transparent_toggle_selector . ' .ast-button-wrap .ast-mobile-menu-trigger-minimal' ] = array(
+							'background' => 'transparent',
+						);
+					}
+				}
+
 				$parse_css .= astra_parse_css( $transparent_header_builder_desktop_css );
 
 				/**
