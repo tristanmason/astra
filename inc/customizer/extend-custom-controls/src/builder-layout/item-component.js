@@ -70,7 +70,7 @@ const ItemComponent = props => {
 		{
 			astra.customizer.is_pro &&
 			<div className="ahfb-slide-up">
-				{ choices[props.item]['clone'] && <span title="Clone"
+				{ choices[props.item]['clone'] && <span data-tooltip="Clone"
 					  onClick={e => {
 						  e.stopPropagation();
 
@@ -80,9 +80,9 @@ const ItemComponent = props => {
 						  }
 
 						  props.cloneItem(props.item);
-					  }} className=" tooltip dashicons dashicons-admin-page">
+					  }} className="dashicons dashicons-admin-page">
 				</span> }
-				<span title="Reset to default"
+				<span data-tooltip="Reset to default"
 					  onClick={e => {
 						  e.stopPropagation();
 
@@ -98,10 +98,12 @@ const ItemComponent = props => {
 						  });
 						  document.dispatchEvent(event);
 					  }}
-					  className=" tooltip dashicons dashicons-image-rotate">
+					  className="dashicons dashicons-image-rotate">
 				</span>
 
-				{ choices[props.item]['delete'] &&  <span title="Delete"
+				{ choices[props.item]['delete'] &&
+
+				<span data-tooltip="Delete"
 					  onClick={e => {
 
 						  // Skip Delete if already is in progress.
@@ -113,8 +115,10 @@ const ItemComponent = props => {
 						  deleteItem(props);
 						  props.removeItem(props.item);
 					  }}
-					  className="tooltip dashicons dashicons-trash">
-				</span> }
+					  className="dashicons dashicons-trash">
+				</span>
+
+				}
 			</div>
 		}
 
@@ -122,7 +126,7 @@ const ItemComponent = props => {
 			e.stopPropagation();
 			props.removeItem(props.item);
 		}}>
-			<Dashicon icon="no-alt"/>
+			<Dashicon data-tooltip="Remove item!" icon="no-alt"/>
 		</Button>
 	</div>;
 };
