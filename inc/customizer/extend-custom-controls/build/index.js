@@ -17364,20 +17364,17 @@ var colorGroupControl = wp.customize.astraControl.extend({
   ready: function ready() {
     'use strict';
 
-    console.log('in color-group > control.js');
-    var control = this,
-        value = control.setting._value;
-    console.log(control);
+    var control = this;
     control.registerToggleEvents();
     this.container.on('ast_color_group_changed', control.onOptionChange);
   },
   registerToggleEvents: function registerToggleEvents() {
-    var control = this;
-    var $this = jQuery(control);
-    var parent_wrap = $this.closest('.customize-control-ast-color-group');
-    var fields = control.params.ast_fields;
-    var $modal_wrap = jQuery(astra.customizer.color_group_modal_tmpl);
-    parent_wrap.find('.ast-field-color-group-wrap').append($modal_wrap);
+    var control = this,
+        $this = jQuery(control.selector),
+        parent_wrap = $this.closest('.customize-control-ast-color-group'),
+        fields = control.params.ast_fields,
+        modal_wrap = jQuery(astra.customizer.color_group_modal_tmpl);
+    parent_wrap.find('.ast-field-color-group-wrap').append(modal_wrap);
     parent_wrap.find('.ast-fields-wrap').attr('data-control', control.params.name);
     control.ast_render_field(parent_wrap, fields, control);
   },
@@ -17386,6 +17383,7 @@ var colorGroupControl = wp.customize.astraControl.extend({
     var ast_field_wrap = wrap.find('.ast-field-color-group-wrap');
     var fields_html = '';
     var control_types = [];
+    console.log(fields);
     var result = control.generateFieldHtml(fields);
     fields_html += result.html;
 
@@ -17418,6 +17416,7 @@ var colorGroupControl = wp.customize.astraControl.extend({
     var control_types = [];
 
     _.each(fields_data, function (attr, index) {
+      console.log(attr);
       var new_value = wp.customize.control('astra-settings[' + attr.name + ']') ? wp.customize.control('astra-settings[' + attr.name + ']').params.value : '';
       var control = attr.control;
       var template_id = "customize-control-" + control + "-content";

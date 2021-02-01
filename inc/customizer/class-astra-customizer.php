@@ -828,14 +828,16 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			foreach ( $configurations as $key => $configuration ) {
 				$config = wp_parse_args( $configuration, $defaults );
-				if ( 'sub-control' === $config['type'] ) {
+				if ( 'control' === $config['type'] ) {
+
 					unset( $config['type'] );
 					$parent = astra_get_prop( $config, 'parent' );
 
 					if ( empty( self::$color_group_configs[ $parent ] ) ) {
 						self::$color_group_configs[ $parent ]   = array();
-						self::$color_group_configs[ $parent ][] = $config;
 					}
+
+					self::$color_group_configs[ $parent ][] = $config;
 				}
 			}
 		}
