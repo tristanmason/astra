@@ -8,15 +8,32 @@
     display: none;
 }
 
-.customize-control-ast-alignment .ast-alignment-inner-wrap.active {
+.customize-control-ast-alignment .ast-alignment-wrapper .ast-alignmet-inner-wrap.active {
+    flex: 1 1 0;
     display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    height: 40px;
+    line-height: normal;
+    margin: 0;
+    border: 1px solid #CBD5E0;
+    border-radius: 2px;
+    background: transparent;
+    color: #4A5568;
+    white-space: normal;
+    box-shadow: none;
 }
 .customize-control-ast-alignment .components-button.has-icon {
     padding: 6px;
     min-width: 36px;
     justify-content: center;
 }
-.customize-control-ast-alignment .ast-alignment-inner-wrap.active .components-button.is-primary {
+.customize-control-ast-alignment .ast-alignment-wrapper .ast-alignmet-inner-wrap.active .components-button.is-primary {
     white-space: nowrap;
     background: #007cba;
     color: #fff;
@@ -24,16 +41,23 @@
     text-shadow: none;
     outline: 1px solid transparent;
 }
-.customize-control-ast-alignment .ast-alignment-inner-wrap .components-button.is-primary {
+.customize-control-ast-alignment .ast-alignment-wrapper .ast-alignmet-inner-wrap.active .components-button {
     white-space: nowrap;
-    background: #f0f9fd;
+    background: #ffffff;
     color: rgba(0, 0, 0, 0.966);
     text-decoration: none;
     text-shadow: none;
     outline: 1px solid transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
 }
 .customize-control-ast-alignment .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
     color: black;
+}
+.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg {
+    color: #ffffff;
 }
