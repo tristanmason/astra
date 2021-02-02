@@ -73,10 +73,6 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .main-header-menu' => array(
 			'text-align' => esc_attr( $menu_content_alignment ),
 		),
-		'.ast-mobile-popup-content > *' => array(
-			'padding-top'    => astra_get_css_value( $inner_spacing, 'px' ),
-			'padding-bottom' => astra_get_css_value( $inner_spacing, 'px' ),
-		),
 	);
 
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
