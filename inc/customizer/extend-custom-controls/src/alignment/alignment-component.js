@@ -32,13 +32,13 @@ const AlignmentComponent = props => {
 		if ( ! choices ) {
 			return;
 		}
-
+console.log(resp);
 		if ( false === resp ) {
 
 			let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
 				
 				let html = (
-					<div className="ast-alignmet-inner-wrap active" key={ value }>
+					<div className="ast-alignment-inner-wrap active" key={ value }>
 						<Button
 							key={ value }
 							onClick={ () => onValueChange( value ) }
