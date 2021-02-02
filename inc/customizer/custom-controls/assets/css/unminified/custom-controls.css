@@ -56,9 +56,11 @@
 .customize-control-ast-alignment .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    color: black;
+    fill: black;
 }
-.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg circle {
+.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg,
+.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg circle,
+.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
     fill: #ffffff;
 }
 #customize-controls .customize-control-notifications-container {
