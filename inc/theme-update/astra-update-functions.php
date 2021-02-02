@@ -2876,11 +2876,11 @@ function astra_gutenberg_media_text_block_css_compatibility() {
  * @since x.x.x
  * @return void.
  */
-function astra_check_flex_base_css() {
+function astra_check_flex_based_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['is-flex-base-css'] ) ) {
-		$theme_options['is-flex-base-css'] = false;
+	if ( ! isset( $theme_options['is-flex-based-css'] ) ) {
+		$theme_options['is-flex-based-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
