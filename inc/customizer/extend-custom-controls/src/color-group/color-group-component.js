@@ -15,13 +15,14 @@ const ColorGroupComponent = props => {
 	} = props.control.params;
 
 	const linked_sub_colors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
-	const color_group = [];
-	
+	const color_group = [],
+		tooltips = [];
+
 	Object.entries( linked_sub_colors ).map( ( [ key,value ] ) => {
-	
 		color_group[value.name] = wp.customize.control( value.name ).setting.get();
+		tooltips[value.name] = value.title;
 	});
-	
+
 	const[ state , setState ] = useState(color_group);
 
 	const handleChangeComplete = ( key, color='' ) => {
@@ -53,14 +54,16 @@ const ColorGroupComponent = props => {
 	if (help) {
 		htmlHelp = <span className="ast-description">{help}</span>;
 	}	
-	
+
 	let optionsHtml = Object.entries( state ).map( ( [ key,value ] ) => {
 
-		let html = ( 
+		var tooltip = tooltips[key] || __('Color', 'astra');
 
-			<Tooltip key={ key } text={__('Toggle Item Visiblity', 'astra')}>
+		let html = (
 
-				<div className="color-group-item">
+			<Tooltip key={ key } text={ tooltip }>
+
+				<div className="color-group-item" id={ key }>
 					<AstraColorPickerControl color={value ? value : ''}
 					onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
 					backgroundType={'color'}

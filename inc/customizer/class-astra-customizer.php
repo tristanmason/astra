@@ -586,6 +586,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
 				'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
+				'title'             => astra_get_prop( $config, 'title' ),
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
 				'sanitize_callback' => $sanitize_callback,
