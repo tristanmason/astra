@@ -951,6 +951,12 @@
   margin-left: 10px;
 }
 
+.customize-control.customize-control-ast-color-group .astra-popover-color {
+  position: absolute;
+  right: 0;
+  z-index: 9;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {

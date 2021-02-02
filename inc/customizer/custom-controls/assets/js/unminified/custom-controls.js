@@ -23469,11 +23469,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/astra-color-picker-control */ "./src/common/astra-color-picker-control.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/astra-color-picker-control */ "./src/common/astra-color-picker-control.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -23483,8 +23481,9 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
+var __ = wp.i18n.__;
 
-
+var Tooltip = wp.components.Tooltip;
 
 
 var ColorGroupComponent = function ColorGroupComponent(props) {
@@ -23493,16 +23492,67 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
   var _props$control$params = props.control.params,
       label = _props$control$params.label,
       help = _props$control$params.help,
-      name = _props$control$params.name,
-      is_responsive = _props$control$params.is_responsive,
-      linked_sub_colors = _props$control$params.linked_sub_colors;
+      name = _props$control$params.name;
+  var linked_sub_colors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
+  var color_group = [];
+  Object.entries(linked_sub_colors).map(function (key) {
+    color_group[linked_sub_colors[key[0]].name] = linked_sub_colors[key[0]].value;
+  });
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])({
-    value: value
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
+    value: linked_sub_colors
   }),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
+
+  console.log(color_group);
+
+  var handleChangeComplete = function handleChangeComplete(key) {
+    var color = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    var updateState = _objectSpread({}, state.value);
+
+    console.log(key);
+    var value;
+
+    if (typeof color === 'string' || color instanceof String) {
+      value = color;
+    } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+      value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+    } else {
+      value = color.hex;
+    }
+
+    setState(function (updateState) {
+      return _objectSpread(_objectSpread({}, updateState), {}, {
+        value: value
+      });
+    });
+    wp.customize.control(key).setting.set(value);
+    setState(updateState);
+  }; // const [props_value, setPropsValue] = useState(props.control.setting.get());
+  // const onAlignChange = ( value, device='' ) => {
+  // 	let updateState = {
+  // 		...props_value
+  //     };
+  //     if ( '' !== device ) {
+  //         updateState[device] = value;
+  //     } else {
+  //         updateState = value;
+  //     }
+  // 	props.control.setting.set(updateState);
+  // 	setPropsValue(updateState);
+  // };
+  // const updateValues = (key, value) => {
+  // 	setState(prevState => ({
+  // 		...prevState,
+  // 		value: value
+  // 	}));
+  // 	let sub_control = wp.customize.control( key );
+  // 	sub_control.setting.set( value );
+  // };
+
 
   if (label) {
     htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
@@ -23516,44 +23566,23 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     }, help);
   }
 
-  var updateValues = function updateValues(key, value) {
-    var keyColor = wp.customize.control('astra-settings[' + key + ']');
-    setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        value: value
-      });
-    });
-    keyColor.setting.set(value);
-  };
-
-  var handleChangeComplete = function handleChangeComplete(key, color) {
-    var value;
-
-    if (typeof color === 'string' || color instanceof String) {
-      value = color;
-    } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-      value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
-    } else {
-      value = color.hex;
-    }
-
-    updateValues(key, value);
-  };
-
   var optionsHtml = Object.entries(linked_sub_colors).map(function (key) {
-    var value = wp.customize.value('astra-settings[' + key[1] + ']').get();
-    var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    console.log(linked_sub_colors[key[0]]);
+    var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Tooltip, {
       key: key,
-      className: "color-group-item"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      color: undefined !== value && value ? value : '',
+      text: __('Toggle Item Visiblity', 'astra')
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "color-group-item",
+      id: linked_sub_colors[key[0]].name
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      color: linked_sub_colors[key[0]].value ? linked_sub_colors[key[0]].value : '',
       onChangeComplete: function onChangeComplete(color, backgroundType) {
-        return handleChangeComplete(key, color);
+        return handleChangeComplete(linked_sub_colors[key[0]].name, color);
       },
       backgroundType: 'color',
       allowGradient: false,
       allowImage: false
-    }));
+    })));
     return html;
   });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -23585,12 +23614,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _color_group_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./color-group-component */ "./src/color-group/color-group-component.js");
-/* harmony import */ var _color_color_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../color/color-component */ "./src/color/color-component.js");
-/* harmony import */ var _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../responsive-color/responsive-color-component */ "./src/responsive-color/responsive-color-component.js");
-/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
-
-
-
 
 
 var colorGroupControl = wp.customize.astraControl.extend({
@@ -23599,171 +23622,6 @@ var colorGroupControl = wp.customize.astraControl.extend({
     ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color_group_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
       control: control
     }), control.container[0]);
-  },
-  ready: function ready() {
-    'use strict';
-
-    var control = this; // control.registerToggleEvents();
-  },
-  registerToggleEvents: function registerToggleEvents() {
-    var control = this,
-        $this = jQuery(control.selector),
-        parent_wrap = $this.closest('.customize-control-ast-color-group'),
-        fields = control.params.ast_fields,
-        modal_wrap = jQuery(astra.customizer.color_group_modal_tmpl);
-    parent_wrap.find('.ast-field-color-group-wrap').append(modal_wrap);
-    parent_wrap.find('.ast-fields-wrap').attr('data-control', control.params.name);
-    control.ast_render_field(parent_wrap, fields, control);
-  },
-  ast_render_field: function ast_render_field(wrap, fields, control_elem) {
-    var control = this;
-    var ast_field_wrap = wrap.find('.ast-color-fields-wrap');
-    var fields_html = '';
-    var control_types = []; // var field_values = control.isJsonString( control_elem.params.value ) ? JSON.parse( control_elem.params.value ) : {};
-
-    var result = control.generateFieldHtml(fields);
-    console.log(result);
-    fields_html += result.html; // _.each( result.controls, function (control_value, control_key) {
-    // 	control_types.push({
-    // 		key: control_value.key,
-    // 		value: control_value.value,
-    // 		name: control_value.name
-    // 	});
-    // });
-
-    ast_field_wrap.html(fields_html); // 	control_elem.renderReactControl( fields, control_elem );
-    // _.each( control_types, function( control_type, index ) {
-    // 	switch( control_type.key ) {
-    // 		case "ast-color":
-    // 			astraGetColor( "#customize-control-" + control_type.name )
-    // 			break;
-    // 		case "ast-responsive-color":
-    // 			astraGetResponsiveColorJs( control_elem, "#customize-control-" + control_type.name )
-    // 			break;
-    // 	}
-    // });
-  },
-  getJS: function getJS(control) {},
-  generateFieldHtml: function generateFieldHtml(fields_data) {
-    var fields_html = '';
-    var control_types = [];
-    var reactControls = {
-      'ast-responsive-color': _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_3__["default"],
-      'ast-color': _color_color_component__WEBPACK_IMPORTED_MODULE_2__["default"]
-    };
-
-    _.each(fields_data, function (attr, index) {
-      var new_value = wp.customize.control('astra-settings[' + attr.name + ']') ? wp.customize.control('astra-settings[' + attr.name + ']').params.value : '';
-      var control = attr.control;
-      var template_id = "customize-control-" + control + "-content";
-      var template = wp.template(template_id);
-      var value = new_value || attr.default;
-      var dataAtts = '';
-      var input_attrs = '';
-      attr.value = value;
-      attr.label = attr.title; // Data attributes.
-
-      _.each(attr.data_attrs, function (value, name) {
-        dataAtts += " data-" + name + " ='" + value + "'";
-      }); // Input attributes
-
-
-      _.each(attr.input_attrs, function (value, name) {
-        input_attrs += name + '="' + value + '" ';
-      });
-
-      attr.dataAttrs = dataAtts;
-      attr.inputAttrs = input_attrs;
-      control_types.push({
-        key: control,
-        value: value,
-        name: attr.name
-      });
-
-      if ('ast-responsive' == control) {
-        var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-        attr.responsive = is_responsive;
-      }
-
-      var control_clean_name = attr.name.replace('[', '-');
-      control_clean_name = control_clean_name.replace(']', '');
-      var selector = '#customize-control-' + control_clean_name;
-      var controlObject = wp.customize.control('astra-settings[' + attr.name + ']'); // controlObject = control.getFinalControlObject( attr, controlObject );
-
-      var ComponentName = reactControls[attr.control];
-      fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
-      ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color_color_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        control: controlObject,
-        customizer: wp.customize
-      }), jQuery(selector)[0]);
-      fields_html += '</li>';
-    });
-
-    var result = new Object();
-    result.controls = control_types;
-    result.html = fields_html;
-    return result;
-  },
-  isJsonString: function isJsonString(str) {
-    try {
-      JSON.parse(str);
-    } catch (e) {
-      return false;
-    }
-
-    return true;
-  },
-  getFinalControlObject: function getFinalControlObject(attr, controlObject) {
-    if (undefined !== attr.choices && undefined === controlObject.params['choices']) {
-      controlObject.params['choices'] = attr.choices;
-    }
-
-    if (undefined !== attr.inputAttrs && undefined === controlObject.params['inputAttrs']) {
-      controlObject.params['inputAttrs'] = attr.inputAttrs;
-    }
-
-    if (undefined !== attr.link && undefined === controlObject.params['link']) {
-      controlObject.params['link'] = attr.link;
-    }
-
-    if (undefined !== attr.units && undefined === controlObject.params['units']) {
-      controlObject.params['units'] = attr.units;
-    }
-
-    if (undefined !== attr.linked_choices && undefined === controlObject.params['linked_choices']) {
-      controlObject.params['linked_choices'] = attr.linked_choices;
-    }
-
-    if (undefined !== attr.title && (undefined === controlObject.params['label'] || '' === controlObject.params['label'] || null === controlObject.params['label'])) {
-      controlObject.params['label'] = attr.title;
-    }
-
-    if (undefined !== attr.responsive && (undefined === controlObject.params['responsive'] || '' === controlObject.params['responsive'] || null === controlObject.params['responsive'])) {
-      controlObject.params['responsive'] = attr.responsive;
-    }
-
-    return controlObject;
-  },
-  renderReactControl: function renderReactControl(fields, control) {
-    var reactControls = {
-      'ast-responsive-color': _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_3__["default"],
-      'ast-color': _color_color_component__WEBPACK_IMPORTED_MODULE_2__["default"]
-    };
-
-    if ('undefined' != typeof fields) {
-      _.each(fields, function (attr, index) {
-        var control_clean_name = attr.name.replace('[', '-');
-        control_clean_name = control_clean_name.replace(']', '');
-        var selector = '#customize-control-' + control_clean_name;
-        var controlObject = wp.customize.control('astra-settings[' + attr.name + ']');
-        controlObject = control.getFinalControlObject(attr, controlObject);
-        var ComponentName = reactControls[attr.control];
-        ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ComponentName, {
-          control: controlObject,
-          customizer: wp.customize
-        }), jQuery(selector)[0]);
-      });
-    }
   }
 });
 
@@ -25389,7 +25247,7 @@ __webpack_require__.r(__webpack_exports__);
 
       change_description_as_tooltip(api.control(id));
 
-      if ('ast-settings-group' === data['type']) {
+      if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
         this.addSubControl(id);
       }
     },
