@@ -73,12 +73,7 @@ function astra_color_responsive_css( addon, control, css_property, selector ) {
 					+ '</style>'
 				);
 
-				if( 'unset' === value.desktop || 'unset' === value.mobile || 'unset' === value.tablet ){
-					jQuery( 'style#' + control + '-' + addon ).remove();
-				}
-
 			} else {
-				wp.customize.preview.send( 'refresh' );
 				jQuery( 'style#' + control + '-' + addon ).remove();
 			}
 
