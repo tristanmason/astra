@@ -5,6 +5,7 @@ v3.1.0
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Improvement: Builder - Social Icons - Added ability to select icon from an Icon Picker for individual social elements
 - Improvement: Builder - Social Icons - Added a color option for labels of social icons.
+- Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
 - Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Builder - Primary Menu - Line height not being applied in frontend.
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.

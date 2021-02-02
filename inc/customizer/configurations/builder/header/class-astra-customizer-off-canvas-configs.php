@@ -146,10 +146,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				// Spacing Between every element in the flyout.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-inner-spacing]',
-					'default'  => astra_get_option( 'off-canvas-inner-spacing' ),
-					'type'              => 'control',
-					'control'           => 'ast-responsive-slider',
-					'title'     => __( 'Spacing Between Every Element', 'astra' ),
+					'default'   => astra_get_option( 'off-canvas-inner-spacing' ),
+					'type'      => 'control',
+					'control'   => 'ast-slider',
+					'title'     => __( 'Inner Element Spacing', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 28,

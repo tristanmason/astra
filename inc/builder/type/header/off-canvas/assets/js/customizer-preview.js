@@ -24,6 +24,25 @@
 		} );
 	} );
 
+	wp.customize( 'astra-settings[off-canvas-inner-spacing]', function ( value ) {
+        value.bind( function ( spacing ) {
+
+			var dynamicStyle = '';
+
+			if( spacing != '' ) {
+				
+				dynamicStyle += '.ast-mobile-popup-content > * {';
+				dynamicStyle += 'padding-top: ' + spacing + 'px;';
+				dynamicStyle += 'padding-bottom: ' + spacing + 'px;';
+				dynamicStyle += '} ';
+
+			}
+
+			astra_add_dynamic_css( 'off-canvas-inner-spacing', dynamicStyle );
+
+        } );
+	} );
+
 	wp.customize( 'astra-settings[mobile-header-type]', function ( value ) {
         value.bind( function ( newVal ) {
 			

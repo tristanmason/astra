@@ -36,7 +36,9 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	$off_canvas_close_color      = astra_get_option( 'off-canvas-close-color' );
 	$offcanvas_content_alignment = astra_get_option( 'header-offcanvas-content-alignment', 'flex-start' );
 	$menu_content_alignment      = 'center';
-	$inner_spacing				 = astra_get_option( 'off-canvas-inner-spacing' );
+	$inner_spacing               = astra_get_option( 'off-canvas-inner-spacing' );
+
+	$inner_spacing = ( isset( $inner_spacing ) ) ? (int) $inner_spacing : '';
 
 	if ( 'flex-start' === $offcanvas_content_alignment ) {
 		$menu_content_alignment = 'left';
@@ -52,6 +54,10 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-mobile-popup-inner' => astra_get_background_obj( $off_canvas_background ),
 
 		'.ast-mobile-header-wrap .ast-mobile-header-content' => astra_get_background_obj( $off_canvas_background ),
+		'.ast-mobile-popup-content > *'        => array(
+			'padding-top'    => astra_get_css_value( $inner_spacing, 'px' ),
+			'padding-bottom' => astra_get_css_value( $inner_spacing, 'px' ),
+		),
 	);
 
 	$css_output[ $selector . ' .ast-mobile-popup-inner' ]['color'] = $off_canvas_close_color;
@@ -66,6 +72,10 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .main-header-menu' => array(
 			'text-align' => esc_attr( $menu_content_alignment ),
+		),
+		'.ast-mobile-popup-content > *' => array(
+			'padding-top'    => astra_get_css_value( $inner_spacing, 'px' ),
+			'padding-bottom' => astra_get_css_value( $inner_spacing, 'px' ),
 		),
 	);
 
