@@ -10,7 +10,7 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
-import BoxShadowComponent from '../../../../../../../plugins/astra-addon/classes/customizer/extend-controls/src/box-shadow/box-shadow-component.js';
+import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
 
 import {
 	astraGetBackground,
@@ -343,9 +343,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' );
 			var control = attr.control;
 			var template_id = "customize-control-" + control + "-content";
-			
+
 			var template = wp.template(template_id);
-			
+
 			var value = new_value || attr.default;
 			attr.value = value;
 			var dataAtts = '';
