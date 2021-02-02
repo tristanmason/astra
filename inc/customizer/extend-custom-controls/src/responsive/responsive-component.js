@@ -79,7 +79,6 @@ const ResponsiveComponent = props => {
 	let responsiveHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
-
 	let responsive_flag = ( false === responsive ) ? false : true ;
 
 	if (label) {

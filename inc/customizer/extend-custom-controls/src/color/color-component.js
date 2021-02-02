@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Dashicon} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const ColorComponent = props => {
 
@@ -12,6 +12,13 @@ const ColorComponent = props => {
 	const [state, setState] = useState({
 		value: value,
 	});
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state.value !== value ) {
+			setState(value);
+		}
+	}, [props]);
 
 	const updateValues = (value) => {
 		setState(prevState => ({
@@ -93,4 +100,4 @@ ColorComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo ( ColorComponent );
+export default ColorComponent;
