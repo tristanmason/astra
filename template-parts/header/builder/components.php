@@ -122,7 +122,21 @@ switch ( $component_slug ) {
 		}
 		break;
 	case 'widget-1':
-		?>
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			?>
+		<aside class="header-widget-area widget-area site-header-focus-item header-widget-area-inner" data-section="sidebar-widgets-header-widget-1">
+			<?php
+			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
+				Astra_Builder_UI_Controller::render_customizer_edit_button();
+			}
+			?>
+			<?php astra_get_sidebar( 'header-widget-1' ); ?>
+		</aside>
+
+			<?php
+		} else { 
+			?>
+
 		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
@@ -133,10 +147,24 @@ switch ( $component_slug ) {
 				<?php astra_get_sidebar( 'header-widget-1' ); ?>
 			</div>
 		</aside>
-		<?php
+
+			<?php 
+		}
 		break;
 	case 'widget-2':
-		?>
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			?>
+		<aside class="header-widget-area widget-area site-header-focus-item header-widget-area-inner" data-section="sidebar-widgets-header-widget-2">
+			<?php
+			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
+				Astra_Builder_UI_Controller::render_customizer_edit_button();
+			}
+			?>
+			<?php astra_get_sidebar( 'header-widget-2' ); ?>
+		</aside>
+			<?php
+		} else { 
+			?>
 		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2">
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
@@ -147,8 +175,8 @@ switch ( $component_slug ) {
 				<?php astra_get_sidebar( 'header-widget-2' ); ?>
 			</div>
 		</aside>
-		<?php
-		break;
+		<?php } break;
+		
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;

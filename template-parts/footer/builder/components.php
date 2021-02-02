@@ -33,43 +33,92 @@ switch ( $component_slug ) {
 		break;
 
 	case 'widget-1':
-		?>
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			?>
+		<aside class="footer-widget-area widget-area site-footer-focus-item footer-widget-area-inner" data-section="sidebar-widgets-footer-widget-1">
+			<?php
+			astra_get_sidebar( 'footer-widget-1' );
+			?>
+		</aside>
+
+		<?php } else { ?>
+
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-1">
+			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-1' );
 				?>
+			</div>
 		</aside>
-		<?php
+
+			<?php 
+		}
 		break;
 
 	case 'widget-2':
-		?>
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			?>
+		<aside class="footer-widget-area widget-area site-footer-focus-item footer-widget-area-inner" data-section="sidebar-widgets-footer-widget-2">
+			<?php
+			astra_get_sidebar( 'footer-widget-2' );
+			?>
+		</aside>
+
+		<?php } else { ?>
+
 		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-2">
+			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-2' );
 				?>
+			</div>
 		</aside>
-		<?php
+
+			<?php 
+		}
 		break;
 
 	case 'widget-3':
-		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-3">
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			?>
+		<aside class="footer-widget-area widget-area site-footer-focus-item footer-widget-area-inner" data-section="sidebar-widgets-footer-widget-3">
+			<?php
+			astra_get_sidebar( 'footer-widget-3' );
+			?>
+		</aside>
+
+		<?php } else { ?>
+
+			<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-3">
+			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-3' );
 				?>
+			</div>
 		</aside>
-		<?php
+
+			<?php 
+		} 
 		break;
 
 	case 'widget-4':
-		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-4">
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) { 
+			?>
+		<aside class="footer-widget-area widget-area site-footer-focus-item footer-widget-area-inner" data-section="sidebar-widgets-footer-widget-4">
+			<?php
+			astra_get_sidebar( 'footer-widget-4' );
+			?>
+		</aside>
+		<?php } else { ?>
+			<aside class="footer-widget-area widget-area site-footer-focus-item" data-section="sidebar-widgets-footer-widget-4">
+			<div class="footer-widget-area-inner site-info-inner">
 				<?php
 				astra_get_sidebar( 'footer-widget-4' );
 				?>
-		</aside>
-		<?php
+			</div>
+		</aside>	
+			<?php 
+		}
 		break;
 
 	case 'html-1':

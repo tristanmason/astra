@@ -201,6 +201,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 				'AstraBuilderTransparemtData',
 				array(
 					'is_astra_hf_builder_active' => Astra_Builder_Helper::$is_header_footer_builder_active,
+					'is_flex_based_css'          => Astra_Builder_Helper::apply_flex_based_css(),
 				)
 			);
 		}
