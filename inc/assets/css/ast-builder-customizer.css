@@ -570,7 +570,7 @@
 .ahfb-builder-areas.has-center-items .ahfb-builder-drop-left_center, .ahfb-builder-areas.has-center-items .ahfb-builder-drop-right_center {
     width: auto;
     flex: 1;
-    overflow: auto;
+    overflow: visible;
 }
 
 .ahfb-builder-areas.has-center-items .ahfb-dragging-dropzones .ahfb-builder-drop-left_center {
