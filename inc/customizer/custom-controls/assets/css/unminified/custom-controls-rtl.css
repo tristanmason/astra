@@ -1739,7 +1739,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: -2px;
 }
 
@@ -1893,11 +1893,12 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-content .ast-responsive-btns {
   left: 7px;
-  top: 5px;
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
-  margin-right: 0px;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
@@ -2835,6 +2836,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 15px;
 }
 
 /* Safari Browser specific CSS */
@@ -3154,7 +3156,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: -2px;
 }
 
