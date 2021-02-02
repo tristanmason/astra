@@ -16,24 +16,19 @@ const ColorGroupComponent = props => {
 
 	const linked_sub_colors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
 	const color_group = [];
-
-	Object.entries(linked_sub_colors).map(key => {
-		color_group[linked_sub_colors[key[0]].name] = linked_sub_colors[key[0]].value;
+	
+	Object.entries( linked_sub_colors ).map( ( [ key,value ] ) => {
+	
+		color_group[value.name] = wp.customize.control( value.name ).setting.get();
 	});
-
-	const[ state , setState ] = useState({
-		value: linked_sub_colors
-	});
-
-	console.log( color_group );
+	
+	const[ state , setState ] = useState(color_group);
 
 	const handleChangeComplete = ( key, color='' ) => {
 
 		let updateState = {
-			...state.value
+			...state
 		};
-
-		console.log( key );
 
 		let value;
 
@@ -44,46 +39,12 @@ const ColorGroupComponent = props => {
 		} else {
 			value = color.hex;
 		}
-
-		setState(updateState => ({
-            ...updateState,
-            value: value
-        }));
-
+		
+		updateState[key] = value;
 		wp.customize.control( key ).setting.set(value);
+		
 		setState(updateState);
 	};
-
-	// const [props_value, setPropsValue] = useState(props.control.setting.get());
-	// const onAlignChange = ( value, device='' ) => {
-	// 	let updateState = {
-	// 		...props_value
-    //     };
-    //     if ( '' !== device ) {
-    //         updateState[device] = value;
-    //     } else {
-    //         updateState = value;
-    //     }
-	// 	props.control.setting.set(updateState);
-	// 	setPropsValue(updateState);
-	// };
-
-	// const updateValues = (key, value) => {
-	// 	setState(prevState => ({
-	// 		...prevState,
-	// 		value: value
-	// 	}));
-	// 	let sub_control = wp.customize.control( key );
-	// 	sub_control.setting.set( value );
-	// };
-
-
-
-
-
-
-
-
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
@@ -92,20 +53,24 @@ const ColorGroupComponent = props => {
 	if (help) {
 		htmlHelp = <span className="ast-description">{help}</span>;
 	}	
+	
+	let optionsHtml = Object.entries( state ).map( ( [ key,value ] ) => {
 
-	let optionsHtml = Object.entries(linked_sub_colors).map(key => {
+		let html = ( 
 
-		console.log( linked_sub_colors[key[0]] );
+			<Tooltip key={ key } text={__('Toggle Item Visiblity', 'astra')}>
 
-		let html = <Tooltip key={key} text={__('Toggle Item Visiblity', 'astra')}>
-			<div className="color-group-item" id={linked_sub_colors[key[0]].name}>
-				<AstraColorPickerControl color={linked_sub_colors[key[0]].value ? linked_sub_colors[key[0]].value : ''}
-				onChangeComplete={(color, backgroundType) => handleChangeComplete(linked_sub_colors[key[0]].name, color)}
-				backgroundType={'color'}
-				allowGradient={false}
-				allowImage={false}/>
-			</div>
-		</Tooltip>;
+				<div className="color-group-item">
+					<AstraColorPickerControl color={value ? value : ''}
+					onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
+					backgroundType={'color'}
+					allowGradient={false}
+					allowImage={false}/>
+				</div>
+
+			</Tooltip> 
+		);
+
 		return html;
 	});
 
