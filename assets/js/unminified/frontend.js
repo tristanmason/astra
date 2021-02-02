@@ -280,7 +280,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 		
-		if ( undefined === mobileHeaderType ) {
+		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 			if( ! mobileHeader ) {
