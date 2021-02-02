@@ -95,6 +95,9 @@
         } );
 	} );
 
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+		
 	wp.customize( 'astra-settings[popup-width]', function ( value ) {
         value.bind( function ( newval ) {
 			var dynamicStyle = '';
@@ -120,9 +123,6 @@
 			astra_add_dynamic_css( 'popup-width', dynamicStyle );
         } );
 	} );
-
-	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
-		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
     // Padding.
     wp.customize( 'astra-settings[popup-padding]', function( value ) {
