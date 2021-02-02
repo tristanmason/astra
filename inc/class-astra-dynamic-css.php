@@ -2980,7 +2980,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					
 					.ast-right-sidebar #secondary {
 						padding-right: 60px;
-					} 
+					}
+				}
+				@media (max-width: 993px) {
+					.ast-right-sidebar #secondary {
+						padding-right: 30px;
+					}
+					.ast-left-sidebar #secondary {
+						padding-left: 30px;
+					}
+
 				}';
 			} else {
 				$sidebar_static_css .= '
@@ -2992,6 +3001,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					.ast-right-sidebar #secondary {
 						padding-left: 60px;
 					} 
+				}
+				@media (max-width: 993px) {
+					.ast-right-sidebar #secondary {
+						padding-left: 30px;
+					}
+					.ast-left-sidebar #secondary {
+						padding-right: 30px;
+					}
+
 				}';
 			}
 			return $sidebar_static_css;
