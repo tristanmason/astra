@@ -17310,7 +17310,9 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
+var __ = wp.i18n.__;
 
+var Tooltip = wp.components.Tooltip;
 
 
 var ColorGroupComponent = function ColorGroupComponent(props) {
@@ -17321,6 +17323,10 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
       help = _props$control$params.help,
       name = _props$control$params.name;
   var linked_sub_colors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
+  var color_group = [];
+  Object.entries(linked_sub_colors).map(function (key) {
+    color_group[linked_sub_colors[key[0]].name] = linked_sub_colors[key[0]].value;
+  });
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
     value: linked_sub_colors
@@ -17329,7 +17335,32 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
       state = _useState2[0],
       setState = _useState2[1];
 
-  console.log(state.value); // const [props_value, setPropsValue] = useState(props.control.setting.get());
+  console.log(color_group);
+
+  var handleChangeComplete = function handleChangeComplete(key) {
+    var color = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    var updateState = _objectSpread({}, state.value);
+
+    console.log(key);
+    var value;
+
+    if (typeof color === 'string' || color instanceof String) {
+      value = color;
+    } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+      value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+    } else {
+      value = color.hex;
+    }
+
+    setState(function (updateState) {
+      return _objectSpread(_objectSpread({}, updateState), {}, {
+        value: value
+      });
+    });
+    wp.customize.control(key).setting.set(value);
+    setState(updateState);
+  }; // const [props_value, setPropsValue] = useState(props.control.setting.get());
   // const onAlignChange = ( value, device='' ) => {
   // 	let updateState = {
   // 		...props_value
@@ -17351,25 +17382,6 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
   // 	sub_control.setting.set( value );
   // };
 
-  var handleChangeComplete = function handleChangeComplete(key) {
-    var color = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-    var updateState = _objectSpread({}, state.value);
-
-    var value;
-    var sub_control = wp.customize.control(key);
-
-    if (typeof color === 'string' || color instanceof String) {
-      value = color;
-    } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-      value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
-    } else {
-      value = color.hex;
-    }
-
-    sub_control.setting.set(updateState);
-    setState(updateState);
-  };
 
   if (label) {
     htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
@@ -17383,20 +17395,23 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     }, help);
   }
 
-  var optionsHtml = Object.entries(state.value).map(function (key) {
-    var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  var optionsHtml = Object.entries(linked_sub_colors).map(function (key) {
+    console.log(linked_sub_colors[key[0]]);
+    var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Tooltip, {
       key: key,
+      text: __('Toggle Item Visiblity', 'astra')
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "color-group-item",
-      id: state.value[key[0]].name
+      id: linked_sub_colors[key[0]].name
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      color: undefined !== state.value[key[0]].value && state.value[key[0]].value ? state.value[key[0]].value : '',
+      color: linked_sub_colors[key[0]].value ? linked_sub_colors[key[0]].value : '',
       onChangeComplete: function onChangeComplete(color, backgroundType) {
-        return handleChangeComplete(state.value[key[0]].name, color);
+        return handleChangeComplete(linked_sub_colors[key[0]].name, color);
       },
       backgroundType: 'color',
       allowGradient: false,
       allowImage: false
-    }));
+    })));
     return html;
   });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
