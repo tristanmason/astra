@@ -126,6 +126,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'choices'   => array(                       
+						'flex-start' => 'align-left', 
+						'center'     => 'align-center', 
+						'flex-end'   => 'align-right',   
+					),
 				),
 
 				// Option Group: Menu Color.

@@ -469,6 +469,11 @@ final class Astra_Builder_Base_Configuration {
 						'priority'  => 5,
 						'title'     => __( 'Alignment', 'astra' ),
 						'transport' => 'postMessage',
+						'choices'   => array(                       
+							'left'   => 'align-left',
+							'center' => 'align-center', 
+							'right'  => 'align-right',  
+						),
 					)
 				);
 			}

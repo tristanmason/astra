@@ -1,4 +1,4 @@
-.customize-control-ast-alignment .ast-alignment-inner-wrap {
+.customize-control-ast-alignment .ast-alignment-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -16,11 +16,24 @@
     min-width: 36px;
     justify-content: center;
 }
-.customize-control-ast-alignment .components-button.is-primary {
+.customize-control-ast-alignment .ast-alignment-inner-wrap.active .components-button.is-primary {
     white-space: nowrap;
     background: #007cba;
     color: #fff;
     text-decoration: none;
     text-shadow: none;
     outline: 1px solid transparent;
+}
+.customize-control-ast-alignment .ast-alignment-inner-wrap .components-button.is-primary {
+    white-space: nowrap;
+    background: #f0f9fd;
+    color: rgba(0, 0, 0, 0.966);
+    text-decoration: none;
+    text-shadow: none;
+    outline: 1px solid transparent;
+}
+.customize-control-ast-alignment .components-button .ahfb-icon-set svg {
+    width: 16px;
+    height: 16px;
+    color: black;
 }

@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react';
-import { IconButton } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 
 const AlignmentComponent = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
-	
-	const onAlignChange = ( value, device='' ) => {
+
+	const Icons = window.svgIcons;
+
+	const onValueChange = ( value, device='' ) => {
 		let updateState = {
 			...props_value
         };
@@ -23,76 +25,60 @@ const AlignmentComponent = props => {
 
 	const renderInputHtml = ( device, active = '', resp = true ) => {
 		
+		const {
+			choices
+		} = props.control.params;
+
+		if ( ! choices ) {
+			return;
+		}
+
 		if ( false === resp ) {
 
-			let props_value_new = props_value.replace( "align-", "" );
+			let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
+				
+				let html = (
+					<div className="ast-alignmet-inner-wrap active" key={ value }>
+						<Button
+							key={ value }
+							onClick={ () => onValueChange( value ) }
+							aria-pressed = { value === props_value }
+							isPrimary = { value === props_value }
+						>
+							<span className="ahfb-icon-set" 
+								dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
+							></span>
+						</Button>
+					</div>
+				);
 
-			if ( props_value_new !== props_value ) {
+				return html;
+			} );
 
-				onAlignChange( props_value_new );
-			}
-			
-			return <div className="ast-alignmet-inner-wrap active">
-                <IconButton
-                    key={ "left" }
-                    icon="editor-alignleft"
-                    label="Left"
-                    onClick={ () => onAlignChange( 'left' ) }
-                    aria-pressed = { "left" === props_value }
-                    isPrimary = { "left" === props_value }
-                />
-                <IconButton
-                    key={ "center" }
-                    icon="editor-aligncenter"
-                    label="Center"
-                    onClick={ () => onAlignChange( 'center' ) }
-                    aria-pressed = { "center" === props_value }
-                    isPrimary = { "center" === props_value }
-                />
-                <IconButton
-                    key={ "right" }
-                    icon="editor-alignright"
-                    label="Right"
-                    onClick={ () => onAlignChange( 'right' ) }
-                    aria-pressed = { "right" === props_value }
-                    isPrimary = { "right" === props_value }
-                />
-			</div>;
+			return optionsHtml;
 		}
 
-		let props_value_new = props_value[device].replace( "align-", "" );
+		let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
+				
+			let html = (
+				<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
+					<Button
+						key={ value }
+						onClick={ () => onValueChange( value, device ) }
+						aria-pressed = { value === props_value[device] }
+						isPrimary = { value === props_value[device] }
+					>
+						<span className="ahfb-icon-set" 
+							dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
+						></span>
+					</Button>
+				</div>
+			);
 
-		if ( props_value_new !== props_value[device] ) {
-			
-			onAlignChange( props_value_new );
-		}
+			return html;
+		} );
 
-		return <div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` }>
-            <IconButton
-                key={ "left" }
-                icon="editor-alignleft"
-                label="Left"
-                onClick={ () => onAlignChange( 'left', device ) }
-                aria-pressed = { "left" === props_value[device] }
-                isPrimary = { "left" === props_value[device] }
-            />
-            <IconButton
-                key={ "center" }
-                icon="editor-aligncenter"
-                label="Center"
-                onClick={ () => onAlignChange( 'center', device ) }
-                aria-pressed = { "center" === props_value[device] }
-                isPrimary = { "center" === props_value[device] }
-            />
-            <IconButton
-                key={ "right" }
-                icon="editor-alignright"
-                label="Right"
-                onClick={ () => onAlignChange( 'right', device ) }
-                aria-pressed = { "right" === props_value[device] }
-                isPrimary = { "right" === props_value[device] }
-            />
-		</div>;
+		return optionsHtml;
 	};
 
 	const {

@@ -293,6 +293,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
+					'choices'    => array(                       
+						'left'   => 'align-left',
+						'center' => 'align-center', 
+						'right'  => 'align-right',  
+					),
 					'responsive' => false,
 				),
 

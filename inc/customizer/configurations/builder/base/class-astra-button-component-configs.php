@@ -322,6 +322,11 @@ class Astra_Button_Component_Configs {
 					'title'     => __( 'Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'choices'   => array(                       
+						'flex-start' => 'align-left', 
+						'center'     => 'align-center', 
+						'flex-end'   => 'align-right',   
+					),
 				);
 			}
 
