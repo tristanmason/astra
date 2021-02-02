@@ -36,6 +36,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	$off_canvas_close_color      = astra_get_option( 'off-canvas-close-color' );
 	$offcanvas_content_alignment = astra_get_option( 'header-offcanvas-content-alignment', 'flex-start' );
 	$menu_content_alignment      = 'center';
+	$inner_spacing				 = astra_get_option( 'off-canvas-inner-spacing' );
 
 	if ( 'flex-start' === $offcanvas_content_alignment ) {
 		$menu_content_alignment = 'left';

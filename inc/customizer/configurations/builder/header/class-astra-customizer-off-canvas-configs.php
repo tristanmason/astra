@@ -143,6 +143,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
+				// Spacing Between every element in the flyout.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-inner-spacing]',
+					'default'  => astra_get_option( 'off-canvas-inner-spacing' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'title'     => __( 'Spacing Between Every Element', 'astra' ),
+					'section'   => $_section,
+					'transport' => 'postMessage',
+					'priority'  => 28,
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
 				// Option Group: Off-Canvas Colors Group.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',
