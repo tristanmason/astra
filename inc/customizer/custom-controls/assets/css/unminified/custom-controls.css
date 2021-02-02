@@ -247,11 +247,6 @@
   vertical-align: sub;
 }
 
-#customize-control-astra-settings-global-color-palette .ast-color-palette-inline {
-  display: inline-block;
-  margin-left: 5px;
-}
-
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
   position: absolute;
   z-index: 1;
