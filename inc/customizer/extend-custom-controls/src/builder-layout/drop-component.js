@@ -7,32 +7,37 @@ const {Fragment} = wp.element;
 const DropComponent = props => {
 
 	const location = props.zone.replace(props.row + '_', '');
-	const currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
-	let choices = props.choices;
-	let theItems = [];
+	let currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
+	let choices = props.choices,
+		tmpChoices = Object.keys(choices),
+		theItems = [];
 	{
+		let tmpCurrentList = [...currentList];
 		currentList.length > 0 && currentList.map((item, key) => {
-			if (Object.keys(choices).includes(item)) {
+			if ( tmpChoices.includes(item)) {
 				theItems.push({
 					id: item
 				});
 			} else {
-				currentList.splice(key, 1);
+				tmpCurrentList.splice(key, 1);
 			}
 		});
+		currentList = tmpCurrentList;
 	}
-	const currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
+	let currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
 	let theCenterItems = [];
 	{
+		let tmpCurrentCenterList = [...currentCenterList];
 		currentCenterList.length > 0 && currentCenterList.map((item, key) => {
-			if (Object.keys(choices).includes(item)) {
+			if (tmpChoices.includes(item)) {
 				theCenterItems.push({
 					id: item
 				});
 			} else {
-				currentCenterList.splice(key, 1);
+				tmpCurrentCenterList.splice(key, 1);
 			}
 		});
+		currentCenterList = tmpCurrentCenterList;
 	}
 
 	const sortableGroup = (items, lists, loc) => {
