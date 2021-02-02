@@ -235,6 +235,33 @@
   background-color: #1e8cbe;
 }
 
+.customize-control.customize-control-ast-color-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.customize-control.customize-control-ast-color-group .ast-toggle-desc-wrap {
+  flex: 1 1 auto;
+}
+
+.customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.customize-control.customize-control-ast-color-group .color-button-wrap {
+  position: inherit;
+}
+
+.customize-control.customize-control-ast-color-group .color-group-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.customize-control.customize-control-ast-color-group .astra-popover-color {
+  position: absolute;
+  left: 0;
+  z-index: 9;
+}
 
  /** Remove Button Color */
 

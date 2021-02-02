@@ -1,0 +1,22 @@
+.customize-control.customize-control-ast-color-group {
+    display: flex;
+    flex-wrap: wrap;
+    .ast-toggle-desc-wrap {
+        flex: 1 1 auto;
+    }
+    .ast-field-color-group-wrap {
+        justify-content: flex-end;
+        display: flex;
+    }
+    .color-button-wrap {
+        position: inherit;
+    }
+    .color-group-item:not(:last-child) {
+        margin-right: 10px;
+    }
+    .astra-popover-color {
+        position: absolute;
+        left: 0;
+        z-index: 9;
+    }
+}
