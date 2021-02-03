@@ -303,6 +303,7 @@ class Astra_Button_Component_Configs {
 					'priority'    => 16,
 					'context'     => Astra_Builder_Helper::$general_tab,
 					'title'       => __( 'Border Radius', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,

@@ -92,6 +92,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'transport'         => 'postMessage',
 				'default'           => $defaults['header-search-icon-space'],
 				'title'             => __( 'Icon Size', 'astra' ),
+				'suffix'            => 'px',
 				'type'              => 'control',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'           => astra_get_option( 'ast-header-responsive-logo-width' ),
 					'priority'          => 5,
 					'title'             => __( 'Logo Width', 'astra' ),
-					'suffix'			=> 'px',
+					'suffix'            => 'px',
 					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
