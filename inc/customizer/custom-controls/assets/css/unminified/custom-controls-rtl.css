@@ -1474,6 +1474,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 15px;
 }
 
 /* Safari Browser specific CSS */
@@ -1672,6 +1673,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background {
   position: relative;
+  margin-bottom: -5px;
 }
 
 .customize-control-ast-responsive-background .background-container h4 {
@@ -1787,18 +1789,17 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
   position: absolute;
-  left: 24px;
-  top: -5px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  left: 0px;
-  top: -1px;
+  left: 15px;
+  top: -2px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -14px;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -1811,7 +1812,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
-  left: 65px;
+  top: 35px;
 }
 
 /**
@@ -1942,26 +1943,26 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-content .color-button-wrap {
   left: 30px;
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-responsive-btns {
   left: 7px;
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
-  margin-right: 0px;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
   left: 72px;
+  top: 7px;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-clear-wrap {
   left: 91px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-background.customize-control {
-  margin-top: 28px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
@@ -2699,9 +2700,6 @@ input[type="text"].select2-search__field {
   min-width: auto;
 }
 
-.customize-control-ast-slider .components-range-control .components-range-control__wrapper {
-  margin-right: 0;
-}
 
 .customize-control-ast-sortable .sortable {
   cursor: default;
@@ -2893,6 +2891,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 15px;
 }
 
 /* Safari Browser specific CSS */
@@ -3091,6 +3090,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background {
   position: relative;
+  margin-bottom: -5px;
 }
 
 .customize-control-ast-responsive-background .background-container h4 {
@@ -3206,18 +3206,17 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
   position: absolute;
-  left: 24px;
-  top: -5px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  left: 0px;
-  top: -1px;
+  left: 15px;
+  top: -2px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -14px;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -3230,7 +3229,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
-  left: 65px;
+  top: 35px;
 }
 
 /**
@@ -3361,26 +3360,26 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-content .color-button-wrap {
   left: 30px;
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-responsive-btns {
   left: 7px;
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
-  margin-right: 0px;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
   left: 72px;
+  top: 7px;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-clear-wrap {
   left: 91px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-background.customize-control {
-  margin-top: 28px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
@@ -4118,9 +4117,6 @@ input[type="text"].select2-search__field {
   min-width: auto;
 }
 
-.customize-control-ast-slider .components-range-control .components-range-control__wrapper {
-  margin-right: 0;
-}
 
 .customize-control-ast-sortable .sortable {
   cursor: default;
