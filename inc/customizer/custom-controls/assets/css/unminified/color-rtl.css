@@ -103,7 +103,7 @@
 .color-button-wrap {
 	display: inline;
     position: absolute;
-    left: 5px;
+    left: 0;
     top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {

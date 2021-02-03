@@ -344,7 +344,7 @@
 .color-button-wrap {
 	display: inline;
     position: absolute;
-    right: 5px;
+    right: 0;
     top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {
@@ -858,7 +858,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -12px;
+  margin: 0 -15px;
 }
 
 .customize-control-ast-heading .customize-control-title {
@@ -1079,7 +1079,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  right: 15px;
+  right: 8px;
   top: -2px;
 }
 

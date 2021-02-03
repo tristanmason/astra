@@ -344,7 +344,7 @@
 .color-button-wrap {
 	display: inline;
     position: absolute;
-    left: 5px;
+    left: 0;
     top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {
@@ -1017,7 +1017,7 @@
 .color-button-wrap {
 	display: inline;
     position: absolute;
-    left: 5px;
+    left: 0;
     top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {
@@ -1087,6 +1087,9 @@
 }
 .customize-control-ast-color.customize-control {
     margin-top: 32px;
+}
+.customize-control-ast-heading + .customize-control-ast-color {
+    margin-top: 20px;
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
@@ -1528,7 +1531,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -12px;
+  margin: 0 -15px;
 }
 
 .customize-control-ast-heading .customize-control-title {
@@ -1749,7 +1752,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  left: 15px;
+  left: 8px;
   top: -2px;
 }
 
@@ -2945,7 +2948,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -12px;
+  margin: 0 -15px;
 }
 
 .customize-control-ast-heading .customize-control-title {
@@ -3166,7 +3169,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  left: 15px;
+  left: 8px;
   top: -2px;
 }
 
