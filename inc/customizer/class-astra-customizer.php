@@ -599,6 +599,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
 				'sanitize_callback' => $sanitize_callback,
+				'suffix'            => astra_get_prop( $config, 'suffix' ),
 			);
 
 			$wp_customize->add_setting(
