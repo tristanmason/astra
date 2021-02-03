@@ -2050,12 +2050,16 @@ input[type="text"].select2-search__field {
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .slider-control-label {
+  cursor: default;  
+}
+
 /**
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
   position: absolute;
-  left: 5px;
+  left: 0;
   top: 5px;
 }
 
