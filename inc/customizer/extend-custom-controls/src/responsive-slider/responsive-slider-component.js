@@ -7,7 +7,7 @@ const ResponsiveSliderComponent = props => {
 	let prop_value = props.control.setting.get();
 
 	const [state, setState] = useState( prop_value );
-console.log(state);
+
 	useEffect( () => {
 		// If settings are changed externally.
 		if( state !== prop_value ) {
@@ -16,12 +16,7 @@ console.log(state);
 	}, [props]);
 
 	const updateValues = (device, newVal) => {
-		console.log(device);
-		console.log(newVal);
-
 		let updateState = {...state};
-		console.log(updateState);
-
 		updateState[device] = newVal;
 		props.control.setting.set(updateState);
 		setState(updateState);
