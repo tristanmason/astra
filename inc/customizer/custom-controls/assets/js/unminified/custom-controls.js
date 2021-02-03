@@ -22180,7 +22180,8 @@ var Background = function Background(props) {
         return updatePaletteuse(value, index, defaultset);
       },
       container: props.control.container[0],
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: dbValue['background-color']
     }));
   };
 
@@ -23711,15 +23712,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     var newcolor = obj[obj.patterntype][index][0];
     setState(obj);
     props.control.setting.set(obj);
-    var passGlobalPalette = new CustomEvent("colorpaletteglobal", {
-      "detail": {
-        "palette": obj,
-        "index": index,
-        "prevcolor": prevcolor,
-        "newcolor": newcolor
-      }
-    });
-    document.dispatchEvent(passGlobalPalette);
   };
 
   var editLabel = function editLabel(value, index) {
@@ -23792,7 +23784,8 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       backgroundType: 'color',
       allowGradient: false,
       allowImage: false,
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''
     }));
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
     className: "ast-add-new-color",
@@ -23869,10 +23862,11 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       var iframe = maindiv.getElementsByTagName('iframe')[0];
       var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
       innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0]);
+      document.documentElement.style.setProperty('--global-palette' + index, item[0]);
     });
   };
 
-  document.addEventListener('UpdatePaletteStateInIframe', myFunction, false);
+  document.addEventListener('UpdatePaletteStateInIframe', myFunction, false); //Updating the root css for iframe.
 
   var handlePresetPalette = function handlePresetPalette(item) {
     var obj = _objectSpread({}, state);
@@ -23893,13 +23887,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     obj['customImportText'] = '';
     setState(obj);
     props.control.setting.set(obj);
-    var event = new CustomEvent("colorpaletteglobal", {
-      "detail": {
-        "palette": obj,
-        "radiochange": "true"
-      }
-    });
-    document.dispatchEvent(event);
   };
 
   var addcustomImportText = function addcustomImportText(text) {
@@ -23944,13 +23931,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       obj['customImportText'] = '';
       setState(obj);
       props.control.setting.set(obj);
-      var event = new CustomEvent("colorpaletteglobal", {
-        "detail": {
-          "palette": obj,
-          "radiochange": "true"
-        }
-      });
-      document.dispatchEvent(event);
     } else {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -24228,48 +24208,6 @@ var ColorComponent = function ColorComponent(props) {
     props.control.container[0].setAttribute('defaultset', defaultset);
   };
 
-  var updatePaletteState = function updatePaletteState(e) {
-    if (e.detail.radiochange == "true") {
-      var current_color;
-      var current_index = props.control.container[0].getAttribute('paletteindex');
-
-      switch (props.control.params.label) {
-        case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        default:
-          current_color = '';
-      }
-    } else {
-      if (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index) {
-        var current_color = e.detail.newcolor;
-      } else {
-        return;
-      }
-    }
-
-    updateValues(current_color);
-  };
-
-  document.addEventListener('colorpaletteglobal', updatePaletteState, false);
-
   var toggleClose = function toggleClose() {
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -24409,7 +24347,8 @@ var ColorComponent = function ColorComponent(props) {
       return updatepaletteuse(value, index, defaultset);
     },
     container: props.control.container[0],
-    disablePalette: true
+    disablePalette: true,
+    colorIndicator: props.control.setting.get()
   })));
 };
 
@@ -24726,9 +24665,11 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           isVisible ? toggleClose() : toggleVisible();
         }
-      }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["ColorIndicator"], {
-        className: "astra-advanced-color-indicate",
-        colorValue: this.props.color
+      }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
+        className: "component-color-indicator astra-advanced-color-indicate",
+        style: {
+          backgroundColor: this.props.colorIndicator
+        }
       }), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["ColorIndicator"], {
         className: "astra-advanced-color-indicate",
         colorValue: "#ffffff"
@@ -27934,57 +27875,6 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     }, 1);
   };
 
-  var updatePaletteState = function updatePaletteState(e) {
-    var obj = _objectSpread({}, state.value);
-
-    if (e.detail.radiochange == "true") {
-      var current_color;
-
-      switch (props.control.params.label) {
-        case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0][0];
-          break;
-
-        case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1][0];
-          break;
-
-        case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2][0];
-          break;
-
-        case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3][0];
-          break;
-
-        case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4][0];
-          break;
-
-        default:
-          current_color = '';
-      }
-    } else {
-      if (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index) {
-        var deviceObj = _objectSpread({}, obj['desktop']);
-
-        var current_color = e.detail.newcolor;
-
-        if (deviceObj['background-color']) {
-          deviceObj['background-color'] = current_color;
-        }
-
-        obj['desktop'] = deviceObj;
-      } else {
-        return;
-      }
-    }
-
-    updateValues(obj);
-  };
-
-  document.addEventListener('colorpaletteglobal', updatePaletteState, false);
-
   var updateBackgroundType = function updateBackgroundType(device) {
     var value = props.control.setting.get();
 
@@ -28210,7 +28100,8 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
         return updatepaletteuse(value, index, defaultset);
       } : '',
       container: props.control.container[0],
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: dbvalue[key]['background-color']
     }));
   };
 
@@ -28444,46 +28335,6 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
     props.control.container[0].setAttribute('defaultset', defaultset);
   };
 
-  var updatePaletteState = function updatePaletteState(e) {
-    if (e.detail.radiochange == "true") {
-      var current_color;
-
-      switch (props.control.params.label) {
-        case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0][0];
-          break;
-
-        case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1][0];
-          break;
-
-        case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2][0];
-          break;
-
-        case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3][0];
-          break;
-
-        case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4][0];
-          break;
-
-        default:
-          current_color = '';
-      }
-    } else {
-      if (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index) {
-        var current_color = e.detail.newcolor;
-      } else {
-        return;
-      }
-    }
-
-    updateValues(current_color, "desktop");
-  };
-
-  document.addEventListener('colorpaletteglobal', updatePaletteState, false);
   var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
   var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, color, key) {
@@ -28619,7 +28470,8 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
         return updatepaletteuse(value, index, defaultset);
       } : '',
       container: props.control.container[0],
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: dbValue.desktop
     });
   };
 

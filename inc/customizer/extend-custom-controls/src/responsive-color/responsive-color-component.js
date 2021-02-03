@@ -52,46 +52,6 @@ const ResponsiveColorComponent = props => {
 		props.control.container[0].setAttribute('defaultset', defaultset);		
 	}
 
-	const updatePaletteState = (e) =>{
-	
-		if( e.detail.radiochange == "true" ){			
-			var current_color;		
-
-			switch(props.control.params.label) {
-				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][0][0]
-				break;
-				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][1][0]
-				break;
-				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][2][0]
-				break;
-				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][3][0]
-				break;
-				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][4][0]
-
-				break;
-				default:
-					current_color = '';
-			}			
-			
-		}else{
-
-			if( props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ){
-				var current_color = e.detail.newcolor;	
-			}else{
-				return
-			}
-			
-		}
-		updateValues(current_color,"desktop")
-	}
-
-	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
-
 	var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
 
 	const handleGlobalColorPopupBtn = (value,index,defaultset,color,key) => {
@@ -215,6 +175,7 @@ const ResponsiveColorComponent = props => {
 			isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''} 
 			container ={props.control.container[0]}
 			disablePalette={true}
+			colorIndicator = {dbValue.desktop}
 			/>;
 	};
 

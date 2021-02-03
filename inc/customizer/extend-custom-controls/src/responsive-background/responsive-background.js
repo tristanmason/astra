@@ -62,59 +62,6 @@ const ResponsiveBackground = props => {
 		}, 1 );
 	};
 
-	const updatePaletteState = (e) =>{
-	
-		var obj = {
-			...state.value
-		};
-		if( e.detail.radiochange == "true" ){			
-			var current_color;	
-
-
-			switch(props.control.params.label) {
-				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][0][0]
-				break;
-				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][1][0]
-				break;
-				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][2][0]
-				break;
-				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][3][0]
-				break;
-				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][4][0]
-
-				break;
-				default:
-					current_color = '';
-			}			
-			
-		}else{
-
-			if( props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ){
-				
-				var deviceObj = {
-					...obj['desktop']
-				};	
-			
-				var current_color = e.detail.newcolor;	
-				if(deviceObj['background-color']){
-					deviceObj['background-color'] = current_color;				
-				}
-				obj['desktop'] = deviceObj;
-
-			}else{
-				return
-			}
-			
-		}
-		updateValues(obj)
-	}
-
-	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 	
 	const updateBackgroundType = (device) => {
 	
@@ -174,6 +121,7 @@ const ResponsiveBackground = props => {
 		setTimeout( function () {
 	    	updateValues(obj);
 		}, 1 );
+
 	}
 
 	const renderGlobalPalette = () => {
@@ -344,6 +292,8 @@ const ResponsiveBackground = props => {
 				isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''} 
 				container ={props.control.container[0]}
 				disablePalette={true}
+				colorIndicator = { dbvalue[key]['background-color'] }
+
 				/>
 		</>;
 	};

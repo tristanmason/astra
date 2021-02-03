@@ -188,8 +188,8 @@ class AstraColorPickerControl extends Component {
 			<>
 				<div className="color-button-wrap">
 					<Button className={ isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
-						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&
-						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } />
+						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&						
+							<div className="component-color-indicator astra-advanced-color-indicate" style={{backgroundColor:this.props.colorIndicator}}/>
 						}
 						{ 'image' === backgroundType &&
 						<>

@@ -218,6 +218,7 @@ const Background = props => {
 				isPaletteUsed={ (value,index,defaultset) => updatePaletteuse(value,index,defaultset)} 
 				container ={props.control.container[0]}
 				disablePalette={true} 
+				colorIndicator = {dbValue['background-color']}
 				/>
 		</>;
 	};

@@ -49,45 +49,6 @@ const ColorComponent = props => {
 		props.control.container[0].setAttribute('defaultset', defaultset);		
 	}
 
-	const updatePaletteState = (e) =>{
-	
-		if( e.detail.radiochange == "true" ){			
-			var current_color;		
-			var current_index =  props.control.container[0].getAttribute('paletteindex')
-			switch(props.control.params.label) {
-				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-
-				break;
-				default:
-					current_color = '';
-			}			
-			
-		}else{
-			
-			if( props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ){
-				var current_color = e.detail.newcolor;	
-			}else{
-				return
-			}
-			
-		}
-		
-		updateValues(current_color)
-	}
-	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 
 	const toggleClose = () => {
 		setState(prevState => ({
@@ -224,6 +185,7 @@ const ColorComponent = props => {
 									 isPaletteUsed={(value,index,defaultset) => updatepaletteuse(value,index,defaultset)}
 									 container ={props.control.container[0]}
 									 disablePalette={true}
+									 colorIndicator = {props.control.setting.get()}
 									 />
 									 
 

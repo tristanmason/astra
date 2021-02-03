@@ -83,12 +83,6 @@ const ColorPaletteComponent = props => {
 		
 		props.control.setting.set( obj );		
 		
-		var passGlobalPalette = new CustomEvent( "colorpaletteglobal", 
-				{ 
-					"detail":{"palette":obj,"index":index,"prevcolor":prevcolor,"newcolor":newcolor}
-				} 
-			);
-		document.dispatchEvent(passGlobalPalette);
 
 	};
 
@@ -172,7 +166,9 @@ const ColorPaletteComponent = props => {
 								backgroundType = { 'color' }
 								allowGradient={ false }
 								allowImage={ false }		
-								disablePalette={true}			
+								disablePalette={true}	
+								colorIndicator = {undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''}
+
 							/>
 						</div>
 					)
@@ -236,15 +232,19 @@ const ColorPaletteComponent = props => {
 			setState(obj)			
 		}
 	};
+
+
 	const myFunction = (e) =>{
 			Object.values(e.detail.palette.pattern1).map( ( item, index ) => {
 				var maindiv =  document.getElementById('customize-preview')				
 				var iframe = maindiv.getElementsByTagName('iframe')[0]				
 				var innerDoc = iframe.contentDocument || iframe.contentWindow.document;			
-				innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0] );		
+				innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0] );	
+				document.documentElement.style.setProperty('--global-palette' + index, item[0] );		
+
 			} );
 	}
-	document.addEventListener( 'UpdatePaletteStateInIframe', myFunction, false );
+	document.addEventListener( 'UpdatePaletteStateInIframe', myFunction, false ); //Updating the root css for iframe.
 	
 	const handlePresetPalette = (item) => {
 	
@@ -275,15 +275,6 @@ const ColorPaletteComponent = props => {
 		setState(obj)	
 		props.control.setting.set( obj );
 		
-
-		var event = new CustomEvent( "colorpaletteglobal", 
-			{ 
-				"detail":{"palette":obj,"radiochange":"true",}
-			} 
-		);
-		
-		document.dispatchEvent(event);
-
 	}
 
 
@@ -335,15 +326,8 @@ const ColorPaletteComponent = props => {
 			obj['customImportText'] = ''
 
 			setState(obj)	
-			props.control.setting.set( obj );
-		
-			var event = new CustomEvent( "colorpaletteglobal", 
-				{ 
-					"detail":{"palette":obj,"radiochange":"true",}
-				} 
-			);
+			props.control.setting.set( obj );		
 			
-			document.dispatchEvent(event);
 		}else{
 			setState(prevState => ({
 				...prevState,

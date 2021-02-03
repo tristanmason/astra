@@ -137,6 +137,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_action( 'wp_head', array( $this, 'preview_styles' ) );
+			if ( is_customize_preview() ) {
+				add_filter( 'language_attributes', array( $this, 'add_style_tag_to_html_element' ) );
+			}
 		}
 
 			/**
@@ -1429,6 +1432,29 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 				</style>';
 			}
+		}
+
+		/**
+		 * Add style tag to html for global palette
+		 *
+		 * @since x.x.x
+		 * @param string $output Html tag output.
+		 */
+		public function add_style_tag_to_html_element( $output ) {
+			$global_palette = astra_get_option( 'global-color-palette' );
+		
+			$array = $global_palette[ $global_palette['patterntype'] ];
+								
+			$finalpalette = array();
+			
+			foreach ( $array as $key => $value ) {
+				if ( $value[0] ) {
+					array_push( $finalpalette, '--global-palette' . $key . ':' . $value[0] );
+				}
+			}
+		
+			$output .= 'style="' . implode( ';', $finalpalette ) . '"';
+			return $output;
 		}
 	}
 }
