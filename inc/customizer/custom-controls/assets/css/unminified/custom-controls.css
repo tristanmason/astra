@@ -753,6 +753,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 15px;
 }
 
 /* Safari Browser specific CSS */
@@ -951,6 +952,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background {
   position: relative;
+  margin-bottom: -5px;
 }
 
 .customize-control-ast-responsive-background .background-container h4 {
@@ -1066,18 +1068,17 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
   position: absolute;
-  right: 24px;
-  top: -5px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  right: 0px;
-  top: -1px;
+  right: 15px;
+  top: -2px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -14px;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -1090,7 +1091,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
-  right: 65px;
+  top: 35px;
 }
 
 /**
@@ -1221,26 +1222,26 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-content .color-button-wrap {
   right: 30px;
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-responsive-btns {
   right: 7px;
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
-  margin-left: 0px;
+  margin-left: 0;
+  margin-top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
   right: 72px;
+  top: 7px;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-clear-wrap {
   right: 91px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-background.customize-control {
-  margin-top: 28px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
@@ -1978,9 +1979,6 @@ input[type="text"].select2-search__field {
   min-width: auto;
 }
 
-.customize-control-ast-slider .components-range-control .components-range-control__wrapper {
-  margin-left: 0;
-}
 
 .customize-control-ast-sortable .sortable {
   cursor: default;
