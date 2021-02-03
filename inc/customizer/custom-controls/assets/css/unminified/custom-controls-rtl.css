@@ -67,9 +67,12 @@
 
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
-  float: left;
+  cursor: pointer;
+  float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-background .more-settings:focus {
@@ -1420,6 +1423,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 15px;
 }
 
 /* Safari Browser specific CSS */
