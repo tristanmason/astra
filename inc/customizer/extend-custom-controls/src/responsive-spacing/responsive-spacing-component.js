@@ -16,7 +16,6 @@ const ResponsiveSpacingComponent = props => {
 	}, [props]);
 
 	const onConnectedClick = () => {
-		console.log('onConnectedClick');
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.ast-spacing-input');
 
@@ -29,8 +28,6 @@ const ResponsiveSpacingComponent = props => {
 	};
 
 	const onDisconnectedClick = () => {
-		console.log('onDisconnectedClick');
-
 		let elements = event.target.dataset.elementConnect;
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.ast-spacing-input');
