@@ -17432,6 +17432,19 @@ var colorGroupControl = wp.customize.astraControl.extend({
     ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color_group_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
       control: control
     }), control.container[0]);
+  },
+  ready: function ready() {
+    'use strict';
+
+    var control = this; // control.registerToggleEvents();
+  },
+  registerToggleEvents: function registerToggleEvents() {
+    /* Close popup when click outside anywhere outside of popup */
+    jQuery('.wp-full-overlay-sidebar-content, .wp-picker-container').click(function (e) {
+      if (!jQuery(e.target).closest('.ast-field-color-group-wrap .astra-popover-color').length) {
+        jQuery(e.target).closest('.ast-field-color-group-wrap .astra-color-icon-indicate').trigger('click');
+      }
+    });
   }
 });
 
