@@ -57,3 +57,17 @@
   height: 15px;
   font-size: 15px;
 }
+.customize-control-ast-slider .wrapper .components-base-control {
+  width: 90%;
+  display: inline-block;
+}
+.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap {
+  margin-right: 5px;
+  position: absolute;
+  top: 40px;
+  width: 10%;
+  display: inline-block;
+}
+.customize-control-ast-slider .wrapper .ast-range-unit {
+  display: block;
+}

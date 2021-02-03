@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {RangeControl} from '@wordpress/components';
+import {RangeControl,Dashicon} from '@wordpress/components';
 import {useState} from 'react';
 
 const SliderComponent = props => {
@@ -42,20 +42,41 @@ const SliderComponent = props => {
 		props.control.setting.set( newVal );
 	};
 
+	const renderOperationButtons = () => {
+		return (
+			<div className="ast-resp-slider-reset-wrap">
+				<button
+					className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+					disabled={ JSON.stringify(props_value) === JSON.stringify(defaultVal)} onClick={ e => {
+					e.preventDefault();
+					let value = JSON.parse(JSON.stringify(defaultVal));
+					updateValues(value);
+				}}>
+				<Dashicon icon='image-rotate' style={{
+					width: 12,
+					height: 12,
+					fontSize: 12
+				}}/>
+				</button>
+			</div>
+		);
+	};
+
 	return <label>
 		{labelHtml}
 		{descriptionHtml}
 
 		<div className="wrapper">
+			
 			<RangeControl
-				value={ parseInt( defaultVal ) === 0 ? 0 : defaultVal || '' }
-				onChange={ updateValues	}
+				value={ props_value }
+				onChange={ ( value ) => updateValues( value ) }
 				resetFallbackValue={ defaultVal }
 				min={ min < 0 ? min : 0 }
 				max={ max || 500 }
 				step={ step || 1 }
-				allowReset
 			/>
+			{ renderOperationButtons() }
 			{suffixHtml}
 		</div>
 	</label>;
