@@ -51,6 +51,7 @@ const ResponsiveSliderComponent = props => {
 				allowReset
 				onChange={ (newVal) => {updateValues(device, newVal )} }
 			/>
+			{suffixHtml}
 		</div>;
 	};
 

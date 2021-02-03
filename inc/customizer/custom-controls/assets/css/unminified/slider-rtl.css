@@ -1,3 +1,15 @@
 .customize-control-ast-slider .components-range-control .components-range-control__wrapper {
   margin-right: 0;
 }
+
+.customize-control-ast-slider .wrapper {
+  display: flex;
+}
+
+.customize-control-ast-slider .components-range-control {
+  width: -webkit-fill-available;
+}
+
+.customize-control-ast-slider .ast-range-unit {
+  padding: 5px 5px 0px 0px;
+}

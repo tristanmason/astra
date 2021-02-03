@@ -24,6 +24,9 @@
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .wrapper .ast-range-unit {
+  padding: 5px;
+}
 /**
  * Responsive Icons
  */

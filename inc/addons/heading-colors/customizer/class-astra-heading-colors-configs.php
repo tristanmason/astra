@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'           => 'em',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 19,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,

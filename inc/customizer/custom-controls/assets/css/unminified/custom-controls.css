@@ -1373,6 +1373,9 @@ input[type="text"].select2-search__field {
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .wrapper .ast-range-unit {
+  padding: 5px;
+}
 /**
  * Responsive Icons
  */
@@ -1982,6 +1985,17 @@ input[type="text"].select2-search__field {
   margin-left: 0;
 }
 
+.customize-control-ast-slider .wrapper {
+  display: flex;
+}
+
+.customize-control-ast-slider .components-range-control {
+  width: -webkit-fill-available;
+}
+
+.customize-control-ast-slider .ast-range-unit {
+  padding: 5px 0px 0px 5px;
+}
 .customize-control-ast-sortable .sortable {
   cursor: default;
 }
