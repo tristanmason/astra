@@ -247,11 +247,6 @@
   vertical-align: sub;
 }
 
-#customize-control-astra-settings-global-color-palette .ast-color-palette-inline {
-  display: inline-block;
-  margin-right: 5px;
-}
-
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
   position: absolute;
   z-index: 1;
@@ -1118,11 +1113,6 @@ button.components-button.ast-global-color-individual-btn:focus , button.componen
   left: unset;
   top: unset;
   vertical-align: sub;
-}
-
-#customize-control-astra-settings-global-color-palette .ast-color-palette-inline {
-  display: inline-block;
-  margin-right: 5px;
 }
 
 #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
