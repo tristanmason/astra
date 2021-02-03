@@ -555,7 +555,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    left: 46px;
+    left: 42px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button {
@@ -1255,7 +1255,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    left: 46px;
+    left: 42px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button {
@@ -1987,7 +1987,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-right: 2px;
-  margin-top: -14px;
+  margin-top: 20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -2010,8 +2010,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
-  left: 24px;
-  top: -4px;
+  left: 0px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -2021,8 +2021,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 8px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -2059,7 +2059,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-responsive-color .ast-color-btn-reset-wrap {
-  left: 66px;
+  top: 35px;
 }
 
 @supports (-moz-appearance: none) {
@@ -3404,7 +3404,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-right: 2px;
-  margin-top: -14px;
+  margin-top: 20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -3427,8 +3427,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
-  left: 24px;
-  top: -4px;
+  left: 0px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -3438,8 +3438,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 8px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -3476,7 +3476,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-responsive-color .ast-color-btn-reset-wrap {
-  left: 66px;
+  top: 35px;
 }
 
 @supports (-moz-appearance: none) {

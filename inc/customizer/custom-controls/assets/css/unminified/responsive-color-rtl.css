@@ -4,7 +4,7 @@
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-right: 2px;
-  margin-top: -14px;
+  margin-top: 20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -27,8 +27,8 @@
 
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
-  left: 24px;
-  top: -4px;
+  left: 0px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -38,8 +38,8 @@
 
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 8px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -76,7 +76,7 @@
 }
 
 .ast-responsive-color .ast-color-btn-reset-wrap {
-  left: 66px;
+  top: 35px;
 }
 
 @supports (-moz-appearance: none) {
