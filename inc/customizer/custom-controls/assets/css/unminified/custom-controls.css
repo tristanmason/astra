@@ -1377,12 +1377,16 @@ input[type="text"].select2-search__field {
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .slider-control-label {
+  cursor: default;  
+}
+
 /**
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
   position: absolute;
-  right: 5px;
+  right: 0;
   top: 5px;
 }
 

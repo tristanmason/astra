@@ -2027,7 +2027,7 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-slider .wrapper {
+.customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
   display: flex;
 }
@@ -2083,7 +2083,7 @@ input[type="text"].select2-search__field {
   height: 15px;
   font-size: 15px;
 }
-.customize-control-ast-responsive-slider .wrapper .components-base-control, .customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active {
+.customize-control-ast-responsive-slider .wrapper .components-base-control, .customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active, .customize-control-ast-slider .components-base-control.components-range-control {
   width: 100%;
   display: inline-block;
 }
@@ -3589,12 +3589,16 @@ input[type="text"].select2-search__field {
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .slider-control-label {
+  cursor: default;  
+}
+
 /**
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
   position: absolute;
-  left: 5px;
+  left: 0;
   top: 5px;
 }
 
