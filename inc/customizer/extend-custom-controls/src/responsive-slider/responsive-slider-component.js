@@ -84,7 +84,7 @@ const renderOperationButtons = ( defaultVal ) => {
 	let defaultVal = props.control.params.default;
 
 	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span className="customize-control-title slider-control-label">{label}</span>;
 		responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-slider-btns">
 			<li className="desktop active">
 				<button type="button" className="preview-desktop active" data-device="desktop">
@@ -114,16 +114,17 @@ const renderOperationButtons = ( defaultVal ) => {
 		{renderInputHtml('mobile')}
 	</>;
 
-	return <label key={'customizer-text'}>
-		{labelHtml}
+	return <div>
+		<label key={'customizer-text'}>
+			{labelHtml}
+		</label>
 		{responsiveHtml}
 		{descriptionHtml}
-
 		<div className="wrapper">
 			{inputHtml}
 			{ renderOperationButtons( defaultVal ) }
 		</div>
-	</label>;
+	</div>;
 };
 
 ResponsiveSliderComponent.propTypes = {
