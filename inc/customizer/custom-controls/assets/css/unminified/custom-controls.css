@@ -67,9 +67,12 @@
 
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
-  float: right;
+  cursor: pointer;
+  float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-background .more-settings:focus {
@@ -341,7 +344,7 @@
 .color-button-wrap {
 	display: inline;
     position: absolute;
-    right: 5px;
+    right: 0;
     top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {
@@ -411,6 +414,9 @@
 }
 .customize-control-ast-color.customize-control {
     margin-top: 32px;
+}
+.customize-control-ast-heading + .customize-control-ast-color {
+    margin-top: 20px;
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
@@ -522,7 +528,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    right: 46px;
+    right: 42px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button {
@@ -753,6 +759,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 15px;
 }
 
 /* Safari Browser specific CSS */
@@ -851,7 +858,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -12px;
+  margin: 0 -15px;
 }
 
 .customize-control-ast-heading .customize-control-title {
@@ -951,6 +958,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background {
   position: relative;
+  margin-bottom: -5px;
 }
 
 .customize-control-ast-responsive-background .background-container h4 {
@@ -1066,18 +1074,17 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
   position: absolute;
-  right: 24px;
-  top: -5px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
   position: absolute;
-  right: 0px;
-  top: -1px;
+  right: 8px;
+  top: -2px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -14px;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -1090,7 +1097,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
-  right: 65px;
+  top: 35px;
 }
 
 /**
@@ -1221,26 +1228,26 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-content .color-button-wrap {
   right: 30px;
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-responsive-btns {
   right: 7px;
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
-  margin-left: 0px;
+  margin-left: 0;
+  margin-top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
   right: 72px;
+  top: 7px;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-clear-wrap {
   right: 91px;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-background.customize-control {
-  margin-top: 28px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
@@ -1253,7 +1260,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-left: 2px;
-  margin-top: -14px;
+  margin-top: 20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -1276,8 +1283,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
   position: absolute;
-  right: 24px;
-  top: -4px;
+  right: 0px;
+  top: 30px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
@@ -1287,8 +1294,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 8px;
+  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -1325,7 +1332,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-responsive-color .ast-color-btn-reset-wrap {
-  right: 66px;
+  top: 35px;
 }
 
 @supports (-moz-appearance: none) {
@@ -1349,10 +1356,6 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .wrapper {
   position: relative;
-}
-
-.customize-control-ast-responsive-slider .wrapper .components-range-control__wrapper {
-  margin-left: 0;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -1382,7 +1385,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-slider-btns {
   position: absolute;
   right: 5px;
-  bottom: 17px;
+  top: 5px;
 }
 
 .ast-responsive-slider-btns > li {
@@ -1981,10 +1984,6 @@ input[type="text"].select2-search__field {
   min-width: auto;
 }
 
-.customize-control-ast-slider .components-range-control .components-range-control__wrapper {
-  margin-left: 0;
-}
-
 .customize-control-ast-slider .wrapper {
   display: flex;
 }
@@ -1996,6 +1995,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-slider .ast-range-unit {
   padding: 5px 0px 0px 5px;
 }
+
 .customize-control-ast-sortable .sortable {
   cursor: default;
 }
@@ -2047,16 +2047,20 @@ input[type="text"].select2-search__field {
   opacity: 0.8;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field {
+.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 12px 0;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle {
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
   margin: 0;
   order: 2;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label {
+.customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
+  margin: 20px 0;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
 }
