@@ -10,6 +10,7 @@ v3.1.0
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
 - Fix: Color picker icon not visible on hover.
 - Fix: Font size not reverted back to the initial size when the value is deleted.
+- Fix: JS console error with Elementor – Header, Footer & Blocks plugin.
 - Fix: Builder - Social Icons - Icon, Label Custom Color & Official Color not working in some cases.
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
