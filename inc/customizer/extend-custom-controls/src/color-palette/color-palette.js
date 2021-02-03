@@ -4,7 +4,7 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 import testJSON from '../common/astra-common-function'; 
 
-import {useState} from 'react';
+import {useEffect,useState} from 'react';
 
 import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
 
@@ -24,6 +24,13 @@ const ColorPaletteComponent = props => {
 	} = props.control.params;
 
 	const [state, setState] = (value) ? useState(props.control.setting.get()) : useState(defaultValue);
+		
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== value ) {
+			setState(value);
+		}
+	}, [props]);
 	
 
 	let labelHtml = null;
@@ -213,11 +220,6 @@ const ColorPaletteComponent = props => {
 		props.control.setting.set(value);
 	};
 
-	const htmlpalette = Object.values(state[state.patterntype]).map( ( item, index ) => {
-		const iframe = document.getElementsByTagName('iframe')[0]		
-		iframe.contentDocument.documentElement.style.setProperty('--global-palette' + index, item[0] );		
-	} );
-
 	const toggleVisible = () => {
 		let obj = {
 			...state
@@ -234,6 +236,15 @@ const ColorPaletteComponent = props => {
 			setState(obj)			
 		}
 	};
+	const myFunction = (e) =>{
+			Object.values(e.detail.palette.pattern1).map( ( item, index ) => {
+				var maindiv =  document.getElementById('customize-preview')				
+				var iframe = maindiv.getElementsByTagName('iframe')[0]				
+				var innerDoc = iframe.contentDocument || iframe.contentWindow.document;			
+				innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0] );		
+			} );
+	}
+	document.addEventListener( 'UpdatePaletteStateInIframe', myFunction, false );
 	
 	const handlePresetPalette = (item) => {
 	
@@ -372,6 +383,8 @@ const ColorPaletteComponent = props => {
 
 	};
 
+	
+
 	return <>
 		
 		<label className="customizer-text">
@@ -500,4 +513,4 @@ ColorPaletteComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( ColorPaletteComponent );
+export default  ColorPaletteComponent;
