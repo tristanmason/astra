@@ -154,30 +154,32 @@ class AstraColorPickerControl extends Component {
 			/></span>
 		})
 		
-		if( this.props.container ){	
-			if( this.props.container.getAttribute('defaultset') == null){
-				
-				if(this.props.color == finalpaletteColors[0]['color']){
-					this.props.container.setAttribute('paletteindex', '0');
-					this.props.container.setAttribute('paletteused', 'true');
-					this.props.container.setAttribute('defaultset', 'yes');
-				}else if(this.props.color == finalpaletteColors[1]['color']){
-					this.props.container.setAttribute('paletteindex', '1');
-					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paletteused', 'true');				
-				}else if(this.props.color == finalpaletteColors[2]['color']){
-					this.props.container.setAttribute('paletteindex', '2');
-					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paletteused', 'true');				
-				}else if(this.props.color == finalpaletteColors[3]['color']){
-					this.props.container.setAttribute('paletteindex', '3');
-					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paletteused', 'true');			
-				}else if(this.props.color == finalpaletteColors[4]['color']){
-					this.props.container.setAttribute('paletteindex', '4');
-					this.props.container.setAttribute('defaultset', 'yes');
-					this.props.container.setAttribute('paletteused', 'true');			
-				}
+		var container = this.props.container
+		if( container ){	
+			if( container.getAttribute('defaultset') !== "no"  ){
+					
+				container.setAttribute('defaultset', 'yes');
+				container.setAttribute('paletteused', 'true');
+				switch(this.props.color) {
+					case finalpaletteColors[0]['color'] :
+						container.setAttribute('paletteindex', '0');
+					break;
+					case finalpaletteColors[1]['color'] :
+						container.setAttribute('paletteindex', '1');
+					break;
+					case finalpaletteColors[2]['color'] :
+						container.setAttribute('paletteindex', '2');
+					break;
+					case finalpaletteColors[3]['color'] :
+						container.setAttribute('paletteindex', '3');
+					break;
+					case finalpaletteColors[4]['color'] :
+						container.setAttribute('paletteindex', '4');
+					break;
+
+					default : 
+					break;
+				}				
 			}
 		}
 
