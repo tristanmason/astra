@@ -2,10 +2,6 @@
   position: relative;
 }
 
-.customize-control-ast-responsive-slider .wrapper .components-range-control__wrapper {
-  margin-left: 0;
-}
-
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30,7 +26,7 @@
 .ast-responsive-slider-btns {
   position: absolute;
   right: 5px;
-  bottom: 17px;
+  top: 5px;
 }
 
 .ast-responsive-slider-btns > li {
