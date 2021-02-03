@@ -3300,6 +3300,7 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-desktop .ast-mobile-popup-drawer.ast-mobile-popup-full-width .ast-mobile-popup-inner {
   width: 100%;
+  max-width: 100%;
 }
 
 .ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-overlay {

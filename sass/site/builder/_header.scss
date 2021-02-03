@@ -1020,6 +1020,7 @@ body.admin-bar {
 	&.ast-mobile-popup-full-width {
 		.ast-mobile-popup-inner {
 			width: 100%;
+			max-width: 100%;
 		}
 	}
 	.ast-mobile-popup-overlay {
