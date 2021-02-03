@@ -31,7 +31,7 @@
 
 			if( spacing != '' ) {
 				
-				dynamicStyle += '.ast-mobile-popup-content > * {';
+				dynamicStyle += '.ast-mobile-popup-content > *, .ast-mobile-header-content > * {';
 				dynamicStyle += 'padding-top: ' + spacing + 'px;';
 				dynamicStyle += 'padding-bottom: ' + spacing + 'px;';
 				dynamicStyle += '} ';
