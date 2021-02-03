@@ -415,6 +415,9 @@
 .customize-control-ast-color.customize-control {
     margin-top: 32px;
 }
+.customize-control-ast-heading + .customize-control-ast-color {
+    margin-top: 20px;
+}
 .customize-control-ast-color.customize-control > * {
     display: inline;
 }
@@ -1355,10 +1358,6 @@ input[type="text"].select2-search__field {
   position: relative;
 }
 
-.customize-control-ast-responsive-slider .wrapper .components-range-control__wrapper {
-  margin-left: 0;
-}
-
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1383,7 +1382,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-slider-btns {
   position: absolute;
   right: 5px;
-  bottom: 17px;
+  top: 5px;
 }
 
 .ast-responsive-slider-btns > li {
