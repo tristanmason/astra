@@ -16,6 +16,7 @@ const ResponsiveSpacingComponent = props => {
 	}, [props]);
 
 	const onConnectedClick = () => {
+		console.log('onConnectedClick');
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.ast-spacing-input');
 
@@ -28,6 +29,8 @@ const ResponsiveSpacingComponent = props => {
 	};
 
 	const onDisconnectedClick = () => {
+		console.log('onDisconnectedClick');
+
 		let elements = event.target.dataset.elementConnect;
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.ast-spacing-input');
@@ -85,8 +88,12 @@ const ResponsiveSpacingComponent = props => {
 			id,
 			choices,
 			inputAttrs,
-			unit_choices
+			unit_choices,
+			connected
 		} = props.control.params;
+
+		let connected_class = ( connected ) ? 'connected' : '';
+		let disconnected_class = ( connected ) ? 'disconnected' : '';
 
 		let itemLinkDesc = __('Link Values Together', 'astra');
 
@@ -95,7 +102,7 @@ const ResponsiveSpacingComponent = props => {
 		let respHtml = null;
 
 		if (linked_choices) {
-			linkHtml = <li key={'connect-disconnect' + device} className="ast-spacing-input-item-link disconnected">
+			linkHtml = <li key={'connect-disconnect' + device} className={ `ast-spacing-input-item-link ${disconnected_class}` }>
 					<span key={'connect' + device}
 						  className="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight"
 						  onClick={() => {
@@ -111,7 +118,7 @@ const ResponsiveSpacingComponent = props => {
 		if( choices ) {
 			htmlChoices = Object.keys(choices).map(choiceID => {
 				let html = <li key={choiceID} {...inputAttrs} className='ast-spacing-input-item'>
-					<input type='number' className={`ast-spacing-input ast-spacing-${device} connected`} data-id={choiceID}
+					<input type='number' className={`ast-spacing-input ast-spacing-${device} ${connected_class}`} data-id={choiceID}
 						   value={state[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
 						   data-element-connect={id}/>
 					<span className="ast-spacing-title">{choices[choiceID]}</span>
