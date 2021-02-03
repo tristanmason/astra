@@ -1167,11 +1167,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					</ul>
 			</div>';
 
-			$color_group_tmpl = '<div class="ast-field-color-group-modal">
-					<ul class="ast-color-fields-wrap">
-					</ul>
-			</div>';
-
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
@@ -1201,7 +1196,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								'google_fonts' => $string,
 							),
 							'group_modal_tmpl'       => $tmpl,
-							'color_group_modal_tmpl' => $color_group_tmpl,
 							'is_pro'                 => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'           => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
