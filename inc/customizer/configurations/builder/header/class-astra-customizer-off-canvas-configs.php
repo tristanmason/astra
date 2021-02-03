@@ -145,31 +145,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option Group: Off-Canvas Colors Group.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background Color & Image', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 30,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
-				 * Option: Off-Canvas Background.
-				 */
-				array(
-					'name'              => 'off-canvas-background',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[off-canvas-colors-group]',
-					'section'           => $_section,
-					'title'             => '',
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-background]',
+					'type'              => 'control',
 					'control'           => 'ast-background',
+					'title'             => __( 'Background Color & Image', 'astra' ),
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'priority'          => 30,
+					'context'           => Astra_Builder_Helper::$design_tab,
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
 					'default'           => astra_get_option( 'off-canvas-background' ),
-					'priority'          => 35,
-					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Off-Canvas Close Icon Color.
