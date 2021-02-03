@@ -737,9 +737,12 @@
 
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
-  float: left;
+  cursor: pointer;
+  float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-background .more-settings:focus {
@@ -2701,7 +2704,7 @@ input[type="text"].select2-search__field {
   opacity: 0.8;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field {
+.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 12px 0;
 }
 
@@ -2710,7 +2713,12 @@ input[type="text"].select2-search__field {
   order: 2;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label {
+.customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
+  margin: 20px 0;
+  order: 2;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
 }
@@ -4118,16 +4126,20 @@ input[type="text"].select2-search__field {
   opacity: 0.8;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field {
+.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 12px 0;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle {
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
   margin: 0;
   order: 2;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label {
+.customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
+  margin: 20px 0;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
 }

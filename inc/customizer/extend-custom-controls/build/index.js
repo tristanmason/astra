@@ -20737,17 +20737,14 @@ var LinkComponent = function LinkComponent(props) {
       onUrlChange(value);
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "customize-control-content ast-link-open-in-new-tab-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", {
-    type: "checkbox",
-    id: "ast-link-open-in-new-tab",
-    className: "ast-link-open-in-new-tab",
-    name: "ast-link-open-in-new-tab",
+    className: "customize-control-content ast-link-open-in-new-tab-wrapper ast-togglecontrol-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ToggleControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Open in a New Tab', 'astra'),
     checked: new_tab,
     onChange: function onChange() {
       return onCheckboxChange();
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Open in a New Tab'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
