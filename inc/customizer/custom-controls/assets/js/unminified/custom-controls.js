@@ -23661,6 +23661,12 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       state = _ref2[0],
       setState = _ref2[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
+    // If settings are changed externally.
+    if (state !== value) {
+      setState(value);
+    }
+  }, [props]);
   var labelHtml = null;
   var descriptionHtml = null;
 
@@ -23840,11 +23846,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     props.control.setting.set(value);
   };
 
-  Object.values(state[state.patterntype]).map(function (item, index) {
-    var iframe = document.getElementsByTagName('iframe')[0];
-    iframe.contentDocument.documentElement.style.setProperty('--global-palette' + index, item[0]);
-  });
-
   var toggleVisible = function toggleVisible() {
     var obj = _objectSpread({}, state);
 
@@ -23861,6 +23862,17 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       setState(obj);
     }
   };
+
+  var myFunction = function myFunction(e) {
+    Object.values(e.detail.palette.pattern1).map(function (item, index) {
+      var maindiv = document.getElementById('customize-preview');
+      var iframe = maindiv.getElementsByTagName('iframe')[0];
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0]);
+    });
+  };
+
+  document.addEventListener('UpdatePaletteStateInIframe', myFunction, false);
 
   var handlePresetPalette = function handlePresetPalette(item) {
     var obj = _objectSpread({}, state);
@@ -24087,7 +24099,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
 ColorPaletteComponent.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(ColorPaletteComponent));
+/* harmony default export */ __webpack_exports__["default"] = (ColorPaletteComponent);
 
 /***/ }),
 
@@ -25518,6 +25530,16 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       api_id.set(_objectSpread(_objectSpread(_objectSpread({}, api_id.get()), []), {}, {
         flag: !api_id.get().flag
       }));
+    });
+    api('astra-settings[global-color-palette]', function (value) {
+      value.bind(function (palette) {
+        var event = new CustomEvent('UpdatePaletteStateInIframe', {
+          'detail': {
+            'palette': palette
+          }
+        });
+        document.dispatchEvent(event);
+      });
     });
   });
 })(jQuery, wp.customize);

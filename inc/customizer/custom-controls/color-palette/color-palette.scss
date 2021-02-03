@@ -122,6 +122,9 @@
         margin-right: 10px;
     }
 
+    .ast-reset-btn:disabled {
+        opacity: 0.6;
+    }
     @media (min-width: 1800px) {
         .astra-color-picker-wrap {        
             width: 24em;

@@ -131,6 +131,10 @@
   margin-left: 10px;
 }
 
+#customize-control-astra-settings-global-color-palette .ast-reset-btn:disabled {
+  opacity: 0.6;
+}
+
 @media (min-width: 1800px) {
   #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
     width: 24em;

@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'title'       => __( 'Palette', 'astra' ),
 					'default'     => astra_get_option( 'global-color-palette' ),
 					'settings'    => array(),
-					'transport'=>'postMessage',
+					'transport'   => 'postMessage',
 				),
 				/**
 				 * Option: Text Color
