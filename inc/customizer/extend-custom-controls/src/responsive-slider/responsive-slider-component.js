@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {RangeControl} from '@wordpress/components';
+import {RangeControl,Dashicon} from '@wordpress/components';
 import {useEffect, useState} from 'react';
 
 const ResponsiveSliderComponent = props => {
@@ -7,7 +7,7 @@ const ResponsiveSliderComponent = props => {
 	let prop_value = props.control.setting.get();
 
 	const [state, setState] = useState( prop_value );
-
+console.log(state);
 	useEffect( () => {
 		// If settings are changed externally.
 		if( state !== prop_value ) {
@@ -16,10 +16,34 @@ const ResponsiveSliderComponent = props => {
 	}, [props]);
 
 	const updateValues = (device, newVal) => {
+		console.log(device);
+		console.log(newVal);
+
 		let updateState = {...state};
+		console.log(updateState);
+
 		updateState[device] = newVal;
 		props.control.setting.set(updateState);
 		setState(updateState);
+	};
+const renderOperationButtons = ( defaultVal ) => {
+		return (
+			<div className="ast-resp-slider-reset-wrap">
+				<button
+					className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+					disabled={ JSON.stringify(state) === JSON.stringify(defaultVal)} onClick={ e => {
+					e.preventDefault();
+					props.control.setting.set(defaultVal);
+					setState(defaultVal);
+				}}>
+				<Dashicon icon='image-rotate' style={{
+					width: 12,
+					height: 12,
+					fontSize: 12
+				}}/>
+				</button>
+			</div>
+		);
 	};
 
 	const renderInputHtml = (device, active = '') => {
@@ -44,12 +68,11 @@ const ResponsiveSliderComponent = props => {
 		return <div className={`input-field-wrapper ${device} ${active}`}>
 			<RangeControl
 				resetFallbackValue={defaultVal}
-				value={ parseInt( defaultVal ) === 0 ? 0 : defaultVal || '' }
+				value={ state[device] }
 				min={ min < 0 ? min : 0 }
 				max={ max || 100 }
 				step={ step || 1 }
-				allowReset
-				onChange={ (newVal) => {updateValues(device, newVal )} }
+				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
 			/>
 		</div>;
 	};
@@ -63,6 +86,7 @@ const ResponsiveSliderComponent = props => {
 	let responsiveHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
+	let defaultVal = props.control.params.default;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
@@ -102,6 +126,7 @@ const ResponsiveSliderComponent = props => {
 
 		<div className="wrapper">
 			{inputHtml}
+			{ renderOperationButtons( defaultVal ) }
 		</div>
 	</label>;
 };

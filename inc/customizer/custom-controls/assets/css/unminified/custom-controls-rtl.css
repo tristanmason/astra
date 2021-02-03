@@ -2086,7 +2086,11 @@ input[type="text"].select2-search__field {
   width: 90%;
   display: inline-block;
 }
-.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap {
+.customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active {
+  display: inline-block;
+}
+.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
   margin-right: 5px;
   position: absolute;
   top: 40px;
@@ -3615,12 +3619,19 @@ input[type="text"].select2-search__field {
   width: 90%;
   display: inline-block;
 }
-.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap {
+.customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active {
+  display: inline-block;
+}
+.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
   margin-right: 5px;
   position: absolute;
   top: 40px;
   width: 10%;
   display: inline-block;
+}
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  top: 4px;
 }
 .customize-control-ast-slider .wrapper .ast-range-unit {
   display: block;
