@@ -224,7 +224,7 @@ export function astraGetResponsiveSpacingJs ( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
-export function astraGetAlignmentJs ( control ) {
+export function astraGetAlignmentJS ( control ) {
     'use strict';
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
