@@ -317,7 +317,7 @@ class Astra_Button_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-button-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-alignment',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 35,
 					'title'     => __( 'Alignment', 'astra' ),

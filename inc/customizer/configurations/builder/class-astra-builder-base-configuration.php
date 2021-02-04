@@ -464,7 +464,7 @@ final class Astra_Builder_Base_Configuration {
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
 						'default'   => astra_get_option( $type . '-widget-alignment-' . $index ),
 						'type'      => 'control',
-						'control'   => 'ast-alignment',
+						'control'   => 'ast-selector',
 						'section'   => $_section,
 						'priority'  => 5,
 						'title'     => __( 'Alignment', 'astra' ),

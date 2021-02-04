@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'    => $_section,
 					'title'      => __( 'Header Position', 'astra' ),
 					'type'       => 'control',
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'priority'   => 5,
 					'choices'    => $positions,
 					'partial'    => array(
@@ -285,7 +285,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'title'      => __( 'Alignment', 'astra' ),
 					'type'       => 'control',
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'priority'   => 65,
 					'context'    => array(
 						array(

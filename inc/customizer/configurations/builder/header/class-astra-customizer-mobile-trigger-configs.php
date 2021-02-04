@@ -150,7 +150,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'    => $_section,
 				'title'      => __( 'Toggle Button Style', 'astra' ),
 				'type'       => 'control',
-				'control'    => 'ast-alignment',
+				'control'    => 'ast-selector',
 				'priority'   => 30,
 				'choices'    => array(
 					'fill'    => __( 'Fill', 'astra' ),

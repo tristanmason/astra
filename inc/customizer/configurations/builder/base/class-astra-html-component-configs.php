@@ -211,7 +211,7 @@ class Astra_Html_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-html-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-alignment',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 6,
 					'title'     => __( 'Alignment', 'astra' ),

@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'name'       => ASTRA_THEME_SETTINGS . '[blog-width]',
 					'default'    => astra_get_option( 'blog-width' ),
 					'type'       => 'control',
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'section'    => 'section-blog',
 					'priority'   => 50,
 					'transport'  => 'postMessage',
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'title'      => __( 'Post Content', 'astra' ),
 					'default'    => astra_get_option( 'blog-post-content' ),
 					'type'       => 'control',
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'priority'   => 75,
 					'choices'    => array(
 						'full-content' => __( 'Full Content', 'astra' ),

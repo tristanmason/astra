@@ -1,18 +1,18 @@
-.customize-control-ast-alignment .ast-alignment-wrapper {
+.customize-control-ast-selector .ast-alignment-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.customize-control-ast-alignment .ast-alignment-inner-wrap {
+.customize-control-ast-selector .ast-alignment-inner-wrap {
     display: none;
 }
 
-.customize-control-ast-alignment .ast-alignment-wrapper .ast-alignment-inner-wrap.active {
+.customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active {
     flex: 1 1 auto;
     display: flex;
 }
-.customize-control-ast-alignment .components-button.has-icon {
+.customize-control-ast-selector .components-button.has-icon {
     padding: 6px;
     min-width: 36px;
     justify-content: center;
@@ -37,7 +37,7 @@
     background: #007cba;
     box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
 }
-.customize-control-ast-alignment .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
+.customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
     box-shadow: inset 0px 0px 0px 1px #ddd !important;
     color: #000 !important;
     background: #ffffff;
@@ -46,31 +46,31 @@
 .ast-alignment-inner-wrap:not(:first-child) {
     margin-left: -1px;
 }
-.customize-control-ast-alignment .components-button .ahfb-icon-set svg {
+.customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
     fill: black;
 }
-.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg,
-.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg circle,
-.customize-control-ast-alignment .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
+.customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
+.customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
+.customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
     fill: #ffffff;
 }
 
-.customize-control-ast-alignment .ast-alignment-inner-wrap:first-child .components-button {
+.customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {
     border-radius: 2px 0px 0px 2px;
 }
-.customize-control-ast-alignment .ast-alignment-inner-wrap:last-child .components-button {
+.customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
     border-radius: 0px 2px 2px 0px;
 }
-.customize-control-ast-alignment .ast-alignment-wrapper .active.ast-alignment-inner-wrap:first-child {
+.customize-control-ast-selector .ast-alignment-wrapper .active.ast-alignment-inner-wrap:first-child {
     border-right: none;
 }
-.customize-control-ast-alignment .ast-alignment-wrapper .active.ast-alignment-inner-wrap:last-child {
+.customize-control-ast-selector .ast-alignment-wrapper .active.ast-alignment-inner-wrap:last-child {
     border-left: none;
 }
 
-.customize-control-ast-alignment .ast-alignment-inner-wrap .components-button,
-.customize-control-ast-alignment .ast-alignment-inner-wrap .components-button {
+.customize-control-ast-selector .ast-alignment-inner-wrap .components-button,
+.customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
 }
