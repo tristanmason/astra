@@ -317,7 +317,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			
 			foreach ( $array as $key => $value ) {
 				if ( $value[0] ) {
-					$palette_variables                  = '--global-palette' . $key;
+					$palette_variables                  = '--ast-global-palette' . $key;
 					$finalpalette[ $palette_variables ] = $value[0];                  
 				}
 			}

@@ -52,7 +52,7 @@ const ResponsiveBackground = props => {
 		
 		if(props.control.container[0].getAttribute('paletteindex')){	
 			
-			obj['desktop']['background-color']  = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
+			obj['desktop']['background-color']  = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 			
 		}
 		

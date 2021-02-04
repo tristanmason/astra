@@ -22021,7 +22021,7 @@ var Background = function Background(props) {
     setPropsValue(finalvalue);
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      tempDbValue['background-color'] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+      tempDbValue['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
       props.control.setting.set(tempDbValue);
     } else {
       props.control.setting.set(tempDbValue);
@@ -22205,7 +22205,7 @@ var Background = function Background(props) {
     setPropsValue(obj);
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      obj['background-color'] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+      obj['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
       props.control.setting.set(obj);
     } else {
       props.control.setting.set(obj);
@@ -23861,8 +23861,8 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       var maindiv = document.getElementById('customize-preview');
       var iframe = maindiv.getElementsByTagName('iframe')[0];
       var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-      innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0]);
-      document.documentElement.style.setProperty('--global-palette' + index, item[0]);
+      innerDoc.documentElement.style.setProperty('--ast-global-palette' + index, item[0]);
+      document.documentElement.style.setProperty('--ast-global-palette' + index, item[0]);
     });
   };
 
@@ -24196,7 +24196,7 @@ var ColorComponent = function ColorComponent(props) {
     });
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      props.control.setting.set('var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')');
+      props.control.setting.set('var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')');
     } else {
       props.control.setting.set(value);
     }
@@ -27867,7 +27867,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     });
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      obj['desktop']['background-color'] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+      obj['desktop']['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
     }
 
     setTimeout(function () {
@@ -28317,7 +28317,7 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
 
     if (key === "desktop") {
       if (props.control.container[0].getAttribute('paletteindex')) {
-        obj[key] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+        obj[key] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
       } else {
         obj[key] = value;
       }

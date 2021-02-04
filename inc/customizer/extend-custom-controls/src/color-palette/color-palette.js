@@ -239,8 +239,8 @@ const ColorPaletteComponent = props => {
 				var maindiv =  document.getElementById('customize-preview')				
 				var iframe = maindiv.getElementsByTagName('iframe')[0]				
 				var innerDoc = iframe.contentDocument || iframe.contentWindow.document;			
-				innerDoc.documentElement.style.setProperty('--global-palette' + index, item[0] );	
-				document.documentElement.style.setProperty('--global-palette' + index, item[0] );		
+				innerDoc.documentElement.style.setProperty('--ast-global-palette' + index, item[0] );	
+				document.documentElement.style.setProperty('--ast-global-palette' + index, item[0] );		
 
 			} );
 	}

@@ -36,7 +36,7 @@ const ColorComponent = props => {
 		}));
 		
 		if(props.control.container[0].getAttribute('paletteindex')){			
-			props.control.setting.set('var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')');
+			props.control.setting.set('var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')');
 		}else{
 			props.control.setting.set(value);
 		}

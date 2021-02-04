@@ -72,7 +72,7 @@ const Background = props => {
 		setPropsValue( finalvalue );
 
 		if(props.control.container[0].getAttribute('paletteindex')){	
-			tempDbValue['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
+			tempDbValue['background-color'] = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 			props.control.setting.set(tempDbValue);
 		}else{
 			props.control.setting.set(tempDbValue);
@@ -245,7 +245,7 @@ const Background = props => {
 		setPropsValue( obj );
 
 		if(props.control.container[0].getAttribute('paletteindex')){	
-			obj['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
+			obj['background-color'] = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 
 			props.control.setting.set(obj);
 		}else{

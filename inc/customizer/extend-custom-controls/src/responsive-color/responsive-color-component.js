@@ -30,7 +30,7 @@ const ResponsiveColorComponent = props => {
 		if( key === "desktop" ){
 		
 			if(props.control.container[0].getAttribute('paletteindex')){	
-				obj[key] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
+				obj[key] = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 				
 			}else{
 				obj[key] = value;
