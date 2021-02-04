@@ -120,7 +120,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-alignment]',
 					'default'   => astra_get_option( 'footer-menu-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-alignment',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 21,
 					'title'     => __( 'Alignment', 'astra' ),

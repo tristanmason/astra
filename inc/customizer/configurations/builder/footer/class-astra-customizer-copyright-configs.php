@@ -91,7 +91,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-copyright-alignment]',
 				'default'   => astra_get_option( 'footer-copyright-alignment' ),
 				'type'      => 'control',
-				'control'   => 'ast-alignment',
+				'control'   => 'ast-selector',
 				'section'   => $_section,
 				'priority'  => 6,
 				'title'     => __( 'Alignment', 'astra' ),

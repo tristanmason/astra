@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'    => $_section,
 					'priority'   => 27,
 					'title'      => __( 'Enable On', 'astra' ),
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'choices'    => array(
 						'desktop' => __( 'Desktop', 'astra' ),
 						'mobile'  => __( 'Mobile', 'astra' ),

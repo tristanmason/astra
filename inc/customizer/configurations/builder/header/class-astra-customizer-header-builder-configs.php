@@ -432,7 +432,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'name'       => ASTRA_THEME_SETTINGS . '[hb-header-main-layout-width]',
 				'default'    => astra_get_option( 'hb-header-main-layout-width' ),
 				'type'       => 'control',
-				'control'    => 'ast-alignment',
+				'control'    => 'ast-selector',
 				'section'    => 'section-header-builder-layout',
 				'priority'   => 4,
 				'title'      => __( 'Width', 'astra' ),

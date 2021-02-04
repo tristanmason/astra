@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {useState} from 'react';
 import { Button } from '@wordpress/components';
 
-const AlignmentComponent = props => {
+const SelectorComponent = props => {
 
 	const [propsValue, setPropsValue] = useState(props.control.setting.get());
 
@@ -187,8 +187,8 @@ const AlignmentComponent = props => {
 
 };
 
-AlignmentComponent.propTypes = {
+SelectorComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( AlignmentComponent );
+export default React.memo( SelectorComponent );

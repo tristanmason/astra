@@ -31,7 +31,7 @@ import { HeaderTypeButtonControl } from './header-type-button/control';
 import { RowLayoutControl } from './row-layout/control';
 import { toggleControl } from './toggle-control/control';
 import { colorGroupControl } from './color-group/control';
-import { alignmentControl } from './alignment/control';
+import { selectorControl } from './selector/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -65,7 +65,7 @@ wp.customize.controlConstructor['ast-draggable-items'] = DraggableControl;
 wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
 wp.customize.controlConstructor['ast-toggle-control'] = toggleControl;
 wp.customize.controlConstructor['ast-color-group'] = colorGroupControl;
-wp.customize.controlConstructor['ast-alignment'] = alignmentControl;
+wp.customize.controlConstructor['ast-selector'] = selectorControl;
 
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';

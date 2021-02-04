@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[blog-single-width]',
 					'type'       => 'control',
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'section'    => 'section-blog-single',
 					'default'    => astra_get_option( 'blog-single-width' ),
 					'priority'   => 5,

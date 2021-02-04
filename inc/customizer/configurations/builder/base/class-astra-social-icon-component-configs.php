@@ -218,7 +218,7 @@ class Astra_Social_Icon_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-color-type' ),
 					'section'    => $_section,
 					'type'       => 'control',
-					'control'    => 'ast-alignment',
+					'control'    => 'ast-selector',
 					'title'      => __( 'Color Type', 'astra' ),
 					'priority'   => 8,
 					'choices'    => array(
@@ -411,7 +411,7 @@ class Astra_Social_Icon_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-social-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-social-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-alignment',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 6,
 					'title'     => __( 'Alignment', 'astra' ),
