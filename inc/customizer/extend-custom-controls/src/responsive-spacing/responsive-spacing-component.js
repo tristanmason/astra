@@ -99,7 +99,7 @@ const ResponsiveSpacingComponent = props => {
 		let respHtml = null;
 
 		if (linked_choices) {
-			linkHtml = <li key={'connect-disconnect' + device} className={ `ast-spacing-input-item-link ${disconnected_class}` }>
+			linkHtml = <li key={'connect-disconnect' + device} className={ `ast-spacing-input-item-link ${disconnectedClass}` }>
 					<span key={'connect' + device}
 						  className="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight"
 						  onClick={() => {
@@ -115,7 +115,7 @@ const ResponsiveSpacingComponent = props => {
 		if( choices ) {
 			htmlChoices = Object.keys(choices).map(choiceID => {
 				let html = <li key={choiceID} {...inputAttrs} className='ast-spacing-input-item'>
-					<input type='number' className={`ast-spacing-input ast-spacing-${device} ${connected_class}`} data-id={choiceID}
+					<input type='number' className={`ast-spacing-input ast-spacing-${device} ${connectedClass}`} data-id={choiceID}
 						   value={state[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
 						   data-element-connect={id}/>
 					<span className="ast-spacing-title">{choices[choiceID]}</span>
