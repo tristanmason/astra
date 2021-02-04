@@ -148,6 +148,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'     => 'ast-slider',
 						'priority'    => 30.5,
 						'title'       => __( 'Width', 'astra' ),
+						'suffix'      => 'px',
 						'input_attrs' => array(
 							'min'  => 0,
 							'step' => 1,
@@ -212,7 +213,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'    => true,
 							),
 						),
-						'suffix'      => '',
+						'suffix'      => 'px',
 						'input_attrs' => array(
 							'min'  => 1,
 							'step' => 1,
@@ -253,6 +254,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'     => 'ast-slider',
 						'priority'    => 22,
 						'title'       => __( 'Top Offset', 'astra' ),
+						'suffix'      => 'px',
 						'input_attrs' => array(
 							'min'  => 0,
 							'step' => 1,
@@ -322,6 +324,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'     => 'ast-slider',
 						'priority'    => 3,
 						'title'       => __( 'Border Radius', 'astra' ),
+						'suffix'      => 'px',
 						'input_attrs' => array(
 							'min'  => 0,
 							'step' => 1,
@@ -616,7 +619,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'           => '',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 						'control'           => 'ast-slider',
-						'suffix'            => '',
+						'suffix'            => 'em',
 						'input_attrs'       => array(
 							'min'  => 1,
 							'step' => 0.01,

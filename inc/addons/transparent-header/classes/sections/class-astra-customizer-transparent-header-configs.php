@@ -348,6 +348,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'     => $_section,
 					'priority'    => 32,
 					'title'       => __( 'Bottom Border Size', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
