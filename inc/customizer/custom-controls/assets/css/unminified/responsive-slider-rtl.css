@@ -20,9 +20,14 @@
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .components-base-control {
+  width: 100%;
+}
+
 .customize-control-ast-responsive-slider .wrapper .ast-range-unit {
   padding: 5px;
 }
+
 /**
  * Responsive Icons
  */
