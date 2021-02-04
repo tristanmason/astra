@@ -229,20 +229,20 @@ export function astraGetAlignmentJS ( control ) {
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
 
-    jQuery( '.customize-control-ast-alignment .input-wrapper .ast-alignment-responsive' ).removeClass( 'active' );
+    jQuery( '.customize-control-ast-selector .input-wrapper .ast-alignment-responsive' ).removeClass( 'active' );
 
-    jQuery( '.customize-control-ast-alignment .input-wrapper .ast-alignment-responsive.' + device ).addClass( 'active' );
+    jQuery( '.customize-control-ast-selector .input-wrapper .ast-alignment-responsive.' + device ).addClass( 'active' );
 
-    jQuery( '.customize-control-ast-alignment .ast-responsive-btns li' ).removeClass( 'active' );
+    jQuery( '.customize-control-ast-selector .ast-responsive-btns li' ).removeClass( 'active' );
 
-    jQuery( '.customize-control-ast-alignment .ast-responsive-btns li.' + device ).addClass( 'active' );
+    jQuery( '.customize-control-ast-selector .ast-responsive-btns li.' + device ).addClass( 'active' );
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
         let device = jQuery(this).attr('data-device');
 
-        jQuery( '.customize-control-ast-alignment .input-wrapper .ast-alignment-responsive, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
-        jQuery( '.customize-control-ast-alignment .input-wrapper .ast-alignment-responsive.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
+        jQuery( '.customize-control-ast-selector .input-wrapper .ast-alignment-responsive, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
+        jQuery( '.customize-control-ast-selector .input-wrapper .ast-alignment-responsive.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
 
     });
 
