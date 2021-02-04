@@ -4,13 +4,13 @@ import { Button } from '@wordpress/components';
 
 const AlignmentComponent = props => {
 
-	const [props_value, setPropsValue] = useState(props.control.setting.get());
+	const [propsValue, setPropsValue] = useState(props.control.setting.get());
 
 	const Icons = window.svgIcons;
 
 	const onValueChange = ( value, device='' ) => {
 		let updateState = {
-			...props_value
+			...propsValue
         };
         if ( '' !== device ) {
             updateState[device] = value;
@@ -44,8 +44,8 @@ const AlignmentComponent = props => {
 							<Button
 								key={ value }
 								onClick={ () => onValueChange( value ) }
-								aria-pressed = { value === props_value }
-								isPrimary = { value === props_value }
+								aria-pressed = { value === propsValue }
+								isPrimary = { value === propsValue }
 							>
 								<span className="ahfb-icon-set" 
 									dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
@@ -60,8 +60,8 @@ const AlignmentComponent = props => {
 							<Button
 								key={ value }
 								onClick={ () => onValueChange( value ) }
-								aria-pressed = { value === props_value }
-								isPrimary = { value === props_value }
+								aria-pressed = { value === propsValue }
+								isPrimary = { value === propsValue }
 								label = { icon }
 							>
 								{ icon }
@@ -85,8 +85,8 @@ const AlignmentComponent = props => {
 						<Button
 							key={ value }
 							onClick={ () => onValueChange( value, device ) }
-							aria-pressed = { value === props_value[device] }
-							isPrimary = { value === props_value[device] }
+							aria-pressed = { value === propsValue[device] }
+							isPrimary = { value === propsValue[device] }
 						>
 							<span className="ahfb-icon-set" 
 								dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
@@ -106,8 +106,8 @@ const AlignmentComponent = props => {
 						<Button
 							key={ value }
 							onClick={ () => onValueChange( value, device ) }
-							aria-pressed = { value === props_value[device] }
-							isPrimary = { value === props_value[device] }
+							aria-pressed = { value === propsValue[device] }
+							isPrimary = { value === propsValue[device] }
 							label = { icon }
 						>
 							{ icon }
@@ -134,12 +134,12 @@ const AlignmentComponent = props => {
 	let descriptionHtml = null;
 	let inputHtml = null;
 
-	let responsive_flag = ( false === responsive ) ? false : true ;
+	let responsiveFlag = ( false === responsive ) ? false : true ;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 
-		if (responsive_flag) {
+		if (responsiveFlag) {
 			responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-btns">
 				<li key={'desktop'} className="desktop active">
 					<button type="button" className="preview-desktop" data-device="desktop">
@@ -164,7 +164,7 @@ const AlignmentComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	if (responsive_flag) {
+	if (responsiveFlag) {
 		inputHtml = <>
 			{renderInputHtml('desktop', 'active')}
 			{renderInputHtml('tablet')}
