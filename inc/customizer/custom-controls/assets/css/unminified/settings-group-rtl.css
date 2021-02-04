@@ -298,3 +298,7 @@
 .ast-field-settings-modal .components-angle-picker-control .components-flex__block {
   min-width: auto;
 }
+
+.ast-field-settings-modal .wrapper span.ast-range-unit {
+  padding-bottom: 15px;
+}
