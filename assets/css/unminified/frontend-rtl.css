@@ -270,28 +270,8 @@ th {
 /*!
  * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  */
-@media (min-width: 544px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .ast-container {
-    max-width: 100%;
-  }
+.ast-container {
+  max-width: 100%;
 }
 
 .ast-container-fluid, .ast-container {
@@ -302,17 +282,6 @@ th {
 }
 
 .ast-container-fluid::after, .ast-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.ast-row {
-  margin-right: -20px;
-  margin-left: -20px;
-}
-
-.ast-row::after {
   content: "";
   display: table;
   clear: both;
@@ -3527,10 +3496,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .main-header-bar {
   z-index: 4;
   position: relative;
-}
-
-.main-header-bar .main-header-bar-navigation {
-  height: 100%;
 }
 
 .main-header-bar .main-header-bar-navigation:empty {

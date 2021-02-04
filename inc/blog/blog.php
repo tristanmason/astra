@@ -49,7 +49,7 @@ if ( ! function_exists( 'astra_post_class_blog_grid' ) ) {
 	function astra_post_class_blog_grid( $classes ) {
 
 		if ( is_archive() || is_home() || is_search() ) {
-			$classes[] = 'ast-col-sm-12';
+			$classes[] = ast_get_grid_layout_class( 'sm' );
 			$classes[] = 'ast-article-post';
 		}
 

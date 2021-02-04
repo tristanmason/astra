@@ -11,7 +11,7 @@
 
 ?>
 <div <?php astra_blog_layout_class( 'blog-layout-1' ); ?>>
-	<div class="post-content ast-col-md-12">
+	<div class="post-content <?php echo esc_attr( ast_get_grid_layout_class( 'md' ) ); ?>">
 		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 		<div class="entry-content clear" 
 		<?php
