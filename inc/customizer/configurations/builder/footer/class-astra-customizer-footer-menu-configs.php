@@ -120,17 +120,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-alignment]',
 					'default'   => astra_get_option( 'footer-menu-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-alignment',
 					'section'   => $_section,
 					'priority'  => 21,
 					'title'     => __( 'Alignment', 'astra' ),
-					'choices'   => array(
-						'flex-start' => __( 'Left', 'astra' ),
-						'center'     => __( 'Center', 'astra' ),
-						'flex-end'   => __( 'Right', 'astra' ),
-					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'choices'   => array(                       
+						'flex-start' => 'align-left', 
+						'center'     => 'align-center', 
+						'flex-end'   => 'align-right',   
+					),
 				),
 
 				// Option Group: Menu Color.

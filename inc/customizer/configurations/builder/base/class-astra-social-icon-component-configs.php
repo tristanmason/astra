@@ -214,19 +214,21 @@ class Astra_Social_Icon_Component_Configs {
 				),
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-type]',
-					'default'   => astra_get_option( $builder_type . '-social-' . $index . '-color-type' ),
-					'section'   => $_section,
-					'type'      => 'control',
-					'control'   => 'select',
-					'title'     => __( 'Color Type', 'astra' ),
-					'priority'  => 8,
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-type]',
+					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-color-type' ),
+					'section'    => $_section,
+					'type'       => 'control',
+					'control'    => 'ast-alignment',
+					'title'      => __( 'Color Type', 'astra' ),
+					'priority'   => 8,
+					'choices'    => array(
 						'custom'   => __( 'Custom', 'astra' ),
 						'official' => __( 'Official', 'astra' ),
 					),
-					'transport' => 'postMessage',
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'transport'  => 'postMessage',
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => false,
+					'display'    => 'text',
 				),
 
 				/**
@@ -409,17 +411,17 @@ class Astra_Social_Icon_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-social-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-social-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-alignment',
 					'section'   => $_section,
 					'priority'  => 6,
 					'title'     => __( 'Alignment', 'astra' ),
-					'choices'   => array(
-						'left'   => __( 'Left', 'astra' ),
-						'center' => __( 'Center', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'choices'   => array(                       
+						'left'   => 'align-left',
+						'center' => 'align-center', 
+						'right'  => 'align-right',  
+					),
 				);
 			}
 
