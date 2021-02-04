@@ -1403,6 +1403,10 @@ input[type="text"].select2-search__field {
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .components-base-control {
+  width: 100%;
+}
+
 /**
  * Responsive Icons
  */

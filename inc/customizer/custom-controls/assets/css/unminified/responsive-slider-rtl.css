@@ -20,6 +20,10 @@
   display: flex;
 }
 
+.customize-control-ast-responsive-slider .components-base-control {
+  width: 100%;
+}
+
 /**
  * Responsive Icons
  */
