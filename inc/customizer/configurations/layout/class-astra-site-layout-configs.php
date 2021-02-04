@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 							'value'    => 'ast-full-width-layout',
 						),
 					) : array(),
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,

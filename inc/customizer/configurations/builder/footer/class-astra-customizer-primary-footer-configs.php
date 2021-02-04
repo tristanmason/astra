@@ -185,6 +185,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'     => $_section,
 					'priority'    => 4,
 					'title'       => __( 'Top Border', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -252,6 +253,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'hb-inner-spacing' ),
 					'title'             => __( 'Inner Column Spacing', 'astra' ),
+					'suffix'            => 'px',
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

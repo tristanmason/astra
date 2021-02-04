@@ -208,6 +208,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'     => 'section-buttons',
 					'control'     => 'ast-slider',
 					'priority'    => 15,
+					'suffix'      => 'px',
 					'title'       => __( 'Border Radius', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -250,6 +251,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'priority'          => 35,
+					'connected'         => false,
 				),
 
 			);

@@ -24,6 +24,11 @@
   width: 100%;
 }
 
+.customize-control-ast-responsive-slider .wrapper .ast-range-unit {
+  padding: 5px;
+  text-transform: uppercase;
+}
+
 /**
  * Responsive Icons
  */

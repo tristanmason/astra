@@ -81,7 +81,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'input_attrs'       => array(
 						'min'  => 30,
 						'step' => 1,
@@ -100,6 +100,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'     => $_section,
 					'priority'    => 4,
 					'title'       => __( 'Bottom Border', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,

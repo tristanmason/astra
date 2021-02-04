@@ -127,6 +127,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-body' ),
 					'priority'    => 10,
 					'title'       => __( 'Size', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -147,7 +148,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 25,
 					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -168,7 +169,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'           => 'section-body-typo',
 					'priority'          => 25,
 					'title'             => __( 'Paragraph Margin Bottom', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 0.5,
 						'step' => 0.01,
@@ -271,7 +272,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
 					'priority'          => 4,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
