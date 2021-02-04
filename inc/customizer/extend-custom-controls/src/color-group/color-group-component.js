@@ -55,7 +55,6 @@ const ColorGroupComponent = props => {
 	}	
 
 	let optionsHtml = Object.entries( state ).map( ( [ key,value ] ) => {
-
 		let tooltip = tooltips[key] || __('Color', 'astra');
 		let html = (
 			<Tooltip key={ key } text={ tooltip }>
