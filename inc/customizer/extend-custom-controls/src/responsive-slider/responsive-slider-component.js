@@ -31,11 +31,7 @@ const renderOperationButtons = ( defaultVal ) => {
 					props.control.setting.set(defaultVal);
 					setState(defaultVal);
 				}}>
-				<Dashicon icon='image-rotate' style={{
-					width: 12,
-					height: 12,
-					fontSize: 12
-				}}/>
+				<Dashicon icon='image-rotate'/>
 				</button>
 			</div>
 		);
