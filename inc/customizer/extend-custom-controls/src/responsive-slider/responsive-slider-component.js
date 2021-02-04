@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {RangeControl,Dashicon} from '@wordpress/components';
+import {RangeControl, Dashicon} from '@wordpress/components';
 import {useEffect, useState} from 'react';
 
 const ResponsiveSliderComponent = props => {
