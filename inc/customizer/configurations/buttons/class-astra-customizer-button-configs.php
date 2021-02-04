@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section' => 'section-buttons',
 					'control' => 'ast-color',
-					'title'   => __( 'Color', 'astra' ),
+					'title'   => __( 'Normal', 'astra' ),
 				),
 
 				/**
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section'  => 'section-buttons',
 					'control'  => 'ast-color',
-					'title'    => __( 'Hover Color', 'astra' ),
+					'title'    => __( 'Hover', 'astra' ),
 					'priority' => 39,
 				),
 
@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
 					'section' => 'section-buttons',
 					'control' => 'ast-color',
-					'title'   => __( 'Color', 'astra' ),
+					'title'   => __( 'Normal', 'astra' ),
 				),
 
 				/**
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
 					'section'  => 'section-buttons',
 					'control'  => 'ast-color',
-					'title'    => __( 'Hover Color', 'astra' ),
+					'title'    => __( 'Hover', 'astra' ),
 					'priority' => 40,
 				),
 
