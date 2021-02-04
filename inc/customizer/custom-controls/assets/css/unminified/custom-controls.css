@@ -1995,7 +1995,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-slider .components-range-control {
-  width: -webkit-fill-available;
+  width: 100%;
 }
 
 .customize-control-ast-slider .ast-range-unit {
