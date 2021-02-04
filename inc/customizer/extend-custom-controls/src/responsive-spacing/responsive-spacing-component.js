@@ -89,8 +89,8 @@ const ResponsiveSpacingComponent = props => {
 			connected
 		} = props.control.params;
 
-		let connected_class = ( false === connected ) ? '' : 'connected';
-		let disconnected_class = ( false === connected ) ? '' : 'disconnected';
+		let connectedClass = ( false === connected ) ? '' : 'connected';
+		let disconnectedClass = ( false === connected ) ? '' : 'disconnected';
 
 		let itemLinkDesc = __('Link Values Together', 'astra');
 
