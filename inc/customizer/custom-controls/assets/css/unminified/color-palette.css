@@ -134,4 +134,7 @@
   #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
     width: 24em;
   }
+  #customize-control-astra-settings-global-color-palette .ast-palette-import {
+    padding: 0 26px;
+  }
 }

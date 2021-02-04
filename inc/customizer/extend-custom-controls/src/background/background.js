@@ -129,7 +129,7 @@ const Background = props => {
 										key={index}
 										title={ globalPalette.pattern1[item][1]}
 									>
-										<div className={ props_value['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+										<div className={ props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
 											style={{ background:globalPalette.pattern1[item][0] }} 
 										/>
 										<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>

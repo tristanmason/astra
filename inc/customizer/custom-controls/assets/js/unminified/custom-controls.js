@@ -22087,7 +22087,7 @@ var Background = function Background(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: props_value['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -24274,7 +24274,7 @@ var ColorComponent = function ColorComponent(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: state.value == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -27971,7 +27971,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: state.value['desktop']['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -28399,7 +28399,7 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: value['desktop'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }

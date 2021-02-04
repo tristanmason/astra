@@ -375,6 +375,9 @@
   #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
     width: 24em;
   }
+  #customize-control-astra-settings-global-color-palette .ast-palette-import {
+    padding: 0 26px;
+  }
 }
 
  /** Remove Button Color */
@@ -1242,6 +1245,9 @@ button.components-button.ast-global-color-individual-btn:focus , button.componen
 @media (min-width: 1800px) {
   #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
     width: 24em;
+  }
+  #customize-control-astra-settings-global-color-palette .ast-palette-import {
+    padding: 0 26px;
   }
 }
 
