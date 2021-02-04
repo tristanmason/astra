@@ -153,15 +153,20 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_filter( 'language_attributes', array( $this, 'add_style_tag_to_html_element' ) );
 		}
 
+		/**
+		 * Prepare the PHP Array to be localized for Customizer JS.
+		 *
+		 * @since x.x.x
+		 */
 		public function prepare_localize_arr() {
-			$string = $this->generate_font_dropdown();
-			$tmpl = '<div class="ast-field-settings-modal">
+			$string             = $this->generate_font_dropdown();
+			$tmpl               = '<div class="ast-field-settings-modal">
 					<ul class="ast-fields-wrap">
 					</ul>
 			</div>';
 			self::$localize_arr = array(
 				'customizer' => array(
-					'settings'         => array(
+					'settings'            => array(
 						'sidebars'     => array(
 							'single'  => array(
 								'single-post-sidebar-layout',
@@ -182,10 +187,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						),
 						'google_fonts' => $string,
 					),
-					'group_modal_tmpl' => $tmpl,
+					'group_modal_tmpl'    => $tmpl,
 					'is_old_palette_used' => false,
-					'is_pro'           => defined( 'ASTRA_EXT_VER' ),
-					'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+					'is_pro'              => defined( 'ASTRA_EXT_VER' ),
+					'upgrade_link'        => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 				),
 				'theme'      => array(
 					'option' => ASTRA_THEME_SETTINGS,
@@ -193,20 +198,26 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 		}
 
+		/**
+		 * Check if function is added on the filter.
+		 *
+		 * @since x.x.x
+		 * @param string $hook hook string.
+		 */
 		public function get_filters_for( $hook = '' ) {
 			global $wp_filter;
-			if( empty( $hook ) || !isset( $wp_filter[$hook] ) ) {
+			if ( empty( $hook ) || ! isset( $wp_filter[ $hook ] ) ) {
 				return;
 			}
 			self::$localize_arr['customizer']['is_old_palette_used'] = true;
 		}
 
-			/**
-			 * Prepare Contexts and choices.
-			 *
-			 * @since 3.0.0
-			 * @param object $wp_customize customizer object.
-			 */
+		/**
+		 * Prepare Contexts and choices.
+		 *
+		 * @since 3.0.0
+		 * @param object $wp_customize customizer object.
+		 */
 		public function prepare_customizer_javascript_configs( $wp_customize ) {
 
 			$configurations = $this->get_customizer_configurations( $wp_customize );
@@ -1219,7 +1230,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'astra',
 				apply_filters(
 					'astra_theme_customizer_js_localize',
-					self::$localize_arr,
+					self::$localize_arr
 				)
 			);
 		}

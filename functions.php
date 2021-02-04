@@ -158,20 +158,3 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
-
-// add_action( 'customizer_register', 'check_is_old_color_pallete', 1 );
-
-// function check_is_old_color_pallete() {
-// 	add_filter( 'astra_color_palettes', 'old_color_palette' );
-// }
-
-
-// function old_color_palette() {
-// 	add_filter( 'astra_is_old_palette', '__return_true' );
-// }
-
-
-
-// var_dump(get_filters_for( 'astra_color_palettes' )->callbacks);
-// wp_die();
-
