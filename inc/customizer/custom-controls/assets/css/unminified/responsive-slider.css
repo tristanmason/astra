@@ -1,5 +1,6 @@
-.customize-control-ast-responsive-slider .wrapper {
+.customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
+  display: flex;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -28,13 +29,16 @@
   padding: 5px;
   text-transform: uppercase;
 }
+.customize-control-ast-responsive-slider .slider-control-label {
+  cursor: default;  
+}
 
 /**
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
   position: absolute;
-  right: 5px;
+  right: 0;
   top: 5px;
 }
 
@@ -62,24 +66,26 @@
   height: 15px;
   font-size: 15px;
 }
-.customize-control-ast-slider .wrapper .components-base-control {
-  width: 90%;
-  display: inline-block;
-}
-.customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active {
+.customize-control-ast-responsive-slider .wrapper .components-base-control, .customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active, .customize-control-ast-slider .components-base-control.components-range-control {
+  width: 100%;
   display: inline-block;
 }
 .customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
 .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
-  margin-left: 5px;
-  position: absolute;
-  top: 40px;
-  width: 10%;
-  display: inline-block;
+  margin-left: 12px;
+  margin-top: 4px;
 }
 .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
   top: 4px;
+  right: 0;
 }
 .customize-control-ast-slider .wrapper .ast-range-unit {
   display: block;
+}
+.ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
+	color: #006BA1;
+  height: 20px;
+  width: 20px;
+  padding: 4px;
+  box-shadow: inset 0 0 0 1px #007cba;
 }
