@@ -143,6 +143,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'     => astra_get_option( 'hba-footer-height' ),
 					'priority'    => 30,
 					'title'       => __( 'Height', 'astra' ),
+					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
@@ -202,6 +203,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hba-footer-separator' ),
 					'title'       => __( 'Top Border', 'astra' ),
+					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
@@ -267,6 +269,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'hba-inner-spacing' ),
 					'title'             => __( 'Inner Column Spacing', 'astra' ),
+					'suffix'            => 'px',
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
