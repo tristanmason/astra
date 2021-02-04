@@ -407,6 +407,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'default'           => $defaults['header-account-icon-size'],
 				'title'             => __( 'Icon Size', 'astra' ),
 				'type'              => 'control',
+				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(

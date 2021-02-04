@@ -69,6 +69,7 @@ const renderOperationButtons = ( defaultVal ) => {
 				step={ step || 1 }
 				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
 			/>
+			{suffixHtml}
 		</div>;
 	};
 

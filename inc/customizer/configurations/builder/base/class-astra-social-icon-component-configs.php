@@ -126,6 +126,7 @@ class Astra_Social_Icon_Component_Configs {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-space' ),
 					'title'             => __( 'Icon Spacing', 'astra' ),
+					'suffix'            => 'px',
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -147,6 +148,7 @@ class Astra_Social_Icon_Component_Configs {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-bg-space' ),
 					'title'       => __( 'Icon Background Spacing', 'astra' ),
+					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
@@ -167,6 +169,7 @@ class Astra_Social_Icon_Component_Configs {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
 					'title'             => __( 'Icon Size', 'astra' ),
+					'suffix'            => 'px',
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -187,7 +190,8 @@ class Astra_Social_Icon_Component_Configs {
 					'priority'    => 4,
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-radius' ),
-					'title'       => __( 'Icon Radius (In px)', 'astra' ),
+					'title'       => __( 'Icon Radius', 'astra' ),
+					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
