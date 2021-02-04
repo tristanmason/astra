@@ -117,15 +117,7 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-above-header-bar', 'block' );
-
-	// We have removed ast-builder-grid-row-container-inner div so to manage the display property for mobile and tablet we have added this CSS.
-	$mobile_display_css = array(
-		'.ast-mobile-header-wrap .ast-above-header-bar' => array(
-			'display' => 'grid',
-		),
-	);
-	$dynamic_css       .= Astra_Enqueue_Scripts::trim_css( astra_parse_css( $mobile_display_css ) );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-above-header-bar', 'block', $mobile_tablet_default_display = 'grid' );	
 
 	return $dynamic_css;
 }
