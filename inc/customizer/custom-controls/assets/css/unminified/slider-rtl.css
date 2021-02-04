@@ -8,4 +8,5 @@
 
 .customize-control-ast-slider .ast-range-unit {
   padding: 5px 5px 0px 0px;
+  text-transform: uppercase;
 }

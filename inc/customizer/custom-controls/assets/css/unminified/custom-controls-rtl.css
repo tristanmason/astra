@@ -2055,6 +2055,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .wrapper .ast-range-unit {
   padding: 5px;
+  text-transform: uppercase;
 }
 
 /**
@@ -2672,6 +2673,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-slider .ast-range-unit {
   padding: 5px 5px 0px 0px;
+  text-transform: uppercase;
 }
 
 .customize-control-ast-sortable .sortable {
@@ -3590,6 +3592,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .wrapper .ast-range-unit {
   padding: 5px;
+  text-transform: uppercase;
 }
 
 /**
@@ -4108,6 +4111,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-slider .ast-range-unit {
   padding: 5px 5px 0px 0px;
+  text-transform: uppercase;
 }
 
 .customize-control-ast-sortable .sortable {
