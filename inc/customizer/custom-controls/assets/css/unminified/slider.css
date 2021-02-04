@@ -1,0 +1,12 @@
+.customize-control-ast-slider .wrapper {
+  display: flex;
+}
+
+.customize-control-ast-slider .components-range-control {
+  width: 100%;
+}
+
+.customize-control-ast-slider .ast-range-unit {
+  padding: 5px 0px 0px 5px;
+  text-transform: uppercase;
+}
