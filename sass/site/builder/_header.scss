@@ -749,6 +749,10 @@ body.admin-bar {
 		align-items: center;
 	}
 }
+.astra-hfb-header .ast-button-wrap .menu-toggle .mobile-menu-wrap {
+	align-items: center;
+    display: flex;
+}
 #ast-desktop-header {
 	.ast-desktop-header-content {
 		display: none;
@@ -787,6 +791,8 @@ body.admin-bar {
 .ast-button-wrap {
 	.menu-toggle.main-header-menu-toggle {
 		padding: .5em;
+		align-items: center;
+		display: flex;
 	}
 }
 .ast-search-menu-icon.ast-inline-search {
