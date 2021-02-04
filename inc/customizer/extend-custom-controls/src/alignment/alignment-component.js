@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react';
 import { Button } from '@wordpress/components';
-import {__} from '@wordpress/i18n';
 
 const AlignmentComponent = props => {
 
