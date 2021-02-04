@@ -574,15 +574,20 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
 
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
-			astraToggleClass(desktop_menu, 'toggle-on');
-			astraToggleClass(desktop_toggle, 'toggled');
 			body.classList.add( "ast-header-break-point" );
 			desktop_header.style.display = 'block';
-			if (desktop_menu.classList.contains('toggle-on')) {
-				desktop_menu.style.display = 'block';
+			if ( null !== desktop_menu && '' !== desktop_menu && undefined !== desktop_menu ) {
+				astraToggleClass(desktop_menu, 'toggle-on');
+				if (desktop_menu.classList.contains('toggle-on')) {
+					desktop_menu.style.display = 'block';
+				} else {
+					desktop_menu.style.display = '';
+				}
+			}
+			astraToggleClass(desktop_toggle, 'toggled');
+			if ( desktop_toggle.classList.contains( 'toggled' ) ) {
 				body.classList.add("ast-main-header-nav-open");
 			} else {
-				desktop_menu.style.display = '';
 				body.classList.remove("ast-main-header-nav-open");
 			}
 			return;
