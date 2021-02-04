@@ -14,19 +14,18 @@ const ColorGroupComponent = props => {
 		name
 	} = props.control.params;
 
-	const linked_sub_colors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
-	const color_group = [],
+	const linkedSubColors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
+	const colorGroup = [],
 		tooltips = [];
 
-	Object.entries( linked_sub_colors ).map( ( [ key,value ] ) => {
-		color_group[value.name] = wp.customize.control( value.name ).setting.get();
+	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
+		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		tooltips[value.name] = value.title;
 	});
 
-	const[ state , setState ] = useState(color_group);
+	const[ state , setState ] = useState(colorGroup);
 
 	const handleChangeComplete = ( key, color='' ) => {
-
 		let updateState = {
 			...state
 		};
@@ -57,12 +56,9 @@ const ColorGroupComponent = props => {
 
 	let optionsHtml = Object.entries( state ).map( ( [ key,value ] ) => {
 
-		var tooltip = tooltips[key] || __('Color', 'astra');
-
+		let tooltip = tooltips[key] || __('Color', 'astra');
 		let html = (
-
 			<Tooltip key={ key } text={ tooltip }>
-
 				<div className="color-group-item" id={ key }>
 					<AstraColorPickerControl color={value ? value : ''}
 					onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
@@ -70,7 +66,6 @@ const ColorGroupComponent = props => {
 					allowGradient={false}
 					allowImage={false}/>
 				</div>
-
 			</Tooltip> 
 		);
 
