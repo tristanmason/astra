@@ -241,6 +241,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'priority'          => 35,
+					'connected'         => false,
 				),
 
 			);
