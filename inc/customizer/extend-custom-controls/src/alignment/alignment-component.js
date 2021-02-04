@@ -26,24 +26,68 @@ const AlignmentComponent = props => {
 	const renderInputHtml = ( device, active = '', resp = true ) => {
 		
 		const {
-			choices
+			choices,
+			display
 		} = props.control.params;
 
 		if ( ! choices ) {
 			return;
 		}
-console.log(resp);
+
 		if ( false === resp ) {
 
 			let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
 				
+				if ( 'text' !== display ) {
+
+					var html = (
+						<div className="ast-alignment-inner-wrap active" key={ value }>
+							<Button
+								key={ value }
+								onClick={ () => onValueChange( value ) }
+								aria-pressed = { value === props_value }
+								isPrimary = { value === props_value }
+							>
+								<span className="ahfb-icon-set" 
+									dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
+								></span>
+							</Button>
+						</div>
+					);
+				} else {
+
+					var html = (
+						<div className="ast-alignment-inner-wrap active" key={ value }>
+							<Button
+								key={ value }
+								onClick={ () => onValueChange( value ) }
+								aria-pressed = { value === props_value }
+								isPrimary = { value === props_value }
+								label = { icon }
+							>
+								{ icon }
+							</Button>
+						</div>
+					);
+				}
+
+				return html;
+			} );
+
+			return optionsHtml;
+		}
+
+		if ( 'text' !== display ) {
+
+			var optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
+					
 				let html = (
-					<div className="ast-alignment-inner-wrap active" key={ value }>
+					<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
 						<Button
 							key={ value }
-							onClick={ () => onValueChange( value ) }
-							aria-pressed = { value === props_value }
-							isPrimary = { value === props_value }
+							onClick={ () => onValueChange( value, device ) }
+							aria-pressed = { value === props_value[device] }
+							isPrimary = { value === props_value[device] }
 						>
 							<span className="ahfb-icon-set" 
 								dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
@@ -54,29 +98,29 @@ console.log(resp);
 
 				return html;
 			} );
+		} else {
 
-			return optionsHtml;
+			var optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
+					
+				let html = (
+					<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
+						<Button
+							key={ value }
+							onClick={ () => onValueChange( value, device ) }
+							aria-pressed = { value === props_value[device] }
+							isPrimary = { value === props_value[device] }
+							label = { icon }
+						>
+							{ icon }
+							
+						</Button>
+					</div>
+				);
+
+				return html;
+			} );
+
 		}
-
-		let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
-				
-			let html = (
-				<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
-					<Button
-						key={ value }
-						onClick={ () => onValueChange( value, device ) }
-						aria-pressed = { value === props_value[device] }
-						isPrimary = { value === props_value[device] }
-					>
-						<span className="ahfb-icon-set" 
-							dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
-						></span>
-					</Button>
-				</div>
-			);
-
-			return html;
-		} );
 
 		return optionsHtml;
 	};

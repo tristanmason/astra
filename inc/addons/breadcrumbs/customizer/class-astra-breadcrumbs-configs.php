@@ -86,19 +86,21 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Breadcrumb Position
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-					'default'  => 'none',
-					'section'  => $_section,
-					'title'    => __( 'Position', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'priority' => 5,
-					'choices'  => $positions,
-					'partial'  => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+					'default'    => 'none',
+					'section'    => $_section,
+					'title'      => __( 'Position', 'astra' ),
+					'type'       => 'control',
+					'control'    => 'ast-alignment',
+					'priority'   => 5,
+					'choices'    => $positions,
+					'partial'    => array(
 						'selector'            => '.ast-breadcrumbs-wrapper .ast-breadcrumbs .trail-items',
 						'container_inclusive' => false,
 					),
-					'context'  => Astra_Builder_Helper::$general_tab,
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'responsive' => false,
+					'display'    => 'text',
 				),
 
 				/**

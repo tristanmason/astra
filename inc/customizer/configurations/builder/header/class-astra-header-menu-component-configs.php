@@ -99,25 +99,27 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Menu hover style
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' ),
-						'type'      => 'control',
-						'control'   => 'select',
-						'section'   => $_section,
-						'priority'  => 10,
-						'title'     => __( 'Menu Hover Style', 'astra' ),
-						'choices'   => array(
+						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
+						'default'    => astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' ),
+						'type'       => 'control',
+						'control'    => 'ast-alignment',
+						'section'    => $_section,
+						'priority'   => 10,
+						'title'      => __( 'Menu Hover Style', 'astra' ),
+						'choices'    => array(
 							''          => __( 'None', 'astra' ),
 							'zoom'      => __( 'Zoom In', 'astra' ),
 							'underline' => __( 'Underline', 'astra' ),
 							'overline'  => __( 'Over Line', 'astra' ),
 						),
-						'context'   => Astra_Builder_Helper::$design_tab,
-						'transport' => 'postMessage',
-						'partial'   => array(
+						'context'    => Astra_Builder_Helper::$design_tab,
+						'transport'  => 'postMessage',
+						'partial'    => array(
 							'selector'        => '#ast-hf-menu-' . $index,
 							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 						),
+						'responsive' => false,
+						'display'    => 'text',
 					),
 
 					/**
@@ -157,25 +159,27 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Submenu Container Animation
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-container-animation]',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-submenu-container-animation' ),
-						'type'      => 'control',
-						'control'   => 'select',
-						'section'   => $_section,
-						'priority'  => 31,
-						'title'     => __( 'Container Animation', 'astra' ),
-						'choices'   => array(
+						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-container-animation]',
+						'default'    => astra_get_option( 'header-' . $_prefix . '-submenu-container-animation' ),
+						'type'       => 'control',
+						'control'    => 'ast-alignment',
+						'section'    => $_section,
+						'priority'   => 31,
+						'title'      => __( 'Container Animation', 'astra' ),
+						'choices'    => array(
 							''           => __( 'Default', 'astra' ),
 							'slide-down' => __( 'Slide Down', 'astra' ),
 							'slide-up'   => __( 'Slide Up', 'astra' ),
 							'fade'       => __( 'Fade', 'astra' ),
 						),
-						'context'   => Astra_Builder_Helper::$general_tab,
-						'transport' => 'postMessage',
-						'partial'   => array(
+						'context'    => Astra_Builder_Helper::$general_tab,
+						'transport'  => 'postMessage',
+						'partial'    => array(
 							'selector'        => '#ast-hf-menu-' . $index,
 							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 						),
+						'responsive' => false,
+						'display'    => 'text',
 					),
 
 					// Option: Submenu Container Divider.
