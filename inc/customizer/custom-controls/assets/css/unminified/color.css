@@ -256,7 +256,12 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-	margin-left: 5px;
+    margin-left: 5px;
+    position: absolute;
+    z-index: 1;
+}
+.ast-field-settings-modal .astra-color-picker-wrap {
+    position: relative;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
