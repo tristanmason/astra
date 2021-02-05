@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import {Dashicon,Popover,Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {useEffect, useState} from 'react';
+import {__} from '@wordpress/i18n';
+
 
 const ColorComponent = props => {
 	let value
@@ -49,17 +51,16 @@ const ColorComponent = props => {
 		props.control.container[0].setAttribute('defaultset', defaultset);		
 	}
 
-
 	const toggleClose = () => {
 		setState(prevState => ({
 			...prevState,
 			isVisible: false
 		}));
-	};
+    };
+    
 	var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get()
 
-	const handleGlobalColorPopupBtn = (value,index,defaultset,color) => {
-	
+	const handleGlobalColorPopupBtn = (value,index,defaultset,color) => {	
 		updatepaletteuse(value,index,defaultset);
 		updateValues(color)
 	}
@@ -91,7 +92,7 @@ const ColorComponent = props => {
 						</button>
 						{ state.isVisible && (
                 			<Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-popup">
-								<label className="ast-global-color-palette-manage-label">Global Colors</label>
+								<label className="ast-global-color-palette-manage-label">{ __("Global Colors","astra") }</label>
 								<Button
 									className='ast-global-color-palette-manage'
 									onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }
@@ -171,10 +172,6 @@ const ColorComponent = props => {
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
-
-
-	
-
 
 	return <>
 		<label>

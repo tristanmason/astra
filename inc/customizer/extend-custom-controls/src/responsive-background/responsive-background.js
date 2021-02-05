@@ -125,7 +125,7 @@ const ResponsiveBackground = props => {
 				</button>
 				{ state.isVisible && (
 					<Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-popup">
-						<label className="ast-global-color-palette-manage-label">Global Colors</label>
+						<label className="ast-global-color-palette-manage-label">{ __( 'Global Colors','astra' ) }</label>
 						<Button
 							className='ast-global-color-palette-manage'
 							onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }
@@ -271,8 +271,7 @@ const ResponsiveBackground = props => {
 				isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''}
 				container ={props.control.container[0]}
 				disablePalette={true}
-				colorIndicator = { state.value[key]['background-color'] }
-
+				colorIndicator = { value[key]['background-color'] }
 				/>
 		</>;
 	};

@@ -6,10 +6,10 @@ import testJSON from '../common/astra-common-function';
 
 import {useEffect,useState} from 'react';
 
-import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
+import { Dashicon,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
 
+import {__} from '@wordpress/i18n';
 
-const { __ } = wp.i18n;
 
 
 const ColorPaletteComponent = props => {
@@ -19,8 +19,7 @@ const ColorPaletteComponent = props => {
 	let defaultValue = props.control.params.default;
 
 	const {		
-		label,
-		description
+		label,		
 	} = props.control.params;
 
 	const [state, setState] = (value) ? useState(props.control.setting.get()) : useState(defaultValue);
@@ -34,14 +33,9 @@ const ColorPaletteComponent = props => {
 	
 
 	let labelHtml = null;
-	let descriptionHtml = null;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
-	}
-
-	if (description) {
-		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
 	const handleChangeComplete = ( color,patterntype,index ) => {
@@ -64,8 +58,6 @@ const ColorPaletteComponent = props => {
 			...state
 		};
 
-		var prevcolor = obj[obj.patterntype][index][0]
-		
 		let palette = {
 			...obj[patterntype]
 		};
@@ -155,7 +147,7 @@ const ColorPaletteComponent = props => {
 								value={ state.pattern1[index][1] }
 								onChange={ ( value ) => editLabel(value,index) }
 							/>
-							<span title={(index <= 4) ? "This color can't be deleted" :'' } ><Button className='ast-palette-delete' 							
+							<span title={(index <= 4) ? __( "This color can't be deleted","astra" ) :'' } ><Button className='ast-palette-delete' 							
 							disabled ={(index <= 4) ? true :false }
 							onClick={ () => { deleteCustomPalette(index,item) } } >
 								<Dashicon icon="trash" />
@@ -168,7 +160,6 @@ const ColorPaletteComponent = props => {
 								allowImage={ false }		
 								disablePalette={true}	
 								colorIndicator = {undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''}
-
 							/>
 						</div>
 					)
@@ -234,7 +225,7 @@ const ColorPaletteComponent = props => {
 	};
 
 
-	const myFunction = (e) =>{
+	const updateRootCss = (e) =>{
 			Object.values(e.detail.palette.pattern1).map( ( item, index ) => {
 				var maindiv =  document.getElementById('customize-preview')				
 				var iframe = maindiv.getElementsByTagName('iframe')[0]				
@@ -244,7 +235,7 @@ const ColorPaletteComponent = props => {
 
 			} );
 	}
-	document.addEventListener( 'UpdatePaletteStateInIframe', myFunction, false ); //Updating the root css for iframe.
+	document.addEventListener( 'UpdatePaletteStateInIframe', updateRootCss, false ); //Updating the root css for iframe.
 	
 	const handlePresetPalette = (item) => {
 	
@@ -458,12 +449,12 @@ const ColorPaletteComponent = props => {
 											tabout = (
 												<>
 													<div >
-														<h4>Required Format</h4>
+														<h4>{ __( "Required Format","astra" ) }</h4>
 														<p className="palette-format">{`["#733492","#AC238C","#24B460","#C0C2BA","#CBCB38"]`}</p>
 													</div>	
 													<TextareaControl
-														label="Import color set from text data."
-														help="Follow format from above."
+														label={ __( 'Import color set from text data.', 'astra' ) }
+														help={ __( 'Follow required format given above.', 'astra' ) }
 														value={ state.customImportText }
 														onChange={ ( text ) => addcustomImportText(text) }
 													/>

@@ -113,7 +113,7 @@ const Background = props => {
 					</button>
 					{ props_value.isVisible && (
 						<Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-popup">
-							<label className="ast-global-color-palette-manage-label">Global Colors</label>
+							<label className="ast-global-color-palette-manage-label">{ __( 'Global Colors','astra' ) }</label>
 							<Button
 								className='ast-global-color-palette-manage'
 								onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }

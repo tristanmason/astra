@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import {useState} from 'react';
 import {Dashicon,Popover,Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
+import {__} from '@wordpress/i18n';
 
 const ResponsiveColorComponent = props => {
 	var dbValue= props.control.setting.get();
@@ -92,7 +93,7 @@ const ResponsiveColorComponent = props => {
 				</button>
 				{ props_value.isVisible && (
 					<Popover position={"bottom center"} onClose={ toggleClose } className="ast-global-palette-popup">
-						<label className="ast-global-color-palette-manage-label">Global Colors</label>
+						<label className="ast-global-color-palette-manage-label">{ __( 'Global Colors' ,'astra' ) }</label>
 						<Button
 							className='ast-global-color-palette-manage'
 							onClick={ () =>props.customizer.control('astra-settings[global-color-palette]').focus() }
