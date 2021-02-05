@@ -104,7 +104,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Customizer Localize JS arr.
 		 *
 		 * @access Public
-		 * @since 2.0.0
+		 * @since x.x.x
 		 * @var Array
 		 */
 		public static $localize_arr = array();
