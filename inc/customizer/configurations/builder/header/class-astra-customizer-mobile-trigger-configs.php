@@ -145,24 +145,26 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Toggle Button Style
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
-				'default'   => astra_get_option( 'mobile-header-toggle-btn-style' ),
-				'section'   => $_section,
-				'title'     => __( 'Toggle Button Style', 'astra' ),
-				'type'      => 'control',
-				'control'   => 'select',
-				'priority'  => 30,
-				'choices'   => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+				'default'    => astra_get_option( 'mobile-header-toggle-btn-style' ),
+				'section'    => $_section,
+				'title'      => __( 'Toggle Button Style', 'astra' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'priority'   => 30,
+				'choices'    => array(
 					'fill'    => __( 'Fill', 'astra' ),
 					'outline' => __( 'Outline', 'astra' ),
 					'minimal' => __( 'Minimal', 'astra' ),
 				),
-				'context'   => Astra_Builder_Helper::$general_tab,
-				'transport' => 'postMessage',
-				'partial'   => array(
+				'context'    => Astra_Builder_Helper::$general_tab,
+				'transport'  => 'postMessage',
+				'partial'    => array(
 					'selector'        => '.ast-button-wrap',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
+				'responsive' => false,
+				'display'    => 'text',
 			),
 
 			/**

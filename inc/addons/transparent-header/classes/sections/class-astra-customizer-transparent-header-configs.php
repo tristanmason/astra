@@ -182,18 +182,20 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 * Option: Sticky Header Display On
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-on-devices]',
-					'default'  => astra_get_option( 'transparent-header-on-devices' ),
-					'type'     => 'control',
-					'section'  => $_section,
-					'priority' => 27,
-					'title'    => __( 'Enable On', 'astra' ),
-					'control'  => 'select',
-					'choices'  => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-on-devices]',
+					'default'    => astra_get_option( 'transparent-header-on-devices' ),
+					'type'       => 'control',
+					'section'    => $_section,
+					'priority'   => 27,
+					'title'      => __( 'Enable On', 'astra' ),
+					'control'    => 'ast-selector',
+					'choices'    => array(
 						'desktop' => __( 'Desktop', 'astra' ),
 						'mobile'  => __( 'Mobile', 'astra' ),
 						'both'    => __( 'Desktop + Mobile', 'astra' ),
 					),
+					'responsive' => false,
+					'display'    => 'text',
 				),
 
 				/**

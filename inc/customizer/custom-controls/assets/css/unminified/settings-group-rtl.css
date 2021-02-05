@@ -274,7 +274,7 @@
   color: #ffffff;
 }
 
-.astra-background-tabs.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+.astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
 
@@ -297,4 +297,8 @@
 
 .ast-field-settings-modal .components-angle-picker-control .components-flex__block {
   min-width: auto;
+}
+
+.ast-field-settings-modal .wrapper span.ast-range-unit {
+  padding-bottom: 15px;
 }
