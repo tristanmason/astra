@@ -1796,7 +1796,7 @@ input[type="text"].select2-search__field {
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] {
-  padding: 15px;
+  padding: 0 15px 15px 15px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
@@ -2327,6 +2327,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
+  margin-right: 10px;
 }
 
 .ast-responsive-btns > li {
@@ -3293,7 +3294,7 @@ input[type="text"].select2-search__field {
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] {
-  padding: 15px;
+  padding: 0 15px 15px 15px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
@@ -4195,7 +4196,7 @@ input[type="text"].select2-search__field {
   color: #ffffff;
 }
 
-.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+.astra-background-tabs.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
 
