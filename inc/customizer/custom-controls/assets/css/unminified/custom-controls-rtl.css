@@ -4,7 +4,8 @@
     display: flex;
 }
 
-.customize-control-ast-selector .ast-alignment-inner-wrap {
+.customize-control-ast-selector .ast-alignment-inner-wrap,
+.customize-control-ast-selector .ast-selector-responsive-wrap {
     display: none;
 }
 
@@ -83,6 +84,11 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
 }
+.customize-control-ast-selector .ast-selector-responsive-wrap.active {
+    display: flex;
+    flex: 1 1 0;
+}
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
@@ -762,7 +768,8 @@
     display: flex;
 }
 
-.customize-control-ast-selector .ast-alignment-inner-wrap {
+.customize-control-ast-selector .ast-alignment-inner-wrap,
+.customize-control-ast-selector .ast-selector-responsive-wrap {
     display: none;
 }
 
@@ -841,6 +848,13 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
 }
+.customize-control-ast-selector .ast-selector-responsive-wrap.active {
+    display: flex;
+}
+.customize-control-ast-selector .ast-selector-responsive-wrap:first-child {
+    flex: 1 1 0;
+}
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }

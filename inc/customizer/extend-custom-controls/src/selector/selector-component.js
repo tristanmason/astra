@@ -166,9 +166,15 @@ const SelectorComponent = props => {
 
 	if (responsiveFlag) {
 		inputHtml = <>
-			{renderInputHtml('desktop', 'active')}
+		<div className ="ast-selector-responsive-wrap desktop">
+			{ renderInputHtml('desktop', 'active') }
+		</div>
+		<div className ="ast-selector-responsive-wrap tablet">
 			{renderInputHtml('tablet')}
+		</div>
+		<div className ="ast-selector-responsive-wrap mobile">
 			{renderInputHtml('mobile')}
+		</div>
 		</>;
 	} else {
 		inputHtml = <>
