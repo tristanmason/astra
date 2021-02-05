@@ -409,7 +409,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				return '';
 			}
 
-			if ( strpos( $color, '--global-palette' ) ) {
+			if ( strpos( $color, '--ast-global-palette' ) ) {
 				return $color;
 			}
 

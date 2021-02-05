@@ -308,8 +308,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
+			// Global Palette Css for :root.
+			$global_palette = astra_get_option( 'global-color-palette' );
+		
+			$array = $global_palette[ $global_palette['patterntype'] ];
+								
+			$finalpalette = array();
+			
+			foreach ( $array as $key => $value ) {
+				if ( $value[0] ) {
+					$palette_variables                  = '--ast-global-palette' . $key;
+					$finalpalette[ $palette_variables ] = $value[0];                  
+				}
+			}
+		
+			
 			$css_output = array(
-
+				// Root.
+				':root'                           => $finalpalette,
 				// HTML.
 				'html'                            => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),

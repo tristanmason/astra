@@ -22021,7 +22021,7 @@ var Background = function Background(props) {
     setPropsValue(finalvalue);
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      tempDbValue['background-color'] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+      tempDbValue['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
       props.control.setting.set(tempDbValue);
     } else {
       props.control.setting.set(tempDbValue);
@@ -22087,7 +22087,7 @@ var Background = function Background(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: props_value['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -22180,7 +22180,8 @@ var Background = function Background(props) {
         return updatePaletteuse(value, index, defaultset);
       },
       container: props.control.container[0],
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: dbValue['background-color']
     }));
   };
 
@@ -22204,7 +22205,7 @@ var Background = function Background(props) {
     setPropsValue(obj);
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      obj['background-color'] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+      obj['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
       props.control.setting.set(obj);
     } else {
       props.control.setting.set(obj);
@@ -23661,6 +23662,12 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       state = _ref2[0],
       setState = _ref2[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
+    // If settings are changed externally.
+    if (state !== value) {
+      setState(value);
+    }
+  }, [props]);
   var labelHtml = null;
   var descriptionHtml = null;
 
@@ -23705,15 +23712,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     var newcolor = obj[obj.patterntype][index][0];
     setState(obj);
     props.control.setting.set(obj);
-    var passGlobalPalette = new CustomEvent("colorpaletteglobal", {
-      "detail": {
-        "palette": obj,
-        "index": index,
-        "prevcolor": prevcolor,
-        "newcolor": newcolor
-      }
-    });
-    document.dispatchEvent(passGlobalPalette);
   };
 
   var editLabel = function editLabel(value, index) {
@@ -23786,7 +23784,8 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       backgroundType: 'color',
       allowGradient: false,
       allowImage: false,
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''
     }));
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
     className: "ast-add-new-color",
@@ -23840,10 +23839,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     props.control.setting.set(value);
   };
 
-  var htmlpalette = Object.values(state[state.patterntype]).map(function (item, index) {
-    document.documentElement.style.setProperty('--global-palette' + index, item[0]);
-  });
-
   var toggleVisible = function toggleVisible() {
     var obj = _objectSpread({}, state);
 
@@ -23860,6 +23855,18 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       setState(obj);
     }
   };
+
+  var myFunction = function myFunction(e) {
+    Object.values(e.detail.palette.pattern1).map(function (item, index) {
+      var maindiv = document.getElementById('customize-preview');
+      var iframe = maindiv.getElementsByTagName('iframe')[0];
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      innerDoc.documentElement.style.setProperty('--ast-global-palette' + index, item[0]);
+      document.documentElement.style.setProperty('--ast-global-palette' + index, item[0]);
+    });
+  };
+
+  document.addEventListener('UpdatePaletteStateInIframe', myFunction, false); //Updating the root css for iframe.
 
   var handlePresetPalette = function handlePresetPalette(item) {
     var obj = _objectSpread({}, state);
@@ -23880,13 +23887,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     obj['customImportText'] = '';
     setState(obj);
     props.control.setting.set(obj);
-    var event = new CustomEvent("colorpaletteglobal", {
-      "detail": {
-        "palette": obj,
-        "radiochange": "true"
-      }
-    });
-    document.dispatchEvent(event);
   };
 
   var addcustomImportText = function addcustomImportText(text) {
@@ -23931,13 +23931,6 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       obj['customImportText'] = '';
       setState(obj);
       props.control.setting.set(obj);
-      var event = new CustomEvent("colorpaletteglobal", {
-        "detail": {
-          "palette": obj,
-          "radiochange": "true"
-        }
-      });
-      document.dispatchEvent(event);
     } else {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -24086,7 +24079,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
 ColorPaletteComponent.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(ColorPaletteComponent));
+/* harmony default export */ __webpack_exports__["default"] = (ColorPaletteComponent);
 
 /***/ }),
 
@@ -24203,7 +24196,7 @@ var ColorComponent = function ColorComponent(props) {
     });
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      props.control.setting.set('var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')');
+      props.control.setting.set('var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')');
     } else {
       props.control.setting.set(value);
     }
@@ -24214,48 +24207,6 @@ var ColorComponent = function ColorComponent(props) {
     props.control.container[0].setAttribute('paletteindex', index);
     props.control.container[0].setAttribute('defaultset', defaultset);
   };
-
-  var updatePaletteState = function updatePaletteState(e) {
-    if (e.detail.radiochange == "true") {
-      var current_color;
-      var current_index = props.control.container[0].getAttribute('paletteindex');
-
-      switch (props.control.params.label) {
-        case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0];
-          break;
-
-        default:
-          current_color = '';
-      }
-    } else {
-      if (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index) {
-        var current_color = e.detail.newcolor;
-      } else {
-        return;
-      }
-    }
-
-    updateValues(current_color);
-  };
-
-  document.addEventListener('colorpaletteglobal', updatePaletteState, false);
 
   var toggleClose = function toggleClose() {
     setState(function (prevState) {
@@ -24323,7 +24274,7 @@ var ColorComponent = function ColorComponent(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: state.value == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -24396,7 +24347,8 @@ var ColorComponent = function ColorComponent(props) {
       return updatepaletteuse(value, index, defaultset);
     },
     container: props.control.container[0],
-    disablePalette: true
+    disablePalette: true,
+    colorIndicator: props.control.setting.get()
   })));
 };
 
@@ -24672,29 +24624,36 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
           }
         }));
       });
+      var container = this.props.container;
 
-      if (this.props.container) {
-        if (this.props.container.getAttribute('defaultset') == null) {
-          if (this.props.color == finalpaletteColors[0]['color']) {
-            this.props.container.setAttribute('paletteindex', '0');
-            this.props.container.setAttribute('paletteused', 'true');
-            this.props.container.setAttribute('defaultset', 'yes');
-          } else if (this.props.color == finalpaletteColors[1]['color']) {
-            this.props.container.setAttribute('paletteindex', '1');
-            this.props.container.setAttribute('defaultset', 'yes');
-            this.props.container.setAttribute('paletteused', 'true');
-          } else if (this.props.color == finalpaletteColors[2]['color']) {
-            this.props.container.setAttribute('paletteindex', '2');
-            this.props.container.setAttribute('defaultset', 'yes');
-            this.props.container.setAttribute('paletteused', 'true');
-          } else if (this.props.color == finalpaletteColors[3]['color']) {
-            this.props.container.setAttribute('paletteindex', '3');
-            this.props.container.setAttribute('defaultset', 'yes');
-            this.props.container.setAttribute('paletteused', 'true');
-          } else if (this.props.color == finalpaletteColors[4]['color']) {
-            this.props.container.setAttribute('paletteindex', '4');
-            this.props.container.setAttribute('defaultset', 'yes');
-            this.props.container.setAttribute('paletteused', 'true');
+      if (container) {
+        if (container.getAttribute('defaultset') !== "no") {
+          container.setAttribute('defaultset', 'yes');
+          container.setAttribute('paletteused', 'true');
+
+          switch (this.props.color) {
+            case finalpaletteColors[0]['color']:
+              container.setAttribute('paletteindex', '0');
+              break;
+
+            case finalpaletteColors[1]['color']:
+              container.setAttribute('paletteindex', '1');
+              break;
+
+            case finalpaletteColors[2]['color']:
+              container.setAttribute('paletteindex', '2');
+              break;
+
+            case finalpaletteColors[3]['color']:
+              container.setAttribute('paletteindex', '3');
+              break;
+
+            case finalpaletteColors[4]['color']:
+              container.setAttribute('paletteindex', '4');
+              break;
+
+            default:
+              break;
           }
         }
       }
@@ -24706,9 +24665,11 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           isVisible ? toggleClose() : toggleVisible();
         }
-      }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["ColorIndicator"], {
-        className: "astra-advanced-color-indicate",
-        colorValue: this.props.color
+      }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
+        className: "component-color-indicator astra-advanced-color-indicate",
+        style: {
+          backgroundColor: this.props.colorIndicator
+        }
       }), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["ColorIndicator"], {
         className: "astra-advanced-color-indicate",
         colorValue: "#ffffff"
@@ -25524,6 +25485,20 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       api_id.set(_objectSpread(_objectSpread(_objectSpread({}, api_id.get()), []), {}, {
         flag: !api_id.get().flag
       }));
+    });
+    /**
+     * Pass data to previewer when palette changed.
+     */
+
+    api('astra-settings[global-color-palette]', function (value) {
+      value.bind(function (palette) {
+        var event = new CustomEvent('UpdatePaletteStateInIframe', {
+          'detail': {
+            'palette': palette
+          }
+        });
+        document.dispatchEvent(event);
+      });
     });
   });
 })(jQuery, wp.customize);
@@ -27892,64 +27867,13 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     });
 
     if (props.control.container[0].getAttribute('paletteindex')) {
-      obj['desktop']['background-color'] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+      obj['desktop']['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
     }
 
     setTimeout(function () {
       props.control.setting.set(obj);
     }, 1);
   };
-
-  var updatePaletteState = function updatePaletteState(e) {
-    var obj = _objectSpread({}, state.value);
-
-    if (e.detail.radiochange == "true") {
-      var current_color;
-
-      switch (props.control.params.label) {
-        case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0][0];
-          break;
-
-        case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1][0];
-          break;
-
-        case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2][0];
-          break;
-
-        case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3][0];
-          break;
-
-        case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4][0];
-          break;
-
-        default:
-          current_color = '';
-      }
-    } else {
-      if (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index) {
-        var deviceObj = _objectSpread({}, obj['desktop']);
-
-        var current_color = e.detail.newcolor;
-
-        if (deviceObj['background-color']) {
-          deviceObj['background-color'] = current_color;
-        }
-
-        obj['desktop'] = deviceObj;
-      } else {
-        return;
-      }
-    }
-
-    updateValues(obj);
-  };
-
-  document.addEventListener('colorpaletteglobal', updatePaletteState, false);
 
   var updateBackgroundType = function updateBackgroundType(device) {
     var value = props.control.setting.get();
@@ -28047,7 +27971,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: state.value['desktop']['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -28176,7 +28100,8 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
         return updatepaletteuse(value, index, defaultset);
       } : '',
       container: props.control.container[0],
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: dbvalue[key]['background-color']
     }));
   };
 
@@ -28392,7 +28317,7 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
 
     if (key === "desktop") {
       if (props.control.container[0].getAttribute('paletteindex')) {
-        obj[key] = 'var(--global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
+        obj[key] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
       } else {
         obj[key] = value;
       }
@@ -28410,46 +28335,6 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
     props.control.container[0].setAttribute('defaultset', defaultset);
   };
 
-  var updatePaletteState = function updatePaletteState(e) {
-    if (e.detail.radiochange == "true") {
-      var current_color;
-
-      switch (props.control.params.label) {
-        case "Text Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][0][0];
-          break;
-
-        case "Theme Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][1][0];
-          break;
-
-        case "Link Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][2][0];
-          break;
-
-        case "Link Hover Color":
-          current_color = e.detail.palette[e.detail.palette.patterntype][3][0];
-          break;
-
-        case "Heading Color ( H1 - H6 )":
-          current_color = e.detail.palette[e.detail.palette.patterntype][4][0];
-          break;
-
-        default:
-          current_color = '';
-      }
-    } else {
-      if (props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index) {
-        var current_color = e.detail.newcolor;
-      } else {
-        return;
-      }
-    }
-
-    updateValues(current_color, "desktop");
-  };
-
-  document.addEventListener('colorpaletteglobal', updatePaletteState, false);
   var globalPalette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
 
   var handleGlobalColorPopupBtn = function handleGlobalColorPopupBtn(value, index, defaultset, color, key) {
@@ -28514,7 +28399,7 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
         key: index,
         title: globalPalette.pattern1[item][1]
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-        className: value['desktop'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
+        className: props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker',
         style: {
           background: globalPalette.pattern1[item][0]
         }
@@ -28585,7 +28470,8 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
         return updatepaletteuse(value, index, defaultset);
       } : '',
       container: props.control.container[0],
-      disablePalette: true
+      disablePalette: true,
+      colorIndicator: dbValue.desktop
     });
   };
 

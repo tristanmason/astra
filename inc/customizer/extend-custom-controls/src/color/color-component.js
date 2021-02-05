@@ -36,7 +36,7 @@ const ColorComponent = props => {
 		}));
 		
 		if(props.control.container[0].getAttribute('paletteindex')){			
-			props.control.setting.set('var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')');
+			props.control.setting.set('var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')');
 		}else{
 			props.control.setting.set(value);
 		}
@@ -49,45 +49,6 @@ const ColorComponent = props => {
 		props.control.container[0].setAttribute('defaultset', defaultset);		
 	}
 
-	const updatePaletteState = (e) =>{
-	
-		if( e.detail.radiochange == "true" ){			
-			var current_color;		
-			var current_index =  props.control.container[0].getAttribute('paletteindex')
-			switch(props.control.params.label) {
-				case "Text Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Theme Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Link Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Link Hover Color":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-				break;
-				case "Heading Color ( H1 - H6 )":
-					current_color = e.detail.palette[e.detail.palette.patterntype][current_index][0]
-
-				break;
-				default:
-					current_color = '';
-			}			
-			
-		}else{
-			
-			if( props.control.container[0].getAttribute('paletteindex') && props.control.container[0].getAttribute('paletteindex') == e.detail.index ){
-				var current_color = e.detail.newcolor;	
-			}else{
-				return
-			}
-			
-		}
-		
-		updateValues(current_color)
-	}
-	document.addEventListener( 'colorpaletteglobal', updatePaletteState, false );
 
 	const toggleClose = () => {
 		setState(prevState => ({
@@ -146,7 +107,7 @@ const ColorComponent = props => {
 											key={index}
 											title={ globalPalette.pattern1[item][1]}
 										>
-											<div className={ state.value == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+											<div className={ props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
 												style={{ background:globalPalette.pattern1[item][0] }} 
 											/>
 											<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>
@@ -224,6 +185,7 @@ const ColorComponent = props => {
 									 isPaletteUsed={(value,index,defaultset) => updatepaletteuse(value,index,defaultset)}
 									 container ={props.control.container[0]}
 									 disablePalette={true}
+									 colorIndicator = {props.control.setting.get()}
 									 />
 									 
 

@@ -18,9 +18,9 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-palette-import {
-  padding: 10px;
+  padding: 0 23px;
   color: white;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 #customize-control-astra-settings-global-color-palette .ast-global-palette-import .components-popover__content {
@@ -114,7 +114,7 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-add-new-color.is-primary {
-  width: 60%;
+  width: 55%;
 }
 
 #customize-control-astra-settings-global-color-palette button.components-button.ast-palette-delete:disabled:hover {
@@ -123,12 +123,18 @@
 }
 
 #customize-control-astra-settings-global-color-palette .ast-add-new-color .dashicons-plus {
-  line-height: 25px;
   margin-right: 10px;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-reset-btn:disabled {
+  opacity: 0.6;
 }
 
 @media (min-width: 1800px) {
   #customize-control-astra-settings-global-color-palette .astra-color-picker-wrap {
     width: 24em;
+  }
+  #customize-control-astra-settings-global-color-palette .ast-palette-import {
+    padding: 0 26px;
   }
 }

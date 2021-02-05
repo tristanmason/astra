@@ -72,7 +72,7 @@ const Background = props => {
 		setPropsValue( finalvalue );
 
 		if(props.control.container[0].getAttribute('paletteindex')){	
-			tempDbValue['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
+			tempDbValue['background-color'] = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 			props.control.setting.set(tempDbValue);
 		}else{
 			props.control.setting.set(tempDbValue);
@@ -129,7 +129,7 @@ const Background = props => {
 										key={index}
 										title={ globalPalette.pattern1[item][1]}
 									>
-										<div className={ props_value['background-color'] == globalPalette.pattern1[item][0] ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+										<div className={ props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
 											style={{ background:globalPalette.pattern1[item][0] }} 
 										/>
 										<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>
@@ -218,6 +218,7 @@ const Background = props => {
 				isPaletteUsed={ (value,index,defaultset) => updatePaletteuse(value,index,defaultset)} 
 				container ={props.control.container[0]}
 				disablePalette={true} 
+				colorIndicator = {dbValue['background-color']}
 				/>
 		</>;
 	};
@@ -244,7 +245,7 @@ const Background = props => {
 		setPropsValue( obj );
 
 		if(props.control.container[0].getAttribute('paletteindex')){	
-			obj['background-color'] = 'var(--global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
+			obj['background-color'] = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
 
 			props.control.setting.set(obj);
 		}else{
