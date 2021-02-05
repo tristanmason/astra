@@ -1382,7 +1382,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-slider .wrapper .ast-range-unit {
-  padding: 5px;
+  padding: 5px 0 5px 10px;
   text-transform: uppercase;
 }
 .customize-control-ast-responsive-slider .slider-control-label {
