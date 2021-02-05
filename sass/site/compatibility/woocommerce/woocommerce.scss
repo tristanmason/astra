@@ -1323,7 +1323,7 @@ p.demo_store,
 			-webkit-font-smoothing: antialiased;
 
 			&:hover {
-				background-color: darken(saturate(#a46497, 1.81), 6.67);
+				background-color: darken(saturate($primary, 1.81), 6.67);
 				color: $primarytext;
 			}
 
