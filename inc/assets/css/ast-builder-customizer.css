@@ -229,11 +229,11 @@
     opacity: 1;
 }
 
-.ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut button {
+.customize-partial-edit-shortcut button {
     left: 0;
 }
 
-.ast-builder-grid-row-layout-contained .ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut button {
+.ast-builder-grid-row-layout-contained > .customize-partial-edit-shortcut button {
     left: calc(-30px + -1.5rem);
 }
 
