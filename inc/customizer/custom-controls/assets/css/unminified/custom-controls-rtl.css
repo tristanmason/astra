@@ -2158,7 +2158,7 @@ input[type="text"].select2-search__field {
   height: 28px;
   background: #fff;
   cursor: default;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 1px;
@@ -3141,13 +3141,13 @@ input[type="text"].select2-search__field {
 .customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image, .components-button-group.ahfb-radio-container-control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
 }
 
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
-  width: 75px;
-  height: 50px;
+  width: 80px;
+  height: 54px;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
