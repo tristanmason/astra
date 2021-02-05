@@ -944,7 +944,7 @@ input[type="text"].select2-search__field {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 5px;
-  grid-row-gap: 10px;
+  grid-row-gap: 5px;
 }
 
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
