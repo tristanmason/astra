@@ -239,7 +239,7 @@ const BuilderComponent = props => {
 		});
 		document.dispatchEvent(event);
 
-		component_track.set( { ...component_count, ...updated_count } );
+		component_track.set( { ...component_count, ...updated_count, flag: ! component_count.flag } );
 
 		let updateState = state.value;
 		let update = updateState[row];
