@@ -66,6 +66,13 @@ const ResponsiveColorComponent = props => {
 		}));
 	};
 
+	var paletteSelectedIndex = ''
+	if(temp_dbval.desktop && temp_dbval.desktop.includes("palette")){
+		var regex = /\d+/g;
+		var string = temp_dbval.desktop;
+		paletteSelectedIndex = string.match(regex)[0];	
+	}
+
 	const renderGlobalPalette = () =>{
 		return (
 		<div className="ast-global-color-btn-wrap">
@@ -108,7 +115,7 @@ const ResponsiveColorComponent = props => {
 									key={index}
 									title={ globalPalette.pattern1[item][1]}
 								>
-									<div className={props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+									<div className={paletteSelectedIndex === item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
 										style={{ background:globalPalette.pattern1[item][0] }} 
 									/>
 									<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>

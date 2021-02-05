@@ -239,6 +239,10 @@
   background-color: #1e8cbe;
 }
 
+#customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap > div {
+  margin-bottom: 8px;
+}
+
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
   display: unset;
   position: unset;
@@ -1108,6 +1112,10 @@ button.components-button.ast-global-color-individual-btn:focus , button.componen
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   background-color: #1e8cbe;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap > div {
+  margin-bottom: 8px;
 }
 
 #customize-control-astra-settings-global-color-palette .color-button-wrap {

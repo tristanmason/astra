@@ -87,6 +87,13 @@ const Background = props => {
 		}));
 	};
 
+	var paletteSelectedIndex = ''
+	if(tempDbValue['background-color'] && tempDbValue['background-color'].includes("palette")){
+		var regex = /\d+/g;
+		var string = tempDbValue['background-color'];
+		paletteSelectedIndex = string.match(regex)[0];	
+	}
+
 	const renderReset = () => {
 		return <span className="customize-control-title">
 			<div className="ast-global-color-btn-wrap">
@@ -129,7 +136,7 @@ const Background = props => {
 										key={index}
 										title={ globalPalette.pattern1[item][1]}
 									>
-										<div className={ props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
+										<div className={ paletteSelectedIndex === item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
 											style={{ background:globalPalette.pattern1[item][0] }} 
 										/>
 										<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>
