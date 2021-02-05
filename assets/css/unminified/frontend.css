@@ -3656,8 +3656,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
-  -js-display: flex;
-  display: flex;
   flex: 1;
   align-self: center;
 }
