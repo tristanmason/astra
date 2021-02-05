@@ -207,11 +207,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @param string $hook hook string.
 		 */
 		public function check_filters_for( $hook = '' ) {
-			global $wp_filter;
-			if ( empty( $hook ) || ! isset( $wp_filter[ $hook ] ) ) {
-				return;
+			if ( has_filter( $hook ) ) {
+				self::$localize_arr['customizer']['is_old_palette_used'] = true;
 			}
-			self::$localize_arr['customizer']['is_old_palette_used'] = true;
 		}
 
 		/**
