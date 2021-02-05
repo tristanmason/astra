@@ -1079,19 +1079,8 @@ input[type="text"].select2-search__field {
   min-height: 30px;
 }
 
-.customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
-  position: absolute;
-  top: 30px;
-}
-
-.customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
-  position: absolute;
-  right: 8px;
-  top: -2px;
-}
-
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: 20px;
+  margin-top: -20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -1101,10 +1090,6 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-background .ast-color-btn-clear-wrap {
   right: 84px;
-}
-
-.customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
-  top: 35px;
 }
 
 /**
@@ -1238,7 +1223,8 @@ input[type="text"].select2-search__field {
   top: 0;
 }
 
-.ast-field-settings-modal .customize-control-content .ast-responsive-btns {
+.ast-field-settings-modal .ast-responsive-btns {
+  position: absolute;
   right: 7px;
   top: 4px;
 }
@@ -1265,9 +1251,13 @@ input[type="text"].select2-search__field {
   display: none;
 }
 
+.customize-control-ast-responsive-color .customize-control-content {
+  display: inline-block;
+}
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-left: 2px;
-  margin-top: 20px;
+  margin-top: -20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -1288,21 +1278,9 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
-  position: absolute;
-  right: 0px;
-  top: 30px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-white {
   border-radius: unset;
-}
-
-.customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  right: 8px;
-  top: -2px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -1336,10 +1314,6 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   top: 3.5px;
-}
-
-.ast-responsive-color .ast-color-btn-reset-wrap {
-  top: 35px;
 }
 
 @supports (-moz-appearance: none) {
@@ -1679,9 +1653,8 @@ input[type="text"].select2-search__field {
 
 .ast-responsive-btns {
   display: inline-block;
-  float: right;
   line-height: 1;
-  margin-top: 6px;
+  margin-left: 10px;
 }
 
 .ast-responsive-btns > li {

@@ -1,8 +1,7 @@
 .ast-responsive-btns {
   display: inline-block;
-  float: right;
   line-height: 1;
-  margin-top: 6px;
+  margin-left: 10px;
 }
 
 .ast-responsive-btns > li {
