@@ -32,60 +32,6 @@ const ResponsiveImage = props => {
     let responsiveHtml = null;
     let inputHtml = null;
 
-    const renderReset = (key) => {
-		let deleteBtnDisabled = true;
-		let reserBtnDisabled = true;
-		let devices = ['desktop', 'mobile', 'tablet'];
-
-		for (let device of devices) {
-			if (state.value[device]['image'] || state.value[device]['media']) {
-				deleteBtnDisabled = false;
-			}
-
-			if (state.value[device]['image'] !== defaultPropsValue[device]['image'] || state.value[device]['media'] !== defaultPropsValue[device]['media']) {
-				reserBtnDisabled = false;
-			}
-		}
-
-		return <span className="customize-control-title">
-				<>
-					<div className="ast-color-btn-reset-wrap">
-						<button
-							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							disabled={reserBtnDisabled} onClick={e => {
-							e.preventDefault();
-							let value = JSON.parse(JSON.stringify(defaultPropsValue));
-
-							if (undefined !== value && '' !== value) {
-								for (let device in value) {
-
-									if (undefined === value[device]['image'] || '' === value[device]['image']) {
-										value[device]['image'] = '';
-										wp.customize.previewer.refresh();
-									}
-
-									if (undefined === value[device]['media'] || '' === value[device]['media']) {
-										value[device]['media'] = '';
-										wp.customize.previewer.refresh();
-									}
-								}
-							}
-
-							updateValues(value);
-
-						}}>
-							<Dashicon icon='image-rotate' style={{
-								width: 12,
-								height: 12,
-								fontSize: 12
-							}}/>
-						</button>
-					</div>
-				</>
-			</span>;
-	};
-
-    
     if (label && '' !== label && undefined !== label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	} else {
@@ -112,25 +58,25 @@ const ResponsiveImage = props => {
 
     inputHtml = <div className="background-wrapper">
 		<div className="background-container desktop active">
-			{renderReset('desktop')}
 			{renderSettings('desktop')}
 		</div>
-		<div className="background-container tablet">
-			{renderReset('tablet')}
-			{renderSettings('tablet')}
-		</div>
 		<div className="background-container mobile">
-			{renderReset('mobile')}
 			{renderSettings('mobile')}
 		</div>
 	</div>;
 
-	// onSelectImage( media ) {
-
-	// 	this.setState( { modalCanClose: true } );
-	// 	this.setState( { backgroundType: 'image' } );
-	// 	this.props.onSelectImage( media, 'image' );
-	// }
+	const onSelectImage = (media, key) => {
+		let obj = {
+			...state.value
+		};
+		let deviceObj = {
+			...obj[key]
+		};
+		deviceObj['background-image'] = media.url;
+		deviceObj['background-media'] = media.id;
+		obj[key] = deviceObj;
+		updateValues(obj);
+	};
 	
 	const renderSettings = (key) => {
 
