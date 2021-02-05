@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$this->prepare_localize_arr();
 
-			$this->get_filters_for( 'astra_color_palettes' );
+			$this->check_filters_for( 'astra_color_palettes' );
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
@@ -206,12 +206,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since x.x.x
 		 * @param string $hook hook string.
 		 */
-		public function get_filters_for( $hook = '' ) {
-			global $wp_filter;
-			if ( empty( $hook ) || ! isset( $wp_filter[ $hook ] ) ) {
-				return;
+		public function check_filters_for( $hook = '' ) {
+			if ( has_filter( $hook ) ) {
+				self::$localize_arr['customizer']['is_old_palette_used'] = true;
 			}
-			self::$localize_arr['customizer']['is_old_palette_used'] = true;
 		}
 
 		/**
