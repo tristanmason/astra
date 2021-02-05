@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import {Dashicon} from '@wordpress/components';
-// import AstraColorPickerControl from '../common/astra-color-picker-control';
+import {Button} from '@wordpress/components';
+import { MediaUpload } from '@wordpress/media-utils';
 import {__} from '@wordpress/i18n';
 import {useEffect, useState} from 'react';
 
 const ResponsiveImage = props => {
-
+	console.log(props);
+console.log(props.control.setting.get());
     let value = props.control.setting.get();
     let defaultPropsValue = props.control.params.default;
     
@@ -78,16 +79,17 @@ const ResponsiveImage = props => {
 		updateValues(obj);
 	};
 	
-	const renderSettings = (key) => {
-
-		media = undefined !== state.value[key]['media'] && state.value[key]['media'] ? state.value[key]['media'] : '';
-		image = undefined !== state.value[key]['image'] && state.value[key]['image'] ? state.value[key]['image'] : '';
+	function renderSettings(key) {
+// console.log(state);
+		var media = '';
+		// var media = undefined !== state.value[key]['media'] && state.value[key]['media'] ? state.value[key]['media'] : '';
+		// var image = undefined !== state.value[key]['image'] && state.value[key]['image'] ? state.value[key]['image'] : '';
 		return <>
 
-			{ ( media.url || image ) &&
+			{/* { ( media.url || image ) &&
 
 			<img src={ ( media.url ) ? media.url : image } />
-			}
+			} */}
 
 			<MediaUpload
 				title={ __( "Select Background Image", 'astra' )  }
@@ -96,7 +98,7 @@ const ResponsiveImage = props => {
 				value={ ( media && media ? media :  '' ) }
 				render={ ( { open } ) => (
 					<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-						{ ( ! this.props.media && ! this.props.backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
+						{ ( "Replace image", 'astra' )  }
 					</Button>
 				) }
 			/>

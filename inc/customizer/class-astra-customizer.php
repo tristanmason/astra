@@ -420,8 +420,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				case 'ast-responsive-background':
 					$configuration['value'] = $val;
 
-					case 'ast-responsive-image':
-						$configuration['value'] = $val;
+				case 'ast-responsive-image':
+					$configuration['value'] = $val;
 
 					break;
 				case 'ast-responsive':

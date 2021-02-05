@@ -201,6 +201,21 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Responsive Logo
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-image',
+					// 'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'ast-header-responsive-logo' ),
+					'priority'          => 5,
+					'title'             => __( 'Responsive Logo', 'astra' ),
+				),
+
+				/**
 				 * Option: Logo Width
 				 */
 				array(
