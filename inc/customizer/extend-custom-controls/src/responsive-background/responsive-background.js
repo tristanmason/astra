@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Dashicon,Popover,Button} from '@wordpress/components';
+import {Dashicon, Popover, Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {__} from '@wordpress/i18n';
 import {useEffect, useState} from 'react';
@@ -36,12 +36,10 @@ const ResponsiveBackground = props => {
 		}));
 
 		if(props.control.container[0].getAttribute('paletteindex')){
-
 			obj['desktop']['background-color']  = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
-
 		}
 
-			props.control.setting.set(obj);
+		props.control.setting.set(obj);
 	};
 
 

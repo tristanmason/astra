@@ -311,11 +311,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Global Palette Css for :root.
 			$global_palette = astra_get_option( 'global-color-palette' );
 		
-			$array = $global_palette[ $global_palette['patterntype'] ];
+			$respectivePalette = $global_palette[ $global_palette['patterntype'] ];
 								
 			$finalpalette = array();
 			
-			foreach ( $array as $key => $value ) {
+			foreach ( $respectivePalette as $key => $value ) {
 				if ( $value[0] ) {
 					$palette_variables                  = '--ast-global-palette' . $key;
 					$finalpalette[ $palette_variables ] = $value[0];                  

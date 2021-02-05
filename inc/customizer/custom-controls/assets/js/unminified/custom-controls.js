@@ -17920,7 +17920,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
   var handleChangeComplete = function handleChangeComplete(color, patterntype, index) {
     var value;
 
-    if (typeof color === 'string' || color instanceof String) {
+    if (typeof color === 'string') {
       value = color;
     } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
       value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';

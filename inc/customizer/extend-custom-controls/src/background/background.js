@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import {useState} from 'react';
-import {Dashicon,Popover,Button} from '@wordpress/components';
+import {Dashicon, Popover, Button} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
-import {__} from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 
 const Background = props => {
 	var dbValue= props.control.setting.get();

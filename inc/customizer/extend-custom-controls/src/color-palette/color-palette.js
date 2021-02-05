@@ -4,13 +4,11 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 import testJSON from '../common/astra-common-function'; 
 
-import {useEffect,useState} from 'react';
+import {useEffect, useState} from 'react';
 
-import { Dashicon,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
+import { Dashicon, Button, Popover, TabPanel, TextareaControl, ClipboardButton, TextControl } from '@wordpress/components';
 
 import {__} from '@wordpress/i18n';
-
-
 
 const ColorPaletteComponent = props => {
 
@@ -41,7 +39,7 @@ const ColorPaletteComponent = props => {
 	const handleChangeComplete = ( color,patterntype,index ) => {
 		let value;
 		
-		if (typeof color === 'string' || color instanceof String) {
+		if (typeof color === 'string') {
 			value = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
 			value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
@@ -112,12 +110,12 @@ const ColorPaletteComponent = props => {
 
 		let respectivePalette = {
 			...obj[obj.patterntype]
-		}
-		respectivePalette[Object.keys(respectivePalette).length] = new_color_array
+		};
+		respectivePalette[Object.keys(respectivePalette).length] = new_color_array;
 		
-		obj[obj.patterntype] = respectivePalette
+		obj[obj.patterntype] = respectivePalette;
 		
-		setState(obj)	
+		setState(obj);	
 		props.control.setting.set( obj );
 
 	}
@@ -131,7 +129,7 @@ const ColorPaletteComponent = props => {
 		const filteredItems = result.slice(0, index).concat(result.slice(index + 1, result.length))	
 		obj.pattern1 = filteredItems;
 		
-		setState(obj)	
+		setState(obj);	
 		props.control.setting.set( obj );
 
 	}
