@@ -21676,20 +21676,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var ResponsiveBackground = function ResponsiveBackground(props) {
   var defaultPropsValue = props.control.params.default;
-  var dbvalue = props.control.setting.get();
-  var temp_dbval = Object.assign({}, dbvalue);
-  var value;
-
-  if (temp_dbval.desktop['background-color'] && temp_dbval.desktop['background-color'].includes("palette")) {
-    var regex = /\d+/g;
-    var string = temp_dbval.desktop['background-color'];
-    var matches = string.match(regex);
-    var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get();
-    temp_dbval.desktop['background-color'] = updated_palette[updated_palette.patterntype][matches][0];
-    value = temp_dbval;
-  } else {
-    value = props.control.setting.get();
-  }
+  var value = props.control.setting.get();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_7__["useState"])({
     value: value,
@@ -21724,9 +21711,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
       obj['desktop']['background-color'] = 'var(--ast-global-palette' + props.control.container[0].getAttribute('paletteindex') + ')';
     }
 
-    setTimeout(function () {
-      props.control.setting.set(obj);
-    }, 1);
+    props.control.setting.set(obj);
   };
 
   var updateBackgroundType = function updateBackgroundType(device) {
@@ -21771,9 +21756,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
     palette['background-type'] = 'color';
     obj[key] = palette;
     updatepaletteuse(value, index, defaultset);
-    setTimeout(function () {
-      updateValues(obj);
-    }, 1);
+    updateValues(obj);
   };
 
   var renderGlobalPalette = function renderGlobalPalette() {
@@ -21955,7 +21938,7 @@ var ResponsiveBackground = function ResponsiveBackground(props) {
       } : '',
       container: props.control.container[0],
       disablePalette: true,
-      colorIndicator: dbvalue[key]['background-color']
+      colorIndicator: value[key]['background-color']
     }));
   };
 
