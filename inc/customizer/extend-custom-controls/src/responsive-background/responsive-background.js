@@ -7,28 +7,13 @@ import {useEffect, useState} from 'react';
 const ResponsiveBackground = props => {
 
 	let defaultPropsValue = props.control.params.default;
-	
-	var dbvalue= props.control.setting.get();
-	var temp_dbval = Object.assign({},dbvalue);
+	let value = props.control.setting.get();
 
-	var value
-	if(temp_dbval.desktop['background-color'] && temp_dbval.desktop['background-color'].includes("palette")){
-		var regex = /\d+/g;
-		var string = temp_dbval.desktop['background-color'];
-		var matches = string.match(regex);
-		var updated_palette = props.customizer.control('astra-settings[global-color-palette]').setting.get()		
-		temp_dbval.desktop['background-color'] = updated_palette[updated_palette.patterntype][matches][0]
-		value = temp_dbval
-	}else{		
-		 value = props.control.setting.get();
-	}
 	const [state, setState] = useState({
 		value: value,
-		isVisible:false,	
-	}
-	);
-	
-		
+		isVisible:false,
+	});
+
 	const toggleClose = () => {
 		setState(prevState => ({
 			...prevState,
@@ -36,11 +21,11 @@ const ResponsiveBackground = props => {
 		}));
 	};
 
-	const updatepaletteuse = (value,index,defaultset) =>{		
-		
+	const updatepaletteuse = (value,index,defaultset) =>{
+
 		props.control.container[0].setAttribute('paletteused', value);
-		props.control.container[0].setAttribute('paletteindex', index);	
-		props.control.container[0].setAttribute('defaultset', defaultset);		
+		props.control.container[0].setAttribute('paletteindex', index);
+		props.control.container[0].setAttribute('defaultset', defaultset);
 
 	}
 
@@ -49,22 +34,22 @@ const ResponsiveBackground = props => {
 			...prevState,
 			value: obj
 		}));
-		
-		if(props.control.container[0].getAttribute('paletteindex')){	
-			
+
+		if(props.control.container[0].getAttribute('paletteindex')){
+
 			obj['desktop']['background-color']  = 'var(--ast-global-palette'+props.control.container[0].getAttribute('paletteindex')+')';
-			
+
 		}
-		
-		
+
+
 		setTimeout( function () {
 			props.control.setting.set(obj);
 		}, 1 );
 	};
 
-	
+
 	const updateBackgroundType = (device) => {
-	
+
 		let value = props.control.setting.get();
 		let obj = {
 			...value
@@ -101,16 +86,14 @@ const ResponsiveBackground = props => {
 		let obj = {
 			...state.value
 		};
-		
-		
-		
+
 		let palette = {
 			...obj[key]
 		};
 		let palette_index = {
 			...palette['background-color']
 		};
-		
+
 		palette_index = color
 		palette['background-color'] = palette_index
 		palette['background-type'] = 'color';
@@ -127,7 +110,7 @@ const ResponsiveBackground = props => {
 	const renderGlobalPalette = () => {
 		return (
 			<div className="ast-global-color-btn-wrap">
-				<button	className="ast-global-color-btn components-button is-secondary" 
+				<button	className="ast-global-color-btn components-button is-secondary"
 				onClick={e => {
 					e.preventDefault();
 					setState(prevState => ({
@@ -156,9 +139,9 @@ const ResponsiveBackground = props => {
 							}}/>
 						</Button>
 						<hr/>
-						{ Object.keys( globalPalette.pattern1 ).map( ( item, index ) => { 
-												
-							return ( 
+						{ Object.keys( globalPalette.pattern1 ).map( ( item, index ) => {
+
+							return (
 								<Button
 									className='ast-global-color-individual-btn'
 									onClick={ () =>handleGlobalColorPopupBtn( true,index,'no',globalPalette.pattern1[item][0],'desktop' ) }
@@ -167,7 +150,7 @@ const ResponsiveBackground = props => {
 									title={ globalPalette.pattern1[item][1]}
 								>
 									<div className={ props.control.container[0].getAttribute('paletteindex') == item ? 'ast-global-color-sticker selected' : 'ast-global-color-sticker' }
-										style={{ background:globalPalette.pattern1[item][0] }} 
+										style={{ background:globalPalette.pattern1[item][0] }}
 									/>
 									<div className="ast-global-color-title">{ globalPalette.pattern1[item][1]}</div>
 									<div className="ast-global-color-hexcode">{ globalPalette.pattern1[item][0]}</div>
@@ -289,10 +272,10 @@ const ResponsiveBackground = props => {
 				backgroundType={undefined !== state.value[key]['background-type'] && state.value[key]['background-type'] ? state.value[key]['background-type'] : 'color'}
 				allowGradient={true} allowImage={true}
 				defautColorPalette = {props.customizer.control('astra-settings[global-color-palette]').setting.get()}
-				isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''} 
+				isPaletteUsed={key=='desktop' ? (value,index,defaultset) => updatepaletteuse(value,index,defaultset):''}
 				container ={props.control.container[0]}
 				disablePalette={true}
-				colorIndicator = { dbvalue[key]['background-color'] }
+				colorIndicator = { value[key]['background-color'] }
 
 				/>
 		</>;
@@ -317,7 +300,7 @@ const ResponsiveBackground = props => {
 		let deviceObj = {
 			...obj[key]
 		};
-		
+
 		deviceObj['background-color'] = value;
 		deviceObj['background-type'] = backgroundType;
 		obj[key] = deviceObj;
