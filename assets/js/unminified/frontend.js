@@ -569,13 +569,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		event.preventDefault();
 
-		var desktop_header = document.querySelector('#masthead > #ast-desktop-header');
+		var desktop_header = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
 		var desktop_toggle = document.querySelector( '#masthead > #ast-desktop-header .main-header-menu-toggle' );
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
 
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
-			body.classList.add( "ast-header-break-point" );
-			desktop_header.style.display = 'block';
+			
 			if ( null !== desktop_menu && '' !== desktop_menu && undefined !== desktop_menu ) {
 				astraToggleClass(desktop_menu, 'toggle-on');
 				if (desktop_menu.classList.contains('toggle-on')) {
@@ -587,8 +586,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			astraToggleClass(desktop_toggle, 'toggled');
 			if ( desktop_toggle.classList.contains( 'toggled' ) ) {
 				body.classList.add("ast-main-header-nav-open");
+				desktop_header.style.display = 'block';
 			} else {
 				body.classList.remove("ast-main-header-nav-open");
+				desktop_header.style.display = 'none';
 			}
 			return;
 		}
