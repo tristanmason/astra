@@ -100,11 +100,7 @@ const ResponsiveBackground = props => {
 							updateValues(value);
 
 						}}>
-							<Dashicon icon='image-rotate' style={{
-								width: 12,
-								height: 12,
-								fontSize: 12
-							}}/>
+							<Dashicon icon='image-rotate'/>
 						</button>
 					</div>
 				</>
