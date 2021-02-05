@@ -74,6 +74,8 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button,
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
+    font-size: 12px;
+    padding: 8px 12px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -829,6 +831,8 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button,
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
+    font-size: 12px;
+    padding: 8px 12px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
