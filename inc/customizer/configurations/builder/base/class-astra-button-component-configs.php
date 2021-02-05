@@ -317,17 +317,17 @@ class Astra_Button_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-button-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 35,
 					'title'     => __( 'Alignment', 'astra' ),
-					'choices'   => array(
-						'flex-start' => __( 'Left', 'astra' ),
-						'flex-end'   => __( 'Right', 'astra' ),
-						'center'     => __( 'Center', 'astra' ),
-					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'choices'   => array(                       
+						'flex-start' => 'align-left', 
+						'center'     => 'align-center', 
+						'flex-end'   => 'align-right',   
+					),
 				);
 			}
 

@@ -1362,14 +1362,15 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 
 .ahfb-row-layout-control .ahfb-responsive-controls-content .components-button svg, .ahfb-icon-set-control .ahfb-radio-container-control .components-button svg {
-    width: 73px;
-    height: 49px;
+    width: 80px;
+    height: 54px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg,
 #customize-control-astra-settings-header-trigger-icon svg {
-    width: 52px;
-    height: 50px;
+	width: 52px;
+	height: 50px;
+	margin-left: 10px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button-group {

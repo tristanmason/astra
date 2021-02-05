@@ -62,39 +62,41 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Mobile Header Type.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-					'default'   => astra_get_option( 'mobile-header-type' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 25,
-					'title'     => __( 'Header Type', 'astra' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+					'default'    => astra_get_option( 'mobile-header-type' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 25,
+					'title'      => __( 'Header Type', 'astra' ),
+					'choices'    => array(
 						'off-canvas' => __( 'Flyout', 'astra' ),
 						'full-width' => __( 'Full-Screen', 'astra' ),
 						'dropdown'   => __( 'Dropdown', 'astra' ),
 					),
-					'transport' => 'postMessage',
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				/**
 				 * Option: Off-Canvas Slide-Out.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[off-canvas-slide]',
-					'default'   => astra_get_option( 'off-canvas-slide' ),
-					'type'      => 'control',
-					'transport' => 'postMessage',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 30,
-					'title'     => __( 'Position', 'astra' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[off-canvas-slide]',
+					'default'    => astra_get_option( 'off-canvas-slide' ),
+					'type'       => 'control',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 30,
+					'title'      => __( 'Position', 'astra' ),
+					'choices'    => array(
 						'left'  => __( 'Left', 'astra' ),
 						'right' => __( 'Right', 'astra' ),
 					),
-					'context'   => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
@@ -102,45 +104,51 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 'off-canvas',
 						),
 					),
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				/**
 				 * Option: Toggle on click of button or link.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target]',
-					'default'  => astra_get_option( 'header-builder-menu-toggle-target' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => $_section,
-					'context'  => Astra_Builder_Helper::$responsive_general_tab,
-					'priority' => 40,
-					'title'    => __( 'Dropdown Target', 'astra' ),
-					'suffix'   => '',
-					'choices'  => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target]',
+					'default'    => astra_get_option( 'header-builder-menu-toggle-target' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'context'    => Astra_Builder_Helper::$responsive_general_tab,
+					'priority'   => 40,
+					'title'      => __( 'Dropdown Target', 'astra' ),
+					'suffix'     => '',
+					'choices'    => array(
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
 					),
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				/**
 				 * Option: Content alignment option for offcanvas
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-offcanvas-content-alignment]',
-					'default'  => astra_get_option( 'header-offcanvas-content-alignment' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => $_section,
-					'context'  => Astra_Builder_Helper::$responsive_general_tab,
-					'priority' => 45,
-					'title'    => __( 'Content Alignment', 'astra' ),
-					'suffix'   => '',
-					'choices'  => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-offcanvas-content-alignment]',
+					'default'    => astra_get_option( 'header-offcanvas-content-alignment' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'context'    => Astra_Builder_Helper::$responsive_general_tab,
+					'priority'   => 45,
+					'title'      => __( 'Content Alignment', 'astra' ),
+					'suffix'     => '',
+					'choices'    => array(
 						'flex-start' => __( 'Left', 'astra' ),
 						'center'     => __( 'Center', 'astra' ),
 						'flex-end'   => __( 'Right', 'astra' ),
 					),
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				// Option Group: Off-Canvas Colors Group.
