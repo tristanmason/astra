@@ -76,7 +76,7 @@
   left: 0;
 }
 .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
-	color: #006BA1;
+  color: #006BA1;
   height: 20px;
   width: 20px;
   padding: 4px;
@@ -89,20 +89,20 @@
 }
 
 .customize-control-ast-slider .components-input-control input.components-input-control__input, .customize-control-ast-responsive-slider .components-input-control input.components-input-control__input {
- -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 .customize-control-ast-slider input.components-input-control__input::-webkit-inner-spin-button,
 .customize-control-ast-slider input.components-input-control__input::-webkit-outer-spin-button,
 .customize-control-ast-responsive-slider input.components-input-control__input::-webkit-inner-spin-button,
 .customize-control-ast-responsive-slider input.components-input-control__input::-webkit-outer-spin-button {
- -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 .customize-control-ast-slider .components-input-control__container input.components-input-control__input, .customize-control-ast-responsive-slider .components-input-control__container input.components-input-control__input {
- display: block;
- border-radius: 0 2px 2px 0;
- box-shadow: none;
- transition: all 0.3s;
- border: 1px solid #ddd;
+  display: block;
+  border-radius: 0 2px 2px 0;
+  box-shadow: none;
+  transition: all 0.3s;
+  border: 1px solid #ddd;
 }
 .customize-control-ast-slider input.components-input-control__input:hover,
 .customize-control-ast-slider input.components-input-control__input:focus,
@@ -110,9 +110,9 @@
 .customize-control-ast-responsive-slider input.components-input-control__input:hover,
 .customize-control-ast-responsive-slider input.components-input-control__input:focus,
 .customize-control-ast-responsive-slider input.components-input-control__input:active {
- border-color: #1e8cbe;
- border-radius: 2px;
- outline: none;
+  border-color: #1e8cbe;
+  border-radius: 2px;
+  outline: none;
 }
 .customize-control-ast-slider .wrapper .ast-range-unit, .customize-control-ast-responsive-slider .ast-range-unit {
   display: flex;
@@ -139,7 +139,7 @@
   border-radius: 2px 0 0 2px;
 }
 .customize-control-ast-slider .components-input-control__container div.components-input-control__backdrop, .customize-control-ast-responsive-slider .components-input-control__container div.components-input-control__backdrop {
- border: none;
- border-radius: 0 2px 2px 0;
- box-shadow: none;
+  border: none;
+  border-radius: 0 2px 2px 0;
+  box-shadow: none;
 }

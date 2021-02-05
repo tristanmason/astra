@@ -1368,7 +1368,7 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 
 #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg,
 #customize-control-astra-settings-header-trigger-icon svg {
-    width: 52px;
+	width: 52px;
 	height: 50px;
 	margin-right: 10px;
 }
