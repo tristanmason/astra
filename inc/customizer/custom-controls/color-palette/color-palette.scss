@@ -18,11 +18,9 @@
     }
     
     .ast-palette-import {
-       
-        padding: 10px;
+        padding: 0 23px;
         color: white;
-        margin-left: 15px;
-     
+        margin-left: 10px
     }
 
     .ast-global-palette-import {    
@@ -109,22 +107,26 @@
     }
 
     .ast-add-new-color.is-primary {
-       width: 60%;
+       width: 55%;
     }
     button.components-button.ast-palette-delete:disabled:hover {
         cursor: not-allowed;
         color:unset;
-
     }
 
-    .ast-add-new-color .dashicons-plus {
-        line-height: 25px;
+    .ast-add-new-color .dashicons-plus {      
         margin-right: 10px;
     }
 
+    .ast-reset-btn:disabled {
+        opacity: 0.6;
+    }
     @media (min-width: 1800px) {
         .astra-color-picker-wrap {        
             width: 24em;
+        }
+        .ast-palette-import {
+            padding: 0 26px;
         }
         
     }

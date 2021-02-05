@@ -4,7 +4,7 @@ import AstraColorPickerControl from '../common/astra-color-picker-control';
 
 import testJSON from '../common/astra-common-function'; 
 
-import {useState} from 'react';
+import {useEffect,useState} from 'react';
 
 import { Dashicon,RadioControl,Button,Popover,TabPanel,TextareaControl,ClipboardButton,TextControl } from '@wordpress/components';
 
@@ -24,6 +24,13 @@ const ColorPaletteComponent = props => {
 	} = props.control.params;
 
 	const [state, setState] = (value) ? useState(props.control.setting.get()) : useState(defaultValue);
+		
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== value ) {
+			setState(value);
+		}
+	}, [props]);
 	
 
 	let labelHtml = null;
@@ -76,12 +83,6 @@ const ColorPaletteComponent = props => {
 		
 		props.control.setting.set( obj );		
 		
-		var passGlobalPalette = new CustomEvent( "colorpaletteglobal", 
-				{ 
-					"detail":{"palette":obj,"index":index,"prevcolor":prevcolor,"newcolor":newcolor}
-				} 
-			);
-		document.dispatchEvent(passGlobalPalette);
 
 	};
 
@@ -165,7 +166,9 @@ const ColorPaletteComponent = props => {
 								backgroundType = { 'color' }
 								allowGradient={ false }
 								allowImage={ false }		
-								disablePalette={true}			
+								disablePalette={true}	
+								colorIndicator = {undefined !== state.pattern1 && state.pattern1 ? state.pattern1[index][0] : ''}
+
 							/>
 						</div>
 					)
@@ -213,10 +216,6 @@ const ColorPaletteComponent = props => {
 		props.control.setting.set(value);
 	};
 
-	const htmlpalette = Object.values(state[state.patterntype]).map( ( item, index ) => {
-		document.documentElement.style.setProperty('--global-palette' + index, item[0] );		
-	} );
-
 	const toggleVisible = () => {
 		let obj = {
 			...state
@@ -233,6 +232,19 @@ const ColorPaletteComponent = props => {
 			setState(obj)			
 		}
 	};
+
+
+	const myFunction = (e) =>{
+			Object.values(e.detail.palette.pattern1).map( ( item, index ) => {
+				var maindiv =  document.getElementById('customize-preview')				
+				var iframe = maindiv.getElementsByTagName('iframe')[0]				
+				var innerDoc = iframe.contentDocument || iframe.contentWindow.document;			
+				innerDoc.documentElement.style.setProperty('--ast-global-palette' + index, item[0] );	
+				document.documentElement.style.setProperty('--ast-global-palette' + index, item[0] );		
+
+			} );
+	}
+	document.addEventListener( 'UpdatePaletteStateInIframe', myFunction, false ); //Updating the root css for iframe.
 	
 	const handlePresetPalette = (item) => {
 	
@@ -263,15 +275,6 @@ const ColorPaletteComponent = props => {
 		setState(obj)	
 		props.control.setting.set( obj );
 		
-
-		var event = new CustomEvent( "colorpaletteglobal", 
-			{ 
-				"detail":{"palette":obj,"radiochange":"true",}
-			} 
-		);
-		
-		document.dispatchEvent(event);
-
 	}
 
 
@@ -323,15 +326,8 @@ const ColorPaletteComponent = props => {
 			obj['customImportText'] = ''
 
 			setState(obj)	
-			props.control.setting.set( obj );
-		
-			var event = new CustomEvent( "colorpaletteglobal", 
-				{ 
-					"detail":{"palette":obj,"radiochange":"true",}
-				} 
-			);
+			props.control.setting.set( obj );		
 			
-			document.dispatchEvent(event);
 		}else{
 			setState(prevState => ({
 				...prevState,
@@ -370,6 +366,8 @@ const ColorPaletteComponent = props => {
 		props.control.setting.set( obj );
 
 	};
+
+	
 
 	return <>
 		
@@ -499,4 +497,4 @@ ColorPaletteComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( ColorPaletteComponent );
+export default  ColorPaletteComponent;

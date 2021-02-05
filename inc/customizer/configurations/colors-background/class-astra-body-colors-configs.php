@@ -40,13 +40,14 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'title'       => __( 'Palette', 'astra' ),
 					'default'     => astra_get_option( 'global-color-palette' ),
 					'settings'    => array(),
+					'transport'   => 'postMessage',
 				),
 				/**
 				 * Option: Text Color
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
-					'default'  => '#3a3a3a',
+					'default'  => 'var(--ast-global-palette0)',
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'section'  => 'section-colors-body',
@@ -62,7 +63,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'section'  => 'section-colors-body',
-					'default'  => '#0274be',
+					'default'  => 'var(--ast-global-palette1)',
 					'priority' => 5,
 					'title'    => __( 'Theme Color', 'astra' ),
 				),
@@ -75,7 +76,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => 'section-colors-body',
 					'type'     => 'control',
 					'control'  => 'ast-color',
-					'default'  => '#0274b2',
+					'default'  => 'var(--ast-global-palette2)',
 					'priority' => 5,
 					'title'    => __( 'Link Color', 'astra' ),
 				),
@@ -86,7 +87,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[link-h-color]',
 					'section'  => 'section-colors-body',
-					'default'  => '#3a3a31',
+					'default'  => 'var(--ast-global-palette3)',
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'priority' => 15,
