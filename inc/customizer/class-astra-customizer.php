@@ -101,6 +101,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public $control_types = array();
 
 		/**
+		 * Customizer Localize JS arr.
+		 *
+		 * @access Public
+		 * @since x.x.x
+		 * @var Array
+		 */
+		public static $localize_arr = array();
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -127,6 +136,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				add_action( 'customize_register', array( $this, 'prepare_group_configs' ), 9 );
 			}
 
+			$this->prepare_localize_arr();
+
+			$this->check_filters_for( 'astra_color_palettes' );
+
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
@@ -142,12 +155,69 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 		}
 
-			/**
-			 * Prepare Contexts and choices.
-			 *
-			 * @since 3.0.0
-			 * @param object $wp_customize customizer object.
-			 */
+		/**
+		 * Prepare the PHP Array to be localized for Customizer JS.
+		 *
+		 * @since x.x.x
+		 */
+		public function prepare_localize_arr() {
+			$string             = $this->generate_font_dropdown();
+			$tmpl               = '<div class="ast-field-settings-modal">
+					<ul class="ast-fields-wrap">
+					</ul>
+			</div>';
+			self::$localize_arr = array(
+				'customizer' => array(
+					'settings'            => array(
+						'sidebars'     => array(
+							'single'  => array(
+								'single-post-sidebar-layout',
+								'single-page-sidebar-layout',
+							),
+							'archive' => array(
+								'archive-post-sidebar-layout',
+							),
+						),
+						'container'    => array(
+							'single'  => array(
+								'single-post-content-layout',
+								'single-page-content-layout',
+							),
+							'archive' => array(
+								'archive-post-content-layout',
+							),
+						),
+						'google_fonts' => $string,
+					),
+					'group_modal_tmpl'    => $tmpl,
+					'is_old_palette_used' => false,
+					'is_pro'              => defined( 'ASTRA_EXT_VER' ),
+					'upgrade_link'        => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+				),
+				'theme'      => array(
+					'option' => ASTRA_THEME_SETTINGS,
+				),
+			);
+		}
+
+		/**
+		 * Check if function is added on the filter.
+		 *
+		 * @since x.x.x
+		 * @param string $hook hook string.
+		 */
+		public function check_filters_for( $hook = '' ) {
+			if ( has_filter( $hook ) ) {
+				self::$localize_arr['customizer']['is_old_palette_used'] = true;
+			}
+		}
+
+		/**
+		 * Prepare Contexts and choices.
+		 *
+		 * @since 3.0.0
+		 * @param object $wp_customize customizer object.
+		 */
 		public function prepare_customizer_javascript_configs( $wp_customize ) {
 
 			$configurations = $this->get_customizer_configurations( $wp_customize );
@@ -1155,49 +1225,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Customizer Controls.
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 
-			$string = $this->generate_font_dropdown();
-
-			$tmpl = '<div class="ast-field-settings-modal">
-					<ul class="ast-fields-wrap">
-					</ul>
-			</div>';
-
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
 				apply_filters(
 					'astra_theme_customizer_js_localize',
-					array(
-						'customizer' => array(
-							'settings'         => array(
-								'sidebars'     => array(
-									'single'  => array(
-										'single-post-sidebar-layout',
-										'single-page-sidebar-layout',
-									),
-									'archive' => array(
-										'archive-post-sidebar-layout',
-									),
-								),
-								'container'    => array(
-									'single'  => array(
-										'single-post-content-layout',
-										'single-page-content-layout',
-									),
-									'archive' => array(
-										'archive-post-content-layout',
-									),
-								),
-								'google_fonts' => $string,
-							),
-							'group_modal_tmpl' => $tmpl,
-							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
-							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
-						),
-						'theme'      => array(
-							'option' => ASTRA_THEME_SETTINGS,
-						),
-					)
+					self::$localize_arr
 				)
 			);
 		}
@@ -1442,17 +1475,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function add_style_tag_to_html_element( $output ) {
 			$global_palette = astra_get_option( 'global-color-palette' );
-		
+
 			$array = $global_palette[ $global_palette['patterntype'] ];
-								
+
 			$finalpalette = array();
-			
+
 			foreach ( $array as $key => $value ) {
 				if ( $value[0] ) {
 					array_push( $finalpalette, '--ast-global-palette' . $key . ':' . $value[0] );
 				}
 			}
-		
+
 			$output .= 'style="' . implode( ';', $finalpalette ) . '"';
 			return $output;
 		}

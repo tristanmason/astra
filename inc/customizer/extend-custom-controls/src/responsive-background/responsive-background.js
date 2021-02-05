@@ -41,10 +41,7 @@ const ResponsiveBackground = props => {
 
 		}
 
-
-		setTimeout( function () {
 			props.control.setting.set(obj);
-		}, 1 );
 	};
 
 
@@ -100,10 +97,7 @@ const ResponsiveBackground = props => {
 		obj[key] = palette
 
 		updatepaletteuse(value,index,defaultset);
-
-		setTimeout( function () {
-	    	updateValues(obj);
-		}, 1 );
+		updateValues(obj);
 
 	}
 
