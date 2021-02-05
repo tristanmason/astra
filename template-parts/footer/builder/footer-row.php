@@ -42,6 +42,7 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 	);
 	?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" data-section="section-<?php echo esc_attr( $row ); ?>-footer-builder">
+    <div class="ast-builder-grid-row-container-inner">
 		<?php
 		if ( is_customize_preview() ) {
 			Astra_Builder_UI_Controller::render_grid_row_customizer_edit_button( 'Footer', $row );
@@ -69,5 +70,7 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 		 */
 		do_action( "astra_footer_{$row}_container_after" );
 		?>
+	</div>
+
 </div>
 <?php } ?>
