@@ -1200,7 +1200,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			if ( is_author() ) {
-				$autho_table_css       = array(
+				$author_table_css      = array(
 					'.ast-author-box' => array(
 						'-js-display' => 'flex',
 						'display'     => 'flex',
@@ -1209,7 +1209,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'flex' => '1',
 					),
 				);
-				$static_layout_css_min = array_merge( $static_layout_css_min, $autho_table_css );
+				$static_layout_css_min = array_merge( $static_layout_css_min, $author_table_css );
 			}
 
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
@@ -1246,15 +1246,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( is_current_post_comment_enabled() ) {
-				
 				$static_layout_css_min_comment = array(
 					'.ast-separate-container .ast-comment-list li .comment-respond' => array(
 						'padding-left'  => '2.66666em',
 						'padding-right' => '2.66666em',
 					),
 				);
-				/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
-				$parse_css .= astra_parse_css( $static_layout_css_min_comment, astra_get_tablet_breakpoint( '', '1' ) );
+				$parse_css                    .= astra_parse_css( $static_layout_css_min_comment, astra_get_tablet_breakpoint( '', '1' ) );
 			}   
 
 			if ( $is_site_rtl ) {
