@@ -153,7 +153,6 @@ const ResponsiveColorComponent = props => {
 							for (let device in value) {
 								if (undefined === value[device] || '' === value[device]) {
 									value[device] = '';
-									wp.customize.previewer.refresh();
 								}
 							}
 						}
