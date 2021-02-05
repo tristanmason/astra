@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 const {__} = wp.i18n;
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 const {Tooltip} = wp.components;
+import {Dashicon} from '@wordpress/components';
 import {useState} from 'react';
 
 const ColorGroupComponent = props => {
@@ -46,6 +47,44 @@ const ColorGroupComponent = props => {
 		setState(updateState);
 	};
 
+	const renderResetButton = () => {
+		return <span className="customize-control-title">
+				<>
+					<div className="ast-color-btn-reset-wrap">
+						<button
+							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+							// disabled={JSON.stringify(state.value) === JSON.stringify(defaultValue)}
+							onClick={e => {
+							e.preventDefault();
+							Object.entries( state ).map( ( [ key,value ] ) => {
+								console.log( wp.customize.control( key ).setting );
+								// let value = JSON.parse(JSON.stringify(defaultValue)),
+								// 	updateState = {
+								// 		...state
+								// 	};
+
+								// if (undefined === value || '' === value) {
+								// 	value = '';
+								// 	wp.customize.previewer.refresh();
+								// }
+
+								// // updateValues(value);
+								// updateState[key] = value;
+								// wp.customize.control( key ).setting.set(value);
+								// setState(updateState);
+							})
+						}}>
+						<Dashicon icon='image-rotate' style={{
+							width: 12,
+							height: 12,
+							fontSize: 12
+						}}/>
+						</button>
+					</div>
+				</>
+			</span>;
+	};
+
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
 	}
@@ -79,6 +118,7 @@ const ColorGroupComponent = props => {
 			</label>
 		</div>
 		<div className="ast-field-color-group-wrap">
+			{renderResetButton()}
 			{optionsHtml}
 		</div>
 	</>;
