@@ -118,8 +118,8 @@ const ResponsiveSliderComponent = props => {
 		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}
-			{ renderOperationButtons( defaultVal ) }
 			{suffixHtml}
+			{ renderOperationButtons( defaultVal ) }
 		</div>
 	</div>;
 };
