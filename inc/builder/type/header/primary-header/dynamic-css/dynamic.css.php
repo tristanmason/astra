@@ -42,7 +42,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 
 	$common_css_output = array(
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar, .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item' => array(
@@ -141,13 +141,13 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$tablet_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'tablet' ),
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar, .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_tablet, 'px' ),
 		),
 	);
 	$mobile_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'mobile' ),
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar , .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_mobile, 'px' ),
 		),
 	);
@@ -175,7 +175,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-primary-header-bar', 'block' );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-primary-header-bar', 'block', 'grid' );
 
 	// Advanced CSS for Header Builder.
 	$margin = astra_get_option( 'section-header-builder-layout-margin' );
