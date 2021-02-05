@@ -21,7 +21,7 @@ const ResponsiveSliderComponent = props => {
 		props.control.setting.set(updateState);
 		setState(updateState);
 	};
-const renderOperationButtons = ( defaultVal ) => {
+	const renderOperationButtons = ( defaultVal ) => {
 		return (
 			<div className="ast-resp-slider-reset-wrap">
 				<button
@@ -40,10 +40,8 @@ const renderOperationButtons = ( defaultVal ) => {
 	const renderInputHtml = (device, active = '') => {
 		const {
 			input_attrs,
-			suffix
 		} = props.control.params;
-		let suffixHtml = null,
-			defaultVal = parseInt( props.control.params.default[device] ) === 0 ? 0 : Number( props.control.params.default[device] ) || 0 ;
+		let defaultVal = parseInt( props.control.params.default[device] ) === 0 ? 0 : Number( props.control.params.default[device] ) || 0 ;
 
 		const defaults = { min: 0, max: 500, step: 1 };
 		const controlProps = {
@@ -51,10 +49,6 @@ const renderOperationButtons = ( defaultVal ) => {
 			...( input_attrs || {} ),
 		};
 		const { min, max, step } = controlProps;
-
-		if (suffix) {
-			suffixHtml = <span className="ast-range-unit">{suffix}</span>;
-		}
 
 		return <div className={`input-field-wrapper ${device} ${active}`}>
 			<RangeControl
@@ -65,17 +59,18 @@ const renderOperationButtons = ( defaultVal ) => {
 				step={ step || 1 }
 				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
 			/>
-			{suffixHtml}
 		</div>;
 	};
 
 	const {
 		description,
-		label
+		label,
+		suffix
 	} = props.control.params;
 
 	let labelHtml = null;
 	let responsiveHtml = null;
+	let suffixHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
 	let defaultVal = props.control.params.default;
@@ -105,6 +100,10 @@ const renderOperationButtons = ( defaultVal ) => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
+	if (suffix) {
+		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
+	}
+
 	inputHtml = <>
 		{renderInputHtml('desktop', 'active')}
 		{renderInputHtml('tablet')}
@@ -119,6 +118,7 @@ const renderOperationButtons = ( defaultVal ) => {
 		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}
+			{suffixHtml}
 			{ renderOperationButtons( defaultVal ) }
 		</div>
 	</div>;

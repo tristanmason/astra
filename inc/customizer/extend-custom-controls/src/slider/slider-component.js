@@ -52,11 +52,7 @@ const SliderComponent = props => {
 					let value = JSON.parse(JSON.stringify(defaultVal));
 					updateValues(value);
 				}}>
-				<Dashicon icon='image-rotate' style={{
-					width: 12,
-					height: 12,
-					fontSize: 12
-				}}/>
+				<Dashicon icon='image-rotate'/>
 				</button>
 			</div>
 		);
@@ -76,8 +72,8 @@ const SliderComponent = props => {
 				max={ max || 500 }
 				step={ step || 1 }
 			/>
+			{ suffixHtml }
 			{ renderOperationButtons() }
-			{suffixHtml}
 		</div>
 	</label>;
 };
