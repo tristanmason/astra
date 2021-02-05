@@ -17,7 +17,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .color-group-item:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .customize-control.customize-control-ast-color-group .astra-popover-color {
@@ -27,6 +27,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
-  right: 88px;
+  right: 82px;
+  top: 7px;
   cursor: pointer;
 }

@@ -75,42 +75,35 @@ const ColorGroupComponent = props => {
 	});
 
 	const renderResetButton = () => {
-
 		let resetFlag = true;
-		
-		for ( let index in state ) {
 
+		for ( let index in state ) {
 			if ( JSON.stringify( state[index] ) !== JSON.stringify( colorGroupDefaults[index] ) ) {
 				resetFlag = false;
 			}
 		}
 
 		return <div className="ast-color-btn-reset-wrap ast-color-group-reset">
-						<button
-							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							disabled={ resetFlag } onClick={ e => {
-							e.preventDefault();
-							
-							let resetState = {
-								...state
-							};
-
-							for ( let index in state ) {
-
-								resetState[index] = colorGroupDefaults[index];
-
-								wp.customize.control( index ).setting.set(colorGroupDefaults[index]);
-								
-								setState(resetState);
-							}
-						}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
-						</button>
-					</div>;
+			<button
+				className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+				disabled={ resetFlag } onClick={ e => {
+				e.preventDefault();
+				let resetState = {
+					...state
+				};
+				for ( let index in state ) {
+					resetState[index] = colorGroupDefaults[index];
+					wp.customize.control( index ).setting.set(colorGroupDefaults[index]);
+					setState(resetState);
+				}
+			}}>
+			<Dashicon icon='image-rotate' style={{
+				width: 12,
+				height: 12,
+				fontSize: 12
+			}}/>
+			</button>
+		</div>;
 	};
 
 	return <>

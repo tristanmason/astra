@@ -12,7 +12,7 @@
         position: inherit;
     }
     .color-group-item:not(:last-child) {
-        margin-right: 10px;
+        margin-right: 8px;
     }
     .astra-popover-color {
         position: absolute;
@@ -20,7 +20,8 @@
         z-index: 9;
     }
     .ast-color-group-reset {
-        right: 88px;
+        right: 82px;
+        top: 7px;
         cursor: pointer;
     }
 }
