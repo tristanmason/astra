@@ -4805,3 +4805,8 @@ i.fipicon-angle-left:before {
 	content: "\f341";
 	font-family: dashicons;
 }
+
+/** Remove Dropdown option from Desktop Off-Canvas option */
+.preview-desktop #customize-control-astra-settings-mobile-header-type select option[value="dropdown"] {
+	display: none;
+}
