@@ -52,6 +52,10 @@ const BuilderComponent = props => {
 			popup_control.set( ! popup_control.get() );
 		}
 
+		if ( 'astra-settings[header-desktop-items]' === props.control.id && false === contFlag ) {
+			value['popup']['popup_content'] = [];
+		}
+
 		setting.set( { ...setting.get(), ...value, flag: !setting.get().flag } );
 
 	};
