@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {RangeControl} from '@wordpress/components';
+import {RangeControl, Dashicon} from '@wordpress/components';
 import {useEffect, useState} from 'react';
 
 const ResponsiveSliderComponent = props => {
@@ -20,6 +20,21 @@ const ResponsiveSliderComponent = props => {
 		updateState[device] = newVal;
 		props.control.setting.set(updateState);
 		setState(updateState);
+	};
+const renderOperationButtons = ( defaultVal ) => {
+		return (
+			<div className="ast-resp-slider-reset-wrap">
+				<button
+					className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+					disabled={ JSON.stringify(state) === JSON.stringify(defaultVal)} onClick={ e => {
+					e.preventDefault();
+					props.control.setting.set(defaultVal);
+					setState(defaultVal);
+				}}>
+				<Dashicon icon='image-rotate'/>
+				</button>
+			</div>
+		);
 	};
 
 	const renderInputHtml = (device, active = '') => {
@@ -44,12 +59,11 @@ const ResponsiveSliderComponent = props => {
 		return <div className={`input-field-wrapper ${device} ${active}`}>
 			<RangeControl
 				resetFallbackValue={defaultVal}
-				value={ parseInt( defaultVal ) === 0 ? 0 : defaultVal || '' }
+				value={ state[device] }
 				min={ min < 0 ? min : 0 }
 				max={ max || 100 }
 				step={ step || 1 }
-				allowReset
-				onChange={ (newVal) => {updateValues(device, newVal )} }
+				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
 			/>
 			{suffixHtml}
 		</div>;
@@ -64,9 +78,10 @@ const ResponsiveSliderComponent = props => {
 	let responsiveHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
+	let defaultVal = props.control.params.default;
 
 	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span className="customize-control-title slider-control-label">{label}</span>;
 		responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-slider-btns">
 			<li className="desktop active">
 				<button type="button" className="preview-desktop active" data-device="desktop">
@@ -96,15 +111,17 @@ const ResponsiveSliderComponent = props => {
 		{renderInputHtml('mobile')}
 	</>;
 
-	return <label key={'customizer-text'}>
-		{labelHtml}
+	return <div>
+		<label key={'customizer-text'}>
+			{labelHtml}
+		</label>
 		{responsiveHtml}
 		{descriptionHtml}
-
 		<div className="wrapper">
 			{inputHtml}
+			{ renderOperationButtons( defaultVal ) }
 		</div>
-	</label>;
+	</div>;
 };
 
 ResponsiveSliderComponent.propTypes = {
