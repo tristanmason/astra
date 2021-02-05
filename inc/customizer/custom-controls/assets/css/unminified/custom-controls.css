@@ -239,6 +239,10 @@
   background-color: #1e8cbe;
 }
 
+#customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap > div {
+  margin-bottom: 8px;
+}
+
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
   display: unset;
   position: unset;
