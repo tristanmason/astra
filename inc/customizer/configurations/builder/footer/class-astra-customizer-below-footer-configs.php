@@ -119,20 +119,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Layout Width
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-layout-width]',
-					'default'   => astra_get_option( 'hbb-footer-layout-width' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 25,
-					'title'     => __( 'Width', 'astra' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hbb-footer-layout-width]',
+					'default'    => astra_get_option( 'hbb-footer-layout-width' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 25,
+					'title'      => __( 'Width', 'astra' ),
+					'choices'    => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
 					),
-					'suffix'    => '',
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
+					'suffix'     => '',
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				// Section: Below Footer Height.
@@ -158,27 +160,29 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Vertical Alignment
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hbb-footer-vertical-alignment]',
-					'default'   => astra_get_option( 'hbb-footer-vertical-alignment' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 34,
-					'title'     => __( 'Vertical Alignment', 'astra' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hbb-footer-vertical-alignment]',
+					'default'    => astra_get_option( 'hbb-footer-vertical-alignment' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 34,
+					'title'      => __( 'Vertical Alignment', 'astra' ),
+					'choices'    => array(
 						'flex-start' => __( 'Top', 'astra' ),
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[hbb-stack]',
 					'default'   => astra_get_option( 'hbb-stack' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Inner Elements Layout', 'astra' ),
@@ -193,6 +197,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'below_footer' ),
 					),
+					'display'   => 'text',
 				),
 
 				// Section: Below Footer Border.

@@ -173,7 +173,7 @@
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] {
-  padding: 15px;
+  padding: 0px 15px 15px 15px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
