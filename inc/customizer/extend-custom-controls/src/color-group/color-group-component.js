@@ -17,10 +17,12 @@ const ColorGroupComponent = props => {
 
 	const linkedSubColors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
 	const colorGroup = [],
+		colorGroupDefaults = [],
 		tooltips = [];
 
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
+		colorGroupDefaults[value.name] = value.default;
 		tooltips[value.name] = value.title;
 	});
 
@@ -45,44 +47,6 @@ const ColorGroupComponent = props => {
 		wp.customize.control( key ).setting.set(value);
 		
 		setState(updateState);
-	};
-
-	const renderResetButton = () => {
-		return <span className="customize-control-title">
-				<>
-					<div className="ast-color-btn-reset-wrap">
-						<button
-							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							// disabled={JSON.stringify(state.value) === JSON.stringify(defaultValue)}
-							onClick={e => {
-							e.preventDefault();
-							Object.entries( state ).map( ( [ key,value ] ) => {
-								console.log( wp.customize.control( key ).setting );
-								// let value = JSON.parse(JSON.stringify(defaultValue)),
-								// 	updateState = {
-								// 		...state
-								// 	};
-
-								// if (undefined === value || '' === value) {
-								// 	value = '';
-								// 	wp.customize.previewer.refresh();
-								// }
-
-								// // updateValues(value);
-								// updateState[key] = value;
-								// wp.customize.control( key ).setting.set(value);
-								// setState(updateState);
-							})
-						}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
-						</button>
-					</div>
-				</>
-			</span>;
 	};
 
 	if (label) {
@@ -110,6 +74,45 @@ const ColorGroupComponent = props => {
 		return html;
 	});
 
+	const renderResetButton = () => {
+
+		let resetFlag = true;
+		
+		for ( let index in state ) {
+
+			if ( JSON.stringify( state[index] ) !== JSON.stringify( colorGroupDefaults[index] ) ) {
+				resetFlag = false;
+			}
+		}
+
+		return <div className="ast-color-btn-reset-wrap ast-color-group-reset">
+						<button
+							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+							disabled={ resetFlag } onClick={ e => {
+							e.preventDefault();
+							
+							let resetState = {
+								...state
+							};
+
+							for ( let index in state ) {
+
+								resetState[index] = colorGroupDefaults[index];
+
+								wp.customize.control( index ).setting.set(colorGroupDefaults[index]);
+								
+								setState(resetState);
+							}
+						}}>
+						<Dashicon icon='image-rotate' style={{
+							width: 12,
+							height: 12,
+							fontSize: 12
+						}}/>
+						</button>
+					</div>;
+	};
+
 	return <>
 		<div className="ast-toggle-desc-wrap">
 			<label className="customizer-text">
@@ -117,8 +120,10 @@ const ColorGroupComponent = props => {
 				{htmlHelp}
 			</label>
 		</div>
+		
+			{ renderResetButton() }
+		
 		<div className="ast-field-color-group-wrap">
-			{renderResetButton()}
 			{optionsHtml}
 		</div>
 	</>;

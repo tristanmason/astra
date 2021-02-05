@@ -266,6 +266,11 @@
   z-index: 9;
 }
 
+.customize-control.customize-control-ast-color-group .ast-color-group-reset {
+  right: 88px;
+  cursor: pointer;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {

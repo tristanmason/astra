@@ -25,3 +25,8 @@
   right: 0;
   z-index: 9;
 }
+
+.customize-control.customize-control-ast-color-group .ast-color-group-reset {
+  left: 88px;
+  cursor: pointer;
+}
