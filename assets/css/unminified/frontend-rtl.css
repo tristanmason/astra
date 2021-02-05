@@ -3072,15 +3072,7 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   display: flex;
 }
 
-#ast-desktop-header .ast-desktop-header-content {
-  display: none;
-}
-
 .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content {
-  display: none;
-}
-
-.ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content {
   display: none;
 }
 
@@ -3088,15 +3080,7 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   display: none;
 }
 
-.ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content {
-  display: none;
-}
-
-.ast-main-header-nav-open.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content {
-  display: block;
-}
-
-.ast-main-header-nav-open.ast-header-break-point #ast-desktop-header .ast-desktop-header-content {
+.ast-main-header-nav-open .ast-mobile-header-wrap .ast-mobile-header-content {
   display: block;
 }
 
@@ -3328,8 +3312,7 @@ body.admin-bar.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-inner {
 /** Default Spacing for Mobile Header elements except Menu */
 .ast-mobile-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
 .ast-desktop-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
-.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
-.ast-desktop-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
+.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
   margin: 15px 20px;
 }
 

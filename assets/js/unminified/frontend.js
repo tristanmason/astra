@@ -568,32 +568,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	astraNavMenuToggle = function ( event ) {
 
 		event.preventDefault();
-
-		var desktop_header = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
-		var desktop_toggle = document.querySelector( '#masthead > #ast-desktop-header .main-header-menu-toggle' );
-		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
-
-		if ( 'desktop' === event.currentTarget.trigger_type ) {
-			
-			if ( null !== desktop_menu && '' !== desktop_menu && undefined !== desktop_menu ) {
-				astraToggleClass(desktop_menu, 'toggle-on');
-				if (desktop_menu.classList.contains('toggle-on')) {
-					desktop_menu.style.display = 'block';
-				} else {
-					desktop_menu.style.display = '';
-				}
-			}
-			astraToggleClass(desktop_toggle, 'toggled');
-			if ( desktop_toggle.classList.contains( 'toggled' ) ) {
-				body.classList.add("ast-main-header-nav-open");
-				desktop_header.style.display = 'block';
-			} else {
-				body.classList.remove("ast-main-header-nav-open");
-				desktop_header.style.display = 'none';
-			}
-			return;
-		}
-
+		
 		var __main_header_all = document.querySelectorAll('#masthead > #ast-mobile-header .main-header-bar-navigation');
 		menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-mobile-header .main-header-menu-toggle' )
 		var event_index = '0';

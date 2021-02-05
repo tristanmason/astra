@@ -81,8 +81,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 				
-				add_action( 'astra_desktop_header_content', array( $this, 'render_desktop_column' ), 10, 2 );
-				
 				add_action( 'astra_render_desktop_popup', array( $this, 'render_desktop_column' ), 10, 2 );
 
 
