@@ -2192,7 +2192,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .ast-responsive-btns {
   position: absolute;
-  left: 7px;
+  left: 14px;
   top: 4px;
 }
 
@@ -2315,6 +2315,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider input[type=range] {
   position: inherit;
+}
+
+.customize-control-ast-responsive-slider select, .customize-control.customize-control-select select {
+    color: #32373c;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -2549,6 +2553,7 @@ input[type="text"].select2-search__field {
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
+  cursor: pointer;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input {
@@ -3701,7 +3706,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-modal .ast-responsive-btns {
   position: absolute;
-  left: 7px;
+  left: 14px;
   top: 4px;
 }
 
@@ -3922,6 +3927,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider input[type=range] {
   position: inherit;
+}
+
+.customize-control-ast-responsive-slider select, .customize-control.customize-control-select select {
+    color: #32373c;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -4156,6 +4165,7 @@ input[type="text"].select2-search__field {
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
+  cursor: pointer;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input {

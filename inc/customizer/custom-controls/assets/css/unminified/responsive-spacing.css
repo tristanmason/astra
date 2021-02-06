@@ -98,6 +98,7 @@
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
+  cursor: pointer;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input {
