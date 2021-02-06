@@ -51,55 +51,40 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function __construct() {
 
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+
 				$this->remove_existing_actions();
 
 				add_action( 'body_class', array( $this, 'add_body_class' ) );
-
 				// Header Desktop Builder.
 				add_action( 'astra_masthead', array( $this, 'desktop_header' ) );
-
 				add_action( 'astra_above_header', array( $this, 'above_header' ) );
 				add_action( 'astra_primary_header', array( $this, 'primary_header' ) );
 				add_action( 'astra_below_header', array( $this, 'below_header' ) );
-
 				add_action( 'astra_render_header_column', array( $this, 'render_column' ), 10, 2 );
-
 				// Mobile Builder.
 				add_action( 'astra_mobile_header', array( $this, 'mobile_header' ) );
-
 				add_action( 'astra_mobile_above_header', array( $this, 'mobile_above_header' ) );
 				add_action( 'astra_mobile_primary_header', array( $this, 'mobile_primary_header' ) );
 				add_action( 'astra_mobile_below_header', array( $this, 'mobile_below_header' ) );
-
 				add_action( 'astra_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
-
 				// Load Off-Canvas Markup on Footer.
 				add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
-
-
 				add_action( 'astra_mobile_header_content', array( $this, 'render_mobile_column' ), 10, 2 );
-
 				add_action( 'astra_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 
-
 				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-
 					// Buttons.
 					add_action( 'astra_header_button_' . $index, array( $this, 'button_' . $index ) );
 					self::$methods[] = 'button_' . $index;
-
 					// Htmls.
 					add_action( 'astra_header_html_' . $index, array( $this, 'header_html_' . $index ) );
 					self::$methods[] = 'header_html_' . $index;
-
 					// Social Icons.
 					add_action( 'astra_header_social_' . $index, array( $this, 'header_social_' . $index ) );
 					self::$methods[] = 'header_social_' . $index;
-
 					// Menus.
 					add_action( 'astra_header_menu_' . $index, array( $this, 'menu_' . $index ) );
 					self::$methods[] = 'menu_' . $index;
-
 				}
 
 				add_action( 'astra_mobile_site_identity', __CLASS__ . '::site_identity' );
@@ -107,9 +92,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_header_woo_cart', array( $this, 'header_woo_cart' ) );
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
 				add_action( 'astra_header_account', array( $this, 'header_account' ) );
-
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
-
 				add_action( 'astra_header_menu_mobile', array( $this, 'header_mobile_menu_markup' ) );
 			}
 
@@ -125,7 +108,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function __call( $func, $params ) {
 
 			if ( in_array( $func, self::$methods, true ) ) {
-
 				if ( 0 === strpos( $func, 'header_html_' ) ) {
 					Astra_Builder_UI_Controller::render_html_markup( str_replace( '_', '-', $func ) );
 				} elseif ( 0 === strpos( $func, 'button_' ) ) {
@@ -320,9 +302,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * Render Mobile header layout.
 		 */
 		public function mobile_header() {
-
 			get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
-
 		}
 
 		/**
@@ -416,24 +396,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		}
 
 		/**
-		 * Defines all constants
-		 *
-		 * @since 1.0.0
-		 */
-		public function define_constants() {
-
-		}
-
-		/**
 		 * Add Body Classes
 		 *
 		 * @param array $classes Body Class Array.
 		 * @return array
 		 */
 		public function add_body_class( $classes ) {
-
 			$classes[] = 'astra-hfb-header';
-
 			return $classes;
 		}
 
