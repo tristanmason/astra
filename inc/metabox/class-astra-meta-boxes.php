@@ -110,39 +110,39 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			self::$meta_option = apply_filters(
 				'astra_meta_box_options',
 				array(
-					'ast-hfb-above-header-display' => array(
+					'ast-hfb-above-header-display'  => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-main-header-display'      => array(
+					'ast-main-header-display'       => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-hfb-below-header-display' => array(
+					'ast-hfb-below-header-display'  => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'ast-hfb-mobile-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-sml-layout'            => array(
+					'footer-sml-layout'             => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-adv-display'           => array(
+					'footer-adv-display'            => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-post-title'              => array(
+					'site-post-title'               => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-sidebar-layout'          => array(
+					'site-sidebar-layout'           => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-layout'          => array(
+					'site-content-layout'           => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img'             => array(
+					'ast-featured-img'              => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-breadcrumbs-content'      => array(
+					'ast-breadcrumbs-content'       => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$above_header        = ( isset( $meta['ast-hfb-above-header-display']['default'] ) ) ? $meta['ast-hfb-above-header-display']['default'] : 'default';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$below_header        = ( isset( $meta['ast-hfb-below-header-display']['default'] ) ) ? $meta['ast-hfb-below-header-display']['default'] : 'default';
-			$mobile_header        = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
+			$mobile_header       = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 

@@ -384,7 +384,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 			if ( 'disabled' !== $display ) {
 				if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
-
 					get_template_part(
 						'template-parts/header/builder/mobile-header',
 						'row',
@@ -406,7 +405,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			$mobile_header_type = astra_get_option( 'mobile-header-type' );
 
 			if ( 'off-canvas' === $mobile_header_type || 'full-width' === $mobile_header_type || is_customize_preview() ) {
-
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
 		}
