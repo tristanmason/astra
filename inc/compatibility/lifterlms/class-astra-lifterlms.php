@@ -711,7 +711,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				$disable_fields[] = array(
 					'attribute' => 'footer-sml-layout',
 					'id'        => 'footer-sml-layout',
-					'label'     => esc_html__( 'Disable Footer Bar', 'astra' ),
+					'label'     => esc_html__( 'Disable Footer', 'astra' ),
 					'switch_on' => 'disabled',
 					'type'      => 'switch',
 				);
