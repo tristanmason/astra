@@ -99,7 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 20,
 					'title'     => __( 'Layout', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-selector',
 					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'            => '.footer-widget-area[data-section="section-footer-menu"] nav',
@@ -111,6 +111,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'vertical'   => __( 'Stack', 'astra' ),
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
+					'responsive' => true,
+					'display'    => 'text',
 				),
 
 				/**
@@ -126,10 +128,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
-					'choices'   => array(                       
-						'flex-start' => 'align-left', 
-						'center'     => 'align-center', 
-						'flex-end'   => 'align-right',   
+					'choices'   => array(
+						'flex-start' => 'align-left',
+						'center'     => 'align-center',
+						'flex-end'   => 'align-right',
 					),
 				),
 
@@ -376,7 +378,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				);
 			}
-			
+
 			$_configs = array_merge( $_configs, $new_configs );
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, 'footer' ) );
