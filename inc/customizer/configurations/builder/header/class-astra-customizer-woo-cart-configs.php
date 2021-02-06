@@ -143,6 +143,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'control'     => 'ast-slider',
+				'suffix'      => 'px',
 				'priority'    => 47,
 				'input_attrs' => array(
 					'min'  => 0,

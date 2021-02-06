@@ -471,6 +471,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'parent'      => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 						'section'     => 'section-transparent-header',
 						'control'     => 'ast-slider',
+						'suffix'      => 'px',
 						'transport'   => 'postMessage',
 						'priority'    => 16,
 						'title'       => __( 'Border Radius', 'astra' ),

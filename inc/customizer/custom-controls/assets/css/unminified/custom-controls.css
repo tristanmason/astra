@@ -1447,7 +1447,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-slider .slider-control-label {
-  cursor: default;  
+  cursor: default;
 }
 
 /**
@@ -1547,6 +1547,7 @@ input[type="text"].select2-search__field {
   font-weight: 600;
   line-height: normal;
   letter-spacing: 1px;
+  align-self: auto;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1564,6 +1565,7 @@ input[type="text"].select2-search__field {
   border-radius: 2px 0 0 2px;
   box-shadow: none;
 }
+
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
