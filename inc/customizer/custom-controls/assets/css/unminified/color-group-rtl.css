@@ -54,3 +54,8 @@
   top: 7px;
   cursor: pointer;
 }
+
+#customize-control-astra-settings-transparent-toggle-colors .ast-color-group-reset,
+#customize-control-astra-settings-transparent-header-html-colors-group .ast-color-group-reset {
+  left: 122px;
+}
