@@ -143,20 +143,20 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Style
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-				'default'   => astra_get_option( 'header-account-login-style' ),
-				'type'      => 'control',
-				'control'   => 'ast-selector',
-				'section'   => $_section,
-				'priority'  => 3,
-				'title'     => __( 'Profile Type', 'astra' ),
-				'choices'   => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+				'default'    => astra_get_option( 'header-account-login-style' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'priority'   => 3,
+				'title'      => __( 'Profile Type', 'astra' ),
+				'choices'    => array(
 					'icon'   => __( 'Icon', 'astra' ),
 					'avatar' => __( 'Avatar', 'astra' ),
 					'text'   => __( 'Text', 'astra' ),
 				),
-				'transport' => 'postMessage',
-				'partial'   => array(
+				'transport'  => 'postMessage',
+				'partial'    => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
@@ -227,20 +227,20 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Style
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-				'default'   => astra_get_option( 'header-account-logout-style' ),
-				'type'      => 'control',
-				'control'   => 'ast-selector',
-				'section'   => $_section,
-				'title'     => __( 'Profile Type', 'astra' ),
-				'priority'  => 201,
-				'choices'   => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+				'default'    => astra_get_option( 'header-account-logout-style' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'title'      => __( 'Profile Type', 'astra' ),
+				'priority'   => 201,
+				'choices'    => array(
 					'none' => __( 'None', 'astra' ),
 					'icon' => __( 'Icon', 'astra' ),
 					'text' => __( 'Text', 'astra' ),
 				),
-				'transport' => 'postMessage',
-				'partial'   => array(
+				'transport'  => 'postMessage',
+				'partial'    => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),

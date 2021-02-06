@@ -93,24 +93,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Footer Menu Layout.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-layout]',
-					'default'   => astra_get_option( 'footer-menu-layout' ),
-					'section'   => $_section,
-					'priority'  => 20,
-					'title'     => __( 'Layout', 'astra' ),
-					'type'      => 'control',
-					'control'   => 'ast-selector',
-					'transport' => 'postMessage',
-					'partial'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[footer-menu-layout]',
+					'default'    => astra_get_option( 'footer-menu-layout' ),
+					'section'    => $_section,
+					'priority'   => 20,
+					'title'      => __( 'Layout', 'astra' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'transport'  => 'postMessage',
+					'partial'    => array(
 						'selector'            => '.footer-widget-area[data-section="section-footer-menu"] nav',
 						'container_inclusive' => true,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_menu' ),
 					),
-					'choices'   => array(
+					'choices'    => array(
 						'horizontal' => __( 'Inline', 'astra' ),
 						'vertical'   => __( 'Stack', 'astra' ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => true,
 					'display'    => 'text',
 				),
