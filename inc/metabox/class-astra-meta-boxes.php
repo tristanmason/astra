@@ -113,33 +113,33 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-hfb-above-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-main-header-display' => array(
+					'ast-main-header-display'      => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'ast-hfb-below-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-sml-layout'       => array(
+					'footer-sml-layout'            => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-adv-display'      => array(
+					'footer-adv-display'           => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-post-title'         => array(
+					'site-post-title'              => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-sidebar-layout'     => array(
+					'site-sidebar-layout'          => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-layout'     => array(
+					'site-content-layout'          => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img'        => array(
+					'ast-featured-img'             => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-breadcrumbs-content' => array(
+					'ast-breadcrumbs-content'      => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)

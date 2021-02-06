@@ -657,8 +657,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return string $default_fields Updated custom field definitions.
 		 */
 		public function register_builder_fields( $default_fields ) {
-			$disable_fields   = array();
-			$show_meta_field  = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$disable_fields  = array();
+			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
 			/**
 			 * Main Header.
 			 */
