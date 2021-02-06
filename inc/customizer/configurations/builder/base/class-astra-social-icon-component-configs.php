@@ -417,10 +417,10 @@ class Astra_Social_Icon_Component_Configs {
 					'title'     => __( 'Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
-					'choices'   => array(                       
+					'choices'   => array(
 						'left'   => 'align-left',
-						'center' => 'align-center', 
-						'right'  => 'align-right',  
+						'center' => 'align-center',
+						'right'  => 'align-right',
 					),
 				);
 			}

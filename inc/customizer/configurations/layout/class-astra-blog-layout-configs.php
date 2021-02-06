@@ -82,10 +82,9 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 							'operator' => '===',
 							'value'    => 'custom',
 						),
-
 					),
 					'title'       => __( 'Custom Width', 'astra' ),
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,

@@ -315,6 +315,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'value'    => true,
 						),
 					),
+					'suffix'            => 'px',
 					'priority'          => 30.4,
 					'title'             => __( 'Logo Width', 'astra' ),
 					'input_attrs'       => array(

@@ -93,24 +93,26 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Footer Menu Layout.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-layout]',
-					'default'   => astra_get_option( 'footer-menu-layout' ),
-					'section'   => $_section,
-					'priority'  => 20,
-					'title'     => __( 'Layout', 'astra' ),
-					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
-					'transport' => 'postMessage',
-					'partial'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[footer-menu-layout]',
+					'default'    => astra_get_option( 'footer-menu-layout' ),
+					'section'    => $_section,
+					'priority'   => 20,
+					'title'      => __( 'Layout', 'astra' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'transport'  => 'postMessage',
+					'partial'    => array(
 						'selector'            => '.footer-widget-area[data-section="section-footer-menu"] nav',
 						'container_inclusive' => true,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_menu' ),
 					),
-					'choices'   => array(
+					'choices'    => array(
 						'horizontal' => __( 'Inline', 'astra' ),
 						'vertical'   => __( 'Stack', 'astra' ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'responsive' => true,
+					'display'    => 'text',
 				),
 
 				/**
@@ -126,10 +128,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
-					'choices'   => array(                       
-						'flex-start' => 'align-left', 
-						'center'     => 'align-center', 
-						'flex-end'   => 'align-right',   
+					'choices'   => array(
+						'flex-start' => 'align-left',
+						'center'     => 'align-center',
+						'flex-end'   => 'align-right',
 					),
 				),
 
@@ -376,7 +378,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				);
 			}
-			
+
 			$_configs = array_merge( $_configs, $new_configs );
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, 'footer' ) );
