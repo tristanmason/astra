@@ -110,7 +110,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'     => $_section,
 				'title'       => __( 'Icon Size', 'astra' ),
 				'priority'    => 20,
-				'suffix'      => '',
+				'suffix'      => 'px',
 				'transport'   => 'postMessage',
 				'input_attrs' => array(
 					'min'  => 0,
@@ -269,7 +269,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'     => $_section,
 				'title'       => __( 'Border Radius', 'astra' ),
 				'priority'    => 70,
-				'suffix'      => '',
+				'suffix'      => 'px',
 				'transport'   => 'postMessage',
 				'input_attrs' => array(
 					'min'  => 0,
@@ -314,6 +314,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'     => $_section,
 				'type'        => 'sub-control',
 				'priority'    => 23,
+				'suffix'      => 'px',
 				'title'       => __( 'Size', 'astra' ),
 				'control'     => 'ast-slider',
 				'transport'   => 'postMessage',

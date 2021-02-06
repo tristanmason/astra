@@ -361,6 +361,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'step' => 1,
 					'max'  => 100,
 				),
+				'suffix'            => 'px',
 				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
