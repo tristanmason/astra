@@ -689,6 +689,16 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				'switch_on' => 'disabled',
 				'type'      => 'switch',
 			);
+			/**
+			 * Mobile Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-mobile-header-display',
+				'id'        => 'ast-hfb-mobile-header-display',
+				'label'     => esc_html__( 'Disable Mobile Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
 			if ( $show_meta_field ) {
 				$disable_fields[] = array(
 					'attribute' => 'site-post-title',
