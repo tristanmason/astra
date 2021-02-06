@@ -9,8 +9,8 @@ export const colorGroupControl = wp.customize.astraControl.extend( {
 		'use strict';
 		let control = this;
 		jQuery(document).mouseup(function(e) {
-			var container = jQuery(control.container);
-			let colorWrap = container.find('.astra-color-picker-wrap'),
+			let container = jQuery(control.container),
+				colorWrap = container.find('.astra-color-picker-wrap'),
 				resetBtnWrap = container.find('.ast-color-btn-reset-wrap');
 			
 			// If the target of the click isn't the container nor a descendant of the container.

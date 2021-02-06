@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-const {__} = wp.i18n;
+import { __ } from '@wordpress/i18n';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
-const {Tooltip} = wp.components;
-import {Dashicon} from '@wordpress/components';
+import {Dashicon, Tooltip} from '@wordpress/components';
 import {useState} from 'react';
 
 const ColorGroupComponent = props => {
@@ -26,11 +25,11 @@ const ColorGroupComponent = props => {
 		tooltips[value.name] = value.title;
 	});
 
-	const[ state , setState ] = useState(colorGroup);
+	const[ colorGroupState , setState ] = useState(colorGroup);
 
 	const handleChangeComplete = ( key, color='' ) => {
 		let updateState = {
-			...state
+			...colorGroupState
 		};
 
 		let value;
@@ -57,9 +56,9 @@ const ColorGroupComponent = props => {
 		htmlHelp = <span className="ast-description">{help}</span>;
 	}	
 
-	let optionsHtml = Object.entries( state ).map( ( [ key,value ] ) => {
+	let optionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 		let tooltip = tooltips[key] || __('Color', 'astra');
-		let html = (
+		return (
 			<Tooltip key={ key } text={ tooltip }>
 				<div className="color-group-item" id={ key }>
 					<AstraColorPickerControl color={value ? value : ''}
@@ -68,17 +67,15 @@ const ColorGroupComponent = props => {
 					allowGradient={false}
 					allowImage={false}/>
 				</div>
-			</Tooltip> 
+			</Tooltip>
 		);
-
-		return html;
 	});
 
 	const renderResetButton = () => {
 		let resetFlag = true;
 
-		for ( let index in state ) {
-			if ( JSON.stringify( state[index] ) !== JSON.stringify( colorGroupDefaults[index] ) ) {
+		for ( let index in colorGroupState ) {
+			if ( JSON.stringify( colorGroupState[index] ) !== JSON.stringify( colorGroupDefaults[index] ) ) {
 				resetFlag = false;
 			}
 		}
@@ -89,9 +86,9 @@ const ColorGroupComponent = props => {
 				disabled={ resetFlag } onClick={ e => {
 				e.preventDefault();
 				let resetState = {
-					...state
+					...colorGroupState
 				};
-				for ( let index in state ) {
+				for ( let index in colorGroupState ) {
 					resetState[index] = colorGroupDefaults[index];
 					wp.customize.control( index ).setting.set(colorGroupDefaults[index]);
 					setState(resetState);
@@ -109,9 +106,7 @@ const ColorGroupComponent = props => {
 				{htmlHelp}
 			</label>
 		</div>
-		
 			{ renderResetButton() }
-		
 		<div className="ast-field-color-group-wrap">
 			{optionsHtml}
 		</div>
