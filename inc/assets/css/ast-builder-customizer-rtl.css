@@ -298,6 +298,7 @@
 .ahfb-builder-item:hover, .ahfb-builder-item.active-builder-item {
     background: #e3e3e3;
     color: #111111;
+	border-top-right-radius: 0;
 }
 
 .ahfb-builder-area .ahfb-builder-drop:nth-last-child(2) .ahfb-builder-item:last-child {
@@ -1901,7 +1902,7 @@ button.components-button.ahfb-sorter-item-expand {
 	opacity: 0;
 	visibility: hidden;
 	transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;
-	top: 0px;
+	top: 1px;
 	right: 0px;
 	height: 15px;
 	background-color: #e3e3e3;
@@ -4834,11 +4835,13 @@ i.fipicon-angle-left:before {
 	pointer-events: none;
 	display: inline-table;
 	position: absolute;
-	top: -33px;
 	right: -20px;
-	padding: 5px 10px 10px 15px;
 	font-size: 12px;
 	line-height: 1;
 	background: #424242;
 	color: #fff;
+	border-radius: 3px;
+    font-family: system-ui;
+    padding: 5px 10px;
+    top: -26px;
 }

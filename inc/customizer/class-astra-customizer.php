@@ -92,15 +92,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public static $group_configs = array();
 
 		/**
-		 * All groups parent-child relation array data.
-		 *
-		 * @access Public
-		 * @since x.x.x
-		 * @var Array
-		 */
-		public static $color_group_configs = array();
-
-		/**
 		 * Customizer controls data.
 		 *
 		 * @access Public
@@ -134,7 +125,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				add_action( 'customize_register', array( $this, 'prepare_customizer_javascript_configs' ) );
 				add_action( 'customize_register', array( $this, 'astra_pro_upgrade_configurations' ), 2 );
 				add_action( 'customize_register', array( $this, 'prepare_group_configs' ), 9 );
-				add_action( 'customize_register', array( $this, 'prepare_color_group_configs' ), 8 );
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
@@ -593,6 +583,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
 				'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
+				'title'             => astra_get_prop( $config, 'title' ),
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
 				'sanitize_callback' => $sanitize_callback,
@@ -814,35 +805,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
-		 * Prepare Color Group configs to visible sub-controls.
+		 * Prepare context.
 		 *
-		 * @since x.x.x
-		 * @param object $wp_customize customizer object.
+		 * @return mixed|void
 		 */
-		public function prepare_color_group_configs( $wp_customize ) {
-
-			$configurations = apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
-			$defaults       = $this->get_astra_customizer_configuration_defaults();
-
-			foreach ( $configurations as $key => $configuration ) {
-				$config = wp_parse_args( $configuration, $defaults );
-				if ( 'sub-control' === $config['type'] ) {
-					unset( $config['type'] );
-					$parent = astra_get_prop( $config, 'parent' );
-
-					if ( empty( self::$color_group_configs[ $parent ] ) ) {
-						self::$color_group_configs[ $parent ]   = array();
-						self::$color_group_configs[ $parent ][] = $config;
-					}
-				}
-			}
-		}
-
-			/**
-			 * Prepare context.
-			 *
-			 * @return mixed|void
-			 */
 		public static function get_contexts() {
 
 			self::set_default_context();
@@ -1204,11 +1170,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					</ul>
 			</div>';
 
-			$color_group_tmpl = '<div class="ast-field-color-group-modal">
-					<ul class="ast-fields-wrap">
-					</ul>
-			</div>';
-
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
@@ -1216,7 +1177,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
-							'settings'               => array(
+							'settings'         => array(
 								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
@@ -1237,10 +1198,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl'       => $tmpl,
-							'color_group_modal_tmpl' => $color_group_tmpl,
-							'is_pro'                 => defined( 'ASTRA_EXT_VER' ),
-							'upgrade_link'           => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'group_modal_tmpl' => $tmpl,
+							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
+							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
