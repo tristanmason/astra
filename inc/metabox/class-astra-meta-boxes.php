@@ -272,22 +272,28 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<div class="disable-section-meta">
 					<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
 
+					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) ) { ?>
 					<div class="ast-hfb-above-header-display-option-wrap">
 						<input type="checkbox" id="ast-hfb-above-header-display" name="ast-hfb-above-header-display" value="disabled" <?php checked( $above_header, 'disabled' ); ?> />
 						<label for="ast-hfb-above-header-display"><?php esc_html_e( 'Disable Above Header', 'astra-addon' ); ?></label> <br />
 					</div>
+					<?php } ?>
 
+					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'primary', 'header', 'desktop' ) ) { ?>
 					<div class="ast-main-header-display-option-wrap">
 						<label for="ast-main-header-display">
 							<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
 							<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
 						</label>
 					</div>
+					<?php } ?>
 
+					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) ) { ?>
 					<div class="ast-hfb-below-header-display-option-wrap">
 						<input type="checkbox" id="ast-hfb-below-header-display" name="ast-hfb-below-header-display" value="disabled" <?php checked( $below_header, 'disabled' ); ?> />
 						<label for="ast-hfb-below-header-display"><?php esc_html_e( 'Disable Below Header', 'astra-addon' ); ?></label> <br />
 					</div>
+					<?php } ?>
 
 					<?php do_action( 'astra_meta_box_markup_disable_sections_after_primary_header', $meta ); ?>
 					<?php if ( $show_meta_field ) { ?>
