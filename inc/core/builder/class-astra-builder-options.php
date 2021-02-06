@@ -229,9 +229,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Logo defaults.
 	 */
 	$defaults['ast-header-responsive-logo-width'] = array(
-		'desktop' => 150,
-		'tablet'  => 120,
-		'mobile'  => 100,
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 
 	/**
