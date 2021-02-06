@@ -146,7 +146,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
 				'default'   => astra_get_option( 'header-account-login-style' ),
 				'type'      => 'control',
-				'control'   => 'select',
+				'control'   => 'ast-selector',
 				'section'   => $_section,
 				'priority'  => 3,
 				'title'     => __( 'Profile Type', 'astra' ),
@@ -160,6 +160,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
+				'responsive' => false,
+				'display'    => 'text',
 			),
 
 			/**
@@ -228,7 +230,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 				'default'   => astra_get_option( 'header-account-logout-style' ),
 				'type'      => 'control',
-				'control'   => 'select',
+				'control'   => 'ast-selector',
 				'section'   => $_section,
 				'title'     => __( 'Profile Type', 'astra' ),
 				'priority'  => 201,
@@ -242,6 +244,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
+				'responsive' => false,
+				'display'    => 'text',
 			),
 
 			// Option: Logged out options preview.
