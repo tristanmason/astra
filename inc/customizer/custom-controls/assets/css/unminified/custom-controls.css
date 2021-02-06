@@ -81,6 +81,10 @@
     display: flex;
     flex: 1 1 0;
 }
+.customize-control-ast-selector .ast-responsive-btns {
+    position: absolute;
+    right: 0;
+}
 
 #customize-controls .customize-control-notifications-container {
   margin: 0;
