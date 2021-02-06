@@ -1497,6 +1497,10 @@ input[type="text"].select2-search__field {
   position: inherit;
 }
 
+.customize-control-ast-responsive-slider select, .customize-control.customize-control-select select {
+    color: #32373c;
+}
+
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: none;
 }
