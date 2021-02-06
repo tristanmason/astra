@@ -109,12 +109,11 @@
     display: -webkit-box;
     display: flex;
     margin-top: -15px;
-    margin-left: -24px;
-    margin-right: -24px;
+    margin-left: -5px;
+    margin-right: -5px;
     padding: 0;
-    margin-bottom: 0;
     border: 1px solid #dddddd;
-    background: #ffffff;
+    background: #f3f4f7;
     margin-bottom: 8px;
 }
 
@@ -132,15 +131,24 @@
     letter-spacing: 1px;
     font-style: normal;
     text-transform: uppercase;
-    height: 40px;
-    margin: 0;
+    margin: 10px;
     box-sizing: content-box;
-    padding: 0 10px;
+    padding: 10px;
     cursor: pointer;
-    border: 0;
+	border: 0;
+	color: #6d757d;
     background: transparent;
-    border-top: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 0;
+}
+
+.ahfb-compontent-tabs-button span.dashicons {
+    display: block;
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    align-self: center;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(:first-child) {
@@ -153,13 +161,14 @@
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(.nav-tab-active):hover {
     background: #ffffff;
-    color: #0072aa;
+	color: #0073aa;
+    border-color: #dddddd;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active {
-    border-top-color: #0071a1;
+    border-color: #dddddd;
     color: #0073aa;
-    background-image: linear-gradient(180deg, #f3f5f6, #ffffff);
+    background: #ffffff;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active:focus {
@@ -1353,14 +1362,15 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 
 .ahfb-row-layout-control .ahfb-responsive-controls-content .components-button svg, .ahfb-icon-set-control .ahfb-radio-container-control .components-button svg {
-    width: 73px;
-    height: 49px;
+    width: 80px;
+    height: 54px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg,
 #customize-control-astra-settings-header-trigger-icon svg {
-    width: 52px;
-    height: 50px;
+	width: 52px;
+	height: 50px;
+	margin-right: 10px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button-group {
@@ -1521,7 +1531,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 .ahfb-social-add-area .ahfb-sorter-add-item {
     height: 30px;
     line-height: normal;
-    margin-top: 2px;
     padding: 0 12px 2px;
 }
 

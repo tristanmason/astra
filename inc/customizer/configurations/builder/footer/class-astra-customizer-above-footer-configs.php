@@ -119,20 +119,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Layout Width
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-layout-width]',
-					'default'   => astra_get_option( 'hba-footer-layout-width' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 25,
-					'title'     => __( 'Width', 'astra' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hba-footer-layout-width]',
+					'default'    => astra_get_option( 'hba-footer-layout-width' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 25,
+					'title'      => __( 'Width', 'astra' ),
+					'choices'    => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
 					),
-					'suffix'    => '',
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
+					'suffix'     => '',
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				// Section: Above Footer Height.
@@ -143,6 +145,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'     => astra_get_option( 'hba-footer-height' ),
 					'priority'    => 30,
 					'title'       => __( 'Height', 'astra' ),
+					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
@@ -157,27 +160,29 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Vertical Alignment
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-vertical-alignment]',
-					'default'   => astra_get_option( 'hba-footer-vertical-alignment' ),
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => $_section,
-					'priority'  => 34,
-					'title'     => __( 'Vertical Alignment', 'astra' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hba-footer-vertical-alignment]',
+					'default'    => astra_get_option( 'hba-footer-vertical-alignment' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 34,
+					'title'      => __( 'Vertical Alignment', 'astra' ),
+					'choices'    => array(
 						'flex-start' => __( 'Top', 'astra' ),
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'display'    => 'text',
+					'responsive' => false,
 				),
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[hba-stack]',
 					'default'   => astra_get_option( 'hba-stack' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Inner Elements Layout', 'astra' ),
@@ -192,6 +197,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'above_footer' ),
 					),
+					'display'   => 'text',
 				),
 
 				// Section: Above Footer Border.
@@ -202,6 +208,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hba-footer-separator' ),
 					'title'       => __( 'Top Border', 'astra' ),
+					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'input_attrs' => array(
@@ -267,6 +274,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'hba-inner-spacing' ),
 					'title'             => __( 'Inner Column Spacing', 'astra' ),
+					'suffix'            => 'px',
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

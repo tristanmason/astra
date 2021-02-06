@@ -1,3 +1,87 @@
+.customize-control-ast-selector .ast-alignment-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.customize-control-ast-selector .ast-alignment-inner-wrap,
+.customize-control-ast-selector .ast-selector-responsive-wrap {
+    display: none;
+}
+
+.customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active {
+    flex: 1 1 auto;
+    display: flex;
+}
+.customize-control-ast-selector .components-button.has-icon {
+    padding: 6px;
+    min-width: 36px;
+    justify-content: center;
+}
+.ast-alignment-inner-wrap .components-button {
+    white-space: nowrap;
+    background: rgba(255,255,255,0.6);
+    color: rgba(0, 0, 0, 0.966);
+    text-decoration: none;
+    text-shadow: none;
+    outline: unset;
+    box-shadow: inset 0px 0px 0px 1px #ddd;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    border-radius: unset;
+}
+.ast-alignment-inner-wrap.active .components-button.is-primary {
+    color: #ffffff;
+    background: #007cba;
+    box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
+}
+.customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
+    box-shadow: inset 0px 0px 0px 1px #ddd !important;
+    color: #000 !important;
+    background: #ffffff;
+}
+
+.ast-alignment-inner-wrap:not(:first-child) {
+    margin-left: -1px;
+}
+.customize-control-ast-selector .components-button .ahfb-icon-set svg {
+    width: 16px;
+    height: 16px;
+    fill: black;
+}
+.customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
+.customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
+.customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
+    fill: #ffffff;
+}
+
+.customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {
+    border-radius: 2px 0px 0px 2px;
+}
+.customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
+    border-radius: 0px 2px 2px 0px;
+}
+.customize-control-ast-selector .ast-alignment-wrapper .active.ast-alignment-inner-wrap:first-child {
+    border-right: none;
+}
+.customize-control-ast-selector .ast-alignment-wrapper .active.ast-alignment-inner-wrap:last-child {
+    border-left: none;
+}
+
+.customize-control-ast-selector .ast-alignment-inner-wrap .components-button,
+.customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
+    border-radius: unset;
+    font-size: 12px;
+    padding: 8px 12px;
+}
+.customize-control-ast-selector .ast-selector-responsive-wrap.active {
+    display: flex;
+    flex: 1 1 0;
+}
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
@@ -238,6 +322,7 @@
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   background-color: #1e8cbe;
 }
+
 
 #customize-control-astra-settings-global-color-palette .ast-color-palette1-wrap > div {
   margin-bottom: 8px;
@@ -489,7 +574,7 @@
 .color-button-wrap {
 	display: inline;
     position: absolute;
-    right: 5px;
+    right: 0;
     top: -4.5px;
 }
 .components-button.astra-background-icon-indicate {
@@ -559,6 +644,9 @@
 }
 .customize-control-ast-color.customize-control {
     margin-top: 32px;
+}
+.customize-control-ast-heading + .customize-control-ast-color {
+    margin-top: 20px;
 }
 .customize-control-ast-color.customize-control > * {
     display: inline;
@@ -670,7 +758,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    right: 46px;
+    right: 42px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button {
@@ -961,6 +1049,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px;
 }
 
 /* Safari Browser specific CSS */
@@ -1059,7 +1148,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -12px;
+  margin: 0 -15px;
 }
 
 .customize-control-ast-heading .customize-control-title {
@@ -1142,9 +1231,16 @@ input[type="text"].select2-search__field {
   height: 100%;
 }
 
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image, .components-button-group.ahfb-radio-container-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
-  width: 73px;
-  height: 49px;
+  width: 80px;
+  height: 54px;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -1567,130 +1663,19 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control-ast-responsive-slider .wrapper {
+.customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
+  display: flex;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .customize-control-ast-responsive-slider input[type=range] {
-  -webkit-appearance: none;
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 5px;
-  padding: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.customize-control-ast-responsive-slider input[type=range]:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.customize-control-ast-responsive-slider input[type=range]:hover, .customize-control-ast-responsive-slider input[type=range]:focus {
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background-color: #3498D9;
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 0;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-moz-range-track {
-  border: inherit;
-  background: transparent;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-track {
-  border: inherit;
-  color: transparent;
-  background: transparent;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-fill-lower, .customize-control-ast-responsive-slider input[type=range]::-ms-fill-upper {
-  background: transparent;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-tooltip {
-  display: none;
-}
-
-.customize-control-ast-responsive-slider .astra_range_value {
-  font-size: 14px;
-  padding: 0 0 0 5px;
-  font-weight: 400;
-  position: relative;
-}
-
-.customize-control-ast-responsive-slider .ast-responsive-slider-reset {
-  color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: -34px;
-  right: 1.5em;
-  display: inline-block;
-  -webkit-transition: color 0.5s ease-in;
-  -moz-transition: color 0.5s ease-in;
-  -ms-transition: color 0.5s ease-in;
-  -o-transition: color 0.5s ease-in;
-  transition: color 0.5s ease-in;
-}
-
-.customize-control-ast-responsive-slider .ast-responsive-slider-reset span {
-  font-size: 13px;
-  line-height: 24px;
-  transition: unset;
-}
-
-.customize-control-ast-responsive-slider .ast-responsive-slider-reset:hover, .customize-control-ast-responsive-slider .ast-responsive-slider-reset:focus {
-  color: red;
-}
-
-.astra_range_value input.ast-responsive-range-value-input {
-  width: 50px;
-  height: 22px;
-  font-size: 12px;
-  padding: 3px;
-}
-
-.astra_range_value .ast-range-unit {
-  margin-left: 5px;
+  position: inherit;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -1699,20 +1684,23 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
   display: flex;
-  justify-content: space-between;
-  margin-right: 0;
-  flex: 0 1;
+}
+
+.customize-control-ast-responsive-slider .components-base-control {
   width: 100%;
+}
+
+.customize-control-ast-responsive-slider .slider-control-label {
+  cursor: default;  
 }
 
 /**
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
-  display: inline-block;
-  float: right;
-  line-height: 1;
-  margin-top: 5px;
+  position: absolute;
+  right: 0;
+  top: 5px;
 }
 
 .ast-responsive-slider-btns > li {
@@ -1734,11 +1722,92 @@ input[type="text"].select2-search__field {
 }
 
 .ast-responsive-slider-btns button[type="button"] > i {
+  cursor: pointer;
   width: 15px;
   height: 15px;
   font-size: 15px;
 }
+.customize-control-ast-responsive-slider .wrapper .components-base-control, .customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active, .customize-control-ast-slider .components-base-control.components-range-control {
+  width: 100%;
+  display: inline-block;
+}
+.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  margin-left: 12px;
+  margin-top: 4px;
+}
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  top: 4px;
+  right: 0;
+}
+.ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
+  color: #006BA1;
+  height: 20px;
+  width: 20px;
+  padding: 4px;
+  box-shadow: inset 0 0 0 1px #007cba;
+}
+.ast-resp-slider-reset-wrap .dashicons-image-rotate {
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+}
 
+.customize-control-ast-slider .components-input-control input.components-input-control__input, .customize-control-ast-responsive-slider .components-input-control input.components-input-control__input {
+  -moz-appearance: textfield;
+}
+.customize-control-ast-slider input.components-input-control__input::-webkit-inner-spin-button,
+.customize-control-ast-slider input.components-input-control__input::-webkit-outer-spin-button,
+.customize-control-ast-responsive-slider input.components-input-control__input::-webkit-inner-spin-button,
+.customize-control-ast-responsive-slider input.components-input-control__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.customize-control-ast-slider .components-input-control__container input.components-input-control__input, .customize-control-ast-responsive-slider .components-input-control__container input.components-input-control__input {
+  display: block;
+  border-radius: 2px 0 0 2px;
+  box-shadow: none;
+  transition: all 0.3s;
+  border: 1px solid #ddd;
+}
+.customize-control-ast-slider input.components-input-control__input:hover,
+.customize-control-ast-slider input.components-input-control__input:focus,
+.customize-control-ast-slider input.components-input-control__input:active,
+.customize-control-ast-responsive-slider input.components-input-control__input:hover,
+.customize-control-ast-responsive-slider input.components-input-control__input:focus,
+.customize-control-ast-responsive-slider input.components-input-control__input:active {
+  border-color: #1e8cbe;
+  border-radius: 2px;
+  outline: none;
+}
+.customize-control-ast-slider .wrapper .ast-range-unit, .customize-control-ast-responsive-slider .ast-range-unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 28px;
+  background: #fff;
+  cursor: default;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color 0.1s ease, font-weight 0.1s ease;
+  padding: 0;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 0 2px 2px 0;
+}
+.customize-control-ast-slider .components-input-control__container div.components-input-control__backdrop, .customize-control-ast-responsive-slider .components-input-control__container div.components-input-control__backdrop {
+  border: none;
+  border-radius: 2px 0 0 2px;
+  box-shadow: none;
+}
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
@@ -1753,7 +1822,14 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-input-item {
-  margin-bottom: 0;
+  margin: 0 2px;
+  -moz-appearance: textfield;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-inner-spin-button,
+.customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
@@ -1770,6 +1846,7 @@ input[type="text"].select2-search__field {
   display: none;
   width: 35px;
   height: 26px;
+  padding: 2px 0;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
@@ -1788,8 +1865,9 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
-  font-size: 15px;
-  margin-top: 1px;
+  font-size: 13px;
+  height: 15px;
+  line-height: 15px;
   vertical-align: middle;
 }
 
@@ -1812,13 +1890,13 @@ input[type="text"].select2-search__field {
   width: 16px;
   text-align: center;
   user-select: none;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit.active {
-  text-decoration: underline;
   opacity: 1;
-  color: #000000;
+  font-weight: 600;
+  color: #0073aa;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
@@ -1836,13 +1914,17 @@ input[type="text"].select2-search__field {
   text-align: center;
   display: block;
   font-size: 12px;
-  padding: 4px 0;
+  padding: 15px 0;
   width: 100%;
   height: 28px;
   border: 1px solid #dddddd;
-  border-right-width: 0;
+  border-radius: 3px;
   box-shadow: none;
-  padding-left: 11px;
+  transition: all 0.3s;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input:hover, .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input:focus, .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input:active {
+  border-color: #1e8cbe;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li .ast-spacing-connected {
@@ -1857,6 +1939,17 @@ input[type="text"].select2-search__field {
   text-transform: uppercase;
   font-size: 10px;
   opacity: .75;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link {
+  order: 2;
+  margin-left: 2px;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .dashicons {
+  padding: 2px 0;
+  font-size: 12px;
+  line-height: 28px;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .ast-spacing-connected {
@@ -1874,7 +1967,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
   width: 35px;
   height: 26px;
-  line-height: 26px;
+  line-height: 28px;
   font-size: 14px;
   border: 1px solid #dddddd;
   background-color: #ffffff;
@@ -1882,11 +1975,14 @@ input[type="text"].select2-search__field {
   border-right-width: 0;
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-wrapper > li:nth-child(2) {
+  margin-left: 0;
+}
+
 .ast-responsive-btns {
   display: inline-block;
-  float: right;
   line-height: 1;
-  margin-top: 6px;
+  margin-left: 10px;
 }
 
 .ast-responsive-btns > li {
@@ -2257,7 +2353,7 @@ input[type="text"].select2-search__field {
   color: #ffffff;
 }
 
-.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+.astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
 
@@ -2282,165 +2378,93 @@ input[type="text"].select2-search__field {
   min-width: auto;
 }
 
+.ast-field-settings-modal .wrapper span.ast-range-unit {
+  padding-bottom: 15px;
+}
 .customize-control-ast-slider .wrapper {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.customize-control-ast-slider input[type=range] {
-  -webkit-appearance: none;
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 5px;
-  padding: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.customize-control-ast-slider .components-range-control {
+  width: 100%;
 }
 
-.customize-control-ast-slider input[type=range]:focus {
-  box-shadow: none;
-  outline: none;
+.customize-control-ast-slider .ast-range-unit, .customize-control-ast-responsive-slider .wrapper .ast-range-unit {
+  padding: 0 0 10px 5px;
+  font-size: 11px;
+  line-height: 1em;
+  font-weight: 500;
+  align-self: center;
+  text-transform: uppercase;
 }
 
-.customize-control-ast-slider input[type=range]:hover, .customize-control-ast-slider input[type=range]:focus {
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
-.customize-control-ast-slider input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background-color: #3498D9;
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-slider input[type=range]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-slider input[type=range]::-ms-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 0;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-slider input[type=range]::-moz-range-track {
-  border: inherit;
-  background: transparent;
-}
-
-.customize-control-ast-slider input[type=range]::-ms-track {
-  border: inherit;
-  color: transparent;
-  background: transparent;
-}
-
-.customize-control-ast-slider input[type=range]::-ms-fill-lower, .customize-control-ast-slider input[type=range]::-ms-fill-upper {
-  background: transparent;
-}
-
-.customize-control-ast-slider input[type=range]::-ms-tooltip {
-  display: none;
-}
-
-.customize-control-ast-slider .astra_range_value {
-  font-size: 14px;
-  padding: 0 0 0 5px;
-  font-weight: 400;
-  position: relative;
-}
-
-.customize-control-ast-slider .ast-slider-reset {
-  color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: -28px;
-  right: 0;
-  /*float: right;*/
-  display: inline-block;
-  -webkit-transition: color 0.5s ease-in;
-  -moz-transition: color 0.5s ease-in;
-  -ms-transition: color 0.5s ease-in;
-  -o-transition: color 0.5s ease-in;
-  transition: color 0.5s ease-in;
-}
-
-.customize-control-ast-slider .ast-slider-reset span {
-  font-size: 16px;
-  line-height: 22px;
-  transition: unset;
-}
-
-.customize-control-ast-slider .ast-slider-reset:hover, .customize-control-ast-slider .ast-slider-reset:focus {
-  color: red;
-}
-
-.astra_range_value input.ast-range-value-input {
-  width: 50px;
-  height: 22px;
-  font-size: 12px;
-  padding: 3px;
-}
-
-.astra_range_value .ast-range-unit {
-  margin-left: 5px;
-}
-
-.ast-field-settings-modal .customize-control-ast-slider .ast-slider-reset {
-  right: -18px;
-  top: -32px;
-}
-
-.customize-control-ast-sortable ul.ui-sortable {
+.customize-control-ast-sortable .sortable {
   cursor: default;
 }
 
-.customize-control-ast-sortable ul.ui-sortable .dashicons-visibility {
+.customize-control-ast-sortable .sortable .dashicons-visibility {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li {
-  padding: 5px 10px;
-  border: 1px solid #333;
-  background: #fff;
+.customize-control-ast-sortable .sortable div {
+  padding: 0 0 0 12px;
+  border: 1px solid #dddddd;
+  color: #556068;
+  background: #ffffff;
   cursor: move;
+  line-height: 38px;
+  margin: 0 0 10px;
+  border-radius: 3px;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.dashicons-menu {
+.customize-control-ast-sortable .sortable div .dashicons.visibility {
   float: right;
+  position: relative;
+  font-size: 18px;
+  padding: 9px 12px;
+  line-height: 20px;
+  border-left: 1px solid #ddd;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.visibility {
-  margin-right: 10px;
+.customize-control-ast-sortable .sortable div.invisible {
+  opacity: 0.6;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible {
-  color: #aaa;
-  border: 1px dashed #aaa;
+.customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
+  opacity: 1;
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 2px;
+  top: 18px;
+  left: 12px;
+  background: #656565;
+  border-radius: 5px;
+  transform: rotate(-45deg);
+  box-shadow: 0px 0px 0px 1px #fff;
+  transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible .dashicons.visibility {
-  color: #aaa;
+.customize-control-ast-sortable .sortable div:hover {
+  opacity: 0.8;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
+  margin: 12px 0;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
+  margin: 0;
+  order: 2;
+}
+
+.customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
+  margin: 20px 0;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
+  display: flex;
+  flex: 1 1 auto;
 }
 
 .select2-container {

@@ -67,25 +67,13 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			/**
 			 * Option: Search Color.
 			 */
+			
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-search-icon-color-parent]',
-				'default'   => astra_get_option( 'header-search-icon-color-parent' ),
-				'type'      => 'control',
-				'control'   => 'ast-settings-group',
-				'title'     => __( 'Icon Color', 'astra' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'priority'  => 8,
-				'context'   => Astra_Builder_Helper::$design_tab,
-			),
-
-			array(
-				'name'       => 'header-search-icon-color',
+				'name'       => ASTRA_THEME_SETTINGS . '[header-search-icon-color]',
 				'default'    => astra_get_option( 'header-search-icon-color' ),
-				'type'       => 'sub-control',
-				'parent'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-parent]',
+				'type'       => 'control',
 				'section'    => $_section,
-				'priority'   => 1,
+				'priority'   => 8,
 				'transport'  => 'postMessage',
 				'control'    => 'ast-responsive-color',
 				'responsive' => true,
@@ -104,6 +92,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'transport'         => 'postMessage',
 				'default'           => $defaults['header-search-icon-space'],
 				'title'             => __( 'Icon Size', 'astra' ),
+				'suffix'            => 'px',
 				'type'              => 'control',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

@@ -366,13 +366,12 @@ const ResponsiveBackground = props => {
 	</div>;
 
 	return <>
-
 		<label>
 			{labelHtml}
 			{descriptionHtml}
 		</label>
+		{responsiveHtml}
 		<div className="customize-control-content">
-			{responsiveHtml}
 			{inputHtml}
 		</div>
 	</>;

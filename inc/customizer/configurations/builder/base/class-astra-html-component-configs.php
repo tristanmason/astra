@@ -211,17 +211,17 @@ class Astra_Html_Component_Configs {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-html-' . $index . '-alignment' ),
 					'type'      => 'control',
-					'control'   => 'ast-responsive-select',
+					'control'   => 'ast-selector',
 					'section'   => $_section,
 					'priority'  => 6,
 					'title'     => __( 'Alignment', 'astra' ),
-					'choices'   => array(
-						'left'   => __( 'Left', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'center' => __( 'Center', 'astra' ),
-					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'choices'   => array(                       
+						'left'   => 'align-left',
+						'center' => 'align-center', 
+						'right'  => 'align-right',  
+					),
 				);
 			}
 

@@ -91,7 +91,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
 					'default'   => astra_get_option( 'header-mobile-menu-submenu-item-border' ),
 					'type'      => 'control',
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
 					'priority'  => 35,
 					'title'     => __( 'Item Divider', 'astra' ),
@@ -136,7 +136,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => true,
 						),
 					),
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
@@ -402,7 +402,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'           => '',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'control'           => 'ast-slider',
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
