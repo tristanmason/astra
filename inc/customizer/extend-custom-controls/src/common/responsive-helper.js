@@ -175,9 +175,9 @@ export function astraGetResponsiveSliderJs ( control ) {
         jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
     });
 
-    control.container.find( '.ast-responsive-slider-btns button' ).on( 'click', function( event ) {
+    control.container.find( '.ast-responsive-slider-btns button i' ).on( 'click', function( event ) {
         event.preventDefault();
-        let device = jQuery(this).attr('data-device');
+        let device = jQuery(this).parent('button').attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {

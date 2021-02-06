@@ -1,4 +1,5 @@
 const {Dashicon, Button} = wp.components;
+const {__} = wp.i18n;
 
 
 const ItemComponent = props => {
@@ -67,12 +68,66 @@ const ItemComponent = props => {
 				<span className="ahfb-builder-item-text">
 					{undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ''}
 				</span>
+		{
+			astra.customizer.is_pro &&
+			<div className="ahfb-slide-up">
+				{ choices[props.item]['clone'] && <span data-tooltip={__('Clone element', 'astra')}
+					  onClick={e => {
+						  e.stopPropagation();
+
+						  // Skip clone if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-clone-in-progress') ) {
+							  return;
+						  }
+
+						  props.cloneItem(props.item);
+					  }} className="dashicons dashicons-admin-page">
+				</span> }
+				<span data-tooltip={__('Reset element', 'astra')}
+					  onClick={e => {
+						  e.stopPropagation();
+
+						  // Skip Reset if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-reset-in-progress') ) {
+							  return;
+						  }
+
+						  var event = new CustomEvent('AstraBuilderResetSectionControls', {
+							  'detail': {
+							  	'section_id': choices[props.item].section
+							  }
+						  });
+						  document.dispatchEvent(event);
+					  }}
+					  className="dashicons dashicons-image-rotate">
+				</span>
+
+				{ choices[props.item]['delete'] &&
+
+				<span data-tooltip={ __('Delete element from customizer', 'astra') }
+					  onClick={e => {
+
+						  // Skip Delete if already is in progress.
+						  if( sessionStorage.getItem('astra-builder-eradicate-in-progress') ) {
+							  return;
+						  }
+
+						  e.stopPropagation();
+						  deleteItem(props);
+						  props.removeItem(props.item);
+					  }}
+					  className="dashicons dashicons-trash">
+				</span>
+
+				}
+			</div>
+		}
 
 		<Button className="ahfb-builder-item-icon" onClick={e => {
 			e.stopPropagation();
 			props.removeItem(props.item);
 		}}>
-			<Dashicon icon="no-alt"/>
+			<Dashicon data-tooltip={ __('Remove element from grid', 'astra') } icon="no-alt"/>
 		</Button>
 	</div>;
 };
