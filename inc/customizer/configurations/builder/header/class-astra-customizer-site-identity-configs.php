@@ -137,7 +137,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 5,
 					'default'   => astra_get_option( 'header-color-site-title' ),
 					'transport' => 'postMessage',
-					'title'     => __( 'Text Color', 'astra' ),
+					'title'     => __( 'Normal', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -151,7 +151,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 10,
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
-					'title'     => __( 'Hover Color', 'astra' ),
+					'title'     => __( 'Hover', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 

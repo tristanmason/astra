@@ -171,9 +171,7 @@
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-.customize-control-ast-color.customize-control {
-    margin-top: 32px;
-}
+.customize-control-ast-color.customize-control,
 .customize-control-ast-heading + .customize-control-ast-color {
     margin-top: 20px;
 }
