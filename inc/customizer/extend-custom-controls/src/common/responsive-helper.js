@@ -226,9 +226,9 @@ export function astraGetResponsiveSpacingJs ( control ) {
 }
 export function astraGetResponsiveImageJs ( control ) {
     'use strict';
-console.log('ok');
+
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
-    console.log(device);
+
     jQuery( '.customize-control-ast-responsive-image .responsive-image-container' ).removeClass( 'active' );
 
     jQuery( '.customize-control-ast-responsive-image .responsive-image-container.' + device ).addClass( 'active' );

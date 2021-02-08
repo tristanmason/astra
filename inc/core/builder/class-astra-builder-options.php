@@ -234,14 +234,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 100,
 	);
 	$defaults['ast-header-responsive-logo'] = array(
-		'desktop' => array(
-			'image'      => '',
-			'media'      => '',
-		),
-		'mobile'  => array(
-			'image'      => '',
-			'media'      => '',
-		),
+		'desktop' => '',
+		'mobile'  => '',
 	);
 
 	/**

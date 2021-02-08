@@ -198,14 +198,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'ast-header-retina-logo'               => '',
 					'ast-header-logo-width'                => '',
 					'ast-header-responsive-logo'     => array(
-						'desktop'       => array(
-							'image'    => '',
-							'media'  => '',
-						),
-						'mobile'       => array(
-							'image'    => '',
-							'media'  => '',
-						),
+						'desktop' => '',
+						'mobile'  => '',
 					),
 					'ast-header-responsive-logo-width'     => array(
 						'desktop' => '',

@@ -9,21 +9,14 @@ const ResponsiveImage = props => {
     let prop_value = props.control.setting.get();
 
 	const [state, setState] = useState( prop_value );
-	console.log(state);
-	const updateValues = (obj) => {
-		setState( obj )
-		// setState(prevState => ({
-		// 	...prevState,
-		// 	obj
-		// }));
-		// console.log(obj);
-		props.control.setting.set(obj);
+
+	const updateValues = (updateState) => {
+		setState(updateState);
+		props.control.setting.set(updateState);
 	};
-// console.log(props.control.params);
+
     const {
-		// defaultValue,
 		label,
-		// description
     } = props.control.params;
 
     let labelHtml = null;
@@ -63,54 +56,47 @@ const ResponsiveImage = props => {
 		</div>
 	</div>;
 
-	const onSelectImage = (media, key) => {
-		let obj = {
-			...state.value
-		};
-		let deviceObj = {
-			...obj[key]
-		};
-		deviceObj['image'] = media.url;
-		deviceObj['media'] = media.id;
-		obj[key] = deviceObj;
-		console.log(obj);
-		updateValues(obj);
+	const onSelectImage = (media, device) => {
+		let updateState = {...state};
+		updateState[device] = media.url;
+		updateValues(updateState);
 	};
-	const onRemoveImage = (key) => {
-		onSelectImage('',key);
+	const onRemoveImage = (device) => {
+		let updateState = {...state};
+		updateState[device] = '';
+		updateValues(updateState);
 	};
 	
-	function renderSettings(key) {
+	function renderSettings(device) {
 		var media = '';
-		// var media = undefined !== state.prop_value[key]['media'] && state.value[key]['media'] ? state.value[key]['media'] : '';
-		// var image = undefined !== state.prop_value[key]['image'] && state.value[key]['image'] ? state.value[key]['image'] : '';
+		var image = undefined !== state[device] && state[device] ? state[device] : '';
 		return <>
 
-			{/* { ( media || image ) &&
+			{ image &&
 
 			<img src={ image } />
-			} */}
+			}
 
 			<MediaUpload
 				title={ __( "Select Background Image", 'astra' )  }
-				onSelect={ ( media ) =>  onSelectImage( media, key ) }
+				onSelect={ ( media ) =>  onSelectImage( media, device ) }
 				allowedTypes={ [ "image" ] }
 				value={ ( media && media ? media :  '' ) }
 				render={ ( { open } ) => (
 					<Button className="upload-button button-add-media" isDefault onClick={ open }>
-						{ __( "Select Image", 'astra' )  }
+						{ ( '' === image ) ? __( "Select Image", 'astra' )  : __( "Replace Image", 'astra' )  }
 					</Button>
 				) }
 			/>
 
-			{/* { ( this.props.media || this.props.backgroundImage ) && */}
+			{ image &&
 				<>
-					<Button className="ast-bg-img-remove" onClick={() => { onRemoveImage(key); }}>
+					<Button className="ast-responsive-img-remove" onClick={() => { onRemoveImage(device); }}>
 						{ __( "Remove Image", 'astra' ) }
 					</Button>
 
 				</>
-			{/* } */}
+			}
 
 		</>;
 	};

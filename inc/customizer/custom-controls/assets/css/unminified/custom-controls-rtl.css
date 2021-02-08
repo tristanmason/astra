@@ -2019,40 +2019,72 @@ input[type="text"].select2-search__field {
   }
 }
 
+.customize-control-ast-responsive-image .responsive-image-container {
+  display: none;
+}
+  
+.customize-control-ast-responsive-image .responsive-image-container.active {
+  display: block;
+}
+
+.customize-control-ast-responsive-image .components-button.upload-button.button-add-media, .customize-control-ast-responsive-image .ast-responsive-img-remove {
+  display: block;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  background: #edeff0;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.customize-control-ast-responsive-image .components-button.upload-button.button-add-media:hover, .customize-control-ast-responsive-image .ast-responsive-img-remove:hover {
+  background-color: #fbfbfc;
+}
+
+.customize-control-ast-responsive-image .components-button.upload-button.button-add-media {
+  color: #32373c;
+}
+.customize-control-ast-responsive-image .ast-responsive-img-remove {
+  color: #32373c;
+}
 /**
  * Responsive Icons
  */
- .ast-image-responsive-btns {
-    position: absolute;
-    left: 5px;
-    top: 5px;
-  }
+.ast-image-responsive-btns {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
   
-  .ast-image-responsive-btns > li {
-    margin-bottom: 0;
-    display: none;
-  }
-  
-  .ast-image-responsive-btns > li.active {
-    display: inline-block;
-  }
-  
-  .ast-image-responsive-btns button[type="button"] {
-    padding: 0;
-    cursor: pointer;
-    background: none;
-    border: none;
-    opacity: .75;
-    outline: none;
-  }
-  
-  .ast-image-responsive-btns button[type="button"] > i {
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
-    font-size: 15px;
-  }
-  
+.ast-image-responsive-btns > li {
+  margin-bottom: 0;
+  display: none;
+}
+
+.ast-image-responsive-btns > li.active {
+  display: inline-block;
+}
+
+.ast-image-responsive-btns button[type="button"] {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: .75;
+  outline: none;
+}
+
+.ast-image-responsive-btns button[type="button"] > i {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+}
+
 .ast-responsive-select-container {
   display: none;
 }
@@ -3492,47 +3524,72 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-image .responsive-image-container {
-    display: none;
-  }
+  display: none;
+}
   
-  .customize-control-ast-responsive-image .responsive-image-container.active {
-    display: block;
-  }
+.customize-control-ast-responsive-image .responsive-image-container.active {
+  display: block;
+}
 
+.customize-control-ast-responsive-image .components-button.upload-button.button-add-media, .customize-control-ast-responsive-image .ast-responsive-img-remove {
+  display: block;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  background: #edeff0;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.customize-control-ast-responsive-image .components-button.upload-button.button-add-media:hover, .customize-control-ast-responsive-image .ast-responsive-img-remove:hover {
+  background-color: #fbfbfc;
+}
+
+.customize-control-ast-responsive-image .components-button.upload-button.button-add-media {
+  color: #32373c;
+}
+.customize-control-ast-responsive-image .ast-responsive-img-remove {
+  color: #b52727;
+  margin-top: 10px;
+}
 /**
  * Responsive Icons
  */
- .ast-image-responsive-btns {
-    position: absolute;
-    left: 5px;
-    top: 5px;
-  }
+.ast-image-responsive-btns {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
   
-  .ast-image-responsive-btns > li {
-    margin-bottom: 0;
-    display: none;
-  }
-  
-  .ast-image-responsive-btns > li.active {
-    display: inline-block;
-  }
-  
-  .ast-image-responsive-btns button[type="button"] {
-    padding: 0;
-    cursor: pointer;
-    background: none;
-    border: none;
-    opacity: .75;
-    outline: none;
-  }
-  
-  .ast-image-responsive-btns button[type="button"] > i {
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
-    font-size: 15px;
-  }
-  
+.ast-image-responsive-btns > li {
+  margin-bottom: 0;
+  display: none;
+}
+
+.ast-image-responsive-btns > li.active {
+  display: inline-block;
+}
+
+.ast-image-responsive-btns button[type="button"] {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: .75;
+  outline: none;
+}
+
+.ast-image-responsive-btns button[type="button"] > i {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+}
+
 .ast-responsive-btns {
   display: inline-block;
   float: left;
