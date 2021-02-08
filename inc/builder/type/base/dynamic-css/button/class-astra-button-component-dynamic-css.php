@@ -83,7 +83,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button font size.
 				 */
-				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
 					// Typography.
 					'font-size' => astra_responsive_font( $button_font_size, 'desktop' ),
 				),
@@ -122,7 +122,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button font size.
 				 */
-				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
 					// Typography.
 					'font-size' => astra_responsive_font( $button_font_size, 'tablet' ),
 				),
@@ -155,7 +155,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button font size.
 				 */
-				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
 					// Typography.
 					'font-size' => astra_responsive_font( $button_font_size, 'mobile' ),
 				),
