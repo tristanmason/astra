@@ -145,6 +145,13 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'sass/',
+                        src: ['frontend.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'sass/',
                         src: ['main.scss'],
                         dest: 'assets/css/unminified',
                         ext: '.css'
@@ -278,6 +285,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/style-rtl.css',
                         dest: 'assets/css/minified/style.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/frontend-rtl.css',
+                        dest: 'assets/css/minified/frontend.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/main-rtl.css',

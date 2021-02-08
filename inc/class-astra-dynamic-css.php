@@ -521,23 +521,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				);
 			}
-			
-			if ( is_astra_pagination_enabled() ) {
-				$css_output['.ast-pagination']                    = array(
-					'padding-top' => '1.5em',
-					'text-align'  => 'center',
-				);
-				$css_output['.ast-pagination .next.page-numbers'] = array(
-					'display' => 'inherit',
-					'float'   => 'none',
-				);
-				$css_output['.ast-pagination a']                  = array(
-					'color' => esc_attr( $link_color ),
-				);
-				$css_output['.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current'] = array(
-					'color' => esc_attr( $link_hover_color ),
-				);
-			}
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$css_output['#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea'] = array(
@@ -677,9 +660,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $footer_css_output );
 			}
 
-			if ( is_astra_pagination_enabled() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::pagination_static_css() );
-			}
+			// Paginaiton CSS.
+			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
@@ -1136,18 +1118,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					
 				);
-
-				if ( is_astra_pagination_enabled() ) {
-					$static_pagination_tablet = array(
-						'.ast-pagination .prev.page-numbers' => array(
-							'padding-right' => '.5em',
-						),
-						'.ast-pagination .next.page-numbers' => array(
-							'padding-left' => '.5em',
-						),
-					);
-					$parse_css               .= astra_parse_css( $static_pagination_tablet, '', astra_get_tablet_breakpoint() );
-				}   
 			} else {
 				$static_layout_lang_direction_css = array(
 					'.ast-right-sidebar #primary' => array(
@@ -1155,19 +1125,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					
 				);
-				
-				if ( is_astra_pagination_enabled() ) {
-
-					$static_pagination_tablet = array(
-						'.ast-pagination .prev.page-numbers' => array(
-							'padding-left' => '.5em',
-						),
-						'.ast-pagination .next.page-numbers' => array(
-							'padding-right' => '.5em',
-						),
-					);
-					$parse_css               .= astra_parse_css( $static_pagination_tablet, '', astra_get_tablet_breakpoint() );
-				}
 
 				if ( 'no-sidebar' !== astra_page_layout() ) {
 					$static_layout_lang_direction_css_sidebar = array(
@@ -1200,7 +1157,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			if ( is_author() ) {
-				$autho_table_css       = array(
+				$author_table_css      = array(
 					'.ast-author-box' => array(
 						'-js-display' => 'flex',
 						'display'     => 'flex',
@@ -1209,7 +1166,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'flex' => '1',
 					),
 				);
-				$static_layout_css_min = array_merge( $static_layout_css_min, $autho_table_css );
+				$static_layout_css_min = array_merge( $static_layout_css_min, $author_table_css );
 			}
 
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
@@ -1246,15 +1203,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( is_current_post_comment_enabled() ) {
-				
 				$static_layout_css_min_comment = array(
 					'.ast-separate-container .ast-comment-list li .comment-respond' => array(
 						'padding-left'  => '2.66666em',
 						'padding-right' => '2.66666em',
 					),
 				);
-				/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px CSS */
-				$parse_css .= astra_parse_css( $static_layout_css_min_comment, astra_get_tablet_breakpoint( '', '1' ) );
+				$parse_css                    .= astra_parse_css( $static_layout_css_min_comment, astra_get_tablet_breakpoint( '', '1' ) );
 			}   
 
 			if ( $is_site_rtl ) {
@@ -2379,11 +2334,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover' => array(
 						'color' => esc_attr( $widget_link_hover_color ),
 					),
-					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
+					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' => array(
 						'color'      => esc_attr( $button_color ),
 						'background' => esc_attr( $button_bg_color ),
 					),
-					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' => array(
+					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button:hover' => array(
 						'color'      => esc_attr( $button_h_color ),
 						'background' => esc_attr( $button_bg_h_color ),
 					),
@@ -2980,7 +2935,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					
 					.ast-right-sidebar #secondary {
 						padding-right: 60px;
-					} 
+					}
+				}
+				@media (max-width: 993px) {
+					.ast-right-sidebar #secondary {
+						padding-right: 30px;
+					}
+					.ast-left-sidebar #secondary {
+						padding-left: 30px;
+					}
+
 				}';
 			} else {
 				$sidebar_static_css .= '
@@ -2992,6 +2956,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					.ast-right-sidebar #secondary {
 						padding-left: 60px;
 					} 
+				}
+				@media (max-width: 993px) {
+					.ast-right-sidebar #secondary {
+						padding-left: 30px;
+					}
+					.ast-left-sidebar #secondary {
+						padding-right: 30px;
+					}
+
 				}';
 			}
 			return $sidebar_static_css;
@@ -3423,161 +3396,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				';
 			}
 			return $cart_static_css;
-		}
-
-		/**
-		 * Load static Pagination CSS.
-		 *
-		 * @since 3.0.0
-		 * @return string static css for Pagination.
-		 */
-		public static function pagination_static_css() {
-			$pagination_static_css_str = '
-			.ast-pagination .prev.page-numbers,
-			.ast-pagination .next.page-numbers {
-			  padding: 0 1.5em;
-			  height: 2.33333em;
-			  line-height: calc(2.33333em - 3px);
-			}
-			.ast-pagination {
-			  display: inline-block;
-			  width: 100%;
-			}
-			.ast-pagination .page-numbers {
-			  display: inline-block;
-			  width: 2.33333em;
-			  height: 2.33333em;
-			  font-size: 16px;
-			  font-size: 1.06666rem;
-			  line-height: calc(2.33333em - 3px);
-			}
-			.ast-pagination .nav-links {
-			  display: inline-block;
-			  width: 100%;
-			}
-			@media (max-width: 420px) {
-			  .ast-pagination .prev.page-numbers,
-			  .ast-pagination .next.page-numbers {
-				width: 100%;
-				text-align: center;
-				margin: 0;
-			  }
-			}
-			.ast-pagination .prev,
-			.ast-pagination .prev:visited,
-			.ast-pagination .prev:focus,
-			.ast-pagination .next,
-			.ast-pagination .next:visited,
-			.ast-pagination .next:focus {
-			  display: inline-block;
-			  width: auto;
-			}
-			.ast-page-builder-template .ast-pagination {
-				padding: 2em;
-			}';
-
-			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-				
-				$pagination_static_css_str .= '
-				.ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
-				.ast-pagination .prev.page-numbers:visited.dots,
-				.ast-pagination .prev.page-numbers:visited.dots:hover,
-				.ast-pagination .prev.page-numbers:visited.dots:focus,
-				.ast-pagination .prev.page-numbers:focus.dots,
-				.ast-pagination .prev.page-numbers:focus.dots:hover,
-				.ast-pagination .prev.page-numbers:focus.dots:focus,
-				.ast-pagination .next.page-numbers.dots,
-				.ast-pagination .next.page-numbers.dots:hover,
-				.ast-pagination .next.page-numbers.dots:focus,
-				.ast-pagination .next.page-numbers:visited.dots,
-				.ast-pagination .next.page-numbers:visited.dots:hover,
-				.ast-pagination .next.page-numbers:visited.dots:focus,
-				.ast-pagination .next.page-numbers:focus.dots,
-				.ast-pagination .next.page-numbers:focus.dots:hover,
-				.ast-pagination .next.page-numbers:focus.dots:focus {
-					border: 2px solid #eaeaea;
-					background: transparent;
-				}
-				
-				.ast-pagination .prev.page-numbers.dots,
-				.ast-pagination .prev.page-numbers:visited.dots,
-				.ast-pagination .prev.page-numbers:focus.dots,
-				.ast-pagination .next.page-numbers.dots,
-				.ast-pagination .next.page-numbers:visited.dots,
-				.ast-pagination .next.page-numbers:focus.dots {
-					cursor: default;
-				}';
-			}
-			
-			if ( is_rtl() ) {
-				$pagination_static_css_str .= '
-				@media (min-width: 993px) {
-					.ast-pagination {
-					  padding-right: 3.33333em;
-					  padding-left: 3.33333em;
-					}
-				}
-				.ast-pagination .next.page-numbers {
-					float: left;
-					text-align: left;
-				}
-				  
-				@media (max-width: 768px) {
-					.ast-pagination .next.page-numbers .page-navigation {
-					  padding-left: 0;
-					}
-				}';
-				  
-				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-
-					$pagination_static_css_str .= '
-					@media (min-width: 769px) {
-						.ast-pagination .prev.page-numbers.next,
-						.ast-pagination .prev.page-numbers:visited.next,
-						.ast-pagination .prev.page-numbers:focus.next,
-						.ast-pagination .next.page-numbers.next,
-						.ast-pagination .next.page-numbers:visited.next,
-						.ast-pagination .next.page-numbers:focus.next {
-							margin-left: 0;
-						}
-					}';
-				}           
-			} else {
-				
-				$pagination_static_css_str .= '
-				@media (min-width: 993px) {
-					.ast-pagination {
-					  padding-left: 3.33333em;
-					  padding-right: 3.33333em;
-					}
-				}
-				.ast-pagination .next.page-numbers {
-					float: right;
-				}
-				  
-				@media (max-width: 768px) {
-					.ast-pagination .next.page-numbers .page-navigation {
-					  padding-right: 0;
-					}
-				}';
-
-				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-
-					$pagination_static_css_str .= '
-					@media (min-width: 769px) {
-						.ast-pagination .prev.page-numbers.next,
-						.ast-pagination .prev.page-numbers:visited.next,
-						.ast-pagination .prev.page-numbers:focus.next,
-						.ast-pagination .next.page-numbers.next,
-						.ast-pagination .next.page-numbers:visited.next,
-						.ast-pagination .next.page-numbers:focus.next {
-							margin-right: 0;
-						}
-					}';
-				}           
-			}
-			return $pagination_static_css_str;
-
 		}
 	}
 }
