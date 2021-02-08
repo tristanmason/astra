@@ -22,12 +22,30 @@
 }
 
 /**
+ * Adding custom partial edit buttons in the customizer, till then hide buttons.
+ */
+.ast-partials-refreshing button.customize-partial-edit-shortcut-button {
+    display: none;
+}
+
+/**
  * Customizer edit icon custom positioning.
  */
 .ast-builder-layout-element.site-header-focus-item .customize-partial-edit-shortcut button, .site-footer-focus-item .customize-partial-edit-shortcut button {
     left: 0;
     top: 5px;
     border-radius: 2px;
+}
+
+body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut button {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    min-height: 26px;
+	border-width: 1px;
+    border-radius: 2px;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 .site-footer-focus-item .customize-partial-edit-shortcut button {
