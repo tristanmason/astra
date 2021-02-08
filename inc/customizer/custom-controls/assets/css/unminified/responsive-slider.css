@@ -13,6 +13,10 @@
   position: inherit;
 }
 
+.customize-control-ast-responsive-slider select, .customize-control.customize-control-select select {
+    color: #32373c;
+}
+
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: none;
 }
@@ -26,7 +30,7 @@
 }
 
 .customize-control-ast-responsive-slider .slider-control-label {
-  cursor: default;  
+  cursor: default;
 }
 
 /**
@@ -126,6 +130,7 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: 1px;
+  align-self: auto;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;

@@ -197,7 +197,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,

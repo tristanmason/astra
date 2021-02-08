@@ -323,10 +323,10 @@ class Astra_Button_Component_Configs {
 					'title'     => __( 'Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
-					'choices'   => array(                       
-						'flex-start' => 'align-left', 
-						'center'     => 'align-center', 
-						'flex-end'   => 'align-right',   
+					'choices'   => array(
+						'flex-start' => 'align-left',
+						'center'     => 'align-center',
+						'flex-end'   => 'align-right',
 					),
 				);
 			}
@@ -373,7 +373,7 @@ class Astra_Button_Component_Configs {
 						),
 					),
 				);
-				
+
 			} else {
 
 				$new_configs = array(
@@ -411,7 +411,7 @@ class Astra_Button_Component_Configs {
 		}
 
 		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-		
+
 		$configurations = array_merge( $configurations, $html_config );
 
 		return $configurations;

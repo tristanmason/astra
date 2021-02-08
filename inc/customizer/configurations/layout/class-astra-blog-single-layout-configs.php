@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					),
 					'transport'  => 'postMessage',
 					'responsive' => false,
-					'display'    => 'text',
+					'renderAs'   => 'text',
 				),
 
 				/**
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					),
 					'priority'    => 5,
 					'title'       => __( 'Custom Width', 'astra' ),
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,
