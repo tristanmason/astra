@@ -228,7 +228,7 @@ class Astra_Social_Icon_Component_Configs {
 					'transport'  => 'postMessage',
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => false,
-					'render_as'    => 'text',
+					'render_as'  => 'text',
 				),
 
 				/**

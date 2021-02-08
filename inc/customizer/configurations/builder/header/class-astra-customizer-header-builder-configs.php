@@ -451,7 +451,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 					),
 				),
 				'transport'  => 'postMessage',
-				'render_as'    => 'text',
+				'render_as'  => 'text',
 				'responsive' => false,
 			),
 
