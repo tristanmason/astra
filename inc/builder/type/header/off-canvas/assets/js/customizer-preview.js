@@ -24,9 +24,22 @@
 		} );
 	} );
 
+	wp.customize( 'astra-settings[off-canvas-inner-spacing]', function ( value ) {
+        value.bind( function ( spacing ) {
+			var dynamicStyle = '';
+			if( spacing != '' ) {
+				dynamicStyle += '.ast-mobile-popup-content > *, .ast-mobile-header-content > * {';
+				dynamicStyle += 'padding-top: ' + spacing + 'px;';
+				dynamicStyle += 'padding-bottom: ' + spacing + 'px;';
+				dynamicStyle += '} ';
+			}
+			astra_add_dynamic_css( 'off-canvas-inner-spacing', dynamicStyle );
+        } );
+	} );
+
 	wp.customize( 'astra-settings[mobile-header-type]', function ( value ) {
         value.bind( function ( newVal ) {
-			
+
 			var mobile_header = document.querySelectorAll( "#ast-mobile-header" );
 			var header_type = newVal;
 			var off_canvas_slide = ( typeof ( wp.customize._value['astra-settings[off-canvas-slide]'] ) != 'undefined' ) ? wp.customize._value['astra-settings[off-canvas-slide]']._value : 'right';
@@ -56,15 +69,15 @@
 
 				header_type = 'off-canvas';
 			}
-			
+
 			for ( var k = 0; k < mobile_header.length; k++ ) {
 				mobile_header[k].setAttribute( 'data-type', header_type );
 			}
 
-			var event = new CustomEvent( "astMobileHeaderTypeChange", 
-				{ 
-					"detail": { 'type' : header_type } 
-				} 
+			var event = new CustomEvent( "astMobileHeaderTypeChange",
+				{
+					"detail": { 'type' : header_type }
+				}
 			);
 
 			document.dispatchEvent(event);
@@ -73,7 +86,7 @@
 
 	wp.customize( 'astra-settings[off-canvas-slide]', function ( value ) {
         value.bind( function ( newval ) {
-			
+
 			var side_class = '';
 
 			if ( 'left' === newval ) {
