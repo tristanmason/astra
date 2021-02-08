@@ -331,7 +331,7 @@
 	justify-content: center;
 }
 
-.ast-footer-html-inner {
+.ast-footer-copyright {
 	p {
 		margin-bottom: 0;
 	}
@@ -745,10 +745,6 @@ body.admin-bar {
 			height: auto;
 		}
 	}
-	.ast-builder-grid-row-container-inner {
-		display: grid;
-		align-items: center;
-	}
 }
 .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open {
 	.ast-mobile-header-wrap {
@@ -864,6 +860,8 @@ body.admin-bar {
 		width: 100%;
 		margin-bottom: 1em;
 		margin-top: 1em;
+		padding-left: 20px;
+		padding-right: 20px;
 		position: relative;
 		display: block;
 		right: auto;
@@ -889,6 +887,9 @@ body.admin-bar {
 		.search-field {
 			width: 100%;
   			padding-right: 5.5em;
+		}
+		&.ast-inline-search label {
+			width: 100%;
 		}
 	}
 	.ast-search-menu-icon .search-submit {
