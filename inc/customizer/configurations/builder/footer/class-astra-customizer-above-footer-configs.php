@@ -133,7 +133,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'suffix'     => '',
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'transport'  => 'postMessage',
-					'display'    => 'text',
+					'render_as'    => 'text',
 					'responsive' => false,
 				),
 
@@ -174,7 +174,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'transport'  => 'postMessage',
-					'display'    => 'text',
+					'render_as'    => 'text',
 					'responsive' => false,
 				),
 
@@ -197,7 +197,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'above_footer' ),
 					),
-					'display'   => 'text',
+					'render_as'   => 'text',
 				),
 
 				// Section: Above Footer Border.

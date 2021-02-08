@@ -17,16 +17,16 @@ const SelectorComponent = props => {
         } else {
             updateState = value;
         }
-        
+
 		props.control.setting.set(updateState);
 		setPropsValue(updateState);
 	};
 
 	const renderInputHtml = ( device, active = '', resp = true ) => {
-		
+
 		const {
 			choices,
-			display
+			render_as
 		} = props.control.params;
 
 		if ( ! choices ) {
@@ -36,8 +36,8 @@ const SelectorComponent = props => {
 		if ( false === resp ) {
 
 			let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
-				
-				if ( 'text' !== display ) {
+
+				if ( 'text' !== render_as ) {
 
 					var html = (
 						<div className="ast-alignment-inner-wrap active" key={ value }>
@@ -47,7 +47,7 @@ const SelectorComponent = props => {
 								aria-pressed = { value === propsValue }
 								isPrimary = { value === propsValue }
 							>
-								<span className="ahfb-icon-set" 
+								<span className="ahfb-icon-set"
 									dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
 								></span>
 							</Button>
@@ -76,10 +76,10 @@ const SelectorComponent = props => {
 			return optionsHtml;
 		}
 
-		if ( 'text' !== display ) {
+		if ( 'text' !== render_as ) {
 
 			var optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
-					
+
 				let html = (
 					<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
 						<Button
@@ -88,7 +88,7 @@ const SelectorComponent = props => {
 							aria-pressed = { value === propsValue[device] }
 							isPrimary = { value === propsValue[device] }
 						>
-							<span className="ahfb-icon-set" 
+							<span className="ahfb-icon-set"
 								dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
 							></span>
 						</Button>
@@ -100,7 +100,7 @@ const SelectorComponent = props => {
 		} else {
 
 			var optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
-					
+
 				let html = (
 					<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
 						<Button
@@ -111,7 +111,7 @@ const SelectorComponent = props => {
 							label = { icon }
 						>
 							{ icon }
-							
+
 						</Button>
 					</div>
 				);

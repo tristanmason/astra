@@ -119,7 +119,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 						),
 						'responsive' => false,
-						'display'    => 'text',
+						'render_as'    => 'text',
 					),
 
 					/**
@@ -180,7 +180,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 						),
 						'responsive' => false,
-						'display'    => 'text',
+						'render_as'    => 'text',
 					),
 
 					// Option: Submenu Container Divider.

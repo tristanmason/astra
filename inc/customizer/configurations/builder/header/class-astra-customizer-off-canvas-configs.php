@@ -76,7 +76,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'transport'  => 'postMessage',
 					'context'    => Astra_Builder_Helper::$general_tab,
-					'display'    => 'text',
+					'render_as'    => 'text',
 					'responsive' => false,
 				),
 
@@ -104,7 +104,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 'off-canvas',
 						),
 					),
-					'display'    => 'text',
+					'render_as'    => 'text',
 					'responsive' => false,
 				),
 
@@ -125,7 +125,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
 					),
-					'display'    => 'text',
+					'render_as'    => 'text',
 					'responsive' => false,
 				),
 
@@ -147,7 +147,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'center'     => __( 'Center', 'astra' ),
 						'flex-end'   => __( 'Right', 'astra' ),
 					),
-					'display'    => 'text',
+					'render_as'    => 'text',
 					'responsive' => false,
 				),
 
