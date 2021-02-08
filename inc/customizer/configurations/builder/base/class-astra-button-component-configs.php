@@ -219,11 +219,11 @@ class Astra_Button_Component_Configs {
 				 * Group: Primary Header Button Border Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-group]',
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color-group]',
 					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-border-group' ),
 					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Border', 'astra' ),
+					'control'   => 'ast-color-group',
+					'title'     => __( 'Border Color', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 80,
@@ -234,17 +234,16 @@ class Astra_Button_Component_Configs {
 				* Option: Button Border Size
 				*/
 				array(
-					'name'           => $builder_type . '-' . $_prefix . '-border-size',
+					'name'           => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-size]',
 					'default'        => astra_get_option( $builder_type . '-' . $_prefix . '-border-size' ),
-					'parent'         => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-group]',
-					'type'           => 'sub-control',
+					'type'           => 'control',
 					'section'        => $_section,
 					'control'        => 'ast-border',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
-					'priority'       => 10,
-					'title'          => __( 'Width', 'astra' ),
-					'context'        => Astra_Builder_Helper::$general_tab,
+					'priority'       => 79,
+					'title'          => __( 'Border Width', 'astra' ),
+					'context'        => Astra_Builder_Helper::$design_tab,
 					'choices'        => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
@@ -261,7 +260,7 @@ class Astra_Button_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-color' ),
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color-group]',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
@@ -279,7 +278,7 @@ class Astra_Button_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ),
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color-group]',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
@@ -293,15 +292,14 @@ class Astra_Button_Component_Configs {
 				* Option: Button Border Radius
 				*/
 				array(
-					'name'        => $builder_type . '-' . $_prefix . '-border-radius',
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-radius]',
 					'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-border-radius' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-group]',
+					'type'        => 'control',
 					'section'     => $_section,
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
-					'priority'    => 16,
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'priority'    => 80,
+					'context'     => Astra_Builder_Helper::$design_tab,
 					'title'       => __( 'Border Radius', 'astra' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
