@@ -20,12 +20,12 @@
 }
 .ast-alignment-inner-wrap .components-button {
     white-space: nowrap;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0);
     color: rgba(0, 0, 0, 0.966);
     text-decoration: none;
     text-shadow: none;
     outline: unset;
-    box-shadow: inset 0px 0px 0px 1px #ddd;
+    box-shadow: inset 0px 0px 0px 1px #d2d2d2;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     height: 100%;
@@ -39,9 +39,9 @@
     box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
 }
 .customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
-    box-shadow: inset 0px 0px 0px 1px #ddd !important;
+    box-shadow: inset 0px 0px 0px 1px #d2d2d2 !important;
     color: #000 !important;
-    background: #ffffff;
+    background: rgba(255,255,255,0);
 }
 
 .ast-alignment-inner-wrap:not(:first-child) {
