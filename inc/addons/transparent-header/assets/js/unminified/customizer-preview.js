@@ -232,10 +232,10 @@
 	astra_css( 'astra-settings[transparent-header-widget-content-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner' );
 	astra_css( 'astra-settings[transparent-header-widget-link-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a' );
 	astra_css( 'astra-settings[transparent-header-widget-link-h-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover' );
-	astra_css( 'astra-settings[transparent-header-button-text-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap .ast-custom-button' );
-	astra_css( 'astra-settings[transparent-header-button-bg-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap .ast-custom-button' );
-	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
-	astra_css( 'astra-settings[transparent-header-button-bg-h-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-builder-button-wrap:hover .ast-custom-button' );
+	astra_css( 'astra-settings[transparent-header-button-text-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' );
+	astra_css( 'astra-settings[transparent-header-button-bg-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' );
+	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] ..ast-custom-button:hover' );
+	astra_css( 'astra-settings[transparent-header-button-bg-h-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button:hover' );
 
 	/**
 	 * Transparent Header menu-toggle Dynamic CSS.

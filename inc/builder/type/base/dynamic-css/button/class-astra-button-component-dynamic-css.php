@@ -91,7 +91,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'       => array(
 					// Colors.
 					'color'               => $button_color_desktop,
 					'background'          => $button_bg_color_desktop,
@@ -106,7 +106,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				),
 
 				// Hover Options.
-				$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
+				$selector . ' .ast-custom-button:hover' => array(
 					'color'        => $button_h_color_desktop,
 					'background'   => $button_bg_h_color_desktop,
 					'border-color' => $button_border_h_color_desktop,
@@ -130,7 +130,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'       => array(
 					// Typography.
 					'font-size'    => astra_responsive_font( $button_font_size, 'tablet' ),
 
@@ -140,7 +140,7 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-color' => $button_border_color_tablet,
 				),
 				// Hover Options.
-				$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
+				$selector . ' .ast-custom-button:hover' => array(
 					'color'        => $button_h_color_tablet,
 					'background'   => $button_bg_h_color_tablet,
 					'border-color' => $button_border_h_color_tablet,
@@ -163,7 +163,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'        => array(
 					// Typography.
 					'font-size'    => astra_responsive_font( $button_font_size, 'mobile' ),
 
@@ -173,7 +173,7 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-color' => $button_border_color_mobile,
 				),
 				// Hover Options.
-				$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
+				$selector . ' ..ast-custom-button:hover' => array(
 					'color'        => $button_h_color_mobile,
 					'background'   => $button_bg_h_color_mobile,
 					'border-color' => $button_border_h_color_mobile,
