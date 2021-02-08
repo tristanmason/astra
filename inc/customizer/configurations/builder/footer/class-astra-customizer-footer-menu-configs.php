@@ -112,7 +112,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => true,
-					'render_as'  => 'text',
+					'renderAs'  => 'text',
 				),
 
 				/**

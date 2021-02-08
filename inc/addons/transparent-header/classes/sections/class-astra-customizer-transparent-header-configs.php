@@ -195,7 +195,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'both'    => __( 'Desktop + Mobile', 'astra' ),
 					),
 					'responsive' => false,
-					'render_as'  => 'text',
+					'renderAs'  => 'text',
 				),
 
 				/**

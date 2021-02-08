@@ -161,7 +161,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
 				'responsive' => false,
-				'render_as'  => 'text',
+				'renderAs'  => 'text',
 			),
 
 			/**
@@ -245,7 +245,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
 				'responsive' => false,
-				'render_as'  => 'text',
+				'renderAs'  => 'text',
 			),
 
 			// Option: Logged out options preview.

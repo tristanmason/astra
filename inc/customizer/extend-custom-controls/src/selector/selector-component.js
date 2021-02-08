@@ -26,7 +26,7 @@ const SelectorComponent = props => {
 
 		const {
 			choices,
-			render_as
+			renderAs
 		} = props.control.params;
 
 		if ( ! choices ) {
@@ -37,7 +37,7 @@ const SelectorComponent = props => {
 
 			let optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
 
-				if ( 'text' !== render_as ) {
+				if ( 'text' !== renderAs ) {
 
 					var html = (
 						<div className="ast-alignment-inner-wrap active" key={ value }>
@@ -76,7 +76,7 @@ const SelectorComponent = props => {
 			return optionsHtml;
 		}
 
-		if ( 'text' !== render_as ) {
+		if ( 'text' !== renderAs ) {
 
 			var optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
 
