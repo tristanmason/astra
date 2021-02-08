@@ -1568,7 +1568,7 @@ function prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = '';
 
 	/**
 	 * Submenu
