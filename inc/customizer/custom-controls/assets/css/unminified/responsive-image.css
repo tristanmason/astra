@@ -1,0 +1,42 @@
+.customize-control-ast-responsive-image .responsive-image-container {
+    display: none;
+  }
+  
+  .customize-control-ast-responsive-image .responsive-image-container.active {
+    display: block;
+  }
+
+/**
+ * Responsive Icons
+ */
+ .ast-image-responsive-btns {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  
+  .ast-image-responsive-btns > li {
+    margin-bottom: 0;
+    display: none;
+  }
+  
+  .ast-image-responsive-btns > li.active {
+    display: inline-block;
+  }
+  
+  .ast-image-responsive-btns button[type="button"] {
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    opacity: .75;
+    outline: none;
+  }
+  
+  .ast-image-responsive-btns button[type="button"] > i {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+  }
+  

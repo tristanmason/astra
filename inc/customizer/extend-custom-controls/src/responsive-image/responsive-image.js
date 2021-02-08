@@ -6,15 +6,14 @@ import {useEffect, useState} from 'react';
 
 const ResponsiveImage = props => {
 	console.log(props);
-console.log(props.control.setting.get());
-    let value = props.control.setting.get();
-    let defaultPropsValue = props.control.params.default;
+    let prop_value = props.control.setting.get();
     
-    const [state, setState] = useState({
-        value: value,
-    }
-	);
-	
+    // const [state, setState] = useState({
+    //     value: value,
+    // }
+	// );
+	const [state, setState] = useState( prop_value );
+	console.log(state);
 	const updateValues = (obj) => {
 		setState(prevState => ({
 			...prevState,
@@ -39,7 +38,7 @@ console.log(props.control.setting.get());
 		labelHtml = <span className="customize-control-title">{__('Background', 'astra')}</span>;
     }
     
-    responsiveHtml = <ul className="ast-responsive-btns">
+    responsiveHtml = <ul className="ast-image-responsive-btns">
 		<li className="desktop active">
 			<button type="button" className="preview-desktop" data-device="desktop">
 				<i className="dashicons dashicons-desktop"></i>
@@ -57,29 +56,32 @@ console.log(props.control.setting.get());
 		</li>
 	</ul>;
 
-    inputHtml = <div className="background-wrapper">
-		<div className="background-container desktop active">
+    inputHtml = <div className="responsive-image-wrapper">
+		<div className="responsive-image-container desktop active">
 			{renderSettings('desktop')}
 		</div>
-		<div className="background-container mobile">
+		<div className="responsive-image-container mobile">
 			{renderSettings('mobile')}
 		</div>
 	</div>;
 
 	const onSelectImage = (media, key) => {
-		let obj = {
-			...state.value
-		};
-		let deviceObj = {
-			...obj[key]
-		};
-		deviceObj['background-image'] = media.url;
-		deviceObj['background-media'] = media.id;
-		obj[key] = deviceObj;
-		updateValues(obj);
+		console.log(media);
+		console.log(key);
+		// let obj = {
+		// 	...state.value
+		// };
+		// let deviceObj = {
+		// 	...obj[key]
+		// };
+		// deviceObj['background-image'] = media.url;
+		// deviceObj['background-media'] = media.id;
+		// obj[key] = deviceObj;
+		// updateValues(obj);
 	};
 	
 	function renderSettings(key) {
+		console.log(key);
 // console.log(state);
 		var media = '';
 		// var media = undefined !== state.value[key]['media'] && state.value[key]['media'] ? state.value[key]['media'] : '';
@@ -93,12 +95,12 @@ console.log(props.control.setting.get());
 
 			<MediaUpload
 				title={ __( "Select Background Image", 'astra' )  }
-				onSelect={ ( media ) =>  onSelectImage( media ) }
+				onSelect={ ( media ) =>  onSelectImage( media, key ) }
 				allowedTypes={ [ "image" ] }
 				value={ ( media && media ? media :  '' ) }
 				render={ ( { open } ) => (
-					<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-						{ ( "Replace image", 'astra' )  }
+					<Button className="upload-button button-add-media" isDefault onClick={ open }>
+						{ __( "Select Image", 'astra' )  }
 					</Button>
 				) }
 			/>
