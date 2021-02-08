@@ -46,17 +46,14 @@ const Background = props => {
 						if (undefined !== value && '' !== value) {
 							if (undefined === value['background-color'] || '' === value['background-color']) {
 								value['background-color'] = '';
-								wp.customize.previewer.refresh();
 							}
 
 							if (undefined === value['background-image'] || '' === value['background-image']) {
 								value['background-image'] = '';
-								wp.customize.previewer.refresh();
 							}
 
 							if (undefined === value['background-media'] || '' === value['background-media']) {
 								value['background-media'] = '';
-								wp.customize.previewer.refresh();
 							}
 						}
 

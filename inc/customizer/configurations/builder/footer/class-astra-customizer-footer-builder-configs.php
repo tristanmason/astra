@@ -233,7 +233,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'choices'     => Astra_Builder_Helper::$footer_desktop_items,
 				'transport'   => 'postMessage',
 				'partial'     => array(
-					'selector'            => '.ast-site-footer',
+					'selector'            => '.site-footer',
 					'container_inclusive' => true,
 					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_markup' ),
 				),
