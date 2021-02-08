@@ -245,6 +245,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'footer-sml-divider' ),
 					'section'     => 'section-footer-small',
 					'priority'    => 40,
+					'suffix'      => 'px',
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -411,6 +412,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'value'    => 'disabled',
 						),
 					),
+					'suffix'      => 'px',
 					'title'       => __( 'Top Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
