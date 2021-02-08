@@ -29,7 +29,7 @@ function astra_fb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$dynamic_css .= Astra_Button_Component_Dynamic_CSS::astra_button_dynamic_css( 'footer' );
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
 
-		if ( ! Astra_Builder_Helper::is_component_loaded( 'footer', 'button-' . $index ) ) {
+		if ( ! Astra_Builder_Helper::is_component_loaded( 'button-' . $index, 'footer' ) ) {
 			continue;
 		}
 

@@ -10,6 +10,9 @@
 
 ( function( $ ) {
 
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
 	var section = 'section-above-footer-builder';
 	var selector = '.site-above-footer-wrap[data-section="section-above-footer-builder"]';
 
@@ -36,13 +39,37 @@
 		'px'
 	);
 
-	// Inner Spacing.
-	astra_css(
-		'astra-settings[hba-inner-spacing]',
-		'grid-column-gap',
-		selector + ' .ast-builder-grid-row',
-		'px'
-	);
+	// Inner Space.
+	wp.customize( 'astra-settings[hba-inner-spacing]', function( value ) {
+		value.bind( function( spacing ) {
+			var dynamicStyle = '';
+			if ( spacing.desktop != '' ) {
+				dynamicStyle += selector + ' .ast-builder-grid-row {';
+				dynamicStyle += 'grid-column-gap: ' + spacing.desktop + 'px;';
+				dynamicStyle += '} ';
+			}
+			
+			if ( spacing.tablet != '' ) {
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += selector + ' .ast-builder-grid-row {';
+				dynamicStyle += 'grid-column-gap: ' + spacing.tablet + 'px;';
+				dynamicStyle += 'grid-row-gap: ' + spacing.tablet + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+			}
+
+			if ( spacing.mobile != '' ) {
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += selector + ' .ast-builder-grid-row {';
+				dynamicStyle += 'grid-column-gap: ' + spacing.mobile + 'px;';
+				dynamicStyle += 'grid-row-gap: ' + spacing.mobile + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+			}
+
+			astra_add_dynamic_css( 'hba-inner-spacing-toggle-button', dynamicStyle );
+		} );
+	} );
 
 	// Border Color.
 
@@ -65,7 +92,7 @@
 			var dynamicStyle = '';
 
 			if ( 'content' == layout ) {
-				dynamicStyle = selector + ' .site-container {';
+				dynamicStyle = selector + ' .ast-builder-grid-row {';
 				dynamicStyle += 'max-width: ' + AstraBuilderPrimaryFooterData.footer_content_width + 'px;';
 				dynamicStyle += 'margin-left: auto;';
 				dynamicStyle += 'margin-right: auto;';
@@ -73,7 +100,7 @@
 			}
 
 			if ( 'full' == layout ) {
-				dynamicStyle = selector + ' .site-container {';
+				dynamicStyle = selector + ' .ast-builder-grid-row {';
 					dynamicStyle += 'max-width: 100%;';
 					dynamicStyle += 'padding-right: 35px; padding-left: 35px;';
 				dynamicStyle += '} ';
@@ -91,5 +118,8 @@
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );
+
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( section, selector, 'grid' );
 
 } )( jQuery );

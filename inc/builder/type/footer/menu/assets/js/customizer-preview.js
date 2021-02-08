@@ -11,6 +11,7 @@
 ( function( $ ) {
 
     var selector = '#astra-footer-menu';
+    var visibility_selector = '.footer-widget-area[data-section="section-footer-menu"]';
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
@@ -183,5 +184,8 @@
             }
         } );
     } );
+
+    // Advanced Visibility CSS Generation.
+    astra_builder_visibility_css( 'section-footer-menu', visibility_selector, 'block' );
 
 } )( jQuery );

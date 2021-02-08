@@ -31,7 +31,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$configurations = Astra_Button_Component_Configs::register_configuration( 'header', 'section-hb-button-', $configurations );
+			$configurations = Astra_Button_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-button-' );
 
 			return $configurations;
 		}

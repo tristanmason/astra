@@ -10,19 +10,37 @@
 
 ( function( $ ) {
 
-	// Header Height.
-	astra_css(
-		'astra-settings[hba-header-height]',
-		'min-height',
-		'.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner',
-		'px'
-	);
-	astra_css(
-		'astra-settings[hba-header-height]',
-		'height',
-		'.ast-desktop .ast-above-header-bar .main-header-menu > .menu-item',
-		'px'
-	);
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
+	wp.customize( 'astra-settings[hba-header-height]', function( value ) {
+		value.bind( function( size ) {
+
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner {';
+				dynamicStyle += 'min-height: ' + size.desktop + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-desktop .ast-above-header-bar .main-header-menu > .menu-item {';
+				dynamicStyle += 'line-height: ' + size.desktop + 'px;';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner {';
+				dynamicStyle += 'min-height: ' + size.tablet + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-above-header-bar .site-above-header-wrap, .ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner {';
+				dynamicStyle += 'min-height: ' + size.mobile + 'px;';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( 'hba-header-height', dynamicStyle );
+			}
+		} );
+	} );
 
 	// Border Bottom width.
 	astra_css(
@@ -58,5 +76,8 @@
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( 'section-above-header-builder', '.ast-above-header.ast-above-header-bar' );
+	
+    // Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( 'section-above-header-builder', '.ast-above-header-bar', 'block' );
 
 } )( jQuery );

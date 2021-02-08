@@ -24,14 +24,14 @@ class Astra_Html_Component_Configs {
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
+	 * @param Array  $configurations Configurations.
 	 * @param string $builder_type Builder Type.
 	 * @param string $section Section.
 	 *
-	 * @param Array  $configurations Configurations.
 	 * @since 3.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
-	public static function register_configuration( $builder_type = 'header', $section = 'section-hb-html-', $configurations ) {
+	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-html-' ) {
 
 		$html_config = array();
 
@@ -53,7 +53,7 @@ class Astra_Html_Component_Configs {
 				 * Option: Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -97,46 +97,71 @@ class Astra_Html_Component_Configs {
 				/**
 				 * Option: HTML Color.
 				 */
+
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . 'color]',
-					'default'   => '',
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-color-group]',
+					'default'   => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
 					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Colors', 'astra' ),
 					'section'   => $_section,
-					'priority'  => 8,
 					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Text Color', 'astra' ),
+					'priority'  => 8,
 					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				array(
+					'name'       => $builder_type . '-html-' . $index . 'color',
+					'default'    => astra_get_option( $builder_type . '-html-' . $index . 'color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-color-group]',
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 1,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'title'      => __( 'Text Color', 'astra' ),
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
 				 * Option: Link Color.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . 'link-color]',
-					'default'   => astra_get_option( $builder_type . '-html-' . $index . 'link-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 9,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Link Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'name'       => $builder_type . '-html-' . $index . 'link-color',
+					'default'    => astra_get_option( $builder_type . '-html-' . $index . 'link-color' ),
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 9,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-color-group]',
+					'title'      => __( 'Link Color', 'astra' ),
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
 				 * Option: Link Hover Color.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . 'link-h-color]',
-					'default'   => astra_get_option( $builder_type . '-html-' . $index . 'link-h-color' ),
-					'type'      => 'control',
-					'section'   => $_section,
-					'priority'  => 10,
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Link Hover Color', 'astra' ),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'name'       => $builder_type . '-html-' . $index . 'link-h-color',
+					'default'    => astra_get_option( $builder_type . '-html-' . $index . 'link-h-color' ),
+					'type'       => 'sub-control',
+					'section'    => $_section,
+					'priority'   => 10,
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Hover', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-color-group]',
+					'title'      => __( 'Link Hover Color', 'astra' ),
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -195,6 +220,8 @@ class Astra_Html_Component_Configs {
 					'transport' => 'postMessage',
 				);
 			}
+
+			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_typography_options( $_section );
 

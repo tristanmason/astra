@@ -307,6 +307,50 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 
 			return $dynamic_css;
 		}
+
+		/**
+		 * Prepare Element visibility Dynamic CSS.
+		 *
+		 * @param string $section_id section id.
+		 * @param string $selector selector.
+		 * @param string $default_property Section default CSS property.
+		 * @return array
+		 */
+		public static function prepare_visibility_css( $section_id, $selector, $default_property = 'flex' ) {
+
+			$css_output_desktop = array();
+			$css_output_tablet  = array();
+			$css_output_mobile  = array();
+
+			$hide_desktop = ( ! astra_get_option( $section_id . '-hide-desktop' ) ) ? $default_property : 'none';
+			$hide_tablet  = ( ! astra_get_option( $section_id . '-hide-tablet' ) ) ? $default_property : 'none';
+			$hide_mobile  = ( ! astra_get_option( $section_id . '-hide-mobile' ) ) ? $default_property : 'none';
+
+			$css_output_desktop = array(
+				$selector => array(
+					'display' => $hide_desktop,
+				),
+			);
+
+			$css_output_tablet = array(
+				'.ast-header-break-point ' . $selector => array(
+					'display' => $hide_tablet,
+				),
+			);
+
+			$css_output_mobile = array(
+				'.ast-header-break-point ' . $selector => array(
+					'display' => $hide_mobile,
+				),
+			);
+
+			/* Parse CSS from array() */
+			$css_output  = astra_parse_css( $css_output_desktop );
+			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+
+			return $css_output;
+		}
 	}
 
 	/**

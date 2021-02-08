@@ -430,6 +430,17 @@
         }
     },
     {
+        "Andika New Basic": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Angkor": {
             "variants": [
                 "regular"
@@ -1527,6 +1538,25 @@
                 "900"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Bodoni Moda": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -3506,6 +3536,31 @@
         }
     },
     {
+        "Fraunces": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Freckle Face": {
             "variants": [
                 "regular"
@@ -4008,6 +4063,14 @@
         }
     },
     {
+        "Hachi Maru Pop": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Halant": {
             "variants": [
                 "300",
@@ -4426,6 +4489,22 @@
         }
     },
     {
+        "Imbue": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Imprima": {
             "variants": [
                 "regular"
@@ -4595,6 +4674,29 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "JetBrains Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "monospace"
         }
     },
     {
@@ -5262,6 +5364,14 @@
     },
     {
         "Lancelot": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Langar": {
             "variants": [
                 "regular"
             ],
@@ -7789,6 +7899,14 @@
         }
     },
     {
+        "Potta One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Pragati Narrow": {
             "variants": [
                 "regular",
@@ -8616,7 +8734,16 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -10395,6 +10522,14 @@
                 "700"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Yusei Magic": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {

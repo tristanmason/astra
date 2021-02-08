@@ -71,10 +71,17 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]',
 					'control'  => 'ast-divider',
 					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'section'  => 'section-footer-small',
 					'priority' => 10,
 					'settings' => array(),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -85,7 +92,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'default'  => astra_get_option( 'footer-sml-section-1' ),
 					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'section'  => 'section-footer-small',
 					'priority' => 15,
 					'title'    => __( 'Section 1', 'astra' ),
@@ -110,9 +124,17 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'   => 'textarea',
 					'transport' => 'postMessage',
 					'section'   => 'section-footer-small',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', '==', array( 'custom' ) ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-section-1]',
+							'operator' => '==',
+							'value'    => array( 'custom' ),
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
 						),
 					),
 					'priority'  => 20,
@@ -126,7 +148,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-1:has(> .ast-footer-site-title)',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_1_credit' ),
+						'render_callback'     => 'Astra_Customizer_Partials::render_footer_sml_section_1_credit',
 					),
 				),
 
@@ -138,7 +160,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => astra_get_option( 'footer-sml-section-2' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'section'  => 'section-footer-small',
 					'priority' => 25,
 					'title'    => __( 'Section 2', 'astra' ),
@@ -165,12 +194,19 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'footer-sml-section-2-credit' ),
 					'section'   => 'section-footer-small',
 					'priority'  => 30,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-section-2]',
+							'operator' => '==',
+							'value'    => 'custom',
+						),
+					),
 					'title'     => __( 'Section 2 Custom Text', 'astra' ),
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-2',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_2_credit' ),
+						'render_callback'     => 'Astra_Customizer_Partials::render_footer_sml_section_2_credit',
 					),
 					'partial'   => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2:has(> .ast-footer-site-title)',
@@ -186,7 +222,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'type'     => 'control',
 					'section'  => 'section-footer-small',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'priority' => 35,
 					'settings' => array(),
 				),
@@ -201,7 +244,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'footer-sml-divider' ),
 					'section'     => 'section-footer-small',
 					'priority'    => 40,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'title'       => __( 'Border Size', 'astra' ),
 					'transport'   => 'postMessage',
 					'input_attrs' => array(
@@ -221,7 +271,19 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'   => '#7a7a7a',
 					'type'      => 'control',
 					'control'   => 'ast-color',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
+							'operator' => '>=',
+							'value'    => 1,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'priority'  => 45,
 					'title'     => __( 'Border Color', 'astra' ),
 					'transport' => 'postMessage',
@@ -238,7 +300,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'    => __( 'Colors & Background', 'astra' ),
 					'priority' => 46,
 					'settings' => array(),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -253,7 +322,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -268,7 +344,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -281,11 +364,22 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'default'  => astra_get_option( 'footer-layout-width' ),
 					'section'  => 'section-footer-small',
-					'required' => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[site-layout]', '!=', 'ast-box-layout' ),
-							array( ASTRA_THEME_SETTINGS . '[site-layout]', '!=', 'ast-fluid-width-layout' ),
-							array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
+							'operator' => '!=',
+							'value'    => 'ast-box-layout',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
+							'operator' => '!=',
+							'value'    => 'ast-fluid-width-layout',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
 						),
 					),
 					'priority' => 35,
@@ -293,32 +387,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'choices'  => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Footer Widgets Layout Layout
-				 */
-				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-adv]',
-					'type'    => 'control',
-					'control' => 'ast-radio-image',
-					'default' => astra_get_option( 'footer-adv' ),
-					'title'   => __( 'Layout', 'astra' ),
-					'section' => 'section-footer-adv',
-					'choices' => array(
-						'disabled' => array(
-							'label' => __( 'Disable', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
-						),
-						'layout-4' => array(
-							'label' => __( 'Layout 4', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4' ),
-						),
-					),
-					'partial' => array(
-						'selector'            => '.footer-adv .ast-container',
-						'container_inclusive' => false,
 					),
 				),
 
@@ -333,7 +401,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'     => 'section-footer-adv',
 					'default'     => astra_get_option( 'footer-adv-border-width' ),
 					'priority'    => 40,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'title'       => __( 'Top Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -353,7 +428,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'default'   => astra_get_option( 'footer-adv-border-color' ),
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 					'priority'  => 45,
 				),
 			);
@@ -361,9 +443,37 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && false === Astra_Ext_Extension::is_active( 'advanced-footer' ) ) ) {
 
 				$config = array(
+
+					/**
+					 * Option: Footer Widgets Layout Layout
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[footer-adv]',
+						'type'     => 'control',
+						'priority' => 0,
+						'control'  => 'ast-radio-image',
+						'default'  => astra_get_option( 'footer-adv' ),
+						'title'    => __( 'Layout', 'astra' ),
+						'section'  => 'section-footer-adv',
+						'choices'  => array(
+							'disabled' => array(
+								'label' => __( 'Disable', 'astra' ),
+								'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
+							),
+							'layout-4' => array(
+								'label' => __( 'Layout 4', 'astra' ),
+								'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4' ),
+							),
+						),
+						'partial'  => array(
+							'selector'            => '.footer-adv .ast-container',
+							'container_inclusive' => false,
+						),
+					),
+
 					/**
 					 * Option: Divider
 					 */

@@ -126,7 +126,6 @@ module.exports = function (grunt) {
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                     },
-
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
@@ -279,6 +278,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/style-rtl.css',
                         dest: 'assets/css/minified/style.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/frontend-rtl.css',
+                        dest: 'assets/css/minified/frontend.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',

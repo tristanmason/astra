@@ -25,8 +25,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  */
 class Astra_Customizer_Header_Widget_Configs extends Astra_Customizer_Config_Base {
 
-
-
 	/**
 	 * Register Builder Customizer Configurations.
 	 *

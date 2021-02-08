@@ -26,6 +26,10 @@ add_filter( 'astra_dynamic_theme_css', 'astra_above_header_row_setting', 11 );
  */
 function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	if ( ! is_customize_preview() && ( ! Astra_Builder_helper::is_row_empty( 'above', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'above', 'header', 'mobile' ) ) ) {
+		return $dynamic_css;
+	}
+
 	$parse_css = '';
 
 	// Common CSS options.
@@ -38,6 +42,11 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$desktop_background = isset( $hba_header_bg_obj['desktop']['background-color'] ) ? $hba_header_bg_obj['desktop']['background-color'] : '';
 	$tablet_background  = isset( $hba_header_bg_obj['tablet']['background-color'] ) ? $hba_header_bg_obj['tablet']['background-color'] : '';
 	$mobile_background  = isset( $hba_header_bg_obj['mobile']['background-color'] ) ? $hba_header_bg_obj['mobile']['background-color'] : '';
+
+	// Header Height.
+	$hba_header_height_desktop = ( isset( $hba_header_height['desktop'] ) && ! empty( $hba_header_height['desktop'] ) ) ? $hba_header_height['desktop'] : '';
+	$hba_header_height_tablet  = ( isset( $hba_header_height['tablet'] ) && ! empty( $hba_header_height['tablet'] ) ) ? $hba_header_height['tablet'] : '';
+	$hba_header_height_mobile  = ( isset( $hba_header_height['mobile'] ) && ! empty( $hba_header_height['mobile'] ) ) ? $hba_header_height['mobile'] : '';
 
 	// Spacing CSS options.
 	$hba_header_spacing = astra_get_option( 'hba-header-spacing' );
@@ -52,11 +61,13 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'border-bottom-style' => 'solid',
 		),
 		'.ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner, .ast-above-header-bar .site-above-header-wrap' => array(
-			'min-height' => astra_get_css_value( $hba_header_height, 'px' ),
+			'min-height' => astra_get_css_value( $hba_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-above-header-bar .main-header-menu > .menu-item' => array(
-			'height'     => astra_get_css_value( $hba_header_height, 'px' ),
-			'align-self' => 'center',
+			'line-height' => astra_get_css_value( $hba_header_height_desktop, 'px' ),
+		),
+		'.ast-desktop .ast-above-header-bar .ast-header-woo-cart, .ast-desktop .ast-above-header-bar .ast-header-edd-cart' => array(
+			'line-height' => astra_get_css_value( $hba_header_height_desktop, 'px' ),
 		),
 	);
 
@@ -77,6 +88,9 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-header-break-point .ast-above-header-bar' => array(
 			'background-color' => esc_attr( $tablet_background ),
 		),
+		'.ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner, .ast-above-header-bar .site-above-header-wrap' => array(
+			'min-height' => astra_get_css_value( $hba_header_height_tablet, 'px' ),
+		),
 	);
 	$parse_css .= astra_parse_css( $tablet_bg, '', astra_get_tablet_breakpoint() );
 
@@ -85,6 +99,9 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-above-header.ast-above-header-bar'        => astra_get_responsive_background_obj( $hba_header_bg_obj, 'mobile' ),
 		'.ast-header-break-point .ast-above-header-bar' => array(
 			'background-color' => esc_attr( $mobile_background ),
+		),
+		'.ast-mobile-header-wrap .ast-above-header-bar .ast-builder-grid-row-container-inner, .ast-above-header-bar .site-above-header-wrap' => array(
+			'min-height' => astra_get_css_value( $hba_header_height_mobile, 'px' ),
 		),
 	);
 	$parse_css .= astra_parse_css( $mobile_bg, '', astra_get_mobile_breakpoint() );
@@ -99,6 +116,8 @@ function astra_above_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$parent_selector = '.ast-above-header.ast-above-header-bar';
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
+
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-above-header-bar', 'block' );
 
 	return $dynamic_css;
 }

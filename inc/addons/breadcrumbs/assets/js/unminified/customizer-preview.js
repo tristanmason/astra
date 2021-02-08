@@ -19,17 +19,13 @@
 		'astra-settings[breadcrumb-font-family]',
 		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
 	);
-	astra_css(
-		'astra-settings[breadcrumb-font-weight]',
-		'font-weight',
-		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
-	);
+	astra_generate_font_weight_css( 'astra-settings[breadcrumb-font-family]', 'astra-settings[breadcrumb-font-weight]', 'font-weight', '.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' );
 	astra_css(
 		'astra-settings[breadcrumb-text-transform]',
 		'text-transform',
 		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
 	);
-	
+
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Line Height */
 	astra_css( 
 		'astra-settings[breadcrumb-line-height]',
@@ -97,6 +93,19 @@
 			} else {
 				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['top', 'right', 'bottom', 'left' ] );
 			}
+		} );
+	} );
+
+	/**
+	 * Breadcrumb Separator.
+	 */
+	wp.customize( 'astra-settings[breadcrumb-separator]', function( value ) {
+		value.bind( function( value ) {
+			var dynamicStyle = '';
+                dynamicStyle += '.trail-items li::after {';
+                dynamicStyle += 'content: "' + value + '";';
+                dynamicStyle += '} ';
+				astra_add_dynamic_css( 'breadcrumb-separator', dynamicStyle );
 		} );
 	} );
 

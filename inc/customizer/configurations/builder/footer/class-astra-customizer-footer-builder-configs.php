@@ -27,25 +27,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Base {
 
 	/**
-	 * Footer components.
-	 *
-	 * @var array
-	 * @since 3.0.0
-	 */
-	public static $footer_items = array(
-		'copyright' => array(
-			'name'    => 'Copyright',
-			'icon'    => 'nametag',
-			'section' => 'section-footer-copyright',
-		),
-		'menu'      => array(
-			'name'    => 'Footer Menu',
-			'icon'    => 'menu',
-			'section' => 'section-footer-menu',
-		),
-	);
-
-	/**
 	 * Footer Zones.
 	 *
 	 * @var array
@@ -69,7 +50,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
 
-			self::$footer_items[ 'html-' . $index ] = array(
+			Astra_Builder_Helper::$footer_desktop_items[ 'html-' . $index ] = array(
 				'name'    => 'HTML ' . $index,
 				'icon'    => 'text',
 				'section' => 'section-fb-html-' . $index,
@@ -78,7 +59,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 
-			self::$footer_items[ 'widget-' . $index ] = array(
+			Astra_Builder_Helper::$footer_desktop_items[ 'widget-' . $index ] = array(
 				'name'    => 'Widget ' . $index,
 				'icon'    => 'wordpress',
 				'section' => 'sidebar-widgets-footer-widget-' . $index,
@@ -87,7 +68,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
 
-			self::$footer_items[ 'button-' . $index ] = array(
+			Astra_Builder_Helper::$footer_desktop_items[ 'button-' . $index ] = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
 				'section' => 'section-fb-button-' . $index,
@@ -96,7 +77,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_social_icons; $index++ ) {
 
-			self::$footer_items[ 'social-icons-' . $index ] = array(
+			Astra_Builder_Helper::$footer_desktop_items[ 'social-icons-' . $index ] = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
 				'section' => 'section-fb-social-icons-' . $index,
@@ -135,7 +116,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Header Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[builder-footer-tabs]',
+				'name'        => 'section-footer-builder-layout-ast-context-tabs',
 				'section'     => 'section-footer-builder-layout',
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
@@ -162,7 +143,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Header Builder
+			 * Option: Footer Builder
 			 */
 			array(
 				'name'        => ASTRA_THEME_SETTINGS . '[builder-footer]',
@@ -171,13 +152,6 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 20,
 				'description' => '',
-				'context'     => array(
-					array(
-						'setting'  => 'ast_selected_tab',
-						'operator' => 'in',
-						'value'    => array( 'general', 'design' ),
-					),
-				),
 			),
 
 			// Group Option: Global Footer Background styling.
@@ -216,7 +190,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'title'       => __( 'Footer Builder', 'astra' ),
 				'priority'    => 10,
 				'default'     => astra_get_option( 'footer-desktop-items' ),
-				'choices'     => self::$footer_items,
+				'choices'     => Astra_Builder_Helper::$footer_desktop_items,
 				'transport'   => 'postMessage',
 				'partial'     => array(
 					'selector'            => '.ast-site-footer',

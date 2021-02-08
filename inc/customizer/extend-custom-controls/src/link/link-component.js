@@ -73,7 +73,7 @@ const LinkComponent = props => {
 		</div>
 		<div className="customize-control-content">
 			<label>
-				<span className="customize-control-title">{__('Button Link Rel')}</span>
+				<span className="customize-control-title">{__('Link Rel')}</span>
 			</label>
 			<TextControl value={link_rel} className={'ast-link-relationship'} onChange={value => {
 				onRelChange(value);

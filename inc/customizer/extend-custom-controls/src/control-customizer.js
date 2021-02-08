@@ -58,6 +58,20 @@
 			});
 		});
 
+
+		/**
+		 * Trigger on different-mobile-logo change.
+		 */
+		api('astra-settings[different-mobile-logo]', function (value) {
+			value.bind(function (checked) {
+
+				let ctrl = api.control('astra-settings[mobile-header-logo]');
+				if( ! checked && ctrl ) {
+					ctrl.container.find('.remove-button').click();
+				}
+			});
+		});
+
 		/**
 		 * Pass data to previewer when device changed.
 		 */
@@ -74,7 +88,14 @@
 			}
 
 			let id = ( 'desktop' === new_device ) ? 'astra-settings[header-desktop-items]' : 'astra-settings[header-mobile-items]';
-			api(id).set( { ...api(id).get(), ...[], flag: !api(id).get().flag } );
+
+			let api_id = api(id);
+
+			if( 'undefined' == typeof api_id ) {
+				return ;
+			}
+
+			api_id.set( { ...api_id.get(), ...[], flag: !api_id.get().flag } );
 
 		});
 

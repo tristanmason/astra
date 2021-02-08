@@ -50,7 +50,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Header Builder Tabs
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[builder-header-off-canvas-tabs]',
+					'name'        => $_section . '-ast-context-tabs',
 					'section'     => $_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -94,12 +94,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'left'  => __( 'Left', 'astra' ),
 						'right' => __( 'Right', 'astra' ),
 					),
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-						'==',
-						'off-canvas',
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+							'operator' => '==',
+							'value'    => 'off-canvas',
+						),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -111,13 +113,33 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => $_section,
-					'context'  => Astra_Builder_Helper::$mobile_general_tab,
+					'context'  => Astra_Builder_Helper::$responsive_general_tab,
 					'priority' => 40,
 					'title'    => __( 'Dropdown Target', 'astra' ),
 					'suffix'   => '',
 					'choices'  => array(
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Content alignment option for offcanvas
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-offcanvas-content-alignment]',
+					'default'  => astra_get_option( 'header-offcanvas-content-alignment' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => $_section,
+					'context'  => Astra_Builder_Helper::$responsive_general_tab,
+					'priority' => 45,
+					'title'    => __( 'Content Alignment', 'astra' ),
+					'suffix'   => '',
+					'choices'  => array(
+						'flex-start' => __( 'Left', 'astra' ),
+						'center'     => __( 'Center', 'astra' ),
+						'flex-end'   => __( 'Right', 'astra' ),
 					),
 				),
 
@@ -159,14 +181,23 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'   => $_section,
 					'priority'  => 30,
 					'title'     => __( 'Close Icon Color', 'astra' ),
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[mobile-header-type]', '==', 'off-canvas' ),
-							array( ASTRA_THEME_SETTINGS . '[mobile-header-type]', '==', 'full-width' ),
+					'context'   => array(
+						'relation' => 'AND',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'off-canvas',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'full-width',
+							),
 						),
-						'operator'   => 'OR',
 					),
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

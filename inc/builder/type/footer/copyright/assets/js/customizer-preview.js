@@ -11,6 +11,7 @@
 ( function( $ ) {
 
     let selector = '.ast-footer-copyright .ast-footer-html-inner';
+    let visibility_selector = '.ast-footer-copyright.ast-builder-layout-element';
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
@@ -91,5 +92,8 @@
         } );
     } );
     
+    // Advanced Visibility CSS Generation.
+    astra_builder_visibility_css( 'section-footer-copyright', visibility_selector );
+
 } )( jQuery );
 		

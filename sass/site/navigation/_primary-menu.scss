@@ -14,8 +14,8 @@
 }
 
 .main-navigation {
-	display: inline-flex;
 	height: 100%;
+	display: inline-flex;
 
 	ul {
 		list-style: none;
@@ -163,6 +163,7 @@
 					padding: 0 20px;
 					display: inline-block;
 					width: 100%;
+					border: 0;
 					border-bottom-width: 1px;
 					border-style: solid;
 					border-color: #eaeaea;

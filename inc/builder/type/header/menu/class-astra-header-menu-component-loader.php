@@ -47,6 +47,11 @@ class Astra_Header_Menu_Component_Loader {
 
 			Astra_Fonts::add_font( $menu_font_family, $menu_font_weight );
 		}
+
+		$mobile_menu_font_family = astra_get_option( 'header-mobile-menu-font-family' );
+		$mobile_menu_font_weight = astra_get_option( 'header-mobile-menu-font-weight' );
+
+		Astra_Fonts::add_font( $mobile_menu_font_family, $mobile_menu_font_weight );
 	}
 
 	/**

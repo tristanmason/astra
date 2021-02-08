@@ -185,7 +185,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			 */
 			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
@@ -239,7 +238,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 				<?php
 				$args        = array(
-					'posts_per_page'   => get_post_meta( get_the_ID(), '_llms_num_reviews', true ),
+					'posts_per_page'   => get_post_meta( get_the_ID(), '_llms_num_reviews', true ), // phpcs:ignore WPThemeReview.CoreFunctionality.PostsPerPage.posts_per_page_posts_per_page, WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
 					'post_type'        => 'llms_review',
 					'post_status'      => 'publish',
 					'post_parent'      => get_the_ID(),
