@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					),
 					'transport'  => 'postMessage',
 					'responsive' => false,
-					'renderAs'  => 'text',
+					'renderAs'   => 'text',
 				),
 
 				/**

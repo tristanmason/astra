@@ -164,7 +164,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
 				'responsive' => false,
-				'renderAs'  => 'text',
+				'renderAs'   => 'text',
 			),
 
 			/**

@@ -100,7 +100,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					),
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => false,
-					'renderAs'  => 'text',
+					'renderAs'   => 'text',
 				),
 
 				/**

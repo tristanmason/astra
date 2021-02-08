@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'custom'  => __( 'Custom', 'astra' ),
 					),
 					'responsive' => false,
-					'renderAs'  => 'text',
+					'renderAs'   => 'text',
 				),
 
 				/**
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'excerpt'      => __( 'Excerpt', 'astra' ),
 					),
 					'responsive' => false,
-					'renderAs'  => 'text',
+					'renderAs'   => 'text',
 				),
 
 				/**
