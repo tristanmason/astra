@@ -707,7 +707,7 @@
 	border: none;
 }
 .astra-color-clear-button.components-button.is-secondary:disabled, .ast-reset-btn.components-button.is-secondary:disabled span {
-    color: #bbb;
+    color: #c5c5c5;
 }
 /** Inside Setting group popup - Colors */
 .ast-field-settings-modal .color-button-wrap {
@@ -1566,7 +1566,7 @@ input[type="text"].select2-search__field {
 }
 .customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
 .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
-  margin-left: 12px;
+  margin-left: 5px;
   margin-top: 4px;
 }
 .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
