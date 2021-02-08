@@ -208,7 +208,7 @@
 			// Change description to tooltip.
 			change_description_as_tooltip(api.control(id));
 
-			if ('ast-settings-group' === data['type']) {
+			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
 				this.addSubControl(id);
 			}
 		},
@@ -712,6 +712,12 @@
 				if( ! e.detail.hasOwnProperty('section_id') ) {
 					return;
 				}
+
+				let section = api.section( e.detail.section_id );
+				if (section && section.expanded) {
+					section.collapse();
+				}
+
 
 				sessionStorage.setItem('astra-builder-reset-in-progress', true)
 				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);

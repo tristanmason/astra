@@ -7,10 +7,10 @@
 }
 
 .customize-control-ast-slider .ast-range-unit, .customize-control-ast-responsive-slider .wrapper .ast-range-unit {
-  padding: 0 5px 10px 0;
+  padding: 0 5px 0 0;
   font-size: 11px;
   line-height: 1em;
   font-weight: 500;
-  align-self: center;
+  align-self: auto;
   text-transform: uppercase;
 }

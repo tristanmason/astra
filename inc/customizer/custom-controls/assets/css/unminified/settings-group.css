@@ -299,6 +299,7 @@
   min-width: auto;
 }
 
-.ast-field-settings-modal .wrapper span.ast-range-unit {
-  padding-bottom: 15px;
+.customize-control-ast-settings-group .customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  margin-top: 0;
 }

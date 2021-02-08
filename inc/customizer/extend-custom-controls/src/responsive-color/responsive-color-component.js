@@ -40,7 +40,6 @@ const ResponsiveColorComponent = props => {
 							for (let device in value) {
 								if (undefined === value[device] || '' === value[device]) {
 									value[device] = '';
-									wp.customize.previewer.refresh();
 								}
 							}
 						}
@@ -48,11 +47,7 @@ const ResponsiveColorComponent = props => {
 						props.control.setting.set(value);
 						setPropsValue(value);
 					}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
+						<Dashicon icon='image-rotate'/>
 					</button>
 				</div>
 			</>
@@ -72,7 +67,7 @@ const ResponsiveColorComponent = props => {
 		if (typeof color === 'string' || color instanceof String) {
 			value = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-			value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+			value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 		} else {
 			value = color.hex;
 		}

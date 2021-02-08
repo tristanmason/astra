@@ -82,17 +82,14 @@ const ResponsiveBackground = props => {
 								for (let device in value) {
 									if (undefined === value[device]['background-color'] || '' === value[device]['background-color']) {
 										value[device]['background-color'] = '';
-										wp.customize.previewer.refresh();
 									}
 
 									if (undefined === value[device]['background-image'] || '' === value[device]['background-image']) {
 										value[device]['background-image'] = '';
-										wp.customize.previewer.refresh();
 									}
 
 									if (undefined === value[device]['background-media'] || '' === value[device]['background-media']) {
 										value[device]['background-media'] = '';
-										wp.customize.previewer.refresh();
 									}
 								}
 							}
@@ -100,11 +97,7 @@ const ResponsiveBackground = props => {
 							updateValues(value);
 
 						}}>
-							<Dashicon icon='image-rotate' style={{
-								width: 12,
-								height: 12,
-								fontSize: 12
-							}}/>
+							<Dashicon icon='image-rotate'/>
 						</button>
 					</div>
 				</>
@@ -172,7 +165,7 @@ const ResponsiveBackground = props => {
 			if (typeof color === 'string' || color instanceof String) {
 				value = color;
 			} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-				value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+				value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 			} else {
 				value = color.hex;
 			}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Dashicon} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const ColorComponent = props => {
 
@@ -12,6 +12,13 @@ const ColorComponent = props => {
 	const [state, setState] = useState({
 		value: value,
 	});
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state.value !== value ) {
+			setState(value);
+		}
+	}, [props]);
 
 	const updateValues = (value) => {
 		setState(prevState => ({
@@ -32,17 +39,12 @@ const ColorComponent = props => {
 							let value = JSON.parse(JSON.stringify(defaultValue));
 
 							if (undefined === value || '' === value) {
-								value = '';
-								wp.customize.previewer.refresh();
+								value = 'unset';
 							}
 
 							updateValues(value);
 						}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
+						<Dashicon icon='image-rotate'/>
 						</button>
 					</div>
 				</>
@@ -52,10 +54,10 @@ const ColorComponent = props => {
 	const handleChangeComplete = ( color ) => {
 		let value;
 
-		if (typeof color === 'string' || color instanceof String) {
+		if (typeof color === 'string') {
 			value = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-			value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+			value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 		} else {
 			value = color.hex;
 		}
@@ -93,4 +95,4 @@ ColorComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo ( ColorComponent );
+export default ColorComponent;
