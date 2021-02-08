@@ -28,7 +28,7 @@
     astra_css(
         'astra-settings[hba-footer-vertical-alignment]',
         'align-items',
-        selector + ' .ast-builder-grid-row'
+        selector + ' .ast-builder-grid-row, ' + selector + ' .ast-builder-grid-row .site-footer-section'
     );
 
 	// Border Bottom width.
