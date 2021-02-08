@@ -48,7 +48,7 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 
 	$css_output_desktop = array(
 
-		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
+		$selector => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
 		$selector . ' .ast-builder-grid-row, ' . $selector . ' .ast-builder-grid-row .site-footer-section' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
 		),
