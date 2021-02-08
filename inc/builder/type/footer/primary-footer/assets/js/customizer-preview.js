@@ -46,7 +46,7 @@
     astra_css(
         'astra-settings[hb-footer-vertical-alignment]',
         'align-items',
-        selector + ' .ast-builder-grid-row, ' + selector + ' .ast-builder-grid-row .site-footer-section'
+        selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
 	// Inner Space.

@@ -52,7 +52,7 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 		$selector . ' .ast-builder-grid-row' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
 		),
-		$selector . ' .ast-builder-grid-row, ' . $selector . ' .ast-builder-grid-row .site-footer-section' => array(
+		$selector . ' .ast-builder-grid-row, ' . $selector . ' .site-footer-section' => array(
 			'align-items' => astra_get_option( 'hba-footer-vertical-alignment' ),
 		),
 		$selector . '.ast-footer-row-inline .site-footer-section' => array(
