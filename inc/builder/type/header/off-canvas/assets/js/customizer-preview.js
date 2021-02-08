@@ -27,7 +27,6 @@
 	wp.customize( 'astra-settings[off-canvas-inner-spacing]', function ( value ) {
         value.bind( function ( spacing ) {
 			var dynamicStyle = '';
-
 			if( spacing != '' ) {
 				dynamicStyle += '.ast-mobile-popup-content > *, .ast-mobile-header-content > * {';
 				dynamicStyle += 'padding-top: ' + spacing + 'px;';
