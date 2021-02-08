@@ -49,6 +49,13 @@
             top: 7px;
             cursor: pointer;
         }
+        .ast-color-group-responsive-wrap {
+            display: none;
+        }
+        .ast-color-group-responsive-wrap.active {
+            justify-content: flex-end;
+            display: flex;
+        }
     }
 }
 #customize-control-astra-settings-transparent-toggle-colors,

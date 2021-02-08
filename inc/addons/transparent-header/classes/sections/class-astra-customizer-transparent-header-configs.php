@@ -398,12 +398,13 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'default'   => astra_get_option( 'transparent-header-colors' ),
 					'type'      => 'control',
-					'control'   => 'ast-settings-group',
+					'control'   => 'ast-color-group',
 					'title'     => __( 'Site Title', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 35,
 					'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'responsive'=>true
 				),
 
 				array(

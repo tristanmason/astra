@@ -1,4 +1,5 @@
 import ColorGroupComponent from './color-group-component';
+import {astraGetResponsiveColorGroupJs} from '../common/responsive-helper';
 
 export const colorGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -6,6 +7,7 @@ export const colorGroupControl = wp.customize.astraControl.extend( {
 		ReactDOM.render( <ColorGroupComponent control={ control } />, control.container[0] );
 	},
 	ready : function() {
+		astraGetResponsiveColorGroupJs( this );
 		'use strict';
 		let control = this;
 		jQuery(document).mouseup(function(e) {
