@@ -5,23 +5,21 @@ import {__} from '@wordpress/i18n';
 import {useEffect, useState} from 'react';
 
 const ResponsiveImage = props => {
-	console.log(props);
+
     let prop_value = props.control.setting.get();
-    
-    // const [state, setState] = useState({
-    //     value: value,
-    // }
-	// );
+
 	const [state, setState] = useState( prop_value );
 	console.log(state);
 	const updateValues = (obj) => {
-		setState(prevState => ({
-			...prevState,
-			value: obj
-		}));
+		setState( obj )
+		// setState(prevState => ({
+		// 	...prevState,
+		// 	obj
+		// }));
+		// console.log(obj);
 		props.control.setting.set(obj);
 	};
-
+// console.log(props.control.params);
     const {
 		// defaultValue,
 		label,
@@ -66,31 +64,31 @@ const ResponsiveImage = props => {
 	</div>;
 
 	const onSelectImage = (media, key) => {
-		console.log(media);
-		console.log(key);
-		// let obj = {
-		// 	...state.value
-		// };
-		// let deviceObj = {
-		// 	...obj[key]
-		// };
-		// deviceObj['background-image'] = media.url;
-		// deviceObj['background-media'] = media.id;
-		// obj[key] = deviceObj;
-		// updateValues(obj);
+		let obj = {
+			...state.value
+		};
+		let deviceObj = {
+			...obj[key]
+		};
+		deviceObj['image'] = media.url;
+		deviceObj['media'] = media.id;
+		obj[key] = deviceObj;
+		console.log(obj);
+		updateValues(obj);
+	};
+	const onRemoveImage = (key) => {
+		onSelectImage('',key);
 	};
 	
 	function renderSettings(key) {
-		console.log(key);
-// console.log(state);
 		var media = '';
-		// var media = undefined !== state.value[key]['media'] && state.value[key]['media'] ? state.value[key]['media'] : '';
-		// var image = undefined !== state.value[key]['image'] && state.value[key]['image'] ? state.value[key]['image'] : '';
+		// var media = undefined !== state.prop_value[key]['media'] && state.value[key]['media'] ? state.value[key]['media'] : '';
+		// var image = undefined !== state.prop_value[key]['image'] && state.value[key]['image'] ? state.value[key]['image'] : '';
 		return <>
 
-			{/* { ( media.url || image ) &&
+			{/* { ( media || image ) &&
 
-			<img src={ ( media.url ) ? media.url : image } />
+			<img src={ image } />
 			} */}
 
 			<MediaUpload
@@ -105,14 +103,14 @@ const ResponsiveImage = props => {
 				) }
 			/>
 
-			{/* { ( this.props.media || this.props.backgroundImage ) &&
+			{/* { ( this.props.media || this.props.backgroundImage ) && */}
 				<>
-					<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
+					<Button className="ast-bg-img-remove" onClick={() => { onRemoveImage(key); }}>
 						{ __( "Remove Image", 'astra' ) }
 					</Button>
 
 				</>
-			} */}
+			{/* } */}
 
 		</>;
 	};
