@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_clear_assets_cache',
 			),
 			'3.2.0' => array(
-				'astra_check_flex_base_css',
+				'astra_check_flex_based_css',
 			),
 		);
 

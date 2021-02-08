@@ -329,7 +329,7 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 				'<div class="ast-site-title-wrap">
 						%1$s
 						%2$s
-					</div>',
+				</div>',
 				( $display_site_title ) ? $site_title_markup : '',
 				( $display_site_tagline ) ? $site_tagline_markup : ''
 			);
