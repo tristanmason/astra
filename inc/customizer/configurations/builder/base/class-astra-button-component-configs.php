@@ -216,21 +216,6 @@ class Astra_Button_Component_Configs {
 				),
 
 				/**
-				 * Group: Primary Header Button Border Group
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color-group]',
-					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-border-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-color-group',
-					'title'     => __( 'Border Color', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 80,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
 				* Option: Button Border Size
 				*/
 				array(
@@ -256,36 +241,34 @@ class Astra_Button_Component_Configs {
 				* Option: Button Border Color
 				*/
 				array(
-					'name'       => $builder_type . '-' . $_prefix . '-border-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color]',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-color' ),
 					'transport'  => 'postMessage',
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color-group]',
+					'type'       => 'control',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 12,
-					'context'    => Astra_Builder_Helper::$general_tab,
-					'title'      => __( 'Color', 'astra' ),
+					'priority'   => 80,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Border Color', 'astra' ),
 				),
 
 				/**
 				* Option: Button Border Hover Color
 				*/
 				array(
-					'name'       => $builder_type . '-' . $_prefix . '-border-h-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-h-color]',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ),
 					'transport'  => 'postMessage',
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color-group]',
+					'type'       => 'control',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 14,
-					'context'    => Astra_Builder_Helper::$general_tab,
-					'title'      => __( 'Hover Color', 'astra' ),
+					'priority'   => 80,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Border Hover Color', 'astra' ),
 				),
 
 				/**
