@@ -142,6 +142,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) || 
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+						
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 			} else {
