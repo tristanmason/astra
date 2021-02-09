@@ -29,12 +29,23 @@ const ColorComponent = props => {
 	};
 
 	const renderOperationButtons = () => {
+		
+		let resetFlag = true;
+		let tempVal = state.value.replace( 'unset', '' );
+
+		if ( JSON.stringify(tempVal) !== JSON.stringify(defaultValue) ) {
+			resetFlag = false;
+		}
+		console.log(props.control);
+		console.log(tempVal);
+		console.log(defaultValue);
+
 		return <span className="customize-control-title">
 				<>
 					<div className="ast-color-btn-reset-wrap">
 						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							disabled={JSON.stringify(state.value) === JSON.stringify(defaultValue)} onClick={e => {
+							disabled={resetFlag} onClick={e => {
 							e.preventDefault();
 							let value = JSON.parse(JSON.stringify(defaultValue));
 
