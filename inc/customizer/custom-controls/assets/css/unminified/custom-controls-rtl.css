@@ -3230,6 +3230,10 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   margin-bottom: 12px;
 }
 
+.control-section > li:nth-child(2) {
+  margin-top: 5px;
+}
+
 .customize-control .ast-control-tooltip {
   position: absolute;
   top: 0;
