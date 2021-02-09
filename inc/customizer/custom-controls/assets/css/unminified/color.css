@@ -33,7 +33,7 @@
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
-    border-radius: 4px;
+    border-radius: 50%;
     margin: 0;
 }
 .component-color-indicator {
@@ -48,7 +48,8 @@
     height: auto;
     position: relative;
     transform: scale(1);
-    border-radius: 4px;
+    transition: none;
+    border-radius: 50%;
     padding: 0;
     background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
@@ -228,6 +229,11 @@
     height: 24px;
     font-size: 24px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.astra-color-icon-indicate.components-button:focus:not(:disabled),
+.astra-color-icon-indicate.components-button:hover:not(:disabled) {
+    box-shadow: 0 0 0 2px #757575 !important;
+    outline: 3px solid transparent;
 }
 .astra-popover-color {
     margin-left: 2px;
