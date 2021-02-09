@@ -415,7 +415,7 @@
 .customize-control-title {
     display: block;
     font-size: 14px;
-    line-height: 1.75;
+    line-height: 1;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -561,10 +561,6 @@
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-.customize-control-ast-color.customize-control,
-.customize-control-ast-heading + .customize-control-ast-color {
-    margin-top: 20px;
-}
 .customize-control-ast-color.customize-control > * {
     display: inline;
 }
@@ -621,7 +617,7 @@
 }
 .astra-popover-color {
     margin-right: 2px;
-	margin-top: 5px;
+	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -647,6 +643,10 @@
     margin-right: 5px;
     position: absolute;
     z-index: 1;
+	top: 20px;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
@@ -1240,7 +1240,7 @@
 .customize-control-title {
     display: block;
     font-size: 14px;
-    line-height: 1.75;
+    line-height: 1;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -1386,10 +1386,6 @@
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-.customize-control-ast-color.customize-control,
-.customize-control-ast-heading + .customize-control-ast-color {
-    margin-top: 20px;
-}
 .customize-control-ast-color.customize-control > * {
     display: inline;
 }
@@ -1446,7 +1442,7 @@
 }
 .astra-popover-color {
     margin-right: 2px;
-	margin-top: 5px;
+	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -1472,6 +1468,10 @@
     margin-right: 5px;
     position: absolute;
     z-index: 1;
+	top: 20px;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
@@ -1682,7 +1682,11 @@
 .customize-control {
   position: relative;
   margin-bottom: 0;
-  margin-top: 12px;
+  margin-top: 25px;
+}
+
+.components-base-control .components-base-control__field {
+  margin-bottom: 0;
 }
 
 .customize-control .customize-inside-control-row {
@@ -1692,7 +1696,12 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
+.customize-control-ast-background .customize-control-title, .customize-control-ast-responsive-color .customize-control-title {
+  display: contents;
 }
 
 .customize-control-ast-font-variant .select2 {
@@ -1793,7 +1802,9 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-divider hr {
-  margin-top: 12px;
+	margin-top: 0;
+    margin-bottom: 0;
+	border-bottom: none;
 }
 
 .customize-control-ast-divider .customize-control-title {
@@ -1825,13 +1836,13 @@ input[type="text"].select2-search__field {
   margin: 0px 0 15px 0;
 }
 
-.accordion-section-content.open .customize-control-ast-heading:nth-child(2), .accordion-section-content.open .customize-control-ast-heading:nth-child(3) {
-  margin-top: 0;
+.customize-control-ast-responsive-background + .customize-control-ast-heading, .customize-control-ast-color + .customize-control-ast-heading {
+    margin-top: 30px;
 }
 
 .customize-control-ast-heading {
-  margin-top: 20px;
-  margin-bottom: 8px;
+  margin-top: 25px;
+  margin-bottom: 0;
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
@@ -2054,10 +2065,6 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-background .wp-picker-container .wp-picker-clear {
   margin-right: 4px;
   min-height: 30px;
-}
-
-.customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -2638,6 +2645,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
+  vertical-align: sub;
   margin-right: 10px;
 }
 
@@ -3196,7 +3204,11 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control {
   position: relative;
   margin-bottom: 0;
-  margin-top: 12px;
+  margin-top: 25px;
+}
+
+.components-base-control .components-base-control__field {
+  margin-bottom: 0;
 }
 
 .customize-control .customize-inside-control-row {
@@ -3206,7 +3218,12 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
+.customize-control-ast-background .customize-control-title, .customize-control-ast-responsive-color .customize-control-title {
+  display: contents;
 }
 
 .customize-control-ast-font-variant .select2 {
@@ -3307,7 +3324,9 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-divider hr {
-  margin-top: 12px;
+	margin-top: 0;
+    margin-bottom: 0;
+	border-bottom: none;
 }
 
 .customize-control-ast-divider .customize-control-title {
@@ -3339,13 +3358,13 @@ input[type="text"].select2-search__field {
   margin: 0px 0 15px 0;
 }
 
-.accordion-section-content.open .customize-control-ast-heading:nth-child(2), .accordion-section-content.open .customize-control-ast-heading:nth-child(3) {
-  margin-top: 0;
+.customize-control-ast-responsive-background + .customize-control-ast-heading, .customize-control-ast-color + .customize-control-ast-heading {
+    margin-top: 30px;
 }
 
 .customize-control-ast-heading {
-  margin-top: 20px;
-  margin-bottom: 8px;
+  margin-top: 25px;
+  margin-bottom: 0;
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
@@ -3568,10 +3587,6 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-background .wp-picker-container .wp-picker-clear {
   margin-right: 4px;
   min-height: 30px;
-}
-
-.customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -3821,6 +3836,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
+  vertical-align: sub;
   margin-right: 10px;
 }
 

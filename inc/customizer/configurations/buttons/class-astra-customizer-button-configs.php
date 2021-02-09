@@ -37,16 +37,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-color-styling-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-buttons',
-					'title'    => __( 'Colors and Border', 'astra' ),
-					'priority' => 1,
-					'settings' => array(),
-				),
 				/**
 				 * Group: Theme Button color Group
 				 */
@@ -73,6 +63,18 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 18.5,
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-buttons',
+					'priority' => 19,
+					'settings' => array(),
 				),
 
 				/**
@@ -218,14 +220,13 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Padding Section
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-padding-styling-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-padding-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => 'section-buttons',
-					'title'    => __( 'Spacing', 'astra' ),
 					'priority' => 30,
 					'settings' => array(),
 				),

@@ -25,7 +25,7 @@
 .customize-control-title {
     display: block;
     font-size: 14px;
-    line-height: 1.75;
+    line-height: 1;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -171,10 +171,6 @@
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-.customize-control-ast-color.customize-control,
-.customize-control-ast-heading + .customize-control-ast-color {
-    margin-top: 20px;
-}
 .customize-control-ast-color.customize-control > * {
     display: inline;
 }
@@ -231,7 +227,7 @@
 }
 .astra-popover-color {
     margin-right: 2px;
-	margin-top: 5px;
+	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -257,6 +253,10 @@
     margin-right: 5px;
     position: absolute;
     z-index: 1;
+	top: 20px;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
