@@ -1,0 +1,59 @@
+	
+Astra Pro
+Settings | Deactivate
+This plugin is an add-on for the Astra WordPress Theme. It offers premium features & functionalities that enhance your theming experience at next level.
+
+Version 3.0.1 | By Brainstorm Force | Visit plugin site
+Select Astra Widgets	
+Astra Widgets
+Deactivate
+The Fastest Way to Add More Widgets into Your WordPress Website.
+
+Version 1.2.7 | By Brainstorm Force | View details
+Disable auto-updates
+Select Conditional Menus	
+Conditional Menus
+Deactivate | Themify Updater
+This plugin enables you to set conditional menus per posts, pages, categories, archive pages, etc.
+
+Version 1.1.9 | By Themify | View details | View Changelogs
+Disable auto-updates
+Select Elementor	
+Elementor
+Settings | Deactivate
+The Elementor Website Builder has it all: drag and drop page builder, pixel perfect design, mobile responsive editing, and more. Get started now!
+
+Version 3.1.0 | By Elementor.com | View details | Docs & FAQs | Video Tutorials
+Disable auto-updates
+Automatic update scheduled in 2 days.
+There is a new version of Elementor available. View version 3.1.1 details or update now.
+
+Select Elementor - Header, Footer & Blocks	
+Elementor - Header, Footer & Blocks
+Deactivate
+This powerful plugin allows creating a custom header, footer with Elementor and display them on selected locations. You can also create custom Elementor blocks and place them anywhere on the website with a shortcode.
+
+Version 1.5.6 | By Brainstorm Force, Nikhil Chavan | View details
+Disable auto-updates
+Select Elementor Pro	
+Elementor Pro
+Deactivate
+Elementor Pro brings a whole new design experience to WordPress. Customize your entire theme: header, footer, single post, archive and 404 page, all with one page builder.
+
+Version 3.0.10 | By Elementor.com | Visit plugin site | View details | Changelog
+Select Starter Templates	
+Starter Templates
+See Library | Deactivate
+Starter Templates is all in one solution for complete starter sites, single page templates, blocks & images. This plugin offers the premium library of ready templates & provides quick access to beautiful Pixabay images that can be imported in your website easily.
+
+Version 2.4.0 | By Brainstorm Force | View details
+Disable auto-updates
+Automatic update scheduled in 2 days.
+There is a new version of Starter Templates available. View version 2.5.0 details or update now.
+
+Select Yoast SEO	
+Yoast SEO
+Get Premium | FAQ | Settings | Deactivate
+The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more.
+
+Version 15.7 | By Team Yoast | View details
