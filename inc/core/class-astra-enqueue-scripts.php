@@ -132,15 +132,18 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 					// handle => location ( in /assets/js/ ) ( without .js ext).
 					'js'  => array(
-						'astra-theme-js'    => 'frontend',
-						'astra-mobile-cart' => 'mobile-cart',
+						'astra-theme-js' => 'frontend',
 					),
-
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
 						'astra-theme-css' => 'frontend',
 					),
 				);
+				
+				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) || 
+					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
+				}
 			} else {
 
 				$default_assets = array(
