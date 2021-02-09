@@ -213,6 +213,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'           => astra_get_option( 'ast-header-responsive-logo' ),
 					'priority'          => 5,
 					'title'             => __( 'Responsive Logo', 'astra' ),
+					'partial'           => array(
+						'selector'            => '.site-branding',
+						'container_inclusive' => false,
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
+					),
 				),
 
 				/**

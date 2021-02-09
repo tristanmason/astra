@@ -168,6 +168,47 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 add_action( 'astra_pagination', 'astra_number_pagination' );
 
 /**
+ * Return desktop logo markup.
+ */
+if ( ! function_exists( 'desktop_logo' ) ) {
+
+	/**
+	 * Return desktop logo markup.
+	 *
+	 * @param sting $html Size name.
+	 * @param int   $blog_id Icon.
+	 * @since x.x.x
+	 * @return string html markup of logo.
+	 */
+	function desktop_logo( $html, $blog_id ) {
+
+		$desktop_header_logo = astra_get_option( 'ast-header-responsive-logo');
+		$custom_logo_id = attachment_url_to_postid( $desktop_header_logo['desktop'] );
+
+		$size = 'ast-desktop-header-logo-size';
+
+		if ( is_customize_preview() ) {
+			$size = 'full';
+		}
+
+		$logo = sprintf(
+			'<a href="%1$s" class="custom-logo-link custom-desktop-logo-link" rel="home" itemprop="url">%2$s</a>',
+			esc_url( home_url( '/' ) ),
+			wp_get_attachment_image(
+				$custom_logo_id,
+				$size,
+				false,
+				array(
+					'class' => 'ast-desktop-header-logo',
+				)
+			)
+		);
+
+		return $html . $logo;
+	}
+}
+
+/**
  * Return or echo site logo markup.
  */
 if ( ! function_exists( 'astra_logo' ) ) {
@@ -187,9 +228,12 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$html = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
+		$has_custom_desktop_logo = ('' !== astra_get_option( 'ast-header-responsive-logo')['desktop'] ) ? true : false;
 
 		// Site logo.
-		if ( $has_custom_logo ) {
+		if ( $has_custom_logo || $has_custom_desktop_logo ) {
+
+			add_filter( 'get_custom_logo', 'desktop_logo', 10, 2 );
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
