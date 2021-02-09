@@ -54,7 +54,6 @@
     background-image: linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, transparent 75%, #ddd 0), linear-gradient(45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
 	background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
-	border: 1px solid #929ba4;
 }
 
 /** Color */
@@ -102,10 +101,25 @@
     max-height: 60vh;
 }
 .color-button-wrap {
-	display: inline;
+	display: inline-block;
     position: absolute;
     left: 0;
     top: -4.5px;
+    transform: scale(1);
+    transition: transform .1s ease;
+    height: 28px;
+    width: 28px;
+}
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+    border: 2px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -229,11 +243,6 @@
     height: 24px;
     font-size: 24px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.astra-color-icon-indicate.components-button:focus:not(:disabled),
-.astra-color-icon-indicate.components-button:hover:not(:disabled) {
-    box-shadow: 0 0 0 2px #757575 !important;
-    outline: 3px solid transparent;
 }
 .astra-popover-color {
     margin-right: 2px;
@@ -437,4 +446,12 @@
 			width: 15px;
 		}
 	}
+}
+
+.astra-color-icon-indicate.components-button:focus:not(:disabled) {
+    box-shadow: unset;
+    outline: unset;
+}
+.astra-color-icon-indicate.components-button:hover {
+    transform: scale(1.1);
 }
