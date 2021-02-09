@@ -40,8 +40,8 @@
     width: 25px;
     height: 16px;
     margin-left: 0.8rem;
-    border: 1px solid #dadada;
     display: inline-block;
+    border: none;
 }
 
 .astra-color-icon-indicate.components-button {
@@ -119,7 +119,7 @@
     right: -1px;
     border-radius: 50%;
     box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
-    border: 2px solid transparent;
+    border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -453,5 +453,5 @@
     outline: unset;
 }
 .astra-color-icon-indicate.components-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
