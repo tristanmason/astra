@@ -281,3 +281,18 @@
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
 }
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-right: 10px;
+  top: 2.7px;
+  left: unset;
+}
+.customize-control-ast-responsive-background .ast-responsive-btns {
+  position: absolute;
+  left: 42px;
+  top: 1.5px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns  {
+  left: 8px;
+}

@@ -3,7 +3,8 @@
 }
 
 .customize-control-ast-responsive-color .customize-control-content {
-  display: inline-block;
+  display: block;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
@@ -76,4 +77,19 @@
     left: 27px;
     top: -2px;
   }
+}
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-right: 10px;
+  top: 2.7px;
+  left: unset;
+}
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  left: 42px;
+  top: 1.5px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
+  left: 8px;
 }

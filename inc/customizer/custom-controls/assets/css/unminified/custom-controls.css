@@ -1403,13 +1403,28 @@ input[type="text"].select2-search__field {
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
 }
-
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-left: 10px;
+  top: 2.7px;
+  right: unset;
+}
+.customize-control-ast-responsive-background .ast-responsive-btns {
+  position: absolute;
+  right: 42px;
+  top: 1.5px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns  {
+  right: 8px;
+}
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content {
-  display: inline-block;
+  display: block;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
@@ -1483,7 +1498,21 @@ input[type="text"].select2-search__field {
     top: -2px;
   }
 }
-
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-left: 10px;
+  top: 2.7px;
+  right: unset;
+}
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  right: 42px;
+  top: 1.5px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
+  right: 8px;
+}
 .ast-responsive-select-container {
   display: none;
 }
