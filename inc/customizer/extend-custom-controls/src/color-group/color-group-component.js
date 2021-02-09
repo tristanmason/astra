@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
 import {Dashicon, Tooltip} from '@wordpress/components';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const ColorGroupComponent = props => {
 
@@ -22,17 +22,21 @@ const ColorGroupComponent = props => {
 	const linkedSubColors = AstraBuilderCustomizerData.js_configs.sub_controls[name];
 	const colorGroup = [],
 	colorGroupDefaults = [],
-	tooltips = [];
+	tooltips = [],
+	colorGroupType = [];
+
 	
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		colorGroupDefaults[value.name] = value.default;
 		tooltips[value.name] = value.title;
+		colorGroupType[value.name] = value.control_type;
+
 	});
-	
+
 	const[ colorGroupState , setState ] = useState(colorGroup);
 
-	const handleChangeComplete = ( key, color='', device='' ) => {
+	const handleChangeComplete = ( key, color='', device='', backgroundType='' ) => {
 		let updateState = {
 			...colorGroupState
 		};
@@ -46,13 +50,25 @@ const ColorGroupComponent = props => {
 		} else {
 			value = color.hex;
 		}
-		if ( '' !== device ) {
+		if ( '' !== device ) {	
 			let newState = {
 				...updateState[key]
 			};
-			newState[device] = value;
-			updateState[key] = newState;
-			wp.customize.control( key ).setting.set(newState);
+
+			if('' !== backgroundType){				
+				let deviceType = {
+					...newState[device]
+				};				
+				deviceType['background-color'] = value;
+				deviceType['background-type'] = backgroundType;
+				newState[device] = deviceType;
+				updateState[key] = newState;
+				wp.customize.control( key ).setting.set(newState);
+			}else{
+				newState[device] = value;
+				updateState[key] = newState;
+				wp.customize.control( key ).setting.set(newState);
+			}
         } else {
 			updateState[key] = value;
 			wp.customize.control( key ).setting.set(value);
@@ -60,6 +76,98 @@ const ColorGroupComponent = props => {
         }
 		setState(updateState);
 	};
+
+	const onSelectImage = (key, media, device, backgroundType) => {
+				
+		let updateState = {
+			...colorGroupState
+		};
+		let newState = {
+			...updateState[key]
+		};
+		let deviceType = {
+			...newState[device]
+		};	
+		deviceType['background-image'] = media.url;
+		deviceType['background-media'] = media.id;
+		deviceType['background-type'] = backgroundType;
+		newState[device] = deviceType;
+		updateState[key] = newState;
+		wp.customize.control( key ).setting.set(newState);
+		setState(updateState);
+
+	};
+
+	const onChangeImageOptions = (mainKey, value, device, backgroundType,key) => {		
+		let updateState = {
+			...colorGroupState
+		};
+		let newState = {
+			...updateState[key]
+		};
+		let deviceType = {
+			...newState[device]
+		};	
+		
+		deviceType[mainKey] = value;
+		deviceType['background-type'] = backgroundType;
+		newState[device] = deviceType;
+		updateState[key] = newState;
+		wp.customize.control( key ).setting.set(newState);
+		setState(updateState);
+	};
+
+	const updateBackgroundType = (device,key) => {
+		let updateState = {
+			...colorGroupState
+		};	
+		
+		if (!updateState[key][device]['background-type']) {
+			let newState = {
+				...updateState[key]
+			};
+			let deviceType = {
+				...newState[device]
+			};
+			
+			if (updateState[key][device]['background-color']) {				
+				deviceType['background-type'] = 'color';
+				newState[device] = deviceType;
+				updateState[key] = newState;
+				wp.customize.control( key ).setting.set(newState);
+				setState(updateState);
+
+				if (updateState[key][device]['background-color'].includes('gradient')) {
+					deviceType['background-type'] = 'gradient';
+					newState[device] = deviceType;
+					updateState[key] = newState;
+					wp.customize.control( key ).setting.set(newState);
+					setState(updateState);
+				}
+			}
+
+			if (updateState[key][device]['background-image']) {
+				deviceType['background-type'] = 'image';
+				newState[device] = deviceType;
+				updateState[key] = newState;
+				wp.customize.control( key ).setting.set(newState);
+				setState(updateState);
+			}
+		}
+	}
+
+	Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
+		if(colorGroupType[key] === "ast-responsive-background"){
+			useEffect(() => {
+
+				let devices = ['desktop', 'mobile', 'tablet'];
+				for (let device of devices) {
+					updateBackgroundType(device,key);
+				}
+
+			}, []);
+		}
+	})
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
@@ -93,17 +201,39 @@ const ColorGroupComponent = props => {
 		if( responsive ){
 			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
-				return (
-					<Tooltip key={ key } text={ tooltip }>
-						<div className="color-group-item" id={ key }>
-							<AstraColorPickerControl color={value ? value[device] : ''}
-							onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device)}
-							backgroundType={'color'}
-							allowGradient={false}
-							allowImage={false}/>
-						</div>
-					</Tooltip>
-				);
+				if(colorGroupType[key] === "ast-responsive-background"){
+					return (
+						<Tooltip key={ key } text={ tooltip }>
+							<div className="color-group-item" id={ key }>
+							<AstraColorPickerControl
+								color={undefined !== value[device]['background-color'] && value[device]['background-color'] ? value[device]['background-color'] : ''}
+								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device, backgroundType, 'responsiveBGControl')}
+								media={undefined !== value[device]['background-media'] && value[device]['background-media'] ? value[device]['background-media'] : ''}
+								backgroundImage={undefined !== value[device]['background-image'] && value[device]['background-image'] ? value[device]['background-image'] : ''}
+								backgroundAttachment={undefined !== value[device]['background-attachment'] && value[device]['background-attachment'] ? value[device]['background-attachment'] : ''}
+								backgroundPosition={undefined !== value[device]['background-position'] && value[device]['background-position'] ? value[device]['background-position'] : ''}
+								backgroundRepeat={undefined !== value[device]['background-repeat'] && value[device]['background-repeat'] ? value[device]['background-repeat'] : ''}
+								backgroundSize={undefined !== value[device]['background-size'] && value[device]['background-size'] ? value[device]['background-size'] : ''}
+								onSelectImage={(media, backgroundType) => onSelectImage(key, media, device, backgroundType)}
+								onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, device, backgroundType,key)}
+								backgroundType={undefined !== value[device]['background-type'] && value[device]['background-type'] ? value[device]['background-type'] : 'color'}
+								allowGradient={true} allowImage={true}/>
+							</div>
+						</Tooltip>
+					);
+				}else{
+					return (
+						<Tooltip key={ key } text={ tooltip }>
+							<div className="color-group-item" id={ key }>
+								<AstraColorPickerControl color={value ? value[device] : ''}
+								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device)}
+								backgroundType={'color'}
+								allowGradient={false}
+								allowImage={false}/>
+							</div>
+						</Tooltip>
+					);
+				}
 			});
 			return innerOptionsHtml
 		}else{

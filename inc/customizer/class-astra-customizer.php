@@ -588,6 +588,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'default'           => astra_get_prop( $config, 'default' ),
 				'sanitize_callback' => $sanitize_callback,
 				'suffix'            => astra_get_prop( $config, 'suffix' ),
+				'control_type'      => astra_get_prop( $config, 'control' ),
 			);
 
 			$wp_customize->add_setting(

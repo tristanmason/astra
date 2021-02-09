@@ -56,6 +56,25 @@
             justify-content: flex-end;
             display: flex;
         }
+        .ast-bg-img-remove.components-button.is-link {
+            width: 100%;
+            border: 1px dashed #b4b9be;
+            box-sizing: border-box;
+            box-shadow: unset;
+            padding: 9px 0;
+            line-height: 1.6;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .more-settings {
+            margin-top: 12px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 0 5px 0;
+            cursor: pointer;
+            float: none;
+            text-decoration: none;
+        }
     }
 }
 #customize-control-astra-settings-transparent-toggle-colors,
