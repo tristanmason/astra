@@ -30,7 +30,6 @@ const ColorGroupComponent = props => {
 		tooltips[value.name] = value.title;
 	});
 	
-	console.log(colorGroup);
 	const[ colorGroupState , setState ] = useState(colorGroup);
 
 	const handleChangeComplete = ( key, color='', device='' ) => {
@@ -47,19 +46,18 @@ const ColorGroupComponent = props => {
 		} else {
 			value = color.hex;
 		}
-		console.log(updateState);
-		// return
 		if ( '' !== device ) {
 			let newState = {
 				...updateState[key]
-			}
+			};
 			newState[device] = value;
-			updateState[key] = newState
+			updateState[key] = newState;
+			wp.customize.control( key ).setting.set(newState);
         } else {
 			updateState[key] = value;
+			wp.customize.control( key ).setting.set(value);
+
         }
-		wp.customize.control( key ).setting.set(updateState);
-		
 		setState(updateState);
 	};
 
@@ -91,31 +89,15 @@ const ColorGroupComponent = props => {
 		htmlHelp = <span className="ast-description">{help}</span>;
 	}	
 
-	// let optionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
-	// 	let tooltip = tooltips[key] || __('Color', 'astra');
-	// 	return (
-	// 		<Tooltip key={ key } text={ tooltip }>
-	// 			<div className="color-group-item" id={ key }>
-	// 				<AstraColorPickerControl color={value ? value : ''}
-	// 				onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
-	// 				backgroundType={'color'}
-	// 				allowGradient={false}
-	// 				allowImage={false}/>
-	// 			</div>
-	// 		</Tooltip>
-	// 	);
-	// });
-
 	const renderInputHtml = ( device ) => {
-		// console.log(tooltips);
-		if(responsive){
-			let innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
+		if( responsive ){
+			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
 				return (
 					<Tooltip key={ key } text={ tooltip }>
 						<div className="color-group-item" id={ key }>
 							<AstraColorPickerControl color={value ? value[device] : ''}
-							onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color,device)}
+							onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device)}
 							backgroundType={'color'}
 							allowGradient={false}
 							allowImage={false}/>
@@ -125,7 +107,7 @@ const ColorGroupComponent = props => {
 			});
 			return innerOptionsHtml
 		}else{
-			let innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
+			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
 				return (
 					<Tooltip key={ key } text={ tooltip }>

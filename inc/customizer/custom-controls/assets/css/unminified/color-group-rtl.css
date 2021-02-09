@@ -65,6 +65,9 @@
 }
 
 #customize-control-astra-settings-transparent-toggle-colors .ast-color-group-reset,
-#customize-control-astra-settings-transparent-header-html-colors-group .ast-color-group-reset {
+#customize-control-astra-settings-transparent-header-html-colors-group .ast-color-group-reset,
+#customize-control-astra-settings-transparent-header-colors-menu .ast-color-group-reset,
+#customize-control-astra-settings-transparent-header-colors-submenu .ast-color-group-reset,
+#customize-control-astra-settings-transparent-header-search-colors-group .ast-color-group-reset {
   left: 122px;
 }

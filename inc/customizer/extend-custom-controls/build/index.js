@@ -13680,7 +13680,6 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     colorGroupDefaults[value.name] = value.default;
     tooltips[value.name] = value.title;
   });
-  console.log(colorGroup);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_7__["useState"])(colorGroup),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
@@ -13703,18 +13702,17 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
       value = color.hex;
     }
 
-    console.log(updateState); // return
-
     if ('' !== device) {
       var newState = _objectSpread({}, updateState[key]);
 
       newState[device] = value;
       updateState[key] = newState;
+      wp.customize.control(key).setting.set(newState);
     } else {
       updateState[key] = value;
+      wp.customize.control(key).setting.set(value);
     }
 
-    wp.customize.control(key).setting.set(updateState);
     setState(updateState);
   };
 
@@ -13762,26 +13760,11 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     htmlHelp = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "ast-description"
     }, help);
-  } // let optionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
-  // 	let tooltip = tooltips[key] || __('Color', 'astra');
-  // 	return (
-  // 		<Tooltip key={ key } text={ tooltip }>
-  // 			<div className="color-group-item" id={ key }>
-  // 				<AstraColorPickerControl color={value ? value : ''}
-  // 				onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
-  // 				backgroundType={'color'}
-  // 				allowGradient={false}
-  // 				allowImage={false}/>
-  // 			</div>
-  // 		</Tooltip>
-  // 	);
-  // });
-
+  }
 
   var renderInputHtml = function renderInputHtml(device) {
-    // console.log(tooltips);
     if (responsive) {
-      var _innerOptionsHtml = Object.entries(colorGroupState).map(function (_ref3) {
+      innerOptionsHtml = Object.entries(colorGroupState).map(function (_ref3) {
         var _ref4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, 2),
             key = _ref4[0],
             value = _ref4[1];
@@ -13804,10 +13787,9 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
           allowImage: false
         })));
       });
-
-      return _innerOptionsHtml;
+      return innerOptionsHtml;
     } else {
-      var _innerOptionsHtml2 = Object.entries(colorGroupState).map(function (_ref5) {
+      innerOptionsHtml = Object.entries(colorGroupState).map(function (_ref5) {
         var _ref6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref5, 2),
             key = _ref6[0],
             value = _ref6[1];
@@ -13830,8 +13812,7 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
           allowImage: false
         })));
       });
-
-      return _innerOptionsHtml2;
+      return innerOptionsHtml;
     }
   };
 
