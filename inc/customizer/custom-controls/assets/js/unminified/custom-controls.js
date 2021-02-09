@@ -19873,8 +19873,17 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
       value = color.hex;
     }
 
-    updateState[key] = value;
-    wp.customize.control(key).setting.set(value);
+    if ('' !== device) {
+      var newState = _objectSpread({}, updateState[key]);
+
+      newState[device] = value;
+      updateState[key] = newState;
+      wp.customize.control(key).setting.set(newState);
+    } else {
+      updateState[key] = value;
+      wp.customize.control(key).setting.set(value);
+    }
+
     setState(updateState);
   };
 

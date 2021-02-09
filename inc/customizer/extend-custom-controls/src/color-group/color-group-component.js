@@ -46,10 +46,18 @@ const ColorGroupComponent = props => {
 		} else {
 			value = color.hex;
 		}
+		if ( '' !== device ) {
+			let newState = {
+				...updateState[key]
+			};
+			newState[device] = value;
+			updateState[key] = newState;
+			wp.customize.control( key ).setting.set(newState);
+        } else {
+			updateState[key] = value;
+			wp.customize.control( key ).setting.set(value);
 
-		updateState[key] = value;
-		wp.customize.control( key ).setting.set(value);
-
+        }
 		setState(updateState);
 	};
 

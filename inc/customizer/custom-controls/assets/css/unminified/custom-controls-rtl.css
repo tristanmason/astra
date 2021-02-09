@@ -657,7 +657,7 @@
 }
 .astra-color-picker-wrap {
     margin-right: 5px;
-    position: absolute;
+    /* position: absolute; */
     z-index: 1;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
@@ -1494,7 +1494,7 @@
 }
 .astra-color-picker-wrap {
     margin-right: 5px;
-    position: absolute;
+    /* position: absolute; */
     z-index: 1;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
