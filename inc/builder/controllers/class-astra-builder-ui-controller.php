@@ -112,14 +112,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_html_markup( $index = 'header-html-1' ) {
 
-
-			$theme_author = apply_filters(
-				'astra_theme_author',
-				array(
-					'theme_name'       => __( 'Astra WordPress Theme', 'astra' ),
-					'theme_author_url' => 'https://wpastra.com/',
-				)
-			);
+			$theme_author = astra_get_theme_author_details();
 
 			$content = astra_get_option( $index );
 			if ( $content || is_customize_preview() ) {

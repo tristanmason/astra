@@ -223,13 +223,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function footer_copyright() {
 
-			$theme_author = apply_filters(
-				'astra_theme_author',
-				array(
-					'theme_name'       => __( 'Astra WordPress Theme', 'astra' ),
-					'theme_author_url' => 'https://wpastra.com/',
-				)
-			);
+			$theme_author = astra_get_theme_author_details();
 
 			$content = astra_get_option( 'footer-copyright-editor' );
 			if ( $content || is_customize_preview() ) {
