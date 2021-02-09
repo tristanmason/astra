@@ -132,7 +132,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 					// handle => location ( in /assets/js/ ) ( without .js ext).
 					'js'  => array(
-						'astra-theme-js' => 'frontend',
+						'astra-theme-js'    => 'frontend',
+						'astra-mobile-cart' => 'mobile-cart',
 					),
 
 					// handle => location ( in /assets/css/ ) ( without .css ext).
