@@ -127,8 +127,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
 		main_header_masthead = document.getElementById('masthead'),
-		menu_click_listenersmobileHeaderType = {},
-		 = '',
+		menu_click_listeners = {},
+		mobileHeaderType = '',
 		body = document.body,
 		mobileHeader = '';
 
