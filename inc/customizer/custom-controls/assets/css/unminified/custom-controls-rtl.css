@@ -375,6 +375,7 @@
   position: absolute;
   right: 0;
   z-index: 9;
+  width: 100%;
 }
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
@@ -1258,6 +1259,16 @@
   padding: 9px 0;
   line-height: 1.6;
   margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control.customize-control-ast-color-group .more-settings {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0 5px 0;
+  cursor: pointer;
+  float: none;
   text-decoration: none;
 }
 

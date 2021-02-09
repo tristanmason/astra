@@ -10,7 +10,7 @@ const ColorGroupComponent = props => {
 	let htmlHelp = null;
 	let responsiveHtml = null;
 	let optionsHtml = null;
-	let innerOptionsHtml = null
+	let innerOptionsHtml = null;
 	
 	const {
 		label,
@@ -24,14 +24,12 @@ const ColorGroupComponent = props => {
 	colorGroupDefaults = [],
 	tooltips = [],
 	colorGroupType = [];
-
 	
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		colorGroupDefaults[value.name] = value.default;
 		tooltips[value.name] = value.title;
 		colorGroupType[value.name] = value.control_type;
-
 	});
 
 	const[ colorGroupState , setState ] = useState(colorGroup);
@@ -70,51 +68,78 @@ const ColorGroupComponent = props => {
 				wp.customize.control( key ).setting.set(newState);
 			}
         } else {
-			updateState[key] = value;
-			wp.customize.control( key ).setting.set(value);
-
+			if('' !== backgroundType){		
+				let newState = {
+					...updateState[key]
+				};		
+							
+				newState['background-color'] = value;
+				newState['background-type'] = backgroundType;			
+				updateState[key] = newState;
+				wp.customize.control( key ).setting.set(newState);
+			}else{
+				updateState[key] = value;
+				wp.customize.control( key ).setting.set(value);
+			}
         }
 		setState(updateState);
 	};
 
-	const onSelectImage = (key, media, device, backgroundType) => {
-				
+	const updateValues = (stateValue, dbValue,key) =>{
+		wp.customize.control( key ).setting.set(stateValue);
+		setState(dbValue);
+	}
+
+	const onSelectImage = (key, media, device='', backgroundType) => {				
 		let updateState = {
 			...colorGroupState
 		};
 		let newState = {
 			...updateState[key]
 		};
-		let deviceType = {
-			...newState[device]
-		};	
-		deviceType['background-image'] = media.url;
-		deviceType['background-media'] = media.id;
-		deviceType['background-type'] = backgroundType;
-		newState[device] = deviceType;
-		updateState[key] = newState;
-		wp.customize.control( key ).setting.set(newState);
-		setState(updateState);
-
+		if ( '' !== device ) {	
+			let deviceType = {
+				...newState[device]
+			};	
+			deviceType['background-image'] = media.url;
+			deviceType['background-media'] = media.id;
+			deviceType['background-type'] = backgroundType;
+			newState[device] = deviceType;
+			updateState[key] = newState;
+			updateValues(newState,updateState,key);			
+		}else{				
+			newState['background-image'] = media.url;
+			newState['background-media'] = media.id;
+			newState['background-type'] = backgroundType;			
+			updateState[key] = newState;
+			updateValues(newState,updateState,key);		
+		}
 	};
 
-	const onChangeImageOptions = (mainKey, value, device, backgroundType,key) => {		
+	const onChangeImageOptions = (mainKey, value, device='', backgroundType, key) => {		
 		let updateState = {
 			...colorGroupState
 		};
 		let newState = {
 			...updateState[key]
 		};
-		let deviceType = {
-			...newState[device]
-		};	
+		if ( '' !== device ) {	
+			let deviceType = {
+				...newState[device]
+			};	
+			
+			deviceType[mainKey] = value;
+			deviceType['background-type'] = backgroundType;
+			newState[device] = deviceType;
+			updateState[key] = newState;
+			updateValues(newState,updateState,key);			
+		}else{				
+			newState[mainKey] = value;
+			newState['background-type'] = backgroundType;		
+			updateState[key] = newState;
+			updateValues(newState,updateState,key);	
+		}
 		
-		deviceType[mainKey] = value;
-		deviceType['background-type'] = backgroundType;
-		newState[device] = deviceType;
-		updateState[key] = newState;
-		wp.customize.control( key ).setting.set(newState);
-		setState(updateState);
 	};
 
 	const updateBackgroundType = (device,key) => {
@@ -207,7 +232,7 @@ const ColorGroupComponent = props => {
 							<div className="color-group-item" id={ key }>
 							<AstraColorPickerControl
 								color={undefined !== value[device]['background-color'] && value[device]['background-color'] ? value[device]['background-color'] : ''}
-								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device, backgroundType, 'responsiveBGControl')}
+								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device, backgroundType)}
 								media={undefined !== value[device]['background-media'] && value[device]['background-media'] ? value[device]['background-media'] : ''}
 								backgroundImage={undefined !== value[device]['background-image'] && value[device]['background-image'] ? value[device]['background-image'] : ''}
 								backgroundAttachment={undefined !== value[device]['background-attachment'] && value[device]['background-attachment'] ? value[device]['background-attachment'] : ''}
@@ -215,7 +240,7 @@ const ColorGroupComponent = props => {
 								backgroundRepeat={undefined !== value[device]['background-repeat'] && value[device]['background-repeat'] ? value[device]['background-repeat'] : ''}
 								backgroundSize={undefined !== value[device]['background-size'] && value[device]['background-size'] ? value[device]['background-size'] : ''}
 								onSelectImage={(media, backgroundType) => onSelectImage(key, media, device, backgroundType)}
-								onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, device, backgroundType,key)}
+								onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, device, backgroundType, key)}
 								backgroundType={undefined !== value[device]['background-type'] && value[device]['background-type'] ? value[device]['background-type'] : 'color'}
 								allowGradient={true} allowImage={true}/>
 							</div>
@@ -239,17 +264,39 @@ const ColorGroupComponent = props => {
 		}else{
 			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
-				return (
-					<Tooltip key={ key } text={ tooltip }>
-						<div className="color-group-item" id={ key }>
-							<AstraColorPickerControl color={value ? value : ''}
-							onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
-							backgroundType={'color'}
-							allowGradient={false}
-							allowImage={false}/>
-						</div>
-					</Tooltip>
-				);
+				if(colorGroupType[key] === "ast-background"){
+					return (
+						<Tooltip key={ key } text={ tooltip }>
+							<div className="color-group-item" id={ key }>
+							<AstraColorPickerControl
+								color={undefined !== value['background-color'] && value['background-color'] ? value['background-color'] : ''}
+								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, backgroundType)}
+								media={undefined !== value['background-media'] && value['background-media'] ? value['background-media'] : ''}
+								backgroundImage={undefined !== value['background-image'] && value['background-image'] ? value['background-image'] : ''}
+								backgroundAttachment={undefined !== value['background-attachment'] && value['background-attachment'] ? value['background-attachment'] : ''}
+								backgroundPosition={undefined !== value['background-position'] && value['background-position'] ? value['background-position'] : ''}
+								backgroundRepeat={undefined !== value['background-repeat'] && value['background-repeat'] ? value['background-repeat'] : ''}
+								backgroundSize={undefined !== value['background-size'] && value['background-size'] ? value['background-size'] : ''}
+								onSelectImage={(media, backgroundType) => onSelectImage(key, media, backgroundType)}
+								onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType, key)}
+								backgroundType={undefined !== value['background-type'] && value['background-type'] ? value['background-type'] : 'color'}
+								allowGradient={true} allowImage={true}/>
+							</div>
+						</Tooltip>
+					);
+				}else{
+					return (
+						<Tooltip key={ key } text={ tooltip }>
+							<div className="color-group-item" id={ key }>
+								<AstraColorPickerControl color={value ? value : ''}
+								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
+								backgroundType={'color'}
+								allowGradient={false}
+								allowImage={false}/>
+							</div>
+						</Tooltip>
+					);
+				}
 			});
 			return innerOptionsHtml
 		}

@@ -19900,20 +19900,32 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     setState(updateState);
   };
 
-  var _onSelectImage = function onSelectImage(key, media, device, backgroundType) {
+  var _onSelectImage = function onSelectImage(key, media) {
+    var device = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var backgroundType = arguments.length > 3 ? arguments[3] : undefined;
+
     var updateState = _objectSpread({}, colorGroupState);
 
     var newState = _objectSpread({}, updateState[key]);
 
-    var deviceType = _objectSpread({}, newState[device]);
+    if ('' !== device) {
+      var deviceType = _objectSpread({}, newState[device]);
 
-    deviceType['background-image'] = media.url;
-    deviceType['background-media'] = media.id;
-    deviceType['background-type'] = backgroundType;
-    newState[device] = deviceType;
-    updateState[key] = newState;
-    wp.customize.control(key).setting.set(newState);
-    setState(updateState);
+      deviceType['background-image'] = media.url;
+      deviceType['background-media'] = media.id;
+      deviceType['background-type'] = backgroundType;
+      newState[device] = deviceType;
+      updateState[key] = newState;
+      wp.customize.control(key).setting.set(newState);
+      setState(updateState);
+    } else {
+      newState['background-image'] = media.url;
+      newState['background-media'] = media.id;
+      newState['background-type'] = backgroundType;
+      updateState[key] = newState;
+      wp.customize.control(key).setting.set(newState);
+      setState(updateState);
+    }
   };
 
   var _onChangeImageOptions = function onChangeImageOptions(mainKey, value, device, backgroundType, key) {
@@ -19934,21 +19946,35 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
   var updateBackgroundType = function updateBackgroundType(device, key) {
     var updateState = _objectSpread({}, colorGroupState);
 
-    if (updateState[key][device]['background-type']) {
+    if (!updateState[key][device]['background-type']) {
       var newState = _objectSpread({}, updateState[key]);
 
       var deviceType = _objectSpread({}, newState[device]);
 
-      if (updateState[key][device]['background-type']) {
+      if (updateState[key][device]['background-color']) {
+        deviceType['background-type'] = 'color';
+        newState[device] = deviceType;
+        updateState[key] = newState;
+        wp.customize.control(key).setting.set(newState);
+        setState(updateState);
+
+        if (updateState[key][device]['background-color'].includes('gradient')) {
+          deviceType['background-type'] = 'gradient';
+          newState[device] = deviceType;
+          updateState[key] = newState;
+          wp.customize.control(key).setting.set(newState);
+          setState(updateState);
+        }
+      }
+
+      if (updateState[key][device]['background-image']) {
         deviceType['background-type'] = 'image';
         newState[device] = deviceType;
         updateState[key] = newState;
         wp.customize.control(key).setting.set(newState);
-        setState(updateState); // updateValues(obj);
+        setState(updateState);
       }
     }
-
-    console.log(updateState);
   };
 
   Object.entries(colorGroupState).map(function (_ref3) {
@@ -20078,21 +20104,51 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
 
         var tooltip = tooltips[key] || Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Color', 'astra');
 
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
-          key: key,
-          text: tooltip
-        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-          className: "color-group-item",
-          id: key
-        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          color: value ? value : '',
-          onChangeComplete: function onChangeComplete(color, backgroundType) {
-            return handleChangeComplete(key, color);
-          },
-          backgroundType: 'color',
-          allowGradient: false,
-          allowImage: false
-        })));
+        if (colorGroupType[key] === "ast-background") {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
+            key: key,
+            text: tooltip
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+            className: "color-group-item",
+            id: key
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            color: undefined !== value['background-color'] && value['background-color'] ? value['background-color'] : '',
+            onChangeComplete: function onChangeComplete(color, backgroundType) {
+              return handleChangeComplete(key, color, backgroundType);
+            },
+            media: undefined !== value['background-media'] && value['background-media'] ? value['background-media'] : '',
+            backgroundImage: undefined !== value['background-image'] && value['background-image'] ? value['background-image'] : '',
+            backgroundAttachment: undefined !== value['background-attachment'] && value['background-attachment'] ? value['background-attachment'] : '',
+            backgroundPosition: undefined !== value['background-position'] && value['background-position'] ? value['background-position'] : '',
+            backgroundRepeat: undefined !== value['background-repeat'] && value['background-repeat'] ? value['background-repeat'] : '',
+            backgroundSize: undefined !== value['background-size'] && value['background-size'] ? value['background-size'] : '',
+            onSelectImage: function onSelectImage(media, backgroundType) {
+              return _onSelectImage(key, media, backgroundType);
+            },
+            onChangeImageOptions: function onChangeImageOptions(mainKey, value, backgroundType) {
+              return _onChangeImageOptions(mainKey, value, backgroundType, key);
+            },
+            backgroundType: undefined !== value['background-type'] && value['background-type'] ? value['background-type'] : 'color',
+            allowGradient: true,
+            allowImage: true
+          })));
+        } else {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
+            key: key,
+            text: tooltip
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+            className: "color-group-item",
+            id: key
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            color: value ? value : '',
+            onChangeComplete: function onChangeComplete(color, backgroundType) {
+              return handleChangeComplete(key, color);
+            },
+            backgroundType: 'color',
+            allowGradient: false,
+            allowImage: false
+          })));
+        }
       });
       return innerOptionsHtml;
     }
