@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 * Render Footer Copyright Markup!
 		 */
 		public function footer_copyright() {
-			
+
 			$theme_author = apply_filters(
 				'astra_theme_author',
 				array(
@@ -234,13 +234,13 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 			$content = astra_get_option( 'footer-copyright-editor' );
 			if ( $content || is_customize_preview() ) {
 				echo '<div class="ast-footer-copyright">';
-					echo '<div class="ast-footer-html-inner">';
+					
 						$content = str_replace( '[copyright]', '&copy;', $content );
 						$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
 						$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
 						$content = str_replace( '[theme_author]', '<a href=" ' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
 						echo do_shortcode( wpautop( $content ) );
-					echo '</div>';
+					
 				echo '</div>';
 			}
 
