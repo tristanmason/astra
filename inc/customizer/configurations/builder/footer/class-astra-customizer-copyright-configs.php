@@ -97,10 +97,10 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Alignment', 'astra' ),
 				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',
-				'choices'   => array(                       
+				'choices'   => array(
 					'left'   => 'align-left',
-					'center' => 'align-center', 
-					'right'  => 'align-right',  
+					'center' => 'align-center',
+					'right'  => 'align-right',
 				),
 			),
 

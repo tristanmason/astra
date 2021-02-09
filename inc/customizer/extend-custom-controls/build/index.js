@@ -13702,17 +13702,8 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
       value = color.hex;
     }
 
-    if ('' !== device) {
-      var newState = _objectSpread({}, updateState[key]);
-
-      newState[device] = value;
-      updateState[key] = newState;
-      wp.customize.control(key).setting.set(newState);
-    } else {
-      updateState[key] = value;
-      wp.customize.control(key).setting.set(value);
-    }
-
+    updateState[key] = value;
+    wp.customize.control(key).setting.set(value);
     setState(updateState);
   };
 
@@ -19421,7 +19412,7 @@ var SelectorComponent = function SelectorComponent(props) {
     var resp = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
     var _props$control$params = props.control.params,
         choices = _props$control$params.choices,
-        display = _props$control$params.display;
+        renderAs = _props$control$params.renderAs;
 
     if (!choices) {
       return;
@@ -19433,7 +19424,7 @@ var SelectorComponent = function SelectorComponent(props) {
             value = _ref2[0],
             icon = _ref2[1];
 
-        if ('text' !== display) {
+        if ('text' !== renderAs) {
           var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
             className: "ast-alignment-inner-wrap active",
             key: value
@@ -19471,7 +19462,7 @@ var SelectorComponent = function SelectorComponent(props) {
       return _optionsHtml;
     }
 
-    if ('text' !== display) {
+    if ('text' !== renderAs) {
       var optionsHtml = Object.entries(choices).map(function (_ref3) {
         var _ref4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, 2),
             value = _ref4[0],
