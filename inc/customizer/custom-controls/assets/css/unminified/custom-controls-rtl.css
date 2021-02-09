@@ -4577,7 +4577,7 @@ input[type="text"].select2-search__field {
   text-transform: uppercase;
 }
 
-.components-range-control__slider input[type=range]::-webkit-slider-thumb, .components-range-control__slider input[type=range]::-moz-range-thumb, .components-range-control__slider input[type=range]::-ms-thumb {
+.components-range-control__slider [type=range]::-webkit-slider-thumb, .components-range-control__slider [type=range]::-moz-range-thumb, .components-range-control__slider [type=range]::-ms-thumb {
     box-sizing: border-box;
     border: none;
     width: 10px;
