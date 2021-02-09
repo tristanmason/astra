@@ -239,7 +239,8 @@ export function astraGetResponsiveImageJs ( control ) {
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-        let device = jQuery(this).attr('data-device');
+        let logo_device = jQuery(this).attr('data-device');
+        let device      = ('tablet' === logo_device ) ? 'mobile' : logo_device;
         jQuery( '.customize-control-ast-responsive-image .responsive-image-container, .customize-control .ast-image-responsive-btns > li' ).removeClass( 'active' );
         jQuery( '.customize-control-ast-responsive-image .responsive-image-container.' + device + ', .customize-control .ast-image-responsive-btns > li.' + device ).addClass( 'active' );
     });
@@ -247,9 +248,7 @@ export function astraGetResponsiveImageJs ( control ) {
     control.container.find( '.ast-image-responsive-btns button' ).on( 'click', function( event ) {
         event.preventDefault();
         let device = jQuery(this).attr('data-device');
-        if( 'desktop' == device ) {
-            device = 'tablet';
-        } else if( 'tablet' == device ) {
+        if( 'desktop' == device || 'tablet' == device ) {
             device = 'mobile';
         } else {
             device = 'desktop';

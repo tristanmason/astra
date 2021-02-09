@@ -421,8 +421,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$configuration['value'] = $val;
 
 				case 'ast-responsive-image':
-					$configuration['value'] = $val;
-
+					if ( ! is_array( $val ) ) {
+						$configuration['value'] = array(
+							'desktop' => $val,
+							'mobile'  => '',
+						);
+					}
 					break;
 				case 'ast-responsive':
 					if ( ! is_array( $val ) || is_numeric( $val ) ) {
