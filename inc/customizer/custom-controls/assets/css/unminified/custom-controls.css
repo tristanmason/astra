@@ -421,7 +421,7 @@
 #customize-control-astra-settings-section-breadcrumb-color .ast-color-group-reset,
 [CLASS*="-ast-color-group"][ID*="-header-html-"] .ast-color-group-reset,
 #customize-control-astra-settings-header-woo-cart-colors .ast-color-group-reset {
-  right: 122px;
+  right: 110px;
 }
 
  /** Remove Button Color */
