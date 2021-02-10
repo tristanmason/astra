@@ -102,15 +102,16 @@ class Astra_Html_Component_Configs {
 				 */
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-color-group]',
-					'default'   => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Colors', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 8,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-color-group]',
+					'default'    => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Colors', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 8,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
 				),
 
 				array(
