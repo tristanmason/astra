@@ -84,10 +84,16 @@
 #customize-control-astra-settings-transparent-header-search-colors-group,
 #customize-control-astra-settings-section-breadcrumb-color,
 [CLASS*="-ast-color-group"][ID*="-header-html-"],
-#customize-control-astra-settings-header-woo-cart-colors {
+#customize-control-astra-settings-header-woo-cart-colors,
+#customize-control-astra-settings-shop-color-group {
 	.ast-color-group-reset {
 		right: 110px;
 	}
 }
 
+#customize-control-astra-settings-woo-single-page-color-group {
+    .ast-color-group-reset {
+		right: 145px;
+	} 
+}
 
