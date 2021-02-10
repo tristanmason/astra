@@ -83,7 +83,8 @@
 #customize-control-astra-settings-transparent-header-colors-submenu,
 #customize-control-astra-settings-transparent-header-search-colors-group,
 #customize-control-astra-settings-section-breadcrumb-color,
-[CLASS*="-ast-color-group"][ID*="-header-html-"] {
+[CLASS*="-ast-color-group"][ID*="-header-html-"],
+#customize-control-astra-settings-header-woo-cart-colors {
 	.ast-color-group-reset {
 		right: 122px;
 	}
