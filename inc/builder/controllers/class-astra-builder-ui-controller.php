@@ -42,10 +42,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$output .= isset( self::$ast_svgs[ $icon ] ) ? self::$ast_svgs[ $icon ] : '';
 			$output .= '</span>';
-			
+
 			return $output;
 		}
-		
+
 		/**
 		 * Prepare Social Icon HTML.
 		 *
