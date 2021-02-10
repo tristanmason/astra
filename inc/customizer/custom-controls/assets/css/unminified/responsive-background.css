@@ -115,7 +115,7 @@
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
