@@ -30,6 +30,17 @@
     border-radius: 2px;
 }
 
+body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut button {
+	width: 26px;
+	height: 26px;
+	min-width: 26px;
+	min-height: 26px;
+	border-width: 1px;
+	border-radius: 2px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
 .site-footer-focus-item .customize-partial-edit-shortcut button {
     top: 0;
 }

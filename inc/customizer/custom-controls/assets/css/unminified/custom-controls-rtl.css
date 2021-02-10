@@ -265,20 +265,22 @@
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  margin-bottom: 0;
+  margin: 0 2px;
 }
-
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li:nth-child(1) {
+  margin-right: 0px;
+}
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input {
   text-align: center;
   display: block;
   font-size: 12px;
-  padding: 4px 0;
+  padding: 15px 0;
   width: 100%;
   height: 28px;
   border: 1px solid #dddddd;
-  border-left-width: 0;
+  border-radius: 3px;
   box-shadow: none;
-  padding-right: 11px;
+  transition: all 0.3s;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -326,7 +328,29 @@
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   background-color: #1e8cbe;
 }
-
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected,
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
+  padding: 2px 0;
+  font-size: 12px;
+  line-height: 28px;
+  background-color: #ffffff
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
+  border-color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
+  color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected { 
+  color: #2D3748;
+}
+.customize-control-ast-border .input-wrapper.ast-border-wrapper {
+  margin-bottom: 8px;
+}
 .color-group-item .components-tooltip .components-popover__content {
   border-radius: 3px;
 }
@@ -424,27 +448,27 @@
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
-    border-radius: 4px;
+    border-radius: 50%;
     margin: 0;
 }
 .component-color-indicator {
     width: 25px;
     height: 16px;
     margin-right: 0.8rem;
-    border: 1px solid #dadada;
     display: inline-block;
+    border: none;
 }
 
 .astra-color-icon-indicate.components-button {
     height: auto;
     position: relative;
     transform: scale(1);
-    border-radius: 4px;
+    transition: none;
+    border-radius: 50%;
     padding: 0;
     background-image: linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, transparent 75%, #ddd 0), linear-gradient(45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
 	background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
-	border: 1px solid #929ba4;
 }
 
 /** Color */
@@ -492,10 +516,25 @@
     max-height: 60vh;
 }
 .color-button-wrap {
-	display: inline;
+	display: inline-block;
     position: absolute;
     left: 0;
     top: -4.5px;
+    transform: scale(1);
+    transition: transform .1s ease;
+    height: 28px;
+    width: 28px;
+}
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+    border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -824,6 +863,13 @@
 	}
 }
 
+.astra-color-icon-indicate.components-button:focus:not(:disabled) {
+    box-shadow: unset;
+    outline: unset;
+}
+.astra-color-icon-indicate.components-button:hover {
+    transform: scale(1.05);
+}
 .customize-control-ast-selector .ast-alignment-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -857,12 +903,12 @@
     text-align: center;
     justify-content: center;
     border-radius: unset;
+    transition: background 0.1s ease-in;
 }
 .ast-alignment-inner-wrap.active .components-button.is-primary {
     color: #ffffff;
     background: #007cba;
     box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
-    transition: background 0.1s ease-in;
 }
 .customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
     box-shadow: inset 0px 0px 0px 1px #d2d2d2 !important;
@@ -1091,20 +1137,22 @@
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  margin-bottom: 0;
+  margin: 0 2px;
 }
-
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li:nth-child(1) {
+  margin-right: 0px;
+}
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input {
   text-align: center;
   display: block;
   font-size: 12px;
-  padding: 4px 0;
+  padding: 15px 0;
   width: 100%;
   height: 28px;
   border: 1px solid #dddddd;
-  border-left-width: 0;
+  border-radius: 3px;
   box-shadow: none;
-  padding-right: 11px;
+  transition: all 0.3s;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -1152,7 +1200,29 @@
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   background-color: #1e8cbe;
 }
-
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected,
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
+  padding: 2px 0;
+  font-size: 12px;
+  line-height: 28px;
+  background-color: #ffffff
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
+  border-color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
+  color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected { 
+  color: #2D3748;
+}
+.customize-control-ast-border .input-wrapper.ast-border-wrapper {
+  margin-bottom: 8px;
+}
 .color-group-item .components-tooltip .components-popover__content {
   border-radius: 3px;
 }
@@ -1250,27 +1320,27 @@
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
-    border-radius: 4px;
+    border-radius: 50%;
     margin: 0;
 }
 .component-color-indicator {
     width: 25px;
     height: 16px;
     margin-right: 0.8rem;
-    border: 1px solid #dadada;
     display: inline-block;
+    border: none;
 }
 
 .astra-color-icon-indicate.components-button {
     height: auto;
     position: relative;
     transform: scale(1);
-    border-radius: 4px;
+    transition: none;
+    border-radius: 50%;
     padding: 0;
     background-image: linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, transparent 75%, #ddd 0), linear-gradient(45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
 	background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
-	border: 1px solid #929ba4;
 }
 
 /** Color */
@@ -1318,10 +1388,25 @@
     max-height: 60vh;
 }
 .color-button-wrap {
-	display: inline;
+	display: inline-block;
     position: absolute;
     left: 0;
     top: -4.5px;
+    transform: scale(1);
+    transition: transform .1s ease;
+    height: 28px;
+    width: 28px;
+}
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+    border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -1650,6 +1735,13 @@
 	}
 }
 
+.astra-color-icon-indicate.components-button:focus:not(:disabled) {
+    box-shadow: unset;
+    outline: unset;
+}
+.astra-color-icon-indicate.components-button:hover {
+    transform: scale(1.05);
+}
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
