@@ -627,6 +627,9 @@
 	border: 1px solid #a29090;
 	border-radius: 4px;
 }
+.customize-control-ast-responsive-color .astra-popover-color {
+	margin-top: 0;
+}
 
 .ast-field-settings-modal .astra-popover-color {
     margin-right: 0px;
@@ -1187,6 +1190,11 @@
 
 .customize-control.customize-control-ast-color-group .ast-toggle-desc-wrap {
   flex: 1 1 auto;
+  align-self: center;
+}
+
+.customize-control.customize-control-ast-color-group .customize-control-title {
+  margin-bottom: 0;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -3778,7 +3786,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
   margin-right: 2px;
-  margin-top: -20px;
+  margin-top: 20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
