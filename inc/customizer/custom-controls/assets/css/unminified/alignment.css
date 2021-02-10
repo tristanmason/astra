@@ -31,6 +31,7 @@
     text-align: center;
     justify-content: center;
     border-radius: unset;
+    transition: background 0.1s ease-in;
 }
 .ast-alignment-inner-wrap.active .components-button.is-primary {
     color: #ffffff;
@@ -70,7 +71,6 @@
     border-left: none;
 }
 
-.customize-control-ast-selector .ast-alignment-inner-wrap .components-button,
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
@@ -83,4 +83,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: absolute;
     right: 0;
+}
+.customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
+    box-shadow: none;
 }
