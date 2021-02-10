@@ -1279,7 +1279,7 @@
 #customize-control-astra-settings-transparent-header-colors-submenu .ast-color-group-reset,
 #customize-control-astra-settings-transparent-header-search-colors-group .ast-color-group-reset,
 #customize-control-astra-settings-section-breadcrumb-color .ast-color-group-reset,
-[CLASS*="-color-group"][ID*="-header-html-"] .ast-color-group-reset {
+[CLASS*="-ast-color-group"][ID*="-header-html-"] .ast-color-group-reset {
   left: 122px;
 }
 
