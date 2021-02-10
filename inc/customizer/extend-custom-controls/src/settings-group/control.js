@@ -10,6 +10,7 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
+import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
 
 import {
 	astraGetBackground,
@@ -337,13 +338,14 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		var fields_html = '';
 		var control_types = [];
 
-
 		_.each(fields_data, function (attr, index) {
 
 			var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' );
 			var control = attr.control;
 			var template_id = "customize-control-" + control + "-content";
-            var template = wp.template(template_id);
+
+			var template = wp.template(template_id);
+
 			var value = new_value || attr.default;
 			attr.value = value;
 			var dataAtts = '';
@@ -481,6 +483,10 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
 		};
+
+		if( astra.customizer.is_pro ) {
+			reactControls['ast-box-shadow'] = BoxShadowComponent;
+		}
 
 		if( 'undefined' != typeof fields.tabs ) {
 
