@@ -174,7 +174,7 @@ final class Astra_Builder_Base_Configuration {
 				 * Option: Font Size
 				 */
 				array(
-					'name'        => 'font-size-' . $section_id,
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-' . $section_id . ']',
 					'type'        => 'control',
 					'section'     => $section_id,
 					'control'     => 'ast-responsive',
