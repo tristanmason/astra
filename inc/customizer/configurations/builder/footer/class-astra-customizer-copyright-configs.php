@@ -169,17 +169,6 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
-
-			// Section: Typography.
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-typography-heading]',
-				'section'  => $_section,
-				'type'     => 'control',
-				'control'  => 'ast-divider',
-				'priority' => 15,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section ) );
