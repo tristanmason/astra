@@ -142,15 +142,6 @@
     border-radius: 0;
 }
 
-.ahfb-compontent-tabs-button span.dashicons {
-    display: block;
-    font-size: 15px;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-    align-self: center;
-}
-
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(:first-child) {
     margin-left: 0px;
 }
@@ -4818,7 +4809,7 @@ i.fipicon-angle-left:before {
 [data-tooltip]:hover::before {
 	box-sizing: border-box;
 	position: absolute;
-	top: -6px;
+	top: -7px;
 	left: -6px;
 	width: 4px;
 	height: 4px;

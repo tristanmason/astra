@@ -41,10 +41,10 @@ const ColorGroupComponent = props => {
 		} else {
 			value = color.hex;
 		}
-		
+
 		updateState[key] = value;
 		wp.customize.control( key ).setting.set(value);
-		
+
 		setState(updateState);
 	};
 
@@ -54,7 +54,7 @@ const ColorGroupComponent = props => {
 
 	if (help) {
 		htmlHelp = <span className="ast-description">{help}</span>;
-	}	
+	}
 
 	let optionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 		let tooltip = tooltips[key] || __('Color', 'astra');

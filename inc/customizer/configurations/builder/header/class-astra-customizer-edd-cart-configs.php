@@ -153,6 +153,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					),
 				),
 				'title'       => __( 'Border Radius', 'astra' ),
+				'suffix'      => 'px',
 				'control'     => 'ast-slider',
 				'priority'    => 47,
 				'input_attrs' => array(
