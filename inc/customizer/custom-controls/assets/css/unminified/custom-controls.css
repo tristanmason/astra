@@ -356,6 +356,11 @@
 
 .customize-control.customize-control-ast-color-group .ast-toggle-desc-wrap {
   flex: 1 1 auto;
+  align-self: center;
+}
+
+.customize-control.customize-control-ast-color-group .customize-control-title {
+  margin-bottom: 0;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -650,6 +655,7 @@
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
+	top: 0;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
