@@ -365,22 +365,40 @@ class Astra_Button_Component_Configs {
 			);
 
 			if ( 'footer' === $builder_type ) {
-				$_configs[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
-					'default'   => astra_get_option( 'footer-button-' . $index . '-alignment' ),
-					'type'      => 'control',
-					'control'   => 'ast-selector',
-					'section'   => $_section,
-					'priority'  => 35,
-					'title'     => __( 'Alignment', 'astra' ),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-					'choices'   => array(
-						'flex-start' => 'align-left',
-						'center'     => 'align-center',
-						'flex-end'   => 'align-right',
+
+				$footer_specific_configs = array(
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
+						'type'     => 'control',
+						'section'   => $_section,
+						'control'  => 'ast-divider',
+						'priority' => 30,
+						'settings' => array(),
+						'context'   => Astra_Builder_Helper::$general_tab,
 					),
+
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
+						'default'   => astra_get_option( 'footer-button-' . $index . '-alignment' ),
+						'type'      => 'control',
+						'control'   => 'ast-selector',
+						'section'   => $_section,
+						'priority'  => 35,
+						'title'     => __( 'Alignment', 'astra' ),
+						'context'   => Astra_Builder_Helper::$general_tab,
+						'transport' => 'postMessage',
+						'choices'   => array(
+							'flex-start' => 'align-left',
+							'center'     => 'align-center',
+							'flex-end'   => 'align-right',
+						),
+					)
 				);
+
+				$_configs = array_merge( $_configs, $footer_specific_configs );
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) ) {
