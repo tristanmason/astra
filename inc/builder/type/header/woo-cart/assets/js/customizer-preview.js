@@ -11,6 +11,7 @@
 ( function( $ ) {
 
 	var selector = '.ast-site-header-cart';
+	var responsive_selector = '.astra-cart-drawer';
 
 	// Icon Color.
 	astra_css(
@@ -34,6 +35,13 @@
 	);
 
 	// WooCommerce Cart Colors.
+
+	astra_color_responsive_css(
+		'edd-cart-colors', 
+		'astra-settings[header-edd-cart-text-color]',
+		'color',
+		selector + ' .widget_edd_cart_widget span, ' + selector + ' .widget_edd_cart_widget strong, ' + selector + ' .widget_edd_cart_widget *, ' + responsive_selector + ' .widget_edd_cart_widget span, .astra-cart-drawer .widget_edd_cart_widget *'
+	);
 	astra_css( 'astra-settings[header-woo-cart-text-color]', 'color', '.ast-site-header-cart-data span, .ast-site-header-cart-data strong, .ast-site-header-cart-data .woocommerce-mini-cart__empty-message, .ast-site-header-cart-data .total .woocommerce-Price-amount, .ast-site-header-cart-data .total .woocommerce-Price-amount .woocommerce-Price-currencySymbol, .ast-header-woo-cart .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove' );
 	astra_css( 'astra-settings[header-woo-cart-text-color]', 'border-color', '.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove' );
 
