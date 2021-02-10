@@ -33,23 +33,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Body & Content Divider
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[divider-base-typo]',
-					'type'      => 'control',
-					'control'   => 'ast-heading',
-					'section'   => 'section-body-typo',
-					'priority'  => 4,
-					'title'     => __( 'Body & Content', 'astra' ),
-					'settings'  => array(),
-					'separator' => false,
-				),
-
-				/**
 				 * Option: Font Family
 				 */
-
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[body-font-family]',
 					'type'        => 'control',
@@ -59,7 +44,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'body-font-family' ),
 					'section'     => 'section-body-typo',
 					'priority'    => 5,
-					'title'       => __( 'Family', 'astra' ),
+					'title'       => __( 'Body Font', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
 				),
@@ -227,20 +212,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Body & Content Divider
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[divider-headings-typo]',
-					'type'      => 'control',
-					'control'   => 'ast-heading',
-					'section'   => 'section-content-typo',
-					'priority'  => 3,
-					'title'     => __( 'Headings ( H1 - H6 )', 'astra' ),
-					'settings'  => array(),
-					'separator' => false,
-				),
-
-				/**
 				 * Option: Headings Font Family
 				 */
 				array(
@@ -249,7 +220,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
 					'default'   => astra_get_option( 'headings-font-family' ),
-					'title'     => __( 'Family', 'astra' ),
+					'title'     => __( 'Heading Font', 'astra' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 3,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
