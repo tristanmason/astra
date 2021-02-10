@@ -53,14 +53,13 @@ final class Astra_Builder_Base_Configuration {
 		return array(
 
 			/**
-			 * Option: Blog Color Section heading
+			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-padding-heading]',
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-padding-divider]',
 				'type'     => 'control',
-				'control'  => 'ast-heading',
 				'section'  => $section_id,
-				'title'    => __( 'Spacing', 'astra' ),
+				'control'  => 'ast-divider',
 				'priority' => 200,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$design_tab,
@@ -88,6 +87,19 @@ final class Astra_Builder_Base_Configuration {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin-padding-inner-divider]',
+				'type'     => 'control',
+				'section'  => $section_id,
+				'control'  => 'ast-divider',
+				'priority' => 215,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -169,7 +181,7 @@ final class Astra_Builder_Base_Configuration {
 		} else {
 
 			$_configs = array(
-				
+
 				/**
 				 * Option: Font Size
 				 */
@@ -211,14 +223,13 @@ final class Astra_Builder_Base_Configuration {
 		$configs = array(
 
 			/**
-			 * Option: Hide on Heading
+			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility]',
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility-divider]',
 				'type'     => 'control',
-				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Visibility', 'astra' ),
+				'control'  => 'ast-divider',
 				'priority' => 300,
 				'settings' => array(),
 				'context'  => ( 'footer' === $builder_type ) ?
@@ -469,10 +480,10 @@ final class Astra_Builder_Base_Configuration {
 						'priority'  => 5,
 						'title'     => __( 'Alignment', 'astra' ),
 						'transport' => 'postMessage',
-						'choices'   => array(                       
+						'choices'   => array(
 							'left'   => 'align-left',
-							'center' => 'align-center', 
-							'right'  => 'align-right',  
+							'center' => 'align-center',
+							'right'  => 'align-right',
 						),
 					)
 				);
@@ -607,7 +618,7 @@ final class Astra_Builder_Base_Configuration {
 			$_configs = array_merge( $_configs, $new_configs );
 
 			$html_config[] = self::prepare_visibility_tab( $_section, $type );
-			
+
 			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, $type ) );
 
 			$html_config[] = $_configs;
