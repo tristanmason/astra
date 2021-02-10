@@ -1183,6 +1183,9 @@
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected { 
   color: #2D3748;
 }
+.customize-control-ast-border .input-wrapper.ast-border-wrapper {
+  margin-bottom: 8px;
+}
 .color-group-item .components-tooltip .components-popover__content {
   border-radius: 3px;
 }
