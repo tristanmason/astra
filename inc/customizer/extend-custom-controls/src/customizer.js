@@ -665,6 +665,7 @@
 			AstCustomizerAPI.setDefaultControlContext();
 			astra_builder_clear_operation_session();
 
+
 			api.previewer.bind('AstraBuilderPartialContentRendered', function (message) {
 
 				// Clear clone process if partially refreshed.

@@ -22,13 +22,6 @@
 }
 
 /**
- * Adding custom partial edit buttons in the customizer, till then hide buttons.
- */
-.ast-partials-refreshing button.customize-partial-edit-shortcut-button {
-    display: none;
-}
-
-/**
  * Customizer edit icon custom positioning.
  */
 .ast-builder-layout-element.site-header-focus-item .customize-partial-edit-shortcut button, .site-footer-focus-item .customize-partial-edit-shortcut button {
