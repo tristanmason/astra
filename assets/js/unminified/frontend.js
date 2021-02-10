@@ -130,67 +130,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		menu_click_listeners = {},
 		mobileHeaderType = '',
 		body = document.body,
-		mobileHeader = '',
-		cart_flyout = document.getElementById( 'astra-mobile-cart-drawer' ),
-		woo_data = '',
-		edd_data = '';
-
-	if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
-
-		woo_data = cart_flyout.querySelector( '.widget_shopping_cart.woocommerce' );
-		edd_data = cart_flyout.querySelector( '.widget_edd_cart_widget' );
-	}
+		mobileHeader = '';
 
 	if ( undefined !== main_header_masthead && null !== main_header_masthead ) {
 
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
-	}
-
-	/**
-	 * Opens the Cart Flyout.
-	 */
-	cartFlyoutOpen = function ( event ) {
-		
-		event.preventDefault();
-
-		var current_cart = event.currentTarget.cart_type;
-
-		if ( 'woocommerce' === current_cart && document.body.classList.contains('woocommerce-cart') ) {
-			return;
-		}
-		
-		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
-			
-			cart_flyout.classList.add( 'active' );
-			document.documentElement.classList.add( 'ast-mobile-cart-active' );
-			if ( undefined !== edd_data && '' !== edd_data && null !== edd_data ) {
-				edd_data.style.display = 'block';
-				if ( 'woocommerce' === current_cart ) {
-					edd_data.style.display = 'none';
-				}
-			}
-			if ( undefined !== woo_data && '' !== woo_data && null !== woo_data ) {
-				woo_data.style.display = 'block';
-				if ( 'edd' === current_cart ) {
-					woo_data.style.display = 'none';
-				}
-			}
-		}
-	}
-
-	/**
-	 * Closes the Cart Flyout.
-	 */
-	cartFlyoutClose = function ( event ) {
-
-		event.preventDefault();
-		
-		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
-
-			cart_flyout.classList.remove( 'active' );
-			document.documentElement.classList.remove( 'ast-mobile-cart-active' );
-
-		}
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
@@ -332,8 +276,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				if ( event.keyCode === 27 ) {
 					event.preventDefault();
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
-					cart_flyout.classList.remove( 'active' );
-					document.documentElement.classList.remove( 'ast-mobile-cart-active' );
 					updateTrigger();
 				}
 			});
@@ -343,15 +285,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				var target = event.target;
 				var modal = document.querySelector( '.ast-mobile-popup-drawer.active .ast-mobile-popup-overlay' );
-				var cart_modal = document.querySelector( '.ast-mobile-cart-active .astra-mobile-cart-overlay' );
 
 				if ( target === modal ) {
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
 					updateTrigger();
-				}
-				if ( target === cart_modal ) {
-					cart_flyout.classList.remove( 'active' );
-					document.documentElement.classList.remove( 'ast-mobile-cart-active' );
 				}
 			});
 			AstraToggleSetup();
@@ -367,31 +304,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
-
-		if ( undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
-
-			mobileHeaderType = mobileHeader.dataset.type;
-	
-			// Mobile Header Cart Flyout.
-			var woo_cart = mobileHeader.querySelector( '.ast-header-woo-cart' );
-			var edd_cart = mobileHeader.querySelector( '.ast-header-edd-cart' );
-			var cart_close = document.querySelector( '.astra-cart-drawer-close' );
-	
-			if ( undefined !== woo_cart && '' !== woo_cart && null !== woo_cart ) {
-	
-				woo_cart.addEventListener("click", cartFlyoutOpen, false);
-				woo_cart.cart_type = 'woocommerce';
-			}
-			if ( undefined !== edd_cart && '' !== edd_cart && null !== edd_cart ) {
-	
-				edd_cart.addEventListener("click", cartFlyoutOpen, false);
-				edd_cart.cart_type = 'edd';
-			}
-			if ( undefined !== cart_close && '' !== cart_close && null !== cart_close ) {
-	
-				cart_close.addEventListener("click", cartFlyoutClose, false);
-			}
-		}
 		
 	}
 
@@ -422,12 +334,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if( menu_toggle_close ) {
 			menu_toggle_close.click();
-		}
-		// Close Cart
-		var cart_close = document.querySelector( '.astra-cart-drawer-close' );
-
-		if ( undefined !== cart_close && '' !== cart_close && null !== cart_close ) {
-			cart_close.click();
 		}
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {

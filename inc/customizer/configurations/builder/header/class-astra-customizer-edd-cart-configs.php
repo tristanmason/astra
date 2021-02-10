@@ -206,7 +206,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Link / Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -222,7 +222,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Link / Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -240,7 +240,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
 					'section'    => $_section,
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'name'       => 'header-edd-cart-background-color',
 					'default'    => astra_get_option( 'header-edd-cart-background-color' ),
@@ -256,7 +256,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
 					'section'    => $_section,
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'name'       => 'header-edd-cart-separator-color',
 					'default'    => astra_get_option( 'header-edd-cart-separator-color' ),
@@ -283,7 +283,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Checkout Button Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -302,7 +302,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-colors]',
 					'section'    => $_section,
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'name'       => 'header-edd-checkout-btn-background-color',
@@ -317,7 +317,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Checkout Button Hover Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'tab'        => __( 'Hover', 'astra' ),
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-colors]',
 					'section'    => $_section,
@@ -334,7 +334,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Checkout Button Hover Background Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-colors]',
 					'section'    => $_section,
