@@ -1897,8 +1897,11 @@ input[type="text"].select2-search__field {
   font-size: 15px;
 }
 
-.ast-field-settings-modal .ast-responsive-btns {
+.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
   margin-top: 6px;
+  position: absolute;
+  right: 15px;
+  top: 0px;
 }
 
 .customize-control-ast-responsive .input-wrapper {
@@ -1964,7 +1967,11 @@ input[type="text"].select2-search__field {
   flex: 0 1;
   width: 100%;
 }
-
+.customize-control-ast-responsive .ast-responsive-btns {
+  position: absolute;
+  right: 0px;
+  top: 5.7px;
+}
 .ast-adv-toggle-icon {
   right: 2px;
   top: -2px;
