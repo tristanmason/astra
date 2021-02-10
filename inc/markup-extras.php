@@ -1120,6 +1120,7 @@ function astra_get_header_classes() {
 		$mobile_header_logo            = astra_get_option( 'mobile-header-logo' );
 		$mobile_header_order           = astra_get_option( 'mobile-header-order' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
+		$has_custom_mobile_logo 	   = ('' !== astra_get_option( 'ast-header-responsive-logo')['mobile'] ) ? true : false;
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
 		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
@@ -1145,7 +1146,7 @@ function astra_get_header_classes() {
 	}
 
 		// Add class if Mobile Header Logo is set.
-	if ( '' !== $mobile_header_logo && '1' == $different_mobile_header_order ) {
+	if ( ('' !== $mobile_header_logo && '1' == $different_mobile_header_order) || $has_custom_mobile_logo ) {
 		$classes[] = 'ast-has-mobile-header-logo';
 	}
 

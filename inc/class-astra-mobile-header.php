@@ -134,8 +134,9 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		public function mobile_header_markup() {
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 			$different_logo     = astra_get_option( 'different-mobile-logo' );
+			$has_custom_mobile_logo = ('' !== astra_get_option( 'ast-header-responsive-logo')['mobile'] ) ? true : false;
 
-			if ( '' !== $mobile_header_logo && '1' == $different_logo ) {
+			if ( ( '' !== $mobile_header_logo && '1' == $different_logo) || $has_custom_mobile_logo ) {
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
 				add_filter( 'astra_is_logo_attachment', array( $this, 'add_mobile_logo_svg_class' ), 10, 2 );
@@ -152,8 +153,8 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		public function astra_mobile_header_custom_logo( $html, $blog_id ) {
 
-			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
-
+			// $mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+			$mobile_header_logo = astra_get_option( 'ast-header-responsive-logo')['mobile'];
 			$custom_logo_id = attachment_url_to_postid( $mobile_header_logo );
 
 			$size = 'ast-mobile-header-logo-size';
@@ -211,8 +212,8 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			 * Add class for header width
 			 */
 			$header_content_layout = astra_get_option( 'different-mobile-logo' );
-
-			if ( '0' == $header_content_layout ) {
+			$has_custom_mobile_logo = ('' !== astra_get_option( 'ast-header-responsive-logo')['mobile'] ) ? true : false;
+			if ( '0' == $header_content_layout && !$has_custom_mobile_logo ) {
 				$classes[] = 'ast-mobile-inherit-site-logo';
 			}
 
