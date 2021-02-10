@@ -2237,7 +2237,7 @@ input[type="text"].select2-search__field {
   display: inline-block;
   line-height: 1;
   margin-right: 10px;
-  top: 2.7px;
+  top: 5.7px;
   left: unset;
 }
 .customize-control-ast-responsive-background .ast-responsive-btns {
@@ -2338,7 +2338,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
   left: 42px;
-  top: 1.5px;
+  top: 5.7px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
   left: 8px;
@@ -3780,7 +3780,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-background .ast-responsive-btns {
   position: absolute;
   left: 42px;
-  top: 1.5px;
+  top: 5.7px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns  {
   left: 8px;
@@ -3875,7 +3875,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
   left: 42px;
-  top: 1.5px;
+  top: 5.7px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
   left: 8px;

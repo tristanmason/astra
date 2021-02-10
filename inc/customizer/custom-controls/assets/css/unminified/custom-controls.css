@@ -1413,7 +1413,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-background .ast-responsive-btns {
   position: absolute;
   right: 42px;
-  top: 1.5px;
+  top: 5.7px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns  {
   right: 8px;
@@ -1508,7 +1508,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
   right: 42px;
-  top: 1.5px;
+  top: 5.7px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
   right: 8px;
