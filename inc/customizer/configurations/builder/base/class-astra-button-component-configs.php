@@ -104,6 +104,19 @@ class Astra_Button_Component_Configs {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-divider]',
+					'type'     => 'control',
+					'section'   => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 20,
+					'settings' => array(),
+					'context'   => Astra_Builder_Helper::$general_tab,
+				),
+
+				/**
 				* Option: Button Link
 				*/
 				array(
@@ -125,6 +138,19 @@ class Astra_Button_Component_Configs {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
+					'type'     => 'control',
+					'section'   => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 30,
+					'settings' => array(),
+					'context'   => Astra_Builder_Helper::$general_tab,
+				),
+
+				/**
 				 * Group: Primary Header Button Colors Group
 				 */
 				array(
@@ -136,6 +162,19 @@ class Astra_Button_Component_Configs {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 70,
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group-divider]',
+					'type'     => 'control',
+					'section'   => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 70,
+					'settings' => array(),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -227,6 +266,19 @@ class Astra_Button_Component_Configs {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 80,
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-group-divider]',
+					'type'     => 'control',
+					'section'   => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 80,
+					'settings' => array(),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
