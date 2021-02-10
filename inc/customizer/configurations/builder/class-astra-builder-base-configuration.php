@@ -143,6 +143,19 @@ final class Astra_Builder_Base_Configuration {
 
 			$_configs = array(
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-typo-divider]',
+					'type'     => 'control',
+					'section'   => $section_id,
+					'control'  => 'ast-divider',
+					'priority' => 16,
+					'settings' => array(),
+					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+				),
+
 				array(
 					'name'      => $parent,
 					'default'   => astra_get_option( $section_id . '-typography' ),

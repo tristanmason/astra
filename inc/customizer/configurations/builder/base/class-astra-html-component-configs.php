@@ -168,17 +168,16 @@ class Astra_Html_Component_Configs {
 				),
 
 				/**
-				 * Option: Margin heading
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Spacing', 'astra' ),
-					'priority' => 200,
+					'section'   => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 220,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -207,6 +206,14 @@ class Astra_Html_Component_Configs {
 			);
 
 			if ( 'footer' === $builder_type ) {
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment-divider]',
+					'type'     => 'control',
+					'section'   => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 6,
+					'settings' => array(),
+				);
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-html-' . $index . '-alignment' ),
