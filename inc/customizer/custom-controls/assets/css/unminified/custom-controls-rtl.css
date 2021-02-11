@@ -725,11 +725,11 @@
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
 	color: #006BA1;
-    height: 20px;
-    width: 20px;
-    padding: 4px;
+	height: 20px;
+	width: 20px;
+	padding: 4px;
 	background: transparent;
-    box-shadow: none;
+	box-shadow: none;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	outline: unset;
@@ -875,6 +875,7 @@
 .astra-color-icon-indicate.components-button:hover {
     transform: scale(1.05);
 }
+
 .customize-control-ast-selector .ast-alignment-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
