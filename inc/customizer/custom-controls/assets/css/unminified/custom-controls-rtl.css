@@ -3828,19 +3828,22 @@ input[type="text"].select2-search__field {
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
 }
-.customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap,
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   display: inline-block;
   line-height: 1;
   margin-right: 10px;
   top: 2.7px;
   left: unset;
 }
-.customize-control-ast-responsive-background .ast-responsive-btns {
+.customize-control-ast-responsive-background .ast-responsive-btns,
+.customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
   left: 42px;
   top: 5.7px;
 }
-.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns  {
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
   left: 8px;
 }
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
@@ -3922,21 +3925,6 @@ input[type="text"].select2-search__field {
     left: 27px;
     top: -2px;
   }
-}
-.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
-  display: inline-block;
-  line-height: 1;
-  margin-right: 10px;
-  top: 2.7px;
-  left: unset;
-}
-.customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  left: 42px;
-  top: 5.7px;
-}
-.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
-  left: 8px;
 }
 .ast-responsive-btns {
   display: inline-block;

@@ -78,18 +78,3 @@
     top: -2px;
   }
 }
-.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
-  display: inline-block;
-  line-height: 1;
-  margin-left: 10px;
-  top: 2.7px;
-  right: unset;
-}
-.customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  right: 42px;
-  top: 5.7px;
-}
-.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
-  right: 8px;
-}

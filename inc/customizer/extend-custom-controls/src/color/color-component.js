@@ -31,15 +31,11 @@ const ColorComponent = props => {
 	const renderOperationButtons = () => {
 		
 		let resetFlag = true;
-		let tempVal = state.value.replace( 'unset', '' );
+		const tempVal = state.value.replace( 'unset', '' );
 
 		if ( JSON.stringify(tempVal) !== JSON.stringify(defaultValue) ) {
 			resetFlag = false;
 		}
-		console.log(props.control);
-		console.log(tempVal);
-		console.log(defaultValue);
-
 		return <span className="customize-control-title">
 				<>
 					<div className="ast-color-btn-reset-wrap">
