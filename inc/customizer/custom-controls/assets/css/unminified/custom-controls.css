@@ -2277,6 +2277,30 @@ input[type="text"].select2-search__field {
   align-self: auto;
   text-transform: uppercase;
 }
+.components-range-control__slider[type=range] {
+  align-items: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.components-range-control__slider[type=range]::-webkit-slider-runnable-track,
+.components-range-control__slider[type=range]::-moz-range-track {
+  content: '';
+  height: 2px;
+  pointer-events: none;
+}
+.components-range-control__slider[type=range]::-webkit-slider-thumb,
+.components-range-control__slider[type=range]::-moz-range-thumb {
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: 5px;
+}
+.customize-control-ast-slider .css-5p7d2w-ThumbWrapper,
+.customize-control-ast-responsive-slider .css-5p7d2w-ThumbWrapper {
+  height: 17px;
+  width: 17px;
+  top: 2px;
+}
 
 .customize-control-ast-sortable .sortable {
   cursor: default;
