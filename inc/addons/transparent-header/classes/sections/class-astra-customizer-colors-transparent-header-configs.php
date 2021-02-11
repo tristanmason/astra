@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'default'    => $defaults['transparent-header-bg-color-responsive'],
 					'section'    => 'section-transparent-header',
 					'type'       => 'control',
-					'priority'   => 35,
+					'priority'   => 34,
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
