@@ -324,16 +324,35 @@ final class Astra_Builder_Base_Configuration {
 					'title'    => __( 'Widget Colors', 'astra' ),
 				),
 
+				/**
+				 * Option: Widget title color.
+				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-title-color]',
+					'default'    => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
+					'title'      => __( 'Title Color', 'astra' ),
 					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Title/Content', 'astra' ),
 					'section'    => $_section,
-					'transport'  => 'postMessage',
 					'priority'   => 7,
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
 					'responsive' => true,
+					'rgba'       => true,
+				),
+				/**
+				 * Option: Widget Color.
+				 */
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color]',
+					'default'    => astra_get_option( $type . '-widget-' . $index . '-color' ),
+					'title'      => __( 'Content Color', 'astra' ),
+					'type'       => 'control',
+					'section'    => $_section,
+					'priority'   => 7,
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
@@ -348,42 +367,6 @@ final class Astra_Builder_Base_Configuration {
 				),
 
 				/**
-				 * Option: Widget title color.
-				 */
-				array(
-					'name'       => $type . '-widget-' . $index . '-title-color',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
-					'title'      => __( 'Title', 'astra' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
-					'type'       => 'sub-control',
-					'section'    => $_section,
-					'priority'   => 1,
-					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'control'    => 'ast-responsive-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
-				/**
-				 * Option: Widget Color.
-				 */
-				array(
-					'name'       => $type . '-widget-' . $index . '-color',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-color' ),
-					'title'      => __( 'Content', 'astra' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color-group]',
-					'type'       => 'sub-control',
-					'section'    => $_section,
-					'priority'   => 2,
-					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'control'    => 'ast-responsive-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
-				/**
 				 * Option: Widget link color.
 				 */
 				array(
@@ -394,7 +377,6 @@ final class Astra_Builder_Base_Configuration {
 					'section'    => $_section,
 					'priority'   => 3,
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
@@ -412,7 +394,6 @@ final class Astra_Builder_Base_Configuration {
 					'section'    => $_section,
 					'priority'   => 1,
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Hover', 'astra' ),
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,

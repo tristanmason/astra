@@ -55,14 +55,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				 * Breadcrumb Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
-					'default'    => astra_get_option( 'section-breadcrumb-color' ),
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-bg-color]',
 					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => $content_colors_control_title,
+					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
 					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
-					'priority'   => 72,
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
 					'context'    => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -72,8 +73,51 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 						Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
-					'responsive' => true,
+					'priority'   => 72,
 				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-active-color-responsive]',
+					'default'    => astra_get_option( 'breadcrumb-active-color-responsive' ),
+					'type'       => 'control',
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Text Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'context'    => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
+					'priority'   => 72,
+				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-color]',
+					'default'    => astra_get_option( 'breadcrumb-separator-color' ),
+					'type'       => 'control',
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Separator Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'context'    => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
+					'priority'   => 72,
+				),
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[section-breadcrumb-link-color]',
 					'default'    => astra_get_option( 'section-breadcrumb-color' ),
@@ -93,36 +137,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 					'responsive' => true,
-				),
-
-				array(
-					'name'       => 'breadcrumb-bg-color',
-					'type'       => 'sub-control',
-					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
-					'section'    => 'section-breadcrumb',
-					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Color', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
-					'priority'   => 5,
-				),
-
-				array(
-					'name'       => 'breadcrumb-active-color-responsive',
-					'default'    => astra_get_option( 'breadcrumb-active-color-responsive' ),
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
-					'section'    => 'section-breadcrumb',
-					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Text Color', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
-					'priority'   => 10,
 				),
 
 				array(
@@ -153,21 +167,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 20,
-				),
-
-				array(
-					'name'       => 'breadcrumb-separator-color',
-					'default'    => astra_get_option( 'breadcrumb-separator-color' ),
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
-					'section'    => 'section-breadcrumb',
-					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Separator Color', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
-					'priority'   => 25,
 				),
 			);
 
