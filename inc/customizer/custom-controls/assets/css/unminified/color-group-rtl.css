@@ -85,19 +85,7 @@
   text-decoration: none;
 }
 
-#customize-control-astra-settings-transparent-toggle-colors .ast-color-group-reset,
-#customize-control-astra-settings-transparent-header-html-colors-group .ast-color-group-reset,
-#customize-control-astra-settings-transparent-header-colors-menu .ast-color-group-reset,
-#customize-control-astra-settings-transparent-header-colors-submenu .ast-color-group-reset,
-#customize-control-astra-settings-transparent-header-search-colors-group .ast-color-group-reset,
-#customize-control-astra-settings-section-breadcrumb-color .ast-color-group-reset,
-[CLASS*="-ast-color-group"][ID*="-header-html-"] .ast-color-group-reset,
-#customize-control-astra-settings-header-woo-cart-colors .ast-color-group-reset,
-#customize-control-astra-settings-shop-color-group .ast-color-group-reset,
-#customize-control-astra-settings-edd-single-product-colors .ast-color-group-reset,
-#customize-control-astra-settings-edd-archive-colors .ast-color-group-reset,
-#customize-control-astra-settings-header-account-menu-link-colors .ast-color-group-reset,
-#customize-control-astra-settings-header-account-menu-background-colors .ast-color-group-reset {
+.customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
   left: 110px;
 }
 
