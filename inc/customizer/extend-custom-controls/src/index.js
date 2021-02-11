@@ -32,6 +32,7 @@ import { RowLayoutControl } from './row-layout/control';
 import { toggleControl } from './toggle-control/control';
 import { colorGroupControl } from './color-group/control';
 import { selectorControl } from './selector/control';
+import { BoxShadowControl }  from './box-shadow/control.js';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -67,5 +68,6 @@ wp.customize.controlConstructor['ast-toggle-control'] = toggleControl;
 wp.customize.controlConstructor['ast-color-group'] = colorGroupControl;
 wp.customize.controlConstructor['ast-selector'] = selectorControl;
 
+wp.customize.controlConstructor['ast-box-shadow'] = BoxShadowControl;
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';
