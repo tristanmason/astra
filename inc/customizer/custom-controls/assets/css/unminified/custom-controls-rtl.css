@@ -1299,7 +1299,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
-  left: 82px;
+  left: 72px;
   top: 7px;
   cursor: pointer;
 }
@@ -3519,6 +3519,10 @@ input[type="text"].select2-search__field {
 .customize-control-ast-heading {
   margin-top: 25px;
   margin-bottom: 0;
+}
+
+.customize-control-ast-builder-header-control + .customize-control-ast-heading {
+    margin-top: 10px;
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {

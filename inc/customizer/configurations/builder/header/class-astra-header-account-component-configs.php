@@ -134,7 +134,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'priority' => 2,
+				'priority' => 1,
 				'title'    => __( 'Logged In View', 'astra' ),
 				'settings' => array(),
 			),
@@ -351,6 +351,26 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text-divider]',
+				'type'     => 'control',
+				'section'   => $_section,
+				'control'  => 'ast-divider',
+				'priority' => 203,
+				'settings' => array(),
+				'context'   => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+						'operator' => '==',
+						'value'    => 'text',
+					),
+					Astra_Builder_Helper::$general_tab_config,
+				),
+			),
+
+			/**
 			* Option: Account Log Out Link
 			*/
 			array(
@@ -393,25 +413,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'max'  => 100,
 				),
 				'suffix'            => 'px',
-				'context'           => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-						'operator' => '==',
-						'value'    => 'avatar',
-					),
-					Astra_Builder_Helper::$design_tab_config,
-				),
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-image-width-divider]',
-				'type'     => 'control',
-				'section'    => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 2,
 				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
@@ -545,35 +546,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Profile text
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-type-text-heading]',
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'section'  => $_section,
-				'title'    => __( 'Profile Text', 'astra' ),
-				'priority' => 10,
-				'settings' => array(),
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-					),
-				),
-			),
-
-			/**
 			* Option: account Color.
 			*/
 			array(
@@ -585,7 +557,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'transport'         => 'postMessage',
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'title'             => __( 'Color', 'astra' ),
+				'title'             => __( 'Profile Text Color', 'astra' ),
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
