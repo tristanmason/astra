@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 					'section'  => 'section-footer-small',
 					'control'  => 'ast-color',
 					'default'  => '',
-					'title'    => __( 'Link Color', 'astra' ),
+					'title'    => __( 'Normal', 'astra' ),
 				),
 
 				/**
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-link-color-group]',
 					'section'  => 'section-footer-small',
 					'control'  => 'ast-color',
-					'title'    => __( 'Link Color', 'astra' ),
+					'title'    => __( 'Hover', 'astra' ),
 					'default'  => '',
 				),
 
