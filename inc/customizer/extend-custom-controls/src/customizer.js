@@ -705,28 +705,6 @@
 
 			});
 
-			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
-
-				if( ! e.detail.hasOwnProperty('section_id') ) {
-					return;
-				}
-
-				let section = api.section( e.detail.section_id );
-				if (section && section.expanded) {
-					section.collapse();
-				}
-
-
-				sessionStorage.setItem('astra-builder-reset-in-progress', true)
-				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
-
-				if( e.detail.section_id.startsWith('section-hb-divider-') || e.detail.section_id.startsWith('section-fb-divider-')  ) {
-					// Delete session when divider resetting due to non partial refresh.
-					sessionStorage.removeItem('astra-builder-reset-in-progress');
-				}
-
-			});
-
 			document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
 
 				let forceRemoveSection = e.detail;
