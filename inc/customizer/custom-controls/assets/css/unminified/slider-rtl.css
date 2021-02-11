@@ -17,8 +17,8 @@
 .components-range-control__slider[type=range] {
   align-items: center;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .components-range-control__slider[type=range]::-webkit-slider-runnable-track,
 .components-range-control__slider[type=range]::-moz-range-track {
