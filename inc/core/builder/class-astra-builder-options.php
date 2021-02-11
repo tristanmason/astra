@@ -1615,3 +1615,4 @@ function prepare_menu_defaults( $defaults, $index ) {
 
 	return $defaults;
 }
+
