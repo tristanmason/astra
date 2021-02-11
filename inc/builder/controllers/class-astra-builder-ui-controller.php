@@ -42,10 +42,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$output .= isset( self::$ast_svgs[ $icon ] ) ? self::$ast_svgs[ $icon ] : '';
 			$output .= '</span>';
-			
+
 			return $output;
 		}
-		
+
 		/**
 		 * Prepare Social Icon HTML.
 		 *
@@ -231,6 +231,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
+
+			$button_size = astra_get_option( $builder_type . '-button' . $index . '-size' );
+
+			echo '<div class="ast-builder-button-wrap ast-builder-button-size-' . $button_size . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo astra_get_custom_button( $builder_type . '-button' . $index . '-text', $builder_type . '-button' . $index . '-link-option', 'header-button' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 

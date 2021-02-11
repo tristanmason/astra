@@ -17,7 +17,7 @@ const BuilderHeader = (props) => {
 		return (
 			<React.Fragment>
 				<p className="ast-customize-control-title">
-					{ ! astra.customizer.is_pro && 
+					{ ! astra.customizer.is_pro &&
 						<>
 							{ __( 'Want more? Upgrade to ', 'astra' ) }<a href={astra.customizer.upgrade_link} target="_blank">{ __( 'Astra Pro', 'astra' ) }</a>
 							{ __( ' for many more header and footer options along with several amazing features too!', 'astra' ) }
@@ -48,13 +48,11 @@ const BuilderHeader = (props) => {
 					<a href="#"
 					   className={"nav-tab ahfb-general-tab ahfb-compontent-tabs-button " + (('general' === props.tab) ? "nav-tab-active" : "")}
 					   data-tab="general">
-						<span className="dashicons dashicons-admin-tools"> </span>
 						<span>{__('General', 'astra')}</span>
 					</a>
 					<a href="#"
 					   className={"nav-tab ahfb-design-tab ahfb-compontent-tabs-button " + (('design' === props.tab) ? "nav-tab-active" : "")}
 					   data-tab="design">
-						<span className="dashicons dashicons-admin-appearance"> </span>
 						<span>{__('Design', 'astra')}</span>
 					</a>
 				</div>
