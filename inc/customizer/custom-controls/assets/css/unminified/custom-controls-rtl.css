@@ -2163,7 +2163,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -2329,13 +2329,31 @@ input[type="text"].select2-search__field {
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
 }
-
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap,
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-right: 10px;
+  top: 2.7px;
+  left: unset;
+}
+.customize-control-ast-responsive-background .ast-responsive-btns,
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  left: 42px;
+  top: 5.7px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
+  left: 8px;
+}
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content {
-  display: inline-block;
+  display: block;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
@@ -2409,7 +2427,6 @@ input[type="text"].select2-search__field {
     top: -2px;
   }
 }
-
 .ast-responsive-select-container {
   display: none;
 }
@@ -2562,7 +2579,14 @@ input[type="text"].select2-search__field {
   border-radius: 0 2px 2px 0;
   box-shadow: none;
 }
-
+.customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+  position: absolute;
+  top: 2.7px;
+  display: inline-block;
+  line-height: 1;
+  margin-right: 10px;
+}
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
@@ -2765,8 +2789,11 @@ input[type="text"].select2-search__field {
   font-size: 15px;
 }
 
-.ast-field-settings-modal .ast-responsive-btns {
+.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
   margin-top: 6px;
+  position: absolute;
+  left: 15px;
+  top: 0px;
 }
 
 .customize-control-ast-responsive .input-wrapper {
@@ -2832,7 +2859,11 @@ input[type="text"].select2-search__field {
   flex: 0 1;
   width: 100%;
 }
-
+.customize-control-ast-responsive .ast-responsive-btns {
+  position: absolute;
+  left: 0px;
+  top: 5.7px;
+}
 .ast-adv-toggle-icon {
   left: 2px;
   top: -2px;
@@ -3695,7 +3726,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -3861,13 +3892,31 @@ input[type="text"].select2-search__field {
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
 }
-
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap,
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-right: 10px;
+  top: 2.7px;
+  left: unset;
+}
+.customize-control-ast-responsive-background .ast-responsive-btns,
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  left: 42px;
+  top: 5.7px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
+  left: 8px;
+}
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
 
 .customize-control-ast-responsive-color .customize-control-content {
-  display: inline-block;
+  display: block;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
@@ -3941,7 +3990,6 @@ input[type="text"].select2-search__field {
     top: -2px;
   }
 }
-
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
@@ -3972,8 +4020,11 @@ input[type="text"].select2-search__field {
   font-size: 15px;
 }
 
-.ast-field-settings-modal .ast-responsive-btns {
+.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
   margin-top: 6px;
+  position: absolute;
+  left: 15px;
+  top: 0px;
 }
 
 .customize-control-ast-responsive .input-wrapper {
@@ -4039,7 +4090,11 @@ input[type="text"].select2-search__field {
   flex: 0 1;
   width: 100%;
 }
-
+.customize-control-ast-responsive .ast-responsive-btns {
+  position: absolute;
+  left: 0px;
+  top: 5.7px;
+}
 .ast-responsive-select-container {
   display: none;
 }
@@ -4192,7 +4247,14 @@ input[type="text"].select2-search__field {
   border-radius: 0 2px 2px 0;
   box-shadow: none;
 }
-
+.customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+  position: absolute;
+  top: 2.7px;
+  display: inline-block;
+  line-height: 1;
+  margin-right: 10px;
+}
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
