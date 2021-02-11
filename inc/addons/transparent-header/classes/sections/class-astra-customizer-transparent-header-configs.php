@@ -643,7 +643,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport'         => 'postMessage',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-						'title'             => __( 'Secrch Box Background', 'astra' ),
+						'title'             => __( 'Search Box Background', 'astra' ),
 						'context'           => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
