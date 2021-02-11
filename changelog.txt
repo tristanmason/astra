@@ -5,6 +5,7 @@ v3.1.0
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Improvement: Builder - Social Icons - Added ability to select icon from an Icon Picker for individual social elements
 - Improvement: Builder - Social Icons - Added a color option for labels of social icons.
+- Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
 - Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Builder - Primary Menu - Line height not being applied in frontend.
 - Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
@@ -15,7 +16,6 @@ v3.1.0
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Builder - Search box layout is breaking in offcanvas.
-- Fix: Console error in customizer due to third party plugin dependency.
 
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.
