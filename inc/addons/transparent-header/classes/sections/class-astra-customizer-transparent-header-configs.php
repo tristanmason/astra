@@ -979,19 +979,36 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				$_configs = array_merge( $_configs, $_hfb_configs );
 			} else {
 				$_old_content_configs = array(
+
+					/**
+					* Option: Content Section Text color.
+					*/
+					array(
+						'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-text-color-responsive]',
+						'default'    => astra_get_option( 'transparent-content-section-text-color-responsive' ),
+						'type'       => 'control',
+						'priority'   => 35,
+						'section'    => $_section,
+						'transport'  => 'postMessage',
+						'control'    => 'ast-responsive-color',
+						'title'      => __( 'Text', 'astra' ),
+						'responsive' => true,
+						'rgba'       => true,
+					),
 					/**
 					 * Option: Header Builder Tabs
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
-						'default'   => astra_get_option( 'transparent-header-colors-content' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Content', 'astra' ),
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'priority'  => 35,
-						'context'   => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+						'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
+						'default'    => astra_get_option( 'transparent-header-colors-content' ),
+						'type'       => 'control',
+						'control'    => 'ast-color-group',
+						'title'      => __( 'Content', 'astra' ),
+						'section'    => $_section,
+						'transport'  => 'postMessage',
+						'priority'   => 35,
+						'context'    => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+						'responsive' => true,
 					),
 				);
 

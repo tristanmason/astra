@@ -208,23 +208,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
-				* Option: Content Section Text color.
-				*/
-				array(
-					'name'       => 'transparent-content-section-text-color-responsive',
-					'default'    => $defaults['transparent-content-section-text-color-responsive'],
-					'type'       => 'sub-control',
-					'priority'   => 4,
-					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
-					'section'    => 'section-transparent-header',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Text Color', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
-				),
-				/**
 				 * Option: Content Section Link color.
 				 */
 				array(
