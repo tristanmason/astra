@@ -475,7 +475,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'  => Astra_Builder_Helper::$design_tab,
 						'title'    => __( 'Menu', 'astra' ),
 					),
-					
+
 					// Option Group: Menu Color.
 					array(
 						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-colors]',
@@ -498,19 +498,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'   => 90,
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
-					),
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-colors-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 90,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$design_tab,
 					),
 
 					// Option: Menu Color.
@@ -795,6 +782,38 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'  => Astra_Builder_Helper::$design_tab,
 					),
 				);
+
+				if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+					$addon_configs = array(
+						/**
+						 * Option: Divider
+						 */
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-colors-divider]',
+							'type'     => 'control',
+							'section'  => $_section,
+							'control'  => 'ast-divider',
+							'priority' => 90,
+							'settings' => array(),
+							'context'  => Astra_Builder_Helper::$design_tab,
+						),
+						/**
+						 * Option: Divider
+						 */
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-menu-typography-divider]',
+							'type'     => 'control',
+							'section'  => $_section,
+							'control'  => 'ast-divider',
+							'priority' => 120,
+							'settings' => array(),
+							'context'  => Astra_Builder_Helper::$design_tab,
+						),
+					);
+
+					$_configs = array_merge( $_configs, $addon_configs );
+				}
 
 				$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
 				$html_config[] = $_configs;

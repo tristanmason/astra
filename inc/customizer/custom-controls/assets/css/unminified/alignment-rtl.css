@@ -44,7 +44,7 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) {
+.ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-right: -1px;
 }
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
@@ -86,4 +86,10 @@
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
+}
+.customize-control-ast-selector .components-button .ahfb-icon-set {
+    display: flex;
+}
+.customize-control-ast-selector {
+    margin-bottom: 1px;
 }

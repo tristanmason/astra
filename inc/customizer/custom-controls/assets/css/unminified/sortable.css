@@ -16,6 +16,9 @@
   margin: 0 0 10px;
   border-radius: 3px;
 }
+.customize-control-ast-sortable .sortable div:last-child {
+  margin: 0;
+}
 
 .customize-control-ast-sortable .sortable div .dashicons.visibility {
   float: right;

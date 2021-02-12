@@ -309,7 +309,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    right: 42px;
+    right: 36px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
@@ -328,6 +328,7 @@
 .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:hover, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:focus {
 	box-shadow: none;
 	border: none;
+	background: transparent;
 }
 .astra-color-clear-button.components-button.is-secondary:hover:not(:disabled),
 .astra-color-clear-button.components-button:focus:not(:disabled) {

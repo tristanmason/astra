@@ -108,13 +108,10 @@
 .ahfb-compontent-tabs {
     display: -webkit-box;
     display: flex;
-    margin-top: -15px;
-    margin-right: -5px;
-    margin-left: -5px;
+    margin: -15px -5px 0 -5px;
     padding: 0;
     border: 1px solid #dddddd;
     background: #f3f4f7;
-    margin-bottom: 8px;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button {
@@ -289,7 +286,6 @@
 .ahfb-builder-item:hover, .ahfb-builder-item.active-builder-item {
     background: #e3e3e3;
     color: #111111;
-	border-top-right-radius: 0;
 }
 
 .ahfb-builder-area .ahfb-builder-drop:nth-last-child(2) .ahfb-builder-item:last-child {
@@ -4821,13 +4817,15 @@ i.fipicon-angle-left:before {
 	right: 0px;
 }
 
-[data-tooltip]:hover::after {
+[data-tooltip]::after {
 	content: attr(data-tooltip);
 	pointer-events: none;
 	display: inline-table;
 	position: absolute;
 	right: -20px;
 	font-size: 12px;
+	opacity: 0;
+	visibility: hidden;
 	line-height: 1;
 	background: #424242;
 	color: #fff;
@@ -4835,4 +4833,9 @@ i.fipicon-angle-left:before {
     font-family: system-ui;
     padding: 5px 10px;
     top: -26px;
+}
+
+[data-tooltip]:hover::after {
+	opacity: 1;
+	visibility: visible;
 }

@@ -11,10 +11,6 @@
   margin-bottom: 0;
 }
 
-.customize-control-ast-builder-header-control + .customize-control-ast-heading {
-    margin-top: 10px;
-}
-
 .customize-control-ast-heading .ast-heading-wrapper {
   margin: 0 -15px;
 }

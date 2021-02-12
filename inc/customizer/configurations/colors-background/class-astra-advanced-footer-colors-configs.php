@@ -37,9 +37,8 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-color-background-heading-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => 'section-footer-adv',
-					'title'    => __( 'Colors & Background', 'astra' ),
 					'priority' => 46,
 					'settings' => array(),
 					'context'  => array(
@@ -59,7 +58,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'footer-widget-background-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
+					'title'     => __( 'Background Color', 'astra' ),
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 47,
@@ -74,6 +73,23 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					),
 				),
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-content-group-divider]',
+					'type'     => 'control',
+					'section'  => 'section-footer-adv',
+					'control'  => 'ast-divider',
+					'priority' => 48,
+					'settings' => array(),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
+				),
+
 				/**
 				 * Option: Footer Bar Content Group
 				 */
@@ -82,7 +98,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'footer-widget-content-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
+					'title'     => __( 'Content Colors', 'astra' ),
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 48,
@@ -93,7 +109,6 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'disabled',
 						),
-
 					),
 				),
 
