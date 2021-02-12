@@ -268,13 +268,33 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
+				// Option: Checkout Button Divider.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 75,
+					'settings' => array(),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-title-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 75,
+					'settings' => array(),
+					'title'     => __( 'Checkout', 'astra' ),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
 				// Checkout Button colors.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-text-colors]',
 					'default'   => astra_get_option( 'header-edd-checkout-button-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
-					'title'     => __( 'Checkout Button Text', 'astra' ),
+					'title'     => __( 'Button Text', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 75,
@@ -285,13 +305,12 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'default'   => astra_get_option( 'header-edd-checkout-button-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
-					'title'     => __( 'Checkout Button Background', 'astra' ),
+					'title'     => __( 'Button Background', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 75,
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
-
 				// Option: Checkout Button Text Color.
 				array(
 					'type'       => 'sub-control',
