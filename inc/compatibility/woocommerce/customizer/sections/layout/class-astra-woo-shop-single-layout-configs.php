@@ -47,6 +47,18 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable-divider]',
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'control'  => 'ast-divider',
+					'priority' => 16,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Disable Transparent Header on WooCommerce Product pages
 				 */
 				array(

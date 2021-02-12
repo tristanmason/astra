@@ -280,14 +280,13 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Typography Section
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-styling-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => 'section-buttons',
-					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 25,
 					'settings' => array(),
 				),

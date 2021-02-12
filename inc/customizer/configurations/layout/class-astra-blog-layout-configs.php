@@ -65,6 +65,18 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-width-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-blog',
+					'priority' => 50,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Enter Width
 				 */
 				array(
@@ -102,6 +114,14 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'section'  => 'section-blog',
 					'priority' => 50,
 					'settings' => array(),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
+					),
 				),
 
 				/**

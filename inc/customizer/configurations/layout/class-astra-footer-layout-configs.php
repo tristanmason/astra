@@ -358,6 +358,28 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Footer Bar Content Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-link-color-group]',
+					'default'   => astra_get_option( 'footer-bar-link-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-color-group',
+					'title'     => __( 'Link Color', 'astra' ),
+					'section'   => 'section-footer-small',
+					'transport' => 'postMessage',
+					'priority'  => 47,
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
+				),
+
+				/**
 				 * Option: Header Width
 				 */
 

@@ -85,6 +85,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[different-retina-logo-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 5,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
+				),
+
+				/**
 				 * Option: Different retina logo
 				 */
 				array(
@@ -108,6 +121,26 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[custom-logo-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 5,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => 'custom_logo',
+							'operator' => '!=',
+							'value'    => '',
+						),
+						Astra_Builder_Helper::$general_tab_config,
 					),
 				),
 
@@ -201,6 +234,31 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-logo-divider]',
+					'type'     => 'control',
+					'section'  => 'title_tagline',
+					'control'  => 'ast-divider',
+					'priority' => 5,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => 'ast_selected_device',
+							'operator' => 'in',
+							'value'    => array( 'tablet', 'mobile' ),
+						),
+					),
+				),
+
+				/**
 				 * Option: Logo Width
 				 */
 				array(
@@ -227,11 +285,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'title'    => __( 'Site Icon', 'astra' ),
 					'section'  => $_section,
+					'control'  => 'ast-divider',
 					'priority' => 15,
 					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -310,13 +368,12 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 				/**
 				 * Option: Divider
-				*/
+				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-icon-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'title'    => __( 'Site Title', 'astra' ),
 					'section'  => $_section,
+					'control'  => 'ast-divider',
 					'priority' => 6,
 					'settings' => array(),
 				),
@@ -327,9 +384,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-title-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Site Tagline', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 9,
 					'settings' => array(),
 				),

@@ -28,6 +28,11 @@
 
 .customize-control.customize-control-ast-color-group .ast-toggle-desc-wrap {
   flex: 1 1 auto;
+  align-self: center;
+}
+
+.customize-control.customize-control-ast-color-group .customize-control-title {
+  margin-bottom: 0;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -50,12 +55,45 @@
 }
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
-  right: 82px;
+  right: 72px;
   top: 7px;
   cursor: pointer;
 }
 
-#customize-control-astra-settings-transparent-toggle-colors .ast-color-group-reset,
-#customize-control-astra-settings-transparent-header-html-colors-group .ast-color-group-reset {
-  right: 122px;
+.customize-control.customize-control-ast-color-group .ast-color-group-responsive-wrap {
+  display: none;
+}
+
+.customize-control.customize-control-ast-color-group .ast-color-group-responsive-wrap.active {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control.customize-control-ast-color-group .more-settings {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0 5px 0;
+  cursor: pointer;
+  float: none;
+  text-decoration: none;
+}
+
+.customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
+  right: 110px;
+}
+
+#customize-control-astra-settings-woo-single-page-color-group .ast-color-group-reset {
+  right: 145px;
 }

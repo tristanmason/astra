@@ -68,9 +68,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'title'    => __( 'Site Icon', 'astra' ),
 					'section'  => 'title_tagline',
+					'control'  => 'ast-divider',
 					'priority' => 15,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$general_tab,
@@ -97,14 +96,13 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Design Typography Heading.
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-logo-typography-heading]',
+					'name'     => ASTRA_THEME_SETTINGS . '[header-logo-typography-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
-					'title'    => __( 'Typography', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 11,
 					'settings' => array(),
 					'context'  => array(
@@ -123,7 +121,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'    => true,
 							),
 						),
-
 					),
 				),
 
@@ -153,20 +150,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
 					'title'     => __( 'Hover', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
-				 * Option: Margin heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Spacing', 'astra' ),
-					'priority' => 200,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**

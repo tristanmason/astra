@@ -67,7 +67,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			/**
 			 * Option: Search Color.
 			 */
-			
 			array(
 				'name'       => ASTRA_THEME_SETTINGS . '[header-search-icon-color]',
 				'default'    => astra_get_option( 'header-search-icon-color' ),
@@ -80,6 +79,19 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'rgba'       => true,
 				'title'      => __( 'Icon Color', 'astra' ),
 				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'priority' => 8,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -105,14 +117,26 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Option: Margin heading
+			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-space-divider]',
 				'type'     => 'control',
-				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Spacing', 'astra' ),
+				'control'  => 'ast-divider',
+				'priority' => 2,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
 				'priority' => 200,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$design_tab,

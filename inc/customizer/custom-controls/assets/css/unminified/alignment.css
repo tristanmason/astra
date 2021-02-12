@@ -31,7 +31,7 @@
     text-align: center;
     justify-content: center;
     border-radius: unset;
-    transition: background 0.1s ease-in;
+    transition: none;
 }
 .ast-alignment-inner-wrap.active .components-button.is-primary {
     color: #ffffff;
