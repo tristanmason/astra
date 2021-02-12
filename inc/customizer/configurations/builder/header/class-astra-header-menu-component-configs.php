@@ -277,7 +277,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'  => 'ast-divider',
 						'priority' => 21,
 						'settings' => array(),
-						'context'     => array(
+						'context'  => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',
@@ -473,7 +473,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority' => 80,
 						'settings' => array(),
 						'context'  => Astra_Builder_Helper::$design_tab,
-						'title'      => __( 'Menu', 'astra' ),
+						'title'    => __( 'Menu', 'astra' ),
 					),
 					
 					// Option Group: Menu Color.
@@ -646,11 +646,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-menu-typography-divider]',
 						'type'     => 'control',
-						'section'   => $_section,
+						'section'  => $_section,
 						'control'  => 'ast-divider',
 						'priority' => 120,
 						'settings' => array(),
-						'context'   => Astra_Builder_Helper::$design_tab,
+						'context'  => Astra_Builder_Helper::$design_tab,
 					),
 
 					// Option: Menu Font Family.

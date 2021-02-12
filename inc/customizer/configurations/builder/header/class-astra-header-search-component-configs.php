@@ -87,11 +87,11 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-divider]',
 				'type'     => 'control',
-				'section'           => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 8,
 				'settings' => array(),
-				'context'    => Astra_Builder_Helper::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -122,11 +122,11 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-space-divider]',
 				'type'     => 'control',
-				'section'           => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 2,
 				'settings' => array(),
-				'context'           => Astra_Builder_Helper::$general_tab,
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -139,7 +139,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'control'  => 'ast-divider',
 				'priority' => 200,
 				'settings' => array(),
-				'context'           => Astra_Builder_Helper::$design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**

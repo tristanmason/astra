@@ -169,11 +169,11 @@ class Astra_Html_Component_Configs {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 220,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -205,7 +205,7 @@ class Astra_Html_Component_Configs {
 				$_configs[] = array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 6,
 					'settings' => array(),

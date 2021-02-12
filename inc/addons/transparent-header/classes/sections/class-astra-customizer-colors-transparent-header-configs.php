@@ -69,9 +69,9 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive-divider]',
 					'type'     => 'control',
-					'section'    => 'section-transparent-header',
+					'section'  => 'section-transparent-header',
 					'control'  => 'ast-divider',
-					'context'    => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'context'  => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					'priority' => 35,
 					'settings' => array(),
 				),

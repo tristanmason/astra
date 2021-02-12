@@ -102,13 +102,13 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 1,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Show label Toggle.
@@ -133,13 +133,13 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-toggle-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-toggle-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 2,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -168,13 +168,13 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-icon-space-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-icon-space-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 2,
 					'settings' => array(),
-					'context'           => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -202,13 +202,13 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-bg-space-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-bg-space-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 2,
 					'settings' => array(),
-					'context'           => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -237,13 +237,13 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-icon-size-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-icon-size-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 1,
 					'settings' => array(),
-					'context'           => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -271,13 +271,13 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-color-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-color-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 7,
 					'settings' => array(),
-					'context'           => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				array(

@@ -86,11 +86,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-type-divider]',
 					'type'     => 'control',
-					'section'    => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 25,
 					'settings' => array(),
-					'context'    => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -127,11 +127,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-slide-divider]',
 					'type'     => 'control',
-					'section'    => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 40,
 					'settings' => array(),
-					'context'    => Astra_Builder_Helper::$responsive_general_tab,
+					'context'  => Astra_Builder_Helper::$responsive_general_tab,
 				),
 
 				/**
@@ -161,11 +161,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target-divider]',
 					'type'     => 'control',
-					'section'    => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 40,
 					'settings' => array(),
-					'context'    => Astra_Builder_Helper::$responsive_general_tab,
+					'context'  => Astra_Builder_Helper::$responsive_general_tab,
 				),
 
 				/**
@@ -223,11 +223,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-close-color-divider]',
 					'type'     => 'control',
-					'section'    => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 30,
 					'settings' => array(),
-					'context'           => array(
+					'context'  => array(
 						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(

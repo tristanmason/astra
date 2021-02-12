@@ -121,11 +121,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hba-footer-layout-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 3,
 					'settings' => array(),
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -156,11 +156,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hba-footer-layout-width-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 25,
 					'settings' => array(),
-					'context'    => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Section: Above Footer Height.
@@ -188,11 +188,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hba-footer-height-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 30,
 					'settings' => array(),
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -285,11 +285,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hba-footer-separator-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 50,
 					'settings' => array(),
-					'context'     => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option: Above Footer Background styling.
@@ -333,11 +333,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hba-inner-spacing-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 205,
 					'settings' => array(),
-					'context'           => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
