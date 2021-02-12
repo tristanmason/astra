@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'section'  => 'section-blog',
 					'priority' => 50,
 					'settings' => array(),
-					'context'     => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[blog-width]',

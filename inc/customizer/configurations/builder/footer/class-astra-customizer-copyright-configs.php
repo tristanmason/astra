@@ -90,11 +90,11 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[footer-copyright-editor-divider]',
 				'type'     => 'control',
-				'section'     => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 4,
 				'settings' => array(),
-				'context'     => Astra_Builder_Helper::$general_tab,
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**

@@ -592,7 +592,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						'transport' => 'postMessage',
 					),
-
 					/**
 					 * Option: Divider
 					 */

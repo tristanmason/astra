@@ -146,16 +146,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => 'primary-header-menu-label-divider',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 5,
-					'title'    => __( 'Menu', 'astra' ),
-					'section'  => 'section-primary-menu',
-					'settings' => array(),
-				),
-
-				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
 					'default'  => astra_get_option( 'disable-primary-nav' ),
 					'type'     => 'control',

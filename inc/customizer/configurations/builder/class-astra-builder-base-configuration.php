@@ -149,11 +149,11 @@ final class Astra_Builder_Base_Configuration {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-typo-divider]',
 					'type'     => 'control',
-					'section'   => $section_id,
+					'section'  => $section_id,
 					'control'  => 'ast-divider',
 					'priority' => 16,
 					'settings' => array(),
-					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+					'context'  => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
 
 				array(

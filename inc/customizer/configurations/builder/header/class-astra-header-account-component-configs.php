@@ -196,7 +196,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-login-style-divider]',
 				'type'     => 'control',
-				'section'    => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 3,
 				'settings' => array(),
@@ -266,11 +266,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-style-divider]',
 				'type'     => 'control',
-				'section'    => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 201,
 				'settings' => array(),
-				'context'   => array(
+				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '!=',
@@ -310,11 +310,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-preview-divider]',
 				'type'     => 'control',
-				'section'    => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 202,
 				'settings' => array(),
-				'context'   => array(
+				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '==',
@@ -356,11 +356,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text-divider]',
 				'type'     => 'control',
-				'section'   => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 203,
 				'settings' => array(),
-				'context'   => array(
+				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 						'operator' => '==',
@@ -429,10 +429,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-before-icon-size-divider]',
 				'type'     => 'control',
-				'section'    => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 4,
-				'context'           => array(
+				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -490,13 +490,13 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			/**
 			 * Option: Divider
 			 */
-			array(
+			array(  
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-icon-color-divider]',
 				'type'     => 'control',
-				'section'    => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 5,
-				'context'           => array(
+				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -540,6 +540,33 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 							'operator' => '==',
 							'value'    => 'icon',
+						),
+					),
+				),
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(  
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-type-text-color-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'priority' => 16,
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '==',
+							'value'    => 'text',
 						),
 					),
 				),
@@ -610,6 +637,32 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
+			),
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-font-size-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'priority' => 16,
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+					),
+				),
 			),
 		);
 

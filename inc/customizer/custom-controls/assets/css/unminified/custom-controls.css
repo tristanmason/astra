@@ -87,7 +87,12 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
 }
-
+.customize-control-ast-selector .components-button .ahfb-icon-set {
+    display: flex;
+}
+.customize-control-ast-selector {
+    margin-bottom: 1px;
+}
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
@@ -323,7 +328,6 @@
   border: 1px solid #dddddd;
   background-color: #ffffff;
   border-radius: 3px 0 0 3px;
-  border-right-width: 0;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
@@ -342,6 +346,9 @@
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:hover, .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
   border-color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
+  outline: none;
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   color: #1e8cbe;
@@ -988,7 +995,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
-  padding: 12px;
+  padding: 15px 20px;
 }
 
 /* Safari Browser specific CSS */
@@ -1466,7 +1473,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
-  right: 72px;
+  right: 65px;
   top: 7px;
 }
 
@@ -2346,6 +2353,9 @@ input[type="text"].select2-search__field {
   line-height: 38px;
   margin: 0 0 10px;
   border-radius: 3px;
+}
+.customize-control-ast-sortable .sortable div:last-child {
+  margin: 0;
 }
 
 .customize-control-ast-sortable .sortable div .dashicons.visibility {
