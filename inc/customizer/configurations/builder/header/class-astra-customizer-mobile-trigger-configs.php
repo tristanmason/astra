@@ -105,11 +105,11 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-trigger-icon-divider]',
 				'type'     => 'control',
-				'section'           => $_section,
+				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'settings' => array(),
-				'priority'          => 10,
-				'context'           => Astra_Builder_Helper::$general_tab,
+				'priority' => 10,
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
