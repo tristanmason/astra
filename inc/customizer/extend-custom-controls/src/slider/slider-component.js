@@ -16,7 +16,7 @@ const SliderComponent = props => {
 	let labelHtml = null,
 		descriptionHtml = null,
 		suffixHtml = null,
-		defaultVal = parseInt( props.control.params.default ) === 0 ? 0 : Number( props.control.params.default ) || 0 ;
+		defaultVal = props.control.params.default;
 
 	const defaults = { min: 0, max: 500, step: 1 };
 	const controlProps = {
@@ -61,7 +61,7 @@ const SliderComponent = props => {
 	return <label>
 		{labelHtml}
 		{descriptionHtml}
-
+		{ renderOperationButtons() }
 		<div className="wrapper">
 			
 			<RangeControl
@@ -73,7 +73,6 @@ const SliderComponent = props => {
 				step={ step || 1 }
 			/>
 			{ suffixHtml }
-			{ renderOperationButtons() }
 		</div>
 	</label>;
 };

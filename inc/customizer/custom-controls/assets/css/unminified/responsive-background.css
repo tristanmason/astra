@@ -115,7 +115,7 @@
 }
 
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -280,4 +280,22 @@
 
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
+}
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap,
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  margin-left: 10px;
+  top: 2.7px;
+  right: unset;
+}
+.customize-control-ast-responsive-background .ast-responsive-btns,
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  right: 42px;
+  top: 5.7px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
+  right: 8px;
 }
