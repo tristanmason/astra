@@ -54,7 +54,7 @@ const ResponsiveBackground = props => {
 		}
 	};
 
-	const renderReset = (key) => {
+	const renderReset = () => {
 		let deleteBtnDisabled = true;
 		let reserBtnDisabled = true;
 		let devices = ['desktop', 'mobile', 'tablet'];
@@ -68,10 +68,8 @@ const ResponsiveBackground = props => {
 				reserBtnDisabled = false;
 			}
 		}
-
-		return <span className="customize-control-title">
-				<>
-					<div className="ast-color-btn-reset-wrap">
+		
+		return <div className="ast-color-btn-reset-wrap">
 						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 							disabled={reserBtnDisabled} onClick={e => {
@@ -99,9 +97,7 @@ const ResponsiveBackground = props => {
 						}}>
 							<Dashicon icon='image-rotate'/>
 						</button>
-					</div>
-				</>
-			</span>;
+					</div>;
 	};
 
 	const onSelectImage = (media, key, backgroundType) => {
@@ -234,15 +230,12 @@ const ResponsiveBackground = props => {
 
 	inputHtml = <div className="background-wrapper">
 		<div className="background-container desktop active">
-			{renderReset('desktop')}
 			{renderSettings('desktop')}
 		</div>
 		<div className="background-container tablet">
-			{renderReset('tablet')}
 			{renderSettings('tablet')}
 		</div>
 		<div className="background-container mobile">
-			{renderReset('mobile')}
 			{renderSettings('mobile')}
 		</div>
 	</div>;
@@ -252,6 +245,7 @@ const ResponsiveBackground = props => {
 			{labelHtml}
 			{descriptionHtml}
 		</label>
+		{renderReset()}
 		{responsiveHtml}
 		<div className="customize-control-content">
 			{inputHtml}

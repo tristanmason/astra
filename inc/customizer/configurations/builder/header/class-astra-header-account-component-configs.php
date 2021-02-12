@@ -490,7 +490,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			/**
 			 * Option: Divider
 			 */
-			array(  
+			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-icon-color-divider]',
 				'type'     => 'control',
 				'section'  => $_section,
@@ -548,7 +548,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			/**
 			 * Option: Divider
 			 */
-			array(  
+			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-type-text-color-divider]',
 				'type'     => 'control',
 				'section'  => $_section,
@@ -637,32 +637,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-			),
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-font-size-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 16,
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-					),
-				),
 			),
 		);
 

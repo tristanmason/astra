@@ -154,15 +154,28 @@ class Astra_Button_Component_Configs {
 				 * Group: Primary Header Button Colors Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group]',
-					'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-color-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Colors', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 70,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-color-group]',
+					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-color-group' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Text Color', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-background-color-group]',
+					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-color-group' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Background Color', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
 				),
 
 				/**
@@ -186,7 +199,7 @@ class Astra_Button_Component_Configs {
 					'transport'  => 'postMessage',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-text-color' ),
 					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-color-group]',
 					'section'    => $_section,
 					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -194,7 +207,7 @@ class Astra_Button_Component_Configs {
 					'rgba'       => true,
 					'priority'   => 9,
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'title'      => __( 'Text Color', 'astra' ),
+					'title'      => __( 'Normal', 'astra' ),
 				),
 
 				/**
@@ -205,7 +218,7 @@ class Astra_Button_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-text-h-color' ),
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-color-group]',
 					'section'    => $_section,
 					'tab'        => __( 'Hover', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -213,7 +226,7 @@ class Astra_Button_Component_Configs {
 					'rgba'       => true,
 					'priority'   => 9,
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'title'      => __( 'Text Color', 'astra' ),
+					'title'      => __( 'Hover', 'astra' ),
 				),
 
 				/**
@@ -224,7 +237,7 @@ class Astra_Button_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-back-color' ),
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-background-color-group]',
 					'section'    => $_section,
 					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -232,7 +245,7 @@ class Astra_Button_Component_Configs {
 					'rgba'       => true,
 					'priority'   => 10,
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'title'      => __( 'Background Color', 'astra' ),
+					'title'      => __( 'Normal', 'astra' ),
 				),
 
 				/**
@@ -243,7 +256,7 @@ class Astra_Button_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-back-h-color' ),
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-background-color-group]',
 					'section'    => $_section,
 					'tab'        => __( 'Hover', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -251,7 +264,7 @@ class Astra_Button_Component_Configs {
 					'rgba'       => true,
 					'priority'   => 10,
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'title'      => __( 'Background Color', 'astra' ),
+					'title'      => __( 'Hover', 'astra' ),
 				),
 
 				/**

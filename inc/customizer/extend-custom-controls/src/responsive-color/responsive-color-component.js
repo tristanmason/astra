@@ -17,7 +17,7 @@ const ResponsiveColorComponent = props => {
 		setPropsValue(obj);
 	};
 
-	const renderReset = ( key ) => {
+	const renderReset = () => {
 		let deleteBtnDisabled = true;
 		let devices = ['desktop', 'mobile', 'tablet'];
 
@@ -27,9 +27,7 @@ const ResponsiveColorComponent = props => {
 			}
 		}
 
-		return <span className="customize-control-title">
-			<>
-				<div className="ast-color-btn-reset-wrap">
+		return <div className="ast-color-btn-reset-wrap">
 					<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 						disabled={JSON.stringify(props_value) === JSON.stringify(props.control.params.default)} onClick={e => {
@@ -49,9 +47,7 @@ const ResponsiveColorComponent = props => {
 					}}>
 						<Dashicon icon='image-rotate'/>
 					</button>
-				</div>
-			</>
-			</span>;
+				</div>;
 	};
 
 	const renderSettings = ( key ) => {
@@ -127,15 +123,12 @@ const ResponsiveColorComponent = props => {
 		inputHtml = <>
 
 			<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active">
-				{renderReset('desktop')}
 				{renderSettings('desktop')}
 			</div>
 			<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet">
-				{renderReset('tablet')}
 				{renderSettings('tablet')}
 			</div>
 			<div className="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile">
-				{renderReset('mobile')}
 				{renderSettings('mobile')}
 			</div>
 		</>;
@@ -146,7 +139,7 @@ const ResponsiveColorComponent = props => {
 			{labelHtml}
 			{descriptionHtml}
 		</label>
-
+		{renderReset()}
 		{responsiveHtml}
 
 		<div className="customize-control-content">
