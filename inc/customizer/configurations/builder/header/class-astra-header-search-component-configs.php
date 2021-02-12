@@ -82,19 +82,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 8,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
-
-			/**
 			 * Option: Search Size
 			 */
 			array(
@@ -114,19 +101,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'max'  => 50,
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-space-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 2,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -167,6 +141,40 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 		);
+
+		if ( defined( 'ASTRA_EXT_VER' ) ) {
+
+			$addon_configs = array(
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-space-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 2,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 8,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+			);
+
+			$_configs = array_merge( $_configs, $addon_configs );
+		}
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 

@@ -87,3 +87,9 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
 }
+.customize-control-ast-selector .components-button .ahfb-icon-set {
+    display: flex;
+}
+.customize-control-ast-selector {
+    margin-bottom: 1px;
+}

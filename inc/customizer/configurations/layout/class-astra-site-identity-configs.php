@@ -392,25 +392,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			);
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
-				array_push(
-					$_configs,
-					/**
-					* Option: Divider
-					*/
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[divider-section-site-identity-logo]',
-						'type'     => 'control',
-						'control'  => 'ast-heading',
-						'section'  => $_section,
-						'title'    => __( 'Site Logo', 'astra' ),
-						'priority' => 2,
-						'settings' => array(),
-					)
-				);
-
-			} else {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				
 				$_configs = array_merge(
 					$_configs,
 					array(
