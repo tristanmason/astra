@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'  => 'section-footer-small',
 					'priority' => 46,
 					'settings' => array(),
-					'context'           => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
@@ -349,7 +349,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'  => 'section-footer-small',
 					'priority' => 47,
 					'settings' => array(),
-					'context'   => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',

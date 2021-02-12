@@ -44,7 +44,7 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) {
+.ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-right: -1px;
 }
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
@@ -738,7 +738,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    left: 42px;
+    left: 36px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
@@ -757,6 +757,7 @@
 .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:hover, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:focus {
 	box-shadow: none;
 	border: none;
+	background: transparent;
 }
 .astra-color-clear-button.components-button.is-secondary:hover:not(:disabled),
 .astra-color-clear-button.components-button:focus:not(:disabled) {
@@ -940,7 +941,7 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) {
+.ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-right: -1px;
 }
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
@@ -1634,7 +1635,7 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    left: 42px;
+    left: 36px;
     top: 1.5px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
@@ -1653,6 +1654,7 @@
 .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:hover, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:focus {
 	box-shadow: none;
 	border: none;
+	background: transparent;
 }
 .astra-color-clear-button.components-button.is-secondary:hover:not(:disabled),
 .astra-color-clear-button.components-button:focus:not(:disabled) {
@@ -1827,6 +1829,18 @@
   margin-top: 25px;
 }
 
+.customize-section-title {
+  margin: -12px -20px 0 -20px;
+}
+
+.customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
+  margin-bottom: 0;
+}
+
+#customize-control-astra-settings-header-transparent-link-heading {
+  margin-top: 15px;
+}
+
 .components-base-control .components-base-control__field {
   margin-bottom: 0;
 }
@@ -1838,7 +1852,7 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
@@ -1848,10 +1862,6 @@
 
 .customize-control-ast-font-variant .select2 {
   margin-bottom: 12px;
-}
-
-.control-section > li:nth-child(2) {
-  margin-top: 5px;
 }
 
 .customize-control .ast-control-tooltip {
@@ -1891,7 +1901,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
-  padding: 15px 20px;
+  padding: 12px 20px;
 }
 
 /* Safari Browser specific CSS */
@@ -1989,10 +1999,6 @@ input[type="text"].select2-search__field {
 .customize-control-ast-heading {
   margin-top: 25px;
   margin-bottom: 0;
-}
-
-.customize-control-ast-builder-header-control + .customize-control-ast-heading {
-    margin-top: 10px;
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
@@ -2825,6 +2831,12 @@ input[type="text"].select2-search__field {
   overflow: hidden;
 }
 
+.customize-control-ast-responsive .ast-responsive-btns {
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
 .customize-control-ast-responsive .input-wrapper input {
   display: none;
   width: 82%;
@@ -3088,7 +3100,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 13px;
 }
 
@@ -3225,11 +3237,16 @@ input[type="text"].select2-search__field {
   -webkit-appearance: none;
   margin-top: 5px;
 }
-.customize-control-ast-slider .css-5p7d2w-ThumbWrapper,
-.customize-control-ast-responsive-slider .css-5p7d2w-ThumbWrapper {
+.customize-control-ast-slider .components-range-control__wrapper,
+.customize-control-ast-responsive-slider .components-range-control__wrapper {
+	margin-right: 0px;
+}
+.customize-control-ast-slider span[CLASS*="-ThumbWrapper"],
+.customize-control-ast-responsive-slider span[CLASS*="-ThumbWrapper"] {
   height: 17px;
   width: 17px;
   top: 2px;
+  margin-right: 0px;
 }
 
 .customize-control-ast-sortable .sortable {
@@ -3287,7 +3304,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
-  margin: 12px 0;
+  margin: 0;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
@@ -3378,6 +3395,18 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   margin-top: 25px;
 }
 
+.customize-section-title {
+  margin: -12px -20px 0 -20px;
+}
+
+.customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
+  margin-bottom: 0;
+}
+
+#customize-control-astra-settings-header-transparent-link-heading {
+  margin-top: 15px;
+}
+
 .components-base-control .components-base-control__field {
   margin-bottom: 0;
 }
@@ -3389,7 +3418,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
@@ -3399,10 +3428,6 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 
 .customize-control-ast-font-variant .select2 {
   margin-bottom: 12px;
-}
-
-.control-section > li:nth-child(2) {
-  margin-top: 5px;
 }
 
 .customize-control .ast-control-tooltip {
@@ -3442,7 +3467,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
-  padding: 15px 20px;
+  padding: 12px 20px 25px 20px;
 }
 
 /* Safari Browser specific CSS */
@@ -3540,10 +3565,6 @@ input[type="text"].select2-search__field {
 .customize-control-ast-heading {
   margin-top: 25px;
   margin-bottom: 0;
-}
-
-.customize-control-ast-builder-header-control + .customize-control-ast-heading {
-    margin-top: 10px;
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
@@ -4049,6 +4070,12 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive .input-wrapper {
   overflow: hidden;
+}
+
+.customize-control-ast-responsive .ast-responsive-btns {
+    position: absolute;
+    top: 2px;
+    left: 0;
 }
 
 .customize-control-ast-responsive .input-wrapper input {
@@ -4639,7 +4666,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 13px;
 }
 
@@ -4776,11 +4803,16 @@ input[type="text"].select2-search__field {
   -webkit-appearance: none;
   margin-top: 5px;
 }
-.customize-control-ast-slider .css-5p7d2w-ThumbWrapper,
-.customize-control-ast-responsive-slider .css-5p7d2w-ThumbWrapper {
+.customize-control-ast-slider .components-range-control__wrapper,
+.customize-control-ast-responsive-slider .components-range-control__wrapper {
+	margin-right: 0px;
+}
+.customize-control-ast-slider span[CLASS*="-ThumbWrapper"],
+.customize-control-ast-responsive-slider span[CLASS*="-ThumbWrapper"] {
   height: 17px;
   width: 17px;
   top: 2px;
+  margin-right: 0px;
 }
 
 .customize-control-ast-sortable .sortable {
@@ -4838,7 +4870,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
-  margin: 12px 0;
+  margin: 0;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {

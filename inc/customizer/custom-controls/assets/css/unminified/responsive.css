@@ -37,6 +37,12 @@
   overflow: hidden;
 }
 
+.customize-control-ast-responsive .ast-responsive-btns {
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
 .customize-control-ast-responsive .input-wrapper input {
   display: none;
   width: 82%;

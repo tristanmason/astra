@@ -158,7 +158,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
-				
+
 				/**
 				 * Option: Divider
 				 */
