@@ -100,6 +100,19 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-trigger-icon-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'settings' => array(),
+				'priority' => 10,
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
 			 * Option: Icon Size
 			 */
 			array(
@@ -120,7 +133,18 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
-
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'settings' => array(),
+				'priority' => 20,
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
 
 			/**
 			 * Option: Mobile Menu Label
@@ -139,6 +163,19 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'      => 'control',
 				'control'   => 'text',
 				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'settings' => array(),
+				'priority' => 20,
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -329,14 +366,13 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Margin heading
+			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
 				'type'     => 'control',
-				'control'  => 'ast-heading',
 				'section'  => $_section,
-				'title'    => __( 'Spacing', 'astra' ),
+				'control'  => 'ast-divider',
 				'priority' => 200,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$design_tab,

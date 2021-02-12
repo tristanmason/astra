@@ -52,9 +52,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typography-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Typography', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 73,
 					'settings' => array(),
 					'context'  => array(
@@ -76,7 +75,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'default'   => astra_get_option( 'section-breadcrumb-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
+					'title'     => __( 'Content Font', 'astra' ),
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'priority'  => 73,

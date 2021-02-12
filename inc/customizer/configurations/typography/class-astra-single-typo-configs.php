@@ -38,12 +38,11 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-single-post-typo]',
+					'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => 'section-blog-single',
 					'priority' => 13,
-					'title'    => __( 'Typography', 'astra' ),
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
@@ -94,13 +93,13 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'type'      => 'control',
 						'priority'  => 13,
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Post / Page Title', 'astra' ),
+						'title'     => __( 'Post / Page Title Font', 'astra' ),
 						'section'   => 'section-blog-single',
 						'transport' => 'postMessage',
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
-	
+
 					/**
 					 * Option: Single Post / Page Title Font Size
 					 */

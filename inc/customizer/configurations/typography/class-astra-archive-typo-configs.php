@@ -31,22 +31,19 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
-
 				/**
-				 * Option: Blog Typography
+				 * Option: Divider
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[blog-typography-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => 'section-blog',
-					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 135,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
-
 			);
 
 			// Learn More link if Astra Pro is not activated.
@@ -94,11 +91,25 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'default'   => astra_get_option( 'blog-content-archive-summary-typo' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Archive Title', 'astra' ),
+						'title'     => __( 'Archive Title Font', 'astra' ),
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					),
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[blog-archive-summary-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog',
+						'priority' => 140,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -129,14 +140,28 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Post Title', 'astra' ),
+						'title'     => __( 'Post Title Font', 'astra' ),
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
-	
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[blog-content-post-title-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog',
+						'priority' => 140,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					),
+
 					/**
 					 * Option: Blog - Post Title Font Size
 					 */

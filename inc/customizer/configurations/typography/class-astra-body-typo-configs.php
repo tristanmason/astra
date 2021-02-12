@@ -48,6 +48,19 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
 				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[body-typo-font-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-body-typo',
+					'priority' => 5,
+					'settings' => array(),
+				),
+
 				/**
 				 * Option: Font Variant
 				 */
@@ -102,6 +115,18 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[body-line-height-before-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-body-typo',
+					'priority' => 20,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Body Font Size
 				 */
 				array(
@@ -122,6 +147,18 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[body-typo-font-size-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-body-typo',
+					'priority' => 10,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Body Line Height
 				 */
 				array(
@@ -139,6 +176,18 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[body-typo-line-height-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-body-typo',
+					'priority' => 25,
+					'settings' => array(),
 				),
 
 				/**

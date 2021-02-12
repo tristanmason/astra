@@ -456,14 +456,13 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Margin for Header Builder.
+			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[section-header-builder-layout-margin-padding-heading]',
+				'name'     => ASTRA_THEME_SETTINGS . '[section-header-builder-layout-margin-padding-divider]',
 				'type'     => 'control',
-				'control'  => 'ast-heading',
 				'section'  => 'section-header-builder-layout',
-				'title'    => __( 'Spacing', 'astra' ),
+				'control'  => 'ast-divider',
 				'priority' => 200,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$design_tab,

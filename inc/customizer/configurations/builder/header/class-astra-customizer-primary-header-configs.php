@@ -130,13 +130,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Option: Primary Header color and background divider.
+				/**
+				 * Option: Divider
+				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-header-colors-and-background-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Background Color & Image', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 6,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,

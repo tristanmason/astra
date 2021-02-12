@@ -63,6 +63,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'rgba'       => true,
 				),
 
+
 				/**
 				 * Option: Site Title Color
 				 */
