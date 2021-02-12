@@ -3,7 +3,8 @@
 }
 
 .customize-control-ast-responsive-color .customize-control-content {
-  display: inline-block;
+  display: block;
+  margin-top: 20px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {

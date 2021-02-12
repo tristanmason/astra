@@ -142,3 +142,11 @@
   border-radius: 2px 0 0 2px;
   box-shadow: none;
 }
+.customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+  position: absolute;
+  top: 2.7px;
+  display: inline-block;
+  line-height: 1;
+  margin-left: 10px;
+}

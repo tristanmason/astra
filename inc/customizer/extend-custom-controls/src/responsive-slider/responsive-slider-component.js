@@ -41,7 +41,7 @@ const ResponsiveSliderComponent = props => {
 		const {
 			input_attrs,
 		} = props.control.params;
-		let defaultVal = parseInt( props.control.params.default[device] ) === 0 ? 0 : Number( props.control.params.default[device] ) || 0 ;
+		let defaultVal = props.control.params.default[device];
 
 		const defaults = { min: 0, max: 500, step: 1 };
 		const controlProps = {
@@ -114,12 +114,12 @@ const ResponsiveSliderComponent = props => {
 		<label key={'customizer-text'}>
 			{labelHtml}
 		</label>
+		{ renderOperationButtons( defaultVal ) }
 		{responsiveHtml}
 		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}
 			{suffixHtml}
-			{ renderOperationButtons( defaultVal ) }
 		</div>
 	</div>;
 };
