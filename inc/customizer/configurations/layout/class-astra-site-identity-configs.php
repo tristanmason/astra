@@ -90,11 +90,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[different-retina-logo-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 5,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -130,11 +130,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[custom-logo-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 5,
 					'settings' => array(),
-					'context'   => array(
+					'context'  => array(
 						array(
 							'setting'  => 'custom_logo',
 							'operator' => '!=',
@@ -239,11 +239,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-logo-divider]',
 					'type'     => 'control',
-					'section'   => 'title_tagline',
+					'section'  => 'title_tagline',
 					'control'  => 'ast-divider',
 					'priority' => 5,
 					'settings' => array(),
-					'context'           => array(
+					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
 							'operator' => '==',

@@ -110,11 +110,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-layout-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 3,
 					'settings' => array(),
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -144,11 +144,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-layout-width-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 25,
 					'settings' => array(),
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -252,11 +252,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-main-sep-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 5,
 					'settings' => array(),
-					'context'    => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Sub Option: Footer Background.
@@ -303,11 +303,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-inner-spacing-divider]',
 					'type'     => 'control',
-					'section'     => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 205,
 					'settings' => array(),
-					'context'           => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

@@ -109,11 +109,11 @@ class Astra_Button_Component_Configs {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 20,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -143,11 +143,11 @@ class Astra_Button_Component_Configs {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 30,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -171,11 +171,11 @@ class Astra_Button_Component_Configs {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group-divider]',
 					'type'     => 'control',
-					'section'   => $_section,
+					'section'  => $_section,
 					'control'  => 'ast-divider',
 					'priority' => 70,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -341,11 +341,11 @@ class Astra_Button_Component_Configs {
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
 						'type'     => 'control',
-						'section'   => $_section,
+						'section'  => $_section,
 						'control'  => 'ast-divider',
 						'priority' => 30,
 						'settings' => array(),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'context'  => Astra_Builder_Helper::$general_tab,
 					),
 
 					array(
@@ -363,7 +363,7 @@ class Astra_Button_Component_Configs {
 							'center'     => 'align-center',
 							'flex-end'   => 'align-right',
 						),
-					)
+					),
 				);
 
 				$_configs = array_merge( $_configs, $footer_specific_configs );

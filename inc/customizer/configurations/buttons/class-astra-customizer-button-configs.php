@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-color-group-divider]',
 					'type'     => 'control',
-					'section'   => 'section-buttons',
+					'section'  => 'section-buttons',
 					'control'  => 'ast-divider',
 					'priority' => 18,
 					'settings' => array(),
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group-divider]',
 					'type'     => 'control',
-					'section'   => 'section-buttons',
+					'section'  => 'section-buttons',
 					'control'  => 'ast-divider',
 					'priority' => 18.5,
 					'settings' => array(),
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-border-size-divider]',
 					'type'     => 'control',
-					'section'        => 'section-buttons',
+					'section'  => 'section-buttons',
 					'control'  => 'ast-divider',
 					'priority' => 19,
 					'settings' => array(),
@@ -196,7 +196,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-border-color-group-divider]',
 					'type'     => 'control',
-					'section'   => 'section-buttons',
+					'section'  => 'section-buttons',
 					'control'  => 'ast-divider',
 					'priority' => 19,
 					'settings' => array(),

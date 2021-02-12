@@ -76,11 +76,11 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-content-group-divider]',
 					'type'     => 'control',
-					'section'   => 'section-footer-adv',
+					'section'  => 'section-footer-adv',
 					'control'  => 'ast-divider',
 					'priority' => 48,
 					'settings' => array(),
-					'context'   => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',

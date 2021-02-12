@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-layouts-divider]',
 					'type'     => 'control',
-					'section'   => 'section-header',
+					'section'  => 'section-header',
 					'control'  => 'ast-divider',
 					'priority' => 4,
 					'settings' => array(),
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-layout-width-divider]',
 					'type'     => 'control',
-					'section'   => 'section-header',
+					'section'  => 'section-header',
 					'control'  => 'ast-divider',
 					'priority' => 4,
 					'settings' => array(),
