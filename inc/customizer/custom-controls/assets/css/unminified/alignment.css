@@ -44,7 +44,7 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) {
+.ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-left: -1px;
 }
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {

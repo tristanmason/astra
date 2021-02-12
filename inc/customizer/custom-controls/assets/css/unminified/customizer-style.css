@@ -30,6 +30,14 @@
   margin-top: 25px;
 }
 
+.customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
+  margin-bottom: 0;
+}
+
+#customize-control-astra-settings-header-transparent-link-heading {
+  margin-top: 15px;
+}
+
 .components-base-control .components-base-control__field {
   margin-bottom: 0;
 }
@@ -41,7 +49,7 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
@@ -51,10 +59,6 @@
 
 .customize-control-ast-font-variant .select2 {
   margin-bottom: 12px;
-}
-
-.control-section > li:nth-child(2) {
-  margin-top: 5px;
 }
 
 .customize-control .ast-control-tooltip {

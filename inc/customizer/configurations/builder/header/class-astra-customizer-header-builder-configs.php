@@ -465,7 +465,16 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'  => 'ast-divider',
 				'priority' => 200,
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
+				'context'    => array(
+					array(
+						'setting' => 'ast_selected_tab',
+						'value'   => 'design',
+					),
+					array(
+						'setting' => 'ast_selected_device',
+						'value'   => 'desktop',
+					),
+				),
 			),
 
 			array(
