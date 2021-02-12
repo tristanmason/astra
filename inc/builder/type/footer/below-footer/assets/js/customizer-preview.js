@@ -20,7 +20,7 @@
     astra_css(
         'astra-settings[hbb-footer-vertical-alignment]',
         'align-items',
-        selector + ' .ast-builder-grid-row'
+        selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
 
