@@ -28,7 +28,11 @@
         flex-wrap: wrap;
         .ast-toggle-desc-wrap {
             flex: 1 1 auto;
+			align-self: center;
         }
+		.customize-control-title {
+			margin-bottom: 0;
+		}
         .ast-field-color-group-wrap {
             justify-content: flex-end;
             display: flex;
@@ -45,7 +49,7 @@
             z-index: 9;           
         }
         .ast-color-group-reset {
-            right: 82px;
+            right: 72px;
             top: 7px;
             cursor: pointer;
         }

@@ -78,16 +78,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Primary Header Button Colors Divider
+				 * Option: Divider
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Layout', 'astra' ),
-					'settings' => array(),
+					'control'  => 'ast-divider',
 					'priority' => 15,
+					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
@@ -113,6 +112,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => true,
 					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-alignment-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 20,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -254,27 +266,27 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 33,
 				),
 
-				// Option: Typography Heading.
+				/**
+				 * Option: Divider
+				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-header-typography-styling-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Typography', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 110,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
-				 * Option: Margin heading
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Spacing', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 200,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
@@ -300,6 +312,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-spacing-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 210,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**

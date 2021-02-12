@@ -118,14 +118,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Section: Above Header Color & Backgroud Heading.
+				/**
+				 * Option: Divider
+				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hba-header-colors-heading]',
-					'section'  => $_section,
+					'name'     => ASTRA_THEME_SETTINGS . '[hba-header-colors-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
 					'priority' => 60,
-					'title'    => __( 'Background Color & Image', 'astra' ),
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),

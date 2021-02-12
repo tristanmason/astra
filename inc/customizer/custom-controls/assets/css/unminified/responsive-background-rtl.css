@@ -114,10 +114,6 @@
   min-height: 30px;
 }
 
-.customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -20px;
-}
-
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-white {
   border-radius: unset;

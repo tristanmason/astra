@@ -27,7 +27,11 @@
 .customize-control {
   position: relative;
   margin-bottom: 0;
-  margin-top: 12px;
+  margin-top: 25px;
+}
+
+.components-base-control .components-base-control__field {
+  margin-bottom: 0;
 }
 
 .customize-control .customize-inside-control-row {
@@ -37,11 +41,20 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
+.customize-control-ast-background .customize-control-title, .customize-control-ast-responsive-color .customize-control-title {
+  display: contents;
 }
 
 .customize-control-ast-font-variant .select2 {
   margin-bottom: 12px;
+}
+
+.control-section > li:nth-child(2) {
+  margin-top: 5px;
 }
 
 .customize-control .ast-control-tooltip {

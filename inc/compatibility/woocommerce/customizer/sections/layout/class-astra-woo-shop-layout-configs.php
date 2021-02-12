@@ -139,6 +139,18 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						),
 					),
 				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-layout-divider]',
+					'type'     => 'control',
+					'section'     => 'woocommerce_product_catalog',
+					'control'  => 'ast-divider',
+					'priority' => 10,
+					'settings' => array(),
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

@@ -48,6 +48,18 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[text-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 5,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Theme Color
 				 */
 				array(
@@ -58,6 +70,18 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'default'  => '#0274be',
 					'priority' => 5,
 					'title'    => __( 'Theme Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[theme-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 5,
+					'settings' => array(),
 				),
 
 				/**
@@ -74,6 +98,18 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[link-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 5,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Link Hover Color
 				 */
 				array(
@@ -84,6 +120,18 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'control'  => 'ast-color',
 					'priority' => 15,
 					'title'    => __( 'Link Hover Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[link-h-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 15,
+					'settings' => array(),
 				),
 
 				/**

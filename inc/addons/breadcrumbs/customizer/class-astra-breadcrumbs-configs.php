@@ -104,6 +104,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 5,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
 				 * Option: Disable Breadcrumb on Categories
 				 */
 				array(
@@ -114,6 +134,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Home Page?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'ast-toggle-control',
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-home-page-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 25,
+					'settings' => array(),
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -147,6 +187,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 25,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
 				 * Option: Disable Breadcrumb on Search
 				 */
 				array(
@@ -157,6 +217,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Search?', 'astra' ),
 					'priority' => 30,
 					'control'  => 'ast-toggle-control',
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-search-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 30,
+					'settings' => array(),
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -189,6 +269,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-archive-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 35,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
 				 * Option: Disable Breadcrumb on Single Page
 				 */
 				array(
@@ -199,6 +299,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on Single Page?', 'astra' ),
 					'priority' => 40,
 					'control'  => 'ast-toggle-control',
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-page-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 40,
+					'settings' => array(),
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -231,6 +351,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-post-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 45,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
 				 * Option: Disable Breadcrumb on Singular
 				 */
 				array(
@@ -239,11 +379,30 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'        => 'control',
 					'section'     => $_section,
 					'description' => __( 'All Pages, All Posts, All Attachments', 'astra' ),
-
 					'title'       => __( 'Disable on Singular?', 'astra' ),
 					'priority'    => 50,
 					'control'     => 'ast-toggle-control',
 					'context'     => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-singular-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 50,
+					'settings' => array(),
+					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 							'operator' => '!=',
@@ -265,6 +424,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Disable on 404 Page?', 'astra' ),
 					'priority' => 55,
 					'control'  => 'ast-toggle-control',
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-404-page-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 55,
+					'settings' => array(),
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
@@ -310,9 +489,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-spacing-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Spacing', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 82,
 					'settings' => array(),
 					'context'  => array(
@@ -413,6 +591,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							Astra_Builder_Helper::$general_tab_config,
 						),
 						'transport' => 'postMessage',
+					),
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-divider]',
+						'type'     => 'control',
+						'section'  => $_section,
+						'control'  => 'ast-divider',
+						'priority' => 15,
+						'settings' => array(),
+						'context'  => array(
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+								'operator' => '!=',
+								'value'    => 'none',
+							),
+							Astra_Builder_Helper::$general_tab_config,
+						),
 					)
 				);
 			}

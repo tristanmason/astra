@@ -28,6 +28,11 @@
 
 .customize-control.customize-control-ast-color-group .ast-toggle-desc-wrap {
   flex: 1 1 auto;
+  align-self: center;
+}
+
+.customize-control.customize-control-ast-color-group .customize-control-title {
+  margin-bottom: 0;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -50,7 +55,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
-  right: 82px;
+  right: 72px;
   top: 7px;
   cursor: pointer;
 }

@@ -80,6 +80,18 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure-divider]',
+					'type'     => 'control',
+					'section'  => 'section-edd-archive',
+					'control'  => 'ast-divider',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Add to Cart button text
 				 */
 				array(
@@ -90,6 +102,26 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
 					'priority' => 31,
 					'title'    => __( 'Cart Button Text', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text-divider]',
+					'type'     => 'control',
+					'section'  => 'section-edd-archive',
+					'control'  => 'ast-divider',
+					'priority' => 31,
+					'settings' => array(),
 					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -122,6 +154,26 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'choices'  => array(
 						'button'  => __( 'Button', 'astra' ),
 						'options' => __( 'Options', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button	-divider]',
+					'type'     => 'control',
+					'section'  => 'section-edd-archive',
+					'control'  => 'ast-divider',
+					'priority' => 31,
+					'settings' => array(),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
 					),
 				),
 

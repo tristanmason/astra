@@ -136,13 +136,13 @@
   -webkit-appearance: none;
   margin: 0;
 }
-.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:hover, .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
   border-color: #1e8cbe;
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   color: #1e8cbe;
 }
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected { 
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
   color: #2D3748;
 }
 .customize-control-ast-border .input-wrapper.ast-border-wrapper {
