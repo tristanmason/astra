@@ -205,7 +205,7 @@ final class Astra_Builder_Base_Configuration {
 					'control'  => 'ast-divider',
 					'priority' => 16,
 					'settings' => array(),
-					'context'     => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+					'context'  => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
 
 				/**
