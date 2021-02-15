@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'button-text-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Button Text', 'astra' ),
+					'title'     => __( 'Button Font', 'astra' ),
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 25,
