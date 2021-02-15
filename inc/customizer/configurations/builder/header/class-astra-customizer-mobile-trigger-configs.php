@@ -213,7 +213,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'              => 'control',
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'title'             => __( 'Color', 'astra' ),
+				'title'             => __( 'Icon Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
 				'priority'          => 50,
