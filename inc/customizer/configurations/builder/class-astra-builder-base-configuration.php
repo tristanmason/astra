@@ -161,7 +161,7 @@ final class Astra_Builder_Base_Configuration {
 					'default'   => astra_get_option( $section_id . '-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Text Typography', 'astra' ),
+					'title'     => __( 'Text Font', 'astra' ),
 					'section'   => $section_id,
 					'transport' => 'postMessage',
 					'priority'  => 16,
