@@ -136,7 +136,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 	}
 	
-	if ( '' !== mobileHeader ) {
+	if ( '' !== mobileHeader && null !== mobileHeader ) {
 
 		mobileHeaderType = mobileHeader.dataset.type;
 	}
@@ -256,7 +256,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var popupTriggerMobile = document.querySelectorAll( '#ast-mobile-header .menu-toggle' );
 		var popupTriggerDesktop = document.querySelectorAll( '#ast-desktop-header .menu-toggle' );
 		
-		if ( undefined === mobileHeaderType ) {
+		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 			if( mobileHeader ) {

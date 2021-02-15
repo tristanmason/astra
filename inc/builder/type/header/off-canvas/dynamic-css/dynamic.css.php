@@ -40,8 +40,10 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	$popup_width_desktop         = ( isset( $popup_width['desktop'] ) && ! empty( $popup_width['desktop'] ) ) ? $popup_width['desktop'] : '';
 	$popup_width_tablet          = ( isset( $popup_width['tablet'] ) && ! empty( $popup_width['tablet'] ) ) ? $popup_width['tablet'] : '';
 	$popup_width_mobile          = ( isset( $popup_width['mobile'] ) && ! empty( $popup_width['mobile'] ) ) ? $popup_width['mobile'] : '';
+	$menu_content_alignment      = 'center';
+	$inner_spacing               = astra_get_option( 'off-canvas-inner-spacing' );
 
-	$menu_content_alignment = 'center';
+	$inner_spacing = ( isset( $inner_spacing ) ) ? (int) $inner_spacing : '';
 
 	if ( 'flex-start' === $offcanvas_content_alignment ) {
 		$menu_content_alignment = 'left';
@@ -63,6 +65,10 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 			'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', 'desktop' ),
 			'padding-left'   => astra_responsive_spacing( $padding, 'left', 'desktop' ),
 			'padding-right'  => astra_responsive_spacing( $padding, 'right', 'desktop' ),
+		),
+		'.ast-mobile-popup-content > *, .ast-mobile-header-content > *' => array(
+			'padding-top'    => astra_get_css_value( $inner_spacing, 'px' ),
+			'padding-bottom' => astra_get_css_value( $inner_spacing, 'px' ),
 		),
 	);
 

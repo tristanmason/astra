@@ -29,6 +29,7 @@ import { EditorControl } from './html-editor/control';
 import { DraggableControl } from './draggable/control';
 import { HeaderTypeButtonControl } from './header-type-button/control';
 import { RowLayoutControl } from './row-layout/control';
+import { BoxShadowControl }  from './box-shadow/control.js';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -60,5 +61,6 @@ wp.customize.controlConstructor['ast-html-editor'] = EditorControl;
 wp.customize.controlConstructor['ast-builder'] = BuilderControl;
 wp.customize.controlConstructor['ast-draggable-items'] = DraggableControl;
 wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
+wp.customize.controlConstructor['ast-box-shadow'] = BoxShadowControl;
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';
