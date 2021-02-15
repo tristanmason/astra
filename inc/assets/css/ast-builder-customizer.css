@@ -108,14 +108,18 @@
 .ahfb-compontent-tabs {
     display: -webkit-box;
     display: flex;
-    margin: -15px -5px 0 -5px;
+    margin-top: -15px;
+    margin-left: -24px;
+    margin-right: -24px;
     padding: 0;
+    margin-bottom: 0;
     border: 1px solid #dddddd;
-    background: #f3f4f7;
+    background: #ffffff;
+    margin-bottom: 8px;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button {
-    -webkit-box-flex: 1;
+	-webkit-box-flex: 1;
     flex: 1 1 0;
     display: -webkit-box;
     display: flex;
@@ -128,14 +132,14 @@
     letter-spacing: 1px;
     font-style: normal;
     text-transform: uppercase;
-    margin: 10px;
+    height: 40px;
+    margin: 0;
     box-sizing: content-box;
-    padding: 10px;
+    padding: 0 10px;
     cursor: pointer;
-	border: 0;
-	color: #6d757d;
+    border: 0;
     background: transparent;
-    border: 1px solid transparent;
+    border-top: 2px solid transparent;
     border-radius: 0;
 }
 
@@ -148,15 +152,14 @@
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(.nav-tab-active):hover {
-    background: #ffffff;
-	color: #0073aa;
-    border-color: #dddddd;
+	background: #ffffff;
+    color: #0072aa;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active {
-    border-color: #dddddd;
+	border-top-color: #0071a1;
     color: #0073aa;
-    background: #ffffff;
+    background-image: linear-gradient( 180deg, #f3f5f6, #ffffff);
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active:focus {
