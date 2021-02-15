@@ -40,9 +40,12 @@ class Astra_Social_Icon_Component_Configs {
 		if ( 'footer' === $builder_type ) {
 			$class_obj              = Astra_Builder_Footer::get_instance();
 			$number_of_social_icons = Astra_Builder_Helper::$num_of_footer_social_icons;
+			$component_limit        = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_social_icons;
+		} else {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_social_icons;
 		}
 
-		for ( $index = 1; $index <= $number_of_social_icons; $index++ ) {
+		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
 
@@ -52,12 +55,14 @@ class Astra_Social_Icon_Component_Configs {
 				* Builder section
 				*/
 				array(
-					'name'     => $_section,
-					'type'     => 'section',
-					'priority' => 90,
+					'name'        => $_section,
+					'type'        => 'section',
+					'priority'    => 90,
 					/* translators: 1: index */
-					'title'    => ( 1 === $number_of_social_icons ) ? __( 'Social Icons', 'astra' ) : sprintf( __( 'Social Icons %s', 'astra' ), $index ),
-					'panel'    => 'panel-' . $builder_type . '-builder-group',
+					'title'       => ( 1 === $number_of_social_icons ) ? __( 'Social Icons', 'astra' ) : sprintf( __( 'Social Icons %s', 'astra' ), $index ),
+					'panel'       => 'panel-' . $builder_type . '-builder-group',
+					'clone_index' => $index,
+					'clone_type'  => $builder_type . '-social-icons',
 				),
 
 				/**
@@ -88,6 +93,7 @@ class Astra_Social_Icon_Component_Configs {
 						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
 						'container_inclusive' => true,
 						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
@@ -114,20 +120,21 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Social Icon Spacing
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-space]',
-					'section'     => $_section,
-					'priority'    => 2,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-space' ),
-					'title'       => __( 'Icon Spacing', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-space]',
+					'section'           => $_section,
+					'priority'          => 2,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-space' ),
+					'title'             => __( 'Icon Spacing', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 50,
 					),
-					'context'     => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -154,20 +161,21 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Social Icon Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-size]',
-					'section'     => $_section,
-					'priority'    => 1,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
-					'title'       => __( 'Icon Size', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-size]',
+					'section'           => $_section,
+					'priority'          => 1,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
+					'title'             => __( 'Icon Size', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 50,
 					),
-					'context'     => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -278,6 +286,44 @@ class Astra_Social_Icon_Component_Configs {
 				),
 
 				/**
+				* Option: Social Label Color
+				*/
+				array(
+					'name'       => $builder_type . '-social-' . $index . '-label-color',
+					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-label-color' ),
+					'transport'  => 'postMessage',
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-group]',
+					'section'    => $_section,
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 8,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Label Color', 'astra' ),
+				),
+
+				/**
+				* Option: Social Label Hover Color
+				*/
+				array(
+					'name'       => $builder_type . '-social-' . $index . '-label-h-color',
+					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-label-h-color' ),
+					'transport'  => 'postMessage',
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-group]',
+					'section'    => $_section,
+					'tab'        => __( 'Hover', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 8,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Label Color', 'astra' ),
+				),
+
+				/**
 				* Option: Social Background Color
 				*/
 				array(
@@ -333,23 +379,24 @@ class Astra_Social_Icon_Component_Configs {
 				 * Option: Margin Space
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => '',
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 
@@ -373,7 +420,7 @@ class Astra_Social_Icon_Component_Configs {
 			}
 
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
-			
+
 			$social_configs[] = Astra_Builder_Base_Configuration::prepare_typography_options(
 				$_section,
 				array(
