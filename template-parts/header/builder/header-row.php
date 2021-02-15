@@ -21,7 +21,7 @@ if ( Astra_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) ) {
 
 	?>
 	<div class="ast-<?php echo esc_attr( $row_label ); ?>-header-wrap <?php echo 'primary' === $row ? 'main-header-bar-wrap' : ''; ?> ">
-		<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?> ast-builder-grid-row-container site-header-focus-item" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
+		<div class="<?php echo esc_attr( 'ast-' . $row . '-header-bar ast-' . $row . '-header' ); ?> <?php echo 'primary' === $row ? 'main-header-bar' : ''; ?> site-header-focus-item" data-section="<?php echo esc_attr( $customizer_editor_row ); ?>">
 			<?php
 			if ( is_customize_preview() ) {
 				Astra_Builder_UI_Controller::render_grid_row_customizer_edit_button( 'Header', $row );
