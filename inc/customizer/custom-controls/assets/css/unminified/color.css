@@ -269,7 +269,7 @@
 }
 .astra-color-picker-wrap {
     margin-left: 5px;
-    /* position: absolute; */
+    position: absolute;
     z-index: 1;
 	top: 25px;
     left: 0;
