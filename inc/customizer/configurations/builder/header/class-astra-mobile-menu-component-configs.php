@@ -181,7 +181,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'  => $_section,
 					'type'     => 'control',
 					'control'  => 'ast-divider',
-					'title'    => __( 'Menu', 'astra' ),
+					'title'    => __( 'Menu Color', 'astra' ),
 					'priority' => 80,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
@@ -454,7 +454,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'         => 'postMessage',
 					'section'           => $_section,
 					'priority'          => 150,
-					'title'             => __( 'Menu Space', 'astra' ),
+					'title'             => __( 'Menu Spacing', 'astra' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
