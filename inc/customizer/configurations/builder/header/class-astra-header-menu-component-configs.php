@@ -115,8 +115,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'   => Astra_Builder_Helper::$design_tab,
 						'transport' => 'postMessage',
 						'partial'   => array(
-							'selector'        => '#ast-hf-menu-' . $index,
-							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+							'selector'         => '#ast-hf-menu-' . $index,
+							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+							'fallback_refresh' => false,
 						),
 					),
 
@@ -151,6 +152,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 200,
 						),
+						'transport'   => 'postMessage',
+						'partial'     => array(
+							'selector'         => '#ast-hf-menu-' . $index,
+							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+							'fallback_refresh' => false,
+						),
 					),
 
 					/**
@@ -173,8 +180,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'   => Astra_Builder_Helper::$general_tab,
 						'transport' => 'postMessage',
 						'partial'   => array(
-							'selector'        => '#ast-hf-menu-' . $index,
-							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+							'selector'         => '#ast-hf-menu-' . $index,
+							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+							'fallback_refresh' => false,
 						),
 					),
 
@@ -336,6 +344,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'     => __( 'Item Divider', 'astra' ),
 						'context'   => Astra_Builder_Helper::$general_tab,
 						'transport' => 'postMessage',
+						'partial'   => array(
+							'selector'        => '#ast-hf-menu-' . $index,
+							'render_callback' => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
+						),
 					),
 
 					// Option: Menu Stack on Mobile Checkbox.
