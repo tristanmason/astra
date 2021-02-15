@@ -17726,11 +17726,12 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "customize-control-title"
     }, label);
+    var multipleGroup = Object.entries(colorGroupState).length > 2 ? 'ast-multiple-colors-group' : '';
 
     if (responsive) {
       responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", {
         key: 'ast-resp-ul',
-        className: "ast-responsive-btns"
+        className: "ast-responsive-btns ".concat(multipleGroup, " ")
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
         key: 'desktop',
         className: "desktop active"

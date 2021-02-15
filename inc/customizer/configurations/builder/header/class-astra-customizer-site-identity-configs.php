@@ -35,6 +35,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_section = 'title_tagline';
 
+			if( defined( 'ASTRA_EXT_VER' ) ) {
+				$priority_of_divider = 11;
+			} else {
+				$priority_of_divider = 200;
+			}
+
 			$_configs = array(
 
 				/*
@@ -103,7 +109,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'section'  => 'title_tagline',
 					'control'  => 'ast-divider',
-					'priority' => 11,
+					'priority' => $priority_of_divider,
 					'settings' => array(),
 					'context'  => array(
 						'relation' => 'AND',
@@ -150,6 +156,33 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'header-color-h-site-title' ),
 					'title'     => __( 'Hover', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+					'default'    => '',
+					'type'       => 'control',
+					'section'    => $_section,
+					'priority'   => 220,
+					'control'    => 'ast-divider',
+					'transport'  => 'postMessage',
+					'context'  => array(
+						'relation' => 'AND',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'operator' => '==',
+								'value'    => true,
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						),
+					),
 				),
 
 				/**

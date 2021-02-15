@@ -459,7 +459,11 @@
 }
 
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
-  right: 110px;
+  right: 108px;
+}
+
+.customize-control.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+  right: 136px;
 }
 
 #customize-control-astra-settings-woo-single-page-color-group .ast-color-group-reset {
@@ -709,7 +713,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-    margin-left: 2px;
 	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
@@ -736,8 +739,7 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-    margin-left: 5px;
-    /* position: absolute; */
+    position: absolute;
     z-index: 1;
 	top: 25px;
     left: 0;
@@ -979,6 +981,10 @@
   margin-bottom: 0;
 }
 
+#customize-controls #sub-accordion-panel-nav_menus .customize-info {
+  margin-bottom: 15px;
+}
+
 #customize-control-astra-settings-header-transparent-link-heading {
   margin-top: 15px;
 }
@@ -1144,14 +1150,16 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -15px;
+  margin: 0 -20px;
 }
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
   padding: 13px 12px;
   margin: 0;
-  border: 1px solid #dddddd;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
   background-color: #fff;
   font-size: 11.5px;
   font-weight: 500;

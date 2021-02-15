@@ -102,13 +102,15 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'transport' => 'postMessage',
 				'section'   => $_section,
 				'title'     => __( 'Style', 'astra' ),
-				'control'   => 'select',
+				'control'   => 'ast-selector',
 				'priority'  => 40,
 				'choices'   => array(
 					'none'    => __( 'None', 'astra' ),
 					'outline' => __( 'Outline', 'astra' ),
 					'fill'    => __( 'Fill', 'astra' ),
 				),
+				'responsive' => false,
+				'renderAs'   => 'text',
 				'context'   => Astra_Builder_Helper::$design_tab,
 			),
 

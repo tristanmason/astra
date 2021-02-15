@@ -104,19 +104,6 @@ class Astra_Button_Component_Configs {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 20,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
 				* Option: Button Link
 				*/
 				array(
@@ -135,19 +122,6 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 30,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -289,38 +263,52 @@ class Astra_Button_Component_Configs {
 					),
 				),
 
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type .'-' . $_prefix . '-builder-button-border-colors-group]',
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Border Color', 'astra-addon' ),
+					'section'    => $_section,
+					'priority'   => 80,
+					'transport'  => 'postMessage',
+					'context'    => astra_addon_builder_helper()->design_tab,
+					'responsive' => true,
+				),
+
 				/**
 				* Option: Button Border Color
 				*/
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-color]',
+					'name'       => $builder_type . '-' . $_prefix . '-border-color',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type .'-' . $_prefix . '-builder-button-border-colors-group]',
 					'transport'  => 'postMessage',
-					'type'       => 'control',
+					'type'       => 'sub-control',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 80,
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'title'      => __( 'Border Color', 'astra' ),
+					'title'      => __( 'Normal', 'astra' ),
 				),
 
 				/**
 				* Option: Button Border Hover Color
 				*/
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-h-color]',
+					'name'       => $builder_type . '-' . $_prefix . '-border-h-color',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type .'-' . $_prefix . '-builder-button-border-colors-group]',
 					'transport'  => 'postMessage',
-					'type'       => 'control',
+					'type'       => 'sub-control',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 80,
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'title'      => __( 'Border Hover Color', 'astra' ),
+					'title'      => __( 'Hover', 'astra' ),
 				),
 
 				/**
@@ -428,6 +416,19 @@ class Astra_Button_Component_Configs {
 			} else {
 
 				$new_configs = array(
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
+						'type'     => 'control',
+						'section'  => $_section,
+						'control'  => 'ast-divider',
+						'priority' => 90,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$design_tab,
+					),
 					/**
 					 * Option: Primary Header Button Font Size
 					 */
