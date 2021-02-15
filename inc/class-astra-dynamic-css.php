@@ -3418,12 +3418,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 0 0 0.675rem;
 			}
 			  
-			.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-close .ast-close-svg {
+			.astra-cart-drawer .astra-cart-drawer-close .ast-close-svg {
 				width: 22px;
 				height: 22px;
 			 }
 			  
-			.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-title {
+			.astra-cart-drawer .astra-cart-drawer-title {
 				padding-top: 5px;
 			}
 			  
@@ -3479,7 +3479,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				text-align: center;
 				margin-top: 0;
 			}
-			  
+			.astra-cart-drawer .woocommerce-mini-cart__empty-message,
+			.astra-cart-drawer .cart_item.empty {
+				text-align: center;
+				margin-top: 10px;
+			}
+
 			body.admin-bar .astra-cart-drawer {
 				top: 46px;
 			}
@@ -3526,7 +3531,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 					padding-right: 2px;
 				}
-				.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-close {
+				.astra-cart-drawer .astra-cart-drawer-close {
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -3575,7 +3580,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
 					padding-left: 2px;
 				}
-				.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-close {
+				.astra-cart-drawer .astra-cart-drawer-close {
 					position: absolute;
 					top: 0;
 					right: 0;
