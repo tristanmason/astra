@@ -1,10 +1,10 @@
 /**
  *
- * HHandle MObile Cart events.
+ * Handle Mobile Cart events.
  *
+ * @since 3.1.0
  * @package Astra
  */
-
 
 ( function() {
 
@@ -15,7 +15,6 @@
     edd_data = '';
 
     if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
-
 		woo_data = cart_flyout.querySelector( '.widget_shopping_cart.woocommerce' );
 		edd_data = cart_flyout.querySelector( '.widget_edd_cart_widget' );
     }
@@ -141,6 +140,5 @@
 			document.dispatchEvent( new CustomEvent( "astLayoutWidthChanged",  { "detail": { 'response' : '' } }) );
 		}, 50);
 	});
-
 
 })();

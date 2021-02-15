@@ -124,7 +124,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 ( function() {
 
-
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
 		main_header_masthead = document.getElementById('masthead'),
 		menu_click_listeners = {},
@@ -138,6 +137,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
+	
 	
 	/**
 	 * Updates the header type.
@@ -285,7 +285,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				var target = event.target;
 				var modal = document.querySelector( '.ast-mobile-popup-drawer.active .ast-mobile-popup-overlay' );
-
 				if ( target === modal ) {
 					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
 					updateTrigger();
