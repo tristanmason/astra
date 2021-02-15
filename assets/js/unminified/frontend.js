@@ -135,9 +135,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 	}
+	
+	if ( '' !== mobileHeader && null !== mobileHeader ) {
+
+		mobileHeaderType = mobileHeader.dataset.type;
+	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
-	
 	
 	/**
 	 * Updates the header type.

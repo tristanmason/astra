@@ -151,7 +151,6 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$responsive_selector = '.astra-cart-drawer';
 	
 	$css_output_mobile = array(
-
 		$responsive_selector . ' .widget_edd_cart_widget a, ' . $responsive_selector . ' .widget_edd_cart_widget a.edd-remove-from-cart, ' . $responsive_selector . ' .widget_edd_cart_widget .cart-total' => array(
 			'color' => esc_attr( $cart_link_color_mobile ),
 		),
@@ -159,7 +158,6 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'        => esc_attr( $cart_link_color_mobile ),
 			'border-color' => esc_attr( $cart_link_color_mobile ),
 		),
-
 		$responsive_selector . ' .widget_edd_cart_widget span, ' . $responsive_selector . ' .widget_edd_cart_widget strong, ' . $responsive_selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color_mobile ),
 		),
@@ -185,11 +183,9 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $checkout_button_text_h_color_mobile ),
 			'background-color' => esc_attr( $checkout_button_bg_h_color_mobile ),
 		),
-
 	);  
 
 	$css_output_tablet = array(
-
 		$responsive_selector . ' .widget_edd_cart_widget a, ' . $responsive_selector . ' .widget_edd_cart_widget a.edd-remove-from-cart, ' . $responsive_selector . ' .widget_edd_cart_widget .cart-total' => array(
 			'color' => esc_attr( $cart_link_color_tablet ),
 		),
@@ -197,7 +193,6 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'        => esc_attr( $cart_link_color_tablet ),
 			'border-color' => esc_attr( $cart_link_color_tablet ),
 		),
-
 		$responsive_selector . ' .widget_edd_cart_widget span, ' . $responsive_selector . ' .widget_edd_cart_widget strong, ' . $responsive_selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color_tablet ),
 		),
@@ -223,12 +218,10 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $checkout_button_text_h_color_tablet ),
 			'background-color' => esc_attr( $checkout_button_bg_h_color_tablet ),
 		),
-
 	);
 	
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
-
 
 	/**
 	 * Header Cart color

@@ -391,6 +391,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
 		}
+		
 		/**
 		 *  Call Mobile Menu Markup.
 		 */
@@ -399,11 +400,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		}
 
 		/**
-<<<<<<< HEAD
 		 *  Call Mobile Cart Flyout UI.
 		 */
 		public function mobile_cart_flyout() {
-
 			Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
 		}
 
@@ -417,8 +416,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		}
 
 		/**
-=======
->>>>>>> f787ebb6ee1baa0783bfeda5f35a0e7cf83cda04
 		 * Add Body Classes
 		 *
 		 * @param array $classes Body Class Array.
