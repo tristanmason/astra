@@ -24,15 +24,12 @@
 	 */
 	cartFlyoutOpen = function ( event ) {
 		event.preventDefault();
-
 		var current_cart = event.currentTarget.cart_type;
 
 		if ( 'woocommerce' === current_cart && document.body.classList.contains('woocommerce-cart') ) {
 			return;
 		}
-		
 		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
-			
 			cart_flyout.classList.add( 'active' );
 			document.documentElement.classList.add( 'ast-mobile-cart-active' );
 			if ( undefined !== edd_data && '' !== edd_data && null !== edd_data ) {
@@ -54,19 +51,17 @@
 	 * Closes the Cart Flyout.
 	 */
 	cartFlyoutClose = function ( event ) {
-
 		event.preventDefault();
 		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
 			cart_flyout.classList.remove( 'active' );
 			document.documentElement.classList.remove( 'ast-mobile-cart-active' );
-
 		}
     }
     
-     /**
+    /**
 	 * Main Init Function.
 	 */
-	function cartinit( ) {
+	function cartInit( ) {
         // Close Popup if esc is pressed.
             document.addEventListener( 'keyup', function (event) {
                 // 27 is keymap for esc key.
@@ -80,7 +75,6 @@
 
         // Close Popup on outside click.
         document.addEventListener('click', function (event) {
-
             var target = event.target;
             var cart_modal = document.querySelector( '.ast-mobile-cart-active .astra-mobile-cart-overlay' );
 
@@ -98,7 +92,6 @@
 			var cart_close = document.querySelector( '.astra-cart-drawer-close' );
 	
 			if ( undefined !== woo_cart && '' !== woo_cart && null !== woo_cart ) {
-               
 				woo_cart.addEventListener("click", cartFlyoutOpen, false);
 				woo_cart.cart_type = 'woocommerce';
 			}
@@ -122,21 +115,21 @@
     });
     
     window.addEventListener( 'load', function() {
-		cartinit();
+		cartInit();
 	} );
 	document.addEventListener( 'astLayoutWidthChanged', function() {
-		cartinit();
+		cartInit();
     } );
     
     document.addEventListener( 'astPartialContentRendered', function() {
-		cartinit();
-    } );
+		cartInit();
+    });
     
-    var doit;
+    var layoutChangeDelay;
 	window.addEventListener('resize', function () {
-		clearTimeout(doit);
-		doit = setTimeout(function () {
-			cartinit();
+		clearTimeout( layoutChangeDelay );
+		layoutChangeDelay = setTimeout(function () {
+			cartInit();
 			document.dispatchEvent( new CustomEvent( "astLayoutWidthChanged",  { "detail": { 'response' : '' } }) );
 		}, 50);
 	});
