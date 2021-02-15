@@ -114,8 +114,8 @@ const ResponsiveSliderComponent = props => {
 		<label key={'customizer-text'}>
 			{labelHtml}
 		</label>
-		{ renderOperationButtons( defaultVal ) }
 		{responsiveHtml}
+		{ renderOperationButtons( defaultVal ) }
 		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}

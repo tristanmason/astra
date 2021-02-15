@@ -40,6 +40,7 @@
   position: absolute;
   right: 0;
   top: 5px;
+  right: 30px;
 }
 
 .ast-responsive-slider-btns > li {
@@ -145,8 +146,12 @@
 .customize-control-ast-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
   position: absolute;
-  top: 2.7px;
+  top: 2px;
   display: inline-block;
   line-height: 1;
-  margin-left: 10px;
+  right: 0;
+}
+.customize-control-ast-settings-group .customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+    right: 15px;
 }

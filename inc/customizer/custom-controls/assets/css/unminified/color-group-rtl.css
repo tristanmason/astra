@@ -69,6 +69,12 @@
   display: flex;
 }
 
+.customize-control.customize-control-ast-color-group .ast-responsive-btns {
+  position: absolute;
+  left: 100px;
+  top: 10px;
+}
+
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
   width: 100%;
   border: 1px dashed #b4b9be;

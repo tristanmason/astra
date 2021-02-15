@@ -110,7 +110,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							''          => __( 'None', 'astra' ),
 							'zoom'      => __( 'Zoom In', 'astra' ),
 							'underline' => __( 'Underline', 'astra' ),
-							'overline'  => __( 'Over Line', 'astra' ),
+							'overline'  => __( 'Overline', 'astra' ),
 						),
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'transport'  => 'postMessage',

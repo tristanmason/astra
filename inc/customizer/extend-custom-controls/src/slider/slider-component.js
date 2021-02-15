@@ -63,7 +63,6 @@ const SliderComponent = props => {
 		{descriptionHtml}
 		{ renderOperationButtons() }
 		<div className="wrapper">
-			
 			<RangeControl
 				value={ props_value }
 				onChange={ ( value ) => updateValues( value ) }
