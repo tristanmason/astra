@@ -269,6 +269,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Render Mobile Cart Flyout Markup.
+		 * 
+		 * @since 3.1.0
 		 */
 		public static function render_mobile_cart_flyout_markup() {
 			?>
