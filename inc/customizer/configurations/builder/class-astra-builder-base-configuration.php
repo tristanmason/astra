@@ -397,7 +397,7 @@ final class Astra_Builder_Base_Configuration {
 					'default'    => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Link', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 7,
