@@ -241,7 +241,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-	margin-top: 20px;
+	margin-top: 10px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -269,7 +269,7 @@
 .astra-color-picker-wrap {
     position: absolute;
     z-index: 1;
-	top: 25px;
+	top: 30px;
     right: 0;
     left: 0;
     bottom: 0;

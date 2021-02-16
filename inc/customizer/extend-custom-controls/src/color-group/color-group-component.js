@@ -229,7 +229,7 @@ const ColorGroupComponent = props => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
 				if(colorGroupType[key] === "ast-responsive-background"){
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 							<AstraColorPickerControl
 								color={undefined !== value[device]['background-color'] && value[device]['background-color'] ? value[device]['background-color'] : ''}
@@ -249,7 +249,7 @@ const ColorGroupComponent = props => {
 					);
 				}else{
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 								<AstraColorPickerControl color={value ? value[device] : ''}
 								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device)}
@@ -267,7 +267,7 @@ const ColorGroupComponent = props => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
 				if(colorGroupType[key] === "ast-background"){
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 							<AstraColorPickerControl
 								color={undefined !== value['background-color'] && value['background-color'] ? value['background-color'] : ''}
@@ -287,7 +287,7 @@ const ColorGroupComponent = props => {
 					);
 				}else{
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 								<AstraColorPickerControl color={value ? value : ''}
 								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
