@@ -412,7 +412,7 @@
     }
     .astra-popover-color .ast-color-palette.components-circular-option-picker {
         width: auto;
-        padding: 16px 12px 0px 0px;
+        padding: 16px 8px 0px 0px;
     }
     .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
         padding: 0 2px;
