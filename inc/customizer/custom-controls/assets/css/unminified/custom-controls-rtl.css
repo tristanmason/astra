@@ -705,7 +705,7 @@
 }
 .astra-popover-color {
     margin-right: 2px;
-	margin-top: 20px;
+	margin-top: 10px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -734,7 +734,7 @@
     margin-right: 5px;
     position: absolute;
     z-index: 1;
-	top: 25px;
+	top: 30px;
     right: 0;
     left: 0;
     bottom: 0;
@@ -1636,7 +1636,7 @@
 }
 .astra-popover-color {
     margin-right: 2px;
-	margin-top: 20px;
+	margin-top: 10px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -1665,7 +1665,7 @@
     margin-right: 5px;
     position: absolute;
     z-index: 1;
-	top: 25px;
+	top: 30px;
     right: 0;
     left: 0;
     bottom: 0;

@@ -557,10 +557,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
-						'relation' => 'OR',
+						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
+							'operator' => '!=',
 							'value'    => 'text',
 						),
 						array(
