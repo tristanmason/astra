@@ -60,7 +60,7 @@ const ItemComponent = props => {
 
 	}
 
-	let hasAdvancedControls = undefined !== choices[props.item]['delete'] && choices[props.item]['delete'] ? 'item-has-controls' : ' ';
+	const hasAdvancedControls = undefined !== choices[props.item]['delete'] && choices[props.item]['delete'] ? 'item-has-controls' : ' ';
 
 	return <div className={`ahfb-builder-item ${ hasAdvancedControls } `} data-id={props.item}
 				data-section={undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : ''}
