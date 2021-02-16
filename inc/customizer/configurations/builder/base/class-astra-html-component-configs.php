@@ -119,7 +119,7 @@ class Astra_Html_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Link Colors', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 8,

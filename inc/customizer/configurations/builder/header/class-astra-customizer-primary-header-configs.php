@@ -99,7 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => $_section,
 					'priority'    => 4,
-					'title'       => __( 'Bottom Border', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
@@ -156,7 +156,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name' => 'hb-header-bg-obj-responsive',
 					),
 					'default'    => astra_get_option( 'hb-header-bg-obj-responsive' ),
-					'title'      => __( 'Color & Image', 'astra' ),
+					'title'      => __( 'Background', 'astra' ),
 				),
 			);
 
