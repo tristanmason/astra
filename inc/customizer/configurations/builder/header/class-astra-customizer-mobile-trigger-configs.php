@@ -213,7 +213,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'              => 'control',
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'title'             => __( 'Color', 'astra' ),
+				'title'             => __( 'Icon Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
 				'priority'          => 50,
@@ -239,6 +239,26 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
 						'operator' => '==',
 						'value'    => 'fill',
+					),
+				),
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-border-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'priority' => 60,
+				'settings' => array(),
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+						'operator' => '==',
+						'value'    => 'outline',
 					),
 				),
 			),

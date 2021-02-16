@@ -118,7 +118,7 @@
   font-size: 14px;
   border: 1px solid #dddddd;
   background-color: #ffffff;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {

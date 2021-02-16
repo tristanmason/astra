@@ -196,9 +196,10 @@ const ColorGroupComponent = props => {
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
+		let multipleGroup = Object.entries( colorGroupState ).length > 2 ? 'ast-multiple-colors-group' :'';
 
 		if (responsive) {
-			responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-btns">
+			responsiveHtml = <ul key={'ast-resp-ul'} className={`ast-responsive-btns ${ multipleGroup } `}>
 				<li key={'desktop'} className="desktop active">
 					<button type="button" className="preview-desktop" data-device="desktop">
 						<i className="dashicons dashicons-desktop"></i>
@@ -353,10 +354,10 @@ const ColorGroupComponent = props => {
 		<div className="ast-toggle-desc-wrap">
 			<label className="customizer-text">
 				{htmlLabel}
-				{responsiveHtml}
 				{htmlHelp}
 			</label>
 		</div>
+			{ responsiveHtml }
 			{ renderResetButton() }
 		<div className="ast-field-color-group-wrap">
 			{optionsHtml}

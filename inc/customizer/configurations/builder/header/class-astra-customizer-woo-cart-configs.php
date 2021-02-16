@@ -85,20 +85,22 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Icon Style
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-				'default'   => astra_get_option( 'woo-header-cart-icon-style' ),
-				'type'      => 'control',
-				'transport' => 'postMessage',
-				'section'   => $_section,
-				'title'     => __( 'Style', 'astra' ),
-				'control'   => 'select',
-				'priority'  => 45,
-				'choices'   => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+				'default'    => astra_get_option( 'woo-header-cart-icon-style' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'section'    => $_section,
+				'title'      => __( 'Style', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 45,
+				'choices'    => array(
 					'none'    => __( 'None', 'astra' ),
 					'outline' => __( 'Outline', 'astra' ),
 					'fill'    => __( 'Fill', 'astra' ),
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**

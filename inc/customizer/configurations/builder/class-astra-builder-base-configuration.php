@@ -161,7 +161,7 @@ final class Astra_Builder_Base_Configuration {
 					'default'   => astra_get_option( $section_id . '-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Text Typography', 'astra' ),
+					'title'     => __( 'Text Font', 'astra' ),
 					'section'   => $section_id,
 					'transport' => 'postMessage',
 					'priority'  => 16,
@@ -194,6 +194,19 @@ final class Astra_Builder_Base_Configuration {
 		} else {
 
 			$_configs = array(
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[font-size-' . $section_id . '-heading-divider]',
+					'type'     => 'control',
+					'section'  => $section_id,
+					'control'  => 'ast-divider',
+					'priority' => 16,
+					'settings' => array(),
+					'context'  => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+				),
 
 				/**
 				 * Option: Font Size
@@ -384,7 +397,7 @@ final class Astra_Builder_Base_Configuration {
 					'default'    => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Link', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 7,

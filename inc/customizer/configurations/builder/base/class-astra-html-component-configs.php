@@ -119,7 +119,7 @@ class Astra_Html_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Link Colors', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 8,
@@ -198,19 +198,6 @@ class Astra_Html_Component_Configs {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-font-size-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 15,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

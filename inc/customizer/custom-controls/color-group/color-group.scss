@@ -61,6 +61,11 @@
             justify-content: flex-end;
             display: flex;
         }
+		.ast-responsive-btns {
+			position: absolute;
+			right: 100px;
+			top: 10px;
+		}
         .ast-bg-img-remove.components-button.is-link {
             width: 100%;
             border: 1px dashed #b4b9be;
@@ -85,7 +90,6 @@
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
 	right: 110px;
 }
-
 #customize-control-astra-settings-woo-single-page-color-group {
     .ast-color-group-reset {
 		right: 145px;

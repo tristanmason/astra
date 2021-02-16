@@ -285,15 +285,13 @@
 .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   display: inline-block;
   line-height: 1;
-  margin-left: 10px;
-  top: 2.7px;
-  right: unset;
+  top: 0;
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  right: 42px;
-  top: 5.7px;
+  right: 64px;
+  top: 3px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {

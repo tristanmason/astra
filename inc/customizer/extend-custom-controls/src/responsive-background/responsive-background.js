@@ -68,7 +68,7 @@ const ResponsiveBackground = props => {
 				reserBtnDisabled = false;
 			}
 		}
-		
+
 		return <div className="ast-color-btn-reset-wrap">
 						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
@@ -245,8 +245,8 @@ const ResponsiveBackground = props => {
 			{labelHtml}
 			{descriptionHtml}
 		</label>
-		{renderReset()}
 		{responsiveHtml}
+		{renderReset()}
 		<div className="customize-control-content">
 			{inputHtml}
 		</div>

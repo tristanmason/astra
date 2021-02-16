@@ -130,19 +130,6 @@ class Astra_Social_Icon_Component_Configs {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-toggle-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 2,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
 				 * Option: Social Icon Spacing
 				 */
 				array(
@@ -306,7 +293,7 @@ class Astra_Social_Icon_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Icon Colors', 'astra' ),
+					'title'      => __( 'Icon Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 9,
@@ -325,7 +312,7 @@ class Astra_Social_Icon_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Label Colors', 'astra' ),
+					'title'      => __( 'Label Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 9,
@@ -344,7 +331,7 @@ class Astra_Social_Icon_Component_Configs {
 					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-color-group' ),
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Background Colors', 'astra' ),
+					'title'      => __( 'Background Color', 'astra' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 9,

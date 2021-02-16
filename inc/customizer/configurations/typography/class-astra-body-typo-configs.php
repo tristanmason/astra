@@ -44,21 +44,9 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'body-font-family' ),
 					'section'     => 'section-body-typo',
 					'priority'    => 5,
-					'title'       => __( 'Body Font', 'astra' ),
+					'title'       => __( 'Body Font Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[body-typo-font-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-body-typo',
-					'priority' => 5,
-					'settings' => array(),
 				),
 
 				/**
@@ -115,24 +103,12 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[body-line-height-before-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-body-typo',
-					'priority' => 20,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Body Font Size
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-body]',
 					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
+					'control'     => 'ast-responsive',
 					'section'     => 'section-body-typo',
 					'default'     => astra_get_option( 'font-size-body' ),
 					'priority'    => 10,
@@ -144,18 +120,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'units'       => array(
 						'px' => 'px',
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[body-typo-font-size-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-body-typo',
-					'priority' => 10,
-					'settings' => array(),
 				),
 
 				/**
@@ -220,7 +184,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
 					'default'   => astra_get_option( 'headings-font-family' ),
-					'title'     => __( 'Heading Font', 'astra' ),
+					'title'     => __( 'Heading Font Family', 'astra' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 3,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',

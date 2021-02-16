@@ -264,17 +264,17 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-style-divider]',
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-preview-divider]',
 				'type'     => 'control',
 				'section'  => $_section,
 				'control'  => 'ast-divider',
-				'priority' => 201,
+				'priority' => 206,
 				'settings' => array(),
 				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '!=',
-						'value'    => 'none',
+						'operator' => '==',
+						'value'    => 'text',
 					),
 					Astra_Builder_Helper::$general_tab_config,
 				),
@@ -288,7 +288,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'   => 'ast-toggle-control',
 				'section'   => $_section,
 				'title'     => __( 'Preview', 'astra' ),
-				'priority'  => 202,
+				'priority'  => 206,
 				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -301,26 +301,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'partial'   => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
-				),
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-preview-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 202,
-				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '==',
-						'value'    => 'text',
-					),
-					Astra_Builder_Helper::$general_tab_config,
 				),
 			),
 

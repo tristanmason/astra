@@ -44,9 +44,6 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-left: -1px;
-}
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
@@ -93,6 +90,7 @@
 .customize-control-ast-selector {
     margin-bottom: 1px;
 }
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
@@ -327,7 +325,7 @@
   font-size: 14px;
   border: 1px solid #dddddd;
   background-color: #ffffff;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
@@ -430,6 +428,12 @@
 .customize-control.customize-control-ast-color-group .ast-color-group-responsive-wrap.active {
   justify-content: flex-end;
   display: flex;
+}
+
+.customize-control.customize-control-ast-color-group .ast-responsive-btns {
+  position: absolute;
+  right: 100px;
+  top: 10px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -704,7 +708,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-    margin-left: 2px;
 	margin-top: 10px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
@@ -731,7 +734,6 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-    margin-left: 5px;
     position: absolute;
     z-index: 1;
 	top: 30px;
@@ -877,7 +879,7 @@
     }
     .astra-popover-color .ast-color-palette.components-circular-option-picker {
         width: auto;
-        padding: 16px 0px 0px 12px;
+        padding: 16px 0px 0px 8px;
     }
     .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
         padding: 0 2px;
@@ -972,6 +974,10 @@
 
 .customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
   margin-bottom: 0;
+}
+
+#customize-controls #sub-accordion-panel-nav_menus .customize-info {
+  margin-bottom: 15px;
 }
 
 #customize-control-astra-settings-header-transparent-link-heading {
@@ -1139,7 +1145,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -15px;
+  margin: 0 -20px;
 }
 
 .customize-control-ast-heading .customize-control-title {
@@ -1229,8 +1235,8 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
-  width: 80px;
-  height: 54px;
+  width: 75px;
+  height: 50px;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -1531,20 +1537,19 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   display: inline-block;
   line-height: 1;
-  margin-left: 10px;
-  top: 2.7px;
-  right: unset;
+  top: 0;
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: absolute;
-  right: 42px;
-  top: 5.7px;
+  right: 64px;
+  top: 3px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
   right: 8px;
 }
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha {
   display: none;
 }
@@ -1675,6 +1680,7 @@ input[type="text"].select2-search__field {
   position: absolute;
   right: 0;
   top: 5px;
+  right: 30px;
 }
 
 .ast-responsive-slider-btns > li {
@@ -1780,11 +1786,16 @@ input[type="text"].select2-search__field {
 .customize-control-ast-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
   position: absolute;
-  top: 2.7px;
+  top: 2px;
   display: inline-block;
   line-height: 1;
-  margin-left: 10px;
+  right: 0;
 }
+.customize-control-ast-settings-group .customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+    right: 15px;
+}
+
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
@@ -1961,7 +1972,6 @@ input[type="text"].select2-search__field {
   display: inline-block;
   line-height: 1;
   vertical-align: sub;
-  margin-left: 10px;
 }
 
 .ast-responsive-btns > li {
@@ -2069,6 +2079,7 @@ input[type="text"].select2-search__field {
   right: 0px;
   top: 5.7px;
 }
+
 .ast-adv-toggle-icon {
   right: 2px;
   top: -2px;

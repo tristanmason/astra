@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => $_section,
 					'control'  => 'ast-divider',
-					'priority' => 5,
+					'priority' => 4,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'   => false,
-					'priority'  => 5,
+					'priority'  => 4,
 					'transport' => 'postMessage',
 					'context'   => array(
 						array(
@@ -121,26 +121,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[custom-logo-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 5,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => 'custom_logo',
-							'operator' => '!=',
-							'value'    => '',
-						),
-						Astra_Builder_Helper::$general_tab_config,
 					),
 				),
 
@@ -215,7 +195,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'           => 'image',
 					'sanitize_callback' => 'esc_url_raw',
 					'section'           => 'title_tagline',
-					'priority'          => 5,
+					'priority'          => 5.5,
 					'title'             => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'context'           => array(
@@ -269,7 +249,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'           => $_section,
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'ast-header-responsive-logo-width' ),
-					'priority'          => 5,
+					'priority'          => 6,
 					'title'             => __( 'Logo Width', 'astra' ),
 					'suffix'            => 'px',
 					'input_attrs'       => array(
