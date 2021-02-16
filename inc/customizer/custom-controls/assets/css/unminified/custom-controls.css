@@ -44,9 +44,6 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-left: -1px;
-}
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
@@ -93,6 +90,7 @@
 .customize-control-ast-selector {
     margin-bottom: 1px;
 }
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
