@@ -4839,3 +4839,8 @@ i.fipicon-angle-left:before {
 	opacity: 1;
 	visibility: visible;
 }
+
+/*Hiding footer builder pencil icon as we converted section into builder layout, so no longer this needed.*/
+.customize-partial-edit-shortcut-astra-settings-footer-desktop-items > button.customize-partial-edit-shortcut-button {
+	display: none;
+}
