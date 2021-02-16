@@ -11,7 +11,7 @@ const ColorGroupComponent = props => {
 	let responsiveHtml = null;
 	let optionsHtml = null;
 	let innerOptionsHtml = null;
-	
+
 	const {
 		label,
 		help,
@@ -24,7 +24,7 @@ const ColorGroupComponent = props => {
 	colorGroupDefaults = [],
 	tooltips = [],
 	colorGroupType = [];
-	
+
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		colorGroupDefaults[value.name] = value.default;
@@ -48,15 +48,15 @@ const ColorGroupComponent = props => {
 		} else {
 			value = color.hex;
 		}
-		if ( '' !== device ) {	
+		if ( '' !== device ) {
 			let newState = {
 				...updateState[key]
 			};
 
-			if('' !== backgroundType){				
+			if('' !== backgroundType){
 				let deviceType = {
 					...newState[device]
-				};				
+				};
 				deviceType['background-color'] = value;
 				deviceType['background-type'] = backgroundType;
 				newState[device] = deviceType;
@@ -68,13 +68,13 @@ const ColorGroupComponent = props => {
 				wp.customize.control( key ).setting.set(newState);
 			}
         } else {
-			if('' !== backgroundType){		
+			if('' !== backgroundType){
 				let newState = {
 					...updateState[key]
-				};		
-							
+				};
+
 				newState['background-color'] = value;
-				newState['background-type'] = backgroundType;			
+				newState['background-type'] = backgroundType;
 				updateState[key] = newState;
 				wp.customize.control( key ).setting.set(newState);
 			}else{
@@ -90,63 +90,63 @@ const ColorGroupComponent = props => {
 		setState(dbValue);
 	}
 
-	const onSelectImage = (key, media, device='', backgroundType) => {				
+	const onSelectImage = (key, media, device='', backgroundType) => {
 		let updateState = {
 			...colorGroupState
 		};
 		let newState = {
 			...updateState[key]
 		};
-		if ( '' !== device ) {	
+		if ( '' !== device ) {
 			let deviceType = {
 				...newState[device]
-			};	
+			};
 			deviceType['background-image'] = media.url;
 			deviceType['background-media'] = media.id;
 			deviceType['background-type'] = backgroundType;
 			newState[device] = deviceType;
 			updateState[key] = newState;
-			updateValues(newState,updateState,key);			
-		}else{				
+			updateValues(newState,updateState,key);
+		}else{
 			newState['background-image'] = media.url;
 			newState['background-media'] = media.id;
-			newState['background-type'] = backgroundType;			
+			newState['background-type'] = backgroundType;
 			updateState[key] = newState;
-			updateValues(newState,updateState,key);		
+			updateValues(newState,updateState,key);
 		}
 	};
 
-	const onChangeImageOptions = (mainKey, value, device='', backgroundType, key) => {		
+	const onChangeImageOptions = (mainKey, value, device='', backgroundType, key) => {
 		let updateState = {
 			...colorGroupState
 		};
 		let newState = {
 			...updateState[key]
 		};
-		if ( '' !== device ) {	
+		if ( '' !== device ) {
 			let deviceType = {
 				...newState[device]
-			};	
-			
+			};
+
 			deviceType[mainKey] = value;
 			deviceType['background-type'] = backgroundType;
 			newState[device] = deviceType;
 			updateState[key] = newState;
-			updateValues(newState,updateState,key);			
-		}else{				
+			updateValues(newState,updateState,key);
+		}else{
 			newState[mainKey] = value;
-			newState['background-type'] = backgroundType;		
+			newState['background-type'] = backgroundType;
 			updateState[key] = newState;
-			updateValues(newState,updateState,key);	
+			updateValues(newState,updateState,key);
 		}
-		
+
 	};
 
 	const updateBackgroundType = (device,key) => {
 		let updateState = {
 			...colorGroupState
-		};	
-		
+		};
+
 		if (!updateState[key][device]['background-type']) {
 			let newState = {
 				...updateState[key]
@@ -154,8 +154,8 @@ const ColorGroupComponent = props => {
 			let deviceType = {
 				...newState[device]
 			};
-			
-			if (updateState[key][device]['background-color']) {				
+
+			if (updateState[key][device]['background-color']) {
 				deviceType['background-type'] = 'color';
 				newState[device] = deviceType;
 				updateState[key] = newState;
@@ -228,7 +228,7 @@ const ColorGroupComponent = props => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
 				if(colorGroupType[key] === "ast-responsive-background"){
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 							<AstraColorPickerControl
 								color={undefined !== value[device]['background-color'] && value[device]['background-color'] ? value[device]['background-color'] : ''}
@@ -248,7 +248,7 @@ const ColorGroupComponent = props => {
 					);
 				}else{
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 								<AstraColorPickerControl color={value ? value[device] : ''}
 								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device)}
@@ -266,7 +266,7 @@ const ColorGroupComponent = props => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
 				if(colorGroupType[key] === "ast-background"){
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 							<AstraColorPickerControl
 								color={undefined !== value['background-color'] && value['background-color'] ? value['background-color'] : ''}
@@ -286,7 +286,7 @@ const ColorGroupComponent = props => {
 					);
 				}else{
 					return (
-						<Tooltip key={ key } text={ tooltip }>
+						<Tooltip key={ key } text={ tooltip } position="top center">
 							<div className="color-group-item" id={ key }>
 								<AstraColorPickerControl color={value ? value : ''}
 								onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color)}
@@ -359,7 +359,7 @@ const ColorGroupComponent = props => {
 		</div>
 			{ renderResetButton() }
 		<div className="ast-field-color-group-wrap">
-			{optionsHtml}			
+			{optionsHtml}
 		</div>
 	</>;
 };
