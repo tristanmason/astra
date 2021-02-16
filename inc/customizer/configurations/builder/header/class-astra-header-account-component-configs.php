@@ -554,21 +554,13 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'priority' => 16,
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
+				'context'           => array(
 					array(
-						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+						'operator' => '!=',
+						'value'    => 'text',
 					),
+					Astra_Builder_Helper::$design_tab_config,
 				),
 			),
 
