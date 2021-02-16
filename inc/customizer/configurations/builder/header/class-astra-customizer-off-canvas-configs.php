@@ -209,7 +209,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-background]',
 					'type'              => 'control',
 					'control'           => 'ast-background',
-					'title'             => __( 'Background Color & Image', 'astra' ),
+					'title'             => __( 'Background', 'astra' ),
 					'section'           => $_section,
 					'transport'         => 'postMessage',
 					'priority'          => 30,

@@ -382,7 +382,7 @@ class Astra_Button_Component_Configs {
 						'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Typography', 'astra' ),
+						'title'     => __( 'Font', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
 						'context'   => Astra_Builder_Helper::$design_tab,

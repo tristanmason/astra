@@ -303,7 +303,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'context'           => Astra_Builder_Helper::$design_tab,
 					'priority'          => 210,
-					'title'             => __( 'Menu Space', 'astra' ),
+					'title'             => __( 'Menu Spacing', 'astra' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
@@ -362,7 +362,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'default'   => astra_get_option( 'footer-menu-typography' ),
 						'type'      => 'control',
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Menu', 'astra' ),
+						'title'     => __( 'Menu Font', 'astra' ),
 						'section'   => $_section,
 						'context'   => Astra_Builder_Helper::$design_tab,
 						'transport' => 'postMessage',

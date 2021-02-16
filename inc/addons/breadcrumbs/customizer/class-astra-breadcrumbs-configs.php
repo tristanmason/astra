@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'    => $_section,
 					'title'      => __( 'Header Position', 'astra' ),
 					'type'       => 'control',
-					'control'    => 'ast-selector',
+					'control'    => 'ast-select',
 					'priority'   => 5,
 					'choices'    => $positions,
 					'partial'    => array(

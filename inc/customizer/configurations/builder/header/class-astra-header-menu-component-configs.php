@@ -102,7 +102,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-hover-animation]',
 						'default'    => astra_get_option( 'header-' . $_prefix . '-menu-hover-animation' ),
 						'type'       => 'control',
-						'control'    => 'ast-selector',
+						'control'    => 'ast-select',
 						'section'    => $_section,
 						'priority'   => 10,
 						'title'      => __( 'Menu Hover Style', 'astra' ),
@@ -163,7 +163,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-container-animation]',
 						'default'    => astra_get_option( 'header-' . $_prefix . '-submenu-container-animation' ),
 						'type'       => 'control',
-						'control'    => 'ast-selector',
+						'control'    => 'ast-select',
 						'section'    => $_section,
 						'priority'   => 31,
 						'title'      => __( 'Container Animation', 'astra' ),
@@ -415,7 +415,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority' => 80,
 						'settings' => array(),
 						'context'  => Astra_Builder_Helper::$design_tab,
-						'title'    => __( 'Menu', 'astra' ),
+						'title'    => __( 'Menu Color', 'astra' ),
 					),
 
 					// Option Group: Menu Color.
@@ -686,7 +686,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport'         => 'postMessage',
 						'section'           => $_section,
 						'priority'          => 150,
-						'title'             => __( 'Menu Space', 'astra' ),
+						'title'             => __( 'Menu Spacing', 'astra' ),
 						'linked_choices'    => true,
 						'unit_choices'      => array( 'px', 'em', '%' ),
 						'choices'           => array(
