@@ -107,6 +107,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
 		var prefix = 'button' + index;
 		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
+		var button_selector = '.ast-' + builder_type + '-button-' + index + '[data-section*="section-' + context + '-button-"] .ast-builder-button-wrap';
 
 		astra_css( 'flex', 'display', '.ast-' + builder_type + '-button-' + index + '[data-section="' + section + '"]' );
 
@@ -141,7 +142,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		// Button Typography.
 		astra_responsive_font_size(
 			'astra-settings[' + builder_type + '-' + prefix + '-font-size]',
-			selector + ' .ast-custom-button'
+			button_selector + ' .ast-custom-button'
 		);
 
 		// Border Radius.
@@ -167,7 +168,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		);
 
 		// Advanced CSS Generation.
-		astra_builder_advanced_css( section, selector + ' .ast-custom-button' );
+		astra_builder_advanced_css( section, button_selector + ' .ast-custom-button' );
 
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector, 'block' );
@@ -175,7 +176,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		(function (index) {
 			wp.customize( 'astra-settings[' + builder_type + '-button'+ index +'-border-size]', function( setting ) {
 				setting.bind( function( border ) {
-					var dynamicStyle = '.ast-' + builder_type + '-button-'+ index +' .ast-builder-button-wrap .ast-custom-button {';
+					var dynamicStyle = '.ast-' + builder_type + '-button-'+ index +' .ast-custom-button {';
 					dynamicStyle += 'border-top-width:'  + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
 					dynamicStyle += 'border-left-width:'   + border.left + 'px;';

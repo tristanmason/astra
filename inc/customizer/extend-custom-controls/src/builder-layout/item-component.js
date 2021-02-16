@@ -1,4 +1,5 @@
 const {Dashicon, Button} = wp.components;
+const {__} = wp.i18n;
 
 
 const ItemComponent = props => {
@@ -70,7 +71,7 @@ const ItemComponent = props => {
 		{
 			astra.customizer.is_pro &&
 			<div className="ahfb-slide-up">
-				{ choices[props.item]['clone'] && <span title="Clone"
+				{ choices[props.item]['clone'] && <span data-tooltip={__('Clone element', 'astra')}
 					  onClick={e => {
 						  e.stopPropagation();
 
@@ -80,28 +81,11 @@ const ItemComponent = props => {
 						  }
 
 						  props.cloneItem(props.item);
-					  }} className=" tooltip dashicons dashicons-admin-page">
+					  }} className="dashicons dashicons-admin-page">
 				</span> }
-				<span title="Reset to default"
-					  onClick={e => {
-						  e.stopPropagation();
+				{ choices[props.item]['delete'] &&
 
-						  // Skip Reset if already is in progress.
-						  if( sessionStorage.getItem('astra-builder-reset-in-progress') ) {
-							  return;
-						  }
-
-						  var event = new CustomEvent('AstraBuilderResetSectionControls', {
-							  'detail': {
-							  	'section_id': choices[props.item].section
-							  }
-						  });
-						  document.dispatchEvent(event);
-					  }}
-					  className=" tooltip dashicons dashicons-image-rotate">
-				</span>
-
-				{ choices[props.item]['delete'] &&  <span title="Delete"
+				<span data-tooltip={ __('Delete element from customizer', 'astra') }
 					  onClick={e => {
 
 						  // Skip Delete if already is in progress.
@@ -113,8 +97,10 @@ const ItemComponent = props => {
 						  deleteItem(props);
 						  props.removeItem(props.item);
 					  }}
-					  className="tooltip dashicons dashicons-trash">
-				</span> }
+					  className="dashicons dashicons-trash">
+				</span>
+
+				}
 			</div>
 		}
 
@@ -122,7 +108,7 @@ const ItemComponent = props => {
 			e.stopPropagation();
 			props.removeItem(props.item);
 		}}>
-			<Dashicon icon="no-alt"/>
+			<Dashicon data-tooltip={ __('Remove element from grid', 'astra') } icon="no-alt"/>
 		</Button>
 	</div>;
 };

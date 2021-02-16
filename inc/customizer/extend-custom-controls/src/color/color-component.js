@@ -39,8 +39,7 @@ const ColorComponent = props => {
 							let value = JSON.parse(JSON.stringify(defaultValue));
 
 							if (undefined === value || '' === value) {
-								value = '';
-								wp.customize.previewer.refresh();
+								value = 'unset';
 							}
 
 							updateValues(value);

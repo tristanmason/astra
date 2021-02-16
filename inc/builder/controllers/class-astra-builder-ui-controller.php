@@ -112,6 +112,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_html_markup( $index = 'header-html-1' ) {
 
+			$theme_author = astra_get_theme_author_details();
+
 			$content = astra_get_option( $index );
 			if ( $content || is_customize_preview() ) {
 				$link_style = '';
@@ -123,7 +125,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				$content = str_replace( '[copyright]', '&copy;', $content );
 				$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
 				$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
-				$content = str_replace( '[theme_author]', '<a href="https://www.wpastra.com/" rel="nofollow noopener" target="_blank">Astra WordPress Theme</a>', $content );
+				$content = str_replace( '[theme_author]', '<a href=" ' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
 				echo do_shortcode( wpautop( $content ) );
 				echo '</div>';
 				echo '</div>';
@@ -231,7 +233,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
-			echo '<div class="ast-builder-button-wrap">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			$button_size = astra_get_option( $builder_type . '-button' . $index . '-size' );
+
+			echo '<div class="ast-builder-button-wrap ast-builder-button-size-' . $button_size . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo astra_get_custom_button( $builder_type . '-button' . $index . '-text', $builder_type . '-button' . $index . '-link-option', 'header-button' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
@@ -241,7 +246,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_site_identity() {
 			?>
-			<div class="site-branding">
 				<?php
 				if ( is_customize_preview() ) {
 					self::render_customizer_edit_button();
@@ -252,14 +256,13 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					echo astra_attr(
 						'site-identity',
 						array(
-							'class' => 'ast-site-identity',
+							'class' => 'site-branding ast-site-identity',
 						)
 					);
 				?>
 				>
 					<?php astra_logo(); ?>
 				</div>
-			</div>
 			<!-- .site-branding -->
 			<?php
 		}
