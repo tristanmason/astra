@@ -82,25 +82,12 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 8,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
-
-			/**
 			 * Option: Search Size
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[header-search-icon-space]',
 				'section'           => $_section,
-				'priority'          => 2,
+				'priority'          => 4,
 				'transport'         => 'postMessage',
 				'default'           => $defaults['header-search-icon-space'],
 				'title'             => __( 'Icon Size', 'astra' ),
@@ -114,19 +101,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'max'  => 50,
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-space-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 2,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -180,22 +154,9 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'type'     => 'control',
 					'section'  => $_section,
 					'control'  => 'ast-divider',
-					'priority' => 2,
+					'priority' => 2.5,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-color-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 8,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

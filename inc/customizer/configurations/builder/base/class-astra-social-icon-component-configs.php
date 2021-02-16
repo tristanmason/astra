@@ -130,19 +130,6 @@ class Astra_Social_Icon_Component_Configs {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-toggle-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 2,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
 				 * Option: Social Icon Spacing
 				 */
 				array(

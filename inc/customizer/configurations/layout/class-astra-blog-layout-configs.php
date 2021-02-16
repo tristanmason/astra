@@ -65,18 +65,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-width-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog',
-					'priority' => 50,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Enter Width
 				 */
 				array(

@@ -241,7 +241,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-    margin-left: 2px;
 	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
@@ -268,8 +267,7 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-    margin-left: 5px;
-    /* position: absolute; */
+    position: absolute;
     z-index: 1;
 	top: 25px;
     left: 0;
@@ -414,7 +412,7 @@
     }
     .astra-popover-color .ast-color-palette.components-circular-option-picker {
         width: auto;
-        padding: 16px 0px 0px 12px;
+        padding: 16px 0px 0px 8px;
     }
     .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
         padding: 0 2px;

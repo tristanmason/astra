@@ -52,18 +52,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-color-group-divider]',
-					'type'     => 'control',
-					'section'  => 'section-buttons',
-					'control'  => 'ast-divider',
-					'priority' => 18,
-					'settings' => array(),
-				),
-
-				/**
 				 * Group: Theme Button background colors Group
 				 */
 				array(
@@ -165,18 +153,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-border-size-divider]',
-					'type'     => 'control',
-					'section'  => 'section-buttons',
-					'control'  => 'ast-divider',
-					'priority' => 19,
-					'settings' => array(),
-				),
-
-				/**
 				 * Group: Theme Button Border Group
 				 */
 				array(
@@ -188,18 +164,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 19,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-border-color-group-divider]',
-					'type'     => 'control',
-					'section'  => 'section-buttons',
-					'control'  => 'ast-divider',
-					'priority' => 19,
-					'settings' => array(),
 				),
 
 				/**

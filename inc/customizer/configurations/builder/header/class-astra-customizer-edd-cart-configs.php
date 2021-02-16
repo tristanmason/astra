@@ -96,20 +96,22 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Icon Style
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-				'default'   => astra_get_option( 'edd-header-cart-icon-style' ),
-				'type'      => 'control',
-				'transport' => 'postMessage',
-				'section'   => $_section,
-				'title'     => __( 'Style', 'astra' ),
-				'control'   => 'select',
-				'priority'  => 40,
-				'choices'   => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+				'default'    => astra_get_option( 'edd-header-cart-icon-style' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'section'    => $_section,
+				'title'      => __( 'Style', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 40,
+				'choices'    => array(
 					'none'    => __( 'None', 'astra' ),
 					'outline' => __( 'Outline', 'astra' ),
 					'fill'    => __( 'Fill', 'astra' ),
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -191,27 +193,13 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Cart general colors.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
-					'default'   => astra_get_option( 'header-edd-cart-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'General', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 65,
-					'context'   => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Option: Cart Link / Text Color.
 				array(
-					'type'       => 'sub-control',
+					'type'       => 'control',
 					'control'    => 'ast-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
-					'name'       => 'header-edd-cart-text-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-cart-text-color]',
 					'default'    => astra_get_option( 'header-edd-cart-text-color' ),
 					'title'      => __( 'Text Color', 'astra' ),
 					'responsive' => true,
@@ -222,12 +210,11 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 
 				// Option: Cart Link / Text Color.
 				array(
-					'type'       => 'sub-control',
+					'type'       => 'control',
 					'control'    => 'ast-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
-					'name'       => 'header-edd-cart-link-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-cart-link-color]',
 					'default'    => astra_get_option( 'header-edd-cart-link-color' ),
 					'title'      => __( 'Link Color', 'astra' ),
 					'responsive' => true,
@@ -238,12 +225,11 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 
 				// Option: Cart Background Color.
 				array(
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
+					'type'       => 'control',
 					'section'    => $_section,
 					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
-					'name'       => 'header-edd-cart-background-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-cart-background-color]',
 					'default'    => astra_get_option( 'header-edd-cart-background-color' ),
 					'title'      => __( 'Background Color', 'astra' ),
 					'responsive' => true,
@@ -254,12 +240,11 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 
 				// Option: Cart Separator Color.
 				array(
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-edd-cart-colors]',
+					'type'       => 'control',
 					'section'    => $_section,
 					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
-					'name'       => 'header-edd-cart-separator-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-cart-separator-color]',
 					'default'    => astra_get_option( 'header-edd-cart-separator-color' ),
 					'title'      => __( 'Separator Color', 'astra' ),
 					'responsive' => true,

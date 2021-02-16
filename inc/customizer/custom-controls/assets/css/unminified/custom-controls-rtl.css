@@ -44,9 +44,6 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-right: -1px;
-}
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
@@ -93,6 +90,7 @@
 .customize-control-ast-selector {
     margin-bottom: 1px;
 }
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
@@ -459,7 +457,11 @@
 }
 
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
-  left: 110px;
+  left: 108px;
+}
+
+.customize-control.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+  left: 136px;
 }
 
 #customize-control-astra-settings-woo-single-page-color-group .ast-color-group-reset {
@@ -709,7 +711,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-    margin-right: 2px;
 	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
@@ -736,8 +737,7 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-    margin-right: 5px;
-    /* position: absolute; */
+    position: absolute;
     z-index: 1;
 	top: 25px;
     right: 0;
@@ -882,7 +882,7 @@
     }
     .astra-popover-color .ast-color-palette.components-circular-option-picker {
         width: auto;
-        padding: 16px 12px 0px 0px;
+        padding: 16px 8px 0px 0px;
     }
     .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
         padding: 0 2px;
@@ -980,9 +980,6 @@
     background: rgba(255,255,255,0);
 }
 
-.ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-right: -1px;
-}
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
@@ -1029,6 +1026,7 @@
 .customize-control-ast-selector {
     margin-bottom: 1px;
 }
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }
@@ -1395,7 +1393,11 @@
 }
 
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
-  left: 110px;
+  left: 108px;
+}
+
+.customize-control.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+  left: 136px;
 }
 
 #customize-control-astra-settings-woo-single-page-color-group .ast-color-group-reset {
@@ -1645,7 +1647,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-    margin-right: 2px;
 	margin-top: 20px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
@@ -1672,8 +1673,7 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-    margin-right: 5px;
-    /* position: absolute; */
+    position: absolute;
     z-index: 1;
 	top: 25px;
     right: 0;
@@ -1818,7 +1818,7 @@
     }
     .astra-popover-color .ast-color-palette.components-circular-option-picker {
         width: auto;
-        padding: 16px 12px 0px 0px;
+        padding: 16px 8px 0px 0px;
     }
     .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
         padding: 0 2px;
@@ -1913,6 +1913,10 @@
 
 .customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
   margin-bottom: 0;
+}
+
+#customize-controls #sub-accordion-panel-nav_menus .customize-info {
+  margin-bottom: 15px;
 }
 
 #customize-control-astra-settings-header-transparent-link-heading {
@@ -2080,14 +2084,16 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -15px;
+  margin: 0 -20px;
 }
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
   padding: 13px 12px;
   margin: 0;
-  border: 1px solid #dddddd;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
   background-color: #fff;
   font-size: 11.5px;
   font-weight: 500;
@@ -3519,6 +3525,10 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   margin-bottom: 0;
 }
 
+#customize-controls #sub-accordion-panel-nav_menus .customize-info {
+  margin-bottom: 15px;
+}
+
 #customize-control-astra-settings-header-transparent-link-heading {
   margin-top: 15px;
 }
@@ -3684,14 +3694,16 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -15px;
+  margin: 0 -20px;
 }
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
   padding: 13px 12px;
   margin: 0;
-  border: 1px solid #dddddd;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
   background-color: #fff;
   font-size: 11.5px;
   font-weight: 500;
