@@ -169,3 +169,8 @@ body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut but
 .ast-builder-layout-element.site-header-focus-item.ast-header-woo-cart .customize-partial-edit-shortcut button {
     left: -25px;
 }
+
+/*Hiding footer builder pencil icon as we converted section into builder layout, so no longer this needed.*/
+.customize-partial-edit-shortcut-astra-settings-footer-desktop-items > button.customize-partial-edit-shortcut-button {
+	display: none;
+}
