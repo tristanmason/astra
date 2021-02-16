@@ -60,7 +60,9 @@ const ItemComponent = props => {
 
 	}
 
-	return <div className="ahfb-builder-item" data-id={props.item}
+	let hasAdvancedControls = undefined !== choices[props.item]['delete'] && choices[props.item]['delete'] ? 'item-has-controls' : ' ';
+
+	return <div className={`ahfb-builder-item ${ hasAdvancedControls } `} data-id={props.item}
 				data-section={undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : ''}
 				key={props.item} onClick={() => {
 		props.focusItem(undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : '');
