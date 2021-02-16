@@ -264,7 +264,7 @@ class Astra_Button_Component_Configs {
 				),
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type .'-' . $_prefix . '-builder-button-border-colors-group]',
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
 					'title'      => __( 'Border Color', 'astra-addon' ),
@@ -281,7 +281,7 @@ class Astra_Button_Component_Configs {
 				array(
 					'name'       => $builder_type . '-' . $_prefix . '-border-color',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-color' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type .'-' . $_prefix . '-builder-button-border-colors-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
 					'section'    => $_section,
@@ -299,7 +299,7 @@ class Astra_Button_Component_Configs {
 				array(
 					'name'       => $builder_type . '-' . $_prefix . '-border-h-color',
 					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type .'-' . $_prefix . '-builder-button-border-colors-group]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'transport'  => 'postMessage',
 					'type'       => 'sub-control',
 					'section'    => $_section,

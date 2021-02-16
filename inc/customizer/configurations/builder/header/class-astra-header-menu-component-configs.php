@@ -131,7 +131,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'  => $_section,
 						'control'  => 'ast-heading',
 						'priority' => 30,
-						'title'       => __( 'Submenu', 'astra' ),
+						'title'    => __( 'Submenu', 'astra' ),
 						'settings' => array(),
 						'context'  => Astra_Builder_Helper::$general_tab,
 					),
@@ -266,14 +266,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Submenu Border Divider.
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-divider]',
-						'default'     => astra_get_option( 'header-' . $_prefix . '-submenu-border-divider' ),
-						'type'        => 'control',
-						'context'     => Astra_Builder_Helper::$design_tab,
-						'section'     => $_section,
-						'control'     => 'ast-divider',
-						'priority'    => 22,
-						'suffix'      => 'px',
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-divider]',
+						'default'  => astra_get_option( 'header-' . $_prefix . '-submenu-border-divider' ),
+						'type'     => 'control',
+						'context'  => Astra_Builder_Helper::$design_tab,
+						'section'  => $_section,
+						'control'  => 'ast-divider',
+						'priority' => 22,
+						'suffix'   => 'px',
 					),
 
 					// Option: Sub-Menu Border.
@@ -285,7 +285,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport'      => 'postMessage',
 						'section'        => $_section,
 						'linked_choices' => true,
-						'context'     => Astra_Builder_Helper::$design_tab,
+						'context'        => Astra_Builder_Helper::$design_tab,
 						'priority'       => 23,
 						'title'          => __( 'Border Width', 'astra' ),
 						'choices'        => array(
@@ -309,7 +309,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'             => __( 'Border Color', 'astra' ),
 						'section'           => $_section,
 						'priority'          => 23,
-						'context'     => Astra_Builder_Helper::$design_tab,
+						'context'           => Astra_Builder_Helper::$design_tab,
 					),
 
 					/**

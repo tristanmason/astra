@@ -200,7 +200,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-divider',
 					'priority' => 28,
 					'settings' => array(),
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 

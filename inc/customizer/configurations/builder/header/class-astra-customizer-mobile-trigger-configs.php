@@ -253,7 +253,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'  => 'ast-divider',
 				'priority' => 60,
 				'settings' => array(),
-				'context'        => array(
+				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',

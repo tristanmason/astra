@@ -35,7 +35,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_section = 'title_tagline';
 
-			if( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
 				$priority_of_divider = 11;
 			} else {
 				$priority_of_divider = 200;
@@ -159,14 +159,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
-					'default'    => '',
-					'type'       => 'control',
-					'section'    => $_section,
-					'priority'   => 220,
-					'control'    => 'ast-divider',
-					'transport'  => 'postMessage',
-					'context'  => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+					'default'   => '',
+					'type'      => 'control',
+					'section'   => $_section,
+					'priority'  => 220,
+					'control'   => 'ast-divider',
+					'transport' => 'postMessage',
+					'context'   => array(
 						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(
