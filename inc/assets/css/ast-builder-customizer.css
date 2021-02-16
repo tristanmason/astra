@@ -4805,12 +4805,13 @@ i.fipicon-angle-left:before {
 [data-tooltip]:hover::before {
 	box-sizing: border-box;
 	position: absolute;
-	top: -7px;
+	top: -11px;
 	left: -6px;
 	width: 4px;
 	height: 4px;
+	padding-top: 5px;
 	border: 6px solid transparent;
-	border-top-color: #424242;
+	border-top-color: #1f1f1f;
 }
 
 .ahfb-slide-up [data-tooltip]:hover::before {
@@ -4827,12 +4828,12 @@ i.fipicon-angle-left:before {
 	opacity: 0;
 	visibility: hidden;
 	line-height: 1;
-	background: #424242;
+	background: #1f1f1f;
 	color: #fff;
 	border-radius: 3px;
-    font-family: system-ui;
-    padding: 5px 10px;
-    top: -26px;
+	font-family: system-ui;
+	padding: 5px 10px;
+	top: -30px;
 }
 
 [data-tooltip]:hover::after {

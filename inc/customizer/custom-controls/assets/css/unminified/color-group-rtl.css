@@ -1,4 +1,5 @@
 .color-group-item .components-tooltip .components-popover__content {
+  margin-bottom: 12px;
   border-radius: 3px;
 }
 
@@ -10,13 +11,13 @@
 .color-group-item .components-tooltip:before {
   content: '';
   position: absolute;
-  right: -13px;
-  top: -15px;
+  right: -5px;
+  top: -12px;
   bottom: 100%;
   width: 0;
   height: 0;
-  border-bottom: 5px solid #1f1f1f;
-  border-top: 10px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid #1f1f1f;
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
 }
