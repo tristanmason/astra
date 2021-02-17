@@ -200,8 +200,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 				// Option: Cart Link / Text Color.
 				array(
-					'type'       => 'control',
-					'control'    => 'ast-color',
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-text-color]',
@@ -214,7 +215,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				// Option: Cart Background Color.
 				array(
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-colors]',
 					'section'    => $_section,
 					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
@@ -231,7 +234,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				array(
 					'type'       => 'control',
 					'section'    => $_section,
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-separator-color]',
 					'default'    => astra_get_option( 'header-woo-cart-separator-color' ),
@@ -244,7 +247,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-woo-cart-link-colors]',
-					'default'   => astra_get_option( 'header-woo-cart-colors' ),
+					'default'   => astra_get_option( 'header-woo-cart-link-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
 					'title'     => __( 'Link Color', 'astra' ),
@@ -257,9 +260,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Link / Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-link-colors]',
 					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'name'       => 'header-woo-cart-link-color',
 					'default'    => astra_get_option( 'header-woo-cart-link-color' ),
@@ -273,7 +276,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Link Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-link-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -308,7 +311,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
-					'default'   => astra_get_option( 'header-woo-cart-button-colors' ),
+					'default'   => astra_get_option( 'header-woo-cart-button-text-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
 					'title'     => __( 'Text', 'astra' ),
@@ -319,7 +322,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-background-colors]',
-					'default'   => astra_get_option( 'header-woo-cart-button-colors' ),
+					'default'   => astra_get_option( 'header-woo-cart-button-background-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
 					'title'     => __( 'Background', 'astra' ),
@@ -332,7 +335,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Button Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -350,7 +353,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-background-colors]',
 					'section'    => $_section,
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'name'       => 'header-woo-cart-btn-background-color',
 					'default'    => astra_get_option( 'header-woo-cart-btn-background-color' ),
@@ -364,7 +367,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Button Hover Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -380,7 +383,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Cart Button Hover Background Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-background-colors]',
 					'section'    => $_section,
@@ -415,7 +418,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
-					'default'   => astra_get_option( 'header-woo-checkout-button-colors' ),
+					'default'   => astra_get_option( 'header-woo-checkout-button-text-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
 					'title'     => __( 'Text', 'astra' ),
@@ -426,7 +429,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-background-colors]',
-					'default'   => astra_get_option( 'header-woo-checkout-button-colors' ),
+					'default'   => astra_get_option( 'header-woo-checkout-button-background-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
 					'title'     => __( 'Background', 'astra' ),
@@ -439,7 +442,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Checkout Button Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -457,7 +460,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-background-colors]',
 					'section'    => $_section,
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'name'       => 'header-woo-checkout-btn-background-color',
 					'default'    => astra_get_option( 'header-woo-checkout-btn-background-color' ),
@@ -471,7 +474,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Checkout Button Hover Text Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
@@ -487,7 +490,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				// Option: Checkout Button Hover Background Color.
 				array(
 					'type'       => 'sub-control',
-					'control'    => 'ast-color',
+					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-background-colors]',
 					'section'    => $_section,

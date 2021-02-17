@@ -93,6 +93,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
 				add_action( 'astra_header_account', array( $this, 'header_account' ) );
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
+
+				// Load Cart Flyout Markup on Footer.
+				add_action( 'wp_footer', array( $this, 'mobile_cart_flyout' ) );
 				add_action( 'astra_header_menu_mobile', array( $this, 'header_mobile_menu_markup' ) );
 			}
 
@@ -388,11 +391,22 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
 		}
+		
 		/**
 		 *  Call Mobile Menu Markup.
 		 */
 		public function header_mobile_menu_markup() {
 			Astra_Mobile_Menu_Component::menu_markup();
+		}
+
+		/**
+		 *  Call Mobile Cart Flyout UI.
+		 */
+		public function mobile_cart_flyout() {
+
+			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+				Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
+			}
 		}
 
 		/**
