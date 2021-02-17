@@ -29,8 +29,10 @@
   width: 100%;
 }
 
-.customize-control-ast-responsive-slider .slider-control-label {
+.customize-control-ast-responsive-slider .slider-control-label,
+.customize-control-ast-slider .customize-control-title {
   cursor: default;
+  margin-top: 3px;
 }
 
 /**

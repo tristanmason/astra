@@ -2606,8 +2606,10 @@ input[type="text"].select2-search__field {
   width: 100%;
 }
 
-.customize-control-ast-responsive-slider .slider-control-label {
+.customize-control-ast-responsive-slider .slider-control-label,
+.customize-control-ast-slider .customize-control-title {
   cursor: default;
+  margin-top: 3px;
 }
 
 /**
@@ -3217,7 +3219,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control:last-child {
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .customize-control-ast-settings-group {
@@ -4339,8 +4341,10 @@ input[type="text"].select2-search__field {
   width: 100%;
 }
 
-.customize-control-ast-responsive-slider .slider-control-label {
+.customize-control-ast-responsive-slider .slider-control-label,
+.customize-control-ast-slider .customize-control-title {
   cursor: default;
+  margin-top: 3px;
 }
 
 /**
