@@ -271,7 +271,7 @@ class Astra_Button_Component_Configs {
 					'section'    => $_section,
 					'priority'   => 80,
 					'transport'  => 'postMessage',
-					'context'    => astra_addon_builder_helper()->design_tab,
+					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
 				),
 
