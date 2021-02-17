@@ -816,11 +816,9 @@
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     left: 78px;
 }
-.ast-field-settings-modal .customize-control-ast-color.customize-control {
-    margin-top: 28px;
-}
+.ast-field-settings-modal .customize-control-ast-color.customize-control,
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
-    margin-top: 28px;
+    margin-top: 25px;
 }
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
@@ -1751,11 +1749,9 @@
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     left: 78px;
 }
-.ast-field-settings-modal .customize-control-ast-color.customize-control {
-    margin-top: 28px;
-}
+.ast-field-settings-modal .customize-control-ast-color.customize-control,
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
-    margin-top: 28px;
+    margin-top: 25px;
 }
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
