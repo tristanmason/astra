@@ -32,7 +32,7 @@
 			align-self: center;
         }
 		.customize-control-title {
-			margin-bottom: 0;
+			margin-bottom: 5px;
 		}
         .ast-field-color-group-wrap {
             justify-content: flex-end;
@@ -51,7 +51,7 @@
         }
         .ast-color-group-reset {
             right: 72px;
-            top: 7px;
+            top: 6px;
             cursor: pointer;
         }
         .ast-color-group-responsive-wrap {
@@ -64,7 +64,7 @@
 		.ast-responsive-btns {
 			position: absolute;
 			right: 100px;
-			top: 10px;
+			top: 9px;
 		}
         .ast-bg-img-remove.components-button.is-link {
             width: 100%;

@@ -390,7 +390,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .customize-control-title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -414,7 +414,7 @@
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
   right: 72px;
-  top: 7px;
+  top: 6px;
   cursor: pointer;
 }
 
@@ -430,7 +430,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: absolute;
   right: 100px;
-  top: 10px;
+  top: 9px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -811,15 +811,14 @@
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     right: 59px;
+	top: 0;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;
 }
-.ast-field-settings-modal .customize-control-ast-color.customize-control {
-    margin-top: 28px;
-}
+.ast-field-settings-modal .customize-control-ast-color.customize-control,
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
-    margin-top: 28px;
+    margin-top: 25px;
 }
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
@@ -1670,8 +1669,10 @@ input[type="text"].select2-search__field {
   width: 100%;
 }
 
-.customize-control-ast-responsive-slider .slider-control-label {
+.customize-control-ast-responsive-slider .slider-control-label,
+.customize-control-ast-slider .customize-control-title {
   cursor: default;
+  margin-top: 3px;
 }
 
 /**
@@ -1791,10 +1792,15 @@ input[type="text"].select2-search__field {
 .customize-control-ast-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
   position: absolute;
-  top: 2px;
   display: inline-block;
   line-height: 1;
   right: 0;
+}
+.customize-control-ast-slider .ast-resp-slider-reset-wrap {
+	top: 0;
+}
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+	top: 2px;
 }
 .customize-control-ast-settings-group .customize-control-ast-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-settings-group .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
@@ -2276,7 +2282,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control:last-child {
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .customize-control-ast-settings-group {
@@ -2288,12 +2294,14 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 13px;
+  margin-top: 3px;
+  display: block;
 }
 
 .ast-field-settings-modal .customize-control {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /**
