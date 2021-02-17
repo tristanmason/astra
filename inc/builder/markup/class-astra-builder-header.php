@@ -403,16 +403,10 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 *  Call Mobile Cart Flyout UI.
 		 */
 		public function mobile_cart_flyout() {
-			Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
-		}
 
-		/**
-		 * Defines all constants
-		 *
-		 * @since 1.0.0
-		 */
-		public function define_constants() {
-
+			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+				Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
+			}
 		}
 
 		/**

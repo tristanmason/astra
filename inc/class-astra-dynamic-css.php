@@ -3554,7 +3554,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				.astra-cart-drawer .astra-cart-drawer-content .edd-cart-item .edd-remove-from-cart {
 					left: 1.2em;
 				}
-				';
+				.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.astra-hfb-header .ast-cart-menu-wrap,
+				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
+					width: 2em;
+					height: 2em;
+					font-size: 1.4em;
+					line-height: 2;
+					vertical-align: middle;
+					text-align: left;
+				}';
 			} else {
 				$cart_static_css .= '
 				.ast-site-header-cart i.astra-icon:after {
@@ -3603,14 +3611,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				.astra-cart-drawer .astra-cart-drawer-content .edd-cart-item .edd-remove-from-cart {
 					right: 1.2em;
 				}
-				.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.astra-hfb-header .ast-cart-menu-wrap {
-					width: 2em;
-					height: 2em;
-					font-size: 1.4em;
-					line-height: 2;
-					vertical-align: middle;
-					text-align: right;
-				}
+				.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.astra-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
 					width: 2em;
 					height: 2em;
@@ -3618,8 +3619,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					line-height: 2;
 					vertical-align: middle;
 					text-align: right;
-				}
-				';
+				}';
 			}
 			return $cart_static_css;
 		}
