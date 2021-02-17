@@ -29,6 +29,9 @@
 		if ( 'woocommerce' === current_cart && document.body.classList.contains('woocommerce-cart') ) {
 			return;
 		}
+		cart_flyout.classList.remove( 'active' );
+		cart_flyout.classList.remove( 'woocommerce-active' );
+		cart_flyout.classList.remove( 'edd-active' );
 		if ( undefined !== cart_flyout && '' !== cart_flyout && null !== cart_flyout ) {
 			cart_flyout.classList.add( 'active' );
 			document.documentElement.classList.add( 'ast-mobile-cart-active' );
@@ -36,12 +39,14 @@
 				edd_data.style.display = 'block';
 				if ( 'woocommerce' === current_cart ) {
 					edd_data.style.display = 'none';
+					cart_flyout.classList.add( 'woocommerce-active' );
 				}
 			}
 			if ( undefined !== woo_data && '' !== woo_data && null !== woo_data ) {
 				woo_data.style.display = 'block';
 				if ( 'edd' === current_cart ) {
 					woo_data.style.display = 'none';
+					cart_flyout.classList.add( 'edd-active' );
 				}
 			}
 		}

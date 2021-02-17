@@ -11,7 +11,7 @@
 ( function( $ ) {
 
 	var selector = '.ast-edd-site-header-cart';
-	var responsive_selector = '.astra-cart-drawer';
+	var responsive_selector = '.astra-cart-drawer.edd-active';
 
 	// Icon Color.
 	astra_css(
@@ -32,7 +32,7 @@
 		'edd-cart-colors', 
 		'astra-settings[header-edd-cart-text-color]',
 		'color',
-		selector + ' .widget_edd_cart_widget span, ' + selector + ' .widget_edd_cart_widget strong, ' + selector + ' .widget_edd_cart_widget *, ' + responsive_selector + ' .widget_edd_cart_widget span, .astra-cart-drawer .widget_edd_cart_widget *'
+		selector + ' .widget_edd_cart_widget span, ' + selector + ' .widget_edd_cart_widget strong, ' + selector + ' .widget_edd_cart_widget *, ' + responsive_selector + ' .widget_edd_cart_widget span, .astra-cart-drawer .widget_edd_cart_widget *, ' + responsive_selector + ' .astra-cart-drawer-title'
 	);
 
 	astra_color_responsive_css(
@@ -73,7 +73,7 @@
 		'edd-cart-colors', 
 		'astra-settings[header-edd-cart-separator-color]',
 		'border-bottom-color',
-		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-item, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-meta,'+ responsive_selector + ' .widget_edd_cart_widget .edd-cart-item, ' + responsive_selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, ' + responsive_selector + ' .widget_edd_cart_widget .edd-cart-meta'
+		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-item, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-meta,'+ responsive_selector + ' .widget_edd_cart_widget .edd-cart-item, ' + responsive_selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, ' + responsive_selector + ' .widget_edd_cart_widget .edd-cart-meta, ' + responsive_selector + ' .astra-cart-drawer-header'
 	);
 
 	astra_color_responsive_css(

@@ -45,6 +45,9 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$btn_color = astra_get_foreground_color( $theme_color );
 	}
 
+	if ( 'none' === $header_cart_icon_style ) {
+		$header_cart_icon_color = $theme_color;
+	}
 	/**
 	 * - EDD cart styles.
 	 */
@@ -104,10 +107,16 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $cart_h_color ),
 			'background-color' => esc_attr( $theme_color ),
 		),
-		$selector . ' .ast-icon-shopping-cart' => array(
+		$selector . ' .ast-icon-shopping-cart'        => array(
 			'color' => $theme_color,
 		),
-
+		$selector . ' .ast-edd-header-cart-info-wrap' => array(
+			'color' => esc_attr( $header_cart_icon_color ),
+		),
+		$selector . ' .ast-addon-cart-wrap span.astra-icon:after' => array(
+			'color'            => esc_attr( $cart_h_color ),
+			'background-color' => esc_attr( $header_cart_icon_color ),
+		),
 		/**
 		 * General EDD Cart tray color for widget
 		 */
@@ -148,7 +157,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$css_output = astra_parse_css( $css_output_desktop );
 
-	$responsive_selector = '.astra-cart-drawer';
+	$responsive_selector = '.astra-cart-drawer.edd-active';
 	
 	$css_output_mobile = array(
 		$responsive_selector . ' .widget_edd_cart_widget a, ' . $responsive_selector . ' .widget_edd_cart_widget a.edd-remove-from-cart, ' . $responsive_selector . ' .widget_edd_cart_widget .cart-total' => array(
@@ -158,7 +167,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'        => esc_attr( $cart_link_color_mobile ),
 			'border-color' => esc_attr( $cart_link_color_mobile ),
 		),
-		$responsive_selector . ' .widget_edd_cart_widget span, ' . $responsive_selector . ' .widget_edd_cart_widget strong, ' . $responsive_selector . ' .widget_edd_cart_widget *' => array(
+		$responsive_selector . ' .astra-cart-drawer-title, ' . $responsive_selector . ' .widget_edd_cart_widget span, ' . $responsive_selector . ' .widget_edd_cart_widget strong, ' . $responsive_selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color_mobile ),
 		),
 		$responsive_selector => array(
@@ -168,7 +177,8 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_edd_cart_widget:before, .ast-builder-layout-element ' . $responsive_selector . ' .widget_edd_cart_widget:after' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color_mobile ),
 		),
-		$responsive_selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-meta' => array(
+		$responsive_selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-meta, ' .
+		$responsive_selector . ' .astra-cart-drawer-header' => array(
 			'border-bottom-color' => esc_attr( $cart_separator_color_mobile ),
 		),
 		/**
@@ -193,7 +203,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'        => esc_attr( $cart_link_color_tablet ),
 			'border-color' => esc_attr( $cart_link_color_tablet ),
 		),
-		$responsive_selector . ' .widget_edd_cart_widget span, ' . $responsive_selector . ' .widget_edd_cart_widget strong, ' . $responsive_selector . ' .widget_edd_cart_widget *' => array(
+		$responsive_selector . ' .astra-cart-drawer-title, ' . $responsive_selector . ' .widget_edd_cart_widget span, ' . $responsive_selector . ' .widget_edd_cart_widget strong, ' . $responsive_selector . ' .widget_edd_cart_widget *' => array(
 			'color' => esc_attr( $cart_text_color_tablet ),
 		),
 		$responsive_selector => array(
@@ -203,7 +213,8 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_edd_cart_widget:before, .ast-builder-layout-element ' . $responsive_selector . ' .widget_edd_cart_widget:after' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color_tablet ),
 		),
-		$responsive_selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-meta' => array(
+		$responsive_selector . ' .widget_edd_cart_widget .edd-cart-item, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-number-of-items, ' . $responsive_selector . ' .widget_edd_cart_widget .edd-cart-meta, ' .
+		$responsive_selector . ' .astra-cart-drawer-header' => array(
 			'border-bottom-color' => esc_attr( $cart_separator_color_tablet ),
 		),
 		/**
