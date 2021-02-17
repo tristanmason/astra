@@ -48,34 +48,35 @@
 
 			panel.expanded.bind(function (isExpanded) {
 
-				// Lazy load section on panel expand.
-				AstCustomizerAPI.setControlContextBySection(section);
-				AstCustomizerAPI.setControlContextBySection(section_layout);
+				setTimeout(function () {
+					// Lazy load section on panel expand.
+					AstCustomizerAPI.setControlContextBySection(section);
+					AstCustomizerAPI.setControlContextBySection(section_layout);
 
-				_.each(section.controls(), function (control) {
+					_.each(section.controls(), function (control) {
 
-					if ('resolved' === control.deferred.embedded.state()) {
-						return;
-					}
-					control.renderContent();
-					control.deferred.embedded.resolve(); // This triggers control.ready().
+						if ('resolved' === control.deferred.embedded.state()) {
+							return;
+						}
+						control.renderContent();
+						control.deferred.embedded.resolve(); // This triggers control.ready().
 
-					// Fire event after control is initialized.
-					control.container.trigger('init');
-				});
-				_.each(section_layout.controls(), function (control) {
+						// Fire event after control is initialized.
+						control.container.trigger('init');
+					});
+					_.each(section_layout.controls(), function (control) {
 
-					if ('resolved' === control.deferred.embedded.state()) {
-						return;
-					}
-					control.renderContent();
-					control.deferred.embedded.resolve(); // This triggers control.ready().
+						if ('resolved' === control.deferred.embedded.state()) {
+							return;
+						}
+						control.renderContent();
+						control.deferred.embedded.resolve(); // This triggers control.ready().
 
-					// Fire event after control is initialized.
-					control.container.trigger('init');
-				});
+						// Fire event after control is initialized.
+						control.container.trigger('init');
+					});
 
-
+				}, 200)
 
 				if (isExpanded) {
 
@@ -550,6 +551,34 @@
 		}
 	}
 
+	$(document).ready(function () {
+		setTimeout(function () {
+			AstCustomizerAPI.initializeConfigs();
+			api.section.each(function (section) {
+				section.expanded.bind(function (isExpanded) {
+					// Lazy Loaded Context.
+					AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+
+					if ( ! isExpanded ) {
+						// Setting general context when collapsed.
+						api.state('astra-customizer-tab').set('general');
+					}
+
+					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+
+					var customizer_section = api.section(section.id);
+					set_context_by_url_params();
+
+					_.each(section.controls(), function (control) {
+						highlight_active_component(customizer_section);
+						highlight_active_row(customizer_section);
+					});
+				});
+			});
+			AstCustomizerAPI.moveDefaultSection();
+		}, 100)
+	});
+
 	api.bind('ready', function () {
 
 		api.state.create('astra-customizer-tab');
@@ -576,30 +605,6 @@
 		api.state('astra-customizer-tab').bind(setCustomTabElementsDisplay);
 
 		$window.on('resize', resizePreviewer);
-
-		AstCustomizerAPI.initializeConfigs();
-		api.section.each(function (section) {
-			section.expanded.bind(function (isExpanded) {
-				// Lazy Loaded Context.
-				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
-
-				if ( ! isExpanded ) {
-					// Setting general context when collapsed.
-					api.state('astra-customizer-tab').set('general');
-				}
-
-				$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
-
-				var customizer_section = api.section(section.id);
-				set_context_by_url_params();
-
-				_.each(section.controls(), function (control) {
-					highlight_active_component(customizer_section);
-					highlight_active_row(customizer_section);
-				});
-			});
-		});
-		AstCustomizerAPI.moveDefaultSection();
 
 		api.previewer.bind('ready', function () {
 			AstCustomizerAPI.setDefaultControlContext();
