@@ -35,12 +35,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_section = 'title_tagline';
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
-				$priority_of_divider = 11;
-			} else {
-				$priority_of_divider = 200;
-			}
-
 			$_configs = array(
 
 				/*
@@ -99,35 +93,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-logo-typography-divider]',
-					'type'     => 'control',
-					'section'  => 'title_tagline',
-					'control'  => 'ast-divider',
-					'priority' => $priority_of_divider,
-					'settings' => array(),
-					'context'  => array(
-						'relation' => 'AND',
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'relation' => 'OR',
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-								'operator' => '==',
-								'value'    => true,
-							),
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-								'operator' => '==',
-								'value'    => true,
-							),
-						),
-					),
 				),
 
 				// Option: Site Title Color.
