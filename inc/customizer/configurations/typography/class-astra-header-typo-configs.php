@@ -77,6 +77,35 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 					),
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[header-logo-typography-divider]',
+						'type'     => 'control',
+						'section'  => 'title_tagline',
+						'control'  => 'ast-divider',
+						'priority' => 11,
+						'settings' => array(),
+						'context'  => array(
+							'relation' => 'AND',
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'relation' => 'OR',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'operator' => '==',
+									'value'    => true,
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'operator' => '==',
+									'value'    => true,
+								),
+							),
+						),
+					),
 				);
 			} else {
 
