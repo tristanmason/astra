@@ -276,7 +276,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$styles = array(
 				'woocommerce-layout'      => array(
-					'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
+					'src'     => $css_uri . 'woocommerce-layout-grid' . $file_prefix . '.css',
 					'deps'    => '',
 					'version' => ASTRA_THEME_VERSION,
 					'media'   => 'all',
@@ -290,7 +290,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'has_rtl' => true,
 				),
 				'woocommerce-general'     => array(
-					'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
+					'src'     => $css_uri . 'woocommerce-grid' . $file_prefix . '.css',
 					'deps'    => '',
 					'version' => ASTRA_THEME_VERSION,
 					'media'   => 'all',
