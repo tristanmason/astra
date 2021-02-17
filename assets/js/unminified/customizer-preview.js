@@ -287,7 +287,7 @@ function astra_css( control, css_property, selector, unit ) {
 
 			} else {
 				// Remove old.
-				jQuery( 'style#' + control ).remove();
+				jQuery( 'style#' + control + '-' + css_property ).remove();
 			}
 
 		} );
