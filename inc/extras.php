@@ -399,3 +399,53 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
 
 	return $css;
 }
+
+/**
+ * Generate HTML markup
+ *
+ * @param array $args {
+ *     Contains markup arguments.
+ *     @type string context Markup context.
+ *     @type string open    Opening HTML markup.
+ *     @type string close   Closing HTML markup.
+ *     @type array  attrs    Initial attributes to apply to `open` markup.
+ *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
+ * }
+ * @since x.x.x
+ * @return mixed
+ */
+function astra_markup( $args ) {
+
+	$defaults = array(
+		'open'    => '',
+		'context' => '',
+		'close'   => '',
+		'attrs'   => array(),
+		'echo'    => true,
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( $args['context'] || $args['open'] ) {
+
+		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $args['context'], $args['attrs'], $args ) ) : '';
+
+		$open_tag = apply_filters( "astra_markup_{$args['context']}_open", $open_tag, $args );
+
+		if ( $args['echo'] ) {
+			echo $open_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $open_tag;
+		}   
+	} elseif ( $args['close'] ) {
+
+		$close_tag = apply_filters( "astra_markup_{$args['context']}_close", $args['close'], $args ); 
+
+		if ( $args['echo'] ) {
+			echo $close_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $close_tag;
+		}
+	}
+
+}
