@@ -818,11 +818,9 @@
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     left: 78px;
 }
-.ast-field-settings-modal .customize-control-ast-color.customize-control {
-    margin-top: 28px;
-}
+.ast-field-settings-modal .customize-control-ast-color.customize-control,
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
-    margin-top: 28px;
+    margin-top: 25px;
 }
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
@@ -3212,7 +3210,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control:last-child {
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .customize-control-ast-settings-group {
@@ -4839,7 +4837,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 /**
