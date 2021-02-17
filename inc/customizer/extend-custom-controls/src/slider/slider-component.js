@@ -58,7 +58,7 @@ const SliderComponent = props => {
 		);
 	};
 
-	return <label>
+	return <div>
 		{labelHtml}
 		{descriptionHtml}
 		{ renderOperationButtons() }
@@ -73,7 +73,7 @@ const SliderComponent = props => {
 			/>
 			{ suffixHtml }
 		</div>
-	</label>;
+	</div>;
 };
 
 SliderComponent.propTypes = {
