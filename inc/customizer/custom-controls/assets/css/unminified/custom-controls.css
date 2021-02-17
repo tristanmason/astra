@@ -1795,7 +1795,7 @@ input[type="text"].select2-search__field {
   right: 0;
 }
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
-	top: 2px;
+	top: 0;
 }
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
 	top: 2px;
