@@ -33,7 +33,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .customize-control-title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -57,7 +57,7 @@
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
   right: 72px;
-  top: 7px;
+  top: 6px;
   cursor: pointer;
 }
 
@@ -73,7 +73,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: absolute;
   right: 100px;
-  top: 10px;
+  top: 9px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {

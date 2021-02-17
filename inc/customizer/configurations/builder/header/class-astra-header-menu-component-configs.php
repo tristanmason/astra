@@ -112,9 +112,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'underline' => __( 'Underline', 'astra' ),
 							'overline'  => __( 'Overline', 'astra' ),
 						),
-						'context'   => Astra_Builder_Helper::$design_tab,
-						'transport' => 'postMessage',
-						'partial'   => array(
+						'context'    => Astra_Builder_Helper::$design_tab,
+						'transport'  => 'postMessage',
+						'partial'    => array(
 							'selector'         => '#ast-hf-menu-' . $index,
 							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 							'fallback_refresh' => false,
@@ -180,9 +180,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'slide-up'   => __( 'Slide Up', 'astra' ),
 							'fade'       => __( 'Fade', 'astra' ),
 						),
-						'context'   => Astra_Builder_Helper::$general_tab,
-						'transport' => 'postMessage',
-						'partial'   => array(
+						'context'    => Astra_Builder_Helper::$general_tab,
+						'transport'  => 'postMessage',
+						'partial'    => array(
 							'selector'         => '#ast-hf-menu-' . $index,
 							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 							'fallback_refresh' => false,

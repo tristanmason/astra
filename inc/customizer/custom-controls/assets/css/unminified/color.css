@@ -343,6 +343,7 @@
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     right: 59px;
+	top: 0;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;

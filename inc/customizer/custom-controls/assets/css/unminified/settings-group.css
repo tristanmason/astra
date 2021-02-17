@@ -201,12 +201,14 @@
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 13px;
+  margin-top: 3px;
+  display: block;
 }
 
 .ast-field-settings-modal .customize-control {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /**
