@@ -59,9 +59,7 @@ const SliderComponent = props => {
 	};
 
 	return <div>
-		<label>
-			{labelHtml}
-		</label>
+		{labelHtml}
 		{descriptionHtml}
 		{ renderOperationButtons() }
 		<div className="wrapper">
