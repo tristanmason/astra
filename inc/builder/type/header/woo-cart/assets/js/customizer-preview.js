@@ -61,7 +61,7 @@
 		'woo-cart-colors', 
 		'astra-settings[header-woo-cart-background-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item:hover > a.remove,' + responsive_selector + ','+ responsive_selector + ' .widget_shopping_cart .mini_cart_item a.remove:hover,'+ responsive_selector + ' .widget_shopping_cart .mini_cart_item:hover > a.remove'
+		'#ast-site-header-cart .widget_shopping_cart, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item:hover > a.remove,' + responsive_selector + ','+ responsive_selector + ' .widget_shopping_cart .mini_cart_item a.remove:hover,'+ responsive_selector + ' .widget_shopping_cart .mini_cart_item:hover > a.remove, #astra-mobile-cart-drawer' + responsive_selector
 	);
 
 	astra_color_responsive_css(

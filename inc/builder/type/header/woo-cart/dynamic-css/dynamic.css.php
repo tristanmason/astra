@@ -210,7 +210,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_shopping_cart .mini_cart_item a.remove' => array(
 			'border-color' => esc_attr( $cart_text_color_mobile ),
 		),
-		'#astra-mobile-cart-drawer' => array(
+		$responsive_selector . '#astra-mobile-cart-drawer' => array(
 			'background-color' => esc_attr( $cart_bg_color_mobile ),
 			'border-color'     => esc_attr( $cart_bg_color_mobile ),
 		),
@@ -269,7 +269,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_shopping_cart .mini_cart_item a.remove' => array(
 			'border-color' => esc_attr( $cart_text_color_tablet ),
 		),
-		'#astra-mobile-cart-drawer' => array(
+		$responsive_selector . '#astra-mobile-cart-drawer' => array(
 			'background-color' => esc_attr( $cart_bg_color_tablet ),
 			'border-color'     => esc_attr( $cart_bg_color_tablet ),
 		),

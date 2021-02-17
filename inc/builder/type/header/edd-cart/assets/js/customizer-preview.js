@@ -52,7 +52,7 @@
 		'edd-cart-colors', 
 		'astra-settings[header-edd-cart-background-color]',
 		'background-color',
-		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget ,' + responsive_selector
+		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget ,' + responsive_selector + ', ' + responsive_selector + '#astra-mobile-cart-drawer'
 	);
 
 	astra_color_responsive_css(
