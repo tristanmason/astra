@@ -458,7 +458,11 @@
 }
 
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
-  right: 110px;
+  right: 132px;
+}
+
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+  right: 112px;
 }
 
 #customize-control-astra-settings-woo-single-page-color-group .ast-color-group-reset {
