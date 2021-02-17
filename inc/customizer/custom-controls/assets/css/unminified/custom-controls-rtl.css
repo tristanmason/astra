@@ -393,7 +393,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .customize-control-title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -417,7 +417,7 @@
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
   left: 72px;
-  top: 7px;
+  top: 6px;
   cursor: pointer;
 }
 
@@ -433,7 +433,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: absolute;
   left: 100px;
-  top: 10px;
+  top: 9px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -1330,7 +1330,7 @@
 }
 
 .customize-control.customize-control-ast-color-group .customize-control-title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
@@ -1354,7 +1354,7 @@
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
   left: 72px;
-  top: 7px;
+  top: 6px;
   cursor: pointer;
 }
 
@@ -1370,7 +1370,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: absolute;
   left: 100px;
-  top: 10px;
+  top: 9px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -2727,10 +2727,15 @@ input[type="text"].select2-search__field {
 .customize-control-ast-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
   position: absolute;
-  top: 2px;
   display: inline-block;
   line-height: 1;
   left: 0;
+}
+.customize-control-ast-slider .ast-resp-slider-reset-wrap {
+	top: 2px;
+}
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+	top: 2px;
 }
 .customize-control-ast-settings-group .customize-control-ast-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-settings-group .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
