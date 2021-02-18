@@ -233,7 +233,7 @@
 	    vertical-align: middle;
 	    align-items: center;
 	}
-	.site-logo-img {
+	.site-logo-img:not(:empty) {
 		padding-right: 1em;
 	}
 }
