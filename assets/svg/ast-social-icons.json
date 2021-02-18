@@ -12893,7 +12893,7 @@
             "regular"
         ]
     },
-    "facebook": {
+    "facebook-round": {
         "search": {
             "terms": [
                 "facebook-official",
@@ -12967,7 +12967,7 @@
             "brands"
         ]
     },
-    "facebook-square": {
+    "facebook": {
         "search": {
             "terms": [
                 "social network"
@@ -20885,7 +20885,7 @@
             "brands"
         ]
     },
-    "instagram": {
+    "instagram-square": {
         "search": {
             "terms": []
         },
@@ -20908,7 +20908,7 @@
             "brands"
         ]
     },
-    "instagram-square": {
+    "instagram": {
         "search": {
             "terms": []
         },
@@ -27844,7 +27844,7 @@
             "solid"
         ]
     },
-    "pinterest": {
+    "pinterest-square": {
         "search": {
             "terms": []
         },
@@ -27890,7 +27890,7 @@
             "brands"
         ]
     },
-    "pinterest-square": {
+    "pinterest": {
         "search": {
             "terms": []
         },
@@ -29657,7 +29657,7 @@
             "brands"
         ]
     },
-    "reddit": {
+    "reddit-square": {
         "search": {
             "terms": []
         },
@@ -29703,7 +29703,7 @@
             "brands"
         ]
     },
-    "reddit-square": {
+    "reddit": {
         "search": {
             "terms": []
         },
@@ -30363,7 +30363,7 @@
             "solid"
         ]
     },
-    "rss": {
+    "rss-square": {
         "search": {
             "terms": [
                 "blog",
@@ -30392,7 +30392,7 @@
             "solid"
         ]
     },
-    "rss-square": {
+    "rss": {
         "search": {
             "terms": [
                 "blog",
@@ -40045,7 +40045,7 @@
             "solid"
         ]
     },
-    "vimeo": {
+    "vimeo-v": {
         "search": {
             "terms": []
         },
@@ -40091,7 +40091,7 @@
             "brands"
         ]
     },
-    "vimeo-v": {
+    "vimeo": {
         "search": {
             "terms": [
                 "vimeo"
