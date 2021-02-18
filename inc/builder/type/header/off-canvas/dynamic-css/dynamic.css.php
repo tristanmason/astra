@@ -70,6 +70,12 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 			'padding-top'    => astra_get_css_value( $inner_spacing, 'px' ),
 			'padding-bottom' => astra_get_css_value( $inner_spacing, 'px' ),
 		),
+		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .ast-builder-layout-element' => array(
+			'justify-content' => esc_attr( $offcanvas_content_alignment ),
+		),
+		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .main-header-menu' => array(
+			'text-align' => esc_attr( $menu_content_alignment ),
+		),
 	);
 
 	if ( ! empty( $popup_width_desktop ) ) {
@@ -83,12 +89,6 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 
 	// Tablet CSS.
 	$css_output_tablet = array(
-		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .ast-builder-layout-element' => array(
-			'justify-content' => esc_attr( $offcanvas_content_alignment ),
-		),
-		'.content-align-' . esc_attr( $offcanvas_content_alignment ) . ' .main-header-menu' => array(
-			'text-align' => esc_attr( $menu_content_alignment ),
-		),
 		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array( 
 			// Padding CSS.
 			'padding-top'    => astra_responsive_spacing( $padding, 'top', 'tablet' ),

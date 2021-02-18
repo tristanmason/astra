@@ -1004,6 +1004,13 @@ body.admin-bar {
 		opacity: 0;
 	}
 }
+.ast-desktop-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
+	font-weight: bold;
+	content: "\e900";
+	font-family: 'Astra';
+	text-decoration: inherit;
+	display: inline-block;
+}
 .ast-off-canvas-active body.ast-main-header-nav-open.ast-desktop {
 	overflow: auto;
 }

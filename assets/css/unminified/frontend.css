@@ -3289,6 +3289,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   opacity: 0;
 }
 
+.ast-desktop-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
+  font-weight: bold;
+  content: "\e900";
+  font-family: 'Astra';
+  text-decoration: inherit;
+  display: inline-block;
+}
+
 .ast-off-canvas-active body.ast-main-header-nav-open.ast-desktop {
   overflow: auto;
 }
@@ -3953,6 +3961,11 @@ body.admin-bar.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-inner {
   display: none;
 }
 
+.ast-desktop-header-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu,
+.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu {
+  display: block;
+}
+
 .ast-desktop-header-content .ast-builder-menu-mobile .ast-nav-menu .sub-menu,
 .ast-desktop-popup-content .ast-builder-menu-mobile .ast-nav-menu .sub-menu {
   line-height: 3;
@@ -3981,7 +3994,9 @@ body.admin-bar.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-inner {
 }
 
 .ast-desktop-header-content .ast-builder-menu-mobile .ast-submenu-expanded.menu-item .sub-menu,
-.ast-desktop-popup-content .ast-builder-menu-mobile .ast-submenu-expanded.menu-item .sub-menu {
+.ast-desktop-header-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu,
+.ast-desktop-popup-content .ast-builder-menu-mobile .ast-submenu-expanded.menu-item .sub-menu,
+.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu {
   box-shadow: unset;
   opacity: 1;
   visibility: visible;

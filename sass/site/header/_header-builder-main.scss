@@ -411,6 +411,9 @@
     .main-header-bar-navigation .menu-item-has-children .sub-menu {
         display: none;
     }
+	.main-header-bar-navigation .toggled .menu-item-has-children .sub-menu {
+        display: block;
+    }
     .ast-nav-menu .sub-menu {
         line-height: 3;
     }
@@ -432,7 +435,8 @@
 			display: none;
 		}
 	}
-	.ast-submenu-expanded.menu-item .sub-menu {
+	.ast-submenu-expanded.menu-item .sub-menu,
+	.main-header-bar-navigation .toggled .menu-item-has-children .sub-menu {
 		box-shadow: unset;
 		opacity: 1;
 		visibility: visible;
