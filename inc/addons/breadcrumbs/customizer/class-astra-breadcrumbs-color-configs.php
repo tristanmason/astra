@@ -171,7 +171,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 			);
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
 				array_push(
 					$_configs,
 					/**
@@ -197,7 +196,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					)
 				);
 			}
-
 			return array_merge( $configurations, $_configs );
 		}
 	}

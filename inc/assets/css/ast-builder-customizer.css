@@ -4826,21 +4826,21 @@ i.fipicon-angle-left:before {
 }
 
 [data-tooltip]::after {
-	content: attr(data-tooltip);
-	pointer-events: none;
-	display: inline-table;
-	position: absolute;
-	left: -20px;
-	font-size: 12px;
-	opacity: 0;
-	visibility: hidden;
-	line-height: 1;
-	background: #1f1f1f;
-	color: #fff;
-	border-radius: 3px;
-	font-family: system-ui;
-	padding: 5px 10px;
-	top: -30px;
+ content: attr(data-tooltip);
+ pointer-events: none;
+ display: inline-table;
+ position: absolute;
+ left: -20px;
+ font-size: 12px;
+ opacity: 0;
+ visibility: hidden;
+ line-height: 1;
+ background: #1f1f1f;
+ color: #fff;
+ border-radius: 3px;
+ font-family: system-ui;
+ padding: 5px 10px;
+ top: -30px;
 }
 
 [data-tooltip]:hover::after {
