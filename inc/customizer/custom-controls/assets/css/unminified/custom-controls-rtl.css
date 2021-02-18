@@ -65,6 +65,9 @@
 .ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(2):not(:last-child) .components-button {
     border-left: none;
 }
+.ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(3):not(:last-child) .components-button {
+    border-left: none;
+}
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
@@ -996,6 +999,9 @@
     margin-right: -1px;
 }
 .ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(2):not(:last-child) .components-button {
+    border-left: none;
+}
+.ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(3):not(:last-child) .components-button {
     border-left: none;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
@@ -2083,14 +2089,14 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
-  padding: 13px 12px;
+  padding: 13px 14px;
   margin: 0;
   border-width: 1px 0;
   border-style: solid;
   border-color: #dddddd;
   background-color: #fff;
   font-size: 11.5px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
   line-height: 1;
   text-transform: uppercase;
@@ -3021,7 +3027,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive .ast-responsive-btns {
   position: absolute;
   left: 0px;
-  top: 5.7px;
+  top: 1px;
 }
 
 .ast-adv-toggle-icon {
@@ -3706,14 +3712,14 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
-  padding: 13px 12px;
+  padding: 13px 14px;
   margin: 0;
   border-width: 1px 0;
   border-style: solid;
   border-color: #dddddd;
   background-color: #fff;
   font-size: 11.5px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
   line-height: 1;
   text-transform: uppercase;
@@ -4295,7 +4301,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive .ast-responsive-btns {
   position: absolute;
   left: 0px;
-  top: 5.7px;
+  top: 1px;
 }
 
 .ast-responsive-select-container {
