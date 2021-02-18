@@ -125,7 +125,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 ( function() {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
-	    main_header_masthead = document.getElementById('masthead'),
+		main_header_masthead = document.getElementById('masthead'),
 		menu_click_listeners = {},
 		mobileHeaderType = '',
 		body = document.body,
@@ -142,7 +142,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
-
+	
 	/**
 	 * Updates the header type.
 	 */
@@ -370,7 +370,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if( menu_toggle_close ) {
 			menu_toggle_close.click();
 		}
-
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
 
