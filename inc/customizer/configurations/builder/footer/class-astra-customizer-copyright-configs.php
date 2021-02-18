@@ -85,23 +85,36 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[footer-copyright-editor-divider]',
+				'type'     => 'control',
+				'section'  => $_section,
+				'control'  => 'ast-divider',
+				'priority' => 4,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
 			 * Option: Column Alignment
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-copyright-alignment]',
 				'default'   => astra_get_option( 'footer-copyright-alignment' ),
 				'type'      => 'control',
-				'control'   => 'ast-responsive-select',
+				'control'   => 'ast-selector',
 				'section'   => $_section,
 				'priority'  => 6,
 				'title'     => __( 'Alignment', 'astra' ),
-				'choices'   => array(
-					'left'   => __( 'Left', 'astra' ),
-					'center' => __( 'Center', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
-				),
 				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',
+				'choices'   => array(
+					'left'   => 'align-left',
+					'center' => 'align-center',
+					'right'  => 'align-right',
+				),
 			),
 
 			/**
@@ -121,14 +134,13 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Margin heading
+			 * Option: Margin divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading-divider]',
 				'type'     => 'control',
-				'control'  => 'ast-heading',
+				'control'  => 'ast-divider',
 				'section'  => $_section,
-				'title'    => __( 'Spacing', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$design_tab,
@@ -157,18 +169,6 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
-
-			// Section: Typography.
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-typography-heading]',
-				'section'  => $_section,
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'priority' => 15,
-				'title'    => __( 'Typography', 'astra' ),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
-
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section ) );

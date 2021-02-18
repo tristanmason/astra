@@ -115,11 +115,11 @@
     margin-bottom: 0;
     border: 1px solid #dddddd;
     background: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button {
-    -webkit-box-flex: 1;
+	-webkit-box-flex: 1;
     flex: 1 1 0;
     display: -webkit-box;
     display: flex;
@@ -152,14 +152,14 @@
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(.nav-tab-active):hover {
-    background: #ffffff;
+	background: #ffffff;
     color: #0072aa;
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active {
-    border-top-color: #0071a1;
+	border-top-color: #0071a1;
     color: #0073aa;
-    background-image: linear-gradient(-180deg, #f3f5f6, #ffffff);
+    background-image: linear-gradient( -180deg, #f3f5f6, #ffffff);
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active:focus {
@@ -284,6 +284,10 @@
     border-radius: 3px;
     border: none;
     transition: all 0.2s;
+}
+
+.ahfb-builder-item.item-has-controls:hover {
+    border-top-right-radius: 0;
 }
 
 .ahfb-builder-item:hover, .ahfb-builder-item.active-builder-item {
@@ -1353,14 +1357,15 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 
 .ahfb-row-layout-control .ahfb-responsive-controls-content .components-button svg, .ahfb-icon-set-control .ahfb-radio-container-control .components-button svg {
-    width: 73px;
-    height: 49px;
+    width: 75px;
+    height: 50px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary.active-radio svg, #customize-control-astra-settings-header-trigger-icon .components-button.is-tertiary svg,
 #customize-control-astra-settings-header-trigger-icon svg {
-    width: 52px;
-    height: 50px;
+	width: 52px;
+	height: 50px;
+	margin-left: 10px;
 }
 
 #customize-control-astra-settings-header-trigger-icon .components-button-group {
@@ -1521,7 +1526,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 .ahfb-social-add-area .ahfb-sorter-add-item {
     height: 30px;
     line-height: normal;
-    margin-top: 2px;
     padding: 0 12px 2px;
 }
 
@@ -1892,12 +1896,12 @@ button.components-button.ahfb-sorter-item-expand {
 	opacity: 0;
 	visibility: hidden;
 	transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;
-	top: 0px;
+	top: 1px;
 	right: 0px;
 	height: 15px;
 	background-color: #e3e3e3;
 	padding-top: 10px;
-	border-radius: 4px 4px 0 0;
+	border-radius: 3px 3px 0 0;
 }
 
 .ahfb-slide-up span {
@@ -4808,28 +4812,38 @@ i.fipicon-angle-left:before {
 [data-tooltip]:hover::before {
 	box-sizing: border-box;
 	position: absolute;
-	top: -6px;
+	top: -11px;
 	right: -6px;
 	width: 4px;
 	height: 4px;
+	padding-top: 5px;
 	border: 6px solid transparent;
-	border-top-color: #424242;
+	border-top-color: #1f1f1f;
 }
 
 .ahfb-slide-up [data-tooltip]:hover::before {
 	right: 0px;
 }
 
+[data-tooltip]::after {
+ content: attr(data-tooltip);
+ pointer-events: none;
+ display: inline-table;
+ position: absolute;
+ right: -20px;
+ font-size: 12px;
+ opacity: 0;
+ visibility: hidden;
+ line-height: 1;
+ background: #1f1f1f;
+ color: #fff;
+ border-radius: 3px;
+ font-family: system-ui;
+ padding: 5px 10px;
+ top: -30px;
+}
+
 [data-tooltip]:hover::after {
-	content: attr(data-tooltip);
-	pointer-events: none;
-	display: inline-table;
-	position: absolute;
-	top: -33px;
-	right: -20px;
-	padding: 5px 10px 10px 15px;
-	font-size: 12px;
-	line-height: 1;
-	background: #424242;
-	color: #fff;
+	opacity: 1;
+	visibility: visible;
 }

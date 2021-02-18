@@ -2,17 +2,17 @@
   margin: 0px 0 15px 0;
 }
 
-.accordion-section-content.open .customize-control-ast-heading:nth-child(2), .accordion-section-content.open .customize-control-ast-heading:nth-child(3) {
-  margin-top: 0;
+.customize-control-ast-responsive-background + .customize-control-ast-heading, .customize-control-ast-color + .customize-control-ast-heading {
+    margin-top: 30px;
 }
 
 .customize-control-ast-heading {
-  margin-top: 20px;
-  margin-bottom: 8px;
+  margin-top: 25px;
+  margin-bottom: 0;
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -12px;
+  margin: 0 -20px;
 }
 
 .customize-control-ast-heading .customize-control-title {
