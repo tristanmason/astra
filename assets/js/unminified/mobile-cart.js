@@ -92,8 +92,8 @@
 		if ( undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader ) {
 
 			// Mobile Header Cart Flyout.
-			var woo_cart = document.querySelector( '.ast-header-woo-cart' );
-			var edd_cart = document.querySelector( '.ast-header-edd-cart' );
+			var woo_cart = document.querySelector( '.ast-mobile-header-wrap .ast-header-woo-cart' );
+			var edd_cart = document.querySelector( '.ast-mobile-header-wrap .ast-header-edd-cart' );
 			var cart_close = document.querySelector( '.astra-cart-drawer-close' );
 	
 			if ( undefined !== woo_cart && '' !== woo_cart && null !== woo_cart ) {
