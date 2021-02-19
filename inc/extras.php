@@ -403,29 +403,28 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
 /**
  * Generate HTML Open markup 
  *
- * @param array $args {
- *     Contains markup arguments.
- *     @type string context Markup context.
+ * @param string $context unique markup name.
+ * @param array  $args {
+ *      Contains markup arguments.
  *     @type array  attrs    Initial attributes to apply to `open` markup.
  *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
  * }
  * @since x.x.x
  * @return mixed
  */
-function astra_markup_open( $args ) {
+function astra_markup_open( $context, $args = array() ) {
 
 	$defaults = array(
-		'context' => '',
+		'open'    => '',
 		'attrs'   => array(),
 		'echo'    => true,
 		'content' => '',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
-	if ( $args['context'] || $args['open'] ) {
-
-		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $args['context'], $args['attrs'], $args ) ) : '';
-		$open_tag = apply_filters( "astra_markup_{$args['context']}_open", $open_tag, $args );
+	if ( $context ) {
+		$args     = apply_filters( "astra_markup_{$context}_open", $args );
+		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $context, $args['attrs'], $args ) ) : '';
 
 		if ( $args['echo'] ) {
 			echo $open_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -439,9 +438,9 @@ function astra_markup_open( $args ) {
 /**
  * Generate HTML close markup
  *
- * @param array $args {
- *     Contains markup arguments.
- *     @type string context Markup context.
+ * @param string $context unique markup name.
+ * @param array  $args {
+ *      Contains markup arguments.
  *     @type string close   Closing HTML markup.
  *     @type array  attrs    Initial attributes to apply to `open` markup.
  *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
@@ -449,19 +448,18 @@ function astra_markup_open( $args ) {
  * @since x.x.x
  * @return mixed
  */
-function astra_markup_close( $args ) {
+function astra_markup_close( $context, $args = array() ) {
 
 	$defaults = array(
-		'open'    => '',
-		'context' => '',
-		'attrs'   => array(),
-		'echo'    => true,
+		'close' => '',
+		'attrs' => array(),
+		'echo'  => true,
 	);
-	$args     = wp_parse_args( $args, $defaults );
 
-	if ( $args['context'] || $args['close'] ) {
-		$close_tag = apply_filters( "astra_markup_{$args['context']}_close", $args['close'], $args ); 
-		
+	$args = wp_parse_args( $args, $defaults );
+	if ( $context ) {
+		$args      = apply_filters( "astra_markup_{$context}_close", $args ); 
+		$close_tag = $args['close'];
 		if ( $args['echo'] ) {
 			echo $close_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
