@@ -30461,7 +30461,7 @@ var SliderComponent = function SliderComponent(props) {
   var labelHtml = null,
       descriptionHtml = null,
       suffixHtml = null,
-      defaultVal = props_value;
+      defaultVal = props.control.params.default;
   var defaults = {
     min: 0,
     max: 500,
@@ -30516,7 +30516,7 @@ var SliderComponent = function SliderComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
-    value: parseInt(defaultVal),
+    value: props_value,
     onChange: function onChange(value) {
       return updateValues(value);
     },
