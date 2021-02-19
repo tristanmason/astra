@@ -1870,7 +1870,6 @@
 }
 
 .customize-control-ast-customizer-link:empty {
-  background: red;
   display:none;
 }
 /* Customizer Scroll CSS */
