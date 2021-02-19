@@ -17,8 +17,8 @@ const ItemComponent = props => {
 		open: false,
 	});
 	
-	let icon = props.item.id.replace(/[\d_]+$/g, '');
-	let urlLabel = ( 'phone' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
+	const icon = props.item.id.replace(/[\d_]+$/g, '');
+	const urlLabel = ( 'phone' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
 	
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
