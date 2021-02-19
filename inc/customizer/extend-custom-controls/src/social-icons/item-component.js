@@ -18,6 +18,7 @@ const ItemComponent = props => {
 	});
 	
 	let icon = props.item.id.replace(/[\d_]+$/g, '');
+	let urlLabel = ( 'phone' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
 	
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
@@ -55,7 +56,7 @@ const ItemComponent = props => {
 							 props.onChangeLabel(value, props.index);
 						 }}/>
 
-			<TextControl label={__('URL', 'astra')} value={props.item.url ? props.item.url : ''} onChange={value => {
+			<TextControl label={`${urlLabel}`} value={props.item.url ? props.item.url : ''} onChange={value => {
 				props.onChangeURL(value, props.index);
 			}}/>
 			<p className="ast-social-icon-picker-label">{ __( "Icon" ) }</p>
