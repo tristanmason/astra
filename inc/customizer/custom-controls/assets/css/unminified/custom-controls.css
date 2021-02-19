@@ -409,12 +409,6 @@
   margin-right: 8px;
 }
 
-.customize-control.customize-control-ast-color-group .astra-popover-color {
-  position: absolute;
-  left: 0;
-  z-index: 9;
-}
-
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
   right: 72px;
   top: 6px;
