@@ -451,6 +451,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 					$configuration['ast_fields'] = $config;
 					break;
+				case 'ast-color-group':
+					$config = array();
+					if ( isset( self::$color_group_configs[ $configuration['name'] ] ) ) {
+						$config = wp_list_sort( self::$color_group_configs[ $configuration['name'] ], 'priority' );
+					}
+					$configuration['ast_fields'] = $config;
+					break;
 				case 'ast-font-weight':
 					$configuration['ast_all_font_weight'] = array(
 						'100'       => __( 'Thin 100', 'astra' ),
@@ -581,9 +588,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
 				'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
+				'title'             => astra_get_prop( $config, 'title' ),
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
 				'sanitize_callback' => $sanitize_callback,
+				'suffix'            => astra_get_prop( $config, 'suffix' ),
+				'control_type'      => astra_get_prop( $config, 'control' ),
 			);
 
 			$wp_customize->add_setting(
@@ -731,6 +741,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				case 'ast-responsive-slider':
 					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' );
 					break;
+				case 'ast-toggle-control':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_toggle_control' );
+					break;
 				default:
 					break;
 			}
@@ -797,12 +810,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 		}
 
-
-			/**
-			 * Prepare context.
-			 *
-			 * @return mixed|void
-			 */
+		/**
+		 * Prepare context.
+		 *
+		 * @return mixed|void
+		 */
 		public static function get_contexts() {
 
 			self::set_default_context();

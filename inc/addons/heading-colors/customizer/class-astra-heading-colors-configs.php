@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 				// Option: Base Heading Color.
 				array(
-					'default'           => '',
+					'default'           => astra_get_option( 'heading-base-color' ),
 					'type'              => 'control',
 					'control'           => 'ast-color',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'priority'          => 18,
 					'name'              => ASTRA_THEME_SETTINGS . '[heading-base-color]',
 					'title'             => __( 'Heading Color ( H1 - H6 )', 'astra' ),
-					'section'           => 'section-colors-body',
+					'section'           => defined( 'ASTRA_EXT_VER' ) ? 'section-colors-body' : 'section-colors-background',
 				),
 
 				/**
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
 					'priority'          => 8,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'             => __( 'Line Height', 'astra' ),
 					'priority'          => 14,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -268,10 +268,10 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-content-typo',
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
-					'default'           => '',
+					'default'           => 'em',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 19,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -280,14 +280,13 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Typography Section
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-styling-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => 'section-buttons',
-					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 25,
 					'settings' => array(),
 				),
@@ -300,7 +299,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'button-text-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Button Text', 'astra' ),
+					'title'     => __( 'Button Font', 'astra' ),
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 25,
@@ -396,7 +395,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-buttons',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'priority'          => 5,
 					'input_attrs'       => array(
 						'min'  => 1,
@@ -418,7 +417,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-buttons',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Letter Spacing', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'priority'          => 6,
 					'input_attrs'       => array(
 						'min'  => 1,

@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'default'     => 1200,
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
-					'title'       => __( 'Width', 'astra' ),
+					'title'       => __( 'Container Width', 'astra' ),
 					'context'     => defined( 'ASTRA_EXT_VER' ) ? array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 							'value'    => 'ast-full-width-layout',
 						),
 					) : array(),
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,

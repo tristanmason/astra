@@ -30,6 +30,17 @@
     border-radius: 2px;
 }
 
+body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut button {
+	width: 26px;
+	height: 26px;
+	min-width: 26px;
+	min-height: 26px;
+	border-width: 1px;
+	border-radius: 2px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
 .site-footer-focus-item .customize-partial-edit-shortcut button {
     top: 0;
 }
@@ -157,4 +168,9 @@
 .ast-builder-layout-element.site-header-focus-item.ast-header-edd-cart .customize-partial-edit-shortcut button,
 .ast-builder-layout-element.site-header-focus-item.ast-header-woo-cart .customize-partial-edit-shortcut button {
     left: -25px;
+}
+
+/*Hiding footer builder pencil icon as we converted section into builder layout, so no longer this needed.*/
+.customize-partial-edit-shortcut-astra-settings-footer-desktop-items > button.customize-partial-edit-shortcut-button {
+	display: none;
 }

@@ -91,7 +91,7 @@
             }
         } );
     } );
-    
+
     // Advanced Visibility CSS Generation.
     astra_builder_visibility_css( 'section-footer-copyright', visibility_selector );
 
