@@ -331,7 +331,7 @@
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-top-offset]', function( value ) {
 					value.bind( function( offset ) {
 
-						var dynamicStyle = '.ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-builder-menu-' + index + ' ul.inline-on-mobile li.menu-item .sub-menu, .ast-builder-menu-' + index + ' li.menu-item .astra-full-megamenu-wrapper {';
+						var dynamicStyle = '.ast-desktop .ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' ul.inline-on-mobile li.menu-item .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' li.menu-item .astra-full-megamenu-wrapper {';
 						dynamicStyle += 'margin-top: ' + offset + 'px';
 						dynamicStyle += '}';
 
