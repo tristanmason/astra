@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Markups' ) ) :
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				// Add filters here.
-				$demo = 1; // tto avoid phpcs empty if error, wii be remove this in other PR.
+				$demo = 1; // to avoid phpcs empty if error, we be remove this in other PR.
 				
 			}
 		}
