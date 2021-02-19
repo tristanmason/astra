@@ -537,37 +537,6 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 			selector + ' .widget-title'
 		);
 
-		astra_generate_outside_font_family_css(
-			'astra-settings[' + builder_type + '-widget-' + index + '-font-family]',
-			selector + ' .widget-title',
-		);
-
-		astra_css(
-			'astra-settings[' + builder_type + '-widget-' + index + '-font-weight]',
-			'font-weight',
-			selector + ' .widget-title',
-		);
-
-		astra_css(
-			'astra-settings[' + builder_type + '-widget-' + index + '-text-transform]',
-			'text-transform',
-			selector + ' .widget-title',
-		);
-
-		astra_css(
-			'astra-settings[' + builder_type + '-widget-' + index + '-line-height]',
-			'line-height',
-			selector + ' .widget-title',
-			'em'
-		);
-
-		astra_css(
-			'astra-settings[' + builder_type + '-widget-' + index + '-letter-spacing]',
-			'letter-spacing',
-			selector + ' .widget-title',
-			'px'
-		);
-
 		// Widget Content Typography.
 		astra_responsive_font_size(
 			'astra-settings[' + builder_type + '-widget-' + index + '-content-font-size]',
