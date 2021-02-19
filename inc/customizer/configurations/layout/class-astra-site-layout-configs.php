@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[site-content-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
-					'default'     => 1200,
+					'default'     => astra_get_option( 'site-content-width' ),
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
 					'title'       => __( 'Container Width', 'astra' ),

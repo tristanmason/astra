@@ -64,7 +64,7 @@ const SliderComponent = props => {
 		{ renderOperationButtons() }
 		<div className="wrapper">
 			<RangeControl
-				value={ props_value }
+				value={ parseInt( defaultVal ) }
 				onChange={ ( value ) => updateValues( value ) }
 				resetFallbackValue={ defaultVal }
 				min={ min < 0 ? min : 0 }
