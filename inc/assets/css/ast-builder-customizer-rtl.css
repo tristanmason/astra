@@ -1418,6 +1418,10 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     color: #556068;
 }
 
+.customize-control-ast-language-selector span.ahfb-sorter-title {
+    padding-right: 15px;
+}
+
 .ahfb-sorter-item-panel-header .ahfb-sorter-visiblity {
     border-radius: 0;
     height: 36px;
