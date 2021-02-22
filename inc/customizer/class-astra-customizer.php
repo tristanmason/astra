@@ -792,9 +792,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Forwarding to the DOM as default control.
 			if ( 'title_tagline' !== $config['section'] ) {
-				self::$js_configs ['wp_defaults'][ astra_get_prop( $config, 'name' ) ] = $config['section'];
+				self::$js_configs ['wp_defaultsunminified/customizer-preview.js'][ astra_get_prop( $config, 'name' ) ] = $config['section'];
 				$config['section'] = 'title_tagline';
 			}
+
+			$wp_customize->add_setting(
+				astra_get_prop( $config, 'name' ),
+				array(
+					'default'           => astra_get_prop( $config, 'default' ),
+					'type'              => astra_get_prop( $config, 'datastore_type' ),
+					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
+					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+				)
+			);
 
 			if ( false !== $instance ) {
 				$wp_customize->add_control(

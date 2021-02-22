@@ -1399,15 +1399,15 @@ function isJsonString( str ) {
 
 		setTimeout(function () {
 
-			let partial_controls = Object.assign({}, astraCustomizer.dynamic_partial_options );
-			for (const [partial_id, config] of Object.entries(partial_controls)) {
+			var partial_controls = Object.assign({}, astraCustomizer.dynamic_partial_options );
+			Object.keys(partial_controls).forEach(function (partial_id) {
 				wp.customize.selectiveRefresh.partial.add (
 					new wp.customize.selectiveRefresh.Partial(
 						partial_id,
-						_.extend( { params: config }, config )
+						_.extend( { params: partial_controls[partial_id] }, partial_controls[partial_id] )
 					)
 				);
-			}
+			});
 
 		}, 1000)
 
