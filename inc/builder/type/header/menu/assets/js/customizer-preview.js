@@ -335,6 +335,10 @@
 						dynamicStyle += 'margin-top: ' + offset + 'px';
 						dynamicStyle += '}';
 
+						dynamicStyle += '.ast-desktop .ast-builder-menu-' + index + ' .main-header-menu > .menu-item > .sub-menu:before, .ast-desktop .ast-builder-menu-' + index + ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:before {';
+						dynamicStyle += 'height: calc( ' + offset + 'px + 5px );';
+						dynamicStyle += '}';
+
 						astra_add_dynamic_css( 'header-menu'+ index +'-submenu-top-offset', dynamicStyle );
 
 					} );

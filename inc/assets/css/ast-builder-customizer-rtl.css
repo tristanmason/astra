@@ -1106,7 +1106,9 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     background-color: #f6f6f6;
     border: 0;
 }
-
+.ahfb-sorter-drop-social_item_group .ahfb-sorter-item-panel-content .components-base-control {
+	margin-bottom: 10px;
+}
 .ahfb-radio-container-control .components-button.is-tertiary {
     align-items: stretch;
     font-size: 13px;
@@ -2037,7 +2039,7 @@ button.components-button.ahfb-sorter-item-expand {
 	justify-content: center;
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 86px;
-	flex: 0 0 86px;
+	flex: 0 0 60px;
 	padding: 2px
 }
 
