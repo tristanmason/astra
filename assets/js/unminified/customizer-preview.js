@@ -1397,6 +1397,20 @@ function isJsonString( str ) {
 
 		} );
 
+		setTimeout(function () {
+
+			let partial_controls = Object.assign({}, astraCustomizer.dynamic_partial_options );
+			for (const [partial_id, config] of Object.entries(partial_controls)) {
+				wp.customize.selectiveRefresh.partial.add (
+					new wp.customize.selectiveRefresh.Partial(
+						partial_id,
+						_.extend( { params: config }, config )
+					)
+				);
+			}
+
+		}, 1000)
+
 	})
 
 } )( jQuery );

@@ -189,6 +189,14 @@
 
 			// Return if control already exists.
 			if ( ! api.control(id)) {
+
+				if( ! api(id) ) {
+					// Adding settings dynamically.
+					let settings_option = AstraBuilderCustomizerData.dynamic_setting_options[ id ];
+					api.add( new api.Setting( id, settings_option.default, settings_option ) );
+				}
+
+
 				var Constructor = api.controlConstructor[data.type] || api.Control, options;
 				options = _.extend({params: data}, data);
 				api.control.add(new Constructor(id, options));
