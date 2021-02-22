@@ -792,7 +792,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Forwarding to the DOM as default control.
 			if ( 'title_tagline' !== $config['section'] ) {
-				self::$js_configs ['wp_defaultsunminified/customizer-preview.js'][ astra_get_prop( $config, 'name' ) ] = $config['section'];
+				self::$js_configs ['wp_defaults'][ astra_get_prop( $config, 'name' ) ] = $config['section'];
 				$config['section'] = 'title_tagline';
 			}
 
