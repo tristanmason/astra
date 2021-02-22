@@ -58,7 +58,7 @@
 				dynamicStyle += 'grid-column-gap: ' + spacing.desktop + 'px;';
 				dynamicStyle += '} ';
 			}
-			
+
 			if ( spacing.tablet != '' ) {
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 				dynamicStyle += selector + ' .ast-builder-grid-row {';

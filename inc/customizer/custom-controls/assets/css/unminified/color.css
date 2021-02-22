@@ -391,11 +391,14 @@
 	top: 0px;
 	width: 20px;
 }
+.customize-control-ast-color + .customize-control-ast-color {
+    margin-top: 30px;
+}
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
     .ast-color-palette .components-circular-option-picker__option-wrapper {
-        height: 25px;
-        width: 25px;
+        height: 23px;
+        width: 23px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
         padding: 6px 10px;
