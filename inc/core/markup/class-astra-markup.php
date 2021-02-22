@@ -6,36 +6,32 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra 3.2.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Markups' ) ) :
+/**
+ * Class Astra_Attr
+ */
+class Astra_Markup {
 
 	/**
-	 * Class Astra_Attr
+	 * Initialuze the Class.
+	 *
+	 * @since x.x.x
 	 */
-	class Astra_Markup {
+	public function __construct() {
 
-		/**
-		 * Initialuze the Class.
-		 *
-		 * @since x.x.x
-		 */
-		public function __construct() {
-
-			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-				// Add filters here.
-				$demo = 1; // to avoid phpcs empty if error, we be remove this in other PR.
-				
-			}
+		if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+			// Add filters here.
+			$demo = 1; // to avoid phpcs empty if error, we be remove this in other PR.
+			
 		}
 	}
-
-endif;
+}
 
 /**
  * Kicking this off by calling 'get_instance()' method

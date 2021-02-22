@@ -403,7 +403,7 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
 /**
  * Generate HTML Open markup 
  *
- * @param string $context unique markup name.
+ * @param string $context unique markup key.
  * @param array  $args {
  *      Contains markup arguments.
  *     @type array  attrs    Initial attributes to apply to `open` markup.
@@ -413,7 +413,6 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
  * @return mixed
  */
 function astra_markup_open( $context, $args = array() ) {
-
 	$defaults = array(
 		'open'    => '',
 		'attrs'   => array(),
@@ -438,7 +437,7 @@ function astra_markup_open( $context, $args = array() ) {
 /**
  * Generate HTML close markup
  *
- * @param string $context unique markup name.
+ * @param string $context unique markup key.
  * @param array  $args {
  *      Contains markup arguments.
  *     @type string close   Closing HTML markup.
@@ -449,7 +448,6 @@ function astra_markup_open( $context, $args = array() ) {
  * @return mixed
  */
 function astra_markup_close( $context, $args = array() ) {
-
 	$defaults = array(
 		'close' => '',
 		'attrs' => array(),
