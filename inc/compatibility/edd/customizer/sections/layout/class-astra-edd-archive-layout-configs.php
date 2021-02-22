@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-edd-archive',
-					'default'     => 1200,
+					'default'     => astra_get_option( 'edd-archive-max-width' ),
 					'priority'    => 225,
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,

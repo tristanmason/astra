@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$_configs = array(
 

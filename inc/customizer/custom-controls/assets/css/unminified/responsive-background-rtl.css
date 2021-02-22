@@ -193,6 +193,14 @@
   text-align: right;
 }
 
+.media-position-setting > .components-base-control {
+    margin-bottom: 15px;
+}
+
+.media-position-setting [CLASS*="-Item-LabelWrapper"] {
+    margin-bottom: 5px;
+}
+
 .astra-popover-color .components-circular-option-picker {
   position: relative;
   margin-top: 0;
