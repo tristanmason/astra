@@ -29,6 +29,9 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_section = defined( 'ASTRA_EXT_VER' ) ? 'section-colors-body' : 'section-colors-background';
+
 			$_configs = array(
 
 				/**
@@ -39,7 +42,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'default'  => '#3a3a3a',
 					'type'     => 'control',
 					'control'  => 'ast-color',
-					'section'  => 'section-colors-body',
+					'section'  => $_section,
 					'priority' => 5,
 					'title'    => __( 'Text Color', 'astra' ),
 				),
@@ -51,7 +54,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[theme-color]',
 					'type'     => 'control',
 					'control'  => 'ast-color',
-					'section'  => 'section-colors-body',
+					'section'  => $_section,
 					'default'  => '#0274be',
 					'priority' => 5,
 					'title'    => __( 'Theme Color', 'astra' ),
@@ -62,7 +65,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[link-color]',
-					'section'  => 'section-colors-body',
+					'section'  => $_section,
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'default'  => '#0274be',
@@ -75,7 +78,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[link-h-color]',
-					'section'  => 'section-colors-body',
+					'section'  => $_section,
 					'default'  => '#3a3a3a',
 					'type'     => 'control',
 					'control'  => 'ast-color',
@@ -90,7 +93,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-outside-bg-color]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
-					'section'  => 'section-colors-body',
+					'section'  => $_section,
 					'priority' => 20,
 					'settings' => array(),
 				),

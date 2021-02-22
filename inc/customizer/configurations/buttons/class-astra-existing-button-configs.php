@@ -301,7 +301,7 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'section'           => 'section-primary-menu',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'priority'          => 4,
 					'input_attrs'       => array(
 						'min'  => 1,
@@ -323,7 +323,7 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'section'           => 'section-primary-menu',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Letter Spacing', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'priority'          => 5,
 					'input_attrs'       => array(
 						'min'  => 1,
@@ -429,6 +429,7 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[primary-header-button-border-group]',
 					'section'     => 'section-primary-menu',
 					'control'     => 'ast-slider',
+					'suffix'      => 'px',
 					'transport'   => 'postMessage',
 					'priority'    => 16,
 					'title'       => __( 'Border Radius', 'astra' ),

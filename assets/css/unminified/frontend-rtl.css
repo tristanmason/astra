@@ -3029,6 +3029,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   height: auto;
 }
 
+.ast-mobile-popup-content > *:first-child {
+  padding-top: 10px;
+}
+
+.ast-mobile-popup-content > *:last-child {
+  padding-bottom: 0;
+}
+
 .ast-off-canvas-active body.ast-main-header-nav-open {
   overflow: hidden;
 }
@@ -3236,29 +3244,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   .footer-nav-wrap .astra-footer-horizontal-menu a {
     padding: 0 0.5em;
   }
-}
-
-/** Cart CSS */
-.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-site-header-cart, .ast-header-break-point.astra-hfb-header .ast-site-header-cart {
-  padding: 0;
-}
-
-.ast-header-break-point.ast-woocommerce-cart-menu.astra-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.astra-hfb-header .ast-cart-menu-wrap {
-  width: 2em;
-  height: 2em;
-  font-size: 1.4em;
-  line-height: 2;
-  vertical-align: middle;
-  text-align: left;
-}
-
-.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-  width: 2em;
-  height: 2em;
-  font-size: 1.4em;
-  line-height: 2;
-  vertical-align: middle;
-  text-align: left;
 }
 
 .ast-mobile-popup-content .ast-builder-menu-mobile .main-header-menu {
@@ -3826,6 +3811,16 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-header-break-point .inline-on-mobile .sub-menu {
   width: 150px;
+}
+
+.ast-desktop .main-header-menu > .menu-item .sub-menu:before,
+.ast-desktop .main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  width: 100%;
+  transform: translateY(-100%);
 }
 
 /*----------  Forms  ----------*/
