@@ -377,6 +377,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var ww = window.outerWidth;
 		body.style.overflow = originalOverflow;
 
+		if ( body.classList.contains( 'customize-partial-edit-shortcuts-shown' ) ) {
+			ww = window.innerWidth;
+		}
+
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
 
