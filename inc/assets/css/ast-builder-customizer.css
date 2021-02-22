@@ -1107,8 +1107,12 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     border: 0;
 }
 .ahfb-sorter-drop-social_item_group .ahfb-sorter-item-panel-content .components-base-control {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
+.ahfb-sorter-drop-social_item_group .ahfb-sorter-item-panel-content .components-base-control  .components-base-control__label {
+	margin-bottom: 4px;
+}
+
 .ahfb-radio-container-control .components-button.is-tertiary {
     align-items: stretch;
     font-size: 13px;
