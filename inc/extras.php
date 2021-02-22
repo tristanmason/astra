@@ -331,6 +331,25 @@ function astra_wp_version_compare( $version, $compare ) {
 }
 
 /**
+ * Get the theme author details 
+ *
+ * @since  x.x.x
+ * @return array            Return theme author URL and name.
+ */
+function astra_get_theme_author_details() {
+
+	$theme_author = apply_filters(
+		'astra_theme_author',
+		array(
+			'theme_name'       => __( 'Astra WordPress Theme', 'astra' ),
+			'theme_author_url' => 'https://wpastra.com/',
+		)
+	);
+
+	return $theme_author;
+}
+
+/**
  * Remove Base Color > Background Color option from the customize array.
  *
  * @since 2.4.0
