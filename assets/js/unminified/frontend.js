@@ -374,7 +374,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
 		var originalOverflow = body.style.overflow;
 		body.style.overflow = 'hidden';
-		var ww = window.innerWidth;
+		var ww = window.outerWidth;
 		body.style.overflow = originalOverflow;
 
 		var break_point = astra.break_point,
