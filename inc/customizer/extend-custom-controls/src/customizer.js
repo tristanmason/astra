@@ -189,14 +189,6 @@
 
 			// Return if control already exists.
 			if ( ! api.control(id)) {
-
-				if( ! api(id) ) {
-					// Adding settings dynamically.
-					let settings_option = AstraBuilderCustomizerData.dynamic_setting_options[ id ];
-					api.add( new api.Setting( id, settings_option.default, settings_option ) );
-				}
-
-
 				var Constructor = api.controlConstructor[data.type] || api.Control, options;
 				options = _.extend({params: data}, data);
 				api.control.add(new Constructor(id, options));
@@ -329,6 +321,14 @@
 
 			defaultContextSet = true;
 		},
+
+		initializeDynamicSettings: function () {
+			let settings = Object.assign({},  AstraBuilderCustomizerData.dynamic_setting_options );
+			for (const [setting_id, setting] of Object.entries(settings)) {
+				api.add( new api.Setting( setting_id, setting.default, setting ) );
+			}
+		},
+
 
 		initializeConfigs: function () {
 
@@ -641,6 +641,7 @@
 
 		$window.on('resize', resizePreviewer);
 
+		AstCustomizerAPI.initializeDynamicSettings();
 		AstCustomizerAPI.initializeConfigs();
 		api.section.each(function (section) {
 			section.expanded.bind(function (isExpanded) {
