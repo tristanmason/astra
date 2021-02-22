@@ -152,6 +152,8 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-themer.php';
 }
 
+require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
+
 /**
  * Load deprecated functions
  */
