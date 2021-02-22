@@ -1013,7 +1013,7 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[mobile-header-toggle-btn-style]', function( setting ) {
 		setting.bind( function( icon_style ) {
 			var icon_color = wp.customize('astra-settings[mobile-header-toggle-btn-color]').get();
-			
+
 			if ( '' === icon_color && 'fill' === icon_style ) {
 				var dynamicStyle = ' [data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg { fill: #ffffff; } ';
 				astra_add_dynamic_css( 'mobile-header-toggle-btn-style', dynamicStyle );
@@ -1406,19 +1406,17 @@ function isJsonString( str ) {
 
 		} );
 
-		setTimeout(function () {
-
-			var partial_controls = Object.assign({}, astraCustomizer.dynamic_partial_options );
+		setTimeout(function () { // Async partial rendering.
+			var partial_controls = Object.assign({}, astraCustomizer.dynamic_partial_options);
 			Object.keys(partial_controls).forEach(function (partial_id) {
-				wp.customize.selectiveRefresh.partial.add (
+				wp.customize.selectiveRefresh.partial.add(
 					new wp.customize.selectiveRefresh.Partial(
 						partial_id,
-						_.extend( { params: partial_controls[partial_id] }, partial_controls[partial_id] )
+						_.extend({params: partial_controls[partial_id]}, partial_controls[partial_id])
 					)
 				);
 			});
-
-		}, 1000)
+		}, 100)
 
 	})
 
