@@ -408,7 +408,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				);
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
 

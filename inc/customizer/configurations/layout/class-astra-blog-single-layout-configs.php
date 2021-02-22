@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => 'section-blog-single',
 					'transport'   => 'postMessage',
-					'default'     => 1200,
+					'default'     => astra_get_option( 'blog-single-max-width' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(

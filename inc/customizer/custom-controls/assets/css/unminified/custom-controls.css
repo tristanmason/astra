@@ -65,6 +65,9 @@
 .ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(2):not(:last-child) .components-button {
     border-right: none;
 }
+.ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(3):not(:last-child) .components-button {
+    border-right: none;
+}
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
@@ -404,12 +407,6 @@
 
 .customize-control.customize-control-ast-color-group .color-group-item:not(:last-child) {
   margin-right: 8px;
-}
-
-.customize-control.customize-control-ast-color-group .astra-popover-color {
-  position: absolute;
-  left: 0;
-  z-index: 9;
 }
 
 .customize-control.customize-control-ast-color-group .ast-color-group-reset {
@@ -859,11 +856,14 @@
 	top: 0px;
 	width: 20px;
 }
+.customize-control-ast-color + .customize-control-ast-color {
+    margin-top: 30px;
+}
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
     .ast-color-palette .components-circular-option-picker__option-wrapper {
-        height: 25px;
-        width: 25px;
+        height: 23px;
+        width: 23px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
         padding: 6px 10px;
@@ -936,6 +936,9 @@
   text-decoration: none;
 }
 
+.customize-control-ast-customizer-link:empty {
+  display:none;
+}
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
   width: 6px;
@@ -966,6 +969,10 @@
   position: relative;
   margin-bottom: 0;
   margin-top: 25px;
+}
+
+[ID*="-builder-layout-ast-context-tabs"] {
+  margin-top: 10px;
 }
 
 .customize-section-title {
@@ -1150,14 +1157,14 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
-  padding: 13px 12px;
+  padding: 13px 20px;
   margin: 0;
   border-width: 1px 0;
   border-style: solid;
   border-color: #dddddd;
   background-color: #fff;
   font-size: 11.5px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
   line-height: 1;
   text-transform: uppercase;
@@ -1443,6 +1450,14 @@ input[type="text"].select2-search__field {
 
 .astra-popover-tabs #tab-panel-0-image-view > div .media-position-setting {
   text-align: left;
+}
+
+.media-position-setting > .components-base-control {
+    margin-bottom: 15px;
+}
+
+.media-position-setting [CLASS*="-Item-LabelWrapper"] {
+    margin-bottom: 5px;
 }
 
 .astra-popover-color .components-circular-option-picker {
@@ -2088,7 +2103,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive .ast-responsive-btns {
   position: absolute;
   right: 0px;
-  top: 5.7px;
+  top: 1px;
 }
 
 .ast-adv-toggle-icon {
