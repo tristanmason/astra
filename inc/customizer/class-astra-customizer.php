@@ -703,10 +703,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			if ( astra_get_prop( $config, 'partial', false ) ) {
 				self::$dynamic_options['partials'][ astra_get_prop( $config, 'name' ) ] = array(
-					'selector'            => astra_get_prop( $config['partial'], 'selector' ),
-					'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
-					'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
-					'fallback_refresh'    => astra_get_prop( $config['partial'], 'fallback_refresh', true ),
+					'selector'           => astra_get_prop( $config['partial'], 'selector' ),
+					'render_callback'    => astra_get_prop( $config['partial'], 'render_callback' ),
+					'containerInclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
+					'fallbackRefresh'    => astra_get_prop( $config['partial'], 'fallback_refresh', true ),
 				);
 			}
 
