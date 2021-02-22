@@ -80,17 +80,6 @@ final class Astra_Builder_Customizer {
 				},
 			)
 		);
-
-//		$wp_customize->selective_refresh->add_partial(
-//			'blogname',
-//			array(
-//				'selector'        => '.site-title',
-//				'render_callback' => function() {
-//					bloginfo( 'name' );
-//				},
-//			)
-//		);
-
 		// @codingStandardsIgnoreStart PHPCompatibility.FunctionDeclarations.NewClosure.Found
 
 	}

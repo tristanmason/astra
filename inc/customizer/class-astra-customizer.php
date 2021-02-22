@@ -247,6 +247,21 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
+		 * Get control default.
+		 *
+		 * @param string $setting_key setting key.
+		 * @return mixed|string
+		 */
+		private function get_database_value( $setting_key ) {
+			$return = '';
+			preg_match( '#astra-settings\[(.*?)\]#', $setting_key, $match );
+			if ( ! empty( $match ) && isset( $match[1] ) ) {
+				$return = astra_get_option( $match[1], '' );
+			}
+			return $return;
+		}
+
+		/**
 		 * Prepare tabbed sections for dynamic controls to optimize frontend JS calls.
 		 */
 		private static function prepare_tabbed_sections() {
@@ -634,7 +649,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(
-				'default'           => astra_get_prop( $new_config, 'default' ),
+				'default'           => $this->get_database_value( astra_get_prop( $new_config, 'name' ) ),
 				'type'              => astra_get_prop( $new_config, 'datastore_type' ),
 				'transport'         => astra_get_prop( $new_config, 'transport', 'refresh' ),
 				'sanitize_callback' => astra_get_prop( $new_config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $new_config, 'control' ) ) ),
@@ -687,7 +702,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			self::$dynamic_options['settings'][ astra_get_prop( $config, 'name' ) ] = array(
-				'default'           => astra_get_prop( $config, 'default' ),
+				'default'           => $this->get_database_value( astra_get_prop( $config, 'name' ) ),
 				'type'              => astra_get_prop( $config, 'datastore_type' ),
 				'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
 				'sanitize_callback' => $sanitize_callback,
