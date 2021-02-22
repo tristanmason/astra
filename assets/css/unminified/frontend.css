@@ -3024,6 +3024,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   height: auto;
 }
 
+.ast-mobile-popup-content > *:first-child {
+  padding-top: 10px;
+}
+
+.ast-mobile-popup-content > *:last-child {
+  padding-bottom: 0;
+}
+
 .ast-off-canvas-active body.ast-main-header-nav-open {
   overflow: hidden;
 }
