@@ -36,7 +36,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		$_section = 'section-header-account';
-		$defaults = Astra_Theme_Options::defaults();
+
 
 		$account_choices = array(
 			'default' => __( 'Default', 'astra' ),
@@ -438,7 +438,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'           => $_section,
 				'priority'          => 4,
 				'transport'         => 'postMessage',
-				'default'           => $defaults['header-account-icon-size'],
+				'default'           => astra_get_option( 'header-account-icon-size' ),
 				'title'             => __( 'Icon Size', 'astra' ),
 				'type'              => 'control',
 				'suffix'            => 'px',
@@ -499,7 +499,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[header-account-icon-color]',
-				'default'           => $defaults['header-account-icon-color'],
+				'default'           => astra_get_option( 'header-account-icon-color' ),
 				'type'              => 'control',
 				'section'           => $_section,
 				'priority'          => 5,
@@ -557,7 +557,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			*/
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[header-account-type-text-color]',
-				'default'           => $defaults['header-account-type-text-color'],
+				'default'           => astra_get_option( 'header-account-type-text-color' ),
 				'type'              => 'control',
 				'section'           => $_section,
 				'priority'          => 16,
