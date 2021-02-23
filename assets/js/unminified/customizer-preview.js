@@ -1407,16 +1407,16 @@ function isJsonString( str ) {
 		} );
 
 		setTimeout(function () { // Async partial rendering.
-			var partial_controls = Object.assign({}, astraCustomizer.dynamic_partial_options);
-			Object.keys(partial_controls).forEach(function (partial_id) {
+			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
+			Object.keys(partials).forEach(function (partial_id) {
 				wp.customize.selectiveRefresh.partial.add(
 					new wp.customize.selectiveRefresh.Partial(
 						partial_id,
-						_.extend({params: partial_controls[partial_id]}, partial_controls[partial_id])
+						_.extend({params: partials[partial_id]}, partials[partial_id])
 					)
 				);
 			});
-		}, 100)
+		}, 100);
 
 	})
 
