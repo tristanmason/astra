@@ -169,7 +169,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'  => 'postMessage',
 					'priority'   => 90,
 					'responsive' => true,
-				), 
+				),
 				// Option: Menu Color.
 				array(
 					'name'       => 'footer-menu-color-responsive',
@@ -332,7 +332,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'           => '',
+					'default'           => astra_get_option( $_section . '-margin' ),
 					'type'              => 'control',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-spacing',

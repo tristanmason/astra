@@ -536,7 +536,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-main-sep-color]',
-					'default'           => '',
+					'default'           => astra_get_option( 'transparent-header-main-sep-color' ),
 					'type'              => 'control',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-color',
@@ -1256,7 +1256,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 					array(
 						'name'              => ASTRA_THEME_SETTINGS . '[transparent-account-icon-color]',
-						'default'           => '',
+						'default'           => astra_get_option( 'transparent-account-icon-color' ),
 						'type'              => 'control',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1289,14 +1289,13 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 					array(
 						'name'              => ASTRA_THEME_SETTINGS . '[transparent-account-type-text-color]',
-						'default'           => '',
+						'default'           => astra_get_option( 'transparent-account-type-text-color' ),
 						'type'              => 'control',
 						'section'           => $_section,
 						'priority'          => 65,
 						'transport'         => 'postMessage',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-						'section'           => 'section-transparent-header',
 						'title'             => __( 'Text', 'astra' ),
 						'context'           => array(
 							Astra_Builder_Helper::$design_tab_config,
@@ -1329,7 +1328,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'type'     => 'control',
 						'section'  => 'section-transparent-header',
 						'control'  => 'ast-divider',
-						'section'  => 'section-transparent-header',
 						'priority' => 70,
 						'settings' => array(),
 						'context'  => Astra_Builder_Helper::$design_tab,
@@ -1354,7 +1352,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 */
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-toggle-btn-color]',
-						'default'   => '',
+						'default'   => astra_get_option( 'transparent-header-toggle-btn-color' ),
 						'type'      => 'control',
 						'control'   => 'ast-color',
 						'title'     => __( 'Icon', 'astra' ),
@@ -1369,7 +1367,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 */
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-toggle-btn-bg-color]',
-						'default'   => '',
+						'default'   => astra_get_option( 'transparent-header-toggle-btn-bg-color' ),
 						'type'      => 'control',
 						'control'   => 'ast-color',
 						'title'     => __( 'Background', 'astra' ),
@@ -1384,7 +1382,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 */
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-toggle-border-color]',
-						'default'   => '',
+						'default'   => astra_get_option( 'transparent-header-toggle-border-color' ),
 						'type'      => 'control',
 						'control'   => 'ast-color',
 						'title'     => __( 'Border', 'astra' ),

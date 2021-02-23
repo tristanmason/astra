@@ -283,7 +283,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			// Option: Logged out options preview.
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logout-preview]',
-				'default'   => '',
+				'default'   => astra_get_option( 'header-account-logout-preview' ),
 				'type'      => 'control',
 				'control'   => 'ast-toggle-control',
 				'section'   => $_section,
@@ -600,7 +600,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[header-account-margin]',
-				'default'           => '',
+				'default'           => astra_get_option( 'header-account-margin' ),
 				'type'              => 'control',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-responsive-spacing',
