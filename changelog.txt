@@ -1,3 +1,6 @@
+v3.2.0
+- Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
+
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. [doc_link]
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
