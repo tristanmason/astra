@@ -208,7 +208,7 @@
 			// Change description to tooltip.
 			change_description_as_tooltip(api.control(id));
 
-			if ('ast-settings-group' === data['type']) {
+			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
 				this.addSubControl(id);
 			}
 		},
@@ -633,31 +633,29 @@
 
 		$window.on('resize', resizePreviewer);
 
-		setTimeout(function () {
-			AstCustomizerAPI.initializeConfigs();
-			api.section.each(function (section) {
-				section.expanded.bind(function (isExpanded) {
-					// Lazy Loaded Context.
-					AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+		AstCustomizerAPI.initializeConfigs();
+		api.section.each(function (section) {
+			section.expanded.bind(function (isExpanded) {
+				// Lazy Loaded Context.
+				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
-					if (!isExpanded) {
-						// Setting general context when collapsed.
-						api.state('astra-customizer-tab').set('general');
-					}
+				if (!isExpanded) {
+					// Setting general context when collapsed.
+					api.state('astra-customizer-tab').set('general');
+				}
 
-					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+				$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-					var customizer_section = api.section(section.id);
-					set_context_by_url_params();
+				var customizer_section = api.section(section.id);
+				set_context_by_url_params();
 
-					_.each(section.controls(), function (control) {
-						highlight_active_component(customizer_section);
-						highlight_active_row(customizer_section);
-					});
+				_.each(section.controls(), function (control) {
+					highlight_active_component(customizer_section);
+					highlight_active_row(customizer_section);
 				});
 			});
-			AstCustomizerAPI.moveDefaultSection();
-		}, 200);
+		});
+		AstCustomizerAPI.moveDefaultSection();
 
 
 		api.previewer.bind('ready', function () {
@@ -704,22 +702,6 @@
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
 
-
-			});
-
-			document.addEventListener('AstraBuilderResetSectionControls', function (e) {
-
-				if( ! e.detail.hasOwnProperty('section_id') ) {
-					return;
-				}
-
-				sessionStorage.setItem('astra-builder-reset-in-progress', true)
-				AstCustomizerAPI.resetControlsBySection(e.detail.section_id);
-
-				if( e.detail.section_id.startsWith('section-hb-divider-') || e.detail.section_id.startsWith('section-fb-divider-')  ) {
-					// Delete session when divider resetting due to non partial refresh.
-					sessionStorage.removeItem('astra-builder-reset-in-progress');
-				}
 
 			});
 

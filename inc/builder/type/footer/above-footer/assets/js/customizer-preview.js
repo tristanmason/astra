@@ -28,7 +28,7 @@
     astra_css(
         'astra-settings[hba-footer-vertical-alignment]',
         'align-items',
-        selector + ' .ast-builder-grid-row'
+        selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
 	// Border Bottom width.
@@ -58,7 +58,7 @@
 				dynamicStyle += 'grid-column-gap: ' + spacing.desktop + 'px;';
 				dynamicStyle += '} ';
 			}
-			
+
 			if ( spacing.tablet != '' ) {
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 				dynamicStyle += selector + ' .ast-builder-grid-row {';

@@ -81,7 +81,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'input_attrs'       => array(
 						'min'  => 30,
 						'step' => 1,
@@ -99,7 +99,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => $_section,
 					'priority'    => 4,
-					'title'       => __( 'Bottom Border', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -129,13 +130,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Option: Primary Header color and background divider.
+				/**
+				 * Option: Divider
+				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-header-colors-and-background-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
 					'section'  => $_section,
-					'title'    => __( 'Background Color & Image', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 6,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
@@ -154,7 +156,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name' => 'hb-header-bg-obj-responsive',
 					),
 					'default'    => astra_get_option( 'hb-header-bg-obj-responsive' ),
-					'title'      => __( 'Color & Image', 'astra' ),
+					'title'      => __( 'Background', 'astra' ),
 				),
 			);
 

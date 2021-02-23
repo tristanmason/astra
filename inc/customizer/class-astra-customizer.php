@@ -187,9 +187,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-			$this->set_default_context();
-			$this->prepare_tabbed_sections();
-
 		}
 
 		/**
@@ -211,7 +208,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Prepare tabbed sections for dynamic controls to optimize frontend JS calls.
 		 */
-		private function prepare_tabbed_sections() {
+		private static function prepare_tabbed_sections() {
 
 			if ( ! isset( self::$js_configs['controls'] ) ) {
 				return;
@@ -260,7 +257,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 *  Set default context for WP default controls.
 		 */
-		private function set_default_context() {
+		private static function set_default_context() {
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
@@ -449,6 +446,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 					$configuration['ast_fields'] = $config;
 					break;
+				case 'ast-color-group':
+					$config = array();
+					if ( isset( self::$color_group_configs[ $configuration['name'] ] ) ) {
+						$config = wp_list_sort( self::$color_group_configs[ $configuration['name'] ], 'priority' );
+					}
+					$configuration['ast_fields'] = $config;
+					break;
 				case 'ast-font-weight':
 					$configuration['ast_all_font_weight'] = array(
 						'100'       => __( 'Thin 100', 'astra' ),
@@ -579,9 +583,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
 				'section'           => astra_get_prop( $config, 'section', 'title_tagline' ),
+				'title'             => astra_get_prop( $config, 'title' ),
 				'priority'          => astra_get_prop( $config, 'priority', '10' ),
 				'default'           => astra_get_prop( $config, 'default' ),
 				'sanitize_callback' => $sanitize_callback,
+				'suffix'            => astra_get_prop( $config, 'suffix' ),
+				'control_type'      => astra_get_prop( $config, 'control' ),
 			);
 
 			$wp_customize->add_setting(
@@ -729,6 +736,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				case 'ast-responsive-slider':
 					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' );
 					break;
+				case 'ast-toggle-control':
+					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_toggle_control' );
+					break;
 				default:
 					break;
 			}
@@ -772,7 +782,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function prepare_group_configs( $wp_customize ) {
 
-			$configurations = apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			$configurations = $this->get_customizer_configurations( $wp_customize );
 			$defaults       = $this->get_astra_customizer_configuration_defaults();
 
 			foreach ( $configurations as $key => $configuration ) {
@@ -795,13 +805,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 		}
 
-
-			/**
-			 * Prepare context.
-			 *
-			 * @return mixed|void
-			 */
+		/**
+		 * Prepare context.
+		 *
+		 * @return mixed|void
+		 */
 		public static function get_contexts() {
+
+			self::set_default_context();
 			// Return contexts.
 			return apply_filters( 'astra_customizer_context', self::$contexts );
 		}
@@ -834,6 +845,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public static function get_tabbed_sections() {
 
+			self::prepare_tabbed_sections();
 			// Return contexts.
 			return apply_filters( 'astra_customizer_tabbed_sections', self::$tabbed_sections );
 		}
@@ -944,11 +956,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
 		 */
 		private function get_customizer_configurations( $wp_customize ) {
+
 			if ( ! is_null( self::$configuration ) ) {
 				return self::$configuration;
 			}
 
-			return apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			self::$configuration = apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			return self::$configuration;
 		}
 
 		/**
