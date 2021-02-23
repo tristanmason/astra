@@ -3,7 +3,7 @@
  * Pagination - Dynamic CSS
  *
  * @package astra-builder
- * @since 3.2.0
+ * @since x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
