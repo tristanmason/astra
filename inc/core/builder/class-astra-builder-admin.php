@@ -67,7 +67,7 @@ final class Astra_Builder_Admin {
 						printf(
 							/* translators: %1$s: Theme name. */
 							esc_html__( '%1$s Header/Footer Builder', 'astra' ),
-							$astra_theme_title
+							esc_html( $astra_theme_title )
 						);
 					?>
 				</span>
@@ -79,7 +79,7 @@ final class Astra_Builder_Admin {
 							printf(
 								/* translators: %1$s: Theme name. */
 								esc_html__( '%1$s Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'astra' ),
-								$astra_theme_title
+								esc_html( $astra_theme_title )
 							);
 						?>
 					</p>
@@ -88,7 +88,7 @@ final class Astra_Builder_Admin {
 							printf(
 								/* translators: %1$s: Theme name. */
 								esc_html__( 'Activating this feature will add advanced options to %1$s customizer where you can create awesome new designs.', 'astra' ),
-								$astra_theme_title
+								esc_html( $astra_theme_title )
 							);
 						?>
 					</p>
