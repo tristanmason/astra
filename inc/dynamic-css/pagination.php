@@ -132,8 +132,7 @@ function astra_pagination_css( $dynamic_css ) {
                 .ast-pagination .next.page-numbers {
                     float: left;
                     text-align: left;
-                }
-                    
+                } 
                 @media (max-width: 768px) {
                     .ast-pagination .next.page-numbers .page-navigation {
                         padding-left: 0;
@@ -155,7 +154,6 @@ function astra_pagination_css( $dynamic_css ) {
                     }';
 			}           
 		} else {
-				
 			$pagination_static_css .= '
                 @media (min-width: 993px) {
                     .ast-pagination {
@@ -174,7 +172,6 @@ function astra_pagination_css( $dynamic_css ) {
                 }';
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-
 				$pagination_static_css .= '
                     @media (min-width: 769px) {
                         .ast-pagination .prev.page-numbers.next,
@@ -188,7 +185,7 @@ function astra_pagination_css( $dynamic_css ) {
                     }';
 			}           
 		}
-		$dynamic_css .= $pagination_static_css;
+		$dynamic_css .=  Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
 
 		if ( is_rtl() ) {
 			$static_pagination_tablet = array(
@@ -209,7 +206,6 @@ function astra_pagination_css( $dynamic_css ) {
 				),
 			);
 		}
-
 		return $dynamic_css .= astra_parse_css( $static_pagination_tablet );
 	}
 	return $dynamic_css;
