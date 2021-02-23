@@ -222,7 +222,7 @@ wp.customize( 'astra-settings[edd-archive-width]', function( value ) {
         dynamicStyle += '.ast-edd-archive-page .site-content > .ast-container {';
         dynamicStyle += 'max-width: ' + edd_archive_max_width + 'px;';
         dynamicStyle += '} ';
-        
+
         astra_add_dynamic_css( 'edd-archive-width', dynamicStyle );
     } );
 } );

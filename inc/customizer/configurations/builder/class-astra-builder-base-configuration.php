@@ -70,7 +70,7 @@ final class Astra_Builder_Base_Configuration {
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-padding]',
-				'default'           => '',
+				'default'           => astra_get_option( $section_id . '-padding' ),
 				'type'              => 'control',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-responsive-spacing',
@@ -107,7 +107,7 @@ final class Astra_Builder_Base_Configuration {
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[' . $section_id . '-margin]',
-				'default'           => '',
+				'default'           => astra_get_option( $section_id . '-margin' ),
 				'type'              => 'control',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-responsive-spacing',
@@ -269,7 +269,7 @@ final class Astra_Builder_Base_Configuration {
 				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
 				'type'      => 'control',
 				'control'   => 'ast-toggle-control',
-				'default'   => '',
+				'default'   => astra_get_option( $_section . '-hide-tablet' ),
 				'section'   => $_section,
 				'priority'  => 320,
 				'title'     => __( 'Hide on Tablet', 'astra' ),
@@ -284,7 +284,7 @@ final class Astra_Builder_Base_Configuration {
 				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
 				'type'      => 'control',
 				'control'   => 'ast-toggle-control',
-				'default'   => '',
+				'default'   => astra_get_option( $_section . '-hide-mobile' ),
 				'section'   => $_section,
 				'priority'  => 330,
 				'title'     => __( 'Hide on Mobile', 'astra' ),
@@ -302,7 +302,7 @@ final class Astra_Builder_Base_Configuration {
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
 					'type'      => 'control',
 					'control'   => 'ast-toggle-control',
-					'default'   => '',
+					'default'   => astra_get_option( $_section . '-hide-desktop' ),
 					'section'   => $_section,
 					'priority'  => 320,
 					'title'     => __( 'Hide on Desktop', 'astra' ),
@@ -467,7 +467,7 @@ final class Astra_Builder_Base_Configuration {
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'           => '',
+					'default'           => astra_get_option( $_section . '-margin' ),
 					'type'              => 'control',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-spacing',
