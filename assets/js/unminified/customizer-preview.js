@@ -1013,7 +1013,7 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[mobile-header-toggle-btn-style]', function( setting ) {
 		setting.bind( function( icon_style ) {
 			var icon_color = wp.customize('astra-settings[mobile-header-toggle-btn-color]').get();
-			
+
 			if ( '' === icon_color && 'fill' === icon_style ) {
 				var dynamicStyle = ' [data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg { fill: #ffffff; } ';
 				astra_add_dynamic_css( 'mobile-header-toggle-btn-style', dynamicStyle );
@@ -1405,6 +1405,18 @@ function isJsonString( str ) {
 			document.dispatchEvent( new CustomEvent( "astPreviewDeviceChanged",  { "detail": device }) );
 
 		} );
+
+		setTimeout(function () { // Async partial rendering.
+			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
+			Object.keys(partials).forEach(function ( key) {
+				wp.customize.selectiveRefresh.partial.add(
+					new wp.customize.selectiveRefresh.Partial(
+						key,
+						_.extend({params: partials[key]}, partials[key])
+					)
+				);
+			});
+		}, 100);
 
 	})
 

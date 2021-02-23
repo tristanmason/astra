@@ -151,7 +151,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-				'default'           => '',
+				'default'           => astra_get_option( $_section . '-margin' ),
 				'type'              => 'control',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-responsive-spacing',
