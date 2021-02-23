@@ -253,9 +253,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 * Main Init Function.
 	 */
 	function init( mobileHeaderType ) {
+
 		var popupTriggerMobile = document.querySelectorAll( '#ast-mobile-header .menu-toggle' );
 		var popupTriggerDesktop = document.querySelectorAll( '#ast-desktop-header .menu-toggle' );
-		
+
 		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
@@ -264,7 +265,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			} else {
 				var desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
 				if ( desktopHeader ) {
-					mobileHeaderType = desktopHeader.dataset.toggleType;
+	
+					mobileHeaderType = desktopHeader.dataset.type;
 				} else {
 					return;
 				}
@@ -530,8 +532,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	AstraToggleSetup = function () {
 
 		if ( 'off-canvas' === mobileHeaderType || 'full-width' === mobileHeaderType ) {
-			var __main_header_all = document.querySelectorAll( '#ast-mobile-popup' ),
-				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+			var __main_header_all = document.querySelectorAll( '#ast-mobile-popup' );
+			if ( body.classList.contains('ast-header-break-point') ) {
+
+				var menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+			} else {
+				menu_toggle_all   = document.querySelectorAll( '#ast-desktop-header .main-header-menu-toggle' );
+			}
 		} else {
 
 			if ( body.classList.contains('ast-header-break-point') ) {
@@ -563,7 +570,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					} else {
 						var astra_menu_toggle = __main_header_all[i].querySelectorAll('ul.main-header-menu .ast-menu-toggle');
 					}
-
 					// Add Eventlisteners for Submenu.
 					if (astra_menu_toggle.length > 0) {
 
