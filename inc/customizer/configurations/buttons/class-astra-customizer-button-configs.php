@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'    => 'button-color',
-					'default' => '',
+					'default' => astra_get_option( 'button-color' ),
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section' => 'section-buttons',
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'     => 'button-h-color',
-					'default'  => '',
+					'default'  => astra_get_option( 'button-h-color' ),
 					'type'     => 'sub-control',
 					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section'  => 'section-buttons',
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'    => 'button-bg-color',
-					'default' => '',
+					'default' => astra_get_option( 'button-bg-color' ),
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
 					'section' => 'section-buttons',
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'     => 'button-bg-h-color',
-					'default'  => '',
+					'default'  => astra_get_option( 'button-bg-h-color' ),
 					'type'     => 'sub-control',
 					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
 					'section'  => 'section-buttons',

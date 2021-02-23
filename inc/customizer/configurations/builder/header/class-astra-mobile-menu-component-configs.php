@@ -407,7 +407,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'          => 26,
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
-					'default'           => '',
+					'default'           => astra_get_option( 'header-mobile-menu-line-height' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'control'           => 'ast-slider',
 					'suffix'            => 'em',
