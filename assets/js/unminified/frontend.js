@@ -528,12 +528,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	AstraToggleSetup = function () {
+
 		if ( 'off-canvas' === mobileHeaderType || 'full-width' === mobileHeaderType ) {
 			var __main_header_all = document.querySelectorAll( '#ast-mobile-popup' ),
 				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
 		} else {
-			var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
-				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+
+			if ( body.classList.contains('ast-header-break-point') ) {
+
+				var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
+					menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+			} else {
+
+				var __main_header_all = document.querySelectorAll( '#ast-desktop-header' ),
+					menu_toggle_all   = document.querySelectorAll( '#ast-desktop-header .main-header-menu-toggle' );
+			}
 		}
 
 		if (menu_toggle_all.length > 0) {
