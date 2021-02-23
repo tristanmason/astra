@@ -185,7 +185,7 @@ function astra_pagination_css( $dynamic_css ) {
                     }';
 			}           
 		}
-		$dynamic_css .=  Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
 
 		if ( is_rtl() ) {
 			$static_pagination_tablet = array(
