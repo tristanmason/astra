@@ -693,7 +693,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'sanitize_callback' => $sanitize_callback,
 			);
 
-
 			$config['label'] = astra_get_prop( $config, 'title' );
 			$config['type']  = astra_get_prop( $config, 'control' );
 
