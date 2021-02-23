@@ -4857,3 +4857,9 @@ i.fipicon-angle-left:before {
 	opacity: 1;
 	visibility: visible;
 }
+.rtl #astra-reset.button {
+	margin-left: 45px;
+}
+.rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
+	right: unset;
+}
