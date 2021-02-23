@@ -37,7 +37,6 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => 'footer-color',
 					'type'     => 'sub-control',
-					'tab'      => __( 'Normal', 'astra' ),
 					'priority' => 5,
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
 					'section'  => 'section-footer-small',
@@ -52,13 +51,12 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => 'footer-link-color',
 					'type'     => 'sub-control',
-					'tab'      => __( 'Normal', 'astra' ),
 					'priority' => 6,
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
+					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-link-color-group]',
 					'section'  => 'section-footer-small',
 					'control'  => 'ast-color',
 					'default'  => '',
-					'title'    => __( 'Link Color', 'astra' ),
+					'title'    => __( 'Normal', 'astra' ),
 				),
 
 				/**
@@ -67,12 +65,11 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => 'footer-link-h-color',
 					'type'     => 'sub-control',
-					'tab'      => __( 'Hover', 'astra' ),
 					'priority' => 5,
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
+					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-link-color-group]',
 					'section'  => 'section-footer-small',
 					'control'  => 'ast-color',
-					'title'    => __( 'Link Color', 'astra' ),
+					'title'    => __( 'Hover', 'astra' ),
 					'default'  => '',
 				),
 
@@ -80,15 +77,16 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				 * Option: Footer Background
 				 */
 				array(
-					'name'      => 'footer-bg-obj',
-					'type'      => 'sub-control',
-					'priority'  => 7,
-					'parent'    => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
-					'section'   => 'section-footer-small',
-					'transport' => 'postMessage',
-					'control'   => 'ast-background',
-					'default'   => astra_get_option( 'footer-bg-obj' ),
-					'label'     => __( 'Background', 'astra' ),
+					'name'              => 'footer-bg-obj',
+					'type'              => 'sub-control',
+					'priority'          => 7,
+					'parent'            => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
+					'section'           => 'section-footer-small',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-background',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'default'           => astra_get_option( 'footer-bg-obj' ),
+					'label'             => __( 'Background', 'astra' ),
 				),
 			);
 

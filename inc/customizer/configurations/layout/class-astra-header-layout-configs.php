@@ -43,14 +43,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Header Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-layouts]',
-					'default'  => astra_get_option( 'header-layouts' ),
-					'section'  => 'section-header',
-					'priority' => 4,
-					'title'    => __( 'Layout', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-radio-image',
-					'choices'  => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-layouts]',
+					'default'           => astra_get_option( 'header-layouts' ),
+					'section'           => 'section-header',
+					'priority'          => 4,
+					'title'             => __( 'Layout', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'choices'           => array(
 						'header-main-layout-1' => array(
 							'label' => __( 'Logo Left', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'header-main-layout-1' ),
@@ -64,6 +65,17 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'header-main-layout-3' ),
 						),
 					),
+				),
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-layouts-divider]',
+					'type'     => 'control',
+					'section'  => 'section-header',
+					'control'  => 'ast-divider',
+					'priority' => 4,
+					'settings' => array(),
 				),
 				/**
 				 * Option: Header Width
@@ -81,7 +93,17 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'content' => __( 'Content Width', 'astra' ),
 					),
 				),
-
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-layout-width-divider]',
+					'type'     => 'control',
+					'section'  => 'section-header',
+					'control'  => 'ast-divider',
+					'priority' => 4,
+					'settings' => array(),
+				),
 				/**
 				 * Option: Bottom Border Size
 				 */
@@ -105,38 +127,29 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Bottom Border Color
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-main-sep-color]',
-					'transport' => 'postMessage',
-					'default'   => '',
-					'type'      => 'control',
-					'context'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-main-sep-color]',
+					'transport'         => 'postMessage',
+					'default'           => '',
+					'type'              => 'control',
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-sep]',
 							'operator' => '>=',
 							'value'    => 1,
 						),
 					),
-					'control'   => 'ast-color',
-					'section'   => 'section-header',
-					'priority'  => 4,
-					'title'     => __( 'Bottom Border Color', 'astra' ),
-				),
-
-				array(
-					'name'     => 'primary-header-menu-label-divider',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 5,
-					'title'    => __( 'Menu', 'astra' ),
-					'section'  => 'section-primary-menu',
-					'settings' => array(),
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => 'section-header',
+					'priority'          => 4,
+					'title'             => __( 'Bottom Border Color', 'astra' ),
 				),
 
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
 					'default'  => astra_get_option( 'disable-primary-nav' ),
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Disable Menu', 'astra' ),
 					'priority' => 5,
@@ -144,6 +157,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'selector'            => '.main-header-bar .main-navigation',
 						'container_inclusive' => false,
 					),
+				),
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[disable-primary-nav-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 5,
+					'settings' => array(),
 				),
 
 				array(
@@ -169,6 +191,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'selector'            => '.main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.search-custom-menu-item .ast-search-icon .astra-search-icon, .main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.woocommerce-custom-menu-item, .main-header-bar .ast-masthead-custom-menu-items.widget-custom-menu-item .ast-header-widget-area .widget.ast-no-widget-row, .main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.edd-custom-menu-item',
 						'container_inclusive' => false,
 					),
+				),
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 7,
+					'settings' => array(),
 				),
 
 				/**
@@ -215,6 +246,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 					'priority' => 10,
 					'title'    => __( 'Button Link', 'astra' ),
+				),
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 10,
+					'settings' => array(),
 				),
 
 				/**
@@ -331,6 +371,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-submenu-container-animation-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
 				// Option: Primary Menu Border.
 				array(
 					'type'           => 'control',
@@ -352,19 +401,29 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 
 				// Option: Submenu Container Border Color.
 				array(
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
-					'default'   => '',
-					'title'     => __( 'Border Color', 'astra' ),
-					'section'   => 'section-primary-menu',
-					'priority'  => 30,
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'name'              => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
+					'default'           => '',
+					'title'             => __( 'Border Color', 'astra' ),
+					'section'           => 'section-primary-menu',
+					'priority'          => 30,
+				),
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 30,
+					'settings' => array(),
 				),
 
 				array(
 					'type'      => 'control',
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'transport' => 'postMessage',
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
 					'section'   => 'section-primary-menu',
@@ -375,21 +434,22 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 
 				// Option: Submenu item Border Color.
 				array(
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
-					'default'   => '',
-					'title'     => __( 'Divider Color', 'astra' ),
-					'section'   => 'section-primary-menu',
-					'context'   => array(
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'name'              => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
+					'default'           => '',
+					'title'             => __( 'Divider Color', 'astra' ),
+					'section'           => 'section-primary-menu',
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
 							'operator' => '==',
 							'value'    => true,
 						),
 					),
-					'priority'  => 30,
+					'priority'          => 30,
 				),
 
 				/**
@@ -409,11 +469,12 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Menu Alignment
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
-					'default'  => astra_get_option( 'header-main-menu-align' ),
-					'type'     => 'control',
-					'control'  => 'ast-radio-image',
-					'choices'  => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
+					'default'           => astra_get_option( 'header-main-menu-align' ),
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'choices'           => array(
 						'inline' => array(
 							'label' => __( 'Inline', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'menu-inline' ),
@@ -423,9 +484,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'menu-stack' ),
 						),
 					),
-					'section'  => 'section-header',
-					'priority' => 40,
-					'title'    => __( 'Layout', 'astra' ),
+					'section'           => 'section-header',
+					'priority'          => 40,
+					'title'             => __( 'Layout', 'astra' ),
 				),
 
 				/**
@@ -435,7 +496,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
 					'default'  => astra_get_option( 'hide-custom-menu-mobile' ),
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
@@ -448,13 +509,29 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority' => 7,
 				),
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 7,
+					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+					),
+				),
+
 				/**
 				 * Option: Display outside menu
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-display-outside-menu]',
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
@@ -490,12 +567,21 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority'          => 40,
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Menu Breakpoint', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 10,
 						'max'  => 6000,
 					),
+				),
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 40,
+					'settings' => array(),
 				),
 
 				/**
@@ -555,6 +641,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 40,
+					'settings' => array(),
+				),
+
 				/**
 				 * Option: Toggle Button Style
 				 */
@@ -584,21 +679,22 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Toggle Button Color
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]',
-					'default'   => astra_get_option( 'mobile-header-toggle-btn-style-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'context'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]',
+					'default'           => astra_get_option( 'mobile-header-toggle-btn-style-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-menu-style]',
 							'operator' => '!=',
 							'value'    => 'no-toggle',
 						),
 					),
-					'title'     => __( 'Toggle Button Color', 'astra' ),
-					'section'   => 'section-primary-menu',
-					'transport' => 'postMessage',
-					'priority'  => 42,
+					'title'             => __( 'Toggle Button Color', 'astra' ),
+					'section'           => 'section-primary-menu',
+					'transport'         => 'postMessage',
+					'priority'          => 42,
 				),
 
 				/**
@@ -619,13 +715,21 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						),
 					),
 					'priority'    => 42,
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'transport'   => 'postMessage',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 100,
 					),
+				),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-before-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 42,
+					'settings' => array(),
 				),
 				/**
 				 * Option: Toggle on click of button or link.
@@ -643,6 +747,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
 					),
+				),
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-divider]',
+					'type'     => 'control',
+					'section'  => 'section-primary-menu',
+					'control'  => 'ast-divider',
+					'priority' => 42,
+					'settings' => array(),
 				),
 			);
 
