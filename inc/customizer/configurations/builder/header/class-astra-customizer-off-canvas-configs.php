@@ -157,7 +157,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'       => 'control',
 					'control'    => 'ast-selector',
 					'section'    => $_section,
-					'context'    => Astra_Builder_Helper::$responsive_general_tab,
+					'context'    => Astra_Builder_Helper::$general_tab,
 					'priority'   => 40,
 					'title'      => __( 'Dropdown Target', 'astra' ),
 					'suffix'     => '',

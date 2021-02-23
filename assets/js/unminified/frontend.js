@@ -468,14 +468,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraToggleSubMenu = function() {
+	AstraToggleSubMenu = function( event ) {
+
+		event.preventDefault();
 
 		var parent_li = this.parentNode;
-
+		
 		if ( parent_li.classList.contains('ast-submenu-expanded') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') ) {
+			
 			if (!this.classList.contains('ast-menu-toggle')) {
+				
 				var link = parent_li.querySelector('a').getAttribute('href');
-				if ('' !== link || '#' !== link) {
+				if ( '' !== link && '#' !== link) {
 					window.location = link;
 				}
 			}
