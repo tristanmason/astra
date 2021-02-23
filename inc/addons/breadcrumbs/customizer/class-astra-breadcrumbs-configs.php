@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-					'default'    => 'none',
+					'default'    => astra_get_option( 'breadcrumb-position', 'none' ),
 					'section'    => $_section,
 					'title'      => __( 'Header Position', 'astra' ),
 					'type'       => 'control',

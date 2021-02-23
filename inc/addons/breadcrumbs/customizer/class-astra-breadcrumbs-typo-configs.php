@@ -41,8 +41,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
-
 			$_configs = array(
 
 				/**
@@ -175,7 +173,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'control'           => 'ast-slider',
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
-					'default'           => '',
+					'default'           => astra_get_option( 'breadcrumb-line-height' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'section'           => 'section-breadcrumb',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
