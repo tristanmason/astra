@@ -36,6 +36,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Dynamic options.
 		 *
+		 * @since 3.1.0
 		 * @access private
 		 * @var object
 		 */
@@ -126,8 +127,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				add_action( 'customize_register', array( $this, 'astra_pro_upgrade_configurations' ), 2 );
 				add_action( 'customize_register', array( $this, 'prepare_group_configs' ), 9 );
 
-				add_filter( 'customize_dynamic_setting_args', array( $this, 'astra_filter_dynamic_setting_args' ), 10, 2 );
-				add_filter( 'customize_dynamic_partial_args', array( $this, 'astra_filter_dynamic_partial_args' ), 10, 2 );
+				add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
+				add_filter( 'customize_dynamic_partial_args', array( $this, 'filter_dynamic_partial_args' ), 10, 2 );
 
 			}
 
@@ -146,11 +147,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Add dynamic control partial refresh.
 		 *
+		 * @since 3.1.0
 		 * @param array  $partial_args partial configs.
 		 * @param string $partial_id partial id.
 		 * @return array|mixed
 		 */
-		public function astra_filter_dynamic_partial_args( $partial_args, $partial_id ) {
+		public function filter_dynamic_partial_args( $partial_args, $partial_id ) {
 
 			if ( isset( self::$dynamic_options['partials'][ $partial_id ] ) ) {
 				if ( false === $partial_args ) {
@@ -167,11 +169,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Add dynamic control settings.
 		 *
+		 * @since 3.1.0
 		 * @param array  $setting_args setting configs.
 		 * @param string $setting_id setting id.
 		 * @return mixed
 		 */
-		public function astra_filter_dynamic_setting_args( $setting_args, $setting_id ) {
+		public function filter_dynamic_setting_args( $setting_args, $setting_id ) {
 
 			if ( isset( self::$dynamic_options['settings'][ $setting_id ] ) ) {
 				return self::$dynamic_options['settings'][ $setting_id ];
