@@ -61,7 +61,7 @@ final class Astra_Builder_Admin {
 
 		?>
 		<div class="postbox">
-			<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex">
+			<h2 class="hndle ast-normal-cursor ast-addon-heading ast-flex">
 				<span>
 					<?php
 						printf(
