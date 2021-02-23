@@ -664,7 +664,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param bool $val for True|False.
 		 *
-		 * @since x.x.x
+		 * @since 3.1.0
 		 *
 		 * @return bool True|False
 		 */
