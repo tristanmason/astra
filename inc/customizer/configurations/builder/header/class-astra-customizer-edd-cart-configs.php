@@ -38,8 +38,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
 
-		$defaults = Astra_Theme_Options::defaults();
-
 		$_configs = array(
 
 			/**

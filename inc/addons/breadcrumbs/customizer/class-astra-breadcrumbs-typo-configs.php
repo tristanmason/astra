@@ -41,8 +41,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
-
 			$_configs = array(
 
 				/**

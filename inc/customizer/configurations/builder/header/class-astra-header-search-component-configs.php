@@ -37,7 +37,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		$_section = 'section-header-search';
-		$defaults = Astra_Theme_Options::defaults();
 
 		$_configs = array(
 
@@ -89,7 +88,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'section'           => $_section,
 				'priority'          => 4,
 				'transport'         => 'postMessage',
-				'default'           => $defaults['header-search-icon-space'],
+				'default'           => astra_get_option( 'header-search-icon-space' ),
 				'title'             => __( 'Icon Size', 'astra' ),
 				'suffix'            => 'px',
 				'type'              => 'control',
