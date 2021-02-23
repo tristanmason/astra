@@ -147,9 +147,13 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				if ( isset( $social_icons_label_color_desktop ) && ! empty( $social_icons_label_color_desktop ) ) {
 					$css_output_desktop[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_label_color_desktop;
+				} else {
+					$css_output_desktop[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_color_desktop;
 				}
 				if ( isset( $social_icons_label_h_color_desktop ) && ! empty( $social_icons_label_h_color_desktop ) ) {
 					$css_output_desktop[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_label_h_color_desktop;
+				} else {
+					$css_output_desktop[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_h_color_desktop;
 				}
 			}
 
@@ -193,9 +197,13 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				if ( isset( $social_icons_label_color_tablet ) && ! empty( $social_icons_label_color_tablet ) ) {
 					$css_output_tablet[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_label_color_tablet;
+				} else {
+					$css_output_tablet[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_color_tablet;
 				}
 				if ( isset( $social_icons_label_h_color_tablet ) && ! empty( $social_icons_label_h_color_tablet ) ) {
 					$css_output_tablet[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_label_h_color_tablet;
+				} else {
+					$css_output_tablet[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_h_color_tablet;
 				}
 			}
 
@@ -239,9 +247,13 @@ class Astra_Social_Component_Dynamic_CSS {
 
 				if ( isset( $social_icons_label_color_mobile ) && ! empty( $social_icons_label_color_mobile ) ) {
 					$css_output_mobile[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_label_color_mobile;
+				} else {
+					$css_output_mobile[ $selector . ' .ast-social-color-type-custom .social-item-label' ]['color'] = $social_icons_color_mobile;
 				}
 				if ( isset( $social_icons_label_h_color_mobile ) && ! empty( $social_icons_label_h_color_mobile ) ) {
 					$css_output_mobile[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_label_h_color_mobile;
+				} else {
+					$css_output_mobile[ $selector . ' .ast-builder-social-element:hover .social-item-label' ]['color'] = $social_icons_h_color_mobile;
 				}
 			}
 

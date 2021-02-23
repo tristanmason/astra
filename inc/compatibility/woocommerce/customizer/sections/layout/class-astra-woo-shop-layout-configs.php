@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'woocommerce_product_catalog',
-					'default'     => 1200,
+					'default'     => astra_get_option( 'shop-archive-max-width' ),
 					'priority'    => 10,
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
