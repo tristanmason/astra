@@ -1408,11 +1408,11 @@ function isJsonString( str ) {
 
 		setTimeout(function () { // Async partial rendering.
 			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
-			Object.keys(partials).forEach(function (partial_id) {
+			Object.keys(partials).forEach(function ( key) {
 				wp.customize.selectiveRefresh.partial.add(
 					new wp.customize.selectiveRefresh.Partial(
-						partial_id,
-						_.extend({params: partials[partial_id]}, partials[partial_id])
+						key,
+						_.extend({params: partials[key]}, partials[key])
 					)
 				);
 			});
