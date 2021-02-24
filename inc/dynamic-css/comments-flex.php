@@ -70,25 +70,6 @@ function astra_comments_css( $dynamic_css ) {
             list-style: none;
           }
 
-          .ast-comment-list li.depth-1 .ast-comment,
-          .ast-comment-list li.depth-2 .ast-comment {
-            border-bottom: 1px solid #eeeeee;
-          }
-
-          .ast-comment-list .comment-respond {
-            padding: 1em 0;
-            border-bottom: 1px solid #eeeeee;
-          }
-
-          .ast-comment-list .comment-respond .comment-reply-title {
-            margin-top: 0;
-            padding-top: 0;
-          }
-
-          .ast-comment-list .comment-respond p {
-            margin-bottom: .5em;
-          }
-
           .ast-comment-list .ast-comment-edit-reply-wrap {
             -js-display: flex;
             display: flex;
@@ -238,6 +219,13 @@ function astra_comments_css( $dynamic_css ) {
           .ast-separate-container .comment-reply-title {
             padding-top: 0;
           }';
+		if ( 'page-builder' == astra_get_content_layout() || 'plain-container' == astra_get_content_layout() ) {
+			$single_post_comment_css .= '
+            .ast-comment-list li.depth-1 .ast-comment,
+            .ast-comment-list li.depth-2 .ast-comment {
+              border-bottom: 1px solid #eeeeee;
+            }';
+		}
 		if ( is_rtl() ) {
 			$single_post_comment_css .= '
             .ast-comment-list .children {
