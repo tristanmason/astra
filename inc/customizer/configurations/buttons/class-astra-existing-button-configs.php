@@ -318,7 +318,7 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'control'           => 'ast-slider',
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
-					'default'           => '',
+					'default'           => astra_get_option( 'primary-header-button-letter-spacing' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
 					'section'           => 'section-primary-menu',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),

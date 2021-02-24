@@ -322,6 +322,14 @@
 			defaultContextSet = true;
 		},
 
+		initializeDynamicSettings: function () {
+			let settings = Object.assign({},  AstraBuilderCustomizerData.dynamic_setting_options );
+			for (const [setting_id, setting] of Object.entries(settings)) {
+				api.add( new api.Setting( setting_id, setting.default, setting ) );
+			}
+		},
+
+
 		initializeConfigs: function () {
 
 			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
@@ -633,6 +641,7 @@
 
 		$window.on('resize', resizePreviewer);
 
+		AstCustomizerAPI.initializeDynamicSettings();
 		AstCustomizerAPI.initializeConfigs();
 		api.section.each(function (section) {
 			section.expanded.bind(function (isExpanded) {

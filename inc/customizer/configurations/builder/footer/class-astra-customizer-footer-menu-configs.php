@@ -33,8 +33,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
-
 			$_section = 'section-footer-menu';
 
 			$_configs = array(
@@ -169,7 +167,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'  => 'postMessage',
 					'priority'   => 90,
 					'responsive' => true,
-				), 
+				),
 				// Option: Menu Color.
 				array(
 					'name'       => 'footer-menu-color-responsive',
@@ -189,7 +187,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				// Option: Menu Background image, color.
 				array(
 					'name'       => 'footer-menu-bg-obj-responsive',
-					'default'    => $defaults['footer-menu-bg-obj-responsive'],
+					'default'    => astra_get_option( 'footer-menu-bg-obj-responsive' ),
 					'parent'     => ASTRA_THEME_SETTINGS . '[footer-menu-background-colors]',
 					'type'       => 'sub-control',
 					'control'    => 'ast-responsive-background',
@@ -332,7 +330,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'           => '',
+					'default'           => astra_get_option( $_section . '-margin' ),
 					'type'              => 'control',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-spacing',
