@@ -314,7 +314,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 						'transport'         => 'postMessage',
-						'default'           => '',
 						'title'             => __( 'Border Color', 'astra' ),
 						'section'           => $_section,
 						'priority'          => 23,
@@ -391,7 +390,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 */
 					array(
 						'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-						'default'           => '',
+						'default'           => astra_get_option( $_section . '-margin' ),
 						'type'              => 'control',
 						'transport'         => 'postMessage',
 						'control'           => 'ast-responsive-spacing',
@@ -668,7 +667,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'          => 26,
 						'title'             => __( 'Line Height', 'astra' ),
 						'transport'         => 'postMessage',
-						'default'           => '',
+						'default'           => astra_get_option( 'header-' . $_prefix . '-line-height' ),
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 						'control'           => 'ast-slider',
 						'suffix'            => 'em',

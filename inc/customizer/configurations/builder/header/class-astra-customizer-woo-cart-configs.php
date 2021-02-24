@@ -37,8 +37,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 	public function register_configuration( $configurations, $wp_customize ) {
 		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
 
-		$defaults = Astra_Theme_Options::defaults();
-
 		$_configs = array(
 
 			/**
