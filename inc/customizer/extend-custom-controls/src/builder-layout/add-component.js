@@ -48,6 +48,13 @@ const AddComponent = props => {
 				}
 			});
 		});
+		
+		let itemIncludesMenu = item.includes( 'menu' );
+
+		if ( 'popup' === row && itemIncludesMenu && 'mobile-menu' !== item ) {
+			available = false;
+		}
+
 		return <Fragment key={item}>
 			{available && <Button isTertiary className={'builder-add-btn'} onClick={() => {
 				addItem(item, props.row, props.column);
