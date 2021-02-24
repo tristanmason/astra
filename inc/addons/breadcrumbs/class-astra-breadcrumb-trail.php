@@ -734,8 +734,6 @@ class Astra_Breadcrumb_Trail {
 					// Loop through each of the path matches.
 					foreach ( $matches as $match ) {
 
-						// If a match is found.
-						$slug = $match;
 
 						// Get public post types that match the rewrite slug.
 						$post_types = $this->get_post_types_by_slug( $match );
@@ -1197,8 +1195,6 @@ class Astra_Breadcrumb_Trail {
 	 */
 	protected function add_post_terms( $post_id, $taxonomy ) {
 
-		// Get the post type.
-		$post_type = get_post_type( $post_id );
 
 		// Get the post categories.
 		$terms = get_the_terms( $post_id, $taxonomy );

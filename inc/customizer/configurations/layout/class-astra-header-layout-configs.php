@@ -30,13 +30,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$header_rt_sections = array(
-				'none'      => __( 'None', 'astra' ),
-				'search'    => __( 'Search', 'astra' ),
-				'text-html' => __( 'Text / HTML', 'astra' ),
-				'widget'    => __( 'Widget', 'astra' ),
-			);
-
 			$_configs = array(
 
 				/**

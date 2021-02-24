@@ -268,11 +268,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
-			$key     = 'astra-woocommerce';
 
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
-			$css_file = $css_uri . '' . $file_prefix . '.css';
 
 			$styles = array(
 				'woocommerce-layout'      => array(
@@ -793,19 +791,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 1.0.31
 		 */
 		public function add_styles() {
-
-			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-
-			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
-
-			$new_style = 'compatibility/woocommerce-new';
-			$new_key   = 'astra-woocommerce-new';
-
-			// Register & Enqueue Styles.
-			// Generate CSS URL.
-			$new_css_file = $css_uri . $new_style . $file_prefix . '.css';
 
 			/**
 			 * - Variable Declaration
