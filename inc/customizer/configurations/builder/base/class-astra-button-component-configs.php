@@ -267,7 +267,7 @@ class Astra_Button_Component_Configs {
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Border Color', 'astra-addon' ),
+					'title'      => __( 'Border Color', 'astra' ),
 					'section'    => $_section,
 					'priority'   => 80,
 					'transport'  => 'postMessage',
