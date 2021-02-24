@@ -141,7 +141,7 @@ function astra_pagination_css( $dynamic_css ) {
 					
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$pagination_static_css .= '
-                @media (min-width: 769px) {
+                    @media (min-width: 769px) {
                     .ast-pagination .prev.page-numbers.next,
                     .ast-pagination .prev.page-numbers:visited.next,
                     .ast-pagination .prev.page-numbers:focus.next,
@@ -172,7 +172,7 @@ function astra_pagination_css( $dynamic_css ) {
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$pagination_static_css .= '
-                @media (min-width: 769px) {
+                    @media (min-width: 769px) {
                     .ast-pagination .prev.page-numbers.next,
                     .ast-pagination .prev.page-numbers:visited.next,
                     .ast-pagination .prev.page-numbers:focus.next,
