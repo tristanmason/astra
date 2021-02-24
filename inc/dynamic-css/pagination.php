@@ -18,7 +18,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_pagination_css', 11 );
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @return String Generated dynamic CSS for Pagination.
  *
- * @since 3.0.0
+ * @since x.x.x
  */
 function astra_pagination_css( $dynamic_css ) {
 
@@ -174,7 +174,6 @@ function astra_pagination_css( $dynamic_css ) {
                 }';
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-
 				$pagination_static_css .= '
                     @media (min-width: 769px) {
                         .ast-pagination .prev.page-numbers.next,
