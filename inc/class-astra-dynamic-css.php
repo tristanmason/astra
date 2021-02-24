@@ -613,6 +613,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $old_header_mobile_toggle );
 			}
 
+			$parse_css .= require_once ASTRA_THEME_DIR . 'inc/dynamic-css/container-layouts.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound	
+
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
 			}
@@ -3788,7 +3790,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}';
 			}
 			return $pagination_static_css_str;
-
 		}
 	}
 }

@@ -59,63 +59,6 @@ body{
 }
 
 
-//page builder content layout
-.ast-page-builder-template {
-
-	.hentry {
-		margin: 0;
-	}
-	.site-content > .ast-container {
-		max-width: 100%;
-	    padding: 0;
-	}
-	.site-content #primary{
-		padding:0;
-		margin:0;
-	}
-	.no-results {
-	    text-align: center;
-		margin: 4em auto;
-	}
-
-	.ast-pagination {
-		padding: 2em;
-	}
-
-	.entry-header {
-		&.ast-no-title.ast-no-thumbnail{
-			margin-top: 0;
-		}
-		margin-top: 4em;
-		margin-left: auto;
-		margin-right: auto;
-		padding-left: ($grid-gutter-width / 2);
-		padding-right: ($grid-gutter-width / 2);
-
-		&.ast-header-without-markup {
- 			margin-top: 0;
- 			margin-bottom: 0;
- 		}
-
- 		&.ast-no-title.ast-no-meta {
-			margin-bottom: 0;
-		}
-	}
-
-	&.single .post-navigation {
-		padding-bottom: 2em;
-	}
-
-	.ast-archive-description {
-		margin-top: 4em;
-		margin-left: auto;
-		margin-right: auto;
-		padding-left: ($grid-gutter-width / 2);
-		padding-right: ($grid-gutter-width / 2);
-	}
-}
-
-
 @media (min-width: $col-lg) {
 	// padding of the content
 	.ast-separate-container{
