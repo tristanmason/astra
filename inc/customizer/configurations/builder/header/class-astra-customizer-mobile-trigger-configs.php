@@ -75,7 +75,6 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'default'           => astra_get_option( 'header-trigger-icon' ),
 				'title'             => __( 'Icons', 'astra' ),
 				'section'           => $_section,
-				'input_attrs'       => array(),
 				'choices'           => array(
 					'menu'  => array(
 						'label' => __( 'menu', 'astra' ),
@@ -97,19 +96,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				),
 				'priority'          => 10,
 				'context'           => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-trigger-icon-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'settings' => array(),
-				'priority' => 10,
-				'context'  => Astra_Builder_Helper::$general_tab,
+				'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
@@ -126,56 +113,33 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'suffix'      => 'px',
 				'transport'   => 'postMessage',
 				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 100,
+					'min'       => 0,
+					'step'      => 1,
+					'max'       => 100,
+					'ast_class' => 'ast-bottom-divider',
 				),
 				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'settings' => array(),
-				'priority' => 20,
-				'context'  => Astra_Builder_Helper::$general_tab,
-			),
 
 			/**
 			 * Option: Mobile Menu Label
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
-				'transport' => 'postMessage',
-				'partial'   => array(
+				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
+				'transport'   => 'postMessage',
+				'partial'     => array(
 					'selector'        => '.ast-button-wrap',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
-				'default'   => astra_get_option( 'mobile-header-menu-label' ),
-				'section'   => $_section,
-				'priority'  => 20,
-				'title'     => __( 'Menu Label', 'astra' ),
-				'type'      => 'control',
-				'control'   => 'text',
-				'context'   => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'settings' => array(),
-				'priority' => 20,
-				'context'  => Astra_Builder_Helper::$general_tab,
+				'default'     => astra_get_option( 'mobile-header-menu-label' ),
+				'section'     => $_section,
+				'priority'    => 20,
+				'title'       => __( 'Menu Label', 'astra' ),
+				'type'        => 'control',
+				'control'     => 'text',
+				'context'     => Astra_Builder_Helper::$general_tab,
+				'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**

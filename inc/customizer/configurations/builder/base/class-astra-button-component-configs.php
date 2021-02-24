@@ -140,29 +140,19 @@ class Astra_Button_Component_Configs {
 					'responsive' => true,
 				),
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-background-color-group]',
-					'default'    => astra_get_option( $builder_type . '-' . $_prefix . '-color-group' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Background Color', 'astra' ),
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'priority'   => 70,
-					'context'    => Astra_Builder_Helper::$design_tab,
-					'responsive' => true,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 70,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-background-color-group]',
+					'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-color-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Background Color', 'astra' ),
+					'section'     => $_section,
+					'transport'   => 'postMessage',
+					'priority'    => 70,
+					'context'     => Astra_Builder_Helper::$design_tab,
+					'responsive'  => true,
+					'input_attrs' => array(
+						'ast_class' => 'ast-bottom-divider',
+					),
 				),
 
 				/**

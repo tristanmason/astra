@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
 				add_filter( 'customize_dynamic_partial_args', array( $this, 'filter_dynamic_partial_args' ), 10, 2 );
 
-				add_action( 'customize_save_after', array( $this, 'refresh_astra_settings' ) );
+				// add_action( 'customize_save_after', array( $this, 'refresh_astra_settings' ) );
 
 			}
 

@@ -4863,3 +4863,10 @@ i.fipicon-angle-left:before {
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	right: unset;
 }
+
+
+.ast-bottom-divider {
+    border-bottom: 1px solid #ddd;
+	padding-bottom: 25px;
+	border-color: red;
+}

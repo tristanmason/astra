@@ -150,20 +150,9 @@ class Astra_Social_Icon_Component_Configs {
 						'max'  => 50,
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
+					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-icon-space-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 2,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 
 				/**
 				 * Option: Social Icon Background Spacing.
@@ -184,20 +173,9 @@ class Astra_Social_Icon_Component_Configs {
 						'max'  => 50,
 					),
 					'context'     => Astra_Builder_Helper::$design_tab,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-bg-space-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 2,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 
 				/**
 				 * Option: Social Icon Size
@@ -214,24 +192,12 @@ class Astra_Social_Icon_Component_Configs {
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'input_attrs'       => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 50,
+						'min'       => 0,
+						'step'      => 1,
+						'max'       => 50,
+						'ast_class' => 'ast-bottom-divider',
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-icons-' . $index . '-icon-size-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 1,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**

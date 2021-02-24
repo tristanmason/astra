@@ -23,16 +23,22 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 */
 	initialize: function( id, options ) {
 		let control = this,
+			ast_class = '',
 			args    = options || {};
 
 		args.params = args.params || {};
 		if ( ! args.params.type ) {
 			args.params.type = 'ast-core';
 		}
+
+		if ( args.params ?. input_attrs ?. ast_class ) {
+			ast_class = args.params.input_attrs.ast_class;
+		}
+
 		if ( ! args.params.content ) {
 			args.params.content = jQuery( '<li></li>' );
 			args.params.content.attr( 'id', 'customize-control-' + id.replace( /]/g, '' ).replace( /\[/g, '-' ) );
-			args.params.content.attr( 'class', 'customize-control customize-control-' + args.params.type );
+			args.params.content.attr( 'class', ast_class + ' customize-control customize-control-' + args.params.type  );
 		}
 
 		control.propertyElements = [];
