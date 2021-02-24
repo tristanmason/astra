@@ -29,8 +29,8 @@ if ( ! class_exists( 'Astra_Markups' ) ) :
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				// Add filters here.
-				add_filter( 'astra_markup_comment_count_wrapper_open', array( $this, 'comment_count_wrapper_open' ) );
-				add_filter( 'astra_markup_comment_count_wrapper_close', array( $this, 'comment_count_wrapper_close' ) );
+				add_filter( 'astra_markup_comment-count-wrapper_open', array( $this, 'comment_count_wrapper_open' ) );
+				add_filter( 'astra_markup_comment-count-wrapper_close', array( $this, 'comment_count_wrapper_close' ) );
 				add_filter( 'astra_markup_ast-comment-data-wrap_open', array( $this, 'ast_comment_data_wrap_open' ) );
 				add_filter( 'astra_markup_ast-comment-data-wrap_close', array( $this, 'ast_comment_data_wrap_close' ) );
 				add_filter( 'astra_markup_ast-comment-meta-wrap_open', array( $this, 'ast_comment_meta_wrap_open' ) );

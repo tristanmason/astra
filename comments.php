@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 
 	<?php 
 	if ( have_comments() ) : 
-		astra_markup_open( 'comment_count_wrapper' ); 
+		astra_markup_open( 'comment-count-wrapper' ); 
 		?>
 			<h3 class="comments-title">
 				<?php
@@ -49,7 +49,7 @@ if ( post_password_required() ) {
 				?>
 			</h3>
 		<?php 
-		astra_markup_close( 'comment_count_wrapper' );
+		astra_markup_close( 'comment-count-wrapper' );
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : 
 			?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'astra' ); ?>">
