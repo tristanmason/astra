@@ -328,15 +328,16 @@ final class Astra_Builder_Base_Configuration {
 					'rgba'       => true,
 				),
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Link Color', 'astra' ),
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'priority'   => 7,
-					'responsive' => true,
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
+					'default'     => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Link Color', 'astra' ),
+					'section'     => $_section,
+					'transport'   => 'postMessage',
+					'priority'    => 7,
+					'responsive'  => true,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -371,30 +372,6 @@ final class Astra_Builder_Base_Configuration {
 					'responsive' => true,
 					'rgba'       => true,
 					'title'      => __( 'Hover', 'astra' ),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-typo-heading-' . $index . '-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 89,
-					'settings' => array(),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-padding-heading-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 200,
-					'settings' => array(),
 				),
 
 				/**

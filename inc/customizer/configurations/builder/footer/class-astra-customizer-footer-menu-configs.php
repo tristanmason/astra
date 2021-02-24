@@ -312,18 +312,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-spacing-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 210,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 
 				/**
 				 * Option: Margin Space

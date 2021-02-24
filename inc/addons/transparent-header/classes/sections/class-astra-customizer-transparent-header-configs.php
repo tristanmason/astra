@@ -792,7 +792,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'type'     => 'control',
 						'section'  => 'section-transparent-header',
 						'control'  => 'ast-divider',
-						'section'  => 'section-transparent-header',
 						'priority' => 49,
 						'context'  => Astra_Builder_Helper::$design_tab,
 						'settings' => array(),
