@@ -50,9 +50,10 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					) : array(),
 					'suffix'      => 'px',
 					'input_attrs' => array(
-						'min'  => 768,
-						'step' => 1,
-						'max'  => 1920,
+						'min'       => 768,
+						'step'      => 1,
+						'max'       => 1920,
+						'ast_class' => 'ast-bottom-divider',
 					),
 				),
 			);

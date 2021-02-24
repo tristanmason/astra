@@ -117,15 +117,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				),
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[section-breadcrumb-link-color]',
-					'default'    => astra_get_option( 'section-breadcrumb-color' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Content Link Color', 'astra' ),
-					'section'    => 'section-breadcrumb',
-					'transport'  => 'postMessage',
-					'priority'   => 72,
-					'context'    => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[section-breadcrumb-link-color]',
+					'default'     => astra_get_option( 'section-breadcrumb-color' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Content Link Color', 'astra' ),
+					'section'     => 'section-breadcrumb',
+					'transport'   => 'postMessage',
+					'priority'    => 72,
+					'context'     => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 							'operator' => '!=',
@@ -134,7 +134,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 						Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
-					'responsive' => true,
+					'responsive'  => true,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				array(

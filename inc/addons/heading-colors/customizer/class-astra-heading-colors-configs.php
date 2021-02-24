@@ -43,6 +43,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'name'              => ASTRA_THEME_SETTINGS . '[heading-base-color]',
 					'title'             => __( 'Heading Color ( H1 - H6 )', 'astra' ),
 					'section'           => defined( 'ASTRA_EXT_VER' ) ? 'section-colors-body' : 'section-colors-background',
+					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -277,30 +278,20 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-buttons',
-					'priority' => 25,
-					'settings' => array(),
-				),
 
 				/**
 				 * Option: Button Typography Heading
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'default'   => astra_get_option( 'button-text-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Button Font', 'astra' ),
-					'section'   => 'section-buttons',
-					'transport' => 'postMessage',
-					'priority'  => 25,
+					'name'        => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'default'     => astra_get_option( 'button-text-typography' ),
+					'type'        => 'control',
+					'control'     => 'ast-settings-group',
+					'title'       => __( 'Button Font', 'astra' ),
+					'section'     => 'section-buttons',
+					'transport'   => 'postMessage',
+					'priority'    => 25,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

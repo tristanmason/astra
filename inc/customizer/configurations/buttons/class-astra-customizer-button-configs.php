@@ -55,26 +55,15 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Group: Theme Button background colors Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
-					'default'   => astra_get_option( 'theme-button-bg-color-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-color-group',
-					'title'     => __( 'Background Color', 'astra' ),
-					'section'   => 'section-buttons',
-					'transport' => 'postMessage',
-					'priority'  => 18.5,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group-divider]',
-					'type'     => 'control',
-					'section'  => 'section-buttons',
-					'control'  => 'ast-divider',
-					'priority' => 18.5,
-					'settings' => array(),
+					'name'        => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
+					'default'     => astra_get_option( 'theme-button-bg-color-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Background Color', 'astra' ),
+					'section'     => 'section-buttons',
+					'transport'   => 'postMessage',
+					'priority'    => 18.5,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -211,22 +200,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'suffix'      => 'px',
 					'title'       => __( 'Border Radius', 'astra' ),
 					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 200,
+						'min'       => 0,
+						'step'      => 1,
+						'max'       => 200,
+						'ast_class' => 'ast-bottom-divider',
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-padding-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-buttons',
-					'priority' => 30,
-					'settings' => array(),
 				),
 
 				/**
@@ -251,6 +229,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'          => 35,
 					'connected'         => false,
+					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 			);

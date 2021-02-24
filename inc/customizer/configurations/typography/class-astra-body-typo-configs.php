@@ -136,22 +136,11 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'             => __( 'Line Height', 'astra' ),
 					'suffix'            => 'em',
 					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
+						'min'       => 1,
+						'step'      => 0.01,
+						'max'       => 5,
+						'ast_class' => 'ast-bottom-divider',
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[body-typo-line-height-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-body-typo',
-					'priority' => 25,
-					'settings' => array(),
 				),
 
 				/**

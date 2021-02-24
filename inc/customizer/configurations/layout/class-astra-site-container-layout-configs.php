@@ -36,19 +36,20 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 * Option: Single Page Content Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout]',
-					'type'     => 'control',
-					'default'  => astra_get_option( 'site-content-layout' ),
-					'control'  => 'select',
-					'section'  => 'section-container-layout',
-					'priority' => 50,
-					'title'    => __( 'Layout', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+					'type'        => 'control',
+					'default'     => astra_get_option( 'site-content-layout' ),
+					'control'     => 'select',
+					'section'     => 'section-container-layout',
+					'priority'    => 50,
+					'title'       => __( 'Layout', 'astra' ),
+					'choices'     => array(
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				/**
 				 * Option: Divider
@@ -65,20 +66,21 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 * Option: Single Page Content Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'default'  => astra_get_option( 'single-page-content-layout' ),
-					'section'  => 'section-container-layout',
-					'title'    => __( 'Page Layout', 'astra' ),
-					'priority' => 55,
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'default'     => astra_get_option( 'single-page-content-layout' ),
+					'section'     => 'section-container-layout',
+					'title'       => __( 'Page Layout', 'astra' ),
+					'priority'    => 55,
+					'choices'     => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -94,20 +96,21 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'default'  => astra_get_option( 'single-post-content-layout' ),
-					'section'  => 'section-container-layout',
-					'priority' => 60,
-					'title'    => __( 'Blog Post Layout', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'default'     => astra_get_option( 'single-post-content-layout' ),
+					'section'     => 'section-container-layout',
+					'priority'    => 60,
+					'title'       => __( 'Blog Post Layout', 'astra' ),
+					'choices'     => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				/**
 				 * Option: Divider
@@ -174,7 +177,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'priority' => 49,
 						'settings' => array(),
 					),
-					
+
 					/**
 					 * Option: Divider
 					 */
