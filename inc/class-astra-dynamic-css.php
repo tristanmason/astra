@@ -1534,10 +1534,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				if ( self::gutenberg_button_patterns_compat() ) {
-					$theme_outline_gb_btn_top_border = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
-					$theme_outline_gb_btn_right_border = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
+					$theme_outline_gb_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
+					$theme_outline_gb_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
 					$theme_outline_gb_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
-					$theme_outline_gb_btn_left_border = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '2px';
+					$theme_outline_gb_btn_left_border   = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '2px';
 
 					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link']                  = array(
 						'border'           => 'none',
@@ -1556,7 +1556,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-style'        => 'solid',
 						'border-top-width'    => esc_attr( $theme_outline_gb_btn_top_border ),
 						'border-right-width'  => esc_attr( $theme_outline_gb_btn_right_border ),
-						'border-left-width'   =>esc_attr( $theme_outline_gb_btn_left_border ),
+						'border-left-width'   => esc_attr( $theme_outline_gb_btn_left_border ),
 						'border-bottom-width' => esc_attr( $theme_outline_gb_btn_bottom_border ),
 						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'padding-top'         => 'calc(15px - ' . (int) $theme_outline_gb_btn_top_border . 'px)',
@@ -3057,7 +3057,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 *
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
-		*/
+		 */
 		public static function gutenberg_button_patterns_compat() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-button-pattern-compat-css'] = isset( $astra_settings['guntenberg-button-pattern-compat-css'] ) ? false : true;

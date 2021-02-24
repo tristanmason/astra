@@ -30,7 +30,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 		public static function get_css() {
 			global $pagenow;
 			global $post;
-			$post_id = astra_get_post_id();
+			$post_id     = astra_get_post_id();
+			$is_site_rtl = is_rtl();
 
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
@@ -602,6 +603,26 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
 				$css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
+			}
+
+			if ( Astra_Dynamic_CSS::gutenberg_button_patterns_compat() ) {
+
+				// Added CSS compatibility support for Gutenberg Editor's Media & Text block pattern.
+				if ( $is_site_rtl ) {
+					$media_text_block_editor_pattern_css = array(
+						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
+							'padding' => '0 8% 0 0',
+						),
+					);
+				} else {
+					$media_text_block_editor_pattern_css = array(
+						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
+							'padding' => '0 0 0 8%',
+						),
+					);
+				}
+
+				$css .= astra_parse_css( $media_text_block_editor_pattern_css );
 			}
 
 			$tablet_css = array(
