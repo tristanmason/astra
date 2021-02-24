@@ -118,19 +118,6 @@ final class Astra_Builder_Base_Configuration {
 
 			$_configs = array(
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-typo-divider]',
-					'type'     => 'control',
-					'section'  => $section_id,
-					'control'  => 'ast-divider',
-					'priority' => 16,
-					'settings' => array(),
-					'context'  => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
-				),
-
 				array(
 					'name'      => $parent,
 					'default'   => astra_get_option( $section_id . '-typography' ),
@@ -220,20 +207,6 @@ final class Astra_Builder_Base_Configuration {
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
 
 		$configs = array(
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 300,
-				'settings' => array(),
-				'context'  => ( 'footer' === $builder_type ) ?
-					Astra_Builder_Helper::$general_tab : Astra_Builder_Helper::$responsive_general_tab,
-			),
 
 			/**
 			 * Option: Hide on tablet

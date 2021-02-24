@@ -87,7 +87,8 @@ class Astra_Html_Component_Configs {
 					'priority'    => 4,
 					'default'     => 'Insert HTML text here.',
 					'input_attrs' => array(
-						'id' => $builder_type . '-html-' . $index,
+						'id'        => $builder_type . '-html-' . $index,
+						'ast_class' => 'ast-bottom-divider',
 					),
 					'partial'     => array(
 						'selector'         => '.ast-' . $builder_type . '-html-' . $index,
@@ -115,16 +116,17 @@ class Astra_Html_Component_Configs {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-link-group]',
-					'default'    => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Link Color', 'astra' ),
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'priority'   => 8,
-					'context'    => Astra_Builder_Helper::$design_tab,
-					'responsive' => true,
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-link-group]',
+					'default'     => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Link Color', 'astra' ),
+					'section'     => $_section,
+					'transport'   => 'postMessage',
+					'priority'    => 8,
+					'context'     => Astra_Builder_Helper::$design_tab,
+					'responsive'  => true,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -164,19 +166,6 @@ class Astra_Html_Component_Configs {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 220,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
 				 * Option: Margin Space
 				 */
 				array(
@@ -203,28 +192,21 @@ class Astra_Html_Component_Configs {
 
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 6,
-					'settings' => array(),
-				);
-				$_configs[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
-					'default'   => astra_get_option( 'footer-html-' . $index . '-alignment' ),
-					'type'      => 'control',
-					'control'   => 'ast-selector',
-					'section'   => $_section,
-					'priority'  => 6,
-					'title'     => __( 'Alignment', 'astra' ),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-					'choices'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
+					'default'     => astra_get_option( 'footer-html-' . $index . '-alignment' ),
+					'type'        => 'control',
+					'control'     => 'ast-selector',
+					'section'     => $_section,
+					'priority'    => 6,
+					'title'       => __( 'Alignment', 'astra' ),
+					'context'     => Astra_Builder_Helper::$general_tab,
+					'transport'   => 'postMessage',
+					'choices'     => array(
 						'left'   => 'align-left',
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				);
 			}
 
