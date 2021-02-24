@@ -429,7 +429,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 					}
 				}
 
-				fontName = wp.customize._value[font_control]._value;
+				var fontName = wp.customize._value[font_control]._value;
 				fontName = fontName.split(',');
 				fontName = fontName[0].replace( /'/g, '' );
 
