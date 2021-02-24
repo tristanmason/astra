@@ -9,8 +9,14 @@
 ( function() {
 
     var cart_flyout = document.getElementById( 'astra-mobile-cart-drawer' ),
-    main_header_masthead = document.getElementById('masthead'),
-    woo_data = '',
+    main_header_masthead = document.getElementById('masthead');
+
+    // Return if masthead not exixts.
+	if( ! main_header_masthead ) {
+		return;
+	}
+
+    var woo_data = '',
     mobileHeader = main_header_masthead.querySelector("#ast-mobile-header"),
     edd_data = '';
 
@@ -18,7 +24,7 @@
 		woo_data = cart_flyout.querySelector( '.widget_shopping_cart.woocommerce' );
 		edd_data = cart_flyout.querySelector( '.widget_edd_cart_widget' );
     }
-    
+
     /**
 	 * Opens the Cart Flyout.
 	 */
@@ -62,7 +68,7 @@
 			document.documentElement.classList.remove( 'ast-mobile-cart-active' );
 		}
     }
-    
+
     /**
 	 * Main Init Function.
 	 */
@@ -95,7 +101,7 @@
 			var woo_cart = document.querySelector( '.ast-mobile-header-wrap .ast-header-woo-cart' );
 			var edd_cart = document.querySelector( '.ast-mobile-header-wrap .ast-header-edd-cart' );
 			var cart_close = document.querySelector( '.astra-cart-drawer-close' );
-	
+
 			if ( undefined !== woo_cart && '' !== woo_cart && null !== woo_cart ) {
 				woo_cart.addEventListener("click", cartFlyoutOpen, false);
 				woo_cart.cart_type = 'woocommerce';
@@ -108,7 +114,7 @@
 				cart_close.addEventListener("click", cartFlyoutClose, false);
 			}
 		}
-		
+
     }
 
     window.addEventListener('resize', function () {
@@ -118,18 +124,18 @@
 			cart_close.click();
 		}
     });
-    
+
     window.addEventListener( 'load', function() {
 		cartInit();
 	} );
 	document.addEventListener( 'astLayoutWidthChanged', function() {
 		cartInit();
     } );
-    
+
     document.addEventListener( 'astPartialContentRendered', function() {
 		cartInit();
     });
-    
+
     var layoutChangeDelay;
 	window.addEventListener('resize', function () {
 		clearTimeout( layoutChangeDelay );
