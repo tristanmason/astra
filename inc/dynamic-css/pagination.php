@@ -89,7 +89,6 @@ function astra_pagination_css( $dynamic_css ) {
             }';
 
 		if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-				
 			$pagination_static_css .= '
                 .ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
                 .ast-pagination .prev.page-numbers:visited.dots,
@@ -123,39 +122,37 @@ function astra_pagination_css( $dynamic_css ) {
 			
 		if ( is_rtl() ) {
 			$pagination_static_css .= '
-                @media (min-width: 993px) {
-                    .ast-pagination {
-                        padding-right: 3.33333em;
-                        padding-left: 3.33333em;
-                    }
+            @media (min-width: 993px) {
+                .ast-pagination {
+                    padding-right: 3.33333em;
+                    padding-left: 3.33333em;
                 }
-                .ast-pagination .next.page-numbers {
-                    float: left;
-                    text-align: left;
+            }
+            .ast-pagination .next.page-numbers {
+                float: left;
+                text-align: left;
+            }
+                
+            @media (max-width: 768px) {
+                .ast-pagination .next.page-numbers .page-navigation {
+                    padding-left: 0;
                 }
-                    
-                @media (max-width: 768px) {
-                    .ast-pagination .next.page-numbers .page-navigation {
-                        padding-left: 0;
-                    }
-                }';
+            }';
 					
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-
 				$pagination_static_css .= '
-                    @media (min-width: 769px) {
-                        .ast-pagination .prev.page-numbers.next,
-                        .ast-pagination .prev.page-numbers:visited.next,
-                        .ast-pagination .prev.page-numbers:focus.next,
-                        .ast-pagination .next.page-numbers.next,
-                        .ast-pagination .next.page-numbers:visited.next,
-                        .ast-pagination .next.page-numbers:focus.next {
-                            margin-left: 0;
-                        }
-                    }';
+                @media (min-width: 769px) {
+                    .ast-pagination .prev.page-numbers.next,
+                    .ast-pagination .prev.page-numbers:visited.next,
+                    .ast-pagination .prev.page-numbers:focus.next,
+                    .ast-pagination .next.page-numbers.next,
+                    .ast-pagination .next.page-numbers:visited.next,
+                    .ast-pagination .next.page-numbers:focus.next {
+                        margin-left: 0;
+                    }
+                }';
 			}           
-		} else {
-				
+		} else {    
 			$pagination_static_css .= '
                 @media (min-width: 993px) {
                     .ast-pagination {
@@ -174,17 +171,17 @@ function astra_pagination_css( $dynamic_css ) {
                 }';
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-                   $pagination_static_css .= '
-                    @media (min-width: 769px) {
-                        .ast-pagination .prev.page-numbers.next,
-                        .ast-pagination .prev.page-numbers:visited.next,
-                        .ast-pagination .prev.page-numbers:focus.next,
-                        .ast-pagination .next.page-numbers.next,
-                        .ast-pagination .next.page-numbers:visited.next,
-                        .ast-pagination .next.page-numbers:focus.next {
-                            margin-right: 0;
-                        }
-                    }';
+				$pagination_static_css .= '
+                @media (min-width: 769px) {
+                    .ast-pagination .prev.page-numbers.next,
+                    .ast-pagination .prev.page-numbers:visited.next,
+                    .ast-pagination .prev.page-numbers:focus.next,
+                    .ast-pagination .next.page-numbers.next,
+                    .ast-pagination .next.page-numbers:visited.next,
+                    .ast-pagination .next.page-numbers:focus.next {
+                        margin-right: 0;
+                    }
+                }';
 			}           
 		}
 		$dynamic_css .= $pagination_static_css;
