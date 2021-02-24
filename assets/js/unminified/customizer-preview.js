@@ -1416,7 +1416,7 @@ function isJsonString( str ) {
 					)
 				);
 			});
-		}, 100);
+		}, 500);
 
 	})
 
