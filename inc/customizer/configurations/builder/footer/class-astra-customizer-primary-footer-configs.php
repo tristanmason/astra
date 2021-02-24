@@ -33,8 +33,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
-
 			$_section = 'section-primary-footer-builder';
 
 			$column_count = range( 1, Astra_Builder_Helper::$num_of_footer_columns );
@@ -270,7 +268,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'data_attrs' => array(
 						'name' => 'hb-footer-bg-obj-responsive',
 					),
-					'default'    => $defaults['hb-footer-bg-obj-responsive'],
+					'default'    => astra_get_option( 'hb-footer-bg-obj-responsive' ),
 					'title'      => __( 'Background', 'astra' ),
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),

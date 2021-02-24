@@ -8,7 +8,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       3.1.0
  */
 
 // Exit if accessed directly.
