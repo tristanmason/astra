@@ -2833,6 +2833,10 @@ body .entry-content .wp-block-latest-posts li {
   display: inline-block;
 }
 
+.ast-header-break-point .ast-mobile-header-wrap .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
+  transform: rotateX(180deg);
+}
+
 .ast-header-break-point .ast-nav-menu .sub-menu {
   line-height: 3;
 }
@@ -3204,6 +3208,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 
