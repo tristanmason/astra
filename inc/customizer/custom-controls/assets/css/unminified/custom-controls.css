@@ -1132,6 +1132,10 @@ input[type="text"].select2-search__field {
   margin-top: 15px;
 }
 
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customizer-text {
+	margin-top: 0;
+}
+
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
   font-weight: 500;
   letter-spacing: 1px;
