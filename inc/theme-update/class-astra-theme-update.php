@@ -855,7 +855,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options               = get_option( 'astra-settings', array() );
 			$primary_submenu_otem_border = isset( $theme_options['primary-submenu-item-border'] ) ? $theme_options['primary-submenu-item-border'] : array();
 
-			if ( ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) ) {
+			if ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) {
 				$theme_options['primary-submenu-item-border'] = 1;
 			} else {
 				$theme_options['primary-submenu-item-border'] = 0;
