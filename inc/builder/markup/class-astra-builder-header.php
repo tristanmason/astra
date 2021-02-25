@@ -224,10 +224,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function above_header() {
 
-			if ( apply_filters( 'astra_hfb_above_header_disable', false ) ) {
-				return;
-			}
-
 			$display = get_post_meta( get_the_ID(), 'ast-hfb-above-header-display', true );
 			$display = apply_filters( 'astra_above_header_display', $display );
 
@@ -275,10 +271,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 *  Call below header UI.
 		 */
 		public function below_header() {
-
-			if ( apply_filters( 'astra_hfb_below_header_disable', false ) ) {
-				return;
-			}
 
 			$display = get_post_meta( get_the_ID(), 'ast-hfb-below-header-display', true );
 			$display = apply_filters( 'astra_below_header_display', $display );
