@@ -9,6 +9,11 @@
   margin: 1em 0 0.2em;
 }
 
+.customize-control-ast-divider .customizer-text {
+    margin-top: -10px;
+    display: block;
+}
+
 .ast-field-settings-modal .customize-control-ast-divider {
   background-color: #f5f5f5;
   display: block;
