@@ -2137,6 +2137,10 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
+.customize-control-ast-heading .ast-heading-wrapper.ast-control-reduce-top-space {
+	margin-top: -15px;
+}
+
 .ast-link-open-in-new-tab-wrapper {
   margin: 10px 0;
 }
@@ -3775,7 +3779,7 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control-ast-heading .ast-heading-wrapper.ast-control-reduce-top-space {
+.customize-control .ast-control-reduce-top-space {
 	margin-top: -15px;
 }
 
