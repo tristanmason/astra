@@ -203,7 +203,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					self::$contexts[ $configuration['name'] ] = $configuration['context'];
 				} else {
 					if ( isset( $configuration['type'] ) && ( ( 'control' === $configuration['type'] ) || ( 'sub-control' === $configuration['type'] ) ) ) {
-						if ( ( isset( $configuration['control'] ) && 'ast-builder-header-control' !== $configuration['control'] ) && ( isset( $configuration['name'] ) && strpos( $configuration['name'], 'ahfb-notice' ) === false ) ) {
+						if ( ( isset( $configuration['control'] ) && 'ast-builder-header-control' !== $configuration['control'] ) && ( isset( $configuration['name'] ) && strpos( $configuration['name'], 'ast-callback-notice' ) === false ) ) {
 							self::$contexts[ $configuration['name'] ] = Astra_Builder_Helper::$general_tab;
 						}
 					}
