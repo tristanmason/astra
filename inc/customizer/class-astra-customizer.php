@@ -1140,6 +1140,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			Astra_Customizer_Control_Base::add_control(
+				'ast-customizer-link',
+				array(
+					'callback'         => 'Astra_Control_Customizer_Link',
+					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' ),
+				)
+			);
+
+
 			/**
 			 * Helper files
 			 */
