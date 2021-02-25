@@ -689,27 +689,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$config = $this->sanitize_control( $config );
 			}
 
-			self::$dynamic_options['settings'][ astra_get_prop( $config, 'name' ) ] = array(
-				'default'           => astra_get_prop( $config, 'default' ),
-				'type'              => astra_get_prop( $config, 'datastore_type' ),
-				'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
-				'sanitize_callback' => $sanitize_callback,
-			);
-
 			$config['label'] = astra_get_prop( $config, 'title' );
 			$config['type']  = astra_get_prop( $config, 'control' );
 
 			if ( false !== astra_get_prop( $config, 'font-type', false ) ) {
 				$config['type'] = astra_get_prop( $config, 'font-type', false );
-			}
-
-			if ( astra_get_prop( $config, 'partial', false ) ) {
-				self::$dynamic_options['partials'][ astra_get_prop( $config, 'name' ) ] = array(
-					'selector'           => astra_get_prop( $config['partial'], 'selector' ),
-					'render_callback'    => astra_get_prop( $config['partial'], 'render_callback' ),
-					'containerInclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
-					'fallbackRefresh'    => astra_get_prop( $config['partial'], 'fallback_refresh', true ),
-				);
 			}
 
 			if ( 'image' === $config['type'] ) {
@@ -721,6 +705,22 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				self::$js_configs ['skip_context'] [] = astra_get_prop( $config, 'name' );
 				$this->prepare_preload_controls( $config );
 				return;
+			}
+
+			self::$dynamic_options['settings'][ astra_get_prop( $config, 'name' ) ] = array(
+				'default'           => astra_get_prop( $config, 'default' ),
+				'type'              => astra_get_prop( $config, 'datastore_type' ),
+				'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
+				'sanitize_callback' => $sanitize_callback,
+			);
+
+			if ( astra_get_prop( $config, 'partial', false ) ) {
+				self::$dynamic_options['partials'][ astra_get_prop( $config, 'name' ) ] = array(
+					'selector'           => astra_get_prop( $config['partial'], 'selector' ),
+					'render_callback'    => astra_get_prop( $config['partial'], 'render_callback' ),
+					'containerInclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
+					'fallbackRefresh'    => astra_get_prop( $config['partial'], 'fallback_refresh', true ),
+				);
 			}
 
 			$config['id']       = astra_get_prop( $config, 'name' );
@@ -1129,6 +1129,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				array(
 					'callback'          => 'Astra_Control_Font_Variant',
 					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
+				'ast-description',
+				array(
+					'callback'          => 'Astra_Control_Description',
+					'sanitize_callback' => '',
 				)
 			);
 
