@@ -408,7 +408,8 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 				}
 
 				if ( ! count( $properties ) ) {
-					continue; }
+					continue;
+				}
 
 				$temp_parse_css   = $selector . '{';
 				$properties_added = 0;
@@ -416,7 +417,8 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 				foreach ( $properties as $property => $value ) {
 
 					if ( '' == $value && 0 !== $value ) {
-						continue; }
+						continue;
+					}
 
 					$properties_added++;
 					$temp_parse_css .= $property . ':' . $value . ';';
