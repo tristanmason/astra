@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 const BuilderComponent = props => {
 
 	let value = props.control.setting.get();
+	let staleValue = {};
 
 	let baseDefault = {};
 	let defaultValue = props.control.params.default ? {
@@ -39,6 +40,9 @@ const BuilderComponent = props => {
 
 	if ( props.control.container ) {
 		contFlag = props.control.container[0].getAttribute( 'isPopup' );
+	}
+	if ("astra-settings[header-desktop-items]" === controlParams.group) {
+		staleValue = JSON.parse( JSON.stringify(state.value) )
 	}
 
 	const updateValues = (value, row = '') => {
@@ -103,6 +107,9 @@ const BuilderComponent = props => {
 		updatePresetSettings();
 		updateRowLayout();
 	}, []);
+	// useEffect( () => {
+	// 	staleValue = state.value;
+	// }, state.value);
 
 	const onDragStart = () => {
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
@@ -318,12 +325,42 @@ const BuilderComponent = props => {
 	};
 
 	const onDragEnd = (row, zone, items) => {
+
+		let itemIncludesMenu = false;
+
+		if ("astra-settings[header-desktop-items]" === controlParams.group) {
+			items.length > 0 && items.map( item => {
+				itemIncludesMenu = item.id.includes( 'menu' );;
+			});
+
+		}
+
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
 		{
 			items.length > 0 && items.map(item => {
+
+				if ( 'popup' === row && itemIncludesMenu && 'mobile-menu' !== item.id ) {
+
+					for ( const [rowKey, value] of Object.entries(staleValue) ) {
+						
+						for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
+							
+							for( let zoneItem of zoneValue ) {
+								
+								if ( zoneItem === item.id ) {
+									row = rowKey;
+									zone = zoneKey;
+									update = updateState[rowKey];
+								}
+							}
+						}
+					}
+					
+				} 
 				updateItems.push(item.id);
+				
 			});
 		}
 		;

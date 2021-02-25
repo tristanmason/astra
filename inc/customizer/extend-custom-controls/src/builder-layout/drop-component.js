@@ -72,7 +72,7 @@ const DropComponent = props => {
 			{sortableGroup(theItems, currentList, '')}
 		</div>;
 	}
-console.log(props.zone);
+
 	return <div className={`ahfb-builder-area ahfb-builder-area-${location}`} data-location={props.zone}>
 		{'astra-settings[header-desktop-items]' === props.controlParams.group && 'right' === location && sortableGroup(theCenterItems, currentCenterList, '_center')}
 		{sortableGroup(theItems, currentList, '')}
