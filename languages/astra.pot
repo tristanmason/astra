@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-23T12:56:17+00:00\n"
+"POT-Creation-Date: 2021-02-25T04:40:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -827,7 +827,7 @@ msgstr ""
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-primary-footer-configs.php:272
 #: inc/customizer/configurations/builder/header/class-astra-customizer-above-header-configs.php:142
 #: inc/customizer/configurations/builder/header/class-astra-customizer-below-header-configs.php:142
-#: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:212
+#: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:213
 #: inc/customizer/configurations/builder/header/class-astra-customizer-primary-header-configs.php:159
 #: inc/customizer/configurations/builder/header/class-astra-customizer-woo-cart-configs.php:328
 #: inc/customizer/configurations/builder/header/class-astra-customizer-woo-cart-configs.php:437
@@ -2645,6 +2645,19 @@ msgstr ""
 msgid "Border Width"
 msgstr ""
 
+#: inc/customizer/configurations/builder/base/class-astra-button-component-configs.php:270
+#: inc/customizer/configurations/builder/footer/class-astra-customizer-above-footer-configs.php:269
+#: inc/customizer/configurations/builder/footer/class-astra-customizer-below-footer-configs.php:269
+#: inc/customizer/configurations/builder/footer/class-astra-customizer-primary-footer-configs.php:236
+#: inc/customizer/configurations/builder/header/class-astra-customizer-mobile-trigger-configs.php:304
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:317
+#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:163
+#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:182
+#: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:291
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:410
+msgid "Border Color"
+msgstr ""
+
 #: inc/customizer/configurations/builder/base/class-astra-button-component-configs.php:326
 #: inc/customizer/configurations/builder/header/class-astra-customizer-edd-cart-configs.php:155
 #: inc/customizer/configurations/builder/header/class-astra-customizer-mobile-trigger-configs.php:327
@@ -2893,18 +2906,6 @@ msgstr ""
 msgid "Top Border Size"
 msgstr ""
 
-#: inc/customizer/configurations/builder/footer/class-astra-customizer-above-footer-configs.php:269
-#: inc/customizer/configurations/builder/footer/class-astra-customizer-below-footer-configs.php:269
-#: inc/customizer/configurations/builder/footer/class-astra-customizer-primary-footer-configs.php:236
-#: inc/customizer/configurations/builder/header/class-astra-customizer-mobile-trigger-configs.php:304
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:317
-#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:163
-#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:182
-#: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:291
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:410
-msgid "Border Color"
-msgstr ""
-
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-above-footer-configs.php:315
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-below-footer-configs.php:316
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-primary-footer-configs.php:285
@@ -2988,6 +2989,7 @@ msgstr ""
 #: inc/customizer/configurations/builder/header/class-astra-customizer-mobile-trigger-configs.php:194
 #: inc/customizer/configurations/builder/header/class-astra-customizer-woo-cart-configs.php:96
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:673
+#: inc/customizer/extend-custom-controls/src/box-shadow/box-shadow-component.js:108
 msgid "Outline"
 msgstr ""
 
@@ -3085,6 +3087,7 @@ msgid "Dropdown"
 msgstr ""
 
 #: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:94
+#: inc/customizer/extend-custom-controls/src/box-shadow/box-shadow-component.js:105
 msgid "Position"
 msgstr ""
 
@@ -3101,11 +3104,11 @@ msgstr ""
 msgid "Center"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:186
+#: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:187
 msgid "Inner Element Spacing"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:231
+#: inc/customizer/configurations/builder/header/class-astra-customizer-off-canvas-configs.php:232
 msgid "Close Icon Color"
 msgstr ""
 
@@ -3679,6 +3682,10 @@ msgstr ""
 #: inc/customizer/extend-custom-controls/src/border/border-component.js:67
 #: inc/customizer/extend-custom-controls/src/responsive-spacing/responsive-spacing-component.js:94
 msgid "Link Values Together"
+msgstr ""
+
+#: inc/customizer/extend-custom-controls/src/box-shadow/box-shadow-component.js:109
+msgid "Inset"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/src/builder-layout/add-component.js:93
