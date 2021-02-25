@@ -122,11 +122,11 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector                                    => array(
 				'font-family'    => astra_get_font_family( $menu_font_family ),
 				'font-weight'    => esc_attr( $menu_font_weight ),
-				'font-size'      => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
 				'text-transform' => esc_attr( $menu_text_transform ),
 			),
 			$selector . ' .menu-item > .menu-link'       => array(
 				'line-height'    => esc_attr( $menu_line_height ),
+				'font-size'      => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
 				'color'          => $menu_resp_color_desktop,
 				'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
@@ -161,8 +161,11 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'width'               => astra_get_css_value( $sub_menu_width, 'px' ),
 				'border-radius'       => astra_get_css_value( $sub_menu_border_radius, 'px' ),
 			),
-			$selector . ' .sub-menu, ' . $selector . ' .astra-full-megamenu-wrapper' => array(
+			$selector . ' .main-header-menu > .menu-item > .sub-menu, ' . $selector . ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper' => array(
 				'margin-top' => astra_get_css_value( $sub_menu_top_offset, 'px' ),
+			),
+			'.ast-desktop ' . $selector . ' .main-header-menu > .menu-item > .sub-menu:before, .ast-desktop ' . $selector . ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:before' => array(
+				'height' => astra_calculate_spacing( $sub_menu_top_offset . 'px', '+', '5', 'px' ),
 			),
 			$selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' => array(
 				'top'   => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),

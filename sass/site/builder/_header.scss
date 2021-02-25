@@ -331,7 +331,7 @@
 	justify-content: center;
 }
 
-.ast-footer-html-inner {
+.ast-footer-copyright {
 	p {
 		margin-bottom: 0;
 	}
@@ -707,6 +707,12 @@ body.admin-bar {
 		padding: 10px 0;
 		height: auto;
 	}
+	>*:first-child {
+		padding-top: 10px;
+	}
+	>*:last-child {
+		padding-bottom: 0;
+	}
 }
 .ast-off-canvas-active body.ast-main-header-nav-open {
 	overflow: hidden;
@@ -744,10 +750,6 @@ body.admin-bar {
 			width: auto;
 			height: auto;
 		}
-	}
-	.ast-builder-grid-row-container-inner {
-		display: grid;
-		align-items: center;
 	}
 }
 .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open {
@@ -951,32 +953,6 @@ body.admin-bar {
 				padding: 0 0.5em;
 			}
 		}
-	}
-}
-
-/** Cart CSS */
-.ast-header-break-point {
-	&.ast-woocommerce-cart-menu.astra-hfb-header,
-	&.astra-hfb-header {
-		.ast-site-header-cart {
-			padding: 0;
-		}
-		.ast-cart-menu-wrap {
-			width: 2em;
-			height: 2em;
-			font-size: 1.4em;
-			line-height: 2;
-			vertical-align: middle;
-			text-align: right;
-		}
-	}
-	.ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-		width: 2em;
-		height: 2em;
-		font-size: 1.4em;
-		line-height: 2;
-		vertical-align: middle;
-		text-align: right;
 	}
 }
 

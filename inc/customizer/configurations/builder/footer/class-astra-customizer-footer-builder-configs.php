@@ -215,7 +215,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'  => 'section-footer-builder-layout',
 				'priority' => 71,
 				'label'    => '',
-				'help'     => __( 'If the colors don\'t seem to apply please check if colors are set from individual Above, Below or Primary Footer.', 'astra' ),
+				'help'     => __( 'If this color setting is not reflecting, check if colors are set from dedicated above, below or primary footer settings.', 'astra' ),
 				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
@@ -233,7 +233,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'choices'     => Astra_Builder_Helper::$footer_desktop_items,
 				'transport'   => 'postMessage',
 				'partial'     => array(
-					'selector'            => '.ast-site-footer',
+					'selector'            => '.site-footer',
 					'container_inclusive' => true,
 					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_markup' ),
 				),
