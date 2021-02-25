@@ -130,13 +130,13 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Log In view
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-login-heading]',
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'section'  => $_section,
-				'priority' => 1,
-				'title'    => __( 'Logged In View', 'astra' ),
-				'settings' => array(),
+				'name'        => ASTRA_THEME_SETTINGS . '[header-account-login-heading]',
+				'type'        => 'control',
+				'control'     => 'ast-heading',
+				'section'     => $_section,
+				'priority'    => 1,
+				'title'       => __( 'Logged In View', 'astra' ),
+				'settings'    => array(),
 				'input_attrs' => array(
 					'ast_class' => 'ast-control-reduce-top-space',
 				),
