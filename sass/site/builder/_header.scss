@@ -818,6 +818,16 @@ body.admin-bar {
 			}
 		}
 	}
+	.ast-mobile-popup-drawer.content-align-flex-end,
+	.ast-mobile-header-content.content-align-flex-end {
+		.main-header-bar-navigation {
+			.menu-item-has-children {
+				>.ast-menu-toggle {
+					left: calc( 20px - 0.907em );
+				}
+			}
+		}
+	}
 }
 
 /** Hover menu style CSS */
