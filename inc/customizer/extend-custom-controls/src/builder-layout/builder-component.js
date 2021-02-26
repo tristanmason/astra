@@ -342,7 +342,7 @@ const BuilderComponent = props => {
 		{
 			items.length > 0 && items.map(item => {
 				
-				if ( 'popup' === row && itemIncludesMenu && 'mobile-menu' !== item.id ) {
+				if ( 'popup' === row && ( ( itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) {
 				
 					for ( const [rowKey, value] of Object.entries(staleValue) ) {
 						
