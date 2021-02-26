@@ -35,8 +35,14 @@ class Astra_Markup {
 			add_filter( 'astra_markup_ast-comment-meta-wrap_close', array( $this, 'ast_comment_meta_wrap_close' ) );                                
 			add_filter( 'astra_attr_ast-comment-time_output', array( $this, 'ast_comment_time_attr' ) );
 			add_filter( 'astra_attr_ast-comment-cite-wrap_output', array( $this, 'ast_comment_cite_wrap_attr' ) );
+			add_filter( 'astra_markup_footer-widget-div_open', array( $this, 'footer_widget_div_open' ) );
+			add_filter( 'astra_markup_footer-widget-div_close', array( $this, 'footer_widget_div_close' ) );
+			add_filter( 'astra_markup_header-widget-div_open', array( $this, 'header_widget_div_open' ) );
+			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );                        
 			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 		}
+		add_filter( 'astra_attr_header-widget-area-inner', array( $this, 'header_widget_area_inner' ) );
+		add_filter( 'astra_attr_footer-widget-area-inner', array( $this, 'footer_widget_area_inner' ) );
 		add_filter( 'astra_attr_ast-grid-lg-12_output', array( $this, 'ast_grid_lg_12' ) );
 		add_filter( 'astra_attr_ast-grid-common-col_output', array( $this, 'ast_grid_common_css' ) );
 		add_filter( 'astra_attr_ast-grid-col-6_output', array( $this, 'ast_grid_col_6' ) );
@@ -113,6 +119,28 @@ class Astra_Markup {
 	 * @return array.
 	 */
 	public function comment_count_wrapper_close( $args ) {
+
+	/**
+	 * Footer widget opening div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function footer_widget_div_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'footer-widget-area-inner site-info-inner' );
+		return $args;
+	}
+
+	/**
+	 * Footer widget closing div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function footer_widget_div_close( $args ) {
 		$args['close'] = '</div>';
 		return $args;
 	}
@@ -185,6 +213,47 @@ class Astra_Markup {
 	public function ast_comment_cite_wrap_attr() {
 		return 'class = "ast-comment-cite-wrap ast-col-lg-12" ';
 	}
+	/**
+	 * Footer widget inner class.
+	 *
+	 * @param array $args attributes.
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function footer_widget_area_inner( $args ) {
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			$args['class'] = $args['class'] . ' footer-widget-area-inner';
+		}
+		return $args;
+	}
+
+	/**
+	 * Header widget inner class.
+	 *
+	 * @param array $args Attributes.
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function header_widget_area_inner( $args ) {
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			$args['class'] = $args['class'] . ' header-widget-area-inner';
+		}
+		return $args;
+	}
+
+	/**
+	 * Footer widget opening div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function header_widget_div_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'header-widget-area-inner site-info-inner' );
+		return $args;   
+	}
+
 }
 
 /**
