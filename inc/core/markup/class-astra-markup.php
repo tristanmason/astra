@@ -119,6 +119,9 @@ class Astra_Markup {
 	 * @return array.
 	 */
 	public function comment_count_wrapper_close( $args ) {
+		$args['close'] = '</div>';
+		return $args;
+	}
 
 	/**
 	 * Footer widget opening div.
