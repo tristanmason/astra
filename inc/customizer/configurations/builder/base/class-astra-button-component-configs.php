@@ -384,7 +384,7 @@ class Astra_Button_Component_Configs {
 						'control'  => 'ast-divider',
 						'priority' => 90,
 						'settings' => array(),
-						'context'   => Astra_Builder_Helper::$design_tab,
+						'context'  => Astra_Builder_Helper::$design_tab,
 					),
 
 					/**

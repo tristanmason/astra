@@ -36,17 +36,17 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			 * Priorities updated based on is new header-footer builder active or not.
 			 */
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-				$display_title_priority = 6.5;
-				$retina_log_divider = 4;
+				$display_title_priority    = 6.5;
+				$retina_log_divider        = 4;
 				$retina_logo_togglecontrol = 4;
-				$retina_logo = 5;
-				$display_tagline_priority = 10;
+				$retina_logo               = 5;
+				$display_tagline_priority  = 10;
 			} else {
-				$display_title_priority = 6.5;
-				$retina_log_divider = 5;
+				$display_title_priority    = 6.5;
+				$retina_log_divider        = 5;
 				$retina_logo_togglecontrol = 5;
-				$retina_logo = 5.5;
-				$display_tagline_priority = 9.5;
+				$retina_logo               = 5.5;
+				$display_tagline_priority  = 9.5;
 			}
 
 			$_configs = array(
