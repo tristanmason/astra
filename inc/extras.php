@@ -442,7 +442,7 @@ function astra_markup_open( $context, $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 	if ( $context ) {
 		$args     = apply_filters( "astra_markup_{$context}_open", $args );
-		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $context, $args['attrs'], $args ) ) : '';
+		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $context, $args['attrs'] ) ) : '';
 
 		if ( $args['echo'] ) {
 			echo $open_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
