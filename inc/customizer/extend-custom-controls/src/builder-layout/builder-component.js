@@ -279,7 +279,6 @@ const BuilderComponent = props => {
 
 	const removeItem = (item, row, zone) => {
 
-
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
@@ -325,7 +324,7 @@ const BuilderComponent = props => {
 	};
 
 	const onDragEnd = (row, zone, items) => {
-
+		
 		let itemIncludesMenu = false;
 
 		if ("astra-settings[header-desktop-items]" === controlParams.group) {
@@ -338,11 +337,12 @@ const BuilderComponent = props => {
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
+		let newStale = JSON.parse((props.control.container[0].getAttribute('newStale'))) || {};
 		{
 			items.length > 0 && items.map(item => {
 
 				if ( 'popup' === row && itemIncludesMenu && 'mobile-menu' !== item.id ) {
-
+					
 					for ( const [rowKey, value] of Object.entries(staleValue) ) {
 						
 						for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
@@ -357,15 +357,32 @@ const BuilderComponent = props => {
 							}
 						}
 					}
+					updateItems.push(item.id);
+					update[zone] = updateItems;
+					updateState[row][zone] = updateItems;
+					newStale = {
+						'row' : row,
+						'zone' : zone,
+					}
 					
-				} 
-				updateItems.push(item.id);
-				
+					props.control.container[0].setAttribute( 'newStale', JSON.stringify(newStale) );
+					staleValue = JSON.parse( JSON.stringify(updateState) )
+					setPopupFlag(true);
+					setState(prevState => ({
+						...prevState,
+						value: updateState
+					}));
+
+					updateValues(updateState, row);
+				} else {
+					updateItems.push(item.id);
+				}
 			});
 		}
 		;
 
-		if (!arraysEqual(update[zone], updateItems)) {
+		if (!arraysEqual(update[zone], updateItems) && row !== newStale['row'] && zone !== newStale['zone'] ) {
+			
 			if ('astra-settings[header-desktop-items]' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {
 				if (update[row + '_left_center'].length > 0) {
 					update[row + '_left_center'].map(move => {
@@ -381,9 +398,9 @@ const BuilderComponent = props => {
 					updateState[row][row + '_right_center'] = [];
 				}
 			}
-
 			update[zone] = updateItems;
 			updateState[row][zone] = updateItems;
+
 			setPopupFlag(true);
 			setState(prevState => ({
 				...prevState,
