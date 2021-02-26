@@ -36,30 +36,19 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				 * Option: Default Sidebar Position
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-sidebars',
-					'default'  => astra_get_option( 'site-sidebar-layout' ),
-					'priority' => 5,
-					'title'    => __( 'Default Layout', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'section'     => 'section-sidebars',
+					'default'     => astra_get_option( 'site-sidebar-layout' ),
+					'priority'    => 5,
+					'title'       => __( 'Default Layout', 'astra' ),
+					'choices'     => array(
 						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
 						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
 						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-sidebars',
-					'priority' => 5,
-					'settings' => array(),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -104,31 +93,20 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				 * Option: Blog Post Archive
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'default'  => astra_get_option( 'archive-post-sidebar-layout' ),
-					'section'  => 'section-sidebars',
-					'priority' => 5,
-					'title'    => __( 'Archives', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'default'     => astra_get_option( 'archive-post-sidebar-layout' ),
+					'section'     => 'section-sidebars',
+					'priority'    => 5,
+					'title'       => __( 'Archives', 'astra' ),
+					'choices'     => array(
 						'default'       => __( 'Default', 'astra' ),
 						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
 						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
 						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-sidebar-width]',
-					'type'     => 'control',
-					'section'  => 'section-sidebars',
-					'control'  => 'ast-divider',
-					'priority' => 10,
-					'settings' => array(),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
