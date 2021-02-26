@@ -470,6 +470,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				);
 
 				$_configs = array_merge( $_configs, $new_configs );
+			} else {
+				$new_configs = array();
+
+				$_configs = array_merge( $_configs, $new_configs );
 			}
 
 			$configurations = array_merge( $configurations, $_configs );
