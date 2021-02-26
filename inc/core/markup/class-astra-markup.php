@@ -30,10 +30,64 @@ class Astra_Markup {
 			add_filter( 'astra_markup_footer-widget-div_open', array( $this, 'footer_widget_div_open' ) );
 			add_filter( 'astra_markup_footer-widget-div_close', array( $this, 'footer_widget_div_close' ) );
 			add_filter( 'astra_markup_header-widget-div_open', array( $this, 'header_widget_div_open' ) );
-			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );
+			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );                        
+			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 		}
-		add_filter( 'astra_attr_footer-widget-area-inner_output', array( $this, 'footer_widget_area_inner' ) );
-		add_filter( 'astra_attr_header-widget-area-inner_output', array( $this, 'header_widget_area_inner' ) );
+		add_filter( 'astra_attr_header-widget-area-inner', array( $this, 'header_widget_area_inner' ) );
+		add_filter( 'astra_attr_footer-widget-area-inner', array( $this, 'footer_widget_area_inner' ) );
+		add_filter( 'astra_attr_ast-grid-lg-12_output', array( $this, 'ast_grid_lg_12' ) );
+		add_filter( 'astra_attr_ast-grid-common-col_output', array( $this, 'ast_grid_common_css' ) );
+		add_filter( 'astra_attr_ast-grid-col-6_output', array( $this, 'ast_grid_col_6' ) );
+		add_filter( 'astra_attr_ast-layout-4-grid_output', array( $this, 'ast_layout_4_grid' ) );       
+	}
+
+	/**
+	 * We have removed grid css and make common css for grid style.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_common_css() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-md-12'; 
+	}
+
+	/**
+	 * Removed grid layout classes and make common class for same style.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_col_6() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-50' : 'ast-col-md-6 ast-col-xs-12'; 
+	}
+
+	/** 
+	 * Comment form grid classes.
+	 *
+	 * @since x.x.x 
+	 * @return string.
+	 */
+	public function comment_form_grid_class() {
+		return 'ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4';
+	}
+
+	/** 
+	 * Removed grid layout classes and make common class for same style
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_lg_12() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-lg-12'; 
+	}
+
+	/** 
+	 * Layout-4 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_4_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col as-width-sm-25 as-width-md-25' : 'ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12'; 
 	}
 
 	/**
@@ -45,8 +99,8 @@ class Astra_Markup {
 	 */
 	public function footer_widget_div_open( $args ) {
 		$args['open']  = '<div %s>';
-		$args['class'] = 'footer-widget-area-inner site-info-inner';
-		return $args;   
+		$args['attrs'] = array( 'class' => 'footer-widget-area-inner site-info-inner' );
+		return $args;
 	}
 
 	/**
@@ -58,27 +112,35 @@ class Astra_Markup {
 	 */
 	public function footer_widget_div_close( $args ) {
 		$args['close'] = '</div>';
-		return $args;   
+		return $args;
 	}
 
 	/**
 	 * Footer widget inner class.
 	 *
+	 * @param array $args attributes.
 	 * @since x.x.x
 	 * @return string.
 	 */
-	public function footer_widget_area_inner() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'footer-widget-area-inner' : '';
+	public function footer_widget_area_inner( $args ) {
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			$args['class'] = $args['class'] . ' footer-widget-area-inner';
+		}
+		return $args;
 	}
 
 	/**
 	 * Header widget inner class.
 	 *
+	 * @param array $args Attributes.
 	 * @since x.x.x
 	 * @return string.
 	 */
-	public function header_widget_area_inner() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'header-widget-area-inner' : '';
+	public function header_widget_area_inner( $args ) {
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			$args['class'] = $args['class'] . ' header-widget-area-inner';
+		}
+		return $args;
 	}
 
 	/**
@@ -90,7 +152,7 @@ class Astra_Markup {
 	 */
 	public function header_widget_div_open( $args ) {
 		$args['open']  = '<div %s>';
-		$args['class'] = 'header-widget-area-inner site-info-inner';
+		$args['attrs'] = array( 'class' => 'header-widget-area-inner site-info-inner' );
 		return $args;   
 	}
 

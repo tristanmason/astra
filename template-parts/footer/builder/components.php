@@ -34,7 +34,17 @@ switch ( $component_slug ) {
 
 	case 'widget-1':
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item <?php echo astra_attr( 'footer-widget-area-inner' ); ?>" data-section="sidebar-widgets-footer-widget-1">
+		<aside
+		<?php
+		echo astra_attr(
+			'footer-widget-area-inner',
+			array(
+				'class'        => 'footer-widget-area widget-area site-footer-focus-item',
+				'data-section' => 'sidebar-widgets-footer-widget-1',
+			) 
+		); 
+		?>
+				>
 			<?php
 			astra_markup_open( 'footer-widget-div' );
 			astra_get_sidebar( 'footer-widget-1' );
@@ -46,7 +56,17 @@ switch ( $component_slug ) {
 
 	case 'widget-2':
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item <?php echo astra_attr( 'footer-widget-area-inner' ); ?>" data-section="sidebar-widgets-footer-widget-2">
+		<aside
+		<?php
+		echo astra_attr(
+			'footer-widget-area-inner',
+			array(
+				'class'        => 'footer-widget-area widget-area site-footer-focus-item',
+				'data-section' => 'sidebar-widgets-footer-widget-2',
+			) 
+		); 
+		?>
+		>
 			<?php
 			astra_markup_open( 'footer-widget-div' );
 			astra_get_sidebar( 'footer-widget-2' );
@@ -58,7 +78,17 @@ switch ( $component_slug ) {
 
 	case 'widget-3':
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item <?php echo astra_attr( 'footer-widget-area-inner' ); ?>" data-section="sidebar-widgets-footer-widget-3">
+		<aside
+		<?php
+		echo astra_attr(
+			'footer-widget-area-inner',
+			array(
+				'class'        => 'footer-widget-area widget-area site-footer-focus-item',
+				'data-section' => 'sidebar-widgets-footer-widget-3',
+			) 
+		); 
+		?>
+		>
 			<?php
 			astra_markup_open( 'footer-widget-div' );
 			astra_get_sidebar( 'footer-widget-3' );
@@ -70,7 +100,17 @@ switch ( $component_slug ) {
 		
 	case 'widget-4': 
 		?>
-		<aside class="footer-widget-area widget-area site-footer-focus-item <?php echo astra_attr( 'footer-widget-area-inner' ); ?>" data-section="sidebar-widgets-footer-widget-4">
+		<aside 
+		<?php 
+		echo astra_attr(
+			'footer-widget-area-inner',
+			array(
+				'class'        => 'footer-widget-area widget-area site-footer-focus-item',
+				'data-section' => 'sidebar-widgets-footer-widget-4',
+			) 
+		); 
+		?>
+		>
 			<?php
 			astra_markup_open( 'footer-widget-div' );
 			astra_get_sidebar( 'footer-widget-4' );
