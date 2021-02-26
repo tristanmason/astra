@@ -273,8 +273,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '==',
-						'value'    => 'text',
+						'operator' => '!=',
+						'value'    => 'none',
 					),
 					Astra_Builder_Helper::$general_tab_config,
 				),
