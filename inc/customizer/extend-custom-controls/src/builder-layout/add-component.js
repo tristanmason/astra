@@ -51,7 +51,7 @@ const AddComponent = props => {
 		
 		let itemIncludesMenu = item.includes( 'menu' );
 
-		if ( 'popup' === row && itemIncludesMenu && 'mobile-menu' !== item ) {
+		if ( 'popup' === row && ( ( itemIncludesMenu && 'mobile-menu' !== item ) || 'mobile-trigger' === item ) ) {
 			available = false;
 		}
 
