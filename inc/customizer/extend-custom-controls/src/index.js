@@ -71,4 +71,3 @@ wp.customize.controlConstructor['ast-selector'] = selectorControl;
 wp.customize.controlConstructor['ast-box-shadow'] = BoxShadowControl;
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';
-import DescriptionComponent from "./description/description-component";
