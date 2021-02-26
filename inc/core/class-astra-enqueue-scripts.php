@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => 'main',
+						'astra-theme-css' => 'frontend',
 					),
 				);
 				
@@ -160,6 +160,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				);
 			}
 
+			if ( Astra_Builder_Helper::apply_flex_based_css() ) {              
+				$default_assets['css']['astra-theme-css'] = 'main';
+			}
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
 

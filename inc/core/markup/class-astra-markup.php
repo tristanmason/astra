@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
+ * @copyright   Copyright (c) 2021, Astra
  * @link        https://wpastra.com/
  * @since       Astra x.x.x
  */
@@ -26,10 +26,61 @@ class Astra_Markup {
 	public function __construct() {
 
 		if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-			// Add filters here.
-			$demo = 1; // to avoid phpcs empty if error, we be remove this in other PR.
-			
+			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 		}
+		add_filter( 'astra_attr_ast-grid-lg-12_output', array( $this, 'ast_grid_lg_12' ) );
+		add_filter( 'astra_attr_ast-grid-common-col_output', array( $this, 'ast_grid_common_css' ) );
+		add_filter( 'astra_attr_ast-grid-col-6_output', array( $this, 'ast_grid_col_6' ) );
+		add_filter( 'astra_attr_ast-layout-4-grid_output', array( $this, 'ast_layout_4_grid' ) );       
+	}
+
+	/**
+	 * We have removed grid css and make common css for grid style.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_common_css() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-md-12'; 
+	}
+
+	/**
+	 * Removed grid layout classes and make common class for same style.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_col_6() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-50' : 'ast-col-md-6 ast-col-xs-12'; 
+	}
+
+	/** 
+	 * Comment form grid classes.
+	 *
+	 * @since x.x.x 
+	 * @return string.
+	 */
+	public function comment_form_grid_class() {
+		return 'ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4';
+	}
+
+	/** 
+	 * Removed grid layout classes and make common class for same style
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_lg_12() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-lg-12'; 
+	}
+
+	/** 
+	 * Layout-4 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_4_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col as-width-sm-25 as-width-md-25' : 'ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12'; 
 	}
 }
 

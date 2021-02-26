@@ -333,7 +333,7 @@ function astra_wp_version_compare( $version, $compare ) {
 /**
  * Get the theme author details 
  *
- * @since  x.x.x
+ * @since  3.1.0
  * @return array            Return theme author URL and name.
  */
 function astra_get_theme_author_details() {
@@ -454,7 +454,7 @@ function astra_markup_open( $context, $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 	if ( $context ) {
 		$args     = apply_filters( "astra_markup_{$context}_open", $args );
-		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $context, $args['attrs'], $args ) ) : '';
+		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $context, $args['attrs'] ) ) : '';
 
 		if ( $args['echo'] ) {
 			echo $open_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
