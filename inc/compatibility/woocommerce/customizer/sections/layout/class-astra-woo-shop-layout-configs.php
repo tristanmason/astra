@@ -126,9 +126,10 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'suffix'      => 'px',
 					'input_attrs' => array(
-						'min'  => 768,
-						'step' => 1,
-						'max'  => 1920,
+						'min'       => 768,
+						'step'      => 1,
+						'max'       => 1920,
+						'ast_class' => 'ast-bottom-divider',
 					),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -138,18 +139,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 							'value'    => 'custom',
 						),
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-layout-divider]',
-					'type'     => 'control',
-					'section'  => 'woocommerce_product_catalog',
-					'control'  => 'ast-divider',
-					'priority' => 10,
-					'settings' => array(),
 				),
 			);
 

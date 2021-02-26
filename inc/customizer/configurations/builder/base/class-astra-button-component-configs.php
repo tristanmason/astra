@@ -122,6 +122,7 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
+					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -326,18 +327,6 @@ class Astra_Button_Component_Configs {
 			if ( 'footer' === $builder_type ) {
 
 				$footer_specific_configs = array(
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 30,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$general_tab,
-					),
 
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',

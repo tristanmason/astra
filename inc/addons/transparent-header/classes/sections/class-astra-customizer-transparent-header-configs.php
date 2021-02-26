@@ -541,30 +541,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					 * Option: Transparent Header Builder - HTML Elements configs.
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-html-colors-group]',
-						'default'   => astra_get_option( 'transparent-header-html-colors-group' ),
-						'type'      => 'control',
-						'control'   => 'ast-color-group',
-						'title'     => __( 'Link', 'astra' ),
-						'section'   => 'section-transparent-header',
-						'transport' => 'postMessage',
-						'priority'  => 75,
-						'context'   => Astra_Builder_Helper::$design_tab,
+						'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-html-colors-group]',
+						'default'     => astra_get_option( 'transparent-header-html-colors-group' ),
+						'type'        => 'control',
+						'control'     => 'ast-color-group',
+						'title'       => __( 'Link', 'astra' ),
+						'section'     => 'section-transparent-header',
+						'transport'   => 'postMessage',
+						'priority'    => 75,
+						'context'     => Astra_Builder_Helper::$design_tab,
+						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-html-heading-divider]',
-						'type'     => 'control',
-						'section'  => 'section-transparent-header',
-						'title'    => __( 'HTML Color', 'astra' ),
-						'control'  => 'ast-divider',
-						'context'  => Astra_Builder_Helper::$design_tab,
-						'priority' => 74,
-						'settings' => array(),
-					),
 					// Option: HTML Text Color.
 					array(
 						'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-html-text-color]',

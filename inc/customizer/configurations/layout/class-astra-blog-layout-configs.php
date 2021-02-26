@@ -33,18 +33,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog',
-					'priority' => 60,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Blog Content Width
 				 */
 				array(

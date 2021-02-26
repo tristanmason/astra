@@ -84,19 +84,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Off-Canvas Slide-Out.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[off-canvas-slide]',
-					'default'    => astra_get_option( 'off-canvas-slide' ),
-					'type'       => 'control',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-selector',
-					'section'    => $_section,
-					'priority'   => 30,
-					'title'      => __( 'Position', 'astra' ),
-					'choices'    => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[off-canvas-slide]',
+					'default'     => astra_get_option( 'off-canvas-slide' ),
+					'type'        => 'control',
+					'transport'   => 'postMessage',
+					'control'     => 'ast-selector',
+					'section'     => $_section,
+					'priority'    => 30,
+					'title'       => __( 'Position', 'astra' ),
+					'choices'     => array(
 						'left'  => __( 'Left', 'astra' ),
 						'right' => __( 'Right', 'astra' ),
 					),
-					'context'    => array(
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
@@ -104,55 +104,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 'off-canvas',
 						),
 					),
-					'renderAs'   => 'text',
-					'responsive' => false,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-slide-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 40,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$responsive_general_tab,
+					'renderAs'    => 'text',
+					'responsive'  => false,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
 				 * Option: Toggle on click of button or link.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target]',
-					'default'    => astra_get_option( 'header-builder-menu-toggle-target' ),
-					'type'       => 'control',
-					'control'    => 'ast-selector',
-					'section'    => $_section,
-					'context'    => Astra_Builder_Helper::$responsive_general_tab,
-					'priority'   => 40,
-					'title'      => __( 'Dropdown Target', 'astra' ),
-					'suffix'     => '',
-					'choices'    => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target]',
+					'default'     => astra_get_option( 'header-builder-menu-toggle-target' ),
+					'type'        => 'control',
+					'control'     => 'ast-selector',
+					'section'     => $_section,
+					'context'     => Astra_Builder_Helper::$responsive_general_tab,
+					'priority'    => 40,
+					'title'       => __( 'Dropdown Target', 'astra' ),
+					'suffix'      => '',
+					'choices'     => array(
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
 					),
-					'renderAs'   => 'text',
-					'responsive' => false,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 40,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$responsive_general_tab,
+					'renderAs'    => 'text',
+					'responsive'  => false,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

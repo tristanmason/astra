@@ -98,21 +98,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'footer'     => 'primary',
 						'layout'     => Astra_Builder_Helper::$footer_row_layouts,
+						'ast_class'  => 'ast-bottom-divider',
 					),
 					'transport'   => 'postMessage',
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-layout-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 3,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
