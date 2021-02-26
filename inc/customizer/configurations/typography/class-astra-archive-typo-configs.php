@@ -235,6 +235,16 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					),
 				);
 
+				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					$new_configs[] = array(
+						'name'     => ASTRA_THEME_SETTINGS . '[blog-section-font-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog',
+						'priority' => 139,
+						'settings' => array(),
+					);
+				}
 			}
 
 			$_configs = array_merge( $_configs, $new_configs );
