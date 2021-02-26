@@ -41,7 +41,7 @@ const BuilderComponent = props => {
 	if ( props.control.container ) {
 		contFlag = props.control.container[0].getAttribute( 'isPopup' );
 	}
-	if ("astra-settings[header-desktop-items]" === controlParams.group) {
+	if ("astra-settings[header-desktop-items]" === controlParams.group || "astra-settings[header-mobile-items]" === controlParams.group) {
 		staleValue = JSON.parse( JSON.stringify(state.value) )
 	}
 
@@ -107,10 +107,7 @@ const BuilderComponent = props => {
 		updatePresetSettings();
 		updateRowLayout();
 	}, []);
-	// useEffect( () => {
-	// 	staleValue = state.value;
-	// }, state.value);
-
+	
 	const onDragStart = () => {
 		
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
@@ -325,24 +322,19 @@ const BuilderComponent = props => {
 	};
 
 	const onDragEnd = (row, zone, items) => {
-		
-		let itemIncludesMenu = false;
-
-		if ("astra-settings[header-desktop-items]" === controlParams.group) {
-			items.length > 0 && items.map( item => {
-				itemIncludesMenu = item.id.includes( 'menu' );;
-			});
-
-		}
 
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
+		let itemIncludesMenu = false;
+
 		let newStale = JSON.parse((props.control.container[0].getAttribute('newStale'))) || {};
 		{
 			items.length > 0 && items.map(item => {
-				
-				if ( 'popup' === row && ( ( itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) {
+
+				itemIncludesMenu = item.id.includes( 'menu' );
+
+				if ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) {
 				
 					for ( const [rowKey, value] of Object.entries(staleValue) ) {
 						
