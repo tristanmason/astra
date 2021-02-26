@@ -149,20 +149,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					),
 
 					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[blog-content-post-title-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog',
-						'priority' => 140,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					),
-
-					/**
 					 * Option: Blog - Post Title Font Size
 					 */
 					array(

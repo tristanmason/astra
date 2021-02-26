@@ -737,15 +737,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'link' => __( 'Link', 'astra' ),
 					),
 				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-divider]',
-					'type'     => 'control',
-					'section'  => 'section-primary-menu',
-					'control'  => 'ast-divider',
-					'priority' => 42,
-					'settings' => array(),
-				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
