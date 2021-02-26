@@ -170,18 +170,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-container-layout',
-						'priority' => 49,
-						'settings' => array(),
-					),
-
-					/**
-					 * Option: Divider
-					 */
-					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-divider]',
 						'type'     => 'control',
 						'default'  => astra_get_option( 'site-content-layout' ),
@@ -199,24 +187,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'priority' => 999,
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
-					),
-				);
-
-				$configurations = array_merge( $configurations, $config );
-			} elseif ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'site-layouts' ) ) {
-
-				$config = array(
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-container-layout',
-						'priority' => 49,
 						'settings' => array(),
 					),
 				);

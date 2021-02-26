@@ -49,9 +49,10 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'priority'          => 10,
 					'title'             => __( 'Archive Columns', 'astra' ),
 					'input_attrs'       => array(
-						'step' => 1,
-						'min'  => 1,
-						'max'  => 6,
+						'step'      => 1,
+						'min'       => 1,
+						'max'       => 6,
+						'ast_class' => 'ast-bottom-divider',
 					),
 					'transport'         => 'postMessage',
 				),
@@ -65,6 +66,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'           => 'ast-sortable',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 					'section'           => 'section-edd-archive',
+					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
 					'default'           => astra_get_option( 'edd-archive-product-structure' ),
 					'priority'          => 30,
 					'title'             => __( 'Product Structure', 'astra' ),
@@ -80,49 +82,18 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure-divider]',
-					'type'     => 'control',
-					'section'  => 'section-edd-archive',
-					'control'  => 'ast-divider',
-					'priority' => 30,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Add to Cart button text
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
-					'type'     => 'control',
-					'control'  => 'text',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
-					'priority' => 31,
-					'title'    => __( 'Cart Button Text', 'astra' ),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
-							'operator' => 'contains',
-							'value'    => 'add_cart',
-						),
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text-divider]',
-					'type'     => 'control',
-					'section'  => 'section-edd-archive',
-					'control'  => 'ast-divider',
-					'priority' => 31,
-					'settings' => array(),
-					'context'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
+					'type'        => 'control',
+					'control'     => 'text',
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'section'     => 'section-edd-archive',
+					'default'     => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
+					'priority'    => 31,
+					'title'       => __( 'Cart Button Text', 'astra' ),
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
@@ -136,12 +107,13 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Variable product button
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-variable-button' ),
-					'context'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'section'     => 'section-edd-archive',
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'default'     => astra_get_option( 'edd-archive-variable-button' ),
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
@@ -149,31 +121,11 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 							'value'    => 'add_cart',
 						),
 					),
-					'priority' => 31,
-					'title'    => __( 'Variable Product Button', 'astra' ),
-					'choices'  => array(
+					'priority'    => 31,
+					'title'       => __( 'Variable Product Button', 'astra' ),
+					'choices'     => array(
 						'button'  => __( 'Button', 'astra' ),
 						'options' => __( 'Options', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button	-divider]',
-					'type'     => 'control',
-					'section'  => 'section-edd-archive',
-					'control'  => 'ast-divider',
-					'priority' => 31,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
-							'operator' => 'contains',
-							'value'    => 'add_cart',
-						),
 					),
 				),
 
@@ -181,12 +133,13 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Variable product button text
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button-text]',
-					'type'     => 'control',
-					'control'  => 'text',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-variable-button-text' ),
-					'context'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button-text]',
+					'type'        => 'control',
+					'control'     => 'text',
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'section'     => 'section-edd-archive',
+					'default'     => astra_get_option( 'edd-archive-variable-button-text' ),
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
@@ -194,38 +147,27 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 							'value'    => 'button',
 						),
 					),
-					'priority' => 31,
-					'title'    => __( 'Variable Product Button Text', 'astra' ),
-				),
-
-				/**
-				 * Option: Easy Digital Downloads Shop Archive Content Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-edd-archive',
-					'priority' => 220,
-					'settings' => array(),
+					'priority'    => 31,
+					'title'       => __( 'Variable Product Button Text', 'astra' ),
 				),
 
 				/**
 				 * Option: Archive Content Width
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => 'section-edd-archive',
-					'default'   => astra_get_option( 'edd-archive-width' ),
-					'priority'  => 220,
-					'title'     => __( 'Archive Content Width', 'astra' ),
-					'choices'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'section'     => 'section-edd-archive',
+					'default'     => astra_get_option( 'edd-archive-width' ),
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'priority'    => 220,
+					'title'       => __( 'Archive Content Width', 'astra' ),
+					'choices'     => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
-					'transport' => 'postMessage',
+					'transport'   => 'postMessage',
 				),
 
 				/**

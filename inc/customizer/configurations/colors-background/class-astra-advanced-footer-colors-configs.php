@@ -32,37 +32,19 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Footer Widget Color & Background Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-color-background-heading-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-footer-adv',
-					'priority' => 46,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
-					),
-				),
-
-				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
-					'default'   => astra_get_option( 'footer-widget-background-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background Color', 'astra' ),
-					'section'   => 'section-footer-adv',
-					'transport' => 'postMessage',
-					'priority'  => 47,
-					'context'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'default'     => astra_get_option( 'footer-widget-background-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-settings-group',
+					'title'       => __( 'Background Color', 'astra' ),
+					'section'     => 'section-footer-adv',
+					'transport'   => 'postMessage',
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'priority'    => 47,
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
@@ -70,23 +52,6 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 							'value'    => 'disabled',
 						),
 
-					),
-				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-content-group-divider]',
-					'type'     => 'control',
-					'section'  => 'section-footer-adv',
-					'control'  => 'ast-divider',
-					'priority' => 48,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
 					),
 				),
 
@@ -116,15 +81,16 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-widget-link-color-group]',
-					'default'   => astra_get_option( 'footer-widget-link-color-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-color-group',
-					'title'     => __( 'Link Color', 'astra' ),
-					'section'   => 'section-footer-adv',
-					'transport' => 'postMessage',
-					'priority'  => 48,
-					'context'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[footer-widget-link-color-group]',
+					'default'     => astra_get_option( 'footer-widget-link-color-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Link Color', 'astra' ),
+					'section'     => 'section-footer-adv',
+					'transport'   => 'postMessage',
+					'priority'    => 48,
+					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
