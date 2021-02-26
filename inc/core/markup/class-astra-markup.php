@@ -27,9 +27,45 @@ class Astra_Markup {
 
 		if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 			// Add filters here.
-			$demo = 1; // to avoid phpcs empty if error, we be remove this in other PR.
-			
+			add_filter( 'astra_markup_footer-widget-div_open', array( $this, 'footer_widget_div_open' ) );
+			add_filter( 'astra_markup_footer-widget-div_close', array( $this, 'footer_widget_div_close' ) );
 		}
+		add_filter( 'astra_attr_footer-widget-area-inner_output', array( $this, 'footer_widget_area_inner' ) );
+	}
+
+	/**
+	 * Footer widget opening div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function footer_widget_div_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['class'] = 'footer-widget-area-inner site-info-inner';
+		return $args;   
+	}
+
+	/**
+	 * Footer widget closing div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function footer_widget_div_close( $args ) {
+		$args['close'] = '</div>';
+		return $args;   
+	}
+
+	/**
+	 * Footer widget inner class.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function footer_widget_area_inner() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'footer-widget-area-inner' : '';
 	}
 }
 
