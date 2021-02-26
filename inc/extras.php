@@ -205,14 +205,13 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 	/**
 	 * Replace header logo.
 	 *
-	 * @param array  $image Size.
-	 * @param int    $attachment_id Image id.
-	 * @param sting  $size Size name.
-	 * @param string $icon Icon.
+	 * @param array $image Size.
+	 * @param int   $attachment_id Image id.
+	 * @param sting $size Size name.
 	 *
 	 * @return array Size of image
 	 */
-	function astra_replace_header_logo( $image, $attachment_id, $size, $icon ) {
+	function astra_replace_header_logo( $image, $attachment_id, $size ) {
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 

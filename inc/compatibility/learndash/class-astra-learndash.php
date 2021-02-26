@@ -247,9 +247,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * Register Customizer sections and panel for learndash.
 		 *
 		 * @since 1.3.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			$active_ld_theme = '';
 

@@ -117,12 +117,10 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		/**
 		 * Header Cart Icon Class
 		 *
-		 * @param array $classes Default argument array.
-		 *
 		 * @since 1.4.0
 		 * @return array;
 		 */
-		public function menu_toggle_classes( $classes ) {
+		public function menu_toggle_classes() {
 			return ' ast-mobile-menu-buttons-' . astra_get_option( 'mobile-header-toggle-btn-style' ) . ' ';
 		}
 
@@ -146,11 +144,10 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * Replace logo with Mobile Header logo.
 		 *
 		 * @param sting $html Size name.
-		 * @param int   $blog_id Icon.
 		 * @since 1.4.0
 		 * @return string html markup of logo.
 		 */
-		public function astra_mobile_header_custom_logo( $html, $blog_id ) {
+		public function astra_mobile_header_custom_logo( $html ) {
 
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 

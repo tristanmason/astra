@@ -225,11 +225,10 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 *
 		 * @param  string $html The oEmbed markup.
 		 * @param  string $url The URL being embedded.
-		 * @param  array  $attr An array of attributes.
 		 *
 		 * @return string       Updated embed markup.
 		 */
-		public function responsive_oembed_wrapper( $html, $url, $attr ) {
+		public function responsive_oembed_wrapper( $html, $url ) {
 
 			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
 

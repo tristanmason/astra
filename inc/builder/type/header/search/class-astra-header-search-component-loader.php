@@ -53,11 +53,9 @@ class Astra_Header_Search_Component_Loader {
 	 * @since 3.0.0
 	 *
 	 * @param string $search_markup   Search Form Content.
-	 * @param string $option    Search Form Options.
-	 * @param string $device    Device Desktop/Tablet/Mobile.
 	 * @return Search HTML structure created.
 	 */
-	public static function get_search_markup( $search_markup, $option = '', $device = '' ) {
+	public static function get_search_markup( $search_markup ) {
 
 		if ( is_customize_preview() ) {
 			Astra_Builder_UI_Controller::render_customizer_edit_button();

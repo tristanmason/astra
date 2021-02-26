@@ -170,9 +170,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * Register Customizer sections and panel for lifterlms
 		 *
 		 * @since 1.2.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
@@ -538,10 +537,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * this function
 		 *
 		 * @since 1.2.0
-		 * @param    string $id    default sidebar id (an empty string).
 		 * @return   string
 		 */
-		public function add_sidebar( $id ) {
+		public function add_sidebar() {
 			$sidebar_id = 'sidebar-1'; // replace this with theme's sidebar ID.
 			return $sidebar_id;
 		}

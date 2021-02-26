@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					if ( 'default' !== $sidebar ) {
 						add_filter(
 							'astra_page_layout',
-							function( $page_layout ) use ( $sidebar ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+							function() use ( $sidebar ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 
 								return $sidebar;
 							}
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					if ( 'default' !== $content_layout ) {
 						add_filter(
 							'astra_get_content_layout',
-							function( $layout ) use ( $content_layout ) {// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+							function() use ( $content_layout ) {// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 
 								return $content_layout;
 							}
@@ -273,7 +273,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 						} else {
 							add_filter(
 								'ast_main_header_display',
-								function( $display_header ) {// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+								function() {// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 
 									return 'disabled';
 								}
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 						add_filter(
 							'ast_footer_sml_layout',
-							function( $is_footer ) {// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+							function() {// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 
 								return 'disabled';
 							}
@@ -364,10 +364,9 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		/**
 		 * Function to theme before render content
 		 *
-		 * @param int $post_id Post ID.
 		 * @since 1.0.28
 		 */
-		public function builder_before_render_content( $post_id ) {
+		public function builder_before_render_content() {
 
 			?>
 			<?php if ( 'left-sidebar' === astra_page_layout() ) : ?>
@@ -383,10 +382,9 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		/**
 		 * Function to theme after render content
 		 *
-		 * @param int $post_id Post ID.
 		 * @since 1.0.28
 		 */
-		public function builder_after_render_content( $post_id ) {
+		public function builder_after_render_content() {
 
 			?>
 			</div><!-- #primary -->

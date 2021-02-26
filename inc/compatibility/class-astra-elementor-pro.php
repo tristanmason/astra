@@ -201,7 +201,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( 'default' !== $sidebar ) {
 				add_filter(
 					'astra_page_layout',
-					function( $page_layout ) use ( $sidebar ) {
+					function() use ( $sidebar ) {
 						return $sidebar;
 					}
 				);
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( 'default' !== $content_layout ) {
 				add_filter(
 					'astra_get_content_layout',
-					function( $layout ) use ( $content_layout ) {
+					function() use ( $content_layout ) {
 						return $content_layout;
 					}
 				);
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
 					'ast_footer_sml_layout',
-					function( $is_footer ) {
+					function() {
 						return 'disabled';
 					}
 				);
@@ -262,7 +262,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 				add_filter(
 					'ast_main_header_display',
-					function( $display_header ) {
+					function() {
 						return 'disabled';
 					}
 				);

@@ -1459,11 +1459,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	 *
 	 * @param array  $attr Image.
 	 * @param object $attachment Image obj.
-	 * @param sting  $size Size name.
 	 *
 	 * @return array Image attr.
 	 */
-	function astra_replace_header_attr( $attr, $attachment, $size ) {
+	function astra_replace_header_attr( $attr, $attachment ) {
 
 		if ( ! isset( $attachment ) ) {
 			return $attr;

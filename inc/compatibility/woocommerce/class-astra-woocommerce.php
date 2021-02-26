@@ -1483,9 +1483,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Register Customizer sections and panel for woocommerce
 		 *
 		 * @since 1.0.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
