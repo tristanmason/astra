@@ -112,6 +112,7 @@ const BuilderComponent = props => {
 	// }, state.value);
 
 	const onDragStart = () => {
+		
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
 		for ( let i = 0; i < dropzones.length; ++i) {
 			dropzones[i].classList.add('ahfb-dragging-dropzones');
@@ -340,9 +341,9 @@ const BuilderComponent = props => {
 		let newStale = JSON.parse((props.control.container[0].getAttribute('newStale'))) || {};
 		{
 			items.length > 0 && items.map(item => {
-
+				
 				if ( 'popup' === row && itemIncludesMenu && 'mobile-menu' !== item.id ) {
-					
+				
 					for ( const [rowKey, value] of Object.entries(staleValue) ) {
 						
 						for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
@@ -357,29 +358,33 @@ const BuilderComponent = props => {
 							}
 						}
 					}
-					updateItems.push(item.id);
-					update[zone] = updateItems;
-					updateState[row][zone] = updateItems;
+					update[zone] = [item.id];
+					updateState[row][zone] = [item.id];
 					newStale = {
 						'row' : row,
 						'zone' : zone,
 					}
 					
 					props.control.container[0].setAttribute( 'newStale', JSON.stringify(newStale) );
+
 					staleValue = JSON.parse( JSON.stringify(updateState) )
+
 					setPopupFlag(true);
+
 					setState(prevState => ({
 						...prevState,
 						value: updateState
 					}));
 
 					updateValues(updateState, row);
+
 				} else {
 					updateItems.push(item.id);
 				}
 			});
 		}
 		;
+
 
 		if (!arraysEqual(update[zone], updateItems) && row !== newStale['row'] && zone !== newStale['zone'] ) {
 			
@@ -476,6 +481,7 @@ const BuilderComponent = props => {
 				}
 			});
 		}
+
 		if ( refresh ) {
 			setState(prevState => ({
 				...prevState,
@@ -487,6 +493,7 @@ const BuilderComponent = props => {
 			props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
 			contFlag = is_popup_flag;
 		}
+
 	}
 
 	setPopupFlag(false);
