@@ -29,8 +29,11 @@ class Astra_Markup {
 			// Add filters here.
 			add_filter( 'astra_markup_footer-widget-div_open', array( $this, 'footer_widget_div_open' ) );
 			add_filter( 'astra_markup_footer-widget-div_close', array( $this, 'footer_widget_div_close' ) );
+			add_filter( 'astra_markup_header-widget-div_open', array( $this, 'header_widget_div_open' ) );
+			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );
 		}
 		add_filter( 'astra_attr_footer-widget-area-inner_output', array( $this, 'footer_widget_area_inner' ) );
+		add_filter( 'astra_attr_header-widget-area-inner_output', array( $this, 'header_widget_area_inner' ) );
 	}
 
 	/**
@@ -67,6 +70,30 @@ class Astra_Markup {
 	public function footer_widget_area_inner() {
 		return Astra_Builder_Helper::apply_flex_based_css() ? 'footer-widget-area-inner' : '';
 	}
+
+	/**
+	 * Header widget inner class.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function header_widget_area_inner() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'header-widget-area-inner' : '';
+	}
+
+	/**
+	 * Footer widget opening div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function header_widget_div_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['class'] = 'header-widget-area-inner site-info-inner';
+		return $args;   
+	}
+
 }
 
 /**
