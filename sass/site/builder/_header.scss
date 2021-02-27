@@ -7,6 +7,9 @@
 	align-items: center;
 	grid-column-gap: 20px;
 	overflow-wrap: anywhere;
+	> .site-header-section {
+		flex-wrap: nowrap;
+	}
 }
 .ast-builder-footer-grid-columns {
 	grid-column-gap: 50px;
