@@ -497,12 +497,12 @@
 
 							if (undefined === rule['setting']) {
 
-								let tmp_relation = rule['relation'];
-								if (!tmp_relation) {
+								let contextRelation = rule['relation'];
+								if (!contextRelation) {
 									return;
 								}
 
-								displayed = getResultByRules(rule, tmp_relation, false);
+								displayed = getResultByRules(rule, contextRelation, false);
 
 							} else {
 
