@@ -136,7 +136,7 @@ const BuilderComponent = props => {
 				if( component_count[builderComponentType] < AstraBuilderCustomizerData.component_limit ) {
 					isToClone = true;
 				}  else {
-					let componentSection = builderDataChoice.section.replace(/[0-9]+/g, '');
+					let componentSection = builderDataChoice.section.replace(/[0-9]+/g, ''); // Replace random numeric with empty string.
 					let isCloned =  component_count['removed-items'].findIndex((item) => { return item.startsWith(componentSection);} );
 					isToClone = isCloned !== -1;
 				}
@@ -148,7 +148,7 @@ const BuilderComponent = props => {
 						isToDelete = false;
 						break;
 					case 2:
-						isToDelete = (  component_count['removed-items'].indexOf( builderDataChoice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
+						isToDelete = ( component_count['removed-items'].indexOf( builderDataChoice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
 						break;
 				}
 
@@ -178,13 +178,13 @@ const BuilderComponent = props => {
 				break;
 
 			default:
-				let name = cloneData.name.replace(/[0-9]+/g, '');
+				let name = cloneData.name.replace(/[0-9]+/g, ''); // Replace random numeric with empty string.
 				cloneData.name = name + ' ' + cloneIndex;
 				break;
 
 		}
 
-		cloneData.section = cloneData.section.replace(/[0-9]+/g, cloneIndex);
+		cloneData.section = cloneData.section.replace(/[0-9]+/g, cloneIndex); // Replace random numeric with valid clone index.
 
 		return cloneData;
 	}
@@ -198,7 +198,7 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get(),
 			cloneData = Object.assign({},choices[item] ),
-			cloneSection = cloneData.section.replace(/[0-9]+/g, ''),
+			cloneSection = cloneData.section.replace(/[0-9]+/g, ''), // Remove random numeric with empty string.
 			cloneIndex,
 			removedBuilderItems = component_count['removed-items'],
 			cloneSection_index = removedBuilderItems.findIndex(element => element.includes(cloneSection)),
@@ -214,7 +214,7 @@ const BuilderComponent = props => {
 
 		} else {
 			cloneIndex = component_count[ componentType ] + 1;
-			cloneSection = cloneData.section.replace(/[0-9]+/g, cloneIndex);
+			cloneSection = cloneData.section.replace(/[0-9]+/g, cloneIndex); // Replace random numeric with valid clone index.
 			updated_count[ componentType ] = cloneIndex;
 		}
 

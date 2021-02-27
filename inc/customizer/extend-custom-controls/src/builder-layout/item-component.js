@@ -40,11 +40,11 @@ const ItemComponent = props => {
 				existing_component_count = existing_component_count - 1;
 				component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ] = existing_component_count;
 
-				var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, existing_component_count) );
+				var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, existing_component_count) ); // Replace random numeric with valid builder component count.
 				if (index !== -1) {
 					finalArray.splice(index, 1);
 				} else {
-					var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, removing_index) );
+					var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, removing_index) ); // Replace random numeric with removing component index.
 					if (index !== -1) {
 						finalArray.splice(index, 1);
 					}
