@@ -40,19 +40,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			$_section = 'section-breadcrumb';
 
+			$positions = array(
+				'none'                      => __( 'None', 'astra' ),
+				'astra_masthead_content'    => __( 'Inside', 'astra' ),
+				'astra_header_markup_after' => __( 'After Header', 'astra' ),
+				'astra_entry_top'           => __( 'Before Title', 'astra' ),
+			);
+
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$positions = array(
 					'none'                                 => __( 'None', 'astra' ),
 					'astra_header_primary_container_after' => __( 'Inside', 'astra' ),
 					'astra_header_after'                   => __( 'After', 'astra' ),
 					'astra_entry_top'                      => __( 'Before Title', 'astra' ),
-				);
-			} else {
-				$positions = array(
-					'none'                      => __( 'None', 'astra' ),
-					'astra_masthead_content'    => __( 'Inside', 'astra' ),
-					'astra_header_markup_after' => __( 'After Header', 'astra' ),
-					'astra_entry_top'           => __( 'Before Title', 'astra' ),
 				);
 			}
 

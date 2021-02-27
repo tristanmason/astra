@@ -155,6 +155,22 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		$configurations = array_merge( $configurations, $_configs );
 
+		$_configs = array(
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-cart-icon-divider]',
+				'section'  => $_section,
+				'title'    => __( 'Header Cart Icon', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 30,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
+		);
+
 		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_configs = array(
 				/**
@@ -509,22 +525,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
-		} else {
-			$_configs = array(
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-cart-icon-divider]',
-					'section'  => $_section,
-					'title'    => __( 'Header Cart Icon', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 30,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-			);
 		}
 
 		$configurations = array_merge( $configurations, $_configs );
