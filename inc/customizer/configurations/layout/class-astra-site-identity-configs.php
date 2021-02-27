@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_section = 'title_tagline';
+			$_section               = 'title_tagline';
 			$display_title_priority = 7;
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
