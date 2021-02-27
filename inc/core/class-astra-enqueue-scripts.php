@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public static function theme_assets() {
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$default_assets = array(
 
@@ -139,9 +139,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 						'astra-theme-css' => 'frontend',
 					),
 				);
-				
-				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) || 
-					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {                       
+
+				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
+					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 			} else {
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
 
 			// Submenu Container Animation for header builder.
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 

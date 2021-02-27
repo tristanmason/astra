@@ -30,7 +30,7 @@ final class Astra_Builder_Customizer {
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
 		add_action( 'customize_register', array( $this, 'woo_header_configs' ), 2 );
 
-		if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			return;
 		}
 

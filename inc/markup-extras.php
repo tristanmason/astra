@@ -1016,7 +1016,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$mobile_header_brakpoint = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? astra_get_tablet_breakpoint() : astra_get_option( 'mobile-header-breakpoint', 921 );
+		$mobile_header_brakpoint = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? astra_get_tablet_breakpoint() : astra_get_option( 'mobile-header-breakpoint', 921 );
 		return absint( apply_filters( 'astra_header_break_point', $mobile_header_brakpoint ) );
 	}
 }
@@ -1114,7 +1114,7 @@ function astra_get_header_classes() {
 		$classes[] = 'ast-hide-custom-menu-mobile';
 	}
 
-	if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+	if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 		$classes[] = 'ast-builder-menu-toggle-' . $builder_menu_mobile_target;
 	} else {
 		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;

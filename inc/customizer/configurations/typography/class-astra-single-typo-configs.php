@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'section'  => 'section-blog-single',
 						'priority' => 13,
 						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'title'     => __( 'Post / Page Title Font', 'astra' ),
 						'section'   => 'section-blog-single',
 						'transport' => 'postMessage',
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 							'px' => 'px',
 							'em' => 'em',
 						),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 				);

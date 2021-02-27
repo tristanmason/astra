@@ -35,7 +35,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
-		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
+		$_section = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
 
 		$_configs = array(
 
@@ -155,7 +155,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		$configurations = array_merge( $configurations, $_configs );
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_configs = array(
 				/**
 				* Woo Cart section
