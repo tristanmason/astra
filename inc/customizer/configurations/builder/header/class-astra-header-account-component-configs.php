@@ -138,7 +138,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'       => __( 'Logged In View', 'astra' ),
 				'settings'    => array(),
 				'input_attrs' => array(
-					'ast_class' => 'ast-control-reduce-top-space',
+					'class' => 'ast-control-reduce-top-space',
 				),
 			),
 

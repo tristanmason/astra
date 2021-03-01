@@ -20,8 +20,8 @@ const HeadingComponent = props => {
     htmlDescription = <span className="description customize-control-description">{props.control.params.description}</span>;
   }
 
-  if ( undefined !== props.control.params.input_attrs && props.control.params.input_attrs.ast_class ) {
-	astClass = props.control.params.input_attrs.ast_class;
+  if ( undefined !== props.control.params.input_attrs && props.control.params.input_attrs.class ) {
+	astClass = props.control.params.input_attrs.class;
   }
 
   return <Fragment>
