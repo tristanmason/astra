@@ -211,10 +211,7 @@
 	 */
 	wp.customize( 'astra-settings[header-woo-cart-icon-color]', function( setting ) {
 		setting.bind( function( color ) {
-
-
 			var dynamicStyle = '.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + color + '; } ';
-			dynamicStyle += '.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after { border-color: ' + color + '; } ';
 			astra_add_dynamic_css( 'header-woo-cart-icon-color', dynamicStyle );
 			wp.customize.preview.send( 'refresh' );
 		} );
@@ -225,10 +222,7 @@
 	 */
 	wp.customize( 'astra-settings[transparent-header-woo-cart-icon-color]', function( setting ) {
 		setting.bind( function( color ) {
-
-
 			var dynamicStyle = '.ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + color + '; } ';
-			dynamicStyle += '.ast-theme-transparent-header .ast-site-header-cart .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-site-header-cart .ast-cart-menu-wrap .count:after { border-color: ' + color + '; } ';
 			astra_add_dynamic_css( 'transparent-header-woo-cart-icon-color', dynamicStyle );
 			wp.customize.preview.send( 'refresh' );
 		} );
@@ -239,8 +233,6 @@
 	 */
 	wp.customize( 'astra-settings[woo-header-cart-icon-radius]', function( setting ) {
 		setting.bind( function( radius ) {
-
-
 			var dynamicStyle = '.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap { border-radius: ' + radius + 'px; } ';
 			astra_add_dynamic_css( 'woo-header-cart-icon-radius', dynamicStyle );
 		} );
