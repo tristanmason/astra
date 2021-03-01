@@ -636,6 +636,16 @@
     box-shadow: none !important;
 }
 
+.ahfb-available-items-pool- .ahfb-all-coponents-unused  {
+    border: 1px dashed #b4b9be;
+    background: transparent;
+    padding: 10px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .ahfb-footer-builder-is-active .in-sub-panel:not(.section-open) ul#sub-accordion-section-section-footer-builder-layout, .ahfb-header-builder-is-active .in-sub-panel:not(.section-open) ul#sub-accordion-section-section-header-builder-layout {
     transform: none;
     height: auto;
