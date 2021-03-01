@@ -83,12 +83,12 @@ const DraggableComponent = props => {
 	});
 
 	return <div className="ahfb-control-field ahfb-available-items">
-		<div className="ahfb-available-items-pool-">
+		<div className="ast-builder-elements-section">
 			{Object.keys(choices).map(item => {
 				return renderItem(item, 'links');
 			})}
 			{!droppedCount &&
-				<span className="ahfb-all-coponents-unused"> {__('Components Being Used in Builder will Visible Here.', 'astra')} </span>
+				<span className="ast-builder-elements-notice"> {__('Elements Used in the Builder Will Be Visible Here.', 'astra')} </span>
 			}
 		</div>
 	</div>;

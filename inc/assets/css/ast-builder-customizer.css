@@ -636,7 +636,7 @@
     box-shadow: none !important;
 }
 
-.ahfb-available-items-pool- .ahfb-all-coponents-unused  {
+.ast-builder-elements-section .ast-builder-elements-notice  {
     border: 1px dashed #b4b9be;
     background: transparent;
     padding: 10px;
@@ -860,12 +860,6 @@
 .customize-control:not(.customize-control-ast-builder-header-control) + #customize-control-astra-settings-header-mobile-draggable-items.customize-control {
     padding-top: 0;
     border-top: 0;
-}
-
-.ahfb-available-items-pool {
-    min-width: 80px;
-    border: 1px dashed #A0AEC0;
-    padding: 20px 10px 10px
 }
 
 .ahfb-availbile-items-title {
