@@ -44,6 +44,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	if ( 'none' === $header_cart_icon_style ) {
 		$icon_color = $theme_color;
+		$transparent_header_icon_color = $theme_color;
 	}
 
 	/**
