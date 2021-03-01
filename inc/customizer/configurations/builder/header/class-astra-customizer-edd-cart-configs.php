@@ -162,50 +162,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 200,
 				),
 			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-colors-divider]',
-				'type'     => 'control',
-				'section'  => 'section-transparent-header',
-				'control'  => 'ast-divider',
-				'priority' => 90,
-				'settings' => array(),
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-				),
-			),
-
-			/**
-			 * Option: Icon color
-			 */
-			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-icon-color]',
-				'default'           => astra_get_option( 'transparent-header-edd-cart-icon-color' ),
-				'type'              => 'control',
-				'control'           => 'ast-color',
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'transport'         => 'postMessage',
-				'title'             => __( 'EDD Cart Icon Color', 'astra' ),
-				'context'           => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-				),
-				'section'           => 'section-transparent-header',
-				'priority'          => 95,
-			),
-
 		);
 
 		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {

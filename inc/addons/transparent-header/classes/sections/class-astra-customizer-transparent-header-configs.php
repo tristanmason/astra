@@ -1394,6 +1394,104 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
+
+				if ( class_exists( 'Astra_Woocommerce' ) ) {
+					$woo_cart_hfb_configs = array(
+						/**
+						 * Option: Divider
+						 */
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-woo-cart-colors-divider]',
+							'type'     => 'control',
+							'section'  => 'section-transparent-header',
+							'control'  => 'ast-divider',
+							'priority' => 80,
+							'settings' => array(),
+							'context'  => array(
+								Astra_Builder_Helper::$design_tab_config,
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+									'operator' => '!=',
+									'value'    => 'none',
+								),
+							),
+						),
+
+						/**
+						 * Option: Icon color
+						 */
+						array(
+							'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-woo-cart-icon-color]',
+							'default'           => astra_get_option( 'transparent-header-woo-cart-icon-color' ),
+							'type'              => 'control',
+							'control'           => 'ast-color',
+							'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+							'transport'         => 'postMessage',
+							'title'             => __( 'Woo Cart Icon Color', 'astra' ),
+							'context'           => array(
+								Astra_Builder_Helper::$design_tab_config,
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+									'operator' => '!=',
+									'value'    => 'none',
+								),
+							),
+							'section'           => 'section-transparent-header',
+							'priority'          => 85,
+						),
+					);
+
+					$_configs = array_merge( $_configs, $woo_cart_hfb_configs );
+				}
+
+				if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+					$edd_cart_hfb_configs = array(
+						/**
+						* Option: Divider
+						*/
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-colors-divider]',
+							'type'     => 'control',
+							'section'  => 'section-transparent-header',
+							'control'  => 'ast-divider',
+							'priority' => 90,
+							'settings' => array(),
+							'context'  => array(
+								Astra_Builder_Helper::$design_tab_config,
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+									'operator' => '!=',
+									'value'    => 'none',
+								),
+							),
+						),
+
+						/**
+						* Option: Icon color
+						*/
+						array(
+							'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-icon-color]',
+							'default'           => astra_get_option( 'transparent-header-edd-cart-icon-color' ),
+							'type'              => 'control',
+							'control'           => 'ast-color',
+							'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+							'transport'         => 'postMessage',
+							'title'             => __( 'EDD Cart Icon Color', 'astra' ),
+							'context'           => array(
+								Astra_Builder_Helper::$design_tab_config,
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+									'operator' => '!=',
+									'value'    => 'none',
+								),
+							),
+							'section'           => 'section-transparent-header',
+							'priority'          => 95,
+						),
+					);
+
+					$_configs = array_merge( $_configs, $edd_cart_hfb_configs );
+				}           
 			} else {
 				$_old_content_configs = array(
 

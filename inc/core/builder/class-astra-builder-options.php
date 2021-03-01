@@ -909,12 +909,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * EDD-Cart.
 	*/
-	$defaults['edd-header-cart-icon-style']    = 'none';
-	$defaults['edd-header-cart-icon-color']    = '';
-	$defaults['edd-header-cart-icon-radius']   = 3;
-	$defaults['transparent-header-edd-cart-icon-color']  = '';
-	$defaults['edd-header-cart-total-display'] = true;
-	$defaults['edd-header-cart-title-display'] = true;
+	$defaults['edd-header-cart-icon-style']             = 'none';
+	$defaults['edd-header-cart-icon-color']             = '';
+	$defaults['edd-header-cart-icon-radius']            = 3;
+	$defaults['transparent-header-edd-cart-icon-color'] = '';
+	$defaults['edd-header-cart-total-display']          = true;
+	$defaults['edd-header-cart-title-display']          = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-edd-cart-text-color']       = '';
