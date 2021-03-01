@@ -191,7 +191,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'section'  => 'section-transparent-header',
+				'section'           => 'section-transparent-header',
 				'priority'          => 85,
 			),
 		);

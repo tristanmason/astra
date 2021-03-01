@@ -39,11 +39,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
 	$theme_h_color           = astra_get_foreground_color( $theme_color );
 
-	$transparent_header_icon_color = esc_attr( astra_get_option( 'transparent-header-woo-cart-icon-color', $icon_color ) );
-	$transparent_header_cart_h_color            = astra_get_foreground_color( $transparent_header_icon_color );
+	$transparent_header_icon_color   = esc_attr( astra_get_option( 'transparent-header-woo-cart-icon-color', $icon_color ) );
+	$transparent_header_cart_h_color = astra_get_foreground_color( $transparent_header_icon_color );
 
 	if ( 'none' === $header_cart_icon_style ) {
-		$icon_color = $theme_color;
+		$icon_color                    = $theme_color;
 		$transparent_header_icon_color = $theme_color;
 	}
 

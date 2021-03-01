@@ -173,7 +173,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'  => 'ast-divider',
 				'priority' => 90,
 				'settings' => array(),
-				'context'           => array(
+				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
@@ -202,7 +202,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'section'  => 'section-transparent-header',
+				'section'           => 'section-transparent-header',
 				'priority'          => 95,
 			),
 
