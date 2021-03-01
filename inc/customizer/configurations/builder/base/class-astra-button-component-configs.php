@@ -370,7 +370,7 @@ class Astra_Button_Component_Configs {
 				$_configs = array_merge( $_configs, $footer_specific_configs );
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
 
