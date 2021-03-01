@@ -88,7 +88,7 @@ const DraggableComponent = props => {
 				return renderItem(item, 'links');
 			})}
 			{!droppedCount &&
-				<span className="ast-builder-elements-notice"> {__('Elements Used in the Builder Will Be Visible Here.', 'astra')} </span>
+				<span className="ast-builder-elements-notice"> {__('Elements used in the builder will be visible here.', 'astra')} </span>
 			}
 		</div>
 	</div>;
