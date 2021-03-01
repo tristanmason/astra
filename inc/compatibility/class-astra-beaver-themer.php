@@ -364,9 +364,10 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		/**
 		 * Function to theme before render content
 		 *
+		 * @param int $post_id Post ID.
 		 * @since 1.0.28
 		 */
-		public function builder_before_render_content() {
+		public function builder_before_render_content( $post_id ) {
 
 			?>
 			<?php if ( 'left-sidebar' === astra_page_layout() ) : ?>
@@ -382,9 +383,10 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		/**
 		 * Function to theme after render content
 		 *
+		 * @param int $post_id Post ID.
 		 * @since 1.0.28
 		 */
-		public function builder_after_render_content() {
+		public function builder_after_render_content( $post_id ) {
 
 			?>
 			</div><!-- #primary -->
