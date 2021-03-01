@@ -1011,8 +1011,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * Register Customizer sections and panel for Easy Digital Downloads.
 		 *
 		 * @since 1.5.5
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register() {
+		public function customize_register( $wp_customize ) {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**

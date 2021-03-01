@@ -1146,8 +1146,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Add postMessage support for site title and description for the Theme Customizer.
 		 *
 		 * @since 1.0.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register() {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Override Defaults
@@ -1159,8 +1160,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Add upgrade link configurations controls.
 		 *
 		 * @since 1.0.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function astra_pro_upgrade_configurations() {
+		public function astra_pro_upgrade_configurations( $wp_customize ) {
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

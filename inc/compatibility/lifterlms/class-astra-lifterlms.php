@@ -170,8 +170,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * Register Customizer sections and panel for lifterlms
 		 *
 		 * @since 1.2.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register() {
+		public function customize_register( $wp_customize ) {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
