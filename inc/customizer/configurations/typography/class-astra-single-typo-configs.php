@@ -122,30 +122,40 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				);
 			} else {
 
-				$new_configs = array(
+				$new_configs = array();
 
-					/**
-					 * Option: Single Post / Page Title Font Size
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
-						'section'     => 'section-blog-single',
-						'type'        => 'control',
-						'control'     => 'ast-responsive',
-						'default'     => astra_get_option( 'font-size-entry-title' ),
-						'transport'   => 'postMessage',
-						'priority'    => 13,
-						'title'       => __( 'Post / Page Title Font Size', 'astra' ),
-						'input_attrs' => array(
-							'min' => 0,
-						),
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					$new_configs[] = array(
+						'name'     => ASTRA_THEME_SETTINGS . '[single-post-section-font-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog-single',
+						'priority' => 13,
+						'settings' => array(),
+					);
+				}
+
+				/**
+				 * Option: Single Post / Page Title Font Size
+				 */
+				$new_configs[] = array(
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
+					'section'     => 'section-blog-single',
+					'type'        => 'control',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'font-size-entry-title' ),
+					'transport'   => 'postMessage',
+					'priority'    => 13,
+					'title'       => __( 'Post / Page Title Font Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
 					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				);
 			}
 
