@@ -45,18 +45,6 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 					'title'    => __( 'Disable Product Navigation', 'astra' ),
 					'priority' => 10,
 				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[disable-edd-single-product-nav-divider]',
-					'type'     => 'control',
-					'section'  => 'section-edd-single',
-					'control'  => 'ast-divider',
-					'priority' => 10,
-					'settings' => array(),
-				),
 			);
 
 			return array_merge( $configurations, $_configs );
