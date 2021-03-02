@@ -447,18 +447,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					),
 
 					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-footer-adv',
-						'priority' => 999,
-						'settings' => array(),
-					),
-
-					/**
 					 * Option: Learn More about Footer Widget
 					 */
 					array(

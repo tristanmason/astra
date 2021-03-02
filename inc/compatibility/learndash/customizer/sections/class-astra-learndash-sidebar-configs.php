@@ -33,18 +33,6 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout-divider]',
-					'type'     => 'control',
-					'section'  => 'section-sidebars',
-					'control'  => 'ast-divider',
-					'priority' => 5,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: LearnDash
 				 */
 				array(

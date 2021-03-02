@@ -35,18 +35,6 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-divider]',
-					'section'  => 'section-container-layout',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'priority' => 66,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Shop Page
 				 */
 				array(

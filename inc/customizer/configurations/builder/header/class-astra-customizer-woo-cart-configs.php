@@ -288,16 +288,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Cart Button colors.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-view-cart-button-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 70,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-view-cart-button-title-divider]',
 					'type'     => 'control',
@@ -397,16 +387,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Checkout Button colors.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-checkout-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 75,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-checkout-title-divider]',
 					'type'     => 'control',

@@ -51,17 +51,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					),
 					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-select-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-container-layout',
-					'priority' => 50,
-					'settings' => array(),
-				),
+
 				/**
 				 * Option: Single Page Content Layout
 				 */
@@ -83,18 +73,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-container-layout',
-					'priority' => 55,
-					'settings' => array(),
-				),
-
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
 					'type'        => 'control',
@@ -111,17 +89,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
 					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-container-layout',
-					'priority' => 60,
-					'settings' => array(),
 				),
 
 				/**
@@ -166,28 +133,16 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 
 				$config = array(
 
-					/**
-					 * Option: Divider
-					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-divider]',
-						'type'     => 'control',
-						'default'  => astra_get_option( 'site-content-layout' ),
-						'control'  => 'ast-divider',
-						'section'  => 'section-container-layout',
-						'priority' => 999,
-						'settings' => array(),
-					),
-
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-container-layout',
-						'priority' => 999,
-						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
+						'name'        => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
+						'type'        => 'control',
+						'control'     => 'ast-description',
+						'section'     => 'section-container-layout',
+						'priority'    => 999,
+						'title'       => '',
+						'help'        => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'settings'    => array(),
+						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 

@@ -308,9 +308,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'suffix'      => 'px',
 						'context'     => Astra_Builder_Helper::$design_tab,
 						'input_attrs' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 200,
+							'min'       => 0,
+							'step'      => 1,
+							'max'       => 200,
+							'ast_class' => 'ast-bottom-divider',
 						),
 					),
 
@@ -370,18 +371,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'           => Astra_Builder_Helper::$design_tab,
 					),
 
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-colors-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 80,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$design_tab,
-					),
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-colors-menu-divider]',
 						'type'     => 'control',

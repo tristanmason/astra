@@ -158,19 +158,6 @@ final class Astra_Builder_Base_Configuration {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[font-size-' . $section_id . '-heading-divider]',
-					'type'     => 'control',
-					'section'  => $section_id,
-					'control'  => 'ast-divider',
-					'priority' => 16,
-					'settings' => array(),
-					'context'  => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
-				),
-
-				/**
 				 * Option: Font Size
 				 */
 				array(
@@ -183,7 +170,8 @@ final class Astra_Builder_Base_Configuration {
 					'priority'    => 16,
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
-						'min' => 0,
+						'min'       => 0,
+						'ast_class' => 'ast-bottom-divider',
 					),
 					'units'       => array(
 						'px' => 'px',
