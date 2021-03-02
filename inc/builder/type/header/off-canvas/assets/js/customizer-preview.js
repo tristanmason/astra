@@ -177,6 +177,16 @@
 		} );
 	} );
 	
+	wp.customize( 'astra-settings[header-builder-menu-toggle-target]', function ( value ) {
+        value.bind( function ( newval ) {
+			var menuTargetClass   = 'ast-builder-menu-toggle-' + newval + ' ';
+
+			jQuery( '.site-header' ).removeClass( 'ast-builder-menu-toggle-icon' );
+			jQuery( '.site-header' ).removeClass( 'ast-builder-menu-toggle-link' );
+			jQuery( '.site-header' ).addClass( menuTargetClass );
+		} );
+	} );
+	
 	wp.customize( 'astra-settings[header-offcanvas-content-alignment]', function ( value ) {
         value.bind( function ( newval ) {
 
@@ -205,9 +215,9 @@
 			dynamicStyle += '.content-align-' + newval + ' .main-header-menu {';
 			dynamicStyle += 'text-align: ' + menu_content_alignment + ';';
 			dynamicStyle += '} ';
-			
+
 			astra_add_dynamic_css( 'header-offcanvas-content-alignment', dynamicStyle );
         } );
 	} );
-	
+
 } )( jQuery );

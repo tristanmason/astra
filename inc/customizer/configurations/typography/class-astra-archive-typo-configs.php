@@ -30,12 +30,11 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_configs = array(
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-typography-divider]',
+			$_configs = array();
+
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( Astra_Ext_Extension::is_active( 'colors-and-background' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) ) {
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-content-after-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog',
@@ -43,8 +42,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-				),
-			);
+				);
+			}
 
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
@@ -149,20 +148,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					),
 
 					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[blog-content-post-title-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog',
-						'priority' => 140,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					),
-
-					/**
 					 * Option: Blog - Post Title Font Size
 					 */
 					array(
@@ -235,6 +220,16 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					),
 				);
 
+				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					$new_configs[] = array(
+						'name'     => ASTRA_THEME_SETTINGS . '[blog-section-font-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog',
+						'priority' => 139,
+						'settings' => array(),
+					);
+				}
 			}
 
 			$_configs = array_merge( $_configs, $new_configs );
