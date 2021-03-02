@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'default'           => astra_get_option( 'shop-product-structure' ),
 					'priority'          => 15,
 					'title'             => __( 'Shop Product Structure', 'astra' ),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'choices'           => array(
 						'title'      => __( 'Title', 'astra' ),
 						'price'      => __( 'Price', 'astra' ),
@@ -130,8 +130,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						'min'       => 768,
 						'step'      => 1,
 						'max'       => 1920,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(

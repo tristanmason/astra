@@ -122,7 +122,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'renderAs'    => 'text',
 					'responsive'  => false,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -168,7 +168,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'primary_footer' ),
 					),
 					'renderAs'    => 'text',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Footer Separator.
@@ -209,7 +209,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Sub Option: Footer Background.
@@ -246,8 +246,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 200,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 

@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Enable on Complete Website', 'astra' ),
 					'priority'    => 20,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
 					'priority'    => 25,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Disable on Pages?', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -172,7 +172,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Disable on Posts?', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 					'responsive'  => false,
 					'renderAs'    => 'text',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -205,7 +205,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'       => __( 'Different Logo for Transparent Header?', 'astra' ),
 					'priority'    => 30,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -234,7 +234,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'selector'            => '.ast-replace-site-logo-transparent .site-branding .site-logo-img',
 						'container_inclusive' => false,
 					),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					),
 					'priority'    => 30.2,
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -285,7 +285,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority'          => 30.3,
 					'title'             => __( 'Retina Logo', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -386,7 +386,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority'    => 34,
 					'context'     => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					'responsive'  => true,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -457,7 +457,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'priority'    => 40,
 						'context'     => Astra_Builder_Helper::$design_tab,
 						'responsive'  => true,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 
@@ -550,7 +550,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport'   => 'postMessage',
 						'priority'    => 75,
 						'context'     => Astra_Builder_Helper::$design_tab,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: HTML Text Color.
@@ -665,7 +665,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport'   => 'postMessage',
 						'priority'    => 50,
 						'context'     => Astra_Builder_Helper::$design_tab,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Widget Title Color.
@@ -752,7 +752,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport'   => 'postMessage',
 						'priority'    => 60,
 						'context'     => Astra_Builder_Helper::$design_tab,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					/**
@@ -866,7 +866,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 						'title'             => __( 'Text', 'astra' ),
-						'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 						'context'           => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
@@ -933,7 +933,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport'   => 'postMessage',
 						'priority'    => 70,
 						'context'     => Astra_Builder_Helper::$design_tab,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 
@@ -993,7 +993,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 						'title'             => __( 'Text / Placeholder', 'astra' ),
-						'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 						'context'           => array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
@@ -1018,7 +1018,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'title'             => __( 'Divider', 'astra' ),
 						'section'           => 'section-transparent-header',
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					array(

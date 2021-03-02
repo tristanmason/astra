@@ -88,8 +88,8 @@ class Astra_Html_Component_Configs {
 					'default'     => 'Insert HTML text here.',
 					'input_attrs' => array(
 						'id'        => $builder_type . '-html-' . $index,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'partial'     => array(
 						'selector'         => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback'  => array( $class_obj, $builder_type . '_html_' . $index ),
@@ -126,7 +126,7 @@ class Astra_Html_Component_Configs {
 					'priority'    => 8,
 					'context'     => Astra_Builder_Helper::$design_tab,
 					'responsive'  => true,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -206,7 +206,7 @@ class Astra_Html_Component_Configs {
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				);
 			}
 

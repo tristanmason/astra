@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
 						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
 						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

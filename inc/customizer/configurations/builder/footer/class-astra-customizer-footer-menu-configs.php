@@ -73,7 +73,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'linked'      => 'menu_locations',
 					'link_text'   => __( 'Configure Menu from Here.', 'astra' ),
 					'context'     => Astra_Builder_Helper::$general_tab,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -99,7 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'     => Astra_Builder_Helper::$general_tab,
 					'responsive'  => true,
 					'renderAs'    => 'text',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -144,7 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 90,
 					'responsive'  => true,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				// Option: Menu Color.
 				array(
@@ -305,7 +305,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'     => Astra_Builder_Helper::$design_tab,
 						'transport'   => 'postMessage',
 						'priority'    => 120,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Menu Font Size.

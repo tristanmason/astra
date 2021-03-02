@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'disable-edd-single-product-nav' ),
 					'title'       => __( 'Disable Product Navigation', 'astra' ),
 					'priority'    => 10,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 
 				),
 			);

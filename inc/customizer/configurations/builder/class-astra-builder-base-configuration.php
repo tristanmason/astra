@@ -74,7 +74,7 @@ final class Astra_Builder_Base_Configuration {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
@@ -171,8 +171,8 @@ final class Astra_Builder_Base_Configuration {
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min'       => 0,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -282,7 +282,7 @@ final class Astra_Builder_Base_Configuration {
 					'panel'       => 'panel-' . $type . '-builder-group',
 					'clone_index' => $index,
 					'clone_type'  => $type . '-widget',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -325,7 +325,7 @@ final class Astra_Builder_Base_Configuration {
 					'transport'   => 'postMessage',
 					'priority'    => 7,
 					'responsive'  => true,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -401,7 +401,7 @@ final class Astra_Builder_Base_Configuration {
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-top-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 
@@ -421,7 +421,7 @@ final class Astra_Builder_Base_Configuration {
 						'section'     => $_section,
 						'transport'   => 'postMessage',
 						'priority'    => 90,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 

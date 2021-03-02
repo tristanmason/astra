@@ -96,7 +96,7 @@ class Astra_Social_Icon_Component_Configs {
 						'fallback_refresh'    => false,
 					),
 					'context'     => Astra_Builder_Helper::$general_tab,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Show label Toggle.
@@ -116,7 +116,7 @@ class Astra_Social_Icon_Component_Configs {
 						'fallback_refresh'    => false,
 					),
 					'context'     => Astra_Builder_Helper::$general_tab,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -137,8 +137,8 @@ class Astra_Social_Icon_Component_Configs {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 50,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -162,7 +162,7 @@ class Astra_Social_Icon_Component_Configs {
 						'max'  => 50,
 					),
 					'context'     => Astra_Builder_Helper::$design_tab,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -184,8 +184,8 @@ class Astra_Social_Icon_Component_Configs {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 50,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -206,8 +206,8 @@ class Astra_Social_Icon_Component_Configs {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 50,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 

@@ -77,8 +77,8 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'min'       => 768,
 						'step'      => 1,
 						'max'       => 1920,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 

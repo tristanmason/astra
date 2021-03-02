@@ -122,7 +122,7 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

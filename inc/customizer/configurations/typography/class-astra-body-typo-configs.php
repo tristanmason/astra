@@ -139,8 +139,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'min'       => 1,
 						'step'      => 0.01,
 						'max'       => 5,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

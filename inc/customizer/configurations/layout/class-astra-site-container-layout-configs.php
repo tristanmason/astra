@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				array(
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'title'       => '',
 						'help'        => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings'    => array(),
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 

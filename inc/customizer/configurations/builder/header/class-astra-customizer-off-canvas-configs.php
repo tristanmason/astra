@@ -106,7 +106,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'    => 'text',
 					'responsive'  => false,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -128,7 +128,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'    => 'text',
 					'responsive'  => false,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -164,7 +164,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'priority'    => 28,
 					'context'     => Astra_Builder_Helper::$design_tab,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option Group: Off-Canvas Colors Group.

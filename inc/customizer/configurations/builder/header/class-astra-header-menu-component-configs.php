@@ -331,7 +331,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
 							'fallback_refresh' => false,
 						),
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Menu Stack on Mobile Checkbox.
@@ -404,7 +404,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'    => 90,
 						'context'     => Astra_Builder_Helper::$design_tab,
 						'responsive'  => true,
-						'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Menu Color.
@@ -637,7 +637,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'left'   => __( 'Left', 'astra' ),
 						),
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 

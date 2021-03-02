@@ -453,7 +453,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'transport'   => 'postMessage',
 				'renderAs'    => 'text',
 				'responsive'  => false,
-				'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			array(

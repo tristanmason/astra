@@ -97,7 +97,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'     => false,
 					'priority'    => 4,
 					'transport'   => 'postMessage',
-					'input_attrs' => array( 'ast_class' => 'ast-top-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 					'context'     => array(
 						array(
 							'setting'  => 'custom_logo',
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'          => 5.5,
 					'title'             => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
@@ -221,8 +221,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 600,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'    => 10,
 					'title'       => __( 'Display Site Tagline', 'astra' ),
 					'transport'   => 'postMessage',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'partial'     => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						),
 					),
 					'control'     => 'ast-toggle-control',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'section'     => $_section,
 					'title'       => __( 'Inline Logo & Site Title', 'astra' ),
 					'priority'    => 7,

@@ -31,8 +31,8 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 			args.params.type = 'ast-core';
 		}
 
-		if ( args.params ?. input_attrs ?. ast_class ) {
-			ast_class = args.params.input_attrs.ast_class;
+		if ( args.params ?. ast_divider ?. ast_class ) {
+			ast_class = args.params.ast_divider.ast_class;
 		}
 
 		if ( ! args.params.content ) {
@@ -109,6 +109,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 			return;
 		}
 		control.renderContent();
+
+		// Insert title if param has.
+		if ( control?. params ?. ast_divider ?. ast_title ) {
+			control.container.prepend('<label class="customizer-text"><span class="customize-control-title">' + control.params.ast_divider.ast_title +'</span></label>');
+		}
+
 		control.deferred.embedded.resolve(); // This triggers control.ready().
 	},
 

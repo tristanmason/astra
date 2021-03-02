@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'           => 'section-footer-small',
 					'priority'          => 5,
 					'title'             => __( 'Layout', 'astra' ),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'choices'           => array(
 						'disabled'            => array(
 							'label' => __( 'Disabled', 'astra' ),
@@ -235,7 +235,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-color',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'       => __( 'Background Color', 'astra' ),
 					'section'     => 'section-footer-small',
 					'transport'   => 'postMessage',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'priority'    => 47,
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -311,7 +311,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'     => 'section-footer-small',
 					'transport'   => 'postMessage',
 					'priority'    => 47,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -395,7 +395,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-color',
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'default'           => astra_get_option( 'footer-adv-border-color' ),
 					'context'           => array(
@@ -429,7 +429,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'default'           => astra_get_option( 'footer-adv' ),
 						'title'             => __( 'Layout', 'astra' ),
 						'section'           => 'section-footer-adv',
-						'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 						'choices'           => array(
 							'disabled' => array(
 								'label' => __( 'Disable', 'astra' ),

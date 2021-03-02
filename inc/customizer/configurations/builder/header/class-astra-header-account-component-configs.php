@@ -162,7 +162,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'responsive'  => false,
 				'renderAs'    => 'text',
-				'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**

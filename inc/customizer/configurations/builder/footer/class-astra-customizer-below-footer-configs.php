@@ -124,7 +124,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'renderAs'    => 'text',
 					'responsive'  => false,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Section: Below Footer Height.
@@ -142,8 +142,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'min'       => 30,
 						'step'      => 1,
 						'max'       => 600,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
@@ -189,7 +189,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'below_footer' ),
 					),
 					'renderAs'    => 'text',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Section: Below Footer Border.
@@ -230,7 +230,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Below Footer Background styling.
@@ -264,8 +264,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 200,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);

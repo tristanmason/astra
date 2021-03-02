@@ -4876,3 +4876,13 @@ i.fipicon-angle-left:before {
 	padding-top: 25px;
 	border-color: red;
 }
+
+.customize-control-ast-color.customize-control.ast-top-divider label.customizer-text {
+	display: block;
+	padding-bottom: 10px;
+}
+
+.customize-control-ast-color.customize-control.ast-top-divider .color-button-wrap,
+.customize-control-ast-color.customize-control.ast-top-divider .ast-color-btn-reset-wrap {
+	padding-top: 60px;
+}

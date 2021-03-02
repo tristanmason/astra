@@ -63,7 +63,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'     => 'section-buttons',
 					'transport'   => 'postMessage',
 					'priority'    => 18.5,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -203,8 +203,8 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'min'       => 0,
 						'step'      => 1,
 						'max'       => 200,
-						'ast_class' => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'          => 35,
 					'connected'         => false,
-					'input_attrs'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 			);

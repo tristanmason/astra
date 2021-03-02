@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'title'       => __( 'Background Color', 'astra' ),
 					'section'     => 'section-footer-adv',
 					'transport'   => 'postMessage',
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'priority'    => 47,
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'section'     => 'section-footer-adv',
 					'transport'   => 'postMessage',
 					'priority'    => 48,
-					'input_attrs' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
