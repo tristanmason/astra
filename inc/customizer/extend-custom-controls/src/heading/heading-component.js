@@ -21,7 +21,7 @@ const HeadingComponent = props => {
   }
 
   if ( undefined !== props.control.params.input_attrs && props.control.params.input_attrs.class ) {
-	astClass = props.control.params.input_attrs.class;
+	  astClass = props.control.params.input_attrs.class;
   }
 
   return <Fragment>
