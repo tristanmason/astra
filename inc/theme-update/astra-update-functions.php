@@ -2871,7 +2871,7 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 }
 
 /** 
- * We have removed some unused/Old dynamic CSS so to make compatible this change with existing user/ Do not apply for change exising users.
+ * Set flag to provide backward compatibility of float based CSS for existing users.
  *
  * @since x.x.x
  * @return void.
