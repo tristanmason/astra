@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'name'              => ASTRA_THEME_SETTINGS . '[heading-base-color]',
 					'title'             => __( 'Heading Color ( H1 - H6 )', 'astra' ),
 					'section'           => defined( 'ASTRA_EXT_VER' ) ? 'section-colors-body' : 'section-colors-background',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

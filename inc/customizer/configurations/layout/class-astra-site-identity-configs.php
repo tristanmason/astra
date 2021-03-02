@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'          => 5.5,
 					'title'             => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
@@ -218,11 +218,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'             => __( 'Logo Width', 'astra' ),
 					'suffix'            => 'px',
 					'input_attrs'       => array(
-						'min'       => 0,
-						'step'      => 1,
-						'max'       => 600,
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 600,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

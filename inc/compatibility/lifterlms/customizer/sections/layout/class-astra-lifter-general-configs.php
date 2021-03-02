@@ -49,11 +49,11 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 					'title'             => __( 'Course Columns', 'astra' ),
 					'priority'          => 0,
 					'input_attrs'       => array(
-						'step'      => 1,
-						'min'       => 1,
-						'max'       => 6,
+						'step' => 1,
+						'min'  => 1,
+						'max'  => 6,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' )
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -73,11 +73,11 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 					'title'             => __( 'Membership Columns', 'astra' ),
 					'priority'          => 0,
 					'input_attrs'       => array(
-						'step'      => 1,
-						'min'       => 1,
-						'max'       => 6,
+						'step' => 1,
+						'min'  => 1,
+						'max'  => 6,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' )
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 

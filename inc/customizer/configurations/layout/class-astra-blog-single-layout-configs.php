@@ -74,9 +74,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
-						'min'       => 768,
-						'step'      => 1,
-						'max'       => 1920,
+						'min'  => 768,
+						'step' => 1,
+						'max'  => 1920,
 					),
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),

@@ -47,18 +47,17 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Header background overlay color
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
-					'default'     => astra_get_option( 'transparent-header-bg-color-responsive' ),
-					'section'     => 'section-transparent-header',
-					'type'        => 'control',
-					'priority'    => 34,
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive-color',
-					'title'       => __( 'Background Overlay', 'astra' ),
-					'context'     => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					'responsive'  => true,
-					'rgba'        => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
+					'default'    => astra_get_option( 'transparent-header-bg-color-responsive' ),
+					'section'    => 'section-transparent-header',
+					'type'       => 'control',
+					'priority'   => 34,
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Overlay', 'astra' ),
+					'context'    => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'responsive' => true,
+					'rgba'       => true,
 				),
 
 				/**
@@ -119,19 +118,18 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Menu Background Color
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[transparent-menu-bg-color-responsive]',
-					'default'     => astra_get_option( 'transparent-menu-bg-color-responsive' ),
-					'type'        => 'control',
-					'priority'    => 36,
-					'section'     => 'section-transparent-header',
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive-color',
-					'tab'         => __( 'Normal', 'astra' ),
-					'title'       => __( 'Background', 'astra' ),
-					'responsive'  => true,
-					'rgba'        => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'context'     => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-menu-bg-color-responsive]',
+					'default'    => astra_get_option( 'transparent-menu-bg-color-responsive' ),
+					'type'       => 'control',
+					'priority'   => 36,
+					'section'    => 'section-transparent-header',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'tab'        => __( 'Normal', 'astra' ),
+					'title'      => __( 'Background', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'context'    => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -174,19 +172,18 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu background color.
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[transparent-submenu-bg-color-responsive]',
-					'default'     => astra_get_option( 'transparent-submenu-bg-color-responsive' ),
-					'type'        => 'control',
-					'priority'    => 38,
-					'section'     => 'section-transparent-header',
-					'control'     => 'ast-responsive-color',
-					'transport'   => 'postMessage',
-					'tab'         => __( 'Normal', 'astra' ),
-					'title'       => __( 'Background', 'astra' ),
-					'responsive'  => true,
-					'rgba'        => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'context'     => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-bg-color-responsive]',
+					'default'    => astra_get_option( 'transparent-submenu-bg-color-responsive' ),
+					'type'       => 'control',
+					'priority'   => 38,
+					'section'    => 'section-transparent-header',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'title'      => __( 'Background', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'context'    => ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
 
 				/**

@@ -637,7 +637,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'left'   => __( 'Left', 'astra' ),
 						),
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 

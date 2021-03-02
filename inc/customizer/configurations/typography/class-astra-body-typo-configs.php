@@ -136,11 +136,11 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'             => __( 'Line Height', 'astra' ),
 					'suffix'            => 'em',
 					'input_attrs'       => array(
-						'min'       => 1,
-						'step'      => 0.01,
-						'max'       => 5,
+						'min'  => 1,
+						'step' => 0.01,
+						'max'  => 5,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

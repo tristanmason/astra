@@ -112,7 +112,7 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 
 		// Insert title if param has.
 		if ( control?. params ?. ast_divider ?. ast_title ) {
-			control.container.prepend('<label class="customizer-text"><span class="customize-control-title">' + control.params.ast_divider.ast_title +'</span></label>');
+			control.container.prepend('<label class="ast-divider-title">' + control.params.ast_divider.ast_title +'</label>');
 		}
 
 		control.deferred.embedded.resolve(); // This triggers control.ready().

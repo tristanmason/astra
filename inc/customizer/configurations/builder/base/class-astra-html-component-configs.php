@@ -87,7 +87,7 @@ class Astra_Html_Component_Configs {
 					'priority'    => 4,
 					'default'     => 'Insert HTML text here.',
 					'input_attrs' => array(
-						'id'        => $builder_type . '-html-' . $index,
+						'id' => $builder_type . '-html-' . $index,
 					),
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'partial'     => array(

@@ -4877,12 +4877,23 @@ i.fipicon-angle-left:before {
 	border-color: red;
 }
 
-.customize-control-ast-color.customize-control.ast-top-divider label.customizer-text {
+.ast-top-divider > label.ast-divider-title {
 	display: block;
-	padding-bottom: 10px;
+	padding-bottom: 25px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: underline;
 }
 
-.customize-control-ast-color.customize-control.ast-top-divider .color-button-wrap,
-.customize-control-ast-color.customize-control.ast-top-divider .ast-color-btn-reset-wrap {
-	padding-top: 60px;
+.ast-top-divider > .ast-responsive-btns,
+.ast-top-divider > .ast-color-btn-reset-wrap {
+	padding-top: 40px;
+}
+
+.ast-top-divider > label.ast-divider-title ~ .ast-responsive-btns,
+.ast-top-divider > label.ast-divider-title ~ .ast-color-btn-reset-wrap,
+.ast-top-divider > label.ast-divider-title ~ .ast-color-picker-alpha .ast-color-btn-reset-wrap,
+.ast-top-divider > label.ast-divider-title ~ .ast-color-picker-alpha .color-button-wrap {
+	padding-top: 65px;
 }

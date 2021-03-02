@@ -74,7 +74,7 @@ final class Astra_Builder_Base_Configuration {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
@@ -170,7 +170,7 @@ final class Astra_Builder_Base_Configuration {
 					'priority'    => 16,
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
-						'min'       => 0,
+						'min' => 0,
 					),
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'units'       => array(

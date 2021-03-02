@@ -96,7 +96,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				),
 				'priority'          => 10,
 				'context'           => Astra_Builder_Helper::$general_tab,
-				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**

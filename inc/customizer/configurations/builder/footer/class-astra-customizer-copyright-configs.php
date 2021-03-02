@@ -119,7 +119,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Text Color', 'astra' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 
 			),
 

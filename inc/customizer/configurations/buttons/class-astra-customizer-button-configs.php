@@ -200,9 +200,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'suffix'      => 'px',
 					'title'       => __( 'Border Radius', 'astra' ),
 					'input_attrs' => array(
-						'min'       => 0,
-						'step'      => 1,
-						'max'       => 200,
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 200,
 					),
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'          => 35,
 					'connected'         => false,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 			);

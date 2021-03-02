@@ -209,7 +209,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Sub Option: Footer Background.
@@ -243,11 +243,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'input_attrs'       => array(
-						'min'       => 0,
-						'step'      => 1,
-						'max'       => 200,
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 200,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
