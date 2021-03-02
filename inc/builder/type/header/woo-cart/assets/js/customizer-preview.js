@@ -11,7 +11,6 @@
 ( function( $ ) {
 
 	var selector = '.ast-site-header-cart';
-	var transHeaderSelector = '.ast-theme-transparent-header .ast-site-header-cart';
 	var responsive_selector = '.astra-cart-drawer.woocommerce-active';
 
 	// Icon Color.
@@ -19,13 +18,6 @@
 		'astra-settings[header-woo-cart-icon-color]',
 		'color',
 		selector + ' .ast-cart-menu-wrap .count, ' + selector + ' .ast-cart-menu-wrap .count:after,' + selector + ' .ast-woo-header-cart-info-wrap,' + selector + ' .ast-site-header-cart .ast-addon-cart-wrap'
-	);
-
-	// Transparent Header - Icon Color.
-	astra_css(
-		'astra-settings[transparent-header-woo-cart-icon-color]',
-		'color',
-		transHeaderSelector + ' .ast-cart-menu-wrap .count, ' + transHeaderSelector + ' .ast-cart-menu-wrap .count:after,' + transHeaderSelector + ' .ast-woo-header-cart-info-wrap,' + transHeaderSelector + ' .ast-site-header-cart .ast-addon-cart-wrap'
 	);
 
 	// Icon Color.
@@ -40,20 +32,6 @@
 		'astra-settings[header-woo-cart-icon-color]',
 		'border-color',
 		'.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap'
-	);
-
-	// Transparent Header - Icon Color.
-	astra_css(
-		'astra-settings[transparent-header-woo-cart-icon-color]',
-		'border-color',
-		transHeaderSelector + ' .ast-cart-menu-wrap .count, ' + transHeaderSelector + ' .ast-cart-menu-wrap .count:after'
-	);
-
-	// Transparent Header - Icon BG Color.
-	astra_css(
-		'astra-settings[transparent-header-woo-cart-icon-color]',
-		'border-color',
-		'.ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap'
 	);
 
 	// WooCommerce Cart Colors.
@@ -213,17 +191,6 @@
 		setting.bind( function( color ) {
 			var dynamicStyle = '.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + color + '; } ';
 			astra_add_dynamic_css( 'header-woo-cart-icon-color', dynamicStyle );
-			wp.customize.preview.send( 'refresh' );
-		} );
-	} );
-
-	/**
-	 * Transparent Header - Cart icon style
-	 */
-	wp.customize( 'astra-settings[transparent-header-woo-cart-icon-color]', function( setting ) {
-		setting.bind( function( color ) {
-			var dynamicStyle = '.ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + color + '; } ';
-			astra_add_dynamic_css( 'transparent-header-woo-cart-icon-color', dynamicStyle );
 			wp.customize.preview.send( 'refresh' );
 		} );
 	} );

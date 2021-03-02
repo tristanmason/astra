@@ -11,7 +11,6 @@
 ( function( $ ) {
 
 	var selector = '.ast-edd-site-header-cart';
-	var transparentHeaderCartSelector = '.ast-theme-transparent-header .ast-edd-site-header-cart';
 	var responsive_selector = '.astra-cart-drawer.edd-active';
 
 	// Icon Color.
@@ -26,20 +25,6 @@
 		'astra-settings[edd-header-cart-icon-color]',
 		'border-color',
 		selector + ' .ast-edd-cart-menu-wrap .count, ' + selector + ' .ast-edd-cart-menu-wrap .count:after'
-	);
-
-	// Transparent Header - Icon Color.
-	astra_css(
-		'astra-settings[transparent-header-edd-cart-icon-color]',
-		'color',
-		transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count, ' + transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count:after,' + transparentHeaderCartSelector + ' .ast-edd-header-cart-info-wrap'
-	);
-
-	// Transparent Header - Icon Color.
-	astra_css(
-		'astra-settings[transparent-header-edd-cart-icon-color]',
-		'border-color',
-		transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count, ' + transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count:after'
 	);
 
 	// EDD Cart Colors.
@@ -144,15 +129,6 @@
 	 * EDD Cart Button Color
 	 */
 	wp.customize( 'astra-settings[edd-header-cart-icon-color]', function( setting ) {
-		setting.bind( function( cart_icon_color ) {
-			wp.customize.preview.send( 'refresh' );
-		});
-	});
-
-	/**
-	 * Transparent Header - EDD Cart Button Color
-	 */
-	wp.customize( 'astra-settings[transparent-header-edd-cart-icon-color]', function( setting ) {
 		setting.bind( function( cart_icon_color ) {
 			wp.customize.preview.send( 'refresh' );
 		});

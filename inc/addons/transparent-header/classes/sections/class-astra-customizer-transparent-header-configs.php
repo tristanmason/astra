@@ -1491,7 +1491,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					);
 
 					$_configs = array_merge( $_configs, $edd_cart_hfb_configs );
-				}           
+				}
 			} else {
 				$_old_content_configs = array(
 
