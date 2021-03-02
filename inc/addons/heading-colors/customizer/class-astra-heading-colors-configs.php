@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-content-typo',
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
-					'default'           => 'em',
+					'default'           => astra_get_option( 'line-height-h3' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 19,
 					'suffix'            => 'em',

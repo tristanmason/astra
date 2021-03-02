@@ -32,23 +32,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_configs = array(
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog-single',
-					'priority' => 13,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-				),
-
-			);
+			$_configs = array();
 
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
@@ -84,9 +68,23 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				);
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog-single',
+						'priority' => 13,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					),
 
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
