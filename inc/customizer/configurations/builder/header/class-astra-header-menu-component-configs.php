@@ -371,28 +371,21 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'           => Astra_Builder_Helper::$design_tab,
 					),
 
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-colors-menu-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 80,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$design_tab,
-						'title'    => __( 'Menu Color', 'astra' ),
-					),
-
 					// Option Group: Menu Color.
 					array(
-						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-colors]',
-						'type'       => 'control',
-						'control'    => 'ast-color-group',
-						'title'      => __( 'Text / Link', 'astra' ),
-						'section'    => $_section,
-						'transport'  => 'postMessage',
-						'priority'   => 90,
-						'context'    => Astra_Builder_Helper::$design_tab,
-						'responsive' => true,
+						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-text-colors]',
+						'type'        => 'control',
+						'control'     => 'ast-color-group',
+						'title'       => __( 'Text / Link', 'astra' ),
+						'section'     => $_section,
+						'transport'   => 'postMessage',
+						'priority'    => 90,
+						'context'     => Astra_Builder_Helper::$design_tab,
+						'responsive'  => true,
+						'ast_divider' => array(
+							'ast_class' => 'ast-top-divider',
+							'ast_title' => __( 'Menu Color', 'astra' ),
+						),
 					),
 					array(
 						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-background-colors]',
