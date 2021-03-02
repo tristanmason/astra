@@ -337,12 +337,6 @@
 	 */
 	wp.customize( 'astra-settings[transparent-header-edd-cart-icon-color]', function( setting ) {
 		setting.bind( function( cart_icon_color ) {
-			var transparentHeaderCartSelector = '.ast-theme-transparent-header .ast-edd-site-header-cart';
-
-			var dynamicStyle = transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count, ' + transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count:after,' + transparentHeaderCartSelector + ' .ast-edd-header-cart-info-wrap { color: ' + cart_icon_color + ' } ';
-			dynamicStyle += transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count, ' + transparentHeaderCartSelector + ' .ast-edd-cart-menu-wrap .count:after { border-color: ' + cart_icon_color + ' } ';
-			astra_add_dynamic_css( 'transparent-header-edd-cart-icon-color', dynamicStyle );
-
 			wp.customize.preview.send( 'refresh' );
 		});
 	});
@@ -352,14 +346,6 @@
 	 */
 	wp.customize( 'astra-settings[transparent-header-woo-cart-icon-color]', function( setting ) {
 		setting.bind( function( cart_icon_color ) {
-			var transHeaderSelector = '.ast-theme-transparent-header .ast-site-header-cart';
-
-			var dynamicStyle = transHeaderSelector + ' .ast-cart-menu-wrap .count, ' + transHeaderSelector + ' .ast-cart-menu-wrap .count:after,' + transHeaderSelector + ' .ast-woo-header-cart-info-wrap,' + transHeaderSelector + ' .ast-site-header-cart .ast-addon-cart-wrap { color: ' + cart_icon_color + ' } ';
-			dynamicStyle += transHeaderSelector + ' .ast-cart-menu-wrap .count, ' + transHeaderSelector + ' .ast-cart-menu-wrap .count:after, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap { border-color: ' + cart_icon_color + ' } ';
-			dynamicStyle += '.ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + cart_icon_color + '; } ';
-
-			astra_add_dynamic_css( 'transparent-header-woo-cart-icon-color', dynamicStyle );
-
 			wp.customize.preview.send( 'refresh' );
 		});
 	});
