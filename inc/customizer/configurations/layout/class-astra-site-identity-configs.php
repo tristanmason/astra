@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Notice for Colors - Transparent header enabled on page.
 				 */
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-header-logo]',
+					'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-logo]',
 					'type'            => 'control',
 					'control'         => 'ast-description',
 					'section'         => $_section,
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				* Option: Transparent Header Section - Link.
 				*/
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-header-logo-link]',
+					'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-logo-link]',
 					'type'            => 'control',
 					'control'         => 'ast-customizer-link',
 					'section'         => $_section,
@@ -381,7 +381,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						 * Notice - Transparent meta header enabled on page.
 						 */
 						array(
-							'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-meta-enabled]',
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-meta-enabled]',
 							'type'            => 'control',
 							'control'         => 'ast-description',
 							'section'         => 'section-header-builder-layout',
@@ -394,7 +394,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						 * Notice Link - Transparent meta header enabled on page.
 						 */
 						array(
-							'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-header-meta-link]',
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-meta-link]',
 							'type'            => 'control',
 							'control'         => 'ast-customizer-link',
 							'section'         => 'section-header-builder-layout',
