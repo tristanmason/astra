@@ -42,6 +42,9 @@
         &-width-sm-25{
             width:25%;
         }
+        &-width-md-50{
+          width:50%;
+      }
     }
 
     @media (max-width: $mx-col-md) {
@@ -49,13 +52,50 @@
             width:25%;
         }
     }
-
+    
     &-full-width {
         width: 100%;
     }
     &-width-50{
         width: 50%;
     }
+
+    @media (min-width: $mx-col-md) {
+        &-width-md-4{
+          width: 33.3333333333%;
+        }
+        &-width-md-16{
+          width: 16.6666666667%;
+        }
+        &-width-md-6{
+          width: 50%;
+          float:left;
+        }
+        &-width-md-3{
+          width: 25%;
+        }
+        &-width-md-66{
+          width: 66.6666666667%;
+        }
+        &-width-md-12{
+          float: left ;
+        }
+    }
+
+    @media (min-width: $mx-col-lg) {
+      &-width-lg-33{
+        width: 33.3333333333%;
+      }
+      &-width-lg-16{
+        width: 16.6666666667%;
+      }
+      &-width-lg-50{
+        width: 50%;
+      }
+      &-width-lg-66{
+        width: 66.6666666667%;
+      }
+  }
 }
   
 // Flex variation
