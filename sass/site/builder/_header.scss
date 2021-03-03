@@ -755,19 +755,11 @@ body.admin-bar {
 	align-items: center;
     display: flex;
 }
-#ast-desktop-header {
-	.ast-desktop-header-content {
-		display: none;
-	}
-}
 .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open {
 	.ast-mobile-header-wrap {
 		.ast-mobile-header-content {
 			display: none;
 		}
-	}
-	.ast-desktop-header-content {
-		display: none;
 	}
 }
 .ast-main-header-nav-open.ast-popup-nav-open {
@@ -776,18 +768,12 @@ body.admin-bar {
 			display: none;
 		}
 	}
-	.ast-desktop-header-content {
-		display: none;
-	}
 }
 .ast-main-header-nav-open.ast-header-break-point {
 	.ast-mobile-header-wrap {
 		.ast-mobile-header-content {
 			display: block;
 		}
-	}
-	#ast-desktop-header .ast-desktop-header-content {
-		display: block;
 	}
 }
 .ast-button-wrap {
