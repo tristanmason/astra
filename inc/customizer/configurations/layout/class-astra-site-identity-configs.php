@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_section               = 'title_tagline';
+			$_section                  = 'title_tagline';
 			$retina_logo_divider       = 6;
 			$retina_logo_togglecontrol = 5;
 
