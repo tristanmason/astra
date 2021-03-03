@@ -332,22 +332,4 @@
 		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item.current-menu-item > .menu-link'
 	);
 
-	/**
-	 * Transparent Header EDD-Cart color options - Customizer preview CSS.
-	 */
-	wp.customize( 'astra-settings[transparent-header-edd-cart-icon-color]', function( setting ) {
-		setting.bind( function( cart_icon_color ) {
-			wp.customize.preview.send( 'refresh' );
-		});
-	});
-
-	/**
-	 * Transparent Header WOO-Cart color options - Customizer preview CSS.
-	 */
-	wp.customize( 'astra-settings[transparent-header-woo-cart-icon-color]', function( setting ) {
-		setting.bind( function( cart_icon_color ) {
-			wp.customize.preview.send( 'refresh' );
-		});
-	});
-
 } )( jQuery );

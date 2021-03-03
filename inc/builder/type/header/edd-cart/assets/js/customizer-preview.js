@@ -146,6 +146,15 @@
 		} );
 	} );
 
+	/**
+	 * Transparent Header EDD-Cart color options - Customizer preview CSS.
+	 */
+	wp.customize( 'astra-settings[transparent-header-edd-cart-icon-color]', function( setting ) {
+		setting.bind( function( cart_icon_color ) {
+			wp.customize.preview.send( 'refresh' );
+		});
+	});
+
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( 'section-header-edd-cart', '.ast-header-edd-cart' );
 

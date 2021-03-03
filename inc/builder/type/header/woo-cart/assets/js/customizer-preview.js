@@ -205,6 +205,15 @@
 		} );
 	} );
 
+	/**
+	 * Transparent Header WOO-Cart color options - Customizer preview CSS.
+	 */
+	wp.customize( 'astra-settings[transparent-header-woo-cart-icon-color]', function( setting ) {
+		setting.bind( function( cart_icon_color ) {
+			wp.customize.preview.send( 'refresh' );
+		});
+	});
+
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
 
