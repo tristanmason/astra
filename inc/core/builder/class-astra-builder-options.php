@@ -54,7 +54,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Header Builder - Mobile Defaults.
 	 */
 	$defaults['header-mobile-items'] = array(
-		'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
+		'popup'   => array( 'popup_content' => array() ),
 		'above'   =>
 			array(
 				'above_left'   => array(),
@@ -63,9 +63,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			),
 		'primary' =>
 			array(
-				'primary_left'   => array( 'logo' ),
+				'primary_left'   => array(),
 				'primary_center' => array(),
-				'primary_right'  => array( 'mobile-trigger' ),
+				'primary_right'  => array(),
 			),
 		'below'   =>
 			array(
