@@ -333,7 +333,7 @@ function astra_wp_version_compare( $version, $compare ) {
 /**
  * Get the theme author details 
  *
- * @since  x.x.x
+ * @since  3.1.0
  * @return array            Return theme author URL and name.
  */
 function astra_get_theme_author_details() {

@@ -1665,7 +1665,6 @@ button.components-button.ahfb-sorter-item-expand {
 .ahfb-radio-icon-control .components-button-group.ahfb-radio-container-control .components-button.is-tertiary, #customize-control-astra-settings-header-trigger-icon .components-button-group.ahfb-radio-container-control .components-button.is-tertiary {
     min-width: 25%;
     padding: 0;
-    margin-bottom: 12px;
     margin-left: 12px;
     min-height: 40px;
 }
@@ -4863,7 +4862,6 @@ i.fipicon-angle-left:before {
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	left: unset;
 }
-
 
 .ast-bottom-divider {
     border-bottom: 1px solid #ddd;

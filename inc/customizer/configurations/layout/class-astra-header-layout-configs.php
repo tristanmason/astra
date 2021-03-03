@@ -442,8 +442,8 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'context'     => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
-							'operator' => '!=',
-							'value'    => 'none',
+							'operator' => 'in',
+							'value'    => array( 'button', 'text-html' ),
 						),
 					),
 					'section'     => 'section-primary-menu',

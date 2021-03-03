@@ -258,7 +258,7 @@ class Astra_Button_Component_Configs {
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
-					'title'      => __( 'Border Color', 'astra-addon' ),
+					'title'      => __( 'Border Color', 'astra' ),
 					'section'    => $_section,
 					'priority'   => 80,
 					'transport'  => 'postMessage',
@@ -349,9 +349,22 @@ class Astra_Button_Component_Configs {
 				$_configs = array_merge( $_configs, $footer_specific_configs );
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography-divider]',
+						'type'     => 'control',
+						'section'  => $_section,
+						'control'  => 'ast-divider',
+						'priority' => 90,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$design_tab,
+					),
 
 					/**
 					 * Option: Primary Header Button Typography

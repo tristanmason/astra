@@ -182,7 +182,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 						'control'  => 'ast-heading',
 						'section'  => 'section-breadcrumb',
 						'title'    => __( 'Colors', 'astra' ),
-						'priority' => 72,
+						'priority' => 71,
 						'settings' => array(),
 						'context'  => array(
 							array(

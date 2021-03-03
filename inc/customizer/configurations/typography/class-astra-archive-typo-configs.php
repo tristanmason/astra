@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				);
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
 
@@ -99,16 +99,16 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					),
 
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
-						'default'     => astra_get_option( 'blog-content-blog-post-title-typo' ),
-						'type'        => 'control',
-						'control'     => 'ast-settings-group',
-						'title'       => __( 'Post Title Font', 'astra' ),
-						'section'     => 'section-blog',
-						'transport'   => 'postMessage',
-						'priority'    => 140,
+						'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+						'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Post Title Font', 'astra' ),
+						'section'   => 'section-blog',
+						'transport' => 'postMessage',
+						'priority'  => 140,
 						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -185,6 +185,16 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					),
 				);
 
+				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					$new_configs[] = array(
+						'name'     => ASTRA_THEME_SETTINGS . '[blog-section-font-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog',
+						'priority' => 139,
+						'settings' => array(),
+					);
+				}
 			}
 
 			$_configs = array_merge( $_configs, $new_configs );

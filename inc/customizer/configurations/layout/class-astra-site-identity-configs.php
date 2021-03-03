@@ -32,10 +32,21 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 
 			$_section = 'title_tagline';
 
+			/**
+			 * Priorities updated based on is new header-footer builder active or not.
+			 */
 			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
-				$display_title_priority = 6.5;
+				$display_title_priority    = 6.5;
+				$retina_logo_divider       = 4;
+				$retina_logo_togglecontrol = 4;
+				$retina_logo               = 5;
+				$display_tagline_priority  = 10;
 			} else {
-				$display_title_priority = 7;
+				$display_title_priority    = 6.5;
+				$retina_logo_divider       = 5;
+				$retina_logo_togglecontrol = 5;
+				$retina_logo               = 5.5;
+				$display_tagline_priority  = 9.5;
 			}
 
 			$_configs = array(
@@ -44,7 +55,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Notice for Colors - Transparent header enabled on page.
 				 */
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-header-logo]',
+					'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-logo]',
 					'type'            => 'control',
 					'control'         => 'ast-description',
 					'section'         => $_section,
@@ -65,7 +76,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				* Option: Transparent Header Section - Link.
 				*/
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-header-logo-link]',
+					'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-logo-link]',
 					'type'            => 'control',
 					'control'         => 'ast-customizer-link',
 					'section'         => $_section,
@@ -131,7 +142,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-					'priority'          => 5,
+					'priority'          => $retina_logo,
 					'title'             => __( 'Retina Logo', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'         => 'postMessage',
@@ -248,16 +259,16 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Display Tagline
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-					'type'        => 'control',
-					'control'     => 'ast-toggle-control',
-					'default'     => astra_get_option( 'display-site-tagline' ),
-					'section'     => 'title_tagline',
-					'priority'    => 10,
-					'title'       => __( 'Display Site Tagline', 'astra' ),
-					'transport'   => 'postMessage',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'partial'     => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+					'type'      => 'control',
+					'control'   => 'ast-toggle-control',
+					'default'   => astra_get_option( 'display-site-tagline' ),
+					'section'   => 'title_tagline',
+					'priority'  => $display_tagline_priority,
+					'title'     => __( 'Display Site Tagline', 'astra' ),
+					'transport' => 'postMessage',
+					 'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'partial'   => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
@@ -311,7 +322,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						 * Notice - Transparent meta header enabled on page.
 						 */
 						array(
-							'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-meta-enabled]',
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-meta-enabled]',
 							'type'            => 'control',
 							'control'         => 'ast-description',
 							'section'         => 'section-header-builder-layout',
@@ -324,7 +335,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						 * Notice Link - Transparent meta header enabled on page.
 						 */
 						array(
-							'name'            => ASTRA_THEME_SETTINGS . '[ahfb-notice-header-transparent-header-meta-link]',
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-meta-link]',
 							'type'            => 'control',
 							'control'         => 'ast-customizer-link',
 							'section'         => 'section-header-builder-layout',
