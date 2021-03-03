@@ -130,8 +130,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
 				add_filter( 'customize_dynamic_partial_args', array( $this, 'filter_dynamic_partial_args' ), 10, 2 );
 
-				// add_action( 'customize_save_after', array( $this, 'refresh_astra_settings' ) );
-
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
@@ -144,26 +142,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_action( 'wp_head', array( $this, 'preview_styles' ) );
-		}
-
-		/**
-		 *  Update the astra settings when values are not dirty.
-		 *
-		 *  @since x.x.x
-		 */
-		public function refresh_astra_settings() {
-
-			$defaults = $this->get_control_defaults();
-			$settings = get_option( ASTRA_THEME_SETTINGS );
-			foreach ( $settings as $key => $value ) {
-				if ( isset( $defaults[ ASTRA_THEME_SETTINGS . '[' . $key . ']' ] ) ) {
-					if ( $defaults[ ASTRA_THEME_SETTINGS . '[' . $key . ']' ] === $settings[ $key ] ) {
-						unset( $settings[ $key ] );
-					}
-				}
-			}
-			update_option( ASTRA_THEME_SETTINGS, $settings );
-
 		}
 
 		/**
