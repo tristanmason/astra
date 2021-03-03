@@ -32,6 +32,9 @@ v3.1.0
 - Fix: Transparent Header - Menu link, background and hover colors not working for old header.
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
 
+v3.0.3
+- Fix: JS console error when Theme Header is replaced with third-party plugins header.
+
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.
 - Fix: Responsive option missing for typography.
