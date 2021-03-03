@@ -711,9 +711,6 @@
 	border: 1px solid #a29090;
 	border-radius: 4px;
 }
-.customize-control-ast-responsive-color .astra-popover-color {
-	margin-top: 0;
-}
 
 .ast-field-settings-modal .astra-popover-color {
     margin-left: 0px;
@@ -1118,6 +1115,11 @@ input[type="text"].select2-search__field {
   margin: 1em 0 0.2em;
 }
 
+.customize-control-ast-divider .customizer-text {
+    margin-top: -10px;
+    display: block;
+}
+
 .ast-field-settings-modal .customize-control-ast-divider {
   background-color: #f5f5f5;
   display: block;
@@ -1128,6 +1130,10 @@ input[type="text"].select2-search__field {
   border-color: #dddddd;
   line-height: 1;
   margin-top: 15px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customizer-text {
+	margin-top: 0;
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
@@ -1204,8 +1210,12 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
+.customize-control .ast-control-reduce-top-space {
+	margin-top: -15px;
+}
+
 .ast-link-open-in-new-tab-wrapper {
-  margin: 10px 0;
+  margin: 25px 0;
 }
 
 .customize-control-ast-radio-image label {
@@ -1251,10 +1261,6 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-below-header-menu-align .ast-radio-img-svg svg {
   width: 37px;
   height: 49px;
-}
-
-#customize-control-astra-settings-footer-adv .image label {
-  margin-bottom: 12px;
 }
 
 .customize-control-ast-responsive-background {
@@ -1571,12 +1577,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-color .customize-control-content {
   display: block;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
-  margin-left: 2px;
-  margin-top: 20px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -1645,6 +1649,7 @@ input[type="text"].select2-search__field {
     top: -2px;
   }
 }
+
 .ast-responsive-select-container {
   display: none;
 }
