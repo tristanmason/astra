@@ -3274,61 +3274,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   background-color: transparent;
 }
 
-.menu-toggle .ast-close-svg {
-  display: none;
-}
-
-.menu-toggle.toggled .ast-mobile-svg {
-  display: none;
-}
-
-.menu-toggle.toggled .ast-close-svg {
-  display: block;
-}
-
-/** Desktop Off-Canvas CSS */
-.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-inner {
-  max-width: 20%;
-}
-
-.ast-desktop .ast-mobile-popup-drawer.ast-mobile-popup-full-width .ast-mobile-popup-inner {
-  width: 100%;
-  max-width: 100%;
-}
-
-.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-overlay {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.ast-desktop-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
-  font-weight: bold;
-  content: "\e900";
-  font-family: 'Astra';
-  text-decoration: inherit;
-  display: inline-block;
-}
-
-.ast-off-canvas-active body.ast-main-header-nav-open.ast-desktop {
-  overflow: auto;
-}
-
-body.admin-bar.ast-desktop .ast-mobile-popup-drawer .ast-mobile-popup-inner {
-  top: 32px;
-}
-
-/** Default Spacing for Mobile Header elements except Menu */
-.ast-mobile-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
-.ast-desktop-popup-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
-.ast-mobile-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element),
-.ast-desktop-header-content .ast-builder-layout-element:not(.ast-builder-menu):not(.ast-header-divider-element) {
-  margin: 15px 20px;
-}
-
-.ast-header-break-point .main-navigation .menu-link {
-  border: 0;
-}
-
 /*----------  Header  ----------*/
 /**
  * 	Header
