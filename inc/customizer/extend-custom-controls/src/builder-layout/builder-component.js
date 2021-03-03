@@ -51,7 +51,6 @@ const BuilderComponent = props => {
 
 		// If popup updated, partial refresh contents.
 		if ( 'popup' === row  ) {
-
 			let popup_control = props.customizer('astra-settings[header-mobile-popup-items]');
 			popup_control.set( ! popup_control.get() );
 		}
@@ -107,9 +106,8 @@ const BuilderComponent = props => {
 		updatePresetSettings();
 		updateRowLayout();
 	}, []);
-	
+
 	const onDragStart = () => {
-		
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
 		for ( let i = 0; i < dropzones.length; ++i) {
 			dropzones[i].classList.add('ahfb-dragging-dropzones');

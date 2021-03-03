@@ -112,11 +112,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Popup Width.
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[popup-width]',
+					'name'        => ASTRA_THEME_SETTINGS . '[off-canvas-width]',
 					'section'     => $_section,
 					'priority'    => 32,
 					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'popup-width' ),
+					'default'     => astra_get_option( 'off-canvas-width' ),
 					'title'       => __( 'Popup Width ( % )', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
@@ -281,7 +281,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Popup Padding.
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[popup-padding]',
+					'name'           => ASTRA_THEME_SETTINGS . '[off-canvas-padding]',
 					'default'        => '',
 					'type'           => 'control',
 					'transport'      => 'postMessage',
