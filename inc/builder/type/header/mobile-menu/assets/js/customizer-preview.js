@@ -180,7 +180,7 @@
                     dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
                     dynamicStyle += '} ';
                     // Toggle top.
-                    dynamicStyle += '.astra-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
                     dynamicStyle += 'top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
                     dynamicStyle += 'right: calc( ' + padding['tablet']['right'] + padding['tablet-unit'] + ' - 0.907em );'
                     dynamicStyle += '} ';
@@ -195,7 +195,7 @@
                     dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
                     dynamicStyle += '} ';
                     // Toggle top.
-                    dynamicStyle += '.astra-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
                     dynamicStyle += 'top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
                     dynamicStyle += 'right: calc( ' + padding['mobile']['right'] + padding['mobile-unit'] + ' - 0.907em );'
                     dynamicStyle += '} ';

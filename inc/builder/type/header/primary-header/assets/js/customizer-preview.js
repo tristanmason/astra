@@ -124,7 +124,7 @@
                 margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
             ) {
                 var dynamicStyle = '';
-                dynamicStyle += '.astra-hfb-header .site-header {';
+                dynamicStyle += '.ast-hfb-header .site-header {';
                 dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
                 dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
@@ -132,7 +132,7 @@
                 dynamicStyle += '} ';
 
                 dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-                dynamicStyle += '.astra-hfb-header .site-header {';
+                dynamicStyle += '.ast-hfb-header .site-header {';
                 dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
                 dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
@@ -141,7 +141,7 @@
                 dynamicStyle += '} ';
 
                 dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-                dynamicStyle += '.astra-hfb-header .site-header {';
+                dynamicStyle += '.ast-hfb-header .site-header {';
                 dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
                 dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';

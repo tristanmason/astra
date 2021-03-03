@@ -116,7 +116,7 @@
 	astra_builder_advanced_css( section, selector );
 
 	// Advanced CSS for Header Builder.
-	astra_builder_advanced_css( 'section-footer-builder-layout', '.astra-hfb-header .site-footer' );
+	astra_builder_advanced_css( 'section-footer-builder-layout', '.ast-hfb-header .site-footer' );
 
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( section, selector, 'grid' );
