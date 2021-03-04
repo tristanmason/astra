@@ -135,14 +135,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 	}
-	
+
 	if ( '' !== mobileHeader && null !== mobileHeader ) {
 
 		mobileHeaderType = mobileHeader.dataset.type;
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
-	
+
 	/**
 	 * Updates the header type.
 	 */
@@ -246,7 +246,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 		var popupClose = document.getElementById( 'menu-toggle-close' );
 		var submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
-		
+
 		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
@@ -307,7 +307,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
-		
+
 	}
 
 	window.addEventListener( 'load', function() {
@@ -416,7 +416,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
 			var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
-			
+
 			header_account_trigger.onclick = function( event ) {
 				event.preventDefault();
 				event.stopPropagation();
@@ -677,7 +677,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		var button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			button = container.getElementsByTagName( 'a' )[0];
 			if ( 'undefined' === typeof button ) {
@@ -685,7 +685,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		menu = container.getElementsByTagName( 'ul' )[0];
+		var menu = container.getElementsByTagName( 'ul' )[0];
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
@@ -711,12 +711,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		};
 
 		// Get all the link elements within the menu.
-		links    = menu.getElementsByTagName( 'a' );
-		subMenus = menu.getElementsByTagName( 'ul' );
+		var links    = menu.getElementsByTagName( 'a' );
+		var subMenus = menu.getElementsByTagName( 'ul' );
 
 
 		// Set menu items with submenus to aria-haspopup="true".
-		for ( i = 0, len = subMenus.length; i < len; i++ ) {
+		for ( var i = 0, len = subMenus.length; i < len; i++ ) {
 			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
 		}
 
@@ -800,7 +800,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function toggleBlurFocus() {
 		var self = this || '',
             hash = '#';
-			link = new String( self );
+		var	link = new String( self );
         if( link.indexOf( hash ) !== -1 && body.classList.contains('ast-mouse-clicked') ) {
         	return;
         }

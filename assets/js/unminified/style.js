@@ -364,7 +364,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    	M.splice(1,1,tem[1]);
 	    }
 
-	    bodyElement = document.body;
+	    var bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
 		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
 	    }
@@ -417,7 +417,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		var button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			button = container.getElementsByTagName( 'a' )[0];
 			if ( 'undefined' === typeof button ) {
@@ -425,7 +425,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		menu = container.getElementsByTagName( 'ul' )[0];
+		var menu = container.getElementsByTagName( 'ul' )[0];
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
@@ -451,12 +451,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		};
 
 		// Get all the link elements within the menu.
-		links    = menu.getElementsByTagName( 'a' );
-		subMenus = menu.getElementsByTagName( 'ul' );
+		var links    = menu.getElementsByTagName( 'a' );
+		var subMenus = menu.getElementsByTagName( 'ul' );
 
 
 		// Set menu items with submenus to aria-haspopup="true".
-		for ( i = 0, len = subMenus.length; i < len; i++ ) {
+		for ( var i = 0, len = subMenus.length; i < len; i++ ) {
 			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
 		}
 
@@ -559,7 +559,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function toggleBlurFocus() {
 		var self = this || '',
             hash = '#';
-			link = new String( self );
+		var	link = new String( self );
         if( link.indexOf( hash ) !== -1 && document.body.classList.contains('ast-mouse-clicked') ) {
         	return;
         }

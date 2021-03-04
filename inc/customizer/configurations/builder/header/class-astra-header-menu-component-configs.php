@@ -726,26 +726,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				);
 
-				if ( defined( 'ASTRA_EXT_VER' ) ) {
-
-					$addon_configs = array(
-						/**
-						 * Option: Divider
-						 */
-						array(
-							'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-menu-colors-divider]',
-							'type'     => 'control',
-							'section'  => $_section,
-							'control'  => 'ast-divider',
-							'priority' => 90,
-							'settings' => array(),
-							'context'  => Astra_Builder_Helper::$design_tab,
-						),
-					);
-
-					$_configs = array_merge( $_configs, $addon_configs );
-				}
-
 				$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
 				$html_config[] = $_configs;
 			}

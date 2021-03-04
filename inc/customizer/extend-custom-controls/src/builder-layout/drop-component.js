@@ -19,7 +19,7 @@ const DropComponent = props => {
 					id: item
 				});
 			} else {
-				tmpCurrentList.splice(key, 1);
+				tmpCurrentList.splice(tmpCurrentList.indexOf(item), 1);
 			}
 		});
 		currentList = tmpCurrentList;
@@ -34,7 +34,7 @@ const DropComponent = props => {
 					id: item
 				});
 			} else {
-				tmpCurrentCenterList.splice(key, 1);
+				tmpCurrentCenterList.splice(tmpCurrentCenterList.indexOf(item), 1);
 			}
 		});
 		currentCenterList = tmpCurrentCenterList;
