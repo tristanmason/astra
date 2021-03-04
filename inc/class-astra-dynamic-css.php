@@ -521,23 +521,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				);
 			}
-			
-			if ( is_astra_pagination_enabled() ) {
-				$css_output['.ast-pagination']                    = array(
-					'padding-top' => '1.5em',
-					'text-align'  => 'center',
-				);
-				$css_output['.ast-pagination .next.page-numbers'] = array(
-					'display' => 'inherit',
-					'float'   => 'none',
-				);
-				$css_output['.ast-pagination a']                  = array(
-					'color' => esc_attr( $link_color ),
-				);
-				$css_output['.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current'] = array(
-					'color' => esc_attr( $link_hover_color ),
-				);
-			}
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$css_output['#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea'] = array(
@@ -679,9 +662,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $footer_css_output );
 			}
 
-			if ( is_astra_pagination_enabled() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::pagination_static_css() );
-			}
+			// Paginaiton CSS.
+			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
@@ -1138,18 +1120,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					
 				);
-
-				if ( is_astra_pagination_enabled() ) {
-					$static_pagination_tablet = array(
-						'.ast-pagination .prev.page-numbers' => array(
-							'padding-right' => '.5em',
-						),
-						'.ast-pagination .next.page-numbers' => array(
-							'padding-left' => '.5em',
-						),
-					);
-					$parse_css               .= astra_parse_css( $static_pagination_tablet, '', astra_get_tablet_breakpoint() );
-				}   
 			} else {
 				$static_layout_lang_direction_css = array(
 					'.ast-right-sidebar #primary' => array(
@@ -1157,19 +1127,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					
 				);
-				
-				if ( is_astra_pagination_enabled() ) {
-
-					$static_pagination_tablet = array(
-						'.ast-pagination .prev.page-numbers' => array(
-							'padding-left' => '.5em',
-						),
-						'.ast-pagination .next.page-numbers' => array(
-							'padding-right' => '.5em',
-						),
-					);
-					$parse_css               .= astra_parse_css( $static_pagination_tablet, '', astra_get_tablet_breakpoint() );
-				}
 
 				if ( 'no-sidebar' !== astra_page_layout() ) {
 					$static_layout_lang_direction_css_sidebar = array(
@@ -3624,172 +3581,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}';
 			}
 			return $cart_static_css;
-		}
-
-		/**
-		 * Load static Pagination CSS.
-		 *
-		 * @since 3.0.0
-		 * @return string static css for Pagination.
-		 */
-		public static function pagination_static_css() {
-			$pagination_static_css_str = '
-			.post-navigation a,
-			.ast-pagination .prev.page-numbers,
-			.ast-pagination .next.page-numbers {
-			  padding: 0 1.5em;
-			  height: 2.33333em;
-			  line-height: calc(2.33333em - 3px);
-			}
-			.post-navigation a {
-			  background: transparent;
-			  font-size: 16px;
-			  font-size: 1.06666rem;
-			}
-			.ast-pagination {
-			  display: inline-block;
-			  width: 100%;
-			  padding-top: 2em;
-			}
-			.ast-pagination .page-numbers {
-			  display: inline-block;
-			  width: 2.33333em;
-			  height: 2.33333em;
-			  font-size: 16px;
-			  font-size: 1.06666rem;
-			  line-height: calc(2.33333em - 3px);
-			  text-align: center;
-			}
-			.ast-pagination .nav-links {
-			  display: inline-block;
-			  width: 100%;
-			}
-			@media (max-width: 420px) {
-			  .ast-pagination .prev.page-numbers,
-			  .ast-pagination .next.page-numbers {
-				width: 100%;
-				text-align: center;
-				margin: 0;
-			  }
-			}
-			.ast-pagination .prev.page-numbers,
-			.ast-pagination .prev.page-numbers:visited,
-			.ast-pagination .prev.page-numbers:focus,
-			.ast-pagination .next.page-numbers,
-			.ast-pagination .next.page-numbers:visited,
-			.ast-pagination .next.page-numbers:focus {
-			  display: inline-block;
-			  width: auto;
-			}
-			.ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
-			.ast-pagination .prev.page-numbers:visited.dots,
-			.ast-pagination .prev.page-numbers:visited.dots:hover,
-			.ast-pagination .prev.page-numbers:visited.dots:focus,
-			.ast-pagination .prev.page-numbers:focus.dots,
-			.ast-pagination .prev.page-numbers:focus.dots:hover,
-			.ast-pagination .prev.page-numbers:focus.dots:focus,
-			.ast-pagination .next.page-numbers.dots,
-			.ast-pagination .next.page-numbers.dots:hover,
-			.ast-pagination .next.page-numbers.dots:focus,
-			.ast-pagination .next.page-numbers:visited.dots,
-			.ast-pagination .next.page-numbers:visited.dots:hover,
-			.ast-pagination .next.page-numbers:visited.dots:focus,
-			.ast-pagination .next.page-numbers:focus.dots,
-			.ast-pagination .next.page-numbers:focus.dots:hover,
-			.ast-pagination .next.page-numbers:focus.dots:focus {
-			  border: 2px solid #eaeaea;
-			  background: transparent;
-			}
-			
-			.ast-pagination .prev.page-numbers.dots,
-			.ast-pagination .prev.page-numbers:visited.dots,
-			.ast-pagination .prev.page-numbers:focus.dots,
-			.ast-pagination .next.page-numbers.dots,
-			.ast-pagination .next.page-numbers:visited.dots,
-			.ast-pagination .next.page-numbers:focus.dots {
-			  cursor: default;
-			}
-			
-			@media (max-width: 768px) {
-			  .ast-pagination .prev_next {
-				display: inline-block;
-				width: 100%;
-			  }
-			}
-			.ast-pagination .prev_next .next .ast-right-arrow,
-			.ast-pagination .prev_next .prev .ast-left-arrow {
-			  font-size: 1em;
-			  line-height: 1em;
-			}';
-			
-			if ( is_rtl() ) {
-				$pagination_static_css_str .= '
-				@media (min-width: 993px) {
-					.ast-pagination {
-					  padding-right: 3.33333em;
-					  padding-left: 3.33333em;
-					}
-				  }
-				  @media (min-width: 769px) {
-					.ast-pagination .prev.page-numbers.next,
-					.ast-pagination .prev.page-numbers:visited.next,
-					.ast-pagination .prev.page-numbers:focus.next,
-					.ast-pagination .next.page-numbers.next,
-					.ast-pagination .next.page-numbers:visited.next,
-					.ast-pagination .next.page-numbers:focus.next {
-					  margin-left: 0;
-					}
-				  }
-				  .ast-pagination .next.page-numbers {
-					float: left;
-					text-align: left;
-				  }
-				  
-				  @media (max-width: 768px) {
-					.ast-pagination .next.page-numbers .page-navigation {
-					  padding-left: 0;
-					}
-				  }
-				  @media (min-width: 769px) {
-					.ast-pagination .prev_next {
-					  float: left;
-					}
-				  }';
-			} else {
-				$pagination_static_css_str .= '
-				@media (min-width: 993px) {
-					.ast-pagination {
-					  padding-left: 3.33333em;
-					  padding-right: 3.33333em;
-					}
-				}
-				@media (min-width: 769px) {
-					.ast-pagination .prev.page-numbers.next,
-					.ast-pagination .prev.page-numbers:visited.next,
-					.ast-pagination .prev.page-numbers:focus.next,
-					.ast-pagination .next.page-numbers.next,
-					.ast-pagination .next.page-numbers:visited.next,
-					.ast-pagination .next.page-numbers:focus.next {
-					  margin-right: 0;
-					}
-				}
-				.ast-pagination .next.page-numbers {
-					float: right;
-					text-align: right;
-				}
-				  
-				@media (max-width: 768px) {
-					.ast-pagination .next.page-numbers .page-navigation {
-					  padding-right: 0;
-					}
-				}
-				@media (min-width: 769px) {
-					.ast-pagination .prev_next {
-					  float: right;
-					}
-				}';
-			}
-			return $pagination_static_css_str;
 		}
 	}
 }
