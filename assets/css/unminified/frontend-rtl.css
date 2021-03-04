@@ -2841,14 +2841,6 @@ body .entry-content .wp-block-latest-posts li {
   transform: rotateX(180deg);
 }
 
-.ast-header-break-point .ast-mobile-header-wrap .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
-  font-weight: bold;
-  content: "\e900";
-  font-family: 'Astra';
-  text-decoration: inherit;
-  display: inline-block;
-}
-
 .ast-header-break-point .ast-nav-menu .sub-menu {
   line-height: 3;
 }
