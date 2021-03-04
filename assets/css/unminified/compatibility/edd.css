@@ -781,7 +781,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-  display: inline-block;
+  display: inline;
   line-height: 1;
 }
 
