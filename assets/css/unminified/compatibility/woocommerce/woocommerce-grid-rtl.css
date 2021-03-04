@@ -1268,15 +1268,6 @@ p.demo_store a,
   display: block;
 }
 
-.woocommerce div.product .related.products ul.products {
-  margin: 0;
-}
-
-.woocommerce div.product .related.products ul.products li.product {
-  width: 22.5%;
-  width: calc( 25% - 15px);
-}
-
 .woocommerce span.onsale {
   min-width: 3em;
   min-height: 3em;
@@ -2684,12 +2675,6 @@ p.demo_store a,
 .woocommerce-page .widget_product_search button {
   flex: 0 0 auto;
   padding: 10px 20px;
-}
-
-.woocommerce ul.products li.product,
-.woocommerce-page ul.products li.product {
-  text-align: right;
-  margin-bottom: 2.5em;
 }
 
 .woocommerce ul.products li.product.product-category > a,

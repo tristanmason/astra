@@ -1083,17 +1083,6 @@ p.demo_store,
 		.related.products {
 		    display: block;
 		}
-		
-		.related.products {
-			ul.products{
-				margin:0;
-
-				li.product {
-					width: 22.5%;
-					width: calc( 25% - 15px );
-				}
-			}
-		}
 	}
 
 	span.onsale {
@@ -2355,9 +2344,6 @@ p.demo_store,
 	}
 	ul.products {
 		li.product {
-			text-align: left;
-			margin-bottom: 2.5em;
-
 			&.product-category > a {
 				display: inline-block;
 				position: relative;
