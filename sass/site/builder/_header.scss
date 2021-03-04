@@ -489,6 +489,13 @@
 					}
 				}
 			}
+			.ast-submenu-expanded {
+				>.ast-menu-toggle {
+					&::before {
+						transform: rotateX(180deg);
+					}
+				}
+			}
 		}
 	}
 	.ast-nav-menu {
