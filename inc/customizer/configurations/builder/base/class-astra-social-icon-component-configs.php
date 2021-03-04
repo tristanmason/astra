@@ -501,6 +501,15 @@ class Astra_Social_Icon_Component_Configs {
 
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-social-icons-' . $index . '-label-toggle-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 6,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
+				);
+				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-social-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-social-' . $index . '-alignment' ),
 					'type'      => 'control',
