@@ -1406,7 +1406,7 @@ function isJsonString( str ) {
 
 		} );
 
-		setTimeout(function () { // Async partial rendering.
+		wp.customize.preview.bind( 'active', function() {
 			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
 			Object.keys(partials).forEach(function ( key) {
 				wp.customize.selectiveRefresh.partial.add(
@@ -1416,7 +1416,7 @@ function isJsonString( str ) {
 					)
 				);
 			});
-		}, 100);
+		});
 
 	})
 

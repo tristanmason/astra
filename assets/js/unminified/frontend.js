@@ -135,14 +135,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 	}
-	
+
 	if ( '' !== mobileHeader && null !== mobileHeader ) {
 
 		mobileHeaderType = mobileHeader.dataset.type;
 	}
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
-	
+
 	/**
 	 * Updates the header type.
 	 */
@@ -246,7 +246,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 		var popupClose = document.getElementById( 'menu-toggle-close' );
 		var submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
-		
+
 		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
@@ -307,7 +307,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
-		
+
 	}
 
 	window.addEventListener( 'load', function() {
@@ -416,7 +416,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
 			var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
-			
+
 			header_account_trigger.onclick = function( event ) {
 				event.preventDefault();
 				event.stopPropagation();

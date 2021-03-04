@@ -44,7 +44,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$link_color                  = astra_get_option( 'link-color', $theme_color );
 			$heading_base_color          = astra_get_option( 'heading-base-color' );
 
-			$highlight_link_color  = astra_get_foreground_color( $link_color );
 			$highlight_theme_color = astra_get_foreground_color( $theme_color );
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
@@ -151,14 +150,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			// Fallback for H4 - headings typography.
 			$h4_line_height = $headings_line_height;
-			$h4_line_height = $headings_line_height;
 
 			// Fallback for H5 - headings typography.
-			$h4_line_height = $headings_line_height;
 			$h5_line_height = $headings_line_height;
 
 			// Fallback for H6 - headings typography.
-			$h4_line_height = $headings_line_height;
 			$h6_line_height = $headings_line_height;
 
 			if ( empty( $btn_color ) ) {
@@ -167,16 +163,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( empty( $btn_h_color ) ) {
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
-			}
-
-			$container_layout = get_post_meta( get_the_id(), 'site-content-layout', true );
-
-			if ( 'default' === $container_layout || '' === $container_layout ) {
-				$container_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
-
-				if ( 'default' === $container_layout ) {
-					$container_layout = astra_get_option( 'site-content-layout' );
-				}
 			}
 
 			if ( is_array( $body_font_size ) ) {
@@ -840,7 +826,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $gtn_full_wide_image_css );
 
-			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) ) {
+			if ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) {
 
 				$boxed_container = array(
 					'.block-editor-writing-flow'       => array(

@@ -140,6 +140,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'transport'  => 'postMessage',
 				),
 
 				/**
@@ -175,6 +176,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'transport'  => 'postMessage',
 				),
 
 				// Spacing Between every element in the flyout.
