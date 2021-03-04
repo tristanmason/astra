@@ -1,3 +1,7 @@
+v3.2.0
+- Fix: White Label – White-labeled the Astra Header Footer setting notice.
+- Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
+
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
@@ -31,6 +35,9 @@ v3.1.0
 - Fix: Menu font size not working with old Header.
 - Fix: Transparent Header - Menu link, background and hover colors not working for old header.
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
+
+v3.0.3
+- Fix: JS console error when Theme Header is replaced with third-party plugins header.
 
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.
