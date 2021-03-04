@@ -1,5 +1,7 @@
 .customize-control-ast-divider hr {
-  margin-top: 12px;
+	margin-top: 0;
+    margin-bottom: 0;
+	border-bottom: none;
 }
 
 .customize-control-ast-divider .customize-control-title {
