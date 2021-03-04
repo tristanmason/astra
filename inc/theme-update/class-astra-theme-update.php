@@ -491,8 +491,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_1_0_beta_4() {
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
-
 			$options = array(
 				'woocommerce-content-layout' => 'default',
 				'woocommerce-sidebar-layout' => 'default',

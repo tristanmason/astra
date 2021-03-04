@@ -1329,13 +1329,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
+			$js_prefix = '.min.js';
+			$dir       = 'minified';
 			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
+				$js_prefix = '.js';
+				$dir       = 'unminified';
 			}
 
 			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );

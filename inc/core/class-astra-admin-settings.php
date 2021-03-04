@@ -398,21 +398,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @return void
 		 */
 		public static function register_scripts( $hook ) {
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
-			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
-			}
-
-			if ( is_rtl() ) {
-				$css_prefix = '-rtl.min.css';
-				if ( SCRIPT_DEBUG ) {
-					$css_prefix = '-rtl.css';
-				}
-			}
 
 			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
 				$post_types = get_post_types( array( 'public' => true ) );
@@ -562,7 +547,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$current_slug = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : self::$current_slug; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
 
 			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
@@ -1493,19 +1477,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function top_header_right_section() {
-
-			$allowed_html = array(
-				'svg'  => array(
-					'width'   => array(),
-					'height'  => array(),
-					'xmlns'   => array(),
-					'viewBox' => array(),
-				),
-				'path' => array(
-					'fill' => array(),
-					'd'    => array(),
-				),
-			);
 
 			$top_links = apply_filters(
 				'astra_header_top_links',

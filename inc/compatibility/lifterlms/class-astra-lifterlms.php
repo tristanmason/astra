@@ -389,7 +389,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			 */
 			$theme_color  = astra_get_option( 'theme-color' );
 			$link_color   = astra_get_option( 'link-color', $theme_color );
-			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
 			$theme_forground_color = astra_get_foreground_color( $link_color );
