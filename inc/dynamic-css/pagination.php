@@ -18,7 +18,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_pagination_css', 11 );
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @return String Generated dynamic CSS for Pagination.
  *
- * @since 3.0.0
+ * @since x.x.x
  */
 function astra_pagination_css( $dynamic_css ) {
 
@@ -89,7 +89,6 @@ function astra_pagination_css( $dynamic_css ) {
             }';
 
 		if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-				
 			$pagination_static_css .= '
                 .ast-pagination .prev.page-numbers.dots, .ast-pagination .prev.page-numbers.dots:hover, .ast-pagination .prev.page-numbers.dots:focus,
                 .ast-pagination .prev.page-numbers:visited.dots,
@@ -123,11 +122,10 @@ function astra_pagination_css( $dynamic_css ) {
 			
 		if ( is_rtl() ) {
 			$pagination_static_css .= '
-                @media (min-width: 993px) {
-                    .ast-pagination {
-                        padding-right: 3.33333em;
-                        padding-left: 3.33333em;
-                    }
+            @media (min-width: 993px) {
+                .ast-pagination {
+                    padding-right: 3.33333em;
+                    padding-left: 3.33333em;
                 }
                 .ast-pagination .next.page-numbers {
                     float: left;
@@ -140,18 +138,17 @@ function astra_pagination_css( $dynamic_css ) {
                 }';
 					
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-
 				$pagination_static_css .= '
                     @media (min-width: 769px) {
-                        .ast-pagination .prev.page-numbers.next,
-                        .ast-pagination .prev.page-numbers:visited.next,
-                        .ast-pagination .prev.page-numbers:focus.next,
-                        .ast-pagination .next.page-numbers.next,
-                        .ast-pagination .next.page-numbers:visited.next,
-                        .ast-pagination .next.page-numbers:focus.next {
-                            margin-left: 0;
-                        }
-                    }';
+                    .ast-pagination .prev.page-numbers.next,
+                    .ast-pagination .prev.page-numbers:visited.next,
+                    .ast-pagination .prev.page-numbers:focus.next,
+                    .ast-pagination .next.page-numbers.next,
+                    .ast-pagination .next.page-numbers:visited.next,
+                    .ast-pagination .next.page-numbers:focus.next {
+                        margin-left: 0;
+                    }
+                }';
 			}           
 		} else {
 			$pagination_static_css .= '
@@ -180,7 +177,7 @@ function astra_pagination_css( $dynamic_css ) {
                         .ast-pagination .next.page-numbers.next,
                         .ast-pagination .next.page-numbers:visited.next,
                         .ast-pagination .next.page-numbers:focus.next {
-                            margin-right: 0;
+                          margin-right: 0;
                         }
                     }';
 			}           
