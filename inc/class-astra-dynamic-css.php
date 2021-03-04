@@ -625,17 +625,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
-			$header_desktop_items = astra_get_option( 'header-desktop-items' );
+			if ( is_component_loaded( 'mobile-trigger', 'header', 'desktop' ) || is_customize_preview() ) {
 
-			if ( is_array( $header_desktop_items ) ) {
-
-				$is_trigger_on_desktop_header = array_search( 'mobile-trigger', $header_desktop_items );
-
-				if ( false !== $is_trigger_on_desktop_header || is_customize_preview() ) {
-
-					$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_toggle_for_desktop_static_css() );
-				}           
-			}
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_toggle_for_desktop_static_css() );
+			}           
 			
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
