@@ -361,7 +361,7 @@ th {
   }
   .ast-width-md-6 {
     width: 50%;
-   
+    float: left;
   }
   .ast-width-md-3 {
     width: 25%;
@@ -369,7 +369,9 @@ th {
   .ast-width-md-66 {
     width: 66.6666666667%;
   }
-  
+  .ast-width-md-12 {
+    float: left;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1367,10 +1369,6 @@ body {
   margin: 4em auto;
 }
 
-.ast-page-builder-template .ast-pagination {
-  padding: 2em;
-}
-
 .ast-page-builder-template .entry-header {
   margin-top: 4em;
   margin-left: auto;
@@ -1781,6 +1779,15 @@ body {
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
   text-align: right;
+}
+
+.post-navigation a {
+  background: transparent;
+  font-size: 16px;
+  font-size: 1.06666rem;
+  padding: 0 1.5em;
+  height: 2.33333em;
+  line-height: calc(2.33333em - 3px);
 }
 
 /*----------  Primary  ----------*/
