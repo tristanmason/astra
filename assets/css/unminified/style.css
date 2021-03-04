@@ -2644,6 +2644,7 @@ body {
   height: 1em;
   width: 0.9em;
   margin-top: 3px;
+  margin-right: 2px;
 }
 
 .ast-mobile-popup-content .ast-icon svg {

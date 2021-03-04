@@ -69,16 +69,10 @@ class Astra_Icons {
 			}
 
 			if ( 'search' === $icon ) {
-				$output = '<svg xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="142px" height="142px" viewBox="-62 -62 142 142" enable-background="new -62 -62 142 142" xml:space="preserve">
+				$output = '<svg xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="-888 480 142 142" enable-background="new -888 480 142 142" xml:space="preserve">
 				<title/>
 				<desc/>
-				<g id="Page-1">
-					<g id="Core" transform="translate(-339.000000, -381.000000)">
-						<g id="search" transform="translate(339.000000, 381.000000)">
-							<path id="Shape" d="M38.321,26.493h-6.307l-2.364-2.364C37.536,15.45,42.265,3.625,42.265-8.993     c0-28.39-22.872-51.257-51.257-51.257c-28.39,0-51.257,22.868-51.257,51.257c0,28.385,22.868,51.257,51.257,51.257     c12.618,0,24.443-4.729,33.122-12.614l2.364,2.364v6.307L65.922,77.75L77.75,65.922L38.321,26.493L38.321,26.493z M-8.993,26.493     c-19.714,0-35.486-15.771-35.486-35.486s15.771-35.486,35.486-35.486S26.493-28.707,26.493-8.993S10.722,26.493-8.993,26.493     L-8.993,26.493z"/>
-						</g>
-					</g>
-				</g>
+				<path id="Shape" d="M-787.4,568.7h-6.3l-2.4-2.4c7.9-8.7,12.6-20.5,12.6-33.1c0-28.4-22.9-51.3-51.3-51.3  c-28.4,0-51.3,22.9-51.3,51.3c0,28.4,22.9,51.3,51.3,51.3c12.6,0,24.4-4.7,33.1-12.6l2.4,2.4v6.3l39.4,39.4l11.8-11.8L-787.4,568.7  L-787.4,568.7z M-834.7,568.7c-19.7,0-35.5-15.8-35.5-35.5c0-19.7,15.8-35.5,35.5-35.5c19.7,0,35.5,15.8,35.5,35.5  C-799.3,553-815,568.7-834.7,568.7L-834.7,568.7z"/>
 				</svg>';
 			}
 
