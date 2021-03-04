@@ -615,7 +615,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Template', 'astra' ) ) ); ?></span>
 				</h2>
@@ -682,7 +682,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-book"></span>
 					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
 				</h2>
@@ -720,7 +720,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-groups"></span>
 					<span>
 						<?php
@@ -771,7 +771,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-sos"></span>
 					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
 				</h2>
@@ -1104,7 +1104,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
+				<h2 class="hndle ast-normal-cursor"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
 					<div class="ast-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -1123,7 +1123,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+				<h2 class="hndle ast-normal-cursor ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					<?php do_action( 'astra_addon_bulk_action' ); ?>
 				</h2>
 					<div class="ast-addon-list-section">
@@ -1262,7 +1262,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				?>
 
 				<div class="postbox">
-					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+					<h2 class="hndle ast-normal-cursor ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					</h2>
 						<div class="ast-addon-list-section">
 							<?php
