@@ -185,7 +185,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			if( null !== parent_li_child_sub_menu ) {
 				parent_li_child_sub_menu.style.display = 'none';
 			}
-		};
+		}
 
 		var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children');
 		for (var j = 0; j < parent_li_sibling.length; j++) {
@@ -196,9 +196,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu');
 				for (var k = 0; k < all_sub_menu.length; k++) {
 					all_sub_menu[k].style.display = 'none';
-				};
+				}
 			}
-		};
+		}
 
 		if (parent_li.classList.contains('menu-item-has-children') ) {
 			astraToggleClass(parent_li, 'ast-submenu-expanded');
@@ -221,7 +221,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if (astra_menu_toggle.length > 0) {
 			for (var i = 0; i < astra_menu_toggle.length; i++) {
 				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
-			};
+			}
 		}
 	};
 
@@ -251,11 +251,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					if (astra_menu_toggle.length > 0) {
 						for (var j = 0; j < astra_menu_toggle.length; j++) {
 							astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
-						};
+						}
 					}
 
 				}
-			};
+			}
 		}
 	};
 
@@ -274,7 +274,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll('.sub-menu');
 			for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
 				menuHasChildrenSubMenu[j].style.display = 'none';
-			};
+			}
 		}
 
 		var menu_class = this.getAttribute('class') || '';
@@ -395,7 +395,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                 }
             }
         }
-	};
+	}
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
@@ -404,7 +404,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 				for (var i = 0; i < dropdownSearchWrap.length; i++) {
 					dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
-				};
+				}
 			}
 		}
 	}
