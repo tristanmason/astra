@@ -1,4 +1,5 @@
 v3.2.0
+- Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
 - Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
