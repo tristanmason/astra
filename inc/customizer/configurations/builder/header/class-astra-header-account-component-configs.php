@@ -130,13 +130,16 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Log In view
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-login-heading]',
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'section'  => $_section,
-				'priority' => 1,
-				'title'    => __( 'Logged In View', 'astra' ),
-				'settings' => array(),
+				'name'        => ASTRA_THEME_SETTINGS . '[header-account-login-heading]',
+				'type'        => 'control',
+				'control'     => 'ast-heading',
+				'section'     => $_section,
+				'priority'    => 1,
+				'title'       => __( 'Logged In View', 'astra' ),
+				'settings'    => array(),
+				'input_attrs' => array(
+					'class' => 'ast-control-reduce-top-space',
+				),
 			),
 
 			/**
@@ -273,8 +276,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'context'  => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '==',
-						'value'    => 'text',
+						'operator' => '!=',
+						'value'    => 'none',
 					),
 					Astra_Builder_Helper::$general_tab_config,
 				),

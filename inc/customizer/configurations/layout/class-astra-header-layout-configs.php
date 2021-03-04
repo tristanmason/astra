@@ -193,15 +193,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-divider]',
-					'type'     => 'control',
-					'section'  => 'section-primary-menu',
-					'control'  => 'ast-divider',
-					'priority' => 7,
-					'settings' => array(),
-				),
-
 				/**
 				* Option: Button Text
 				*/
@@ -246,15 +237,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 					'priority' => 10,
 					'title'    => __( 'Button Link', 'astra' ),
-				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-divider]',
-					'type'     => 'control',
-					'section'  => 'section-primary-menu',
-					'control'  => 'ast-divider',
-					'priority' => 10,
-					'settings' => array(),
 				),
 
 				/**
@@ -378,6 +360,13 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'priority' => 30,
 					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+							'operator' => '!=',
+							'value'    => true,
+						),
+					),
 				),
 
 				// Option: Primary Menu Border.
@@ -519,8 +508,8 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
-							'operator' => '!=',
-							'value'    => 'none',
+							'operator' => 'in',
+							'value'    => array( 'button', 'text-html' ),
 						),
 					),
 				),
@@ -747,15 +736,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
 					),
-				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-divider]',
-					'type'     => 'control',
-					'section'  => 'section-primary-menu',
-					'control'  => 'ast-divider',
-					'priority' => 42,
-					'settings' => array(),
 				),
 			);
 
