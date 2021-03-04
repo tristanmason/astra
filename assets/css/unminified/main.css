@@ -305,21 +305,9 @@ th {
   padding-right: 20px;
 }
 
-.ast-container-fluid::after, .ast-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .ast-row {
   margin-left: -20px;
   margin-right: -20px;
-}
-
-.ast-row::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .ast-grid-common-col {
