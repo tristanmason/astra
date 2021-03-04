@@ -2386,6 +2386,10 @@ body .entry-content .wp-block-latest-posts li {
   overflow-wrap: anywhere;
 }
 
+.ast-builder-grid-row > .site-header-section {
+  flex-wrap: nowrap;
+}
+
 .ast-builder-footer-grid-columns {
   grid-column-gap: 50px;
 }
@@ -3208,10 +3212,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 
