@@ -408,9 +408,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$category = get_term( get_queried_object_id(), 'product_cat' );
 				if ( empty( $category->parent ) ) {
 					return false;
-				} else {
-					return true;
 				}
+				return true;
 			}
 			return false;
 		}
