@@ -185,28 +185,7 @@ function astra_pagination_css( $dynamic_css ) {
                     }';
 			}           
 		}
-		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
-
-		if ( is_rtl() ) {
-			$static_pagination_tablet = array(
-				'.ast-pagination .prev.page-numbers' => array(
-					'padding-right' => '.5em',
-				),
-				'.ast-pagination .next.page-numbers' => array(
-					'padding-left' => '.5em',
-				),
-			);
-		} else {
-			$static_pagination_tablet = array(
-				'.ast-pagination .prev.page-numbers' => array(
-					'padding-left' => '.5em',
-				),
-				'.ast-pagination .next.page-numbers' => array(
-					'padding-right' => '.5em',
-				),
-			);
-		}
-		return $dynamic_css .= astra_parse_css( $static_pagination_tablet );
+		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
 	}
 	return $dynamic_css;
 	
