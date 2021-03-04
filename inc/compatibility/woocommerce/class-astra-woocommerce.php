@@ -274,29 +274,55 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Generate CSS URL.
 			$css_file = $css_uri . '' . $file_prefix . '.css';
 
-			$styles = array(
-				'woocommerce-layout'      => array(
-					'src'     => $css_uri . 'woocommerce-layout-grid' . $file_prefix . '.css',
-					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'all',
-					'has_rtl' => true,
-				),
-				'woocommerce-smallscreen' => array(
-					'src'     => $css_uri . 'woocommerce-smallscreen-grid' . $file_prefix . '.css',
-					'deps'    => 'woocommerce-layout',
-					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')',
-					'has_rtl' => true,
-				),
-				'woocommerce-general'     => array(
-					'src'     => $css_uri . 'woocommerce-grid' . $file_prefix . '.css',
-					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'all',
-					'has_rtl' => true,
-				),
-			);
+			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+				$styles = array(
+					'woocommerce-layout'      => array(
+						'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
+					'woocommerce-smallscreen' => array(
+						'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
+						'deps'    => 'woocommerce-layout',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')',
+						'has_rtl' => true,
+					),
+					'woocommerce-general'     => array(
+						'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
+				);
+			} else {
+				$styles = array(
+					'woocommerce-layout'      => array(
+						'src'     => $css_uri . 'woocommerce-layout-grid' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
+					'woocommerce-smallscreen' => array(
+						'src'     => $css_uri . 'woocommerce-smallscreen-grid' . $file_prefix . '.css',
+						'deps'    => 'woocommerce-layout',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')',
+						'has_rtl' => true,
+					),
+					'woocommerce-general'     => array(
+						'src'     => $css_uri . 'woocommerce-grid' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
+				);
+			}
 
 			return $styles;
 		}
