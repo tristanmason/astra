@@ -1,5 +1,6 @@
 v3.2.0
 - Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
+- Improvement: Added AMP Meta in style.css and added mobile-screenshot for theme. ( Props - https://github.com/milindmore22 )
 - Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
