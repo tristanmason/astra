@@ -361,6 +361,7 @@ th {
   }
   .ast-width-md-6 {
     width: 50%;
+    float: right;
   }
   .ast-width-md-3 {
     width: 25%;
