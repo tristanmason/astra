@@ -127,12 +127,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public static function theme_assets() {
 
 			$default_assets = array(
-
 				// handle => location ( in /assets/js/ ) ( without .js ext).
 				'js'  => array(
 					'astra-theme-js' => 'style',
 				),
-
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
 					'astra-theme-css' => 'style',
@@ -142,7 +140,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$default_assets = array(
-
 					// handle => location ( in /assets/js/ ) ( without .js ext).
 					'js'  => array(
 						'astra-theme-js' => 'frontend',

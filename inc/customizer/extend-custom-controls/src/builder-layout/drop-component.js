@@ -12,7 +12,7 @@ const DropComponent = props => {
 		filterChoices = Object.keys(choices),
 		theItems = [];
 	{
-		let sortList = [...currentList];
+		const sortList = [...currentList];
 		currentList.length > 0 && currentList.map((item, key) => {
 			if ( filterChoices.includes(item)) {
 				theItems.push({

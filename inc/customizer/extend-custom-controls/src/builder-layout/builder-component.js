@@ -120,7 +120,7 @@ const BuilderComponent = props => {
 
 		AstraBuilderCustomizerData.component_limit = parseInt(AstraBuilderCustomizerData.component_limit);
 
-		let customizerBuilderchoices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
+		const customizerBuilderchoices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
 		Object.keys(customizerBuilderchoices).forEach(function( choice) {
 
