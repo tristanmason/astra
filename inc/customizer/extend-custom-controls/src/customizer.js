@@ -226,6 +226,7 @@
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [section_id, config] of Object.entries(controls)) {
+					console.error("Registering Controls..");
 					this.addControl(config.id, config);
 				}
 			}
@@ -325,6 +326,7 @@
 		initializeDynamicSettings: function () {
 			let settings = Object.assign({},  AstraBuilderCustomizerData.dynamic_setting_options );
 			for (const [setting_id, setting] of Object.entries(settings)) {
+				console.error("Registering settings..");
 				api.add( new api.Setting( setting_id, setting.default, setting ) );
 			}
 		},
@@ -614,6 +616,10 @@
 
 	api.bind('ready', function () {
 
+		setTimeout(function () {
+			AstCustomizerAPI.initializeDynamicSettings();
+		}, 0)
+
 		astra_builder_clear_operation_session();
 
 		api.state.create('astra-customizer-tab');
@@ -641,30 +647,32 @@
 
 		$window.on('resize', resizePreviewer);
 
-		AstCustomizerAPI.initializeDynamicSettings();
-		AstCustomizerAPI.initializeConfigs();
-		api.section.each(function (section) {
-			section.expanded.bind(function (isExpanded) {
-				// Lazy Loaded Context.
-				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+		setTimeout( function () {
+			AstCustomizerAPI.initializeConfigs();
+			api.section.each(function (section) {
+				section.expanded.bind(function (isExpanded) {
+					// Lazy Loaded Context.
+					AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
-				if (!isExpanded) {
-					// Setting general context when collapsed.
-					api.state('astra-customizer-tab').set('general');
-				}
+					if (!isExpanded) {
+						// Setting general context when collapsed.
+						api.state('astra-customizer-tab').set('general');
+					}inc/customizer/override-defaults.php
 
-				$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-				var customizer_section = api.section(section.id);
-				set_context_by_url_params();
+					var customizer_section = api.section(section.id);
+					set_context_by_url_params();
 
-				_.each(section.controls(), function (control) {
-					highlight_active_component(customizer_section);
-					highlight_active_row(customizer_section);
+					_.each(section.controls(), function (control) {
+						highlight_active_component(customizer_section);
+						highlight_active_row(customizer_section);
+					});
 				});
 			});
-		});
-		AstCustomizerAPI.moveDefaultSection();
+			AstCustomizerAPI.moveDefaultSection();
+		}, 0);
+
 
 
 		api.previewer.bind('ready', function () {
