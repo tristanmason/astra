@@ -625,7 +625,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
-			if ( is_component_loaded( 'mobile-trigger', 'header', 'desktop' ) || is_customize_preview() ) {
+			if ( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'desktop' ) || is_customize_preview() ) {
 
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_toggle_for_desktop_static_css() );
 			}           
