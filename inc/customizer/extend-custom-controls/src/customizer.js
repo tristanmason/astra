@@ -226,7 +226,6 @@
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [section_id, config] of Object.entries(controls)) {
-					console.error("Registering Controls..");
 					this.addControl(config.id, config);
 				}
 			}
@@ -326,7 +325,6 @@
 		initializeDynamicSettings: function () {
 			let settings = Object.assign({},  AstraBuilderCustomizerData.dynamic_setting_options );
 			for (const [setting_id, setting] of Object.entries(settings)) {
-				console.error("Registering settings..");
 				api.add( new api.Setting( setting_id, setting.default, setting ) );
 			}
 		},
