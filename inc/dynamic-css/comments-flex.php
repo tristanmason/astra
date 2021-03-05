@@ -318,7 +318,7 @@ function astra_comments_css( $dynamic_css ) {
             }';
 		}
 
-		$dynamic_css .= $single_post_comment_css;
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $single_post_comment_css );
 
 		$static_layout_css_min_comment = array(
 			'.ast-separate-container .ast-comment-list li .comment-respond' => array(
