@@ -2797,11 +2797,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				} else {
 					$submenu_toggle = array(
-						// Old Header Footer - SVG Support.
+						// New Header Footer - SVG Support.
 						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
-							'left'      => '.4em',
-							'top'       => '.4em',
-							'transform' => 'translate(0, -2px) rotateZ(270deg)',
+							'top'           => '.2em',
+							'margin-top' => '0px',
+							'margin-left' => '0px',
+							'width' => '.65em',
+							'transform'     => 'translate(0, -2px) rotateZ(270deg)',
 						),
 					);
 				}
