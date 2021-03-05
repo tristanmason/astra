@@ -58,7 +58,6 @@ final class Astra_Builder_Customizer {
 
 		$wp_customize->get_setting( 'custom_logo' )->transport     = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 
 		$wp_customize->get_section( 'title_tagline' )->panel = 'panel-header-builder-group';
 

@@ -735,29 +735,13 @@ final class Astra_Builder_Helper {
 			)
 		);
 
-		// Buttons.
-		$component_keys_count['header-button'] = ( self::$component_limit >= $component_keys_count['header-button'] ) ? $component_keys_count['header-button'] : self::$component_limit;
-		$component_keys_count['footer-button'] = ( self::$component_limit >= $component_keys_count['footer-button'] ) ? $component_keys_count['footer-button'] : self::$component_limit;
-
-		// HTML.
-		$component_keys_count['header-html'] = ( self::$component_limit >= $component_keys_count['header-html'] ) ? $component_keys_count['header-html'] : self::$component_limit;
-		$component_keys_count['footer-html'] = ( self::$component_limit >= $component_keys_count['footer-html'] ) ? $component_keys_count['footer-html'] : self::$component_limit;
-
-		// Header Menu.
-		$component_keys_count['header-menu'] = ( 5 >= $component_keys_count['header-menu'] ) ? $component_keys_count['header-menu'] : 5;
-
-		// Widgets.
-		$component_keys_count['header-widget'] = ( self::$component_limit >= $component_keys_count['header-widget'] ) ? $component_keys_count['header-widget'] : self::$component_limit;
-		$component_keys_count['footer-widget'] = ( self::$component_limit >= $component_keys_count['footer-widget'] ) ? $component_keys_count['footer-widget'] : self::$component_limit;
-
-		// Social Icons.
-		$component_keys_count['header-social-icons'] = ( 5 >= $component_keys_count['header-social-icons'] ) ? $component_keys_count['header-social-icons'] : 5;
-		$component_keys_count['footer-social-icons'] = ( 5 >= $component_keys_count['footer-social-icons'] ) ? $component_keys_count['footer-social-icons'] : 5;
-
-		// Divider.
-		$component_keys_count['header-divider'] = ( self::$component_limit >= $component_keys_count['header-divider'] ) ? $component_keys_count['header-divider'] : self::$component_limit;
-		$component_keys_count['footer-divider'] = ( self::$component_limit >= $component_keys_count['footer-divider'] ) ? $component_keys_count['footer-divider'] : self::$component_limit;
-
+		$skip_it_keys = array( 'removed-items', 'flag' );
+		foreach ( $component_keys_count as $component_type => $component_count ) {
+			if ( in_array( $component_type, $skip_it_keys, true ) ) {
+				continue;
+			}
+			$component_keys_count[ $component_type ] = min( $component_count, self::$component_limit );
+		}
 
 		return $component_keys_count;
 	}
@@ -1038,7 +1022,7 @@ final class Astra_Builder_Helper {
 			if ( ! empty( $grids ) ) {
 
 				foreach ( $grids as $grid_row => $row_grids ) {
-					
+
 					$components = array();
 					if ( ! empty( $row_grids ) ) {
 
@@ -1053,12 +1037,12 @@ final class Astra_Builder_Helper {
 							}
 
 							$result = array_values( $grid );
-							
+
 							if ( is_array( $result ) ) {
 								$loaded_component = call_user_func_array( 'array_merge', $result );
 								$components[]     = is_array( $loaded_component ) ? $loaded_component : array();
 							}
-						}                   
+						}
 					}
 
 					$loaded_components[ $grid_row ] = call_user_func_array( 'array_merge', $components );
@@ -1068,7 +1052,7 @@ final class Astra_Builder_Helper {
 			if ( ! empty( $loaded_components ) ) {
 				// For both devices(mobile & desktop).
 				$loaded_components['header_both'] = array_merge( $loaded_components['header_desktop'], $loaded_components['header_mobile'] );
-				
+
 				// For All device and builder type.
 				$all_components           = call_user_func_array( 'array_merge', array_values( $loaded_components ) );
 				$loaded_components['all'] = array_unique( $all_components );
@@ -1076,9 +1060,9 @@ final class Astra_Builder_Helper {
 
 			self::$loaded_grid = $loaded_components;
 		}
-		
+
 		$loaded_components = self::$loaded_grid;
-		
+
 		if ( 'all' === $builder_type && ! empty( $loaded_components['all'] ) ) {
 			$is_loaded = in_array( $component_id, $loaded_components['all'], true );
 		} else {
@@ -1094,11 +1078,10 @@ final class Astra_Builder_Helper {
 	 * @since x.x.x
 	 * @return boolean true if it is an existing user , false if not.
 	 */
-	public static function apply_optimize_dynamic_css() {
-
-		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
-		$astra_settings['is-updated-dynamic-css'] = isset( $astra_settings['is-updated-dynamic-css'] ) ? $astra_settings['is-updated-dynamic-css'] : false;
-		return apply_filters( 'astra_apply_optimize_dynamic_css', $astra_settings['is-updated-dynamic-css'] );
+	public static function apply_flex_based_css() {
+		$astra_settings                      = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings['is-flex-based-css'] = isset( $astra_settings['is-flex-based-css'] ) ? $astra_settings['is-flex-based-css'] : true;
+		return apply_filters( 'astra_apply_flex_based_css', $astra_settings['is-flex-based-css'] );
 	}
 }
 
