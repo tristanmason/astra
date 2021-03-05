@@ -3027,16 +3027,25 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   margin: 0;
 }
 
-.ast-mobile-popup-content > * {
+.ast-mobile-popup-content > *,
+.ast-desktop-popup-content > *,
+.ast-mobile-header-content > *,
+.ast-desktop-header-content > * {
   padding: 10px 0;
   height: auto;
 }
 
-.ast-mobile-popup-content > *:first-child {
+.ast-mobile-popup-content > *:first-child,
+.ast-desktop-popup-content > *:first-child,
+.ast-mobile-header-content > *:first-child,
+.ast-desktop-header-content > *:first-child {
   padding-top: 10px;
 }
 
-.ast-mobile-popup-content > *:last-child {
+.ast-mobile-popup-content > *:last-child,
+.ast-desktop-popup-content > *:last-child,
+.ast-mobile-header-content > *:last-child,
+.ast-desktop-header-content > *:last-child {
   padding-bottom: 0;
 }
 

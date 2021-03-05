@@ -66,7 +66,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 			'padding-left'   => astra_responsive_spacing( $padding, 'left', 'desktop' ),
 			'padding-right'  => astra_responsive_spacing( $padding, 'right', 'desktop' ),
 		),
-		'.ast-mobile-popup-content > *, .ast-mobile-header-content > *' => array(
+		'.ast-mobile-popup-content > *, .ast-mobile-header-content > *, .ast-desktop-popup-content > *, .ast-desktop-header-content > *' => array(
 			'padding-top'    => astra_get_css_value( $inner_spacing, 'px' ),
 			'padding-bottom' => astra_get_css_value( $inner_spacing, 'px' ),
 		),

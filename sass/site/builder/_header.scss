@@ -712,7 +712,10 @@ body.admin-bar {
 		margin: 0;
 	}
 }
-.ast-mobile-popup-content {
+.ast-mobile-popup-content,
+.ast-desktop-popup-content,
+.ast-mobile-header-content,
+.ast-desktop-header-content {
 	>* {
 		padding: 10px 0;
 		height: auto;

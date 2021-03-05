@@ -28,7 +28,7 @@
         value.bind( function ( spacing ) {
 			var dynamicStyle = '';
 			if( spacing != '' ) {
-				dynamicStyle += '.ast-mobile-popup-content > *, .ast-mobile-header-content > * {';
+				dynamicStyle += '.ast-mobile-popup-content > *, .ast-mobile-header-content > *, .ast-desktop-popup-content > *, .ast-desktop-header-content > * {';
 				dynamicStyle += 'padding-top: ' + spacing + 'px;';
 				dynamicStyle += 'padding-bottom: ' + spacing + 'px;';
 				dynamicStyle += '} ';
