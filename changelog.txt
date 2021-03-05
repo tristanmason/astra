@@ -1,5 +1,5 @@
 v3.1.1
-- Fix: Saved value is overridden by Default value for HTML Element in Customizer.
+- Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
 - Fix: Header Builder margin option default units were missing.
 - Fix: Transparent Header - Submenu background color not working.
 
