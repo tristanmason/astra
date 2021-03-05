@@ -60,7 +60,9 @@ const ItemComponent = props => {
 
 	}
 
-	return <div className="ahfb-builder-item" data-id={props.item}
+	const hasAdvancedControls = undefined !== choices[props.item]['delete'] && choices[props.item]['delete'] ? 'item-has-controls' : ' ';
+
+	return <div className={`ahfb-builder-item ${ hasAdvancedControls } `} data-id={props.item}
 				data-section={undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : ''}
 				key={props.item} onClick={() => {
 		props.focusItem(undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : '');
@@ -83,25 +85,6 @@ const ItemComponent = props => {
 						  props.cloneItem(props.item);
 					  }} className="dashicons dashicons-admin-page">
 				</span> }
-				<span data-tooltip={__('Reset element', 'astra')}
-					  onClick={e => {
-						  e.stopPropagation();
-
-						  // Skip Reset if already is in progress.
-						  if( sessionStorage.getItem('astra-builder-reset-in-progress') ) {
-							  return;
-						  }
-
-						  var event = new CustomEvent('AstraBuilderResetSectionControls', {
-							  'detail': {
-							  	'section_id': choices[props.item].section
-							  }
-						  });
-						  document.dispatchEvent(event);
-					  }}
-					  className="dashicons dashicons-image-rotate">
-				</span>
-
 				{ choices[props.item]['delete'] &&
 
 				<span data-tooltip={ __('Delete element from customizer', 'astra') }

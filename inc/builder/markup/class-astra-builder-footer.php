@@ -223,13 +223,15 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function footer_copyright() {
 
+			$theme_author = astra_get_theme_author_details();
+
 			$content = astra_get_option( 'footer-copyright-editor' );
 			if ( $content || is_customize_preview() ) {
 				echo '<div class="ast-footer-copyright">';
 						$content = str_replace( '[copyright]', '&copy;', $content );
 						$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
 						$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
-						$content = str_replace( '[theme_author]', '<a href="https://www.wpastra.com/" rel="nofollow noopener" target="_blank">Astra WordPress Theme</a>', $content );
+						$content = str_replace( '[theme_author]', '<a href=" ' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
 						echo do_shortcode( wpautop( $content ) );
 				echo '</div>';
 			}
