@@ -1,3 +1,6 @@
+v3.1.1
+- Fix: Saved value is overridden by Default value for HTML Element in Customizer.
+
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
