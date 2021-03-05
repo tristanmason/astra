@@ -244,7 +244,61 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
-                    }
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/above-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/below-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/copyright/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/copyright/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/primary-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/primary-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/widget/assets/js/minified/customizer-preview.min.js',
+                    },
                 ]
             }
         },
