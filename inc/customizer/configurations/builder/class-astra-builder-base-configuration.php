@@ -139,7 +139,7 @@ final class Astra_Builder_Base_Configuration {
 
 		$parent = ASTRA_THEME_SETTINGS . '[' . $section_id . '-typography]';
 
-		if ( defined( 'ASTRA_EXT_VER' ) ) {
+		if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 			$_configs = array(
 
@@ -521,7 +521,7 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
 
