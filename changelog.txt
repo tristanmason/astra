@@ -1,3 +1,10 @@
+v3.2.0
+- Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
+- Fix: White Label – White-labeled the Astra Header Footer setting notice.
+- Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
+- Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
+- Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
@@ -11,7 +18,7 @@ v3.1.0
 - Improvement: Builder - Social Icons - Added a color option for labels of social icons.
 - Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
 - Improvement: Added new Page meta options for Above, Below and Mobile header.
-- Fix: Footer vertical alignment option not not working.
+- Fix: Footer vertical alignment option not working.
 - Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
@@ -31,6 +38,9 @@ v3.1.0
 - Fix: Menu font size not working with old Header.
 - Fix: Transparent Header - Menu link, background and hover colors not working for old header.
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
+
+v3.0.3
+- Fix: JS console error when Theme Header is replaced with third-party plugins header.
 
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.

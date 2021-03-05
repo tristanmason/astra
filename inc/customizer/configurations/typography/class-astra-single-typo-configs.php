@@ -32,23 +32,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_configs = array(
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog-single',
-					'priority' => 13,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-				),
-
-			);
+			$_configs = array();
 
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
@@ -84,9 +68,23 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				);
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 				$new_configs = array(
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog-single',
+						'priority' => 13,
+						'settings' => array(),
+						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					),
 
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
@@ -124,30 +122,40 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				);
 			} else {
 
-				$new_configs = array(
+				$new_configs = array();
 
-					/**
-					 * Option: Single Post / Page Title Font Size
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
-						'section'     => 'section-blog-single',
-						'type'        => 'control',
-						'control'     => 'ast-responsive',
-						'default'     => astra_get_option( 'font-size-entry-title' ),
-						'transport'   => 'postMessage',
-						'priority'    => 13,
-						'title'       => __( 'Post / Page Title Font Size', 'astra' ),
-						'input_attrs' => array(
-							'min' => 0,
-						),
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					$new_configs[] = array(
+						'name'     => ASTRA_THEME_SETTINGS . '[single-post-section-font-typo-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-blog-single',
+						'priority' => 13,
+						'settings' => array(),
+					);
+				}
+
+				/**
+				 * Option: Single Post / Page Title Font Size
+				 */
+				$new_configs[] = array(
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
+					'section'     => 'section-blog-single',
+					'type'        => 'control',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'font-size-entry-title' ),
+					'transport'   => 'postMessage',
+					'priority'    => 13,
+					'title'       => __( 'Post / Page Title Font Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
 					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				);
 			}
 
