@@ -1044,52 +1044,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
  */
 function prepare_divider_defaults( $defaults, $index ) {
 
-	$defaults[ 'section-hb-divider-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-	$defaults[ 'section-fb-divider-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-hb-divider-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-fb-divider-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 	return $defaults;
@@ -1176,75 +1132,9 @@ function prepare_button_defaults( $defaults, $index ) {
 	);
 	$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
 
-	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-	$defaults[ 'sticky-header-button' . $index . '-padding' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 	$_prefix = 'button' . $index;
@@ -1325,52 +1215,8 @@ function prepare_button_defaults( $defaults, $index ) {
 		'mobile'  => 'center',
 	);
 
-	$defaults[ 'section-fb-button-' . $index . '-padding' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-	$defaults[ 'section-fb-button-' . $index . '-margin' ]  = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-fb-button-' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-fb-button-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
 
 	return $defaults;
 }
@@ -1414,29 +1260,7 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'line-height-' . $_section ]               = '';
 	$defaults[ 'text-transform-' . $_section ]            = '';
 
-	$defaults[ 'section-hb-html-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-hb-html-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 
@@ -1484,29 +1308,7 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'text-transform-' . $_section ]            = '';
 	$defaults[ 'line-height-' . $_section ]               = '';
 
-	$defaults[ 'section-fb-html-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-fb-html-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 	return $defaults;
 }
@@ -1581,29 +1383,7 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 			),
 	);
 
-	$defaults[ 'section-hb-social-icons-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-hb-social-icons-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 	$defaults[ 'footer-social-' . $index . '-space' ]          = array(
@@ -1673,29 +1453,7 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 		'mobile'  => 'center',
 	);
 
-	$defaults[ 'section-fb-social-icons-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-fb-social-icons-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 	return $defaults;
 }
@@ -1761,29 +1519,7 @@ function prepare_widget_defaults( $defaults, $index ) {
 		'mobile-unit'  => 'px',
 	);
 
-	$defaults[ 'sidebar-widgets-header-widget-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'sidebar-widgets-header-widget-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 	// Widget Footer defaults.
 
@@ -1843,29 +1579,7 @@ function prepare_widget_defaults( $defaults, $index ) {
 		'mobile'  => 'center',
 	);
 
-	$defaults[ 'sidebar-widgets-footer-widget-' . $index . '-margin' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'sidebar-widgets-footer-widget-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 	return $defaults;
@@ -1949,52 +1663,8 @@ function prepare_menu_defaults( $defaults, $index ) {
 	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
 	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
 
-	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = array(
-		'desktop'      => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 
