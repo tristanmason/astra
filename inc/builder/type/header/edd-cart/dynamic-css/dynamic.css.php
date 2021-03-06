@@ -331,7 +331,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'color' => esc_attr( $trans_header_cart_icon_color ),
 			),
 			// Transparent Header - Fill icon Color.
-			'.ast-theme-transparent-header .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-edd-site-header-cart-wrap .ast-edd-header-cart-info-wrap, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-edd-site-header-cart-wrap .ast-icon-shopping-cart, .ast-theme-transparent-header .ast-edd-site-header-cart .ast-addon-cart-wrap span.astra-icon:after' => array(
+			'.ast-theme-transparent-header .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-edd-site-header-cart-wrap .ast-icon-shopping-cart, .ast-theme-transparent-header .ast-edd-site-header-cart .ast-addon-cart-wrap span.astra-icon:after' => array(
 				'background-color' => esc_attr( $trans_header_cart_icon_color ),
 				'color'            => esc_attr( $trans_header_cart_h_color ),
 			),
