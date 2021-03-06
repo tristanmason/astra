@@ -644,10 +644,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function prepare_javascript_control_configs( $config ) {
 
-
-
-
-
 			global $wp_customize;
 			// Remove type from configuration.
 			unset( $config['type'] );
