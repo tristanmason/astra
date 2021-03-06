@@ -259,16 +259,16 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Display Tagline
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-					'type'      => 'control',
-					'control'   => 'ast-toggle-control',
-					'default'   => astra_get_option( 'display-site-tagline' ),
-					'section'   => 'title_tagline',
-					'priority'  => $display_tagline_priority,
-					'title'     => __( 'Display Site Tagline', 'astra' ),
-					'transport' => 'postMessage',
-					 'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'partial'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+					'type'        => 'control',
+					'control'     => 'ast-toggle-control',
+					'default'     => astra_get_option( 'display-site-tagline' ),
+					'section'     => 'title_tagline',
+					'priority'    => $display_tagline_priority,
+					'title'       => __( 'Display Site Tagline', 'astra' ),
+					'transport'   => 'postMessage',
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'partial'     => array(
 						'selector'            => '.site-branding',
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
