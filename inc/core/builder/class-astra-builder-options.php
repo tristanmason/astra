@@ -332,29 +332,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	foreach ( $margin_defaults as $margin_default ) {
-		$defaults[ $margin_default ] = array(
-			'desktop'      => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'tablet'       => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'mobile'       => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
+		$defaults[ $margin_default ] = Astra_Builder_Helper::$default_responsive_spacing;
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
