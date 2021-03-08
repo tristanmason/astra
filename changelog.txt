@@ -1,5 +1,6 @@
 v3.1.2
-- Fix: Showing multiple the menu locations on menu admin page.
+- Fix: Fatal error due to undeclared static property Astra_Customizer::$color_group_configs.
+- Fix: Showing multiple menu locations on menu admin page.
 
 v3.1.1
 - Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
