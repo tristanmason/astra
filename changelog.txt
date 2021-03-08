@@ -5,6 +5,7 @@ v3.2.0
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+- Improvement: Enqueued minified JS files for better performance.
 
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
