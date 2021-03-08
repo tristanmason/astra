@@ -420,6 +420,22 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			return $classes;
 		}
 
+		/** Check if the Mobile Header Layout is the default layout.
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		public function is_mobile_header_layout_default() {
+
+			if ( ! Astra_Builder_Helper::is_component_loaded( 'logo', 'header', 'mobile' ) && ! Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) && ! Astra_Builder_Helper::is_component_loaded( 'mobile-menu', 'header', 'mobile' ) ) {
+
+				return false;
+			}
+
+			
+			return true;
+		}
+
 	}
 
 	/**
