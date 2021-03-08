@@ -416,7 +416,6 @@
 				padding: 0 0.907em;
 				font-weight: normal;
 				line-height: inherit;
-				transition: all .2s;
 			}
 			.sub-menu {
 				display: none;
@@ -538,13 +537,6 @@
 		.menu-item-has-children {
 			.sub-menu {
 				display: none;
-			}
-		}
-		.ast-submenu-expanded {
-			>.ast-menu-toggle {
-				&::before {
-					transform: rotateX(180deg);
-				}
 			}
 		}
 	}
