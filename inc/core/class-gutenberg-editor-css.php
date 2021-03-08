@@ -615,7 +615,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						),
 						'.ast-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] .wp-block[data-align="center"] > .wp-block-image' => array(
 							'margin-right' => 'auto',
-							'margin-left' => 'auto',
+							'margin-left'  => 'auto',
 						),
 					);
 				} else {
@@ -625,7 +625,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						),
 						'.ast-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] .wp-block[data-align="center"] > .wp-block-image' => array(
 							'margin-right' => 'auto',
-							'margin-left' => 'auto',
+							'margin-left'  => 'auto',
 						),
 					);
 				}
