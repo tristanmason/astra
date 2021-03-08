@@ -151,6 +151,49 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 200,
 				),
 			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-woo-cart-colors-divider]',
+				'type'     => 'control',
+				'section'  => 'section-transparent-header',
+				'control'  => 'ast-divider',
+				'priority' => 80,
+				'settings' => array(),
+				'context'  => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
+			),
+
+			/**
+			 * Option: Icon color
+			 */
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-woo-cart-icon-color]',
+				'default'           => astra_get_option( 'transparent-header-woo-cart-icon-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Woo Cart Icon Color', 'astra' ),
+				'context'           => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
+				'section'           => 'section-transparent-header',
+				'priority'          => 85,
+			),
 		);
 
 		$configurations = array_merge( $configurations, $_configs );
