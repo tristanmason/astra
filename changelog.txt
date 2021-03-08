@@ -1,5 +1,5 @@
 v3.1.2
-- Fix: Fatal error due to undeclated static property Astra_Customizer::$color_group_configs.
+- Fix: Fatal error due to undeclared static property Astra_Customizer::$color_group_configs.
 
 v3.1.1
 - Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
