@@ -613,11 +613,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
 							'padding' => '0 8% 0 0',
 						),
+						'.ast-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] .wp-block[data-align="center"] > .wp-block-image' => array(
+							'margin-right' => 'auto',
+							'margin-left' => 'auto',
+						),
 					);
 				} else {
 					$media_text_block_editor_pattern_css = array(
 						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
 							'padding' => '0 0 0 8%',
+						),
+						'.ast-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] .wp-block[data-align="center"] > .wp-block-image' => array(
+							'margin-right' => 'auto',
+							'margin-left' => 'auto',
 						),
 					);
 				}
