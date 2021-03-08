@@ -29,6 +29,7 @@
 
     input:not([type="submit"]), textarea, select {
 		width: 100%;
+		padding: 0.75em;
 	}
 
     input[type="file"] {
