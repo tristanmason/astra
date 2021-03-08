@@ -609,20 +609,24 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				// Added CSS compatibility support for Gutenberg Editor's Media & Text block pattern.
 				if ( $is_site_rtl ) {
-					$media_text_block_editor_pattern_css = array(
+					$gb_editor_block_pattern_css = array(
 						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
 							'padding' => '0 8% 0 0',
 						),
 					);
 				} else {
-					$media_text_block_editor_pattern_css = array(
+					$gb_editor_block_pattern_css = array(
 						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
 							'padding' => '0 0 0 8%',
 						),
 					);
 				}
 
-				$css .= astra_parse_css( $media_text_block_editor_pattern_css );
+				$gb_editor_block_pattern_css['.edit-post-visual-editor .wp-block-code.block-editor-block-list__block'] = array(
+					'padding' => '1.6em',
+				);
+
+				$css .= astra_parse_css( $gb_editor_block_pattern_css );
 			}
 
 			$tablet_css = array(
