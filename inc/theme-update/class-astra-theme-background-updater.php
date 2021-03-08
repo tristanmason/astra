@@ -331,7 +331,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
-				do_action( 'astra_theme_update_after' );
 				astra_update_option( 'is_theme_queue_running', false );
 				return;
 			}

@@ -64,6 +64,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
 			add_action( 'wp', array( $this, 'setup_content_width' ) );
+
+			add_action( 'astra_theme_update_after', 'astra_clear_assets_cache' );
 		}
 
 		/**
