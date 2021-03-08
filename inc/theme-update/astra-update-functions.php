@@ -106,7 +106,6 @@ function astra_header_button_new_options() {
 	);
 
 	update_option( 'astra-settings', $theme_options );
-
 }
 
 /**
@@ -2883,6 +2882,22 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 
 	if ( ! isset( $theme_options['guntenberg-media-text-block-padding-css'] ) ) {
 		$theme_options['guntenberg-media-text-block-padding-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Gutenberg pattern compatibility changes.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_gutenberg_pattern_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['guntenberg-button-pattern-compat-css'] ) ) {
+		$theme_options['guntenberg-button-pattern-compat-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

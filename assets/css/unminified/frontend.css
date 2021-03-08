@@ -2420,6 +2420,10 @@ body .entry-content .wp-block-latest-posts li {
   overflow-wrap: anywhere;
 }
 
+.ast-builder-grid-row > .site-header-section {
+  flex-wrap: nowrap;
+}
+
 .ast-builder-footer-grid-columns {
   grid-column-gap: 50px;
 }
