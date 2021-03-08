@@ -3581,10 +3581,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 0 2px;
 			}
 
-			.ast-site-header-cart i.astra-icon:before {
-				font-family: \'Astra\';
-			}
-
 			.ast-site-header-cart i.astra-icon.no-cart-total:after,
 			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap,
 			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
@@ -3600,17 +3596,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				font-size: 1.1em;
 			}
 
-			.ast-icon-shopping-cart:before {
-				content: "\f07a";
-			}
-
-			.ast-icon-shopping-bag:before {
-				content: "\f290";
-			}
-
-			.ast-icon-shopping-basket:before {
-				content: "\f291";
-			}
 			.astra-cart-drawer {
 				position: fixed;
 				display: block;
