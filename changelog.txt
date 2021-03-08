@@ -1,12 +1,7 @@
-v3.2.0
-- New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
-- Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
-- Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
-- Improvement: Gutenberg Editor - Buttons block pattern compatibility.
-- Fix: White Label – White-labeled the Astra Header Footer setting notice.
-- Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
-- Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
-- Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+v3.1.1
+- Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
+- Fix: Header Builder margin option default units were missing.
+- Fix: Transparent Header - Submenu background color not working.
 
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
