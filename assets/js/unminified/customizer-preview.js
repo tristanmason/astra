@@ -1406,18 +1406,6 @@ function isJsonString( str ) {
 
 		} );
 
-		wp.customize.preview.bind( 'active', function() {
-			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
-			Object.keys(partials).forEach(function ( key) {
-				wp.customize.selectiveRefresh.partial.add(
-					new wp.customize.selectiveRefresh.Partial(
-						key,
-						_.extend({params: partials[key]}, partials[key])
-					)
-				);
-			});
-		});
-
 	})
 
 } )( jQuery );
