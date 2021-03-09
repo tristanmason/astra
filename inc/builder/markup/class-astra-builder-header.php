@@ -216,7 +216,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * Render desktop header layout.
 		 */
 		public function desktop_header() {
-			get_template_part( 'template-parts/header/builder/desktop-builder-layout' );
+			
+			if ( ! $this->is_mobile_header_layout_default() ) {
+
+				get_template_part( 'template-parts/header/builder/desktop-builder-layout' );
+			} else {
+				get_template_part( 'template-parts/header/builder/desktop-mobile-builder-layout' );
+			}
 		}
 
 		/**
@@ -305,7 +311,14 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * Render Mobile header layout.
 		 */
 		public function mobile_header() {
-			get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
+
+			if ( ! $this->is_mobile_header_layout_default() ) {
+
+				get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
+			} else {
+
+				get_template_part( 'template-parts/header/builder/desktop-mobile-builder-layout' );
+			}
 		}
 
 		/**
@@ -463,7 +476,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			
 			return $is_mobile_header_layout_default;
 		}
-
 	}
 
 	/**
