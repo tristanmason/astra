@@ -388,7 +388,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			for (var i = 0; i < headerWrap.length; i++) {
 
 				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
-					if (ww > break_point) {
+
+					/**
+					 * This case is when one hits a URL one after the other via `Open in New Tab` option
+					 * Chrome returns the value of outer width as 0 in this case.
+					 * This mis-calculates the width of the window and header seems invisible.
+					 * This could be fixed by using `0 === ww` condition below.
+					 */
+					if (ww > break_point || 0 === ww) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');

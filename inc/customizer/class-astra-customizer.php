@@ -490,13 +490,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 					$configuration['ast_fields'] = $config;
 					break;
-				case 'ast-color-group':
-					$config = array();
-					if ( isset( self::$color_group_configs[ $configuration['name'] ] ) ) {
-						$config = wp_list_sort( self::$color_group_configs[ $configuration['name'] ], 'priority' );
-					}
-					$configuration['ast_fields'] = $config;
-					break;
 				case 'ast-font-weight':
 					$configuration['ast_all_font_weight'] = array(
 						'100'       => __( 'Thin 100', 'astra' ),
