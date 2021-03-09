@@ -111,6 +111,10 @@
 	height: 100%;
 }
 
+.site-header .menu-link * {
+    transition: none;
+}
+
 /* Responsive Screen */
 .ast-header-break-point {
 
