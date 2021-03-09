@@ -2140,6 +2140,10 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
+.customize-control .ast-control-reduce-top-space {
+	margin-top: -15px;
+}
+
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;
 }
@@ -3780,6 +3784,10 @@ input[type="text"].select2-search__field {
 
 .customize-control.customize-control-ast-slider label .wrapper input[type=range] {
   cursor: pointer;
+}
+
+.customize-control .ast-control-reduce-top-space {
+	margin-top: -15px;
 }
 
 .ast-link-open-in-new-tab-wrapper {

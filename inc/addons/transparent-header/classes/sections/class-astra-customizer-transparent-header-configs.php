@@ -1394,8 +1394,34 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				);
 
 				$_configs = array_merge( $_configs, $_hfb_configs );
+
 			} else {
 				$_old_content_configs = array(
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[transparent-content-section-colors-line-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => $_section,
+						'priority' => 39,
+						'settings' => array(),
+					),
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[transparent-content-section-colors-heading-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => $_section,
+						'title'    => __( 'Content', 'astra' ),
+						'priority' => 39,
+						'settings' => array(),
+					),
 
 					/**
 					* Option: Content Section Text color.

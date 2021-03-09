@@ -636,6 +636,16 @@
     box-shadow: none !important;
 }
 
+.ast-builder-elements-section .ast-builder-elements-notice  {
+    border: 1px dashed #b4b9be;
+    background: transparent;
+    padding: 10px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .ahfb-footer-builder-is-active .in-sub-panel:not(.section-open) ul#sub-accordion-section-section-footer-builder-layout, .ahfb-header-builder-is-active .in-sub-panel:not(.section-open) ul#sub-accordion-section-section-header-builder-layout {
     transform: none;
     height: auto;
@@ -850,12 +860,6 @@
 .customize-control:not(.customize-control-ast-builder-header-control) + #customize-control-astra-settings-header-mobile-draggable-items.customize-control {
     padding-top: 0;
     border-top: 0;
-}
-
-.ahfb-available-items-pool {
-    min-width: 80px;
-    border: 1px dashed #A0AEC0;
-    padding: 20px 10px 10px
 }
 
 .ahfb-availbile-items-title {
