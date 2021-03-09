@@ -1278,6 +1278,11 @@ body {
   border: 0;
 }
 
+.ast-separate-container .site-main > .ast-row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .ast-separate-container .ast-article-post,
 .ast-separate-container .ast-article-single {
   background-color: #fff;
