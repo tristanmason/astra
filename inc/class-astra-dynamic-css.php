@@ -1611,13 +1611,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $global_button_desktop );
 
 			/* Parse CSS from array() -> min-width: (tablet-breakpoint) px CSS  */
-			$container_min_tablet_css = array(
-				'.ast-container' => array(
-					'max-width' => '100%',
-				),
-			);
-
-			$parse_css .= astra_parse_css( $container_min_tablet_css, astra_get_tablet_breakpoint() );
+			if ( empty( $site_content_width ) ) {
+				$container_min_tablet_css = array(
+					'.ast-container' => array(
+						'max-width' => '100%',
+					),
+				);
+				$parse_css               .= astra_parse_css( $container_min_tablet_css, astra_get_tablet_breakpoint() );
+			}
 
 			$container_min_mobile_css = array(
 				'.ast-container' => array(
@@ -3420,6 +3421,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			return $cart_static_css;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		/**
 		 * Load static Pagination CSS.
@@ -3588,5 +3590,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 =======
 >>>>>>> d70dd4126642349b8900a07e33267b609741a88d
+=======
+>>>>>>> primary-secondary-css-revamp
 	}
 }

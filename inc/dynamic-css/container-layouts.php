@@ -2,7 +2,7 @@
 /**
  * Container Layout - Dynamic CSS
  *
- * @package astra-builder
+ * @package astra
  * @since x.x.x
  */
 
@@ -20,7 +20,7 @@ function astra_container_layout_css() {
    
 	$page_container_css = '';
    
-	if ( 'page-builder' == $container_layout ) {
+	if ( 'page-builder' === $container_layout ) {
 
 		$page_container_css = '
         .ast-page-builder-template .hentry {
