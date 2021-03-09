@@ -9,6 +9,18 @@ v3.2.0
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
 - Fix: WooCommerce and EDD cart icon issue when count of cart items is in more than single digit
 
+v3.1.2
+- Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
+- Fix: Header getting hidden in a rare case on some first loads in chrome due to miscalculated browser window width.
+- Fix: Showing multiple menu locations on the menu admin page.
+- Fix: Transparent Header - Submenu color not working for the older header.
+- Fix: Transparent Header - Submenu background color not working for the older header.
+
+v3.1.1
+- Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
+- Fix: Header Builder margin option default units were missing.
+- Fix: Transparent Header - Submenu background color not working.
+
 v3.1.0
 - Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
