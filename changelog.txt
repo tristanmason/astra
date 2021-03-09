@@ -1,3 +1,5 @@
+- Improvement: Builder - WooCommerce Cart & EDD Cart - Filter to change "Shopping Cart" text in responsive flyout.
+
 v3.2.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.

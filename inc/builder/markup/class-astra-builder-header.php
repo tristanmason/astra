@@ -391,7 +391,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
 		}
-		
+
 		/**
 		 *  Call Mobile Menu Markup.
 		 */

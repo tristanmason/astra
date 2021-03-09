@@ -269,7 +269,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Render Mobile Cart Flyout Markup.
-		 * 
+		 *
 		 * @since 3.1.0
 		 */
 		public static function render_mobile_cart_flyout_markup() {
@@ -281,10 +281,12 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 							<?php echo self::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</button>
 					<div class="astra-cart-drawer-title">
-					Shopping Cart
+					<?php
+						echo apply_filters( 'ast_header_cart_flyout_shopping_cart_text', __( 'Shopping Cart', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					?>
 					</div>
 				</div>
-				<div class="astra-cart-drawer-content"> 
+				<div class="astra-cart-drawer-content">
 					<?php
 					if ( class_exists( 'Astra_Woocommerce' ) ) {
 						the_widget( 'WC_Widget_Cart', 'title=' );
