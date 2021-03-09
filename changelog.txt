@@ -2,6 +2,8 @@ v3.1.2
 - Fix: Fatal error due to undeclared static property `Astra_Customizer::$color_group_configs`.
 - Fix: Header getting hidden in a rare case on some first loads in chrome due to miscalulated browser window width.
 - Fix: Showing multiple menu locations on the menu admin page.
+- Fix: Transparent Header - Submenu color not working for older header.
+- Fix: Transparent Header - Submenu background color not working for older header.
 
 v3.1.1
 - Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
