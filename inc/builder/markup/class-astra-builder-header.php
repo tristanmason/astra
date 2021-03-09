@@ -427,13 +427,41 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function is_mobile_header_layout_default() {
 
-			if ( ! Astra_Builder_Helper::is_component_loaded( 'logo', 'header', 'mobile' ) && ! Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) && ! Astra_Builder_Helper::is_component_loaded( 'mobile-menu', 'header', 'mobile' ) ) {
+			$is_mobile_header_layout_default = true;
 
-				return false;
-			}
+			$header_mobile_items = astra_get_option( 'header-mobile-items' );
 
+			$default_header_mobile_items = array(
+				'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
+				'above'   =>
+					array(
+						'above_left'   => array(),
+						'above_center' => array(),
+						'above_right'  => array(),
+					),
+				'primary' =>
+					array(
+						'primary_left'   => array( 'logo' ),
+						'primary_center' => array(),
+						'primary_right'  => array( 'mobile-trigger' ),
+					),
+				'below'   =>
+					array(
+						'below_left'   => array(),
+						'below_center' => array(),
+						'below_right'  => array(),
+					),
+			);
 			
-			return true;
+			foreach ( $default_header_mobile_items as $row_name => $row_contents ) {
+				
+				if ( $default_header_mobile_items[ $row_name ] !== $header_mobile_items[ $row_name ] ) {
+					
+					$is_mobile_header_layout_default = false;
+				}
+			}
+			
+			return $is_mobile_header_layout_default;
 		}
 
 	}
