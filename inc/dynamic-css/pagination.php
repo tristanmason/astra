@@ -127,17 +127,15 @@ function astra_pagination_css( $dynamic_css ) {
                     padding-right: 3.33333em;
                     padding-left: 3.33333em;
                 }
-            }
-            .ast-pagination .next.page-numbers {
-                float: left;
-                text-align: left;
-            }
-                
-            @media (max-width: 768px) {
-                .ast-pagination .next.page-numbers .page-navigation {
-                    padding-left: 0;
-                }
-            }';
+                .ast-pagination .next.page-numbers {
+                    float: left;
+                    text-align: left;
+                } 
+                @media (max-width: 768px) {
+                    .ast-pagination .next.page-numbers .page-navigation {
+                        padding-left: 0;
+                    }
+                }';
 					
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$pagination_static_css .= '
@@ -152,7 +150,7 @@ function astra_pagination_css( $dynamic_css ) {
                     }
                 }';
 			}           
-		} else {    
+		} else {
 			$pagination_static_css .= '
                 @media (min-width: 993px) {
                     .ast-pagination {
@@ -184,29 +182,7 @@ function astra_pagination_css( $dynamic_css ) {
                     }';
 			}           
 		}
-		$dynamic_css .= $pagination_static_css;
-
-		if ( is_rtl() ) {
-			$static_pagination_tablet = array(
-				'.ast-pagination .prev.page-numbers' => array(
-					'padding-right' => '.5em',
-				),
-				'.ast-pagination .next.page-numbers' => array(
-					'padding-left' => '.5em',
-				),
-			);
-		} else {
-			$static_pagination_tablet = array(
-				'.ast-pagination .prev.page-numbers' => array(
-					'padding-left' => '.5em',
-				),
-				'.ast-pagination .next.page-numbers' => array(
-					'padding-right' => '.5em',
-				),
-			);
-		}
-
-		return $dynamic_css .= astra_parse_css( $static_pagination_tablet );
+		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
 	}
 	return $dynamic_css;
 	

@@ -35,58 +35,19 @@ class Astra_Markup {
 			add_filter( 'astra_markup_ast-comment-meta-wrap_close', array( $this, 'ast_comment_meta_wrap_close' ) );                                
 			add_filter( 'astra_attr_ast-comment-time_output', array( $this, 'ast_comment_time_attr' ) );
 			add_filter( 'astra_attr_ast-comment-cite-wrap_output', array( $this, 'ast_comment_cite_wrap_attr' ) );
-			add_filter( 'astra_markup_footer-widget-div_open', array( $this, 'footer_widget_div_open' ) );
-			add_filter( 'astra_markup_footer-widget-div_close', array( $this, 'footer_widget_div_close' ) );
-			add_filter( 'astra_markup_header-widget-div_open', array( $this, 'header_widget_div_open' ) );
-			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );                        
 			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 		}
-		add_filter( 'astra_attr_header-widget-area-inner', array( $this, 'header_widget_area_inner' ) );
-		add_filter( 'astra_attr_footer-widget-area-inner', array( $this, 'footer_widget_area_inner' ) );
+
 		add_filter( 'astra_attr_ast-grid-lg-12_output', array( $this, 'ast_grid_lg_12' ) );
 		add_filter( 'astra_attr_ast-grid-common-col_output', array( $this, 'ast_grid_common_css' ) );
 		add_filter( 'astra_attr_ast-grid-col-6_output', array( $this, 'ast_grid_col_6' ) );
-		add_filter( 'astra_attr_ast-layout-4-grid_output', array( $this, 'ast_layout_4_grid' ) );       
-	}
-
-	/**
-	 * We have removed grid css and make common css for grid style.
-	 *
-	 * @since x.x.x
-	 * @return string.
-	 */
-	public function ast_grid_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-md-12'; 
-	}
-
-	/**
-	 * Removed grid layout classes and make common class for same style.
-	 *
-	 * @since x.x.x
-	 * @return string.
-	 */
-	public function ast_grid_col_6() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-50' : 'ast-col-md-6 ast-col-xs-12'; 
-	}
-
-	/** 
-	 * Comment form grid classes.
-	 *
-	 * @since x.x.x 
-	 * @return string.
-	 */
-	public function comment_form_grid_class() {
-		return 'ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4';
-	}
-
-	/** 
-	 * Removed grid layout classes and make common class for same style
-	 *
-	 * @since x.x.x
-	 * @return string.
-	 */
-	public function ast_grid_lg_12() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-lg-12'; 
+		add_filter( 'astra_attr_ast-layout-4-grid_output', array( $this, 'ast_layout_4_grid' ) );
+		add_filter( 'astra_attr_ast-layout-1-grid_output', array( $this, 'ast_layout_1_grid' ) );
+		add_filter( 'astra_attr_ast-layout-2-grid_output', array( $this, 'ast_layout_2_grid' ) );
+		add_filter( 'astra_attr_ast-layout-3-grid_output', array( $this, 'ast_layout_3_grid' ) );
+		add_filter( 'astra_attr_ast-layout-5-grid_output', array( $this, 'ast_layout_5_grid' ) );
+		add_filter( 'astra_attr_ast-layout-6-grid_output', array( $this, 'ast_layout_6_grid' ) ); 
+			
 	}
 
 	/** 
@@ -200,6 +161,7 @@ class Astra_Markup {
 
 	/** 
 	 * Comment time div attributes.
+	 *
 	 * @since x.x.x
 	 * @return string.
 	 */
@@ -216,6 +178,26 @@ class Astra_Markup {
 	public function ast_comment_cite_wrap_attr() {
 		return 'class = "ast-comment-cite-wrap ast-col-lg-12" ';
 	}
+
+	/**
+	 * We have removed grid css and make common css for grid style.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_comment_time_attr() {
+		return 'class = "ast-comment-time ast-col-lg-12" ';
+	}
+
+	/** 
+	 * Comment cite wrapper div attributes.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_col_6() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-width-md-6' : 'ast-col-xs-12'; 
+	}
 	/**
 	 * Footer widget inner class.
 	 *
@@ -230,33 +212,70 @@ class Astra_Markup {
 		return $args;
 	}
 
-	/**
-	 * Header widget inner class.
+	/** 
+	 * Removed grid layout classes and make common class for same style
 	 *
 	 * @param array $args Attributes.
 	 * @since x.x.x
 	 * @return string.
 	 */
-	public function header_widget_area_inner( $args ) {
-		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-			$args['class'] = $args['class'] . ' header-widget-area-inner';
-		}
-		return $args;
+	public function ast_grid_lg_12() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-lg-12'; 
 	}
 
-	/**
-	 * Footer widget opening div.
-	 * 
-	 * @since x.x.x
-	 * @param array $args div attributes.
-	 * @return array.
+	/** 
+	 * Layout-4 grid css backward comaptibility.
+	 *
+	 * @return string.
 	 */
-	public function header_widget_div_open( $args ) {
-		$args['open']  = '<div %s>';
-		$args['attrs'] = array( 'class' => 'header-widget-area-inner site-info-inner' );
-		return $args;   
+	public function ast_layout_4_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col as-width-sm-25 as-width-md-3' : 'ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12'; 
 	}
 
+	/** 
+	 * Layout-2 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_2_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12'; 
+	}
+
+	/** 
+	 * Layout-1 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_1_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-lg-12 ast-col-md-12 ast-col-sm-12 ast-col-xs-12'; 
+	}
+
+	/** 
+	 * Layout-3 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_3_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-4' : 'ast-col-lg-4 ast-col-md-4 ast-col-sm-12 ast-col-xs-12'; 
+	}
+
+	/** 
+	 * Layout-5 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_5_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-16 ast-width-lg-16 ' : 'ast-col-lg-2 ast-col-md-2 ast-col-sm-12 ast-col-xs-12'; 
+	}
+
+	/** 
+	 * Layout-6 grid css backward comaptibility.
+	 *
+	 * @return string.
+	 */
+	public function ast_layout_6_grid() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6 ast-width-lg-50 ' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12';
+	}
 }
 
 /**

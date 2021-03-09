@@ -9,6 +9,11 @@
   margin: 1em 0 0.2em;
 }
 
+.customize-control-ast-divider .customizer-text {
+    margin-top: -10px;
+    display: block;
+}
+
 .ast-field-settings-modal .customize-control-ast-divider {
   background-color: #f5f5f5;
   display: block;
@@ -19,6 +24,10 @@
   border-color: #dddddd;
   line-height: 1;
   margin-top: 15px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customizer-text {
+	margin-top: 0;
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {

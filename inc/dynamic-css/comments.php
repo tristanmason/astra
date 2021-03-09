@@ -347,7 +347,7 @@ function astra_comments_css( $dynamic_css ) {
       }';
 		}
 
-		$dynamic_css .= $single_post_comment_css;
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $single_post_comment_css );
 
 		$static_layout_css_min_comment = array(
 			'.ast-separate-container .ast-comment-list li .comment-respond' => array(
@@ -355,7 +355,7 @@ function astra_comments_css( $dynamic_css ) {
 				'padding-right' => '2.66666em',
 			),
 		);
-		$parse_css                    .= astra_parse_css( $static_layout_css_min_comment, astra_get_tablet_breakpoint( '', '1' ) );
+		$dynamic_css                  .= astra_parse_css( $static_layout_css_min_comment, astra_get_tablet_breakpoint( '', '1' ) );
 
 		$global_button_comment_mobile = array(
 			'.ast-separate-container .comments-count-wrapper' => array(
