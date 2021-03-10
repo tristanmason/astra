@@ -274,30 +274,6 @@ th {
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
-@media (min-width: 544px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
 .ast-container-fluid, .ast-container {
   margin-left: auto;
   margin-right: auto;
