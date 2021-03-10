@@ -24,6 +24,11 @@
   @include  make-grid-columns-frontend();
 }
 
+@if $enable-grid-classes {
+  .ast-row {
+    @include make-row();
+  }
+}
 
 // Flex variation
 //
