@@ -450,24 +450,27 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Header Margin defaults.
 	 */
 	$defaults['section-header-builder-layout-margin'] = array(
-		'desktop' => array(
+		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'tablet'  => array(
+		'tablet'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'mobile'  => array(
+		'mobile'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
 	);
 
 	/**
@@ -565,24 +568,27 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Footer Below Padding.
 	 */
 	$defaults['section-below-footer-builder-padding'] = array(
-		'desktop' => array(
+		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'tablet'  => array(
+		'tablet'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'mobile'  => array(
+		'mobile'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
 	);
 
 	/**
@@ -881,11 +887,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']    = 'none';
-	$defaults['header-woo-cart-icon-color']    = '';
-	$defaults['woo-header-cart-icon-radius']   = 3;
-	$defaults['woo-header-cart-total-display'] = true;
-	$defaults['woo-header-cart-title-display'] = true;
+	$defaults['woo-header-cart-icon-style']             = 'none';
+	$defaults['header-woo-cart-icon-color']             = '';
+	$defaults['transparent-header-woo-cart-icon-color'] = '';
+	$defaults['woo-header-cart-icon-radius']            = 3;
+	$defaults['woo-header-cart-total-display']          = true;
+	$defaults['woo-header-cart-title-display']          = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']       = '';
@@ -909,11 +916,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * EDD-Cart.
 	*/
-	$defaults['edd-header-cart-icon-style']    = 'none';
-	$defaults['edd-header-cart-icon-color']    = '';
-	$defaults['edd-header-cart-icon-radius']   = 3;
-	$defaults['edd-header-cart-total-display'] = true;
-	$defaults['edd-header-cart-title-display'] = true;
+	$defaults['edd-header-cart-icon-style']             = 'none';
+	$defaults['edd-header-cart-icon-color']             = '';
+	$defaults['edd-header-cart-icon-radius']            = 3;
+	$defaults['transparent-header-edd-cart-icon-color'] = '';
+	$defaults['edd-header-cart-total-display']          = true;
+	$defaults['edd-header-cart-title-display']          = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-edd-cart-text-color']       = '';
@@ -1029,24 +1037,27 @@ function prepare_button_defaults( $defaults, $index ) {
 		'mobile'  => '',
 	);
 	$defaults[ 'header-' . $_prefix . '-padding' ]        = array(
-		'desktop' => array(
+		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'tablet'  => array(
+		'tablet'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'mobile'  => array(
+		'mobile'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
 	);
 	$defaults[ 'header-' . $_prefix . '-border-size' ]    = array(
 		'top'    => '',
@@ -1103,24 +1114,27 @@ function prepare_button_defaults( $defaults, $index ) {
 		'mobile'  => '',
 	);
 	$defaults[ 'footer-' . $_prefix . '-padding' ]        = array(
-		'desktop' => array(
+		'desktop'      => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'tablet'  => array(
+		'tablet'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
-		'mobile'  => array(
+		'mobile'       => array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
 	);
 	$defaults[ 'footer-' . $_prefix . '-border-size' ]    = array(
 		'top'    => '',

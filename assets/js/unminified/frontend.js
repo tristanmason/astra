@@ -233,8 +233,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu');
 			for ( var k = 0; k < all_sub_menu.length; k++ ) {
 				all_sub_menu[k].style.display = 'none';
-			};
-		};
+			}
+		}
 
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 
@@ -422,7 +422,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			for (var i = 0; i < headerWrap.length; i++) {
 
 				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
-					if (ww > break_point) {
+
+					/**
+					 * This case is when one hits a URL one after the other via `Open in New Tab` option
+					 * Chrome returns the value of outer width as 0 in this case.
+					 * This mis-calculates the width of the window and header seems invisible.
+					 * This could be fixed by using `0 === ww` condition below.
+					 */
+					if (ww > break_point || 0 === ww) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
@@ -493,7 +500,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			if( null !== parent_li_child_sub_menu ) {
 				parent_li_child_sub_menu.style.display = 'none';
 			}
-		};
+		}
 
 		var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children');
 		for (var j = 0; j < parent_li_sibling.length; j++) {
@@ -504,9 +511,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu');
 				for (var k = 0; k < all_sub_menu.length; k++) {
 					all_sub_menu[k].style.display = 'none';
-				};
+				}
 			}
-		};
+		}
 
 		if (parent_li.classList.contains('menu-item-has-children') ) {
 			astraToggleClass(parent_li, 'ast-submenu-expanded');
@@ -529,7 +536,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if (astra_menu_toggle.length > 0) {
 			for (var i = 0; i < astra_menu_toggle.length; i++) {
 				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
-			};
+			}
 		}
 	};
 
@@ -580,10 +587,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 						for (var j = 0; j < astra_menu_toggle.length; j++) {
 
 							astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
-						};
+						}
 					}
 				}
-			};
+			}
 		}
 	};
 
@@ -637,7 +644,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll('.sub-menu');
 			for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
 				menuHasChildrenSubMenu[j].style.display = 'none';
-			};
+			}
 		}
 
 		var menu_class = this.getAttribute('class') || '';
@@ -732,7 +739,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                 }
             }
         }
-	};
+	}
 
 	/* Hide Dropdown on body click*/
 	body.onclick = function( event ) {
@@ -741,7 +748,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 				for (var i = 0; i < dropdownSearchWrap.length; i++) {
 					dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
-				};
+				}
 			}
 		}
 	}
@@ -754,7 +761,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		var button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			button = container.getElementsByTagName( 'a' )[0];
 			if ( 'undefined' === typeof button ) {
@@ -762,7 +769,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		menu = container.getElementsByTagName( 'ul' )[0];
+		var menu = container.getElementsByTagName( 'ul' )[0];
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
@@ -788,12 +795,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		};
 
 		// Get all the link elements within the menu.
-		links    = menu.getElementsByTagName( 'a' );
-		subMenus = menu.getElementsByTagName( 'ul' );
+		var links    = menu.getElementsByTagName( 'a' );
+		var subMenus = menu.getElementsByTagName( 'ul' );
 
 
 		// Set menu items with submenus to aria-haspopup="true".
-		for ( i = 0, len = subMenus.length; i < len; i++ ) {
+		for ( var i = 0, len = subMenus.length; i < len; i++ ) {
 			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
 		}
 
@@ -877,7 +884,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function toggleBlurFocus() {
 		var self = this || '',
             hash = '#';
-			link = new String( self );
+		var	link = new String( self );
         if( link.indexOf( hash ) !== -1 && body.classList.contains('ast-mouse-clicked') ) {
         	return;
         }

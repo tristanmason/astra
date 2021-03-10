@@ -35,11 +35,7 @@
 	// Icon Size.
 	wp.customize( 'astra-settings[header-search-icon-space]', function( value ) {
 		value.bind( function( size ) {
-			if(
-				size.desktop != '' || size.desktop != '' || size.desktop != '' || size.desktop != '' ||
-				size.tablet != '' || size.tablet != '' || size.tablet != '' || size.tablet != '' ||
-				size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
-			) {
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				var dynamicStyle = '';
 				dynamicStyle += selector + ' .astra-search-icon {';
 				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
