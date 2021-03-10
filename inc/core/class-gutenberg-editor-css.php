@@ -417,7 +417,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( Astra_Dynamic_CSS::gutenberg_button_patterns_compat() ) {
+			if ( Astra_Dynamic_CSS::gutenberg_block_patterns_compat() ) {
 
 				$link_hover_color     = astra_get_option( 'link-h-color' );
 				$btn_text_hover_color = astra_get_option( 'button-h-color' );
@@ -597,7 +597,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( Astra_Dynamic_CSS::gutenberg_button_patterns_compat() ) {
+			if ( Astra_Dynamic_CSS::gutenberg_block_patterns_compat() ) {
 
 				// Added CSS compatibility support for Gutenberg Editor's Media & Text block pattern.
 				if ( $is_site_rtl ) {
@@ -622,8 +622,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					);
 				}
 
-				$gb_editor_block_pattern_css['.edit-post-visual-editor .wp-block-code.block-editor-block-list__block'] = array(
-					'padding' => '1.6em',
+				$gb_editor_block_pattern_css['.edit-post-visual-editor .block-editor-block-list__block'] = array(
+					'padding-left' => '20px',
+					'padding-right' => '20px',
 				);
 
 				$css .= astra_parse_css( $gb_editor_block_pattern_css );

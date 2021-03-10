@@ -1043,7 +1043,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $mobile_screen_media_text_block_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( self::gutenberg_button_patterns_compat() ) {
+			if ( self::gutenberg_block_patterns_compat() ) {
 
 				// Outline Gutenberg button compatibility CSS.
 				$theme_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
@@ -1533,7 +1533,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if ( self::gutenberg_button_patterns_compat() ) {
+				if ( self::gutenberg_block_patterns_compat() ) {
 					$theme_outline_gb_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
 					$theme_outline_gb_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
 					$theme_outline_gb_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
@@ -3050,7 +3050,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function gutenberg_button_patterns_compat() {
+		public static function gutenberg_block_patterns_compat() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-button-pattern-compat-css'] = isset( $astra_settings['guntenberg-button-pattern-compat-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_patterns_compatibility', $astra_settings['guntenberg-button-pattern-compat-css'] );
