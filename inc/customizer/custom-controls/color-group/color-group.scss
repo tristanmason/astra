@@ -95,4 +95,22 @@
 		right: 145px;
 	}
 }
-
+.ast-top-divider.customize-control-ast-color-group {
+	.ast-control-wrap {
+		margin-top: 25px;
+		display: inline-flex;
+		width: 100%;
+		.ast-responsive-btns {
+			top: 78px;
+		}
+		.ast-color-btn-reset-wrap {
+			top: 75px;
+		}
+	}
+}
+.customize-control-ast-color-group {
+	.ast-control-wrap {
+		display: inline-flex;
+		width: 100%;
+	}
+}

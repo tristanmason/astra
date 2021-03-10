@@ -300,6 +300,7 @@ final class Astra_Builder_Base_Configuration {
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
+					'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 					'rgba'       => true,
 				),
 				/**

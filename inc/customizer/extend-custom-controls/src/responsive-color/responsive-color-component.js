@@ -114,7 +114,7 @@ const ResponsiveColorComponent = props => {
 		</>;
 	}
 
-	return <>
+	return <div className="ast-control-wrap">
 		<label>
 			{labelHtml}
 			{descriptionHtml}
@@ -125,7 +125,7 @@ const ResponsiveColorComponent = props => {
 		<div className="customize-control-content">
 			{inputHtml}
 		</div>
-	</>;
+	</div>;
 
 };
 
