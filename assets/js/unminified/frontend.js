@@ -367,6 +367,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		});
 	}
 
+	var get_window_width = function () {
+		return window.innerWidth !== undefined ? window.innerWidth : document.documentElement.clientWidth;
+	}
+
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
@@ -374,12 +378,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
 		var originalOverflow = body.style.overflow;
 		body.style.overflow = 'hidden';
-		var ww = window.outerWidth;
+		var ww = get_window_width();
 		body.style.overflow = originalOverflow;
-
-		if ( body.classList.contains( 'customize-partial-edit-shortcuts-shown' ) ) {
-			ww = window.innerWidth;
-		}
 
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
@@ -389,13 +389,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
 
-					/**
-					 * This case is when one hits a URL one after the other via `Open in New Tab` option
-					 * Chrome returns the value of outer width as 0 in this case.
-					 * This mis-calculates the width of the window and header seems invisible.
-					 * This could be fixed by using `0 === ww` condition below.
-					 */
-					if (ww > break_point || 0 === ww) {
+					if ( ww > break_point ) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
