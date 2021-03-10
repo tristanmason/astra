@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[site-content-layout]',
 					'type'        => 'control',
 					'default'     => astra_get_option( 'site-content-layout' ),
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-container-layout',
 					'priority'    => 50,
 					'title'       => __( 'Layout', 'astra' ),
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'default'     => astra_get_option( 'single-page-content-layout' ),
 					'section'     => 'section-container-layout',
 					'title'       => __( 'Page Layout', 'astra' ),
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'default'     => astra_get_option( 'single-post-content-layout' ),
 					'section'     => 'section-container-layout',
 					'priority'    => 60,
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'default'  => astra_get_option( 'archive-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 65,

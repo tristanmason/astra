@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'text-transform-h1' ),
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'priority'  => 8,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'text-transform-h2' ),
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'transport' => 'postMessage',
 					'priority'  => 13,
 					'choices'   => array(
@@ -245,7 +245,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'title'     => __( 'Text Transform', 'astra' ),
 					'default'   => astra_get_option( 'text-transform-h3' ),
 					'transport' => 'postMessage',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'priority'  => 18,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),

@@ -360,7 +360,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'section'  => $_section,
 						'title'    => __( 'Breadcrumb Source', 'astra' ),
 						'type'     => 'control',
-						'control'  => 'select',
+						'control'  => 'ast-select',
 						'priority' => 10,
 						'choices'  => $breadcrumb_source_list,
 						'context'  => array(

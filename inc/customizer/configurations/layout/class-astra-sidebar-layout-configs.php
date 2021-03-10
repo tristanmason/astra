@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-sidebars',
 					'default'     => astra_get_option( 'site-sidebar-layout' ),
 					'priority'    => 5,
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'section'  => 'section-sidebars',
 					'default'  => astra_get_option( 'single-page-sidebar-layout' ),
 					'priority' => 5,
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'default'  => astra_get_option( 'single-post-sidebar-layout' ),
 					'section'  => 'section-sidebars',
 					'priority' => 5,
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'default'     => astra_get_option( 'archive-post-sidebar-layout' ),
 					'section'     => 'section-sidebars',
 					'priority'    => 5,

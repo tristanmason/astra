@@ -61,20 +61,6 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 
 				$new_configs = array(
 
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog-single',
-						'priority' => 13,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					),
-
 					array(
 						'name'        => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 						'type'        => 'control',

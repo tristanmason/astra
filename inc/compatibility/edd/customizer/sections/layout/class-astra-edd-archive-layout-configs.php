@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-edd-archive',
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'default'     => astra_get_option( 'edd-archive-variable-button' ),
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-edd-archive',
 					'default'     => astra_get_option( 'edd-archive-width' ),
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),

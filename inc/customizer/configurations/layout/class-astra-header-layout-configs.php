@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[header-main-layout-width]',
 					'default'     => astra_get_option( 'header-main-layout-width' ),
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-header',
 					'priority'    => 4,
 					'title'       => __( 'Width', 'astra' ),
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
 					'default'     => astra_get_option( 'header-main-rt-section' ),
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-primary-menu',
 					'priority'    => 7,
 					'title'       => __( 'Last Item in Menu', 'astra' ),
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
 					'default'  => astra_get_option( 'header-main-rt-section-button-style' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'section'  => 'section-primary-menu',
 					'context'  => array(
 						array(
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[header-main-submenu-container-animation]',
 					'default'     => astra_get_option( 'header-main-submenu-container-animation' ),
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-primary-menu',
 					'context'     => array(
 						array(
@@ -563,7 +563,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Toggle Button Style', 'astra' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'priority' => 42,
 					'context'  => array(
 						array(
@@ -636,7 +636,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]',
 					'default'     => astra_get_option( 'mobile-header-toggle-target' ),
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-primary-menu',
 					'priority'    => 42,
 					'title'       => __( 'Dropdown Target', 'astra' ),

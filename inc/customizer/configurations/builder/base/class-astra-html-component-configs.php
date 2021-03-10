@@ -89,7 +89,6 @@ class Astra_Html_Component_Configs {
 					'input_attrs' => array(
 						'id' => $builder_type . '-html-' . $index,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'partial'     => array(
 						'selector'         => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback'  => array( $class_obj, $builder_type . '_html_' . $index ),
@@ -206,7 +205,7 @@ class Astra_Html_Component_Configs {
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				);
 			}
 

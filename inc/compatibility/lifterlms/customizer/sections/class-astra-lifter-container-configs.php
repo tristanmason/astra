@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'section'  => 'section-container-layout',
 					'default'  => astra_get_option( 'lifterlms-content-layout' ),
 					'priority' => 66,

@@ -317,6 +317,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'             => __( 'Login URL', 'astra' ),
 				'priority'          => 205,
 				'transport'         => 'postMessage',
+				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -370,6 +371,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
+				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'       => 0,

@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'default'  => astra_get_option( 'woocommerce-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 85,
