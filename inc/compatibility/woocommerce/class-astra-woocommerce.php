@@ -1128,21 +1128,28 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'width' => '50%',
 					),
 				);
+				if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$min_tablet_css['.woocommerce #reviews #comments']['float'] = 'right';
+					$min_tablet_css['.woocommerce #reviews #review_form_wrapper']['float'] = 'left';
+				}
 			} else {
 				$min_tablet_css = array(
 					'.woocommerce #reviews #comments'   => array(
 						'width' => '55%',
-						'float' => 'left',
 					),
 					'.woocommerce #reviews #review_form_wrapper' => array(
 						'width'        => '45%',
-						'float'        => 'right',
 						'padding-left' => '2em',
 					),
 					'.woocommerce form.checkout_coupon' => array(
 						'width' => '50%',
 					),
 				);
+
+				if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$min_tablet_css['.woocommerce #reviews #comments']['float'] = 'left';
+					$min_tablet_css['.woocommerce #reviews #review_form_wrapper']['float'] = 'right';
+				}
 			}
 
 			$css_output .= astra_parse_css( $min_tablet_css, astra_get_tablet_breakpoint( '', 1 ) );
