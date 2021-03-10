@@ -188,7 +188,6 @@
 			fontValue           = this(),
 			selected            = '',
 			weightKey           = fontSelect.data( 'connected-control' ),
-			inherit             = fontSelect.data( 'inherit' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),
 			weightValue         = init ? weightSelect.val() : '400',
@@ -241,7 +240,6 @@
 				fontValue           = this(),
 				selected            = '',
 				variants            = fontSelect.data( 'connected-variant' ),
-				inherit             = fontSelect.data( 'inherit' ),
 				variantSelect       = api.control( variants ).container.find( 'select' ),
 				variantSavedField   = api.control( variants ).container.find( '.ast-font-variant-hidden-value' ),
 				weightValue        = '',
@@ -1672,9 +1670,7 @@ S2.define('select2/selection/base',[
   BaseSelection.prototype.bind = function (container, $container) {
     var self = this;
 
-    var id = container.id + '-container';
     var resultsId = container.id + '-results';
-    var searchHidden = this.options.get('minimumResultsForSearch') === Infinity;
 
     this.container = container;
 
@@ -1753,7 +1749,6 @@ S2.define('select2/selection/base',[
   };
 
   BaseSelection.prototype._attachCloseHandler = function (container) {
-    var self = this;
 
     $(document.body).on('mousedown.select2.' + container.id, function (e) {
       var $target = $(e.target);
@@ -3852,7 +3847,7 @@ S2.define('select2/data/ajax',[
 
         if (self.options.get('debug') && window.console && console.error) {
           // Check to make sure that the response included a `results` key.
-          if (!results || !results.results || !$.isArray(results.results)) {
+          if (!results || !results.results || !Array.isArray(results.results)) {
             console.error(
               'Select2: The AJAX results did not return an array in the ' +
               '`results` key of the response.'
@@ -3911,7 +3906,7 @@ S2.define('select2/data/tags',[
 
     decorated.call(this, $element, options);
 
-    if ($.isArray(tags)) {
+    if (Array.isArray(tags)) {
       for (var t = 0; t < tags.length; t++) {
         var tag = tags[t];
         var item = this._normalizeItem(tag);
@@ -5158,7 +5153,7 @@ S2.define('select2/defaults',[
       }
     }
 
-    if ($.isArray(options.language)) {
+    if (Array.isArray(options.language)) {
       var languages = new Translation();
       options.language.push('en');
 
@@ -6005,7 +6000,7 @@ S2.define('select2/core',[
 
     var newVal = args[0];
 
-    if ($.isArray(newVal)) {
+    if (Array.isArray(newVal)) {
       newVal = $.map(newVal, function (obj) {
         return obj.toString();
       });
