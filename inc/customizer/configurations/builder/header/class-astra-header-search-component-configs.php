@@ -94,6 +94,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'type'              => 'control',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'ast_divider'       => array( 'ast_class' => 'ast-top-divider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
 					'step' => 1,

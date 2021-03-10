@@ -36,14 +36,15 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]',
-					'type'     => 'control',
-					'control'  => 'ast-select',
-					'default'  => astra_get_option( 'woocommerce-content-layout' ),
-					'section'  => 'section-container-layout',
-					'priority' => 85,
-					'title'    => __( 'WooCommerce Layout', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]',
+					'type'        => 'control',
+					'control'     => 'ast-select',
+					'default'     => astra_get_option( 'woocommerce-content-layout' ),
+					'section'     => 'section-container-layout',
+					'priority'    => 85,
+					'title'       => __( 'WooCommerce Layout', 'astra' ),
+					'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
+					'choices'     => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),

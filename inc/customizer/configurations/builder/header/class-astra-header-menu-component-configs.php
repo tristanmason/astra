@@ -251,11 +251,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'suffix'      => 'px',
 						'transport'   => 'postMessage',
 						'input_attrs' => array(
-							'min'       => 0,
-							'step'      => 1,
-							'max'       => 200,
-							'ast_class' => 'ast-bottom-divider',
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
 						),
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Sub-Menu Border.
@@ -388,16 +388,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-background-colors]',
-						'type'        => 'control',
-						'control'     => 'ast-color-group',
-						'title'       => __( 'Background', 'astra' ),
-						'section'     => $_section,
-						'transport'   => 'postMessage',
-						'priority'    => 90,
-						'context'     => Astra_Builder_Helper::$design_tab,
-						'responsive'  => true,
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'name'       => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-background-colors]',
+						'type'       => 'control',
+						'control'    => 'ast-color-group',
+						'title'      => __( 'Background', 'astra' ),
+						'section'    => $_section,
+						'transport'  => 'postMessage',
+						'priority'   => 90,
+						'context'    => Astra_Builder_Helper::$design_tab,
+						'responsive' => true,
 					),
 
 					// Option: Menu Color.

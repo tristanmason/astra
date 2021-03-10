@@ -229,7 +229,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'          => 35,
 					'connected'         => false,
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 			);

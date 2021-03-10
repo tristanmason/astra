@@ -119,15 +119,16 @@ final class Astra_Builder_Base_Configuration {
 			$_configs = array(
 
 				array(
-					'name'      => $parent,
-					'default'   => astra_get_option( $section_id . '-typography' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Text Font', 'astra' ),
-					'section'   => $section_id,
-					'transport' => 'postMessage',
-					'priority'  => 16,
-					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+					'name'        => $parent,
+					'default'     => astra_get_option( $section_id . '-typography' ),
+					'type'        => 'control',
+					'control'     => 'ast-settings-group',
+					'title'       => __( 'Text Font', 'astra' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'section'     => $section_id,
+					'transport'   => 'postMessage',
+					'priority'    => 16,
+					'context'     => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
 
 				/**
@@ -233,15 +234,16 @@ final class Astra_Builder_Base_Configuration {
 				 * Option: Hide on desktop
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
-					'type'      => 'control',
-					'control'   => 'ast-toggle-control',
-					'default'   => astra_get_option( $_section . '-hide-desktop' ),
-					'section'   => $_section,
-					'priority'  => 320,
-					'title'     => __( 'Hide on Desktop', 'astra' ),
-					'transport' => 'postMessage',
-					'context'   => Astra_Builder_Helper::$desktop_general_tab,
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
+					'type'        => 'control',
+					'control'     => 'ast-toggle-control',
+					'default'     => astra_get_option( $_section . '-hide-desktop' ),
+					'section'     => $_section,
+					'priority'    => 320,
+					'title'       => __( 'Hide on Desktop', 'astra' ),
+					'transport'   => 'postMessage',
+					'context'     => Astra_Builder_Helper::$desktop_general_tab,
+					'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 				),
 			);
 			$configs        = array_merge( $configs, $footer_configs );

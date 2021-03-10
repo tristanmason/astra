@@ -331,20 +331,21 @@ class Astra_Button_Component_Configs {
 				$footer_specific_configs = array(
 
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
-						'default'   => astra_get_option( 'footer-button-' . $index . '-alignment' ),
-						'type'      => 'control',
-						'control'   => 'ast-selector',
-						'section'   => $_section,
-						'priority'  => 35,
-						'title'     => __( 'Alignment', 'astra' ),
-						'context'   => Astra_Builder_Helper::$general_tab,
-						'transport' => 'postMessage',
-						'choices'   => array(
+						'name'        => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
+						'default'     => astra_get_option( 'footer-button-' . $index . '-alignment' ),
+						'type'        => 'control',
+						'control'     => 'ast-selector',
+						'section'     => $_section,
+						'priority'    => 35,
+						'title'       => __( 'Alignment', 'astra' ),
+						'context'     => Astra_Builder_Helper::$general_tab,
+						'transport'   => 'postMessage',
+						'choices'     => array(
 							'flex-start' => 'align-left',
 							'center'     => 'align-center',
 							'flex-end'   => 'align-right',
 						),
+						'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 					),
 				);
 
@@ -359,15 +360,16 @@ class Astra_Button_Component_Configs {
 					 * Option: Primary Header Button Typography
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-						'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Font', 'astra' ),
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'context'   => Astra_Builder_Helper::$design_tab,
-						'priority'  => 90,
+						'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+						'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
+						'type'        => 'control',
+						'control'     => 'ast-settings-group',
+						'title'       => __( 'Font', 'astra' ),
+						'section'     => $_section,
+						'transport'   => 'postMessage',
+						'context'     => Astra_Builder_Helper::$design_tab,
+						'priority'    => 90,
+						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					/**
