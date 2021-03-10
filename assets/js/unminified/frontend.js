@@ -390,7 +390,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
 
-					if ( ww > break_point ) {
+					if ( ww >= break_point ) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
