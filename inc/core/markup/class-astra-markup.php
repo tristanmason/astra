@@ -32,6 +32,15 @@ class Astra_Markup {
 			add_filter( 'astra_markup_header-widget-div_open', array( $this, 'header_widget_div_open' ) );
 			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );                        
 			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
+			add_filter( 'astra_markup_comment-count-wrapper_open', array( $this, 'comment_count_wrapper_open' ) );
+			add_filter( 'astra_markup_comment-count-wrapper_close', array( $this, 'comment_count_wrapper_close' ) );
+			add_filter( 'astra_markup_ast-comment-data-wrap_open', array( $this, 'ast_comment_data_wrap_open' ) );
+			add_filter( 'astra_markup_ast-comment-data-wrap_close', array( $this, 'ast_comment_data_wrap_close' ) );
+			add_filter( 'astra_markup_ast-comment-meta-wrap_open', array( $this, 'ast_comment_meta_wrap_open' ) );
+			add_filter( 'astra_markup_ast-comment-meta-wrap_close', array( $this, 'ast_comment_meta_wrap_close' ) );                                
+			add_filter( 'astra_attr_ast-comment-time_output', array( $this, 'ast_comment_time_attr' ) );
+			add_filter( 'astra_attr_ast-comment-cite-wrap_output', array( $this, 'ast_comment_cite_wrap_attr' ) );
+			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 		}
 		add_filter( 'astra_attr_header-widget-area-inner', array( $this, 'header_widget_area_inner' ) );
 		add_filter( 'astra_attr_footer-widget-area-inner', array( $this, 'footer_widget_area_inner' ) );
@@ -43,7 +52,103 @@ class Astra_Markup {
 		add_filter( 'astra_attr_ast-layout-2-grid_output', array( $this, 'ast_layout_2_grid' ) );
 		add_filter( 'astra_attr_ast-layout-3-grid_output', array( $this, 'ast_layout_3_grid' ) );
 		add_filter( 'astra_attr_ast-layout-5-grid_output', array( $this, 'ast_layout_5_grid' ) );
-		add_filter( 'astra_attr_ast-layout-6-grid_output', array( $this, 'ast_layout_6_grid' ) );       
+		add_filter( 'astra_attr_ast-layout-6-grid_output', array( $this, 'ast_layout_6_grid' ) ); 
+			
+	}
+
+	/** 
+	 * Comment count wrapper opening div.
+	 *
+	 * @param array $args markup arguments.
+	 * @since x.x.x
+	 * @return array.
+	 */
+	public function comment_count_wrapper_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'comments-count-wrapper' );           
+		return $args;
+	}
+
+	/** 
+	 * Comment count wrapper closing div.
+	 *
+	 * @param array $args markup arguments.
+	 * @since x.x.x
+	 * @return array.
+	 */
+	public function comment_count_wrapper_close( $args ) {
+		$args['close'] = '</div>';
+		return $args;
+	}
+
+	/** 
+	 * Comment data wrapper opening div.
+	 *
+	 * @param array $args markup arguments.
+	 * @since x.x.x
+	 * @return array.
+	 */
+	public function ast_comment_data_wrap_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'ast-comment-data-wrap' );           
+		return $args;
+	}
+
+	/** 
+	 * Comment data wrapper closing div.
+	 *
+	 * @param array $args markup arguments.
+	 * @since x.x.x
+	 * @return array.
+	 */
+	public function ast_comment_data_wrap_close( $args ) {
+		$args['close'] = '</div>';
+		return $args;
+	}
+
+	/** 
+	 * Comment meta wrapper opening div.
+	 *
+	 * @param array $args markup arguments.
+	 * @since x.x.x
+	 * @return array.
+	 */
+	public function ast_comment_meta_wrap_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'ast-comment-meta-wrap' );           
+		return $args;
+	}
+
+	/** 
+	 * Comment meta wrapper closing div.
+	 *
+	 * @param array $args markup arguments.
+	 * @since x.x.x
+	 * @return array.
+	 */
+	public function ast_comment_meta_wrap_close( $args ) {
+		$args['close'] = '</div>';
+		return $args;
+	}
+
+	/** 
+	 * Comment time div attributes.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_comment_time_attr() {
+		return 'class = "ast-comment-time ast-col-lg-12" ';
+	}
+
+	/** 
+	 * Comment cite wrapper div attributes.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_comment_cite_wrap_attr() {
+		return 'class = "ast-comment-cite-wrap ast-col-lg-12" ';
 	}
 
 	/**
@@ -137,7 +242,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_layout_6_grid() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6 ast-width-lg-50 ' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12'; 
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6 ast-width-lg-50 ' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12';
 	}
 
 	/**

@@ -45,41 +45,25 @@ function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		 * Widget CSS.
 		 */
 		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-			
-			$css_output_desktop = array(
-				$selector . '.footer-widget-area-inner' => array(
-					'text-align' => $desktop_alignment,
-				),
-			);
-			$css_output_tablet  = array(
-				$selector . '.footer-widget-area-inner' => array(
-					'text-align' => $tablet_alignment,
-				),
-			);
-			$css_output_mobile  = array(
-				$selector . '.footer-widget-area-inner' => array(
-					'text-align' => $mobile_alignment,
-				),
-			);
-
+			$footer_widget_selector = $selector . '.footer-widget-area-inner';
 		} else {
-
-			$css_output_desktop = array(
-				$selector . ' .footer-widget-area-inner' => array(
-					'text-align' => $desktop_alignment,
-				),
-			);
-			$css_output_tablet  = array(
-				$selector . ' .footer-widget-area-inner' => array(
-					'text-align' => $tablet_alignment,
-				),
-			);
-			$css_output_mobile  = array(
-				$selector . ' .footer-widget-area-inner' => array(
-					'text-align' => $mobile_alignment,
-				),
-			);
+			$footer_widget_selector = $selector . ' .footer-widget-area-inner';
 		}
+		$css_output_desktop = array(
+			$footer_widget_selector => array(
+				'text-align' => $desktop_alignment,
+			),
+		);
+		$css_output_tablet  = array(
+			$footer_widget_selector => array(
+				'text-align' => $tablet_alignment,
+			),
+		);
+		$css_output_mobile  = array(
+			$footer_widget_selector => array(
+				'text-align' => $mobile_alignment,
+			),
+		);
 
 		/* Parse CSS from array() */
 		$css_output  = astra_parse_css( $css_output_desktop );

@@ -322,8 +322,8 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
                     },
                     {
-                        src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        src: 'assets/css/unminified/compatibility/contact-form-7-main-rtl.css',
+                        dest: 'assets/css/minified/compatibility/contact-form-7-main.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
