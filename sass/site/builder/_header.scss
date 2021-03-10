@@ -423,7 +423,7 @@
 }
 
 .ast-header-break-point {
-	#ast-desktop-header {
+	#ast-desktop-header:not(.ast-desktop-mobile-common-layout) {
 		display: none;
 	}
 	#ast-mobile-header {

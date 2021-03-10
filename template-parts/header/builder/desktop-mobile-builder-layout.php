@@ -13,7 +13,7 @@ if ( 'full-width' === $mobile_header_type ) {
 }
 
 ?>
-<div id="ast-desktop-header" class="ast-mobile-header-wrap" data-type="<?php echo esc_attr( $mobile_header_type ); ?>">
+<div id="ast-desktop-header" class="ast-desktop-mobile-common-layout ast-mobile-header-wrap" data-type="<?php echo esc_attr( $mobile_header_type ); ?>">
 	<?php
 		astra_main_header_bar_top();
 
@@ -23,9 +23,14 @@ if ( 'full-width' === $mobile_header_type ) {
 		do_action( 'astra_above_header' );
 
 		/**
-		 * Astra Main Header
+		 * Astra Main Header Desktop
 		 */
 		do_action( 'astra_primary_header' );
+
+		/**
+		 * Astra Main Header Mobile
+		 */
+		do_action( 'astra_mobile_primary_header' );
 
 		/**
 		 * Astra Bottom Header
