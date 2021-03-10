@@ -368,7 +368,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 	var get_window_width = function () {
-		return window.innerWidth !== undefined ? window.innerWidth : document.documentElement.clientWidth;
+		return Math.min( screen.width,
+			window.innerWidth !== undefined ? window.innerWidth : document.documentElement.clientWidth );
 	}
 
 	/* Add break point Class and related trigger */
