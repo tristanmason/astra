@@ -282,7 +282,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					</button>
 					<div class="astra-cart-drawer-title">
 					<?php
-						echo apply_filters( 'ast_header_cart_flyout_shopping_cart_text', __( 'Shopping Cart', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo apply_filters( 'astra_header_cart_flyout_shopping_cart_text', __( 'Shopping Cart', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					?>
 					</div>
 				</div>
