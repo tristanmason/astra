@@ -493,7 +493,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$is_site_rtl = is_rtl();
 
-			if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_tablet_edd_css = array(
 					'.tablet-columns-1 .ast-edd-archive-article' => array(
 						'width' => '100%',
@@ -519,7 +519,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						'width' => 'calc(16.66% - 16.66px)',
 					),
 				);
-			}else{
+			} else {
 				$max_tablet_edd_css = array(
 					'.tablet-columns-1 .ast-edd-container' => array(
 						'grid-template-columns' => 'repeat(1, 1fr)',
@@ -545,7 +545,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
 			$edd_css_output = astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
-			if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				if ( $is_site_rtl ) {
 					$max_tablet_edd_lang_direction_css = array(
 						'[class*="columns-"] .ast-edd-archive-article:nth-child(n)' => array(
@@ -574,12 +574,12 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 							'clear' => 'left',
 						),
 					);
-				}	
+				}   
 				/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
 				$edd_css_output .= astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 			}
 
-			if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$mobile_edd_css = array(
 					'.mobile-columns-1 .ast-edd-archive-article' => array(
 						'width' => '100%',
@@ -605,7 +605,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						'width' => 'calc(50% - 10px)',
 					),
 				);
-			}else{
+			} else {
 				$mobile_edd_css = array(
 					'.mobile-columns-1 .ast-edd-container' => array(
 						'grid-template-columns' => 'repeat(1, 1fr)',
@@ -626,7 +626,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						'grid-template-columns' => 'repeat(2, 1fr)',
 					),
 				);
-		}
+			}
 
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
 			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint() );

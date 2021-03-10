@@ -1128,8 +1128,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'width' => '50%',
 					),
 				);
-				if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-					$min_tablet_css['.woocommerce #reviews #comments']['float'] = 'right';
+				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$min_tablet_css['.woocommerce #reviews #comments']['float']            = 'right';
 					$min_tablet_css['.woocommerce #reviews #review_form_wrapper']['float'] = 'left';
 				}
 			} else {
@@ -1146,8 +1146,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					),
 				);
 
-				if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-					$min_tablet_css['.woocommerce #reviews #comments']['float'] = 'left';
+				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$min_tablet_css['.woocommerce #reviews #comments']['float']            = 'left';
 					$min_tablet_css['.woocommerce #reviews #review_form_wrapper']['float'] = 'right';
 				}
 			}
