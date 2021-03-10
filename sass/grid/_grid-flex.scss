@@ -7,6 +7,10 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
   
+.ast-container {
+  max-width: 100%;
+}
+
 .ast-container-fluid, .ast-container {
   margin-left: auto;
   margin-right: auto;

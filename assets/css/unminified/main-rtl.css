@@ -274,6 +274,10 @@ th {
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.ast-container {
+  max-width: 100%;
+}
+
 .ast-container-fluid, .ast-container {
   margin-right: auto;
   margin-left: auto;
