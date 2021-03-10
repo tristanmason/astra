@@ -1075,7 +1075,6 @@ function astra_get_header_classes() {
 		$primary_menu_custom_item      = astra_get_option( 'header-main-rt-section' );
 		$logo_title_inline             = astra_get_option( 'logo-title-inline' );
 		$mobile_header_logo            = astra_get_option( 'mobile-header-logo' );
-		$mobile_header_order           = astra_get_option( 'mobile-header-order' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
