@@ -282,14 +282,6 @@ const SocialComponent = props => {
 	}
 	;
 
-	const toggleClose = () => {
-		if (state.isVisible === true) {
-			setState(prevState => ({
-				...prevState,
-				isVisible: false
-			}));
-		}
-	};
 
 	const onChangeIcon = ( icon, itemIndex ) => {
 		saveArrayUpdate({
