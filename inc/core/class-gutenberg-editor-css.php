@@ -623,7 +623,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				}
 
 				$gb_editor_block_pattern_css['.edit-post-visual-editor .block-editor-block-list__block'] = array(
-					'padding-left' => '20px',
+					'padding-left'  => '20px',
 					'padding-right' => '20px',
 				);
 
