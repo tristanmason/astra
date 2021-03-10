@@ -17,12 +17,17 @@
     var section = 'section-header-account';
 	var visibility_selector = '.ast-header-account[data-section="section-header-account"]';
 
-	// Icon Color.
-	astra_css(
-		'astra-settings[header-account-icon-color]',
-		'fill',
-		selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle, .ast-mobile-popup-content' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), .ast-mobile-popup-content ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle'
-	);
+	wp.customize( 'astra-settings[header-account-icon-color]', function( value ) {
+		value.bind( function( color ) {
+			if( ! color ) {
+				color = 'inherit';
+			}
+			var dynamicStyle =  selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle, .ast-mobile-popup-content' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), .ast-mobile-popup-content ' + selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle {';
+			dynamicStyle += 'fill: ' + color + ';';
+			dynamicStyle += '} ';
+			astra_add_dynamic_css( 'header-account-icon-color', dynamicStyle );
+		} );
+	} );
 
 	// Typography CSS Generation.
     astra_responsive_font_size(
@@ -40,11 +45,7 @@
 	// Icon Size.
 	wp.customize( 'astra-settings[header-account-icon-size]', function( value ) {
 		value.bind( function( size ) {
-			if(
-				size.desktop != '' || size.desktop != '' || size.desktop != '' || size.desktop != '' ||
-				size.tablet != '' || size.tablet != '' || size.tablet != '' || size.tablet != '' ||
-				size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
-			) {
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				var dynamicStyle = '';
 				dynamicStyle += selector + ' .ast-header-account-type-icon .ahfb-svg-iconset svg {';
 				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
@@ -72,11 +73,7 @@
 	// Image Width.
 	wp.customize( 'astra-settings[header-account-image-width]', function( value ) {
 		value.bind( function( size ) {
-			if(
-				size.desktop != '' || size.desktop != '' || size.desktop != '' || size.desktop != '' ||
-				size.tablet != '' || size.tablet != '' || size.tablet != '' || size.tablet != '' ||
-				size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
-			) {
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				var dynamicStyle = '';
 				dynamicStyle += selector + ' .ast-header-account-type-avatar .avatar {';
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
@@ -135,8 +132,8 @@
                 astra_add_dynamic_css( 'header-account-margin', dynamicStyle );
             }
         } );
-	} );	
-	
+	} );
+
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( section, visibility_selector );
 

@@ -1,7 +1,5 @@
 ( function( $, api ) {
-    var $window = $( window ),
-        $document = $( document ),
-        $body = $( 'body' );
+    var $document = $( document );
 
     wp.customize.bind( 'preview-ready', function() {
 
@@ -55,7 +53,7 @@
 
 /**
  * Apply Advanced CSS for the element
- * 
+ *
  * @param string section Section ID.
  * @param string selector Base Selector.
  */
@@ -67,6 +65,11 @@ function astra_builder_advanced_css( section, selector ) {
     // Padding.
     wp.customize( 'astra-settings[' + section + '-padding]', function( value ) {
         value.bind( function( padding ) {
+
+			if( ! padding.hasOwnProperty('desktop') ) {
+				return
+			}
+
             if(
                 padding.desktop.bottom != '' || padding.desktop.top != '' || padding.desktop.left != '' || padding.desktop.right != '' ||
                 padding.tablet.bottom != '' || padding.tablet.top != '' || padding.tablet.left != '' || padding.tablet.right != '' ||
@@ -107,6 +110,11 @@ function astra_builder_advanced_css( section, selector ) {
     // Margin.
     wp.customize( 'astra-settings[' + section + '-margin]', function( value ) {
         value.bind( function( margin ) {
+
+        	if( ! margin.hasOwnProperty('desktop') ) {
+        		return
+			}
+
             if(
                 margin.desktop.bottom != '' || margin.desktop.top != '' || margin.desktop.left != '' || margin.desktop.right != '' ||
                 margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
@@ -212,7 +220,7 @@ wp.customize( 'astra-settings[edd-archive-width]', function( value ) {
         dynamicStyle += '.ast-edd-archive-page .site-content > .ast-container {';
         dynamicStyle += 'max-width: ' + edd_archive_max_width + 'px;';
         dynamicStyle += '} ';
-        
+
         astra_add_dynamic_css( 'edd-archive-width', dynamicStyle );
     } );
 } );

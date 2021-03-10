@@ -32,7 +32,7 @@ switch ( $component_slug ) {
 
 	case 'menu-1':
 		?>
-		<div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-menu-1">
+		<div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-1">
 			<?php do_action( 'astra_header_menu_1' ); ?>
 		</div>
 		<?php
@@ -40,7 +40,7 @@ switch ( $component_slug ) {
 
 	case 'menu-2':
 		?>
-		<div class="ast-builder-menu-2 ast-builder-menu ast-flex ast-builder-menu-2-focus-item ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-menu-2">
+		<div class="ast-builder-menu-2 ast-builder-menu ast-flex ast-builder-menu-2-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-2">
 			<?php do_action( 'astra_header_menu_2' ); ?>
 		</div>
 		<?php
@@ -101,7 +101,7 @@ switch ( $component_slug ) {
 		</div>
 		<?php
 		break;
-		
+
 	case 'woo-cart':
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			?>
@@ -123,28 +123,28 @@ switch ( $component_slug ) {
 		break;
 	case 'widget-1':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1" aria-label="Header Widget 1">
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
 			<div class="header-widget-area-inner site-info-inner">
-				<?php dynamic_sidebar( 'header-widget-1' ); ?>
+				<?php astra_get_sidebar( 'header-widget-1' ); ?>
 			</div>
 		</aside>
 		<?php
 		break;
 	case 'widget-2':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2" aria-label="Header Widget 2">
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
 			<div class="header-widget-area-inner site-info-inner">
-				<?php dynamic_sidebar( 'header-widget-2' ); ?>
+				<?php astra_get_sidebar( 'header-widget-2' ); ?>
 			</div>
 		</aside>
 		<?php

@@ -11,7 +11,6 @@ const RowComponent = props => {
 	let besideItems = [];
 	let layout = '';
 	let zone_count = 0;
-	let rowClass = '';
 	let enableRow = true;
 
 	if ('footer' === mode) {
@@ -37,7 +36,6 @@ const RowComponent = props => {
 			case 'above':
 				if (!props.controlParams.status.above) {
 					enableRow = false;
-					rowClass = 'ahfb-grid-disabled';
 				}
 
 				break;
@@ -45,7 +43,6 @@ const RowComponent = props => {
 			case 'primary':
 				if (!props.controlParams.status.primary) {
 					enableRow = false;
-					rowClass = 'ahfb-grid-disabled';
 				}
 
 				break;
@@ -53,7 +50,6 @@ const RowComponent = props => {
 			case 'below':
 				if (!props.controlParams.status.below) {
 					enableRow = false;
-					rowClass = 'ahfb-grid-disabled';
 				}
 
 				break;
@@ -63,7 +59,7 @@ const RowComponent = props => {
 	return <div className={`ahfb-builder-areas ahfb-builder-mode-${mode} ${centerClass}`} data-row={props.row} data-row-section={'section-' + props.row + '-' + mode + '-builder'}>
 		<Button className="ahfb-row-actions" title={ ( props.row === 'popup' ? __( 'Off Canvas', 'astra' ) : ( props.row + ' ' + mode ).charAt(0).toUpperCase() + ( props.row + ' ' + mode ).slice(1).toLowerCase() ) } onClick={() => props.focusPanel(props.row + '-' + mode)}>
 			<Dashicon icon="admin-generic"/>
-			{ props.row === 'popup' && 
+			{ props.row === 'popup' &&
 				<>
 					{ __('Off Canvas', 'astra') }
 				</>
@@ -89,6 +85,7 @@ const RowComponent = props => {
 
 				return enableRow && <DropComponent
 					removeItem={(remove, removeRow, removeZone) => props.removeItem(remove, removeRow, removeZone)}
+					cloneItem={(remove, removeRow, removeZone) => props.cloneItem(remove, removeRow, removeZone)}
 					focusItem={focus => props.focusItem(focus)} hideDrop={() => props.hideDrop()}
 					showDrop={() => props.showDrop()}
 					onUpdate={(updateRow, updateZone, updateItems) => props.onUpdate(updateRow, updateZone, updateItems)}
