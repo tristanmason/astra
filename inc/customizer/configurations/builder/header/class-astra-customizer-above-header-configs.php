@@ -108,6 +108,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 50,
 					'title'             => __( 'Bottom Border Color', 'astra' ),
+					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(

@@ -1193,7 +1193,8 @@ input[type="text"].select2-search__field {
     top: 28px;
 }
 
-.ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
+.ast-top-divider .ast-control-wrap .astra-color-picker-wrap,
+.ast-top-divider .ast-control-wrap .ast-responsive-btns {
     top: 55px;
     background-color: transparent;
 }

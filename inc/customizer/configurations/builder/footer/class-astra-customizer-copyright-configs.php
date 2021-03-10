@@ -89,20 +89,21 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Column Alignment
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[footer-copyright-alignment]',
-				'default'   => astra_get_option( 'footer-copyright-alignment' ),
-				'type'      => 'control',
-				'control'   => 'ast-selector',
-				'section'   => $_section,
-				'priority'  => 6,
-				'title'     => __( 'Alignment', 'astra' ),
-				'context'   => Astra_Builder_Helper::$general_tab,
-				'transport' => 'postMessage',
-				'choices'   => array(
+				'name'        => ASTRA_THEME_SETTINGS . '[footer-copyright-alignment]',
+				'default'     => astra_get_option( 'footer-copyright-alignment' ),
+				'type'        => 'control',
+				'control'     => 'ast-selector',
+				'section'     => $_section,
+				'priority'    => 6,
+				'title'       => __( 'Alignment', 'astra' ),
+				'context'     => Astra_Builder_Helper::$general_tab,
+				'transport'   => 'postMessage',
+				'choices'     => array(
 					'left'   => 'align-left',
 					'center' => 'align-center',
 					'right'  => 'align-right',
 				),
+				'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**

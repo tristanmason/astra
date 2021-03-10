@@ -2132,7 +2132,6 @@ input[type="text"].select2-search__field {
 	width: 100%;
 	font-size: 15px;
 	font-weight: 600;
-	text-decoration: underline;
 }
 
 .ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
@@ -3828,7 +3827,8 @@ input[type="text"].select2-search__field {
     top: 28px;
 }
 
-.ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
+.ast-top-divider .ast-control-wrap .astra-color-picker-wrap,
+.ast-top-divider .ast-control-wrap .ast-responsive-btns {
     top: 55px;
     background-color: transparent;
 }

@@ -198,14 +198,13 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
-					'default'     => astra_get_option( 'different-transparent-logo', false ),
-					'type'        => 'control',
-					'section'     => $_section,
-					'title'       => __( 'Different Logo for Transparent Header?', 'astra' ),
-					'priority'    => 30,
-					'control'     => 'ast-toggle-control',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+					'default'  => astra_get_option( 'different-transparent-logo', false ),
+					'type'     => 'control',
+					'section'  => $_section,
+					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
+					'priority' => 30,
+					'control'  => 'ast-toggle-control',
 				),
 
 

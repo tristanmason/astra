@@ -98,8 +98,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'footer'     => 'primary',
 						'layout'     => Astra_Builder_Helper::$footer_row_layouts,
-						'ast_class'  => 'ast-bottom-divider',
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'transport'   => 'postMessage',
 				),
 
@@ -214,18 +214,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Sub Option: Footer Background.
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[hb-footer-bg-obj-responsive]',
-					'section'    => $_section,
-					'type'       => 'control',
-					'control'    => 'ast-responsive-background',
-					'transport'  => 'postMessage',
-					'priority'   => 7,
-					'data_attrs' => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[hb-footer-bg-obj-responsive]',
+					'section'     => $_section,
+					'type'        => 'control',
+					'control'     => 'ast-responsive-background',
+					'transport'   => 'postMessage',
+					'priority'    => 7,
+					'data_attrs'  => array(
 						'name' => 'hb-footer-bg-obj-responsive',
 					),
-					'default'    => astra_get_option( 'hb-footer-bg-obj-responsive' ),
-					'title'      => __( 'Background', 'astra' ),
-					'context'    => Astra_Builder_Helper::$design_tab,
+					'default'     => astra_get_option( 'hb-footer-bg-obj-responsive' ),
+					'title'       => __( 'Background', 'astra' ),
+					'context'     => Astra_Builder_Helper::$design_tab,
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

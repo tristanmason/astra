@@ -271,15 +271,15 @@ class Astra_Social_Icon_Component_Configs {
 					'responsive' => true,
 				),
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-background-color-group]',
-					'default'    => astra_get_option( $builder_type . '-social-' . $index . '-color-group' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Background Color', 'astra' ),
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'priority'   => 9,
-					'context'    => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-background-color-group]',
+					'default'     => astra_get_option( $builder_type . '-social-' . $index . '-color-group' ),
+					'type'        => 'control',
+					'control'     => 'ast-color-group',
+					'title'       => __( 'Background Color', 'astra' ),
+					'section'     => $_section,
+					'transport'   => 'postMessage',
+					'priority'    => 9,
+					'context'     => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-color-type]',
@@ -287,7 +287,8 @@ class Astra_Social_Icon_Component_Configs {
 							'value'    => 'custom',
 						),
 					),
-					'responsive' => true,
+					'responsive'  => true,
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -430,15 +431,7 @@ class Astra_Social_Icon_Component_Configs {
 			);
 
 			if ( 'footer' === $builder_type ) {
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-social-icons-' . $index . '-label-toggle-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 6,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				);
+
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-social-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-social-' . $index . '-alignment' ),
