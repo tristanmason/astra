@@ -278,19 +278,22 @@
 						var color = wp.customize( 'astra-settings[header-menu'+ index +'-submenu-item-b-color]' ).get(),
 							borderSize = wp.customize('astra-settings[header-menu'+ index +'-submenu-item-b-size]').get();
 
+						var dynamicStyle = '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link';
+
 						if( true === border  ) {
-							var dynamicStyle = '.ast-desktop .ast-builder-menu-'+ index +' .main-header-menu.submenu-with-border .sub-menu .menu-link';
 							dynamicStyle += '{';
 							dynamicStyle += 'border-bottom-width:' + ( ( borderSize ) ? borderSize + 'px;' : '0px;' );
 							dynamicStyle += 'border-color:' + color + ';';
 							dynamicStyle += 'border-style: solid;';
 							dynamicStyle += '}';
-							dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
-
-							astra_add_dynamic_css( 'header-menu'+ index +'-submenu-item-border', dynamicStyle );
 						} else {
-							wp.customize.preview.send( 'refresh' );
+							dynamicStyle += '{';
+							dynamicStyle += 'border-style: none;';
+							dynamicStyle += '}';
 						}
+
+						dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
+						astra_add_dynamic_css( 'header-menu'+ index +'-submenu-item-border', dynamicStyle );
 
 					} );
 				} );
@@ -328,8 +331,12 @@
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-top-offset]', function( value ) {
 					value.bind( function( offset ) {
 
-						var dynamicStyle = '.ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-builder-menu-' + index + ' ul.inline-on-mobile li.menu-item .sub-menu, .ast-builder-menu-' + index + ' li.menu-item .astra-full-megamenu-wrapper {';
+						var dynamicStyle = '.ast-desktop .ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' ul.inline-on-mobile li.menu-item .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' li.menu-item .astra-full-megamenu-wrapper {';
 						dynamicStyle += 'margin-top: ' + offset + 'px';
+						dynamicStyle += '}';
+
+						dynamicStyle += '.ast-desktop .ast-builder-menu-' + index + ' .main-header-menu > .menu-item > .sub-menu:before, .ast-desktop .ast-builder-menu-' + index + ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:before {';
+						dynamicStyle += 'height: calc( ' + offset + 'px + 5px );';
 						dynamicStyle += '}';
 
 						astra_add_dynamic_css( 'header-menu'+ index +'-submenu-top-offset', dynamicStyle );

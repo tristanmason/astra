@@ -104,7 +104,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 				),
 			);
 			$dynamic_css       .= astra_parse_css( $css_output_minimal );
-			if ( ! $is_customizer ) {
+			if ( false === $is_customizer ) {
 				break;
 			}
 
@@ -119,15 +119,13 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 				),
 			);
 			$dynamic_css    .= astra_parse_css( $css_output_fill );
-			if ( ! $is_customizer ) {
+			if ( false === $is_customizer ) {
 				break;
 			}
 
 		case 'outline': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 			$css_output_outline = array(
-
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' => array(
-					// Background.
 					'background'          => 'transparent',
 					'color'               => esc_attr( $icon_color ),
 					'border-top-width'    => astra_get_css_value( $trigger_border_width_top, 'px' ),
@@ -140,7 +138,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 				),
 			);
 			$dynamic_css       .= astra_parse_css( $css_output_outline );
-			if ( ! $is_customizer ) {
+			if ( false === $is_customizer ) {
 				break;
 			}
 

@@ -654,8 +654,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['off-canvas-close-color']             = '#3a3a3a';
 	$defaults['mobile-header-type']                 = 'off-canvas';
-
-	$defaults['footer-menu-layout'] = array(
+	$defaults['off-canvas-inner-spacing']           = '';
+	$defaults['footer-menu-layout']                 = array(
 		'desktop' => 'horizontal',
 		'tablet'  => 'vertical',
 		'mobile'  => 'vertical',
@@ -880,11 +880,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']    = 'none';
-	$defaults['header-woo-cart-icon-color']    = '';
-	$defaults['woo-header-cart-icon-radius']   = 3;
-	$defaults['woo-header-cart-total-display'] = true;
-	$defaults['woo-header-cart-title-display'] = true;
+	$defaults['woo-header-cart-icon-style']             = 'none';
+	$defaults['header-woo-cart-icon-color']             = '';
+	$defaults['transparent-header-woo-cart-icon-color'] = '';
+	$defaults['woo-header-cart-icon-radius']            = 3;
+	$defaults['woo-header-cart-total-display']          = true;
+	$defaults['woo-header-cart-title-display']          = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']       = '';
@@ -908,11 +909,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * EDD-Cart.
 	*/
-	$defaults['edd-header-cart-icon-style']    = 'none';
-	$defaults['edd-header-cart-icon-color']    = '';
-	$defaults['edd-header-cart-icon-radius']   = 3;
-	$defaults['edd-header-cart-total-display'] = true;
-	$defaults['edd-header-cart-title-display'] = true;
+	$defaults['edd-header-cart-icon-style']             = 'none';
+	$defaults['edd-header-cart-icon-color']             = '';
+	$defaults['edd-header-cart-icon-radius']            = 3;
+	$defaults['transparent-header-edd-cart-icon-color'] = '';
+	$defaults['edd-header-cart-total-display']          = true;
+	$defaults['edd-header-cart-title-display']          = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-edd-cart-text-color']       = '';
@@ -1615,3 +1617,4 @@ function prepare_menu_defaults( $defaults, $index ) {
 
 	return $defaults;
 }
+

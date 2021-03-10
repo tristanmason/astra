@@ -106,7 +106,6 @@ function astra_header_button_new_options() {
 	);
 
 	update_option( 'astra-settings', $theme_options );
-
 }
 
 /**
@@ -2870,8 +2869,24 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 	}
 }
 
+/**
+ * Gutenberg pattern compatibility changes.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_gutenberg_pattern_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['guntenberg-button-pattern-compat-css'] ) ) {
+		$theme_options['guntenberg-button-pattern-compat-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
 /** 
- * We have removed some unused/Old dynamic CSS so to make compatible this change with existing user/ Do not apply for change exising users.
+ * Set flag to provide backward compatibility of float based CSS for existing users.
  *
  * @since x.x.x
  * @return void.
@@ -2883,4 +2898,4 @@ function astra_check_flex_based_css() {
 		$theme_options['is-flex-based-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-}
+}   

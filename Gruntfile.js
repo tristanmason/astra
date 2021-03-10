@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer = require('autoprefixer');
     var flexibility = require('postcss-flexibility');
-    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-background', 'responsive-select', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
+    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-background', 'responsive-select', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'color-group', 'slider', 'sortable', 'spacing', 'typography', 'toggle-control'];
 
     const sass = require('node-sass');
 
@@ -322,8 +322,8 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
                     },
                     {
-                        src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        src: 'assets/css/unminified/compatibility/contact-form-7-main-rtl.css',
+                        dest: 'assets/css/minified/compatibility/contact-form-7-main.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
