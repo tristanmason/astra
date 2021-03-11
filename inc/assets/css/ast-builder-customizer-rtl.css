@@ -4871,3 +4871,8 @@ i.fipicon-angle-left:before {
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	left: unset;
 }
+.ahfb-builder-areas.ahfb-builder-mode-header.popup-vertical-group .ahfb-builder-group-horizontal.ast-restrict-drop {
+
+	border-color: #d63638;
+	transition: all 2s;
+}
