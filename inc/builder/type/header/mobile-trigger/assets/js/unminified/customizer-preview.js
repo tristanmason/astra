@@ -17,14 +17,14 @@
 	astra_css(
 		'astra-settings[mobile-header-toggle-btn-color]',
 		'fill',
-		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg',
+		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg'
 	);
 
 	// Trigger Label Color.
 	astra_css(
 		'astra-settings[mobile-header-toggle-btn-color]',
 		'color',
-		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-wrap .mobile-menu',
+		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-wrap .mobile-menu'
 	);
 
 	// Trigger Icon Width.
@@ -47,7 +47,7 @@
 	astra_css(
 		'astra-settings[mobile-header-toggle-btn-bg-color]',
 		'background',
-		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.ast-mobile-menu-trigger-fill',
+		'[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.ast-mobile-menu-trigger-fill'
 	);
 
 	// Border Size for Trigger Button.

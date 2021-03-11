@@ -1231,16 +1231,20 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[theme-button-border-group-border-size]', function( value ) {
 		value.bind( function( border ) {
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
-				var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector;
-					dynamicStyle += '{';
-					dynamicStyle += 'border-top-width:'  + border.top + 'px;';
-					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
-					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
-					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-					dynamicStyle += 'border-style: solid;';
-					dynamicStyle += '}';
+				if( astraCustomizer.gb_outline_buttons_patterns_support ) {
+					wp.customize.preview.send( 'refresh' );
+				} else {
+					var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector;
+						dynamicStyle += '{';
+						dynamicStyle += 'border-top-width:'  + border.top + 'px;';
+						dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+						dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+						dynamicStyle += 'border-style: solid;';
+						dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+					astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+				}
 			}
 		} );
 	} );
