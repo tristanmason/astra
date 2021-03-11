@@ -360,7 +360,7 @@ const BuilderComponent = props => {
 					staleValue = JSON.parse( JSON.stringify(updateState) )
 
 					let popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group .ahfb-builder-group-horizontal');
-					console.log(popupRestrictContainer);
+					
 					if ( popupRestrictContainer ) {
 
 						popupRestrictContainer.classList.add('ast-restrict-drop');
