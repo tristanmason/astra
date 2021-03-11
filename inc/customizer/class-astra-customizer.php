@@ -93,17 +93,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public static $group_configs = array();
 
 		/**
-		 * Customizer controls data.
-		 *
-		 * @access Public
-		 * @since 2.0.0
-		 * @var Array
-		 */
-		public $control_types = array();
-
-		public static $test = "hi there";
-
-		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -147,8 +136,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'wp_head', array( $this, 'preview_styles' ) );
 		}
 
+		/**
+		 *  Delete the cached partial configs.
+		 */
 		public function delete_cached_partials() {
-			delete_option('astra_partials_config_cache');
+			delete_option( 'astra_partials_config_cache' );
 		}
 
 		/**
@@ -194,12 +186,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Prepare Contexts and choices.
 			 *
 			 * @since 3.0.0
-			 * @param object $wp_customize customizer object.
 			 */
-		public function prepare_customizer_javascript_configs( $wp_customize ) {
+		public function prepare_customizer_javascript_configs() {
 
-			$cached_data = get_option('astra_partials_config_cache', false);
-			if( $wp_customize->selective_refresh->is_render_partials_request() && $cached_data ) {
+			global $wp_customize;
+
+			$cached_data = get_option( 'astra_partials_config_cache', false );
+
+			if ( $wp_customize->selective_refresh->is_render_partials_request() && $cached_data ) {
 				self::$dynamic_options = $cached_data;
 				return;
 			}
@@ -244,7 +238,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-			update_option('astra_partials_config_cache', self::$dynamic_options, false);
+			update_option( 'astra_partials_config_cache', self::$dynamic_options, false );
 
 		}
 
@@ -833,7 +827,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function prepare_group_configs( $wp_customize ) {
 
-			if( $wp_customize->selective_refresh->is_render_partials_request() ) {
+			if ( $wp_customize->selective_refresh->is_render_partials_request() ) {
 				return;
 			}
 
@@ -1007,11 +1001,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Filter and return Customizer Configurations.
 		 *
-		 * @param WP_Customize_Manager $wp_customize Reference to WP_Customize_Manager.
 		 * @since 1.4.3
 		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
 		 */
-		private function get_customizer_configurations( ) {
+		private function get_customizer_configurations() {
 
 			global  $wp_customize;
 
