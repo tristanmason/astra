@@ -134,11 +134,6 @@
 			var Constructor = api.panelConstructor[data.type] || api.Panel, options;
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
-			var isSiteRTL = false;
-
-			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.is_site_rtl) {
-				isSiteRTL = true;
-			}
 
 			// Scroll to footer.
 			if ('panel-footer-builder-group' === id) {
@@ -406,7 +401,6 @@
 
 		var desc = ctrl.container.find(".customize-control-description");
 		if (desc.length) {
-			var title = ctrl.container.find(".customize-control-title");
 			var li_wrapper = desc.closest("li");
 
 			var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function (i) {

@@ -1,7 +1,5 @@
 ( function( $, api ) {
-    var $window = $( window ),
-        $document = $( document ),
-        $body = $( 'body' );
+    var $document = $( document );
 
     wp.customize.bind( 'preview-ready', function() {
 
