@@ -133,11 +133,6 @@
 			var Constructor = api.panelConstructor[data.type] || api.Panel, options;
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
-			var isSiteRTL = false;
-
-			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.is_site_rtl) {
-				isSiteRTL = true;
-			}
 
 			// Scroll to footer.
 			if ('panel-footer-builder-group' === id) {
@@ -195,10 +190,10 @@
 			}
 
 			if (false !== is_cloning_index) {
-				let clone_from_id = id;
-				clone_from_id = clone_from_id.replace(/[0-9]+/g, is_cloning_index);
-				if (api.control(clone_from_id)) {
-					let val = api(clone_from_id).get();
+				let cloneFromId = id;
+				cloneFromId = cloneFromId.replace(/[0-9]+/g, is_cloning_index); // Replace random numeric with valid clone index.
+				if (api.control(cloneFromId)) {
+					let val = api(cloneFromId).get();
 					if (val) {
 						api(id).set(val);
 					}
@@ -384,9 +379,9 @@
 
 		var desc = ctrl.container.find(".customize-control-description");
 		if (desc.length) {
-			var title = ctrl.container.find(".customize-control-title");
 			var li_wrapper = desc.closest("li");
 
+			// Replace unicode range with string characters.
 			var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function (i) {
 				return '&#' + i.charCodeAt(0) + ';';
 			});
@@ -497,12 +492,12 @@
 
 							if (undefined === rule['setting']) {
 
-								let tmp_relation = rule['relation'];
-								if (!tmp_relation) {
+								let contextRelation = rule['relation'];
+								if (!contextRelation) {
 									return;
 								}
 
-								displayed = getResultByRules(rule, tmp_relation, false);
+								displayed = getResultByRules(rule, contextRelation, false);
 
 							} else {
 

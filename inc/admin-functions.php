@@ -31,7 +31,7 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 			)
 		);
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 			/**
 			 * Register the Secondary & Mobile menus.
@@ -47,6 +47,11 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
 
 			for ( $index = 3; $index <= $component_limit; $index++ ) {
+
+				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'menu-' . $index ) ) {
+					continue;
+				}
+
 				register_nav_menus(
 					array(
 						'menu_' . $index => __( 'Menu ', 'astra' ) . $index,
