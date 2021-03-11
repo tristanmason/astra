@@ -101,6 +101,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public $control_types = array();
 
+		public static $test = "hi there";
+
 		/**
 		 * Initiator
 		 */
@@ -141,7 +143,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+			add_action( 'customize_save_after', array( $this, 'delete_cached_partials' ) );
 			add_action( 'wp_head', array( $this, 'preview_styles' ) );
+		}
+
+		public function delete_cached_partials() {
+			delete_option('astra_partials_config_cache');
 		}
 
 		/**
@@ -191,6 +198,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 		public function prepare_customizer_javascript_configs( $wp_customize ) {
 
+			$cached_data = get_option('astra_partials_config_cache', false);
+			if( $wp_customize->selective_refresh->is_render_partials_request() && $cached_data ) {
+				self::$dynamic_options = $cached_data;
+				return;
+			}
+
 			$configurations = $this->get_customizer_configurations( $wp_customize );
 
 			$defaults = $this->get_astra_customizer_configuration_defaults();
@@ -230,6 +243,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 				}
 			}
+
+			update_option('astra_partials_config_cache', self::$dynamic_options, false);
 
 		}
 
@@ -817,6 +832,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @param object $wp_customize customizer object.
 		 */
 		public function prepare_group_configs( $wp_customize ) {
+
+			if( $wp_customize->selective_refresh->is_render_partials_request() ) {
+				return;
+			}
 
 			$configurations = $this->get_customizer_configurations( $wp_customize );
 			$defaults       = $this->get_astra_customizer_configuration_defaults();
