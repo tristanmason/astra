@@ -131,13 +131,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				}
 			}
 
-			if ( is_quiz() ) {
+			if ( is_quiz() || is_singular( 'llms_assignment' ) ) {
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
-			if ( is_singular( 'llms_assignment' ) ) {
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
-			}
 			$lifter_certificate_post_type = get_post_type();
 			if ( 'llms_certificate' === $lifter_certificate_post_type || 'llms_my_certificate' === $lifter_certificate_post_type ) {
 				if ( ! is_admin() ) {
@@ -458,6 +455,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
+			if ( is_lesson() ) {
+				$css_output .= $this->llms_single_lesson_css();
+			}
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -566,7 +566,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return array List of updated assets.
 		 */
 		public function add_styles( $assets ) {
-			$assets['css']['astra-lifterlms'] = 'compatibility/lifterlms';
+			$assets['css']['astra-lifterlms'] = ( ! Astra_Builder_Helper::apply_flex_based_css() ) ? 'compatibility/lifterlms' : 'compatibility/lifterlms-flex';
 			return $assets;
 		}
 
@@ -767,6 +767,86 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$default_fields['lesson']       = $fields;
 			$default_fields['quiz']         = $fields;
 			return $default_fields;
+		}
+
+		/**
+		 * Llms single lesson static CSS move to dynamic to load conditionally.
+		 * 
+		 * @since x.x.x
+		 * @return string
+		 */
+		public function llms_single_lesson_css() {
+			$single_lesson_static_css = '
+			.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link {
+				background: #fff;
+			}
+			  
+			.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link:hover {
+				background: #fafafa;
+			}
+			  
+			.single-lesson .ast-article-single .llms-lesson-button-wrapper {
+				font-weight: 600;
+			}
+			  
+			.single-lesson .ast-article-single .llms-lesson-button-wrapper .llms-complete-lesson-form .llms-field-button:before {
+				content: "\2714";
+				margin-right: .5em;
+			}
+			  
+			.single-lesson .llms-course-navigation {
+				padding: 2em 0 0;
+				border-top: 1px solid #eeeeee;
+			}
+			  
+			.single-lesson .llms-course-navigation .llms-lesson-preview {
+				vertical-align: top;
+				margin-top: 0;
+			}
+			  
+			.single-lesson .llms-course-navigation .llms-lesson-preview .llms-lesson-link {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			  
+			.single-lesson .llms-course-navigation .llms-prev-lesson h6.llms-pre-text:before {
+				content: "\2190";
+				margin-right: .5em;
+			}
+			  
+			.single-lesson .llms-course-navigation .llms-back-to-course:first-child h6.llms-pre-text:before {
+				content: "\2190";
+				margin-right: .5em;
+			}
+			  
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course h6.llms-pre-text:after,
+			.single-lesson .llms-course-navigation .llms-next-lesson h6.llms-pre-text:after {
+				content: "\2192";
+				margin-left: 5px;
+			}
+			  
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course .llms-lesson-title,
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course .llms-lesson-excerpt,
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course h6.llms-pre-text,
+			.single-lesson .llms-course-navigation .llms-next-lesson .llms-lesson-title,
+			.single-lesson .llms-course-navigation .llms-next-lesson .llms-lesson-excerpt,
+			.single-lesson .llms-course-navigation .llms-next-lesson h6.llms-pre-text {
+				text-align: right;
+			}
+			  
+			@media (max-width: 544px) {
+				.single-lesson .llms-course-navigation {
+				  padding-top: 1.5em;
+				}
+				.single-lesson .llms-course-navigation .llms-course-nav {
+				  width: 100%;
+				  margin: 0;
+				}
+				.single-lesson .llms-course-navigation .llms-course-nav:first-child {
+				  margin-bottom: 1.5em;
+				}
+			}';
+			return Astra_Enqueue_Scripts::trim_css( $single_lesson_static_css );
 		}
 	}
 
