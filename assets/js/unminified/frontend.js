@@ -598,9 +598,17 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		event.preventDefault();
 
-		console.log(mobileHeaderType);
+		var desktop_header = event.target.closest('#ast-desktop-header');
+
 		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
-		var desktop_toggle = document.querySelector( '#masthead > #ast-desktop-header .main-header-menu-toggle' );
+
+		if ( null !== desktop_header && undefined !== desktop_header && '' !== desktop_header ) {
+
+			var desktop_toggle = desktop_header.querySelector( '.main-header-menu-toggle' );
+		} else {
+			var desktop_toggle = document.querySelector('#masthead > #ast-desktop-header .main-header-menu-toggle');
+		}
+		
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
 
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
@@ -629,13 +637,15 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var __main_header_all = document.querySelectorAll('#masthead > #ast-mobile-header .main-header-bar-navigation');
 		menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-mobile-header .main-header-menu-toggle' )
 		var event_index = '0';
-
+		var sticky_header = false;
 		if ( null !== this.closest( '#ast-fixed-header' ) ) {
 
 			__main_header_all = document.querySelectorAll('#ast-fixed-header > #ast-mobile-header .main-header-bar-navigation');
 			menu_toggle_all 	 = document.querySelectorAll( '#ast-fixed-header .main-header-menu-toggle' )
 
 			event_index = '0';
+			sticky_header = true;
+
 		}
 
 		if ('undefined' === typeof __main_header_all[event_index]) {
@@ -655,6 +665,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( menu_class.indexOf('main-header-menu-toggle') !== -1 ) {
 			astraToggleClass(__main_header_all[event_index], 'toggle-on');
 			astraToggleClass(menu_toggle_all[event_index], 'toggled');
+			if ( sticky_header ) {
+				astraToggleClass(menu_toggle_all['1'], 'toggled');
+			}
 			if (__main_header_all[event_index].classList.contains('toggle-on')) {
 				__main_header_all[event_index].style.display = 'block';
 				body.classList.add("ast-main-header-nav-open");
