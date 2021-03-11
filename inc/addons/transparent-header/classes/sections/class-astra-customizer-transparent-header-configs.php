@@ -961,44 +961,23 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				$_old_content_configs = array(
 
 					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[transparent-content-section-colors-line-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => $_section,
-						'priority' => 39,
-						'settings' => array(),
-					),
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[transparent-content-section-colors-heading-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => $_section,
-						'title'    => __( 'Content', 'astra' ),
-						'priority' => 39,
-						'settings' => array(),
-					),
-
-					/**
 					* Option: Content Section Text color.
 					*/
 					array(
-						'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-text-color-responsive]',
-						'default'    => astra_get_option( 'transparent-content-section-text-color-responsive' ),
-						'type'       => 'control',
-						'priority'   => 39,
-						'section'    => $_section,
-						'transport'  => 'postMessage',
-						'control'    => 'ast-responsive-color',
-						'title'      => __( 'Text', 'astra' ),
-						'responsive' => true,
-						'rgba'       => true,
+						'name'        => ASTRA_THEME_SETTINGS . '[transparent-content-section-text-color-responsive]',
+						'default'     => astra_get_option( 'transparent-content-section-text-color-responsive' ),
+						'type'        => 'control',
+						'priority'    => 39,
+						'section'     => $_section,
+						'transport'   => 'postMessage',
+						'control'     => 'ast-responsive-color',
+						'title'       => __( 'Text', 'astra' ),
+						'responsive'  => true,
+						'rgba'        => true,
+						'ast_divider' => array(
+							'ast_class' => 'ast-top-divider',
+							'ast_title' => __( 'Content', 'astra' ),
+						),
 					),
 					/**
 					 * Option: Header Builder Tabs

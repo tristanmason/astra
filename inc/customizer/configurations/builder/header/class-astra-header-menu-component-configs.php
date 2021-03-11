@@ -124,6 +124,20 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
+					 * Option: Submenu heading.
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-heading]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'SUBMENU', 'astra-addon' ),
+						'settings' => array(),
+						'priority' => 30,
+						'context'  => Astra_Builder_Helper::$general_tab,
+					),
+
+					/**
 					 * Option: Submenu width
 					 */
 					array(

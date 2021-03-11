@@ -164,26 +164,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-colors-divider]',
-				'type'     => 'control',
-				'section'  => 'section-transparent-header',
-				'control'  => 'ast-divider',
-				'priority' => 90,
-				'settings' => array(),
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-				),
-			),
-
-			/**
 			* Option: Icon color
 			*/
 			array(

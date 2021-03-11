@@ -100,17 +100,6 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 
 				$new_configs = array();
 
-				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
-					$new_configs[] = array(
-						'name'     => ASTRA_THEME_SETTINGS . '[single-post-section-font-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog-single',
-						'priority' => 13,
-						'settings' => array(),
-					);
-				}
-
 				/**
 				 * Option: Single Post / Page Title Font Size
 				 */
