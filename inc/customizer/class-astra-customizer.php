@@ -204,7 +204,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				return;
 			}
 
-			$configurations = $this->get_customizer_configurations( $wp_customize );
+			$configurations = $this->get_customizer_configurations();
 
 			$defaults = $this->get_astra_customizer_configuration_defaults();
 
@@ -837,7 +837,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				return;
 			}
 
-			$configurations = $this->get_customizer_configurations( $wp_customize );
+			$configurations = $this->get_customizer_configurations();
 			$defaults       = $this->get_astra_customizer_configuration_defaults();
 
 			foreach ( $configurations as $key => $configuration ) {
@@ -1011,7 +1011,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
 		 */
-		private function get_customizer_configurations( $wp_customize ) {
+		private function get_customizer_configurations( ) {
+
+			global  $wp_customize;
 
 			if ( ! is_null( self::$configuration ) ) {
 				return self::$configuration;
