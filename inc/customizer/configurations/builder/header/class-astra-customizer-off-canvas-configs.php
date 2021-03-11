@@ -180,7 +180,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-divider',
 					'priority' => 40,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$responsive_general_tab,
+					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -204,6 +204,63 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 					'transport'  => 'postMessage',
+				),
+
+				// Option Group: Off-Canvas Colors Group.
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-background]',
+					'type'              => 'control',
+					'control'           => 'ast-background',
+					'title'             => __( 'Background', 'astra' ),
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'priority'          => 26,
+					'context'           => Astra_Builder_Helper::$design_tab,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'default'           => astra_get_option( 'off-canvas-background' ),
+				),
+
+				// Option: Off-Canvas Close Icon Color.
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-close-color]',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'off-canvas-close-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => $_section,
+					'priority'          => 27,
+					'title'             => __( 'Close Icon Color', 'astra' ),
+					'context'           => array(
+						'relation' => 'AND',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'off-canvas',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'full-width',
+							),
+						),
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-canvas-close-color-divider]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
+					'priority' => 28,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Spacing Between every element in the flyout.
@@ -230,51 +287,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority' => 28,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
-
-				// Option Group: Off-Canvas Colors Group.
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-background]',
-					'type'              => 'control',
-					'control'           => 'ast-background',
-					'title'             => __( 'Background', 'astra' ),
-					'section'           => $_section,
-					'transport'         => 'postMessage',
-					'priority'          => 30,
-					'context'           => Astra_Builder_Helper::$design_tab,
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
-					'default'           => astra_get_option( 'off-canvas-background' ),
-				),
-
-				// Option: Off-Canvas Close Icon Color.
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-close-color]',
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'off-canvas-close-color' ),
-					'type'              => 'control',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'section'           => $_section,
-					'priority'          => 30,
-					'title'             => __( 'Close Icon Color', 'astra' ),
-					'context'           => array(
-						'relation' => 'AND',
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'relation' => 'OR',
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-								'operator' => '==',
-								'value'    => 'off-canvas',
-							),
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-								'operator' => '==',
-								'value'    => 'full-width',
-							),
-						),
-					),
 				),
 
 				/**

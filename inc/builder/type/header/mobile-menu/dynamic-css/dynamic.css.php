@@ -195,22 +195,31 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output_mobile[ $selector . ' .main-header-menu, ' . $selector . ' .main-header-menu .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 	if ( true === $sub_menu_divider_toggle ) {
-		$css_output_tablet[ $selector . ' .main-header-menu' ] = array(
-			'border-top-width' => $sub_menu_divider_size . 'px',
-			'border-color'     => $sub_menu_divider_color,
+		
+		$css_output_desktop = array(
+			'.ast-hfb-header .ast-desktop-header-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-desktop-popup-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .main-header-menu' => array(
+				'border-top-width' => $sub_menu_divider_size . 'px',
+				'border-color'     => $sub_menu_divider_color,
+			),
+			'.ast-hfb-header .ast-desktop-header-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-desktop-header-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-desktop-popup-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-desktop-popup-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .menu-item .menu-link' => array(
+				'border-bottom-width' => $sub_menu_divider_size . 'px',
+				'border-color'        => $sub_menu_divider_color,
+				'border-style'        => 'solid',
+			),
 		);
-		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ] = array(
-			'border-bottom-width' => $sub_menu_divider_size . 'px',
-			'border-color'        => $sub_menu_divider_color,
-			'border-style'        => 'solid',
-		);
+
 	} else {
-		$css_output_tablet['.ast-header-break-point .ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link'] = array(
-			'border-style' => 'none',
+
+		$css_output_desktop = array(
+
+			'.ast-hfb-header .ast-builder-menu-mobile .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link' => array(
+				'border-style' => 'none',
+			),
 		);
 	}
-
-	$css_output  = astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+	
+	$css_output  = astra_parse_css( $css_output_desktop );
+	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;

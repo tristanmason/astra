@@ -113,31 +113,36 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Icon Size
+			 * Option: Toggle Button Style
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size]',
-				'default'     => astra_get_option( 'mobile-header-toggle-icon-size' ),
-				'type'        => 'control',
-				'control'     => 'ast-slider',
-				'section'     => $_section,
-				'title'       => __( 'Icon Size', 'astra' ),
-				'priority'    => 20,
-				'suffix'      => 'px',
-				'transport'   => 'postMessage',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 100,
+				'name'       => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+				'default'    => astra_get_option( 'mobile-header-toggle-btn-style' ),
+				'section'    => $_section,
+				'title'      => __( 'Toggle Button Style', 'astra' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'priority'   => 11,
+				'choices'    => array(
+					'fill'    => __( 'Fill', 'astra' ),
+					'outline' => __( 'Outline', 'astra' ),
+					'minimal' => __( 'Minimal', 'astra' ),
 				),
-				'context'     => Astra_Builder_Helper::$general_tab,
+				'context'    => Astra_Builder_Helper::$general_tab,
+				'transport'  => 'postMessage',
+				'partial'    => array(
+					'selector'        => '.ast-button-wrap',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
 			),
 
 			/**
 			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size-divider]',
+				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label-divider]',
 				'type'     => 'control',
 				'section'  => $_section,
 				'control'  => 'ast-divider',
@@ -166,42 +171,37 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
+			 * Option: Icon Size
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size]',
+				'default'     => astra_get_option( 'mobile-header-toggle-icon-size' ),
+				'type'        => 'control',
+				'control'     => 'ast-slider',
+				'section'     => $_section,
+				'title'       => __( 'Icon Size', 'astra' ),
+				'priority'    => 40,
+				'suffix'      => 'px',
+				'transport'   => 'postMessage',
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
+				'context'     => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
 			 * Option: Divider
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label-divider]',
+				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size-divider]',
 				'type'     => 'control',
 				'section'  => $_section,
 				'control'  => 'ast-divider',
 				'settings' => array(),
-				'priority' => 20,
-				'context'  => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Toggle Button Style
-			 */
-			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
-				'default'    => astra_get_option( 'mobile-header-toggle-btn-style' ),
-				'section'    => $_section,
-				'title'      => __( 'Toggle Button Style', 'astra' ),
-				'type'       => 'control',
-				'control'    => 'ast-selector',
-				'priority'   => 30,
-				'choices'    => array(
-					'fill'    => __( 'Fill', 'astra' ),
-					'outline' => __( 'Outline', 'astra' ),
-					'minimal' => __( 'Minimal', 'astra' ),
-				),
-				'context'    => Astra_Builder_Helper::$general_tab,
-				'transport'  => 'postMessage',
-				'partial'    => array(
-					'selector'        => '.ast-button-wrap',
-					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
-				),
-				'responsive' => false,
-				'renderAs'   => 'text',
+				'priority' => 40,
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -343,48 +343,6 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				),
 			),
 
-			// Option Group: Trigger Typography.
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
-				'default'   => astra_get_option( 'mobile-header-label-typography' ),
-				'type'      => 'control',
-				'control'   => 'ast-settings-group',
-				'title'     => __( 'Typography', 'astra' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'priority'  => 70,
-				'context'   => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
-						'operator' => '!=',
-						'value'    => '',
-					),
-				),
-			),
-
-			// Option: Trigger Font Size.
-			array(
-				'name'        => 'mobile-header-label-font-size',
-				'default'     => astra_get_option( 'mobile-header-label-font-size' ),
-				'parent'      => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
-				'section'     => $_section,
-				'type'        => 'sub-control',
-				'priority'    => 23,
-				'suffix'      => 'px',
-				'title'       => __( 'Size', 'astra' ),
-				'control'     => 'ast-slider',
-				'transport'   => 'postMessage',
-				'input_attrs' => array(
-					'min' => 0,
-				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-				'context'     => Astra_Builder_Helper::$design_tab,
-			),
-
 			/**
 			 * Option: Divider
 			 */
@@ -422,6 +380,82 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
+
+		if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
+
+			$typo_configs = array(
+
+				// Option Group: Trigger Typography.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
+					'default'   => astra_get_option( 'mobile-header-label-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Typography', 'astra' ),
+					'section'   => $_section,
+					'transport' => 'postMessage',
+					'priority'  => 70,
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
+							'operator' => '!=',
+							'value'    => '',
+						),
+					),
+				),
+
+				// Option: Trigger Font Size.
+				array(
+					'name'        => 'mobile-header-label-font-size',
+					'default'     => astra_get_option( 'mobile-header-label-font-size' ),
+					'parent'      => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
+					'section'     => $_section,
+					'type'        => 'sub-control',
+					'priority'    => 23,
+					'suffix'      => 'px',
+					'title'       => __( 'Size', 'astra' ),
+					'control'     => 'ast-slider',
+					'transport'   => 'postMessage',
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'context'     => Astra_Builder_Helper::$design_tab,
+				),
+			);
+
+		} else {
+
+			$typo_configs = array(
+				
+				// Option: Trigger Font Size.
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-label-font-size]',
+					'default'     => astra_get_option( 'mobile-header-label-font-size' ),
+					'section'     => $_section,
+					'type'        => 'control',
+					'priority'    => 70,
+					'suffix'      => 'px',
+					'title'       => __( 'Font Size', 'astra' ),
+					'control'     => 'ast-slider',
+					'transport'   => 'postMessage',
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'context'     => Astra_Builder_Helper::$design_tab,
+				),
+			);
+		}
+
+		$_configs = array_merge( $_configs, $typo_configs );
 
 		return array_merge( $configurations, $_configs );
 	}

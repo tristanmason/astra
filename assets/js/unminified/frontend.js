@@ -598,7 +598,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		event.preventDefault();
 
-		var desktop_header = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
+		console.log(mobileHeaderType);
+		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
 		var desktop_toggle = document.querySelector( '#masthead > #ast-desktop-header .main-header-menu-toggle' );
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
 
@@ -615,10 +616,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			astraToggleClass(desktop_toggle, 'toggled');
 			if ( desktop_toggle.classList.contains( 'toggled' ) ) {
 				body.classList.add("ast-main-header-nav-open");
-				desktop_header.style.display = 'block';
+				if ( 'dropdown' === mobileHeaderType ) {
+					desktop_header_content.style.display = 'block';
+				}
 			} else {
 				body.classList.remove("ast-main-header-nav-open");
-				desktop_header.style.display = 'none';
+				desktop_header_content.style.display = 'none';
 			}
 			return;
 		}

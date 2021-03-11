@@ -616,7 +616,7 @@ final class Astra_Builder_Helper {
 					'section' => 'section-header-mobile-trigger',
 				),
 				'mobile-menu'    => array(
-					'name'    => __( 'Mobile Menu', 'astra' ),
+					'name'    => __( 'Off-Canvas Menu', 'astra' ),
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-menu',
 				),

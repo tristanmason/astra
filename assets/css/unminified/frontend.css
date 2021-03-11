@@ -3086,6 +3086,19 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   height: auto;
 }
 
+.menu-toggle .mobile-menu-toggle-icon {
+  -js-display: inline-flex;
+  display: inline-flex;
+  align-self: center;
+}
+
+.menu-toggle .mobile-menu-wrap {
+  -js-display: inline-flex;
+  display: inline-flex;
+  align-self: center;
+  margin-left: 0.4em;
+}
+
 .ast-hfb-header .ast-button-wrap .menu-toggle .mobile-menu-wrap {
   align-items: center;
   -js-display: flex;
