@@ -199,7 +199,7 @@ const SocialComponent = props => {
 		if (itemControl) {
 			let updateState = state.value;
 			let update = updateState.items;
-			let icon = itemControl.replace(/[\d_]+$/g, '');
+			let icon = itemControl.replace(/[\d_]+$/g, ''); // Regex to replace numeric chars with empty string.
 
 			const itemLabel = controlParams.options.filter(function (o) {
 				return o.value === itemControl;
