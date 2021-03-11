@@ -126,5 +126,3 @@ function astra_container_layout_css() {
 	}
 	return $page_container_css;
 }
-
-return astra_container_layout_css();
