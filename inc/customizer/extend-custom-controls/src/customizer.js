@@ -659,34 +659,35 @@
 
 		$window.on('resize', resizePreviewer);
 
-		Promise.all([
-			AstCustomizerAPI.initializeDynamicSettings(),
-			AstCustomizerAPI.initializeConfigs()
-		]).then(function () {
-			api.section.each(function (section) {
-				section.expanded.bind(function (isExpanded) {
-					// Lazy Loaded Context.
-					AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+		setTimeout(function () {
+			Promise.all([
+				AstCustomizerAPI.initializeDynamicSettings(),
+				AstCustomizerAPI.initializeConfigs()
+			]).then(function () {
+				api.section.each(function (section) {
+					section.expanded.bind(function (isExpanded) {
+						// Lazy Loaded Context.
+						AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
-					if (!isExpanded) {
-						// Setting general context when collapsed.
-						api.state('astra-customizer-tab').set('general');
-					}
+						if (!isExpanded) {
+							// Setting general context when collapsed.
+							api.state('astra-customizer-tab').set('general');
+						}
 
-					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+						$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-					var customizer_section = api.section(section.id);
-					set_context_by_url_params();
+						var customizer_section = api.section(section.id);
+						set_context_by_url_params();
 
-					_.each(section.controls(), function (control) {
-						highlight_active_component(customizer_section);
-						highlight_active_row(customizer_section);
+						_.each(section.controls(), function (control) {
+							highlight_active_component(customizer_section);
+							highlight_active_row(customizer_section);
+						});
 					});
 				});
+				AstCustomizerAPI.moveDefaultSection();
 			});
-			AstCustomizerAPI.moveDefaultSection();
-		});
-
+		}, 200);
 
 		api.previewer.bind('ready', function () {
 
