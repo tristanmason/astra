@@ -420,18 +420,6 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
 }
 
 /**
- * Get grid class for existing users to mange backward compatiblity as we have change flex based for new users.
- * 
- * @param  string $size    sm/md.
- * 
- * @since @since x.x.x
- * @return string.
- */
-function ast_get_grid_layout_class( $size = 'md' ) {
-	return ( ! Astra_Builder_Helper::apply_flex_based_css() ) ? 'ast-col-' . $size . '-12' : '';
-}
-
-/**
  * Generate HTML Open markup 
  *
  * @param string $context unique markup key.
