@@ -369,9 +369,6 @@ th {
   .ast-width-md-66 {
     width: 66.6666666667%;
   }
-  .ast-width-md-12 {
-    float: right;
-  }
 }
 
 @media (min-width: 992px) {
