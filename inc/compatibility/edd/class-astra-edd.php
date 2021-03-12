@@ -121,27 +121,15 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_items          = count( edd_get_cart_contents() );
 			$cart_contents_count = $cart_items;
 
-			// Cart Icon markup with total number of items.
-			if ( false === Astra_Icons::is_svg_icons() ) {
-				$cart_icon = sprintf(
-					'<span class="astra-icon ast-icon-shopping-%1$s %2$s"
-								%3$s
-							></span>',
-					( $icon ) ? $icon : '',
-					( $cart_count_display ) ? '' : 'no-cart-total',
-					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
-				);
-			} else {
-				$cart_icon = sprintf(
-					'<span class="astra-icon ast-icon-shopping-%1$s %2$s"
-								%3$s
-							>%4$s</span>',
-					( $icon ) ? $icon : '',
-					( $cart_count_display ) ? '' : 'no-cart-total',
-					( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
-					( $icon ) ? Astra_Icons::get_icons( $icon ) : ''
-				);
-			}
+			$cart_icon = sprintf(
+				'<span class="astra-icon ast-icon-shopping-%1$s %2$s"
+							%3$s
+						>%4$s</span>',
+				( $icon ) ? $icon : '',
+				( $cart_count_display ) ? '' : 'no-cart-total',
+				( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
+				( $icon ) ? ( ( false !== Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( $icon ) : '' ) : ''
+			);
 
 			// Theme's default icon with cart title and cart total.
 			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'edd' ) ) ) {
