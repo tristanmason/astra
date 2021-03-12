@@ -2558,6 +2558,9 @@ input[type="text"].select2-search__field {
   top: 2px;
   margin-left: 0px;
 }
+.customize-control-ast-slider.ast-top-divider .ast-resp-slider-reset-wrap {
+    top: 25px;
+}
 .ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
     top: 68px;
 }
