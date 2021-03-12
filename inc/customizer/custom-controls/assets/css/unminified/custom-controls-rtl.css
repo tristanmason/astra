@@ -949,7 +949,7 @@
     transform: scale(1.05);
 }
 
-.ast-top-divider.customize-control-ast-color .ast-control-wrap,
+.ast-top-divider.customize-control-ast-color .ast-divider-title + .ast-control-wrap,
 .ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
     display: inline-flex;
@@ -2187,7 +2187,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
-    top: 25px;
+    top: 50px;
 }
 
 .ast-top-divider .ast-control-wrap .ast-responsive-btns {
@@ -2205,7 +2205,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider .ast-control-wrap .color-button-wrap {
-    top: 20.5px;
+    top: 45.5px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -3481,6 +3481,10 @@ input[type="text"].select2-search__field {
 .customize-control-ast-settings-group .customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
 .customize-control-ast-settings-group .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
   margin-top: 0;
+}
+
+.ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
+    top: 23px;
 }
 
 .customize-control-ast-slider .wrapper {

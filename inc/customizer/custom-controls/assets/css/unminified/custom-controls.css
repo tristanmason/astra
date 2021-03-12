@@ -949,7 +949,7 @@
     transform: scale(1.05);
 }
 
-.ast-top-divider.customize-control-ast-color .ast-control-wrap,
+.ast-top-divider.customize-control-ast-color .ast-divider-title + .ast-control-wrap,
 .ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
     display: inline-flex;
