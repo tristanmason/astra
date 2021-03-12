@@ -324,6 +324,10 @@
 #customize-control-astra-settings-header-mobile-items .popup-vertical-group .ahfb-builder-item:last-child {
     margin-bottom: 8px;
 }
+#customize-control-astra-settings-header-mobile-items .popup-vertical-group .ahfb-builder-item,
+#customize-control-astra-settings-desktop-mobile-items .popup-vertical-group .ahfb-builder-item {
+	margin: 4px;
+}
 
 .ahfb-builder-item > .ahfb-builder-item-icon {
     display: flex;
