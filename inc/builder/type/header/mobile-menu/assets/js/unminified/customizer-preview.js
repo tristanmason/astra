@@ -172,6 +172,12 @@
                     dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
                     dynamicStyle += '} ';
 
+                    // Toggle top.
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
+                    dynamicStyle += 'top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
+                    dynamicStyle += 'right: calc( ' + padding['desktop']['right'] + padding['desktop-unit'] + ' - 0.907em );'
+                    dynamicStyle += '} ';
+
                     dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                     dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-header-menu .menu-item > .menu-link {';
                     dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';

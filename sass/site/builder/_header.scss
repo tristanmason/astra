@@ -1003,3 +1003,6 @@ body.admin-bar {
 		background-color: transparent;
 	}
 }
+.ast-desktop-header-content .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
+	transform: rotateX(180deg);
+}

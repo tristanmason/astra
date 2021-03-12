@@ -3305,6 +3305,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   background-color: transparent;
 }
 
+.ast-desktop-header-content .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
+  transform: rotateX(180deg);
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header

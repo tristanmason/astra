@@ -85,6 +85,9 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$margin          = astra_get_option( $_section . '-margin' );
 	$margin_selector = '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu';
 
+	$menu_spacing_desktop_top = astra_responsive_spacing( $menu_spacing, 'top', 'desktop' );
+	$menu_spacing_desktop_top = ( isset( $menu_spacing_desktop_top ) && ! empty( $menu_spacing_desktop_top ) ) ? $menu_spacing_desktop_top : 0;
+
 	$menu_spacing_tablet_top = astra_responsive_spacing( $menu_spacing, 'top', 'tablet' );
 	$menu_spacing_tablet_top = ( isset( $menu_spacing_tablet_top ) && ! empty( $menu_spacing_tablet_top ) ) ? $menu_spacing_tablet_top : 0;
 
@@ -218,6 +221,11 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		);
 	}
 	
+	$css_output_desktop[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
+		'top'   => $menu_spacing_desktop_top,
+		'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
+	);
+
 	$css_output  = astra_parse_css( $css_output_desktop );
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );

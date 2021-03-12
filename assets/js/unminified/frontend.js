@@ -609,7 +609,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var desktop_toggle = document.querySelector('#masthead > #ast-desktop-header .main-header-menu-toggle');
 		}
 		
-		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .main-header-bar-navigation');
+		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content .main-header-bar-navigation');
 
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
 			
