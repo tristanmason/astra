@@ -956,7 +956,8 @@
     width: 100%;
 }
 
-.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper {
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
     margin-top: 25px;
 }
 
@@ -2556,6 +2557,9 @@ input[type="text"].select2-search__field {
   width: 17px;
   top: 2px;
   margin-left: 0px;
+}
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
+    top: 68px;
 }
 
 .customize-control-ast-sortable .sortable {

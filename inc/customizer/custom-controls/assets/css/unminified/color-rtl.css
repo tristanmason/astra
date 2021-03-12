@@ -470,7 +470,8 @@
     width: 100%;
 }
 
-.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper {
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
     margin-top: 25px;
 }
 

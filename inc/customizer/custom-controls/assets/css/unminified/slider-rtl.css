@@ -43,3 +43,6 @@
   top: 2px;
   margin-right: 0px;
 }
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
+    top: 68px;
+}

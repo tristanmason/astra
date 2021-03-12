@@ -956,7 +956,8 @@
     width: 100%;
 }
 
-.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper {
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
     margin-top: 25px;
 }
 
@@ -1924,14 +1925,16 @@
     transform: scale(1.05);
 }
 
-.ast-top-divider.customize-control-ast-color .ast-control-wrap,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap,
+.ast-top-divider.customize-control-ast-color .ast-divider-title + .ast-control-wrap,
 .ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
     display: inline-flex;
     width: 100%;
 }
 
-.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper {
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
     margin-top: 25px;
 }
 
@@ -2187,7 +2190,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
-    top: 50px;
+    top: 25px;
 }
 
 .ast-top-divider .ast-control-wrap .ast-responsive-btns {
@@ -2205,7 +2208,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider .ast-control-wrap .color-button-wrap {
-    top: 45.5px;
+    top: 20.5px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -3531,6 +3534,9 @@ input[type="text"].select2-search__field {
   width: 17px;
   top: 2px;
   margin-right: 0px;
+}
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
+    top: 68px;
 }
 
 .customize-control-ast-sortable .sortable {
@@ -5225,6 +5231,9 @@ input[type="text"].select2-search__field {
   width: 17px;
   top: 2px;
   margin-right: 0px;
+}
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
+    top: 68px;
 }
 
 .customize-control-ast-sortable .sortable {

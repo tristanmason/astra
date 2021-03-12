@@ -24280,7 +24280,9 @@ var SliderComponent = function SliderComponent(props) {
     savedValue = props_value ? parseInt(props_value) : '';
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-slider-wrap"
+  }, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
     value: savedValue,
