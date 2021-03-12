@@ -156,6 +156,14 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                     /* Common Style felx based */
+                     {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['style-flex.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
 
                     /* Compatibility */
                     {
