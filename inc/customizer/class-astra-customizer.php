@@ -303,7 +303,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static function set_default_context() {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 
@@ -1220,7 +1220,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$string = $this->generate_font_dropdown();
 
-			$tmpl = '<div class="ast-field-settings-modal">
+			$template = '<div class="ast-field-settings-modal">
 					<ul class="ast-fields-wrap">
 					</ul>
 			</div>';
@@ -1253,7 +1253,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $tmpl,
+							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),

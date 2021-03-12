@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function header_cart_icon_markup() {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
 				return;
 			}
 
@@ -175,7 +175,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function header_cart_icon_class( $classes ) {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
 				return;
 			}
 
@@ -425,7 +425,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_menu_classes = apply_filters( 'astra_edd_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
 
 			ob_start();
-			if ( is_customize_preview() && Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( is_customize_preview() && ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
@@ -713,7 +713,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				),
 			);
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$compat_css_desktop = array(
 					/**
