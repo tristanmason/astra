@@ -425,6 +425,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 				}
 
+				// Outline Gutenberg button compatibility CSS.
+				$theme_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
+				$theme_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
+				$theme_btn_left_border   = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '2px';
+				$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
+
 				// Added CSS compatibility support for Gutenberg pattern.
 				$button_patterns_compat_css = array(
 					'.wp-block-button .wp-block-button__link' => array(
@@ -436,10 +442,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'border-style'        => 'solid',
-						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
-						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
-						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
-						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
+						'border-top-width'    => esc_attr( $theme_btn_top_border ),
+						'border-right-width'  => esc_attr( $theme_btn_right_border ),
+						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
+						'border-left-width'   => esc_attr( $theme_btn_left_border ),
 						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'padding-top'         => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
 						'padding-right'       => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
@@ -595,20 +601,32 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				// Added CSS compatibility support for Gutenberg Editor's Media & Text block pattern.
 				if ( $is_site_rtl ) {
-					$media_text_block_editor_pattern_css = array(
+					$gb_editor_block_pattern_css = array(
 						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
 							'padding' => '0 8% 0 0',
 						),
+						'.ast-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] .wp-block[data-align="center"] > .wp-block-image' => array(
+							'margin-right' => 'auto',
+							'margin-left'  => 'auto',
+						),
 					);
 				} else {
-					$media_text_block_editor_pattern_css = array(
+					$gb_editor_block_pattern_css = array(
 						'.wp-block-media-text .wp-block-media-text__content .wp-block-group__inner-container' => array(
 							'padding' => '0 0 0 8%',
+						),
+						'.ast-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] .wp-block[data-align="center"] > .wp-block-image' => array(
+							'margin-right' => 'auto',
+							'margin-left'  => 'auto',
 						),
 					);
 				}
 
-				$css .= astra_parse_css( $media_text_block_editor_pattern_css );
+				$gb_editor_block_pattern_css['.edit-post-visual-editor .wp-block-code.block-editor-block-list__block'] = array(
+					'padding' => '1.6em',
+				);
+
+				$css .= astra_parse_css( $gb_editor_block_pattern_css );
 			}
 
 			$tablet_css = array(

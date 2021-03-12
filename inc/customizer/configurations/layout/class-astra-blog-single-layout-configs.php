@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 1920,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				);
 			}
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				array_push(
 					$_configs,

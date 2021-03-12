@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-container-layout',
 					'default'     => astra_get_option( 'learndash-content-layout' ),
 					'priority'    => 68,

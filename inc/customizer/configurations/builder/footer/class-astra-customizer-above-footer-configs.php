@@ -68,7 +68,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[hba-footer-column]',
 					'default'   => astra_get_option( 'hba-footer-column' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'section'   => $_section,
 					'priority'  => 2,
 					'title'     => __( 'Column', 'astra' ),
@@ -98,8 +98,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'responsive' => true,
 						'footer'     => 'primary',
 						'layout'     => Astra_Builder_Helper::$footer_row_layouts,
-						'ast_class'  => 'ast-bottom-divider',
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'transport'   => 'postMessage',
 				),
 
@@ -107,23 +107,23 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Layout Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hba-footer-layout-width]',
-					'default'     => astra_get_option( 'hba-footer-layout-width' ),
-					'type'        => 'control',
-					'control'     => 'ast-selector',
-					'section'     => $_section,
-					'priority'    => 25,
-					'title'       => __( 'Width', 'astra' ),
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hba-footer-layout-width]',
+					'default'    => astra_get_option( 'hba-footer-layout-width' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 25,
+					'title'      => __( 'Width', 'astra' ),
+					'choices'    => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
 					),
-					'suffix'      => '',
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'transport'   => 'postMessage',
-					'renderAs'    => 'text',
-					'responsive'  => false,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'suffix'     => '',
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'renderAs'   => 'text',
+					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Section: Above Footer Height.
@@ -142,7 +142,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => Astra_Builder_Helper::$general_tab,
 				),
 
@@ -169,26 +169,26 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hba-stack]',
-					'default'     => astra_get_option( 'hba-stack' ),
-					'type'        => 'control',
-					'control'     => 'ast-selector',
-					'section'     => $_section,
-					'priority'    => 5,
-					'title'       => __( 'Inner Elements Layout', 'astra' ),
-					'choices'     => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[hba-stack]',
+					'default'   => astra_get_option( 'hba-stack' ),
+					'type'      => 'control',
+					'control'   => 'ast-selector',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Inner Elements Layout', 'astra' ),
+					'choices'   => array(
 						'stack'  => __( 'Stack', 'astra' ),
 						'inline' => __( 'Inline', 'astra' ),
 					),
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'transport'   => 'postMessage',
-					'partial'     => array(
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'partial'   => array(
 						'selector'            => '.site-above-footer-wrap',
 						'container_inclusive' => false,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'above_footer' ),
 					),
-					'renderAs'    => 'text',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'renderAs'  => 'text',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Section: Above Footer Border.
@@ -207,7 +207,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -243,6 +243,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Background', 'astra' ),
 					'priority'  => 70,
 					'context'   => Astra_Builder_Helper::$design_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -264,7 +265,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);

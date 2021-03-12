@@ -41,10 +41,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$content_colors_control_title = __( 'Content', 'astra' );
+
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$content_colors_control_title = __( 'Content Colors', 'astra' );
-			} else {
-				$content_colors_control_title = __( 'Content', 'astra' );
 			}
 
 			$_configs = array(
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 					'priority'   => 72,
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 					'priority'   => 72,
@@ -110,32 +110,32 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 					'priority'   => 72,
 				),
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[section-breadcrumb-link-color]',
-					'default'     => astra_get_option( 'section-breadcrumb-color' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Content Link Color', 'astra' ),
-					'section'     => 'section-breadcrumb',
-					'transport'   => 'postMessage',
-					'priority'    => 72,
-					'context'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[section-breadcrumb-link-color]',
+					'default'    => astra_get_option( 'section-breadcrumb-color' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Content Link Color', 'astra' ),
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'priority'   => 72,
+					'context'    => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
-					'responsive'  => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				array(
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				),
 			);
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				array_push(
 					$_configs,
 					/**

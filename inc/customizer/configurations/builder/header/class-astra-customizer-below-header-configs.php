@@ -108,6 +108,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 50,
 					'title'             => __( 'Bottom Border Color', 'astra' ),
+
 					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hbb-header-separator]',
@@ -116,7 +117,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						Astra_Builder_Helper::$design_tab_config,
 					),
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Below Header Background styling.

@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 
