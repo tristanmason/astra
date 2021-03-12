@@ -324,11 +324,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'section-footer-menu-margin',
 		'section-primary-footer-builder-padding',
 		'section-primary-footer-builder-margin',
-		'header-menu1-megamenu-heading-space',
-		'header-menu2-megamenu-heading-space',
-		'section-hb-language-switcher-margin',
-		'section-fb-language-switcher-margin',
-		'header-mobile-menu-submenu-spacing',
 	);
 
 	foreach ( $margin_defaults as $margin_default ) {
