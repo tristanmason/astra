@@ -36,13 +36,17 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 				 * Option: Display Serial Number
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]',
-					'section'  => 'section-learndash',
-					'type'     => 'control',
-					'control'  => 'ast-toggle-control',
-					'default'  => astra_get_option( 'learndash-lesson-serial-number' ),
-					'title'    => __( 'Display Serial Number', 'astra' ),
-					'priority' => 25,
+					'name'        => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]',
+					'section'     => 'section-learndash',
+					'type'        => 'control',
+					'control'     => 'ast-toggle-control',
+					'default'     => astra_get_option( 'learndash-lesson-serial-number' ),
+					'title'       => __( 'Display Serial Number', 'astra' ),
+					'priority'    => 25,
+					'ast_divider' => array(
+						'ast_class' => 'ast-top-divider',
+						'ast_title' => __( 'Course Content Table', 'astra' ),
+					),
 				),
 
 				/**
