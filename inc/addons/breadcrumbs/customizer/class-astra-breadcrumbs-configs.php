@@ -40,19 +40,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			$_section = 'section-breadcrumb';
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$positions = array(
+				'none'                      => __( 'None', 'astra' ),
+				'astra_masthead_content'    => __( 'Inside', 'astra' ),
+				'astra_header_markup_after' => __( 'After Header', 'astra' ),
+				'astra_entry_top'           => __( 'Before Title', 'astra' ),
+			);
+
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$positions = array(
 					'none'                                 => __( 'None', 'astra' ),
 					'astra_header_primary_container_after' => __( 'Inside', 'astra' ),
 					'astra_header_after'                   => __( 'After', 'astra' ),
 					'astra_entry_top'                      => __( 'Before Title', 'astra' ),
-				);
-			} else {
-				$positions = array(
-					'none'                      => __( 'None', 'astra' ),
-					'astra_masthead_content'    => __( 'Inside', 'astra' ),
-					'astra_header_markup_after' => __( 'After Header', 'astra' ),
-					'astra_entry_top'           => __( 'Before Title', 'astra' ),
 				);
 			}
 
@@ -340,7 +340,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 				),
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				);
 			}
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$_configs[] = array(
 					'name'        => $_section . '-ast-context-tabs',

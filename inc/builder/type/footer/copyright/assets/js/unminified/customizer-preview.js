@@ -10,8 +10,8 @@
 
 ( function( $ ) {
 
-    let selector = '.ast-footer-copyright';
-    let visibility_selector = '.ast-footer-copyright.ast-builder-layout-element';
+    var selector = '.ast-footer-copyright';
+    var visibility_selector = '.ast-footer-copyright.ast-builder-layout-element';
 
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;

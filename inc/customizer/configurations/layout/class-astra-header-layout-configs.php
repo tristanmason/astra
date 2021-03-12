@@ -528,7 +528,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'     => array(
 						'relation' => 'AND',
-						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab,
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab,
 						array(
 							'relation' => 'OR',
 							array(

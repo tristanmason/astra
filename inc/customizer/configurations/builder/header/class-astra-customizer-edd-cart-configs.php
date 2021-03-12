@@ -36,7 +36,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
+		$_section = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
 
 		$_configs = array(
 
@@ -187,7 +187,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 		);
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_edd_configs = array(
 				array(
 					'name'        => $_section . '-ast-context-tabs',

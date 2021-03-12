@@ -71,10 +71,9 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'transport'   => 'postMessage',
 						'priority'    => 140,
 						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
-
 
 					/**
 					 * Option: Archive Summary Box Title Font Size
@@ -108,7 +107,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'transport'   => 'postMessage',
 						'priority'    => 140,
 						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -157,7 +156,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 						'priority'    => 140,
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -180,7 +179,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 						'priority'    => 140,
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 				);
