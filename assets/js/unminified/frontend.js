@@ -854,6 +854,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
 		var mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
+		if ( desktop_header.classList.contains('ast-desktop-mobile-common-layout') ) {
+			return;
+		}
+
 		if (window_width <= break_point) { // Rendering Mobile
 
 			if ('mobile' === current_header) {

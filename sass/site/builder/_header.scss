@@ -421,12 +421,15 @@
 #ast-mobile-header {
 	display: none;
 }
-
+.ast-mobile-primary-header {
+	display: none;
+}
 .ast-header-break-point {
 	#ast-desktop-header:not(.ast-desktop-mobile-common-layout) {
 		display: none;
 	}
-	#ast-mobile-header {
+	#ast-mobile-header,
+	.ast-mobile-primary-header {
 		display: block;
 	}
 	.main-header-bar-navigation {

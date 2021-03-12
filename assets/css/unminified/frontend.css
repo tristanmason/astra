@@ -2780,11 +2780,16 @@ body .entry-content .wp-block-latest-posts li {
   display: none;
 }
 
+.ast-mobile-primary-header {
+  display: none;
+}
+
 .ast-header-break-point #ast-desktop-header:not(.ast-desktop-mobile-common-layout) {
   display: none;
 }
 
-.ast-header-break-point #ast-mobile-header {
+.ast-header-break-point #ast-mobile-header,
+.ast-header-break-point .ast-mobile-primary-header {
   display: block;
 }
 
