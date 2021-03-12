@@ -29,11 +29,14 @@ const BuilderComponent = props => {
 
 
 	const component_track = props.customizer.control('astra-settings[cloned-component-track]').setting;
+	const prevItems = [];
+	prevItems['revertDrag'] = false;
 
 	const [state, setState] = useState({
 		value: value,
 		layout: controlParams.layouts,
-		isPopup: false
+		isPopup: false,
+		prevItems: prevItems
 	});
 
 	let contFlag = false;
@@ -115,6 +118,48 @@ const BuilderComponent = props => {
 	};
 
 	const onDragStop = () => {
+
+		if ( state.prevItems.revertDrag ) {
+
+			let updateState = state.value;
+			let update = updateState[state.prevItems.row];
+			let updateItems = [ state.prevItems.item ];
+			let popupRemoveUpdate = updateState['popup'];
+			let popupRemoveUpdateItems = state.prevItems.staleValue.popup.popup_content;
+
+			update[state.prevItems.zone] = updateItems;
+			popupRemoveUpdate['popup_content'] = popupRemoveUpdateItems;
+			updateState[state.prevItems.row][state.prevItems.zone] = updateItems;
+			updateState['popup']['popup_content'] = popupRemoveUpdateItems;
+
+			setPopupFlag(true);
+
+			setState(prevState => ({
+				...prevState,
+				value: updateState
+			}));
+
+			updateValues(updateState, state.prevItems.row );
+
+			let prevItems = [];
+			prevItems['revertDrag'] = false;
+
+			setState(prevState => ({
+				...prevState,
+				prevItems: prevItems
+			}));
+
+			let popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group .ahfb-builder-group-horizontal');
+
+			if ( popupRestrictContainer ) {
+				
+				popupRestrictContainer.classList.add('ast-restrict-drop');
+				setTimeout( function( popupRestrictContainer ) {
+					popupRestrictContainer.classList.remove('ast-restrict-drop');
+				}, 3000, popupRestrictContainer );
+			}
+		}
+
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
 		for (let i = 0; i < dropzones.length; ++i) {
 			dropzones[i].classList.remove('ahfb-dragging-dropzones');
@@ -325,15 +370,17 @@ const BuilderComponent = props => {
 		let update = updateState[row];
 		let updateItems = [];
 		let itemIncludesMenu = false;
+		let prevItems = [];
 
-		let newStale = JSON.parse((props.control.container[0].getAttribute('newStale'))) || {};
 		{
 			items.length > 0 && items.map(item => {
 
 				itemIncludesMenu = item.id.includes( 'menu' );
 
 				if ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) {
-				
+
+					
+
 					for ( const [rowKey, value] of Object.entries(staleValue) ) {
 						
 						for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
@@ -341,53 +388,29 @@ const BuilderComponent = props => {
 							for( let zoneItem of zoneValue ) {
 								
 								if ( zoneItem === item.id ) {
-									row = rowKey;
-									zone = zoneKey;
-									update = updateState[rowKey];
+									prevItems['row'] = rowKey;
+									prevItems['zone'] = zoneKey;
+									prevItems['item'] = item.id;
+									prevItems['revertDrag'] = true;
+									prevItems['staleValue'] = staleValue;
 								}
 							}
 						}
 					}
-					update[zone] = [item.id];
-					updateState[row][zone] = [item.id];
-					newStale = {
-						'row' : row,
-						'zone' : zone,
-					}
-					
-					props.control.container[0].setAttribute( 'newStale', JSON.stringify(newStale) );
-
-					staleValue = JSON.parse( JSON.stringify(updateState) )
-
-					let popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group .ahfb-builder-group-horizontal');
-					
-					if ( popupRestrictContainer ) {
-
-						popupRestrictContainer.classList.add('ast-restrict-drop');
-
-						setTimeout( function( popupRestrictContainer ) {
-							popupRestrictContainer.classList.remove('ast-restrict-drop');
-						}, 3000, popupRestrictContainer );
-					}
-					
-					setPopupFlag(true);
 
 					setState(prevState => ({
 						...prevState,
-						value: updateState
+						prevItems: prevItems
 					}));
+				} 
 
-					updateValues(updateState, row);
-
-				} else {
-					updateItems.push(item.id);
-				}
+				updateItems.push(item.id);
 			});
 		}
 		;
 
 
-		if (!arraysEqual(update[zone], updateItems) && row !== newStale['row'] && zone !== newStale['zone'] ) {
+		if (!arraysEqual(update[zone], updateItems) ) {
 			
 			if ('astra-settings[header-desktop-items]' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {
 				if (update[row + '_left_center'].length > 0) {
