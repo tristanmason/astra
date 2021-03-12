@@ -327,6 +327,7 @@ th {
   min-height: 1px;
   padding-left: 20px;
   padding-right: 20px;
+  float: left;
 }
 
 @media (max-width: 992px) {
