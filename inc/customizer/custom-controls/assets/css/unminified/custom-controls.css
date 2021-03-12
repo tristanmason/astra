@@ -956,6 +956,10 @@
     width: 100%;
 }
 
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper {
+    margin-top: 25px;
+}
+
 .ast-top-divider.customize-control-ast-color-group .ast-control-wrap {
     display: inline-flex;
     width: 100%;
