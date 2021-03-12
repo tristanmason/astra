@@ -32,7 +32,7 @@
 	// Typography CSS Generation.
     astra_responsive_font_size(
         'astra-settings[font-size-section-header-account]',
-        selector + ' .ast-header-account-text',
+        selector + ' .ast-header-account-text'
     );
 
 	// Text size.
