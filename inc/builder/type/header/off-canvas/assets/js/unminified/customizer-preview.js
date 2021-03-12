@@ -199,8 +199,15 @@
 			jQuery('.ast-mobile-popup-drawer').removeClass( 'content-align-flex-end' );
 			jQuery('.ast-mobile-popup-drawer').removeClass( 'content-align-flex-start' );
 			jQuery('.ast-mobile-popup-drawer').removeClass( 'content-align-center' );
+			jQuery('.ast-desktop-header-content').removeClass( 'content-align-flex-start' );
+			jQuery('.ast-desktop-header-content').removeClass( 'content-align-flex-end' );
+			jQuery('.ast-desktop-header-content').removeClass( 'content-align-center' );
+			
+			jQuery('.ast-desktop-header-content').addClass( alignment_class );
 			jQuery('.ast-mobile-header-content').addClass( alignment_class );
 			jQuery('.ast-mobile-popup-drawer').addClass( alignment_class );
+
+
 
 			if ( 'flex-start' === newval ) {
 				menu_content_alignment = 'left';

@@ -818,27 +818,28 @@ body.admin-bar {
 	display: flex;
 }
 
-@media screen and (max-width: 921px) {
-	.ast-mobile-popup-drawer {
-		.main-header-bar-navigation {
-			.menu-item-has-children {
-				>.ast-menu-toggle {
-					right: calc( 20px - 0.907em );
-				}
-			}
-		}
-	}
-	.ast-mobile-popup-drawer.content-align-flex-end,
-	.ast-mobile-header-content.content-align-flex-end {
-		.main-header-bar-navigation {
-			.menu-item-has-children {
-				>.ast-menu-toggle {
-					left: calc( 20px - 0.907em );
-				}
+
+.ast-mobile-popup-drawer {
+	.main-header-bar-navigation {
+		.menu-item-has-children {
+			>.ast-menu-toggle {
+				right: calc( 20px - 0.907em );
 			}
 		}
 	}
 }
+.ast-mobile-popup-drawer.content-align-flex-end,
+.ast-mobile-header-content.content-align-flex-end,
+.ast-desktop-header-content.content-align-flex-end {
+	.main-header-bar-navigation {
+		.menu-item-has-children {
+			>.ast-menu-toggle {
+				left: calc( 20px - 0.907em );
+			}
+		}
+	}
+}
+
 
 /** Hover menu style CSS */
 .ast-desktop .ast-menu-hover-style-underline,
@@ -899,7 +900,9 @@ body.admin-bar {
 
 /** Search CSS for New HFB Dropdown/Off-Canvas */
 .ast-mobile-header-content,
-.ast-mobile-popup-drawer .ast-mobile-popup-content {
+.ast-mobile-popup-drawer .ast-mobile-popup-content,
+.ast-desktop-header-content,
+.ast-mobile-popup-drawer .ast-desktop-popup-content {
 	.ast-search-menu-icon,
 	.ast-search-menu-icon.slide-search {
 		width: 100%;

@@ -3135,14 +3135,14 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   display: flex;
 }
 
-@media screen and (max-width: 921px) {
-  .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
-    right: calc( 20px - 0.907em);
-  }
-  .ast-mobile-popup-drawer.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle,
-  .ast-mobile-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
-    left: calc( 20px - 0.907em);
-  }
+.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
+  right: calc( 20px - 0.907em);
+}
+
+.ast-mobile-popup-drawer.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle,
+.ast-mobile-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle,
+.ast-desktop-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
+  left: calc( 20px - 0.907em);
 }
 
 /** Hover menu style CSS */
@@ -3182,7 +3182,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-header-content .ast-search-menu-icon,
 .ast-mobile-header-content .ast-search-menu-icon.slide-search,
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon,
-.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.slide-search {
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.slide-search,
+.ast-desktop-header-content .ast-search-menu-icon,
+.ast-desktop-header-content .ast-search-menu-icon.slide-search,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.slide-search {
   width: 100%;
   margin-bottom: 1em;
   margin-top: 1em;
@@ -3195,14 +3199,20 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-mobile-header-content .ast-search-icon,
-.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-icon {
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-icon,
+.ast-desktop-header-content .ast-search-icon,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-icon {
   display: none;
 }
 
 .ast-mobile-header-content .ast-search-menu-icon.slide-search .search-form,
 .ast-mobile-header-content .ast-search-menu-icon .search-form,
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.slide-search .search-form,
-.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-form {
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-form,
+.ast-desktop-header-content .ast-search-menu-icon.slide-search .search-form,
+.ast-desktop-header-content .ast-search-menu-icon .search-form,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.slide-search .search-form,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon .search-form {
   right: 0;
   visibility: visible;
   opacity: 1;
@@ -3217,18 +3227,26 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-header-content .ast-search-menu-icon.ast-inline-search .search-field,
 .ast-mobile-header-content .ast-search-menu-icon .search-field,
 .ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search .search-field,
-.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field {
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field,
+.ast-desktop-header-content .ast-search-menu-icon.ast-inline-search .search-field,
+.ast-desktop-header-content .ast-search-menu-icon .search-field,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.ast-inline-search .search-field,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon .search-field {
   width: 100%;
   padding-right: 5.5em;
 }
 
 .ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
-.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label {
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label,
+.ast-desktop-header-content .ast-search-menu-icon.ast-inline-search label,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.ast-inline-search label {
   width: 100%;
 }
 
 .ast-mobile-header-content .ast-search-menu-icon .search-submit,
-.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-submit {
+.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-submit,
+.ast-desktop-header-content .ast-search-menu-icon .search-submit,
+.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon .search-submit {
   display: block;
   position: absolute;
   height: 100%;
