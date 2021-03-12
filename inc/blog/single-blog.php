@@ -221,7 +221,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 							</section> <!-- .ast-comment-content -->
 							<?php astra_markup_close( 'ast-comment-data-wrap' ); ?>
 					</article><!-- #comment-## -->
-				<!-- </li> -->
+
 				<?php
 				break;
 		}
