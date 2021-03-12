@@ -61,6 +61,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_primary_header', array( $this, 'primary_header' ) );
 				add_action( 'astra_below_header', array( $this, 'below_header' ) );
 				add_action( 'astra_render_header_column', array( $this, 'render_column' ), 10, 2 );
+				add_action( 'astra_render_header_column', array( $this, 'render_mobile_header_elements_for_common_layout' ), 10, 2 );
 				// Mobile Builder.
 				add_action( 'astra_mobile_header', array( $this, 'mobile_header' ) );
 				add_action( 'astra_mobile_above_header', array( $this, 'mobile_above_header' ) );
@@ -475,6 +476,23 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			}
 			
 			return $is_mobile_header_layout_default;
+		}
+
+		/** Render Mobile Header elements for common layout in Primary header.
+		 *
+		 * @param string $row Row name.
+		 * @param string $column Column name.
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function render_mobile_header_elements_for_common_layout( $row, $column ) {
+
+			if ( $this->is_mobile_header_layout_default() && 'primary' === $row && 'right' === $column ) { ?>
+				<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-header-mobile-trigger">
+					<?php do_action( 'astra_header_mobile_trigger' ); ?>
+				</div>
+				<?php 
+			}
 		}
 	}
 
