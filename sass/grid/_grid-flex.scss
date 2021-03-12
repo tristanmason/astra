@@ -36,6 +36,7 @@
         // Inner gutter via padding
         padding-left: ($grid-gutter-width / 2);
         padding-right: ($grid-gutter-width / 2);
+        float:left;
     }
 
     @media (max-width: $mx-col-lg) {
@@ -76,9 +77,6 @@
         }
         &-width-md-66{
           width: 66.6666666667%;
-        }
-        &-width-md-12{
-          float: left ;
         }
     }
 

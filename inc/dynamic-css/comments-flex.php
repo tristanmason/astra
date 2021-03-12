@@ -115,21 +115,14 @@ function astra_comments_css( $dynamic_css ) {
             margin: 0;
             padding: 0;
           }
-
           .comments-area .comment-notes,
           .comments-area .comment-textarea,
           .comments-area .form-allowed-tags {
             margin-bottom: 1.5em;
           }
-          .comments-area .comment-textarea {
-            display: flex;
-            padding-left: 20px;
-            padding-right: 20px;
-          }
           .comments-area .form-submit {
             margin-bottom: 0;
           }
-
           .comments-area textarea#comment,
           .comments-area .ast-comment-formwrap input[type="text"] {
             width: 100%;
@@ -148,24 +141,19 @@ function astra_comments_css( $dynamic_css ) {
             background-color: #fff;
             padding: 1.2em 3.99em 0;
           }
-
           .ast-separate-container .comments-area {
             border-top: 0;
           }
-
           .ast-separate-container .ast-comment-list {
             padding-bottom: 0;
           }
-
           .ast-separate-container .ast-comment-list li {
             background-color: #fff;
           }
-
           .ast-separate-container .ast-comment-list li.depth-1 {
             padding: 4em 6.67em;
             margin-bottom: 2em;
           }
-
           @media (max-width: 1200px) {
             .ast-separate-container .ast-comment-list li.depth-1 {
               padding: 3em 3.34em;
