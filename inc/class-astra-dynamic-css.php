@@ -2472,6 +2472,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+					$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area.header-widget-area-inner';
+				} else {
+					$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area. header-widget-area-inner';
+				}
+
+				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector ]              = array(
+					'color' => esc_attr( $widget_content_color ),
+				);
+				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a' ]       = array(
+					'color' => esc_attr( $widget_link_color ),
+				);
+				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a:hover' ] = array(
+					'color' => esc_attr( $widget_link_hover_color ),
+				);
+
 				if ( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
 
 					$transparent_toggle_selector = '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"]';
