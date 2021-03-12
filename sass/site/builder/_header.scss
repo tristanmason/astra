@@ -432,6 +432,12 @@
 	.ast-mobile-primary-header {
 		display: block;
 	}
+	.ast-desktop-mobile-common-layout {
+		.ast-above-header-wrap,
+		.ast-below-header-wrap {
+			display: none;
+		}
+	}
 	.main-header-bar-navigation {
 		line-height: 3;
 		.menu-item-has-children {

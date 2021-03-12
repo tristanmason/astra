@@ -23,14 +23,14 @@ if ( 'full-width' === $mobile_header_type ) {
 		do_action( 'astra_above_header' );
 
 		/**
-		 * Astra Main Header Desktop
-		 */
-		do_action( 'astra_primary_header' );
-
-		/**
 		 * Astra Main Header Mobile
 		 */
 		do_action( 'astra_mobile_primary_header' );
+
+		/**
+		 * Astra Main Header Desktop
+		 */
+		do_action( 'astra_primary_header' );
 
 		/**
 		 * Astra Bottom Header

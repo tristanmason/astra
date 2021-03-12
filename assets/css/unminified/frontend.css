@@ -2793,6 +2793,11 @@ body .entry-content .wp-block-latest-posts li {
   display: block;
 }
 
+.ast-header-break-point .ast-desktop-mobile-common-layout .ast-above-header-wrap,
+.ast-header-break-point .ast-desktop-mobile-common-layout .ast-below-header-wrap {
+  display: none;
+}
+
 .ast-header-break-point .main-header-bar-navigation {
   line-height: 3;
 }
