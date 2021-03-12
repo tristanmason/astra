@@ -1037,6 +1037,7 @@ S2.define('select2/utils',[
       return markup;
     }
 
+	// Replace special characters with string.
     return String(markup).replace(/[&<>"'\/\\]/g, function (match) {
       return replaceMap[match];
     });
@@ -5211,6 +5212,7 @@ S2.define('select2/defaults',[
         return DIACRITICS[a] || a;
       }
 
+	// Replace uni range characters with matched string.
       return text.replace(/[^\u0000-\u007E]/g, match);
     }
 
@@ -5527,6 +5529,7 @@ S2.define('select2/core',[
       id = Utils.generateChars(4);
     }
 
+	// Replace special characters with empty string.
     id = id.replace(/(:|\.|\[|\]|,)/g, '');
     id = 'select2-' + id;
 
