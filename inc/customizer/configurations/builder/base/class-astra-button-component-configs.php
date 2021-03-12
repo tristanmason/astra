@@ -360,16 +360,15 @@ class Astra_Button_Component_Configs {
 					 * Option: Primary Header Button Typography
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-						'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
-						'type'        => 'control',
-						'control'     => 'ast-settings-group',
-						'title'       => __( 'Font', 'astra' ),
-						'section'     => $_section,
-						'transport'   => 'postMessage',
-						'context'     => Astra_Builder_Helper::$design_tab,
-						'priority'    => 90,
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+						'default'   => astra_get_option( $builder_type . '-' . $_prefix . '-text-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Font', 'astra' ),
+						'section'   => $_section,
+						'transport' => 'postMessage',
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'priority'  => 90,
 					),
 
 					/**

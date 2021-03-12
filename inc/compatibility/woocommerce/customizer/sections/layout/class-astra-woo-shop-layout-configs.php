@@ -100,17 +100,18 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Shop Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
-					'type'     => 'control',
-					'control'  => 'ast-select',
-					'section'  => 'woocommerce_product_catalog',
-					'default'  => astra_get_option( 'shop-archive-width' ),
-					'priority' => 10,
-					'title'    => __( 'Shop Archive Content Width', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
+					'type'        => 'control',
+					'control'     => 'ast-select',
+					'section'     => 'woocommerce_product_catalog',
+					'default'     => astra_get_option( 'shop-archive-width' ),
+					'priority'    => 10,
+					'title'       => __( 'Shop Archive Content Width', 'astra' ),
+					'choices'     => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

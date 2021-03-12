@@ -205,7 +205,7 @@ class Astra_Html_Component_Configs {
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 

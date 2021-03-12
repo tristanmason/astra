@@ -85,15 +85,14 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Add to Cart button text
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
-					'type'        => 'control',
-					'control'     => 'text',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'section'     => 'section-edd-archive',
-					'default'     => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
-					'priority'    => 31,
-					'title'       => __( 'Cart Button Text', 'astra' ),
-					'context'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
+					'type'     => 'control',
+					'control'  => 'text',
+					'section'  => 'section-edd-archive',
+					'default'  => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
+					'priority' => 31,
+					'title'    => __( 'Cart Button Text', 'astra' ),
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
@@ -111,7 +110,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-select',
 					'section'     => 'section-edd-archive',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 					'default'     => astra_get_option( 'edd-archive-variable-button' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
