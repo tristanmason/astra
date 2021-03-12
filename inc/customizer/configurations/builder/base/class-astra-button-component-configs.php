@@ -122,7 +122,7 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -154,7 +154,7 @@ class Astra_Button_Component_Configs {
 					'input_attrs' => array(
 						'ast_class' => 'ast-bottom-divider',
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -322,7 +322,7 @@ class Astra_Button_Component_Configs {
 						'step' => 1,
 						'max'  => 100,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 
@@ -331,21 +331,21 @@ class Astra_Button_Component_Configs {
 				$footer_specific_configs = array(
 
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
-						'default'     => astra_get_option( 'footer-button-' . $index . '-alignment' ),
-						'type'        => 'control',
-						'control'     => 'ast-selector',
-						'section'     => $_section,
-						'priority'    => 35,
-						'title'       => __( 'Alignment', 'astra' ),
-						'context'     => Astra_Builder_Helper::$general_tab,
-						'transport'   => 'postMessage',
-						'choices'     => array(
+						'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
+						'default'   => astra_get_option( 'footer-button-' . $index . '-alignment' ),
+						'type'      => 'control',
+						'control'   => 'ast-selector',
+						'section'   => $_section,
+						'priority'  => 35,
+						'title'     => __( 'Alignment', 'astra' ),
+						'context'   => Astra_Builder_Helper::$general_tab,
+						'transport' => 'postMessage',
+						'choices'   => array(
 							'flex-start' => 'align-left',
 							'center'     => 'align-center',
 							'flex-end'   => 'align-right',
 						),
-						'ast_divider' => array( 'ast_class' => 'ast-top-divider' ),
+						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					),
 				);
 

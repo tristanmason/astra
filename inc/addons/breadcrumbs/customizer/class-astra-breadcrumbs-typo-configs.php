@@ -47,15 +47,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				 * Breadcrumb Typography
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
-					'default'     => astra_get_option( 'section-breadcrumb-typo' ),
-					'type'        => 'control',
-					'control'     => 'ast-settings-group',
-					'title'       => __( 'Content Font', 'astra' ),
-					'section'     => 'section-breadcrumb',
-					'transport'   => 'postMessage',
-					'priority'    => 73,
-					'context'     => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
+					'default'   => astra_get_option( 'section-breadcrumb-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Content Font', 'astra' ),
+					'section'   => 'section-breadcrumb',
+					'transport' => 'postMessage',
+					'priority'  => 73,
+					'context'   => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 							'operator' => '!=',
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

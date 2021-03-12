@@ -428,18 +428,18 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 
 			// Option: Header Width.
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[hb-header-main-layout-width]',
-				'default'     => astra_get_option( 'hb-header-main-layout-width' ),
-				'type'        => 'control',
-				'control'     => 'ast-selector',
-				'section'     => 'section-header-builder-layout',
-				'priority'    => 4,
-				'title'       => __( 'Width', 'astra' ),
-				'choices'     => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[hb-header-main-layout-width]',
+				'default'    => astra_get_option( 'hb-header-main-layout-width' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => 'section-header-builder-layout',
+				'priority'   => 4,
+				'title'      => __( 'Width', 'astra' ),
+				'choices'    => array(
 					'full'    => __( 'Full Width', 'astra' ),
 					'content' => __( 'Content Width', 'astra' ),
 				),
-				'context'     => array(
+				'context'    => array(
 					array(
 						'setting' => 'ast_selected_tab',
 						'value'   => 'design',
@@ -449,10 +449,10 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 						'value'   => 'desktop',
 					),
 				),
-				'transport'   => 'postMessage',
-				'renderAs'    => 'text',
-				'responsive'  => false,
-				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'transport'  => 'postMessage',
+				'renderAs'   => 'text',
+				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			array(

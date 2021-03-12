@@ -55,15 +55,15 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Group: Theme Button background colors Group
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
-					'default'     => astra_get_option( 'theme-button-bg-color-group' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Background Color', 'astra' ),
-					'section'     => 'section-buttons',
-					'transport'   => 'postMessage',
-					'priority'    => 18.5,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
+					'default'   => astra_get_option( 'theme-button-bg-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-color-group',
+					'title'     => __( 'Background Color', 'astra' ),
+					'section'   => 'section-buttons',
+					'transport' => 'postMessage',
+					'priority'  => 18.5,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

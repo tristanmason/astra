@@ -36,59 +36,59 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 * Option: Single Page Content Layout
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[site-content-layout]',
-					'type'        => 'control',
-					'default'     => astra_get_option( 'site-content-layout' ),
-					'control'     => 'ast-select',
-					'section'     => 'section-container-layout',
-					'priority'    => 50,
-					'title'       => __( 'Layout', 'astra' ),
-					'choices'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+					'type'     => 'control',
+					'default'  => astra_get_option( 'site-content-layout' ),
+					'control'  => 'ast-select',
+					'section'  => 'section-container-layout',
+					'priority' => 50,
+					'title'    => __( 'Layout', 'astra' ),
+					'choices'  => array(
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
 				 * Option: Single Page Content Layout
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
-					'type'        => 'control',
-					'control'     => 'ast-select',
-					'default'     => astra_get_option( 'single-page-content-layout' ),
-					'section'     => 'section-container-layout',
-					'title'       => __( 'Page Layout', 'astra' ),
-					'priority'    => 55,
-					'choices'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
+					'type'     => 'control',
+					'control'  => 'ast-select',
+					'default'  => astra_get_option( 'single-page-content-layout' ),
+					'section'  => 'section-container-layout',
+					'title'    => __( 'Page Layout', 'astra' ),
+					'priority' => 55,
+					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
-					'type'        => 'control',
-					'control'     => 'ast-select',
-					'default'     => astra_get_option( 'single-post-content-layout' ),
-					'section'     => 'section-container-layout',
-					'priority'    => 60,
-					'title'       => __( 'Blog Post Layout', 'astra' ),
-					'choices'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
+					'type'     => 'control',
+					'control'  => 'ast-select',
+					'default'  => astra_get_option( 'single-post-content-layout' ),
+					'section'  => 'section-container-layout',
+					'priority' => 60,
+					'title'    => __( 'Blog Post Layout', 'astra' ),
+					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -134,15 +134,15 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				$config = array(
 
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
-						'type'        => 'control',
-						'control'     => 'ast-description',
-						'section'     => 'section-container-layout',
-						'priority'    => 999,
-						'title'       => '',
-						'help'        => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings'    => array(),
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
+						'type'     => 'control',
+						'control'  => 'ast-description',
+						'section'  => 'section-container-layout',
+						'priority' => 999,
+						'title'    => '',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'settings' => array(),
+						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 

@@ -117,7 +117,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						Astra_Builder_Helper::$design_tab_config,
 					),
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Below Header Background styling.

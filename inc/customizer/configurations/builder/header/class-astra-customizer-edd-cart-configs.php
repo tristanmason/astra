@@ -277,17 +277,17 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 
 				// Checkout Button colors.
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-text-colors]',
-					'default'     => astra_get_option( 'header-edd-checkout-button-text-colors' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Button Text', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 75,
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'responsive'  => true,
-					'ast_divider' => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-text-colors]',
+					'default'    => astra_get_option( 'header-edd-checkout-button-text-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Button Text', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+					'divider'    => array(
 						'ast_class' => 'ast-top-divider',
 						'ast_title' => __( 'Checkout', 'astra' ),
 					),

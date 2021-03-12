@@ -146,26 +146,26 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Style
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-				'default'     => astra_get_option( 'header-account-login-style' ),
-				'type'        => 'control',
-				'control'     => 'ast-selector',
-				'section'     => $_section,
-				'priority'    => 3,
-				'title'       => __( 'Profile Type', 'astra' ),
-				'choices'     => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+				'default'    => astra_get_option( 'header-account-login-style' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'priority'   => 3,
+				'title'      => __( 'Profile Type', 'astra' ),
+				'choices'    => array(
 					'icon'   => __( 'Icon', 'astra' ),
 					'avatar' => __( 'Avatar', 'astra' ),
 					'text'   => __( 'Text', 'astra' ),
 				),
-				'transport'   => 'postMessage',
-				'partial'     => array(
+				'transport'  => 'postMessage',
+				'partial'    => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-				'responsive'  => false,
-				'renderAs'    => 'text',
-				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
@@ -317,7 +317,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'             => __( 'Login URL', 'astra' ),
 				'priority'          => 205,
 				'transport'         => 'postMessage',
-				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -371,7 +371,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
-				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'       => 0,
