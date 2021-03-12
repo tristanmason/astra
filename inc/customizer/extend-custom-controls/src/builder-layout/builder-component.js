@@ -120,16 +120,17 @@ const BuilderComponent = props => {
 	const onDragStop = () => {
 
 		if ( state.prevItems.revertDrag ) {
-
+			let row = state.prevItems.row;
+			let zone = state.prevItems.zone;
 			let updateState = state.value;
-			let update = updateState[state.prevItems.row];
-			let updateItems = [ state.prevItems.item ];
+			let update = updateState[row];
+			let updateItems = state.prevItems.staleValue[row][zone];
 			let popupRemoveUpdate = updateState['popup'];
 			let popupRemoveUpdateItems = state.prevItems.staleValue.popup.popup_content;
 
-			update[state.prevItems.zone] = updateItems;
+			update[zone] = updateItems;
 			popupRemoveUpdate['popup_content'] = popupRemoveUpdateItems;
-			updateState[state.prevItems.row][state.prevItems.zone] = updateItems;
+			updateState[row][zone] = updateItems;
 			updateState['popup']['popup_content'] = popupRemoveUpdateItems;
 
 			setPopupFlag(true);
@@ -139,7 +140,7 @@ const BuilderComponent = props => {
 				value: updateState
 			}));
 
-			updateValues(updateState, state.prevItems.row );
+			updateValues(updateState, row );
 
 			let prevItems = [];
 			prevItems['revertDrag'] = false;
@@ -390,7 +391,6 @@ const BuilderComponent = props => {
 								if ( zoneItem === item.id ) {
 									prevItems['row'] = rowKey;
 									prevItems['zone'] = zoneKey;
-									prevItems['item'] = item.id;
 									prevItems['revertDrag'] = true;
 									prevItems['staleValue'] = staleValue;
 								}
