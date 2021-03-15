@@ -446,7 +446,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 			$header_mobile_items = astra_get_option( 'header-mobile-items' );
 
 			$default_header_mobile_items = array(
-				'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
+				'popup'   => array( 'popup_content' => array() ),
 				'above'   =>
 					array(
 						'above_left'   => array(),
