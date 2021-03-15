@@ -63,43 +63,43 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				* Option: Theme Menu create link
 				*/
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-create-menu-link]',
-					'default'     => astra_get_option( 'footer-create-menu-link' ),
-					'type'        => 'control',
-					'control'     => 'ast-customizer-link',
-					'section'     => $_section,
-					'priority'    => 10,
-					'link_type'   => 'section',
-					'linked'      => 'menu_locations',
-					'link_text'   => __( 'Configure Menu from Here.', 'astra' ),
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-create-menu-link]',
+					'default'   => astra_get_option( 'footer-create-menu-link' ),
+					'type'      => 'control',
+					'control'   => 'ast-customizer-link',
+					'section'   => $_section,
+					'priority'  => 10,
+					'link_type' => 'section',
+					'linked'    => 'menu_locations',
+					'link_text' => __( 'Configure Menu from Here.', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+
 				),
 
 
 				// Option: Footer Menu Layout.
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-menu-layout]',
-					'default'     => astra_get_option( 'footer-menu-layout' ),
-					'section'     => $_section,
-					'priority'    => 20,
-					'title'       => __( 'Layout', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-selector',
-					'transport'   => 'postMessage',
-					'partial'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[footer-menu-layout]',
+					'default'    => astra_get_option( 'footer-menu-layout' ),
+					'section'    => $_section,
+					'priority'   => 20,
+					'title'      => __( 'Layout', 'astra' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'transport'  => 'postMessage',
+					'partial'    => array(
 						'selector'            => '.footer-widget-area[data-section="section-footer-menu"] nav',
 						'container_inclusive' => true,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_menu' ),
 					),
-					'choices'     => array(
+					'choices'    => array(
 						'horizontal' => __( 'Inline', 'astra' ),
 						'vertical'   => __( 'Stack', 'astra' ),
 					),
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'responsive'  => true,
-					'renderAs'    => 'text',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'responsive' => true,
+					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -135,16 +135,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'responsive' => true,
 				),
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-menu-background-colors]',
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'title'       => __( 'Background', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 90,
-					'responsive'  => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'       => ASTRA_THEME_SETTINGS . '[footer-menu-background-colors]',
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'title'      => __( 'Background', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 90,
+					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				// Option: Menu Color.
 				array(
@@ -262,6 +262,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -296,16 +297,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 					// Option Group: Menu Typography.
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
-						'default'     => astra_get_option( 'footer-menu-typography' ),
-						'type'        => 'control',
-						'control'     => 'ast-settings-group',
-						'title'       => __( 'Menu Font', 'astra' ),
-						'section'     => $_section,
-						'context'     => Astra_Builder_Helper::$design_tab,
-						'transport'   => 'postMessage',
-						'priority'    => 120,
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'name'      => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
+						'default'   => astra_get_option( 'footer-menu-typography' ),
+						'type'      => 'control',
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Menu Font', 'astra' ),
+						'section'   => $_section,
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'transport' => 'postMessage',
+						'priority'  => 120,
+						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Menu Font Size.

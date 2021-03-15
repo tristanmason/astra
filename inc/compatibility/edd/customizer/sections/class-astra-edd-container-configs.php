@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[edd-content-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'default'  => astra_get_option( 'edd-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 85,

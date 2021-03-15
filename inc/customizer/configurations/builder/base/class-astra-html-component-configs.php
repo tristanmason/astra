@@ -89,7 +89,6 @@ class Astra_Html_Component_Configs {
 					'input_attrs' => array(
 						'id' => $builder_type . '-html-' . $index,
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					'partial'     => array(
 						'selector'         => '.ast-' . $builder_type . '-html-' . $index,
 						'render_callback'  => array( $class_obj, $builder_type . '_html_' . $index ),
@@ -116,17 +115,17 @@ class Astra_Html_Component_Configs {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-link-group]',
-					'default'     => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Link Color', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 8,
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'responsive'  => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-link-group]',
+					'default'    => astra_get_option( $builder_type . '-html-' . $index . '-color-group' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Link Color', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 8,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -192,21 +191,21 @@ class Astra_Html_Component_Configs {
 
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
-					'default'     => astra_get_option( 'footer-html-' . $index . '-alignment' ),
-					'type'        => 'control',
-					'control'     => 'ast-selector',
-					'section'     => $_section,
-					'priority'    => 6,
-					'title'       => __( 'Alignment', 'astra' ),
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'transport'   => 'postMessage',
-					'choices'     => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
+					'default'   => astra_get_option( 'footer-html-' . $index . '-alignment' ),
+					'type'      => 'control',
+					'control'   => 'ast-selector',
+					'section'   => $_section,
+					'priority'  => 6,
+					'title'     => __( 'Alignment', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'choices'   => array(
 						'left'   => 'align-left',
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 

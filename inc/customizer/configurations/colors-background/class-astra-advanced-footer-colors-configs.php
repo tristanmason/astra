@@ -35,16 +35,16 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
-					'default'     => astra_get_option( 'footer-widget-background-group' ),
-					'type'        => 'control',
-					'control'     => 'ast-settings-group',
-					'title'       => __( 'Background Color', 'astra' ),
-					'section'     => 'section-footer-adv',
-					'transport'   => 'postMessage',
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'priority'    => 47,
-					'context'     => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'default'   => astra_get_option( 'footer-widget-background-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Background Color', 'astra' ),
+					'section'   => 'section-footer-adv',
+					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'priority'  => 47,
+					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
@@ -81,16 +81,16 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-widget-link-color-group]',
-					'default'     => astra_get_option( 'footer-widget-link-color-group' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Link Color', 'astra' ),
-					'section'     => 'section-footer-adv',
-					'transport'   => 'postMessage',
-					'priority'    => 48,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-					'context'     => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-widget-link-color-group]',
+					'default'   => astra_get_option( 'footer-widget-link-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-color-group',
+					'title'     => __( 'Link Color', 'astra' ),
+					'section'   => 'section-footer-adv',
+					'transport' => 'postMessage',
+					'priority'  => 48,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',

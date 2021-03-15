@@ -96,7 +96,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				),
 				'priority'          => 10,
 				'context'           => Astra_Builder_Helper::$general_tab,
-				'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
@@ -126,20 +126,20 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Mobile Menu Label
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
-				'transport'   => 'postMessage',
-				'partial'     => array(
+				'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label]',
+				'transport' => 'postMessage',
+				'partial'   => array(
 					'selector'        => '.ast-button-wrap',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
-				'default'     => astra_get_option( 'mobile-header-menu-label' ),
-				'section'     => $_section,
-				'priority'    => 20,
-				'title'       => __( 'Menu Label', 'astra' ),
-				'type'        => 'control',
-				'control'     => 'text',
-				'context'     => Astra_Builder_Helper::$general_tab,
-				'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+				'default'   => astra_get_option( 'mobile-header-menu-label' ),
+				'section'   => $_section,
+				'priority'  => 20,
+				'title'     => __( 'Menu Label', 'astra' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'context'   => Astra_Builder_Helper::$general_tab,
+				'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**

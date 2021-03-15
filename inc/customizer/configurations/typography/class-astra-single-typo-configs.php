@@ -43,15 +43,15 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					 * Option: Learn More about Typography
 					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
-						'type'        => 'control',
-						'control'     => 'ast-description',
-						'section'     => 'section-blog-single',
-						'priority'    => 999,
-						'title'       => '',
-						'help'        => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings'    => array(),
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
+						'type'     => 'control',
+						'control'  => 'ast-description',
+						'section'  => 'section-blog-single',
+						'priority' => 999,
+						'title'    => '',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'settings' => array(),
+						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 				);
@@ -61,30 +61,16 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 
 				$new_configs = array(
 
-					/**
-					 * Option: Divider
-					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[section-single-post-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog-single',
-						'priority' => 13,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					),
-
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
-						'type'        => 'control',
-						'priority'    => 13,
-						'control'     => 'ast-settings-group',
-						'title'       => __( 'Post / Page Title Font', 'astra' ),
-						'section'     => 'section-blog-single',
-						'transport'   => 'postMessage',
-						'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
+						'type'      => 'control',
+						'priority'  => 13,
+						'control'   => 'ast-settings-group',
+						'title'     => __( 'Post / Page Title Font', 'astra' ),
+						'section'   => 'section-blog-single',
+						'transport' => 'postMessage',
+						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -114,17 +100,6 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 
 				$new_configs = array();
 
-				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
-					$new_configs[] = array(
-						'name'     => ASTRA_THEME_SETTINGS . '[single-post-section-font-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog-single',
-						'priority' => 13,
-						'settings' => array(),
-					);
-				}
-
 				/**
 				 * Option: Single Post / Page Title Font Size
 				 */
@@ -144,7 +119,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-					'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+					'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				);
 			}

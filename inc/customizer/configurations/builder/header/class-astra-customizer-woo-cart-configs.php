@@ -35,7 +35,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
-		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
+		$_section = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
 
 		$_configs = array(
 
@@ -153,26 +153,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-woo-cart-colors-divider]',
-				'type'     => 'control',
-				'section'  => 'section-transparent-header',
-				'control'  => 'ast-divider',
-				'priority' => 80,
-				'settings' => array(),
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-				),
-			),
-
-			/**
 			 * Option: Icon color
 			 */
 			array(
@@ -198,7 +178,23 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		$configurations = array_merge( $configurations, $_configs );
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		$_configs = array(
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-cart-icon-divider]',
+				'section'  => $_section,
+				'title'    => __( 'Header Cart Icon', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 30,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
+		);
+
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_configs = array(
 				/**
 				* Woo Cart section
@@ -332,17 +328,17 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
-					'default'     => astra_get_option( 'header-woo-cart-button-text-colors' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Text', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 70,
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'responsive'  => true,
-					'ast_divider' => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
+					'default'    => astra_get_option( 'header-woo-cart-button-text-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Text', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+					'divider'    => array(
 						'ast_class' => 'ast-top-divider',
 						'ast_title' => __( 'Cart Button', 'astra' ),
 					),
@@ -425,17 +421,17 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
-					'default'     => astra_get_option( 'header-woo-checkout-button-text-colors' ),
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Text', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 75,
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'responsive'  => true,
-					'ast_divider' => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
+					'default'    => astra_get_option( 'header-woo-checkout-button-text-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Text', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+					'divider'    => array(
 						'ast_class' => 'ast-top-divider',
 						'ast_title' => __( 'Checkout Button', 'astra' ),
 					),
@@ -520,22 +516,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
-		} else {
-			$_configs = array(
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-cart-icon-divider]',
-					'section'  => $_section,
-					'title'    => __( 'Header Cart Icon', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 30,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-			);
 		}
 
 		$configurations = array_merge( $configurations, $_configs );

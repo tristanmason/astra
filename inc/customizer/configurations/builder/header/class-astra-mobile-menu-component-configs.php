@@ -62,17 +62,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				* Option: Theme Menu create link
 				*/
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-mobile-menu-create-menu-link]',
-					'default'     => astra_get_option( 'header-mobile-menu-create-menu-link' ),
-					'type'        => 'control',
-					'control'     => 'ast-customizer-link',
-					'section'     => $_section,
-					'priority'    => 30,
-					'link_type'   => 'section',
-					'linked'      => 'menu_locations',
-					'link_text'   => __( 'Configure Menu from Here.', 'astra' ),
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-create-menu-link]',
+					'default'   => astra_get_option( 'header-mobile-menu-create-menu-link' ),
+					'type'      => 'control',
+					'control'   => 'ast-customizer-link',
+					'section'   => $_section,
+					'priority'  => 30,
+					'link_type' => 'section',
+					'linked'    => 'menu_locations',
+					'link_text' => __( 'Configure Menu from Here.', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 
@@ -157,31 +157,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option Group: Menu Color.
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Link', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 90,
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'responsive'  => true,
-					'ast_divider' => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Link', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 90,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+					'divider'    => array(
 						'ast_class' => 'ast-top-divider',
 						'ast_title' => __( 'Menu Color', 'astra' ),
 					),
 				),
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-mobile-menu-background-colors]',
-					'type'        => 'control',
-					'control'     => 'ast-color-group',
-					'title'       => __( 'Background', 'astra' ),
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'priority'    => 90,
-					'context'     => Astra_Builder_Helper::$design_tab,
-					'responsive'  => true,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'       => ASTRA_THEME_SETTINGS . '[header-mobile-menu-background-colors]',
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Background', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 90,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				// Option: Menu Color.
 				array(
@@ -414,7 +414,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
-					'ast_divider'       => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

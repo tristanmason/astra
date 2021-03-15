@@ -37,14 +37,14 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 				 * Option: Cart upsells
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[disable-edd-single-product-nav]',
-					'section'     => 'section-edd-single',
-					'type'        => 'control',
-					'control'     => 'ast-toggle-control',
-					'default'     => astra_get_option( 'disable-edd-single-product-nav' ),
-					'title'       => __( 'Disable Product Navigation', 'astra' ),
-					'priority'    => 10,
-					'ast_divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[disable-edd-single-product-nav]',
+					'section'  => 'section-edd-single',
+					'type'     => 'control',
+					'control'  => 'ast-toggle-control',
+					'default'  => astra_get_option( 'disable-edd-single-product-nav' ),
+					'title'    => __( 'Disable Product Navigation', 'astra' ),
+					'priority' => 10,
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 
 				),
 			);

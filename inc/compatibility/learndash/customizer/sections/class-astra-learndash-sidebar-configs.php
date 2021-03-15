@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-sidebars',
 					'default'     => astra_get_option( 'learndash-sidebar-layout' ),
 					'priority'    => 5,
