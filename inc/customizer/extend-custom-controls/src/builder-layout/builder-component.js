@@ -150,14 +150,14 @@ const BuilderComponent = props => {
 				prevItems: prevItems
 			}));
 
-			let popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group .ahfb-builder-group-horizontal');
+			let popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group');
 
 			if ( popupRestrictContainer ) {
-				
+
 				popupRestrictContainer.classList.add('ast-restrict-drop');
 				setTimeout( function( popupRestrictContainer ) {
 					popupRestrictContainer.classList.remove('ast-restrict-drop');
-				}, 3000, popupRestrictContainer );
+				}, 500, popupRestrictContainer );
 			}
 		}
 
@@ -350,7 +350,7 @@ const BuilderComponent = props => {
 
 		update[zone] = updateItems;
 		updateState[row][zone] = updateItems;
-		
+
 		setPopupFlag(true);
 
 		setState(prevState => ({
@@ -380,14 +380,14 @@ const BuilderComponent = props => {
 
 				if ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) {
 
-					
+
 
 					for ( const [rowKey, value] of Object.entries(staleValue) ) {
-						
+
 						for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
-							
+
 							for( let zoneItem of zoneValue ) {
-								
+
 								if ( zoneItem === item.id ) {
 									prevItems['row'] = rowKey;
 									prevItems['zone'] = zoneKey;
@@ -402,7 +402,7 @@ const BuilderComponent = props => {
 						...prevState,
 						prevItems: prevItems
 					}));
-				} 
+				}
 
 				updateItems.push(item.id);
 			});
@@ -411,7 +411,7 @@ const BuilderComponent = props => {
 
 
 		if (!arraysEqual(update[zone], updateItems) ) {
-			
+
 			if ('astra-settings[header-desktop-items]' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {
 				if (update[row + '_left_center'].length > 0) {
 					update[row + '_left_center'].map(move => {
@@ -482,9 +482,9 @@ const BuilderComponent = props => {
 		if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
 			controlParams.rows.map(row => {
 				var rowContents = state.value[row];
-			
+
 				for ( const [key, value] of Object.entries(rowContents) ) {
-					
+
 					if( value.includes('mobile-trigger') ) {
 						is_popup_flag = true;
 						return;
@@ -495,9 +495,9 @@ const BuilderComponent = props => {
 		if ( 'astra-settings[header-mobile-items]' === props.control.id ) {
 			controlParams.rows.map(row => {
 				var rowContents = state.value[row];
-			
+
 				for ( const [key, value] of Object.entries(rowContents) ) {
-					
+
 					if( value.includes('mobile-trigger') ) {
 						is_popup_flag = true;
 						return;
@@ -512,7 +512,7 @@ const BuilderComponent = props => {
 				isPopup: is_popup_flag
 			}));
 		}
-		
+
 		if ( props.control.container ) {
 			props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
 			contFlag = is_popup_flag;
