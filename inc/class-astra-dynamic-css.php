@@ -1139,6 +1139,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				if ( $is_site_rtl ) {
 					$static_layout_lang_direction_css = array(
+						'.ast-right-sidebar #primary'  => array(
+							'padding-left' => 0,
+						),
 						'.ast-page-builder-template.ast-left-sidebar #secondary, ast-page-builder-template.ast-right-sidebar #secondary' => array(
 							'padding-left'  => '20px',
 							'padding-right' => '20px',
@@ -1152,6 +1155,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				} else {
 						$static_layout_lang_direction_css = array(
+							'.ast-right-sidebar #primary'  => array(
+								'padding-right' => 0,
+							),
 							'.ast-page-builder-template.ast-left-sidebar #secondary, .ast-page-builder-template.ast-right-sidebar #secondary' => array(
 								'padding-right' => '20px',
 								'padding-left'  => '20px',

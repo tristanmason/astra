@@ -15,7 +15,7 @@ body{
 	display: flex;
 }
 
-@media (max-width: $col-md ){
+@media ( max-width: 921px ){
 	.ast-container {
 		flex-direction: column;
 	}
