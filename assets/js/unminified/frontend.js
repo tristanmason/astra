@@ -368,7 +368,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 	var get_window_width = function () {
-		return Math.min( screen.width,
+		return Math.max( screen.width,
 			window.innerWidth !== undefined ? window.innerWidth : document.documentElement.clientWidth );
 	}
 
