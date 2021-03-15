@@ -625,6 +625,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
+			if ( Astra_Builder_Header::is_mobile_header_layout_default() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_default_layout_static_css() );
+			}
+
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -3908,6 +3912,68 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			return $pagination_static_css_str;
 
+		}
+
+		/**
+		 * Load Deafult Common Layout CSS.
+		 *
+		 * @since x.x.x
+		 * @return string static css for Deafult Common Layout.
+		 */
+		public static function load_default_layout_static_css() {
+
+			$default_layout_static_css = '
+			.ast-header-break-point .ast-desktop-mobile-common-layout .ast-above-header-wrap,
+			.ast-header-break-point .ast-desktop-mobile-common-layout .ast-below-header-wrap {
+			display: none;
+			}
+			.ast-header-break-point .ast-desktop-mobile-common-layout .ast-container {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+			padding-right: 0;
+			}
+			
+			.ast-header-break-point .ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+			-js-display: flex;
+			display: flex;
+			}
+			
+			.ast-header-break-point .ast-desktop-mobile-common-layout .ast-main-header-wrap [data-section="section-hb-menu-1"] {
+			display: none;
+			}
+			
+			.ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+			display: none;
+			}';
+
+			if ( is_rtl() ) {
+				$default_layout_static_css .= '
+				.ast-header-break-point .ast-desktop-mobile-common-layout .ast-above-header-wrap,.ast-header-break-point .ast-desktop-mobile-common-layout .ast-below-header-wrap {
+  					display: none;
+				}
+				.ast-header-break-point .ast-desktop-mobile-common-layout .ast-container {
+					margin-right: 0;
+					margin-left: 0;
+					padding-right: 0;
+					padding-left: 0;
+				  }
+				  
+				  .ast-header-break-point .ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+					-js-display: flex;
+					display: flex;
+				  }
+				  
+				  .ast-header-break-point .ast-desktop-mobile-common-layout .ast-main-header-wrap [data-section="section-hb-menu-1"] {
+					display: none;
+				  }
+				  
+				  .ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+					display: none;
+				  }';
+			} 
+
+			return $default_layout_static_css;
 		}
 	}
 }
