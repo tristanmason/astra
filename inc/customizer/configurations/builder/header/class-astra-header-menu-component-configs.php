@@ -131,7 +131,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'     => 'control',
 						'control'  => 'ast-heading',
 						'section'  => $_section,
-						'title'    => __( 'SUBMENU', 'astra-addon' ),
+						'title'    => __( 'Submenu', 'astra' ),
 						'settings' => array(),
 						'priority' => 30,
 						'context'  => Astra_Builder_Helper::$general_tab,
