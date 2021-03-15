@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import RowComponent from './row-component';
 import {useEffect, useState} from 'react';
+const {__} = wp.i18n;
 
 const BuilderComponent = props => {
 
@@ -155,9 +156,11 @@ const BuilderComponent = props => {
 			if ( popupRestrictContainer ) {
 
 				popupRestrictContainer.classList.add('ast-restrict-drop');
+				popupRestrictContainer.dataset.tooltip = __( 'Other menus are not allowed.', 'astra' );
 				setTimeout( function( popupRestrictContainer ) {
 					popupRestrictContainer.classList.remove('ast-restrict-drop');
-				}, 500, popupRestrictContainer );
+					delete popupRestrictContainer.dataset.tooltip;
+				}, 5000, popupRestrictContainer );
 			}
 		}
 
