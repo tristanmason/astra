@@ -10,7 +10,7 @@ if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 		$args,
 		array(
 			'type'   => '',
-			'device' => 'vrunda',
+			'device' => '',
 		) 
 	);
 	$component_slug = $component_args['type'];
