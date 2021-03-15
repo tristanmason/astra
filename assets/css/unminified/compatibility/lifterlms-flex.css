@@ -573,6 +573,7 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
   width: 42%;
   margin: 0;
+  height: 228px;
 }
 
 @media (max-width: 768px) {
