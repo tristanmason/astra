@@ -74,8 +74,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'priority'    => 4,
 				'default'     => astra_get_option( 'footer-copyright-editor', 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]' ),
 				'input_attrs' => array(
-					'id'        => 'ast-footer-copyright',
-					'ast_class' => 'ast-bottom-divider',
+					'id' => 'ast-footer-copyright',
 				),
 				'partial'     => array(
 					'selector'            => '.ast-footer-copyright',

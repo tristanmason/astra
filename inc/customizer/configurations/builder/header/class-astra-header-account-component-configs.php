@@ -374,10 +374,9 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
-					'min'       => 0,
-					'step'      => 1,
-					'max'       => 50,
-					'ast_class' => 'ast-bottom-divider',
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 50,
 				),
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,

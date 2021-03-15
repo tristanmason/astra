@@ -322,10 +322,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'suffix'      => 'px',
 						'context'     => Astra_Builder_Helper::$design_tab,
 						'input_attrs' => array(
-							'min'       => 0,
-							'step'      => 1,
-							'max'       => 200,
-							'ast_class' => 'ast-bottom-divider',
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
 						),
 					),
 

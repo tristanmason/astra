@@ -44,7 +44,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-					'input_attrs'       => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 					'choices'           => array(
 						'header-main-layout-1' => array(
 							'label' => __( 'Logo Left', 'astra' ),
