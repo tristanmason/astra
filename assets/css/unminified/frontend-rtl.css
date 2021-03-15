@@ -270,28 +270,8 @@ th {
 /*!
  * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  */
-@media (min-width: 544px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .ast-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .ast-container {
-    max-width: 100%;
-  }
+.ast-container {
+  max-width: 100%;
 }
 
 .ast-container-fluid, .ast-container {
@@ -302,17 +282,6 @@ th {
 }
 
 .ast-container-fluid::after, .ast-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.ast-row {
-  margin-right: -20px;
-  margin-left: -20px;
-}
-
-.ast-row::after {
   content: "";
   display: table;
   clear: both;
@@ -543,6 +512,17 @@ th {
   .ast-col-xl-12 {
     width: 100%;
   }
+}
+
+.ast-row {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.ast-row::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /*--------------------------------------------------------------
@@ -2170,11 +2150,6 @@ body .entry-content .wp-block-latest-posts li {
   color: #40464d;
 }
 
-.ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {
-  margin-right: 0;
-  margin-left: 0;
-}
-
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;
@@ -3526,10 +3501,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   position: relative;
 }
 
-.main-header-bar .main-header-bar-navigation {
-  height: 100%;
-}
-
 .main-header-bar .main-header-bar-navigation:empty {
   padding: 0;
 }
@@ -4229,7 +4200,6 @@ input[type="color"]::-webkit-color-swatch {
 */
 .single {
   /* 1 - Single Post Navigation Styles */
-  /*Page builder single post meta*/
 }
 
 .single .entry-header {
@@ -4282,11 +4252,6 @@ input[type="color"]::-webkit-color-swatch {
   .single .post-navigation .nav-previous {
     margin-bottom: 1em;
   }
-}
-
-.single.ast-page-builder-template .entry-header {
-  padding-right: 20px;
-  padding-left: 20px;
 }
 
 /* 2 - Single Post Article Header */
@@ -4345,10 +4310,6 @@ input[type="color"]::-webkit-color-swatch {
   .ast-separate-container .entry-header {
     margin-bottom: 1em;
   }
-}
-
-.ast-page-builder-template.single-post .site-content > .ast-container {
-  max-width: 100%;
 }
 
 /*----------  404  ----------*/

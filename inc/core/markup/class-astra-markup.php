@@ -169,7 +169,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_blog_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-sm-12'; 
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-full-width ast-float' : 'ast-col-sm-12'; 
 	}
 
 	/**
