@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /**
- * woocommerce.scss
+ * woocommerce-grid.scss
  * Governs the general look and feel of WooCommerce sections of stores using themes that do not
  * integrate with WooCommerce specifically.
  */
@@ -2647,6 +2647,12 @@ p.demo_store a,
 .woocommerce-page .widget_product_search button {
   flex: 0 0 auto;
   padding: 10px 20px;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  text-align: right;
+  margin-bottom: 2.5em;
 }
 
 .woocommerce ul.products li.product.product-category > a,

@@ -2335,6 +2335,9 @@ p.demo_store,
 	}
 	ul.products {
 		li.product {
+			text-align: left;
+			margin-bottom: 2.5em;
+
 			&.product-category > a {
 				display: inline-block;
 				position: relative;
