@@ -3271,6 +3271,13 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   background-color: transparent;
 }
 
+.ast-header-break-point .ast-desktop-mobile-common-layout .ast-container {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header
