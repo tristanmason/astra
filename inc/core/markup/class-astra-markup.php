@@ -46,6 +46,7 @@ class Astra_Markup {
 		add_filter( 'astra_attr_footer-widget-area-inner', array( $this, 'footer_widget_area_inner' ) );
 		add_filter( 'astra_attr_ast-grid-lg-12_output', array( $this, 'ast_grid_lg_12' ) );
 		add_filter( 'astra_attr_ast-grid-common-col_output', array( $this, 'ast_grid_common_css' ) );
+		add_filter( 'astra_attr_ast-grid-blog-col_output', array( $this, 'ast_grid_blog_col' ) );
 		add_filter( 'astra_attr_ast-blog-col_output', array( $this, 'ast_blog_common_css' ) );
 		add_filter( 'astra_attr_ast-grid-col-6_output', array( $this, 'ast_grid_col_6' ) );
 		add_filter( 'astra_attr_ast-layout-4-grid_output', array( $this, 'ast_layout_4_grid' ) );
@@ -163,13 +164,23 @@ class Astra_Markup {
 	}
 
 	/**
+	 * Blog content Grid CSS.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_grid_blog_col() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-float' : 'ast-col-md-12'; 
+	}
+
+	/**
 	 * We have removed grid css and make common css for grid style.
 	 *
 	 * @since x.x.x
 	 * @return string.
 	 */
 	public function ast_blog_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-full-width ast-float' : 'ast-col-sm-12'; 
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-full-width' : 'ast-col-sm-12'; 
 	}
 
 	/**
