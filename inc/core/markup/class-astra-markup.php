@@ -27,6 +27,11 @@ class Astra_Markup {
 
 		if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 			// Add filters here.
+			add_filter( 'astra_markup_footer-widget-div_open', array( $this, 'footer_widget_div_open' ) );
+			add_filter( 'astra_markup_footer-widget-div_close', array( $this, 'footer_widget_div_close' ) );
+			add_filter( 'astra_markup_header-widget-div_open', array( $this, 'header_widget_div_open' ) );
+			add_filter( 'astra_markup_header-widget-div_close', array( $this, 'footer_widget_div_close' ) );                        
+			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 			add_filter( 'astra_markup_comment-count-wrapper_open', array( $this, 'comment_count_wrapper_open' ) );
 			add_filter( 'astra_markup_comment-count-wrapper_close', array( $this, 'comment_count_wrapper_close' ) );
 			add_filter( 'astra_markup_ast-comment-data-wrap_open', array( $this, 'ast_comment_data_wrap_open' ) );
@@ -37,9 +42,11 @@ class Astra_Markup {
 			add_filter( 'astra_attr_ast-comment-cite-wrap_output', array( $this, 'ast_comment_cite_wrap_attr' ) );
 			add_filter( 'astra_attr_comment-form-grid-class_output', array( $this, 'comment_form_grid_class' ) );
 		}
-
+		add_filter( 'astra_attr_header-widget-area-inner', array( $this, 'header_widget_area_inner' ) );
+		add_filter( 'astra_attr_footer-widget-area-inner', array( $this, 'footer_widget_area_inner' ) );
 		add_filter( 'astra_attr_ast-grid-lg-12_output', array( $this, 'ast_grid_lg_12' ) );
 		add_filter( 'astra_attr_ast-grid-common-col_output', array( $this, 'ast_grid_common_css' ) );
+		add_filter( 'astra_attr_ast-blog-col_output', array( $this, 'ast_blog_common_css' ) );
 		add_filter( 'astra_attr_ast-grid-col-6_output', array( $this, 'ast_grid_col_6' ) );
 		add_filter( 'astra_attr_ast-layout-4-grid_output', array( $this, 'ast_layout_4_grid' ) );
 		add_filter( 'astra_attr_ast-layout-1-grid_output', array( $this, 'ast_layout_1_grid' ) );
@@ -156,6 +163,16 @@ class Astra_Markup {
 	}
 
 	/**
+	 * We have removed grid css and make common css for grid style.
+	 *
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function ast_blog_common_css() {
+		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-sm-12'; 
+	}
+
+	/**
 	 * Removed grid layout classes and make common class for same style.
 	 *
 	 * @since x.x.x
@@ -238,6 +255,73 @@ class Astra_Markup {
 	public function ast_layout_6_grid() {
 		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6 ast-width-lg-50 ' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12';
 	}
+
+	/**
+	 * Footer widget opening div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function footer_widget_div_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'footer-widget-area-inner site-info-inner' );
+		return $args;
+	}
+
+	/**
+	 * Footer widget closing div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function footer_widget_div_close( $args ) {
+		$args['close'] = '</div>';
+		return $args;
+	}
+
+	/**
+	 * Footer widget inner class.
+	 *
+	 * @param array $args attributes.
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function footer_widget_area_inner( $args ) {
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			$args['class'] = $args['class'] . ' footer-widget-area-inner';
+		}
+		return $args;
+	}
+
+	/**
+	 * Header widget inner class.
+	 *
+	 * @param array $args Attributes.
+	 * @since x.x.x
+	 * @return string.
+	 */
+	public function header_widget_area_inner( $args ) {
+		if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+			$args['class'] = $args['class'] . ' header-widget-area-inner';
+		}
+		return $args;
+	}
+
+	/**
+	 * Footer widget opening div.
+	 * 
+	 * @since x.x.x
+	 * @param array $args div attributes.
+	 * @return array.
+	 */
+	public function header_widget_div_open( $args ) {
+		$args['open']  = '<div %s>';
+		$args['attrs'] = array( 'class' => 'header-widget-area-inner site-info-inner' );
+		return $args;   
+	}
+
 }
 
 /**

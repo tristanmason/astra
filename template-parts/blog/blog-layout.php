@@ -11,7 +11,11 @@
 
 ?>
 <div <?php astra_blog_layout_class( 'blog-layout-1' ); ?>>
+<<<<<<< HEAD
 	<div class="post-content <?php echo astra_attr( 'ast-grid-common-col' ); ?>">
+=======
+	<div class="post-content <?php echo astra_attr( 'ast-grid-common-col' ); ?>" >
+>>>>>>> f39289ae16a620b7eb93effef46f9d69c2dfa2ab
 		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 		<div class="entry-content clear" 
 		<?php
