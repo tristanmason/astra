@@ -32,10 +32,6 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	$off_canvas_close_color      = astra_get_option( 'off-canvas-close-color' );
 	$offcanvas_content_alignment = astra_get_option( 'header-offcanvas-content-alignment', 'flex-start' );
 	$padding                     = astra_get_option( 'off-canvas-padding' );
-	$popup_width                 = astra_get_option( 'off-canvas-width' );
-	$popup_width_desktop         = ( isset( $popup_width['desktop'] ) && ! empty( $popup_width['desktop'] ) ) ? $popup_width['desktop'] : '';
-	$popup_width_tablet          = ( isset( $popup_width['tablet'] ) && ! empty( $popup_width['tablet'] ) ) ? $popup_width['tablet'] : '';
-	$popup_width_mobile          = ( isset( $popup_width['mobile'] ) && ! empty( $popup_width['mobile'] ) ) ? $popup_width['mobile'] : '';
 	$menu_content_alignment      = 'center';
 	$inner_spacing               = astra_get_option( 'off-canvas-inner-spacing' );
 
@@ -74,10 +70,6 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
-	if ( ! empty( $popup_width_desktop ) ) {
-		$css_output[ $selector . ' .ast-mobile-popup-inner' ]['max-width'] = $popup_width_desktop . '%';
-	}
-
 	$css_output[ $selector . ' .ast-mobile-popup-inner' ]['color'] = $off_canvas_close_color;
 
 	/* Parse CSS from array() */
@@ -94,10 +86,6 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
-	if ( ! empty( $popup_width_tablet ) ) {
-		$css_output_tablet[ $selector . ' .ast-mobile-popup-inner' ]['max-width'] = $popup_width_tablet . '%';
-	}
-
 	$css_output_mobile = array(
 
 		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array( 
@@ -108,10 +96,6 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 			'padding-right'  => astra_responsive_spacing( $padding, 'right', 'mobile' ),
 		),
 	);
-
-	if ( ! empty( $popup_width_mobile ) ) {
-		$css_output_mobile[ $selector . ' .ast-mobile-popup-inner' ]['max-width'] = $popup_width_mobile . '%';
-	}
 
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );

@@ -6,11 +6,19 @@
  */
 
 if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
-	$component_slug = wp_parse_args( $args, array( 'type' => '' ) );
-	$component_slug = $component_slug['type'];
+	$component_args = wp_parse_args(
+		$args,
+		array(
+			'type'   => '',
+			'device' => 'vrunda',
+		) 
+	);
+	$component_slug = $component_args['type'];
 } else {
 	$component_slug = get_query_var( 'type' );
 }
+
+$device = $component_args['device'];
 
 switch ( $component_slug ) {
 
@@ -87,6 +95,9 @@ switch ( $component_slug ) {
 		break;
 
 	case 'mobile-trigger':
+		if ( 'desktop' === $device && ! defined( 'ASTRA_EXT_VER' ) ) {
+			break;
+		}
 		?>
 		<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-header-mobile-trigger">
 			<?php do_action( 'astra_header_mobile_trigger' ); ?>
