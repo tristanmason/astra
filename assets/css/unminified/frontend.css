@@ -3278,6 +3278,19 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   padding-right: 0;
 }
 
+.ast-header-break-point .ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+  -js-display: flex;
+  display: flex;
+}
+
+.ast-header-break-point .ast-desktop-mobile-common-layout .ast-main-header-wrap [data-section="section-hb-menu-1"] {
+  display: none;
+}
+
+.ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+  display: none;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header

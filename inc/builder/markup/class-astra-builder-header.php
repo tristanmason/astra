@@ -218,7 +218,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function desktop_header() {
 			
-			if ( ! $this->is_mobile_header_layout_default() ) {
+			if ( ! self::is_mobile_header_layout_default() ) {
 
 				get_template_part( 'template-parts/header/builder/desktop-builder-layout' );
 			} else {
@@ -313,7 +313,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function mobile_header() {
 
-			if ( ! $this->is_mobile_header_layout_default() ) {
+			if ( ! self::is_mobile_header_layout_default() ) {
 
 				get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
 			} else {
@@ -439,7 +439,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		public function is_mobile_header_layout_default() {
+		public static function is_mobile_header_layout_default() {
 
 			$is_mobile_header_layout_default = true;
 
@@ -487,7 +487,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function render_mobile_header_elements_for_common_layout( $row, $column ) {
 
-			if ( $this->is_mobile_header_layout_default() && 'primary' === $row && 'right' === $column ) { ?>
+			if ( self::is_mobile_header_layout_default() && 'primary' === $row && 'right' === $column ) { ?>
 				<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-header-mobile-trigger">
 					<?php do_action( 'astra_header_mobile_trigger' ); ?>
 				</div>

@@ -154,6 +154,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
+				
+				if ( ! Astra_Builder_Header::is_mobile_header_layout_default() ) {
+					$default_assets['js']['astra-swap-out-header'] = 'swap-out-header';
+				}
 			}
 
 			return apply_filters( 'astra_theme_assets', $default_assets );

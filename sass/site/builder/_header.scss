@@ -991,9 +991,20 @@ body.admin-bar {
 		background-color: transparent;
 	}
 }
-.ast-header-break-point .ast-desktop-mobile-common-layout .ast-container {
-	margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
+.ast-header-break-point .ast-desktop-mobile-common-layout {
+	.ast-container {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	[data-section="section-header-mobile-trigger"] {
+		display: flex;
+	}
+	.ast-main-header-wrap [data-section="section-hb-menu-1"] {
+		display: none;
+	}
+}
+.ast-desktop-mobile-common-layout [data-section="section-header-mobile-trigger"] {
+	display: none;
 }

@@ -246,14 +246,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 		var popupClose = document.getElementById( 'menu-toggle-close' );
 		var submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
+		var desktopHeader = '';
 
 		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 			if( ! mobileHeader ) {
-				return ;
+				desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
+				if( desktopHeader && '' !== desktopHeader ) {
+					mobileHeaderType = desktopHeader.dataset.type;
+				} else {
+					return;
+				}
+			} else {
+				mobileHeaderType = mobileHeader.dataset.type;
 			}
-			mobileHeaderType = mobileHeader.dataset.type;
 		}
 
 		if ( 'off-canvas' === mobileHeaderType ) {
@@ -510,6 +517,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
 				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
 		}
+		var desktopHeader = document.querySelector( '.ast-desktop-mobile-common-layout' );
+
+		if (  desktopHeader && null !== desktopHeader && '' !== desktopHeader ) {
+			__main_header_all = document.querySelectorAll( '#ast-desktop-header' ),
+			menu_toggle_all   = document.querySelectorAll( '#ast-desktop-header .main-header-menu-toggle' );
+		}
 
 		if (menu_toggle_all.length > 0) {
 
@@ -549,6 +562,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var __main_header_all = document.querySelectorAll('#masthead > #ast-mobile-header .main-header-bar-navigation');
 		menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-mobile-header .main-header-menu-toggle' )
 		var event_index = '0';
+
+		if(  this.closest( '.ast-desktop-mobile-common-layout' ) ) {
+
+			__main_header_all = document.querySelectorAll('#masthead > #ast-desktop-header .main-header-bar-navigation');
+			menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-desktop-header .main-header-menu-toggle' )
+
+		}
 
 		if ( null !== this.closest( '#ast-fixed-header' ) ) {
 
@@ -838,87 +858,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
-	var swap_out_header = null,
-	    current_header = null;
-
-	function swap_header_on_breakpoint( swap ) {
-
-		main_header_masthead = document.getElementById('masthead');
-
-		if (undefined === main_header_masthead || null === main_header_masthead) {
-			return;
-		}
-		var window_width = body.clientWidth;
-		var break_point = astra.break_point;
-
-		var desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
-		var mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
-
-		if ( desktop_header.classList.contains('ast-desktop-mobile-common-layout') ) {
-			return;
-		}
-
-		if (window_width <= break_point) { // Rendering Mobile
-
-			if ('mobile' === current_header) {
-				return;
-			}
-
-			if (swap && swap_out_header) {
-				if (mobile_header) {
-					main_header_masthead.removeChild(mobile_header);
-				}
-				main_header_masthead.appendChild(swap_out_header);
-			}
-			if (swap && desktop_header) {
-				swap_out_header = desktop_header.cloneNode(true);
-			}
-
-			current_header = 'mobile';
-			if( desktop_header ) {
-				main_header_masthead.removeChild(desktop_header);
-			}
-
-
-		} else { // Rendering Desktop
-
-			if ('desktop' === current_header) {
-				return;
-			}
-
-			if (swap && swap_out_header) {
-				if (desktop_header) {
-					main_header_masthead.removeChild(desktop_header);
-				}
-				main_header_masthead.appendChild(swap_out_header);
-			}
-
-			if (swap && mobile_header) {
-				swap_out_header = mobile_header.cloneNode(true);
-			}
-
-			current_header = 'desktop';
-			if( mobile_header ) {
-				main_header_masthead.removeChild(mobile_header);
-			}
-
-		}
-
-	}
-
-	window.addEventListener('load', function () {
-		swap_header_on_breakpoint(true);
-	});
-
-	document.addEventListener('astPartialContentRendered', function () {
-		swap_header_on_breakpoint();
-	});
-
 	var doit;
 	window.addEventListener('resize', function () {
 		clearTimeout(doit);
 		doit = setTimeout(function () {
-			swap_header_on_breakpoint(true);
 			init();
 			document.dispatchEvent( new CustomEvent( "astLayoutWidthChanged",  { "detail": { 'response' : '' } }) );
 		}, 50);
