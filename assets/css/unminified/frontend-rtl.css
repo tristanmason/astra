@@ -2478,11 +2478,11 @@ body .entry-content .wp-block-latest-posts li {
   align-items: center;
 }
 
-.ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:first-child {
+.ast-footer-social-wrap .ast-builder-social-element:first-child {
   margin-right: 0;
 }
 
-.ast-builder-layout-element .ast-footer-social-wrap .ast-builder-social-element:last-child {
+.ast-footer-social-wrap .ast-builder-social-element:last-child {
   margin-left: 0;
 }
 
@@ -3212,6 +3212,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 
