@@ -140,10 +140,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$default_assets = array(
-					// handle => location ( in /assets/js/ ) ( without .js ext).
-					'js'  => array(
-						'astra-theme-js' => 'frontend',
-					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
 						'astra-theme-css' => 'frontend',
@@ -155,8 +151,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 				
-				if ( ! Astra_Builder_Header::is_mobile_header_layout_default() ) {
-					$default_assets['js']['astra-swap-out-header'] = 'swap-out-header';
+				if ( Astra_Builder_Header::is_mobile_header_layout_default() ) {
+					$default_assets['js']['astra-default-common-layout'] = 'default-common-layout';
+				} else {
+					$default_assets['js']['astra-theme-js'] = 'frontend';
 				}
 			}
 
@@ -312,7 +310,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'isRtl'       => is_rtl(),
 			);
 
-			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			if ( Astra_Builder_Header::is_mobile_header_layout_default() ) {
+
+				wp_localize_script( 'astra-default-common-layout', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+
+			} else {
+				wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			}
 		}
 
 		/**
