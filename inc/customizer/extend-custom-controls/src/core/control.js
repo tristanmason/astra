@@ -31,8 +31,8 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 			args.params.type = 'ast-core';
 		}
 
-		if ( args.params ?. ast_divider ?. ast_class ) {
-			ast_class = args.params.ast_divider.ast_class;
+		if ( args.params ?. divider ?. ast_class ) {
+			ast_class = args.params.divider.ast_class;
 		}
 
 		if ( ! args.params.content ) {
@@ -111,8 +111,8 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 		control.renderContent();
 
 		// Insert title if param has.
-		if ( control?. params ?. ast_divider ?. ast_title ) {
-			control.container.prepend('<label class="ast-divider-title">' + control.params.ast_divider.ast_title +'</label>');
+		if ( control?. params ?. divider ?. ast_title ) {
+			control.container.prepend('<label class="ast-divider-title">' + control.params.divider.ast_title +'</label>');
 		}
 
 		control.deferred.embedded.resolve(); // This triggers control.ready().
