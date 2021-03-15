@@ -107,33 +107,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 				),
-
-				/**
-				 * Option: Popup Width.
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[off-canvas-width]',
-					'section'     => $_section,
-					'priority'    => 32,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'off-canvas-width' ),
-					'title'       => __( 'Popup Width ( % )', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 100,
-					),
-					'context'     => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
-							'operator' => '==',
-							'value'    => 'off-canvas',
-						),
-					),
-				),
 				
 				/**
 				 * Divider.
@@ -327,6 +300,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 				),
+
 			);
 
 			return array_merge( $configurations, $_configs );

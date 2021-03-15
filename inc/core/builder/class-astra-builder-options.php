@@ -650,11 +650,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['off-canvas-layout']                  = 'side-panel';
 	$defaults['off-canvas-slide']                   = 'right';
 	$defaults['header-builder-menu-toggle-target']  = 'icon';
-	$defaults['off-canvas-width']                   = array(
-		'desktop' => 35,
-		'tablet'  => 90,
-		'mobile'  => 90,
-	);
 	$defaults['header-offcanvas-content-alignment'] = 'flex-start';
 	$defaults['off-canvas-background']              = array(
 		'background-color'      => '#ffffff',
