@@ -2172,13 +2172,11 @@ input[type="text"].select2-search__field {
 .ast-bottom-divider {
     border-bottom: 1px solid #ddd;
 	padding-bottom: 25px;
-	border-color: red;
 }
 
 .ast-top-divider {
     border-top: 1px solid #ddd;
 	padding-top: 25px;
-	border-color: red;
 }
 
 .ast-top-divider > label.ast-divider-title {
