@@ -1,15 +1,15 @@
-	<?php
-/**
- * Footer Copyright Configuration Builder.
- *
- * @package     astra-builder
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       3.0.0
- */
+<?php
+	/**
+	 * Footer Copyright Configuration Builder.
+	 *
+	 * @package     astra-builder
+	 * @author      Astra
+	 * @copyright   Copyright (c) 2020, Astra
+	 * @link        https://wpastra.com/
+	 * @since       3.0.0
+	 */
 
-// No direct access, please.
+	// No direct access, please.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -18,11 +18,11 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 	return;
 }
 
-/**
- * Register Builder Customizer Configurations.
- *
- * @since 3.0.0
- */
+	/**
+	 * Register Builder Customizer Configurations.
+	 *
+	 * @since 3.0.0
+	 */
 class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 
 
@@ -157,9 +157,9 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 	}
 }
 
-/**
- * Kicking this off by creating object of this class.
- */
+	/**
+	 * Kicking this off by creating object of this class.
+	 */
 
-new Astra_Customizer_Copyright_Configs();
+	new Astra_Customizer_Copyright_Configs();
 
