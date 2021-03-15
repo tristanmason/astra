@@ -762,6 +762,13 @@
 .astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
 	margin: 5px 20px 20px 15px;
 	padding: 0 8px;
+	box-shadow: none;
+}
+.ast-clear-btn-inside-picker.components-button:hover, .astra-popover-tabs .ast-clear-btn-inside-picker.components-button:hover,
+.ast-clear-btn-inside-picker.components-button:active, .astra-popover-tabs .ast-clear-btn-inside-picker.components-button:active,
+.astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear:active {
+    box-shadow: none;
+    background: transparent;
 }
 .ast-clear-btn-inside-picker {
 	padding: 0 8px;
