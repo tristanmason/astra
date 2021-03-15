@@ -9,6 +9,10 @@
  */
 
 ( function( $ ) {
+
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+
 	// Close Icon Color.
 	astra_css(
 		'astra-settings[off-canvas-close-color]',
@@ -105,35 +109,6 @@
 			jQuery('.ast-mobile-popup-drawer').removeClass( 'ast-mobile-popup-right' );
 			jQuery('.ast-mobile-popup-drawer').removeClass( 'ast-mobile-popup-full-width' );
 			jQuery('.ast-mobile-popup-drawer').addClass( side_class );
-        } );
-	} );
-
-	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
-		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
-		
-	wp.customize( 'astra-settings[off-canvas-width]', function ( value ) {
-        value.bind( function ( newval ) {
-			var dynamicStyle = '';
-			if ( '' !== newval.desktop ) {
-                dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
-                dynamicStyle += 'max-width: ' + newval.desktop + '%;';
-				dynamicStyle += '} ';
-			}
-			if ( '' !== newval.tablet ) {
-				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
-				dynamicStyle += 'max-width: ' + newval.tablet + '%;';
-				dynamicStyle += '} ';
-				dynamicStyle += '} ';
-			}
-			if ( '' !== newval.mobile ) {
-				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
-				dynamicStyle += 'max-width: ' + newval.mobile + '%;';
-				dynamicStyle += '} ';
-				dynamicStyle += '} ';
-			}
-			astra_add_dynamic_css( 'off-canvas-width', dynamicStyle );
         } );
 	} );
 
