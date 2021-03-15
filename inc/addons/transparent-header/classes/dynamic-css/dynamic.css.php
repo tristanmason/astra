@@ -342,6 +342,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	/* Parse CSS from array() */
 	if ( 'both' === $transparent_header_devices || 'desktop' === $transparent_header_devices ) {
+		// Introducing filter here because if Transparent header is active on mobile + desktop, then min-width should be 921px as per previous code it was set to 922px, which creates issue on exact 921px breakpoint where transparent header disables.
 		$update_transparent_header_breakpoint = apply_filters( 'astra_trasparent_header_both_devices_min_css_breakpoint', astra_get_tablet_breakpoint( '', 1 ) );
 		$css .= astra_parse_css( $transparent_header_base, $update_transparent_header_breakpoint );
 
