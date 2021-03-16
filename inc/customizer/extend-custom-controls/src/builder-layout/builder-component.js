@@ -156,11 +156,11 @@ const BuilderComponent = props => {
 			if ( popupRestrictContainer ) {
 
 				popupRestrictContainer.classList.add('ast-restrict-drop');
-				popupRestrictContainer.dataset.tooltip = __( 'Other menus are not allowed.', 'astra' );
+				popupRestrictContainer.dataset.tooltip = __( 'No other menus are allowed.', 'astra' );
 				setTimeout( function( popupRestrictContainer ) {
 					popupRestrictContainer.classList.remove('ast-restrict-drop');
 					delete popupRestrictContainer.dataset.tooltip;
-				}, 5000, popupRestrictContainer );
+				}, 3000, popupRestrictContainer );
 			}
 		}
 

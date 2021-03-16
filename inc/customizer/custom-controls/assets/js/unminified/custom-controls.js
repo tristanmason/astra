@@ -22716,6 +22716,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+var __ = wp.i18n.__;
 
 var BuilderComponent = function BuilderComponent(props) {
   var value = props.control.setting.get();
@@ -22849,9 +22850,11 @@ var BuilderComponent = function BuilderComponent(props) {
 
       if (popupRestrictContainer) {
         popupRestrictContainer.classList.add('ast-restrict-drop');
+        popupRestrictContainer.dataset.tooltip = __('No other menus are allowed.', 'astra');
         setTimeout(function (popupRestrictContainer) {
           popupRestrictContainer.classList.remove('ast-restrict-drop');
-        }, 500, popupRestrictContainer);
+          delete popupRestrictContainer.dataset.tooltip;
+        }, 3000, popupRestrictContainer);
       }
     }
 

@@ -4875,15 +4875,25 @@ i.fipicon-angle-left:before {
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	right: unset;
 }
-.ast-restrict-drop .components-button.ahfb-row-actions {
-	transition: all 0.2s;
-	background: red;
-	border: 1px solid #d63638;
-	color: #fff;
+
+.ast-restrict-drop[data-tooltip]::after {
+	top: -28px;
+	left: 0;
+	opacity: 1;
+	visibility: visible;
 }
 
-.ahfb-builder-areas.ast-restrict-drop .ahfb-builder-group-horizontal {
-	border-radius: 0;
-	border-color: #d63638 !important;
-	transition: all 0.2s;
+.ast-restrict-drop[data-tooltip]::before {
+	content: '';
+	opacity: 1;
+	visibility: visible;
+	box-sizing: border-box;
+	position: absolute;
+	top: -8px;
+	left: 30px;
+	width: 4px;
+	height: 4px;
+	padding-top: 5px;
+	border: 6px solid transparent;
+	border-top-color: #1f1f1f;
 }
