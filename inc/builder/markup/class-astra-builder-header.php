@@ -440,7 +440,12 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public static function is_mobile_header_layout_default() {
 
-			$is_mobile_header_layout_default = true;
+			$mobile_header_type = astra_get_option( 'mobile-header-type' );
+
+			if ( 'off-canvas' === $mobile_header_type || 'full-width' === $mobile_header_type ) {
+
+				return false;
+			}
 
 			$header_mobile_items = astra_get_option( 'header-mobile-items' );
 
@@ -466,22 +471,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 					),
 			);
 			
-			foreach ( $default_header_mobile_items as $row_name => $row_contents ) {
-				
-				if ( $default_header_mobile_items[ $row_name ] !== $header_mobile_items[ $row_name ] ) {
-					
-					$is_mobile_header_layout_default = false;
-				}
-			}
-			
-			$mobile_header_type = astra_get_option( 'mobile-header-type' );
+			return ( 0 === strcmp(
+				wp_json_encode( $default_header_mobile_items + $header_mobile_items ),
+				wp_json_encode( $header_mobile_items ) 
+			) );
 
-			if ( 'off-canvas' === $mobile_header_type || 'full-width' === $mobile_header_type ) {
-
-				$is_mobile_header_layout_default = false;
-			}
-
-			return $is_mobile_header_layout_default;
 		}
 
 		/** Render Mobile Header elements for common layout in Primary header.
