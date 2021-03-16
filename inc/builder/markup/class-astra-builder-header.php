@@ -33,13 +33,6 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		private static $methods = array();
 
 		/**
-		 * Is Mobile Header Deafult.
-		 * 
-		 * @var dynamic is_mobile_header_layout_default
-		 */
-		public static $is_mobile_header_layout_default = true;
-
-		/**
 		 *  Initiator
 		 */
 		public static function get_instance() {
