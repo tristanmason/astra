@@ -43,7 +43,6 @@ class Astra_Button_Component_Configs {
 			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_button;
 		}
 
-		$html_config = array();
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
@@ -324,8 +323,7 @@ class Astra_Button_Component_Configs {
 			);
 
 			if ( 'footer' === $builder_type ) {
-
-				$footer_specific_configs = array(
+				$button_config[] = array(
 
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
@@ -345,13 +343,10 @@ class Astra_Button_Component_Configs {
 						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					),
 				);
-
-				$_configs = array_merge( $_configs, $footer_specific_configs );
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
-
-				$new_configs = array(
+				$button_config[] = array(
 
 					/**
 					 * Option: Primary Header Button Typography
@@ -391,10 +386,8 @@ class Astra_Button_Component_Configs {
 						),
 					),
 				);
-
 			} else {
-
-				$new_configs = array(
+				$button_config[] = array(
 
 					/**
 					 * Option: Primary Header Button Font Size
@@ -420,18 +413,16 @@ class Astra_Button_Component_Configs {
 				);
 			}
 
-			$_configs = array_merge( $_configs, $new_configs );
+			$button_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
-			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
+			$button_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
 
-			$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
-
-			$html_config[] = $_configs;
+			$button_config[] = $_configs;
 		}
 
-		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		$button_config = call_user_func_array( 'array_merge', $button_config + array( array() ) );
 
-		$configurations = array_merge( $configurations, $html_config );
+		$configurations = array_merge( $configurations, $button_config );
 
 		return $configurations;
 	}

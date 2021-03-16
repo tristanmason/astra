@@ -177,6 +177,7 @@ class Astra_Html_Component_Configs {
 					'section'           => $_section,
 					'priority'          => 220,
 					'title'             => __( 'Margin', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(

@@ -43,6 +43,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					'section'  => 'section-container-layout',
 					'priority' => 85,
 					'title'    => __( 'Easy Digital Downloads Layout', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),

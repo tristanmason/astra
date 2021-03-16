@@ -124,7 +124,6 @@ final class Astra_Builder_Base_Configuration {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Text Font', 'astra' ),
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'section'   => $section_id,
 					'transport' => 'postMessage',
 					'priority'  => 16,
@@ -274,7 +273,7 @@ final class Astra_Builder_Base_Configuration {
 
 			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
 
-			$_configs = array(
+			$html_config[] = array(
 
 				array(
 					'name'        => 'sidebar-widgets-' . $type . '-widget-' . $index,
@@ -409,8 +408,7 @@ final class Astra_Builder_Base_Configuration {
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
-
-				$new_configs = array(
+				$html_config[] = array(
 
 					/**
 					 * Option: Widget Title Typography
@@ -487,10 +485,8 @@ final class Astra_Builder_Base_Configuration {
 						),
 					),
 				);
-
 			} else {
-
-				$new_configs = array(
+				$html_config[] = array(
 
 					/**
 					 * Option: Widget Title Font Size
@@ -534,18 +530,13 @@ final class Astra_Builder_Base_Configuration {
 						),
 					),
 				);
-
 			}
-
-			$_configs = array_merge( $_configs, $new_configs );
 
 			$html_config[] = self::prepare_visibility_tab( $_section, $type );
 
-			$_configs = array_merge( $_configs, self::prepare_visibility_tab( $_section, $type ) );
-
-			$html_config[] = $_configs;
 		}
 
+		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
 		return $html_config;
 
 	}

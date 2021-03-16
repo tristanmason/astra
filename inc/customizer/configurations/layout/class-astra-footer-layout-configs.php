@@ -335,6 +335,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'    => 'ast-selector',
 					'default'    => astra_get_option( 'footer-layout-width' ),
 					'section'    => 'section-footer-small',
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(

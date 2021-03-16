@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => $_section,
 					'title'     => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'   => false,
-					'priority'  => 4,
+					'priority'  => 5,
 					'transport' => 'postMessage',
 					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					'context'   => array(
@@ -226,7 +226,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
