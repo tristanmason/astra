@@ -1307,6 +1307,19 @@ function isJsonString( str ) {
 	// Site Tagline - Text Transform
 	astra_css( 'astra-settings[text-transform-site-tagline]', 'text-transform', '.site-header .site-description' );
 
+	/**
+	 * Button border
+	 */
+	 wp.customize( 'astra-settings[header-mobile-items]', function( value ) {
+		value.bind( function( value ) {
+
+			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
+
+				wp.customize.preview.send( 'refresh' );
+			}
+		} );
+	} );
+
 	if ( astraCustomizer.page_builder_button_style_css ) {
 
 		var btn_color_ele = '';
