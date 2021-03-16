@@ -22716,6 +22716,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+var __ = wp.i18n.__;
 
 var BuilderComponent = function BuilderComponent(props) {
   var value = props.control.setting.get();
@@ -22845,14 +22846,6 @@ var BuilderComponent = function BuilderComponent(props) {
           prevItems: _prevItems
         });
       });
-      var popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group');
-
-      if (popupRestrictContainer) {
-        popupRestrictContainer.classList.add('ast-restrict-drop');
-        setTimeout(function (popupRestrictContainer) {
-          popupRestrictContainer.classList.remove('ast-restrict-drop');
-        }, 500, popupRestrictContainer);
-      }
     }
 
     var dropzones = document.querySelectorAll('.ahfb-builder-area');

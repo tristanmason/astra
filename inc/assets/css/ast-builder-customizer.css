@@ -4875,15 +4875,8 @@ i.fipicon-angle-left:before {
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	right: unset;
 }
-.ast-restrict-drop .components-button.ahfb-row-actions {
-	transition: all 0.2s;
-	background: red;
-	border: 1px solid #d63638;
-	color: #fff;
-}
 
-.ahfb-builder-areas.ast-restrict-drop .ahfb-builder-group-horizontal {
-	border-radius: 0;
-	border-color: #d63638 !important;
-	transition: all 0.2s;
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id="mobile-trigger"],
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"] {
+    background: #fff;
 }

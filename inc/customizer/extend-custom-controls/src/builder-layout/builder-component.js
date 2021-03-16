@@ -150,18 +150,6 @@ const BuilderComponent = props => {
 				...prevState,
 				prevItems: prevItems
 			}));
-
-			let popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group');
-
-			if ( popupRestrictContainer ) {
-
-				popupRestrictContainer.classList.add('ast-restrict-drop');
-				popupRestrictContainer.dataset.tooltip = __( 'Other menus are not allowed.', 'astra' );
-				setTimeout( function( popupRestrictContainer ) {
-					popupRestrictContainer.classList.remove('ast-restrict-drop');
-					delete popupRestrictContainer.dataset.tooltip;
-				}, 5000, popupRestrictContainer );
-			}
 		}
 
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
