@@ -16677,16 +16677,6 @@ var BuilderComponent = function BuilderComponent(props) {
           prevItems: _prevItems
         });
       });
-      var popupRestrictContainer = props.control.container[0].querySelector('.popup-vertical-group');
-
-      if (popupRestrictContainer) {
-        popupRestrictContainer.classList.add('ast-restrict-drop');
-        popupRestrictContainer.dataset.tooltip = __('No other menus are allowed.', 'astra');
-        setTimeout(function (popupRestrictContainer) {
-          popupRestrictContainer.classList.remove('ast-restrict-drop');
-          delete popupRestrictContainer.dataset.tooltip;
-        }, 3000, popupRestrictContainer);
-      }
     }
 
     var dropzones = document.querySelectorAll('.ahfb-builder-area');

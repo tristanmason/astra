@@ -4876,24 +4876,7 @@ i.fipicon-angle-left:before {
 	left: unset;
 }
 
-.ast-restrict-drop[data-tooltip]::after {
-	top: -28px;
-	right: 0;
-	opacity: 1;
-	visibility: visible;
-}
-
-.ast-restrict-drop[data-tooltip]::before {
-	content: '';
-	opacity: 1;
-	visibility: visible;
-	box-sizing: border-box;
-	position: absolute;
-	top: -8px;
-	right: 30px;
-	width: 4px;
-	height: 4px;
-	padding-top: 5px;
-	border: 6px solid transparent;
-	border-top-color: #1f1f1f;
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id="mobile-trigger"],
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"] {
+    background: #fff;
 }
