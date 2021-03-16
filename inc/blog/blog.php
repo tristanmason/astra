@@ -219,7 +219,7 @@ if ( ! function_exists( 'astra_get_blog_post_thumbnail' ) ) {
 
 		if ( 'archive' === $type ) {
 			// Blog Post Featured Image.
-			astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ' . astra_attr( 'ast-grid-common-col' ) . '">', '</div>' );
+			astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ' . astra_attr( 'ast-grid-blog-col' ) . '">', '</div>' );
 		} elseif ( 'single' === $type ) {
 			// Single Post Featured Image.
 			astra_get_post_thumbnail();
