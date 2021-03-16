@@ -625,7 +625,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
-			if ( Astra_Builder_Header::$is_mobile_header_layout_default ) {
+			if ( Astra_Builder_Header::is_mobile_header_layout_default() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_default_layout_static_css() );
 			}
 

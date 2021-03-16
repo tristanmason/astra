@@ -40,6 +40,12 @@
 	wp.customize( 'astra-settings[mobile-header-type]', function ( value ) {
         value.bind( function ( newVal ) {
 
+			var commonLayout = jQuery('.ast-desktop-mobile-common-layout');
+
+			if ( ( 'off-canvas' === newVal || 'full-width' === newVal ) && null !== commonLayout ) {
+				wp.customize.preview.send( 'refresh' );
+			}
+
 			var mobile_header = document.querySelectorAll( "#ast-mobile-header" );
 			var header_type = newVal;
 			var off_canvas_slide = ( typeof ( wp.customize._value['astra-settings[off-canvas-slide]'] ) != 'undefined' ) ? wp.customize._value['astra-settings[off-canvas-slide]']._value : 'right';

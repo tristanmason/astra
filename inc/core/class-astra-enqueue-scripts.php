@@ -151,10 +151,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 				
-				if ( Astra_Builder_Header::$is_mobile_header_layout_default ) {
+				if ( Astra_Builder_Header::is_mobile_header_layout_default() ) {
 					$default_assets['js']['astra-default-common-layout'] = 'default-common-layout';
+					wp_dequeue_script( 'astra-theme-js-js' );
+
 				} else {
 					$default_assets['js']['astra-theme-js'] = 'frontend';
+					wp_dequeue_script( 'astra-default-common-layout-js' );
 				}
 			}
 
@@ -310,7 +313,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'isRtl'       => is_rtl(),
 			);
 			
-			if ( Astra_Builder_Header::$is_mobile_header_layout_default ) {
+			if ( Astra_Builder_Header::is_mobile_header_layout_default() ) {
 
 				wp_localize_script( 'astra-default-common-layout', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
