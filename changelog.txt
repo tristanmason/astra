@@ -1,3 +1,6 @@
+v3.2.0 (unreleased)
++- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
+
 v3.1.2
 - Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
 - Fix: Header getting hidden in a rare case on some first loads in chrome due to miscalculated browser window width.
