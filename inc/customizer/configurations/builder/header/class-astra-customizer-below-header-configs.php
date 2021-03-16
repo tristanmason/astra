@@ -108,7 +108,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 50,
 					'title'             => __( 'Bottom Border Color', 'astra' ),
-
 					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hbb-header-separator]',
