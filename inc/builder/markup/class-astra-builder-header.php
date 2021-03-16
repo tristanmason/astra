@@ -32,6 +32,12 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		private static $methods = array();
 
+		/**
+		 * Is Mobile Header Deafult.
+		 * 
+		 * @var dynamic is_mobile_header_layout_default
+		 */
+		public static $is_mobile_header_layout_default = true;
 
 		/**
 		 *  Initiator
@@ -98,6 +104,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				// Load Cart Flyout Markup on Footer.
 				add_action( 'wp_footer', array( $this, 'mobile_cart_flyout' ) );
 				add_action( 'astra_header_menu_mobile', array( $this, 'header_mobile_menu_markup' ) );
+				
+				add_action( 'init', array( $this, 'set_is_mobile_header_layout_default' ) );
 			}
 
 			add_action( 'astra_site_identity', __CLASS__ . '::site_identity' );
@@ -218,7 +226,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function desktop_header() {
 			
-			if ( ! self::is_mobile_header_layout_default() ) {
+			if ( ! self::$is_mobile_header_layout_default ) {
 
 				get_template_part( 'template-parts/header/builder/desktop-builder-layout' );
 			} else {
@@ -312,8 +320,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * Render Mobile header layout.
 		 */
 		public function mobile_header() {
-
-			if ( ! self::is_mobile_header_layout_default() ) {
+			
+			if ( ! self::$is_mobile_header_layout_default ) {
 
 				get_template_part( 'template-parts/header/builder/mobile-builder-layout' );
 			} else {
@@ -475,6 +483,13 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				}
 			}
 			
+			$mobile_header_type = astra_get_option( 'mobile-header-type' );
+
+			if ( 'off-canvas' === $mobile_header_type || 'full-width' === $mobile_header_type ) {
+
+				$is_mobile_header_layout_default = false;
+			}
+
 			return $is_mobile_header_layout_default;
 		}
 
@@ -486,13 +501,23 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * @return void
 		 */
 		public function render_mobile_header_elements_for_common_layout( $row, $column ) {
-
-			if ( self::is_mobile_header_layout_default() && 'primary' === $row && 'right' === $column ) { ?>
+			
+			if ( self::$is_mobile_header_layout_default && 'primary' === $row && 'right' === $column ) { ?>
 				<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-header-mobile-trigger">
 					<?php do_action( 'astra_header_mobile_trigger' ); ?>
 				</div>
 				<?php 
 			}
+		}
+
+		/** Set is_mobile_header_layout_default Static Variable
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function set_is_mobile_header_layout_default() {
+
+			self::$is_mobile_header_layout_default = self::is_mobile_header_layout_default();
 		}
 	}
 
