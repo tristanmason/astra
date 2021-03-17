@@ -4877,6 +4877,10 @@ i.fipicon-angle-left:before {
 }
 
 #customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id="mobile-trigger"],
-#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"] {
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"],
+#customize-control-astra-settings-header-mobile-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id="mobile-trigger"],
+#customize-control-astra-settings-header-mobile-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"],
+#customize-control-astra-settings-header-desktop-items .ahfb-builder-row-items .sortable-ghost[data-id="mobile-menu"],
+#customize-control-astra-settings-header-mobile-items .ahfb-builder-row-items .sortable-ghost[data-id="mobile-menu"] {
     background: #fff;
 }
