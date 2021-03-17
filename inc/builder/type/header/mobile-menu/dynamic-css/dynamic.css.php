@@ -118,7 +118,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		$selector                                          => array(
 			'font-size' => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
 		),
-		$selector . ' .main-header-menu .menu-item > .menu-link' => array(
+		'.ast-hfb-header ' . $selector . ' .main-header-menu .menu-item > .menu-link' => array(
 			'color'          => $menu_resp_color_desktop,
 			'padding-top'    => astra_responsive_spacing( $menu_spacing, 'top', 'desktop' ),
 			'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
@@ -254,11 +254,11 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	if ( true === $sub_menu_divider_toggle ) {
 		
 		$css_output_desktop_submenu = array(
-			'.ast-hfb-header .ast-desktop-header-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-desktop-popup-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .main-header-menu' => array(
+			'.ast-hfb-header ' . $selector . ' .main-header-menu, .ast-hfb-header ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .main-header-menu' => array(
 				'border-top-width' => $sub_menu_divider_size . 'px',
 				'border-color'     => $sub_menu_divider_color,
 			),
-			'.ast-hfb-header .ast-desktop-header-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-desktop-header-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-desktop-popup-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-desktop-popup-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .menu-item .menu-link' => array(
+			'.ast-hfb-header ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header ' . $selector . ' .menu-item .menu-link, .ast-hfb-header ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .menu-item .menu-link' => array(
 				'border-bottom-width' => $sub_menu_divider_size . 'px',
 				'border-color'        => $sub_menu_divider_color,
 				'border-style'        => 'solid',
