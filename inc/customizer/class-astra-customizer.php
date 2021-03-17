@@ -93,6 +93,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public static $group_configs = array();
 
 		/**
+		 * Customizer Localize JS arr.
+		 *
+		 * @access Public
+		 * @since x.x.x
+		 * @var Array
+		 */
+		public static $localize_arr = array();
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
