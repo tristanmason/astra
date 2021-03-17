@@ -1,0 +1,20 @@
+name: E2E - visualTesting
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-16.04
+    # let's make sure our tests pass on Chrome browser
+    name: E2E - visualTesting
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: yarn
+
+      - name: Percy Test
+        uses: percy/exec-action@v0.3.1
+        with:
+          command: "cypress run --browser chrome"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

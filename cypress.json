@@ -1,0 +1,14 @@
+{
+  "projectId": "wybrhv",
+  "pluginsFile": "cypress/plugins/index.js",
+  "supportFile": "cypress/support/commands.js",
+  "baseUrl": null,
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "retries": 1,
+  "screenshotsFolder": "visual-regression/screenshots",
+  "videoUploadOnPasses": false,
+  "numTestsKeptInMemory": 0,
+  "experimentalStudio": true,
+  "video": false
+}
