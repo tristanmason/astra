@@ -164,26 +164,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-colors-divider]',
-				'type'     => 'control',
-				'section'  => 'section-transparent-header',
-				'control'  => 'ast-divider',
-				'priority' => 90,
-				'settings' => array(),
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-				),
-			),
-
-			/**
 			* Option: Icon color
 			*/
 			array(
@@ -295,26 +275,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Option: Checkout Button Divider.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 75,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-title-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 75,
-					'settings' => array(),
-					'title'    => __( 'Checkout', 'astra' ),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 				// Checkout Button colors.
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-text-colors]',
@@ -327,6 +287,10 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'priority'   => 75,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array(
+						'ast_class' => 'ast-top-divider',
+						'ast_title' => __( 'Checkout', 'astra' ),
+					),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-background-colors]',
