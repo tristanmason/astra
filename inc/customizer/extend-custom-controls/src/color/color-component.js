@@ -73,7 +73,7 @@ const ColorComponent = props => {
     }
     
 	const renderOperationButtons = () => {
-		
+
 		let resetFlag = true;
 		const tempVal = state.value.replace( 'unset', '' );
 
@@ -176,7 +176,7 @@ const ColorComponent = props => {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
 
-	return <>
+	return <div className="ast-control-wrap">
 		<label>
 			{labelHtml}
 		</label>
@@ -196,7 +196,7 @@ const ColorComponent = props => {
 									 
 
 		</div>
-	</>;
+	</div>;
 
 };
 
