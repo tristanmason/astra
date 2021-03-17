@@ -24112,7 +24112,9 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     })));
   };
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-control-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-toggle-desc-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
     className: "customizer-text"
@@ -24286,7 +24288,9 @@ var ColorComponent = function ColorComponent(props) {
     }, label);
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-control-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-picker-alpha color-picker-hex"
   }, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
     color: undefined !== state.value && state.value ? state.value : '',
@@ -25447,7 +25451,10 @@ var coreControl = wp.customize.astraControl = wp.customize.Control.extend({
    * @return {void}
    */
   initialize: function initialize(id, options) {
+    var _args$params, _args$params$divider;
+
     var control = this,
+        ast_class = '',
         args = options || {};
     args.params = args.params || {};
 
@@ -25455,10 +25462,14 @@ var coreControl = wp.customize.astraControl = wp.customize.Control.extend({
       args.params.type = 'ast-core';
     }
 
+    if ((_args$params = args.params) !== null && _args$params !== void 0 && (_args$params$divider = _args$params.divider) !== null && _args$params$divider !== void 0 && _args$params$divider.ast_class) {
+      ast_class = args.params.divider.ast_class;
+    }
+
     if (!args.params.content) {
       args.params.content = jQuery('<li></li>');
       args.params.content.attr('id', 'customize-control-' + id.replace(/]/g, '').replace(/\[/g, '-'));
-      args.params.content.attr('class', 'customize-control customize-control-' + args.params.type);
+      args.params.content.attr('class', ast_class + ' customize-control customize-control-' + args.params.type);
     }
 
     control.propertyElements = [];
@@ -25524,13 +25535,20 @@ var coreControl = wp.customize.astraControl = wp.customize.Control.extend({
    * @returns {void}
    */
   actuallyEmbed: function actuallyEmbed() {
+    var _control$params, _control$params$divid;
+
     var control = this;
 
     if ('resolved' === control.deferred.embedded.state()) {
       return;
     }
 
-    control.renderContent();
+    control.renderContent(); // Insert title if param has.
+
+    if (control !== null && control !== void 0 && (_control$params = control.params) !== null && _control$params !== void 0 && (_control$params$divid = _control$params.divider) !== null && _control$params$divid !== void 0 && _control$params$divid.ast_title) {
+      control.container.prepend('<label class="ast-divider-title">' + control.params.divider.ast_title + '</label>');
+    }
+
     control.deferred.embedded.resolve(); // This triggers control.ready().
   },
 
@@ -28438,7 +28456,9 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
     }, renderSettings('mobile')));
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), renderReset(), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-control-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), renderReset(), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, inputHtml));
 };
@@ -30770,7 +30790,9 @@ var SliderComponent = function SliderComponent(props) {
     savedValue = props_value ? parseInt(props_value) : '';
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-slider-wrap"
+  }, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
     value: savedValue,

@@ -1,5 +1,4 @@
 import RowLayoutComponent from './row-layout-component';
-import {astraGetResponsiveRowLayoutJs} from '../common/responsive-helper';
 
 export const RowLayoutControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -11,6 +10,29 @@ export const RowLayoutControl = wp.customize.astraControl.extend( {
 		);
 	},
 	ready: function() {
-		astraGetResponsiveRowLayoutJs( this );
+
+		jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
+
+			var device = jQuery(this).attr('data-device');
+			var trigger = '';
+
+			switch (device) {
+				case 'desktop':
+					trigger = 'mobile';
+					break;
+
+				case 'tablet':
+					trigger = 'desktop';
+					break;
+
+				case 'mobile':
+					trigger = 'tablet';
+					break;
+
+				default:
+					break;
+			}
+			jQuery( '.customize-control-ast-row-layout .ahfb-responsive-control-bar .ast-responsive-btns button.preview-' + trigger ).trigger( 'click' );
+		});
 	},
 } );

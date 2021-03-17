@@ -17943,7 +17943,9 @@ var ColorGroupComponent = function ColorGroupComponent(props) {
     })));
   };
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-control-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-toggle-desc-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
     className: "customizer-text"
@@ -18117,7 +18119,9 @@ var ColorComponent = function ColorComponent(props) {
     }, label);
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-control-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-color-picker-alpha color-picker-hex"
   }, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_astra_color_picker_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
     color: undefined !== state.value && state.value ? state.value : '',
@@ -18852,7 +18856,7 @@ ResponsiveDeviceControl.propTypes = {
 /*!*****************************************!*\
   !*** ./src/common/responsive-helper.js ***!
   \*****************************************/
-/*! exports provided: astraGetColor, astraGetBackground, astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveRowLayoutJs, astraGetResponsiveSpacingJs, astraGetAlignmentJS, astraGetResponsiveColorGroupJs */
+/*! exports provided: astraGetColor, astraGetBackground, astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs, astraGetAlignmentJS, astraGetResponsiveColorGroupJs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18863,7 +18867,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveColorJs", function() { return astraGetResponsiveColorJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveJs", function() { return astraGetResponsiveJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveSliderJs", function() { return astraGetResponsiveSliderJs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveRowLayoutJs", function() { return astraGetResponsiveRowLayoutJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveSpacingJs", function() { return astraGetResponsiveSpacingJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetAlignmentJS", function() { return astraGetAlignmentJS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "astraGetResponsiveColorGroupJs", function() { return astraGetResponsiveColorGroupJs; });
@@ -19017,36 +19020,6 @@ function astraGetResponsiveSliderJs(control) {
     jQuery('.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device).addClass('active');
   });
   control.container.find('.ast-responsive-slider-btns button i').on('click', function (event) {
-    event.preventDefault();
-    var device = jQuery(this).parent('button').attr('data-device');
-
-    if ('desktop' == device) {
-      device = 'tablet';
-    } else if ('tablet' == device) {
-      device = 'mobile';
-    } else {
-      device = 'desktop';
-    }
-
-    jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
-  });
-}
-function astraGetResponsiveRowLayoutJs(control) {
-  'use strict';
-
-  console.log(control);
-  var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-  console.log(device);
-  jQuery('.customize-control-ast-row-layout .ast-responsive-btns li').removeClass('active');
-  jQuery('.customize-control-ast-row-layout .ast-responsive-btns li.preview-' + device).addClass('active');
-  jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
-    var device = jQuery(this).attr('data-device');
-    console.log('In click - ' + device + '.');
-    jQuery('.customize-control-ast-row-layout .ast-responsive-btns li').removeClass('active');
-    jQuery('.customize-control-ast-row-layout .ast-responsive-btns li.preview-' + device).addClass('active');
-    console.log(jQuery('.customize-control-ast-row-layout .ast-responsive-btns li.preview-' + device));
-  });
-  control.container.find('.ast-responsive-btns button i').on('click', function (event) {
     event.preventDefault();
     var device = jQuery(this).parent('button').attr('data-device');
 
@@ -19309,7 +19282,10 @@ var coreControl = wp.customize.astraControl = wp.customize.Control.extend({
    * @return {void}
    */
   initialize: function initialize(id, options) {
+    var _args$params, _args$params$divider;
+
     var control = this,
+        ast_class = '',
         args = options || {};
     args.params = args.params || {};
 
@@ -19317,10 +19293,14 @@ var coreControl = wp.customize.astraControl = wp.customize.Control.extend({
       args.params.type = 'ast-core';
     }
 
+    if ((_args$params = args.params) !== null && _args$params !== void 0 && (_args$params$divider = _args$params.divider) !== null && _args$params$divider !== void 0 && _args$params$divider.ast_class) {
+      ast_class = args.params.divider.ast_class;
+    }
+
     if (!args.params.content) {
       args.params.content = jQuery('<li></li>');
       args.params.content.attr('id', 'customize-control-' + id.replace(/]/g, '').replace(/\[/g, '-'));
-      args.params.content.attr('class', 'customize-control customize-control-' + args.params.type);
+      args.params.content.attr('class', ast_class + ' customize-control customize-control-' + args.params.type);
     }
 
     control.propertyElements = [];
@@ -19386,13 +19366,20 @@ var coreControl = wp.customize.astraControl = wp.customize.Control.extend({
    * @returns {void}
    */
   actuallyEmbed: function actuallyEmbed() {
+    var _control$params, _control$params$divid;
+
     var control = this;
 
     if ('resolved' === control.deferred.embedded.state()) {
       return;
     }
 
-    control.renderContent();
+    control.renderContent(); // Insert title if param has.
+
+    if (control !== null && control !== void 0 && (_control$params = control.params) !== null && _control$params !== void 0 && (_control$params$divid = _control$params.divider) !== null && _control$params$divid !== void 0 && _control$params$divid.ast_title) {
+      control.container.prepend('<label class="ast-divider-title">' + control.params.divider.ast_title + '</label>');
+    }
+
     control.deferred.embedded.resolve(); // This triggers control.ready().
   },
 
@@ -22300,7 +22287,9 @@ var ResponsiveColorComponent = function ResponsiveColorComponent(props) {
     }, renderSettings('mobile')));
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), renderReset(), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-control-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), renderReset(), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, inputHtml));
 };
@@ -23302,8 +23291,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _row_layout_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./row-layout-component */ "./src/row-layout/row-layout-component.js");
-/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
-
 
 
 var RowLayoutControl = wp.customize.astraControl.extend({
@@ -23317,7 +23304,29 @@ var RowLayoutControl = wp.customize.astraControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["astraGetResponsiveRowLayoutJs"])(this);
+    jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
+      var device = jQuery(this).attr('data-device');
+      var trigger = '';
+
+      switch (device) {
+        case 'desktop':
+          trigger = 'mobile';
+          break;
+
+        case 'tablet':
+          trigger = 'desktop';
+          break;
+
+        case 'mobile':
+          trigger = 'tablet';
+          break;
+
+        default:
+          break;
+      }
+
+      jQuery('.customize-control-ast-row-layout .ahfb-responsive-control-bar .ast-responsive-btns button.preview-' + trigger).trigger('click');
+    });
   }
 });
 
@@ -24612,7 +24621,9 @@ var SliderComponent = function SliderComponent(props) {
     savedValue = props_value ? parseInt(props_value) : '';
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "ast-slider-wrap"
+  }, labelHtml, descriptionHtml, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
     value: savedValue,
