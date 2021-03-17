@@ -329,7 +329,7 @@ function astra_wp_version_compare( $version, $compare ) {
 }
 
 /**
- * Get the theme author details 
+ * Get the theme author details
  *
  * @since  3.1.0
  * @return array            Return theme author URL and name.
@@ -390,7 +390,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
 	$tabindex = ' tabindex="0"';
-	$icon     = Astra_Icons::get_icons( 'arrow' );
+	$icon     = defined( 'ASTRA_EXT_VER' ) ? '' : Astra_Icons::get_icons( 'arrow' );
 	if ( isset( $args->container_class ) && 'main-header-bar-navigation' === $args->container_class ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value ) {

@@ -51,7 +51,7 @@ class Astra_Icons {
 	 *
 	 * @return string SVG for passed key.
 	 */
-	public static function get_icons( $icon, $is_echo = false, $replace = false ) {
+	public static function get_icons( $icon, $is_echo = false, $replace = false, $menu_location = 'main' ) {
 		$output = '';
 		if ( true === self::is_svg_icons() ) {
 			switch ( $icon ) {
@@ -110,7 +110,7 @@ class Astra_Icons {
 			}
 		} else {
 			if ( 'menu-bars' === $icon ) {
-				$menu_icon = apply_filters( 'astra_main_menu_toggle_icon', 'menu-toggle-icon' );
+				$menu_icon = apply_filters( 'astra_' . $menu_location . '_menu_toggle_icon', 'menu-toggle-icon' );
 				$output    = '<span class="' . esc_attr( $menu_icon ) . '"></span>';
 			}
 		}
