@@ -1,18 +1,12 @@
 import PropTypes from 'prop-types';
+import {RangeControl, Dashicon} from '@wordpress/components';
 import {useEffect, useState} from 'react';
-import {__} from '@wordpress/i18n';
 
 const ResponsiveSliderComponent = props => {
 
 	let prop_value = props.control.setting.get();
 
 	const [state, setState] = useState( prop_value );
-
-	const onResetClick = (e) => {
-		e.preventDefault();
-		props.control.setting.set(props.control.params.default);
-		setState(props.control.params.default);
-	};
 
 	useEffect( () => {
 		// If settings are changed externally.
@@ -21,66 +15,74 @@ const ResponsiveSliderComponent = props => {
 		}
 	}, [props]);
 
-	const onInputChange = (device) => {
+	const updateValues = (device, newVal) => {
 		let updateState = {...state};
-		updateState[device] = event.target.value;
+		updateState[device] = newVal;
 		props.control.setting.set(updateState);
 		setState(updateState);
+	};
+	const renderOperationButtons = ( defaultVal ) => {
+		return (
+			<div className="ast-resp-slider-reset-wrap">
+				<button
+					className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+					disabled={ JSON.stringify(state) === JSON.stringify(defaultVal)} onClick={ e => {
+					e.preventDefault();
+					props.control.setting.set(defaultVal);
+					setState(defaultVal);
+				}}>
+				<Dashicon icon='image-rotate'/>
+				</button>
+			</div>
+		);
 	};
 
 	const renderInputHtml = (device, active = '') => {
 		const {
-			inputAttrs,
-			suffix
+			input_attrs,
 		} = props.control.params;
-		let suffixHtml = null;
-		let inp_array = [];
+		let defaultVal = props.control.params.default[device];
 
-		if (suffix) {
-			suffixHtml = <span className="ast-range-unit">{suffix}</span>;
-		}
+		const defaults = { min: 0, max: 500, step: 1 };
+		const controlProps = {
+			...defaults,
+			...( input_attrs || {} ),
+		};
+		const { min, max, step } = controlProps;
 
-		if (undefined !== inputAttrs) {
-			let splited_values = inputAttrs.split(" ");
-			splited_values.map((item, i) => {
-				let item_values = item.split("=");
+		let savedValue = ( state[device] ) ? parseFloat( state[device] ) : '';
 
-				if (undefined !== item_values[1]) {
-					inp_array[item_values[0]] = item_values[1].replace(/"/g, "");
-				}
-			});
+		if ( 1 === step ) {
+			savedValue = ( state[device] ) ? parseInt( state[device] ) : '';
 		}
 
 		return <div className={`input-field-wrapper ${device} ${active}`}>
-			<input type="range" {...inp_array} value={state[device]}
-				   data-reset_value={props.control.params.default[device]} onChange={() => {
-				onInputChange(device);
-			}}/>
-			<div className="astra_range_value">
-				<input type="number" {...inp_array} data-id={device} className="ast-responsive-range-value-input"
-					   value={state[device]} onChange={() => {
-					onInputChange(device);
-				}}/>
-				{suffixHtml}
-			</div>
+			<RangeControl
+				resetFallbackValue={defaultVal}
+				value={ savedValue }
+				min={ min < 0 ? min : 0 }
+				max={ max || 100 }
+				step={ step || 1 }
+				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
+			/>
 		</div>;
 	};
 
 	const {
 		description,
-		label
+		label,
+		suffix
 	} = props.control.params;
-
-	const reset = __('Back to default', 'astra');
 
 	let labelHtml = null;
 	let responsiveHtml = null;
+	let suffixHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
-	let resetHtml = null;
+	let defaultVal = props.control.params.default;
 
 	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span className="customize-control-title slider-control-label">{label}</span>;
 		responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-slider-btns">
 			<li className="desktop active">
 				<button type="button" className="preview-desktop active" data-device="desktop">
@@ -104,27 +106,28 @@ const ResponsiveSliderComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
+	if (suffix) {
+		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
+	}
+
 	inputHtml = <>
 		{renderInputHtml('desktop', 'active')}
 		{renderInputHtml('tablet')}
 		{renderInputHtml('mobile')}
 	</>;
-	resetHtml = <div className="ast-responsive-slider-reset" onClick={e => {
-		onResetClick(e);
-	}}>
-		<span className="dashicons dashicons-image-rotate ast-control-tooltip" title={reset}></span>
-	</div>;
-	return <label key={'customizer-text'}>
-		{labelHtml}
-		{responsiveHtml}
-		{descriptionHtml}
 
+	return <div>
+		<label key={'customizer-text'}>
+			{labelHtml}
+		</label>
+		{responsiveHtml}
+		{ renderOperationButtons( defaultVal ) }
+		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}
-			{resetHtml}
+			{suffixHtml}
 		</div>
-	</label>;
-
+	</div>;
 };
 
 ResponsiveSliderComponent.propTypes = {

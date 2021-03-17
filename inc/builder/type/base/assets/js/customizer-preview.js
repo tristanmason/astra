@@ -106,7 +106,8 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		var section = ( 'header' === builder_type ) ? 'section-hb-button-' + index : 'section-fb-button-' + index;
 		var context = ( 'header' === builder_type ) ? 'hb' : 'fb';
 		var prefix = 'button' + index;
-		var selector = '.ast-' + builder_type + '-button-' + index;
+		var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap';
+		var button_selector = '.ast-' + builder_type + '-button-' + index + '[data-section*="section-' + context + '-button-"] .ast-builder-button-wrap';
 
 		astra_css( 'flex', 'display', '.ast-' + builder_type + '-button-' + index + '[data-section="' + section + '"]' );
 
@@ -141,7 +142,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		// Button Typography.
 		astra_responsive_font_size(
 			'astra-settings[' + builder_type + '-' + prefix + '-font-size]',
-			selector + ' .ast-custom-button'
+			button_selector + ' .ast-custom-button'
 		);
 
 		// Border Radius.
@@ -167,7 +168,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		);
 
 		// Advanced CSS Generation.
-		astra_builder_advanced_css( section, selector + ' .ast-custom-button' );
+		astra_builder_advanced_css( section, button_selector + ' .ast-custom-button' );
 
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector, 'block' );
@@ -291,14 +292,14 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			context + '-soc-label-color',
 			'astra-settings[' + builder_type + '-social-' + index + '-label-color]',
 			'color',
-			selector + ' .ast-social-color-type-custom .ast-builder-social-element .social-item-label'
+			selector + ' .ast-social-color-type-custom .ast-builder-social-element span.social-item-label'
 		);
 
 		astra_color_responsive_css(
 			context + '-soc-label-color-h',
 			'astra-settings[' + builder_type + '-social-' + index + '-label-h-color]',
 			'color',
-			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label'
+			selector + ' .ast-social-color-type-custom .ast-builder-social-element:hover span.social-item-label'
 		);
 
 		// Icon Background Space.

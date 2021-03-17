@@ -62,10 +62,10 @@ const SocialComponent = props => {
 			{value: 'vk', label: __('VK', 'astra'), color: '#5382b6', background: 'transparent'},
 			{value: 'xing', label: __('Xing', 'astra'), color: '#0A5C5D', background: 'transparent'},
 			{value: 'rss', label: __('RSS', 'astra'), color: '#f09124', background: 'transparent'},
-			{value: 'email', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
-			{value: 'phone', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
-			{value: 'email_2', label: __('Email', 'astra'), color: '#ea4335', background: 'transparent'},
-			{value: 'phone_2', label: __('Phone', 'astra'), color: 'inherit', background: 'transparent'},
+			{value: 'email', label: __('Email 1', 'astra'), color: '#ea4335', background: 'transparent'},
+			{value: 'phone', label: __('Phone 1', 'astra'), color: 'inherit', background: 'transparent'},
+			{value: 'email_2', label: __('Email 2', 'astra'), color: '#ea4335', background: 'transparent'},
+			{value: 'phone_2', label: __('Phone 2', 'astra'), color: 'inherit', background: 'transparent'},
 			{value: 'whatsapp', label: __('WhatsApp', 'astra'), color: '#5BBA67', background: 'transparent'},
 			{value: 'google_reviews', label: __('Google Reviews', 'astra'), color: '#dc4e41', background: 'transparent'},
 			{value: 'telegram', label: __('Telegram', 'astra'), color: '#229CCE', background: 'transparent'},
@@ -199,7 +199,7 @@ const SocialComponent = props => {
 		if (itemControl) {
 			let updateState = state.value;
 			let update = updateState.items;
-			let icon = itemControl.replace(/[\d_]+$/g, '');
+			let icon = itemControl.replace(/[\d_]+$/g, ''); // Regex to replace numeric chars with empty string.
 
 			const itemLabel = controlParams.options.filter(function (o) {
 				return o.value === itemControl;
@@ -282,14 +282,6 @@ const SocialComponent = props => {
 	}
 	;
 
-	const toggleClose = () => {
-		if (state.isVisible === true) {
-			setState(prevState => ({
-				...prevState,
-				isVisible: false
-			}));
-		}
-	};
 
 	const onChangeIcon = ( icon, itemIndex ) => {
 		saveArrayUpdate({

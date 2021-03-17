@@ -73,6 +73,13 @@ const ColorComponent = props => {
     }
     
 	const renderOperationButtons = () => {
+		
+		let resetFlag = true;
+		const tempVal = state.value.replace( 'unset', '' );
+
+		if ( JSON.stringify(tempVal) !== JSON.stringify(defaultValue) ) {
+			resetFlag = false;
+		}
 		return <span className="customize-control-title">
 				<>
 					<div className="ast-global-color-btn-wrap">
@@ -129,7 +136,7 @@ const ColorComponent = props => {
 					<div className="ast-color-btn-reset-wrap">
 						<button
 							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							disabled={JSON.stringify(state.value) === JSON.stringify(defaultValue)} onClick={e => {
+							disabled={resetFlag} onClick={e => {
 							e.preventDefault();
 							let value = JSON.parse(JSON.stringify(defaultValue));
 
@@ -139,11 +146,7 @@ const ColorComponent = props => {
 
 							updateValues(value);
 						}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
+						<Dashicon icon='image-rotate'/>
 						</button>
 					</div>
 				</>
@@ -153,10 +156,10 @@ const ColorComponent = props => {
 	const handleChangeComplete = ( color ) => {
 		let value;
 
-		if (typeof color === 'string' || color instanceof String) {
+		if (typeof color === 'string') {
 			value = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-			value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+			value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 		} else {
 			value = color.hex;
 		}

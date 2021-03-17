@@ -172,11 +172,7 @@ const Background = props => {
 						setPropsValue( value );
 						// refs.ChildAstraColorPickerControl.onResetRefresh();
 					}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
+						<Dashicon icon='image-rotate'/>
 					</button>
 				</div>
 			</span>;
@@ -234,7 +230,7 @@ const Background = props => {
 			if (typeof color === 'string' || color instanceof String) {
 				value = color;
 			} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-				value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+				value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 			} else {
 				value = color.hex;
 			}
@@ -259,25 +255,14 @@ const Background = props => {
 	};
 
 	const {
-		defaultValue,
 		label,
 		description
 	} = props.control.params;
-	let defaultVal = '#RRGGBB';
+
 	let labelHtml = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>;
 	let descriptionHtml = description ?
 		<span className="description customize-control-description">{description}</span> : null;
 	let inputHtml = null;
-
-	if (defaultValue) {
-		if ('#' !== defaultValue.substring(0, 1)) {
-			defaultVal = '#' + defaultValue;
-		} else {
-			defaultVal = defaultValue;
-		}
-
-		defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
-	}
 
 	inputHtml = <div className="background-wrapper">
 		<div className="background-container">

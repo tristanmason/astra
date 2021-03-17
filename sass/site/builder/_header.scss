@@ -7,6 +7,9 @@
 	align-items: center;
 	grid-column-gap: 20px;
 	overflow-wrap: anywhere;
+	> .site-header-section {
+		flex-wrap: nowrap;
+	}
 }
 .ast-builder-footer-grid-columns {
 	grid-column-gap: 50px;
@@ -486,6 +489,13 @@
 					}
 				}
 			}
+			.ast-submenu-expanded {
+				>.ast-menu-toggle {
+					&::before {
+						transform: rotateX(180deg);
+					}
+				}
+			}
 		}
 	}
 	.ast-nav-menu {
@@ -707,6 +717,12 @@ body.admin-bar {
 		padding: 10px 0;
 		height: auto;
 	}
+	>*:first-child {
+		padding-top: 10px;
+	}
+	>*:last-child {
+		padding-bottom: 0;
+	}
 }
 .ast-off-canvas-active body.ast-main-header-nav-open {
 	overflow: hidden;
@@ -789,6 +805,16 @@ body.admin-bar {
 			.menu-item-has-children {
 				>.ast-menu-toggle {
 					right: calc( 20px - 0.907em );
+				}
+			}
+		}
+	}
+	.ast-mobile-popup-drawer.content-align-flex-end,
+	.ast-mobile-header-content.content-align-flex-end {
+		.main-header-bar-navigation {
+			.menu-item-has-children {
+				>.ast-menu-toggle {
+					left: calc( 20px - 0.907em );
 				}
 			}
 		}
@@ -947,32 +973,6 @@ body.admin-bar {
 				padding: 0 0.5em;
 			}
 		}
-	}
-}
-
-/** Cart CSS */
-.ast-header-break-point {
-	&.ast-woocommerce-cart-menu.astra-hfb-header,
-	&.astra-hfb-header {
-		.ast-site-header-cart {
-			padding: 0;
-		}
-		.ast-cart-menu-wrap {
-			width: 2em;
-			height: 2em;
-			font-size: 1.4em;
-			line-height: 2;
-			vertical-align: middle;
-			text-align: right;
-		}
-	}
-	.ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-		width: 2em;
-		height: 2em;
-		font-size: 1.4em;
-		line-height: 2;
-		vertical-align: middle;
-		text-align: right;
 	}
 }
 

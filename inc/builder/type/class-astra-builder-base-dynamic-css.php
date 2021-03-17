@@ -322,7 +322,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			$css_output_desktop = array();
 			$css_output_tablet  = array();
 			$css_output_mobile  = array();
-			
+
 			// For Mobile/Tablet we need display grid property to display elements centerd alignment.
 			$mobile_tablet_default = ( $mobile_tablet_default ) ? $mobile_tablet_default : $default_property;
 
