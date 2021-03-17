@@ -42,10 +42,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$output .= isset( self::$ast_svgs[ $icon ] ) ? self::$ast_svgs[ $icon ] : '';
 			$output .= '</span>';
-			
+
 			return $output;
 		}
-		
+
 		/**
 		 * Prepare Social Icon HTML.
 		 *
@@ -112,6 +112,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_html_markup( $index = 'header-html-1' ) {
 
+			$theme_author = astra_get_theme_author_details();
+
 			$content = astra_get_option( $index );
 			if ( $content || is_customize_preview() ) {
 				$link_style = '';
@@ -123,7 +125,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				$content = str_replace( '[copyright]', '&copy;', $content );
 				$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
 				$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
-				$content = str_replace( '[theme_author]', '<a href="https://www.wpastra.com/" rel="nofollow noopener" target="_blank">Astra WordPress Theme</a>', $content );
+				$content = str_replace( '[theme_author]', '<a href=" ' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
 				echo do_shortcode( wpautop( $content ) );
 				echo '</div>';
 				echo '</div>';
@@ -193,7 +195,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$mobile_label     = astra_get_option( 'mobile-header-menu-label' );
 			$toggle_btn_style = astra_get_option( 'mobile-header-toggle-btn-style' );
 			$aria_controls    = '';
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$aria_controls = 'aria-controls="primary-menu"';
 			}
 			?>
@@ -231,7 +233,12 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
+
+			$button_size = astra_get_option( $builder_type . '-button' . $index . '-size' );
+
+			echo '<div class="ast-builder-button-wrap ast-builder-button-size-' . $button_size . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo astra_get_custom_button( $builder_type . '-button' . $index . '-text', $builder_type . '-button' . $index . '-link-option', 'header-button' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		/**
@@ -260,6 +267,36 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			<?php
 		}
 
+		/**
+		 * Render Mobile Cart Flyout Markup.
+		 *
+		 * @since 3.1.0
+		 */
+		public static function render_mobile_cart_flyout_markup() {
+			?>
+			<div class="astra-mobile-cart-overlay"></div>
+			<div id="astra-mobile-cart-drawer" class="astra-cart-drawer open-right">
+				<div class="astra-cart-drawer-header">
+					<button type="button" class="astra-cart-drawer-close">
+							<?php echo self::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					</button>
+					<div class="astra-cart-drawer-title">
+					Shopping Cart
+					</div>
+				</div>
+				<div class="astra-cart-drawer-content">
+					<?php
+					if ( class_exists( 'Astra_Woocommerce' ) ) {
+						the_widget( 'WC_Widget_Cart', 'title=' );
+					}
+					if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+						the_widget( 'edd_cart_widget', 'title=' );
+					}
+					?>
+				</div>
+			</div>
+			<?php
+		}
 		/**
 		 * Account HTML.
 		 */

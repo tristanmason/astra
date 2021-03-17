@@ -16,9 +16,10 @@ const ItemComponent = props => {
 	const [state, setState] = useState({
 		open: false,
 	});
-	
-	let icon = props.item.id.replace(/[\d_]+$/g, '');
-	
+
+	const icon = props.item.id.replace(/[\d_]+$/g, ''); // Regex to replace numeric chars with empty string.
+	const urlLabel = ( 'phone' === props.item.id || 'phone_2' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
+
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({
@@ -55,7 +56,7 @@ const ItemComponent = props => {
 							 props.onChangeLabel(value, props.index);
 						 }}/>
 
-			<TextControl label={__('URL', 'astra')} value={props.item.url ? props.item.url : ''} onChange={value => {
+			<TextControl label={`${urlLabel}`} value={props.item.url ? props.item.url : ''} onChange={value => {
 				props.onChangeURL(value, props.index);
 			}}/>
 			<p className="ast-social-icon-picker-label">{ __( "Icon" ) }</p>

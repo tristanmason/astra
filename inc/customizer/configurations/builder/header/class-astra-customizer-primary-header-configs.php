@@ -81,7 +81,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'input_attrs'       => array(
 						'min'  => 30,
 						'step' => 1,
@@ -99,7 +99,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => $_section,
 					'priority'    => 4,
-					'title'       => __( 'Bottom Border', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -119,6 +120,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 5,
 					'title'             => __( 'Bottom Border Color', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
@@ -127,18 +129,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-				),
-
-				// Option: Primary Header color and background divider.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-header-colors-and-background-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Background Color & Image', 'astra' ),
-					'priority' => 6,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Sub Option: Header Background.
@@ -154,7 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'name' => 'hb-header-bg-obj-responsive',
 					),
 					'default'    => astra_get_option( 'hb-header-bg-obj-responsive' ),
-					'title'      => __( 'Color & Image', 'astra' ),
+					'title'      => __( 'Background', 'astra' ),
 				),
 			);
 

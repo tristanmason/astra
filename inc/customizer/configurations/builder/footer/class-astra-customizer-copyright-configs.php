@@ -72,7 +72,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'section'     => $_section,
 				'transport'   => 'postMessage',
 				'priority'    => 4,
-				'default'     => 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]',
+				'default'     => astra_get_option( 'footer-copyright-editor', 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]' ),
 				'input_attrs' => array(
 					'id' => 'ast-footer-copyright',
 				),
@@ -91,17 +91,18 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'name'      => ASTRA_THEME_SETTINGS . '[footer-copyright-alignment]',
 				'default'   => astra_get_option( 'footer-copyright-alignment' ),
 				'type'      => 'control',
-				'control'   => 'ast-responsive-select',
+				'control'   => 'ast-selector',
 				'section'   => $_section,
 				'priority'  => 6,
 				'title'     => __( 'Alignment', 'astra' ),
-				'choices'   => array(
-					'left'   => __( 'Left', 'astra' ),
-					'center' => __( 'Center', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
-				),
 				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',
+				'choices'   => array(
+					'left'   => 'align-left',
+					'center' => 'align-center',
+					'right'  => 'align-right',
+				),
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**
@@ -118,28 +119,17 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Text Color', 'astra' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+
 			),
 
-			/**
-			 * Option: Margin heading
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading]',
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'section'  => $_section,
-				'title'    => __( 'Spacing', 'astra' ),
-				'priority' => 200,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
 
 			/**
 			 * Option: Margin Space
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-				'default'           => '',
+				'default'           => astra_get_option( $_section . '-margin' ),
 				'type'              => 'control',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-responsive-spacing',
@@ -157,18 +147,6 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
-
-			// Section: Typography.
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-typography-heading]',
-				'section'  => $_section,
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'priority' => 15,
-				'title'    => __( 'Typography', 'astra' ),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
-
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section ) );

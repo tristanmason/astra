@@ -69,7 +69,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => '',
+					'suffix'            => 'px',
 					'input_attrs'       => array(
 						'min'  => 30,
 						'step' => 1,
@@ -85,9 +85,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'    => 40,
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hba-header-separator' ),
-					'title'       => __( 'Bottom Border', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -107,6 +108,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 50,
 					'title'             => __( 'Bottom Border Color', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
@@ -117,18 +119,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Section: Above Header Color & Backgroud Heading.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hba-header-colors-heading]',
-					'section'  => $_section,
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 60,
-					'title'    => __( 'Background Color & Image', 'astra' ),
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Option: Above Header Background styling.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[hba-header-bg-obj-responsive]',
@@ -137,7 +127,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-responsive-background',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hba-header-bg-obj-responsive' ),
-					'title'     => __( 'Color & Image', 'astra' ),
+					'title'     => __( 'Background', 'astra' ),
 					'priority'  => 70,
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),

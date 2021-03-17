@@ -391,7 +391,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                 => array(
-						'desktop'      => 40,
+						'desktop'      => 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',

@@ -308,7 +308,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					?>
 					<div class="review_box" id="review_box">
 					<h3><?php esc_html_e( 'Write a Review', 'astra' ); ?></h3>
-					<!--<form method="post" name="review_form" id="review_form">-->
 						<input type="text" name="review_title" placeholder="<?php esc_attr_e( 'Review Title', 'astra' ); ?>" id="review_title">
 						<h5 style="color:red; display:none" id="review_title_error"><?php esc_html_e( 'Review Title is required.', 'astra' ); ?></h5>
 						<textarea name="review_text" placeholder="<?php esc_attr_e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
@@ -317,7 +316,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 						<input name="action" value="submit_review" type="hidden">
 						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
 						<input type="submit" class="button" value="<?php esc_attr_e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
-					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
 						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
@@ -391,7 +389,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			 */
 			$theme_color  = astra_get_option( 'theme-color' );
 			$link_color   = astra_get_option( 'link-color', $theme_color );
-			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
 			$theme_forground_color = astra_get_foreground_color( $link_color );
@@ -657,12 +654,45 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return string $default_fields Updated custom field definitions.
 		 */
 		public function register_builder_fields( $default_fields ) {
-			$disable_fields   = array();
-			$show_meta_field  = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$disable_fields  = array();
+			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			/**
+			 * Main Header.
+			 */
 			$disable_fields[] = array(
 				'attribute' => 'ast-main-header-display',
 				'id'        => 'ast-main-header-display',
 				'label'     => esc_html__( 'Disable Primary Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
+			/**
+			 * Above Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-above-header-display',
+				'id'        => 'ast-hfb-above-header-display',
+				'label'     => esc_html__( 'Disable Above Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
+			/**
+			 * Below Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-below-header-display',
+				'id'        => 'ast-hfb-below-header-display',
+				'label'     => esc_html__( 'Disable Below Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
+			/**
+			 * Mobile Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-mobile-header-display',
+				'id'        => 'ast-hfb-mobile-header-display',
+				'label'     => esc_html__( 'Disable Mobile Header', 'astra' ),
 				'switch_on' => 'disabled',
 				'type'      => 'switch',
 			);
@@ -688,7 +718,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				$disable_fields[] = array(
 					'attribute' => 'footer-sml-layout',
 					'id'        => 'footer-sml-layout',
-					'label'     => esc_html__( 'Disable Footer Bar', 'astra' ),
+					'label'     => esc_html__( 'Disable Footer', 'astra' ),
 					'switch_on' => 'disabled',
 					'type'      => 'switch',
 				);
@@ -704,7 +734,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'attribute' => 'site-sidebar-layout',
 								'id'        => 'site-sidebar-layout',
 								'label'     => esc_html__( 'Sidebar', 'astra' ),
-								'type'      => 'select',
+								'type'      => 'ast-select',
 								'options'   => array(
 									'default'       => esc_html__( 'Customizer Setting', 'astra' ),
 									'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
@@ -716,7 +746,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'attribute' => 'site-content-layout',
 								'id'        => 'site-content-layout',
 								'label'     => esc_html__( 'Content Layout', 'astra' ),
-								'type'      => 'select',
+								'type'      => 'ast-select',
 								'options'   => array(
 									'default'         => esc_html__( 'Customizer Setting', 'astra' ),
 									'boxed-container' => esc_html__( 'Boxed', 'astra' ),
