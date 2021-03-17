@@ -3060,6 +3060,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   display: block;
 }
 
+.menu-toggle .ast-close-svg {
+  display: none;
+}
+
 .ast-mobile-header-wrap .ast-mobile-header-content {
   display: none;
 }
