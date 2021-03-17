@@ -23,7 +23,7 @@
 	// Off-Canvas Background Color.
 	wp.customize( 'astra-settings[off-canvas-background]', function( value ) {
 		value.bind( function( bg_obj ) {
-			var dynamicStyle = ' .ast-mobile-popup-drawer.active .ast-mobile-popup-inner, .ast-mobile-header-wrap .ast-mobile-header-content { {{css}} }';
+			var dynamicStyle = ' .ast-mobile-popup-drawer.active .ast-mobile-popup-inner, .ast-mobile-header-wrap .ast-mobile-header-content, .ast-desktop-header-content { {{css}} }';
 			astra_background_obj_css( wp.customize, bg_obj, 'off-canvas-background', dynamicStyle );
 		} );
 	} );

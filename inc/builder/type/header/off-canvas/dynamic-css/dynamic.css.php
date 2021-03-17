@@ -50,7 +50,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 
 		$selector . ' .ast-mobile-popup-inner' => astra_get_background_obj( $off_canvas_background ),
 
-		'.ast-mobile-header-wrap .ast-mobile-header-content' => astra_get_background_obj( $off_canvas_background ),
+		'.ast-mobile-header-wrap .ast-mobile-header-content, .ast-desktop-header-content' => astra_get_background_obj( $off_canvas_background ),
 		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array( 
 			// Padding CSS.
 			'padding-top'    => astra_responsive_spacing( $padding, 'top', 'desktop' ),
