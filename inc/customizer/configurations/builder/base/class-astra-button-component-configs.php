@@ -43,6 +43,8 @@ class Astra_Button_Component_Configs {
 			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_button;
 		}
 
+		$button_config = array();
+
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
@@ -52,7 +54,7 @@ class Astra_Button_Component_Configs {
 			 * These options are related to Header Section - Button.
 			 * Prefix hs represents - Header Section.
 			 */
-			$_configs = array(
+			$button_config[] = array(
 
 				/*
 					* Header Builder section - Button Component Configs.
@@ -417,7 +419,6 @@ class Astra_Button_Component_Configs {
 
 			$button_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
 
-			$button_config[] = $_configs;
 		}
 
 		$button_config = call_user_func_array( 'array_merge', $button_config + array( array() ) );
