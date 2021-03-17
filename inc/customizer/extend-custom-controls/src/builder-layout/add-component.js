@@ -55,6 +55,10 @@ const AddComponent = props => {
 			available = false;
 		}
 
+		if ( 'popup' !== row && 'mobile-menu' === item ) {
+			available = false;
+		}
+
 		return <Fragment key={item}>
 			{available && <Button isTertiary className={'builder-add-btn'} onClick={() => {
 				addItem(item, props.row, props.column);

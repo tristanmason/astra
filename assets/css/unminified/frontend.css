@@ -3060,6 +3060,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   display: block;
 }
 
+.menu-toggle .ast-close-svg {
+  display: none;
+}
+
 .ast-mobile-header-wrap .ast-mobile-header-content {
   display: none;
 }
@@ -3256,10 +3260,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 }
 
 .ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
   opacity: 0.5;
 }
 

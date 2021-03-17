@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import RowComponent from './row-component';
 import {useEffect, useState} from 'react';
-const {__} = wp.i18n;
 
 const BuilderComponent = props => {
 
@@ -123,16 +122,18 @@ const BuilderComponent = props => {
 		if ( state.prevItems.revertDrag ) {
 			let row = state.prevItems.row;
 			let zone = state.prevItems.zone;
+			let restrictRow = state.prevItems.restrictRow;
+			let restrictZone = state.prevItems.restrictZone;
 			let updateState = state.value;
 			let update = updateState[row];
 			let updateItems = state.prevItems.staleValue[row][zone];
-			let popupRemoveUpdate = updateState['popup'];
-			let popupRemoveUpdateItems = state.prevItems.staleValue.popup.popup_content;
+			let popupRemoveUpdate = updateState[restrictRow];
+			let popupRemoveUpdateItems = state.prevItems.staleValue[restrictRow][restrictZone];
 
 			update[zone] = updateItems;
-			popupRemoveUpdate['popup_content'] = popupRemoveUpdateItems;
+			popupRemoveUpdate[restrictZone] = popupRemoveUpdateItems;
 			updateState[row][zone] = updateItems;
-			updateState['popup']['popup_content'] = popupRemoveUpdateItems;
+			updateState[restrictRow][restrictZone] = popupRemoveUpdateItems;
 
 			setPopupFlag(true);
 
@@ -356,6 +357,32 @@ const BuilderComponent = props => {
 		document.dispatchEvent(event);
 	};
 
+	const setPreviousItems = ( item, restrictRow, restrictZone ) => {
+
+		let prevItems = [];
+
+		prevItems['restrictRow'] = restrictRow;
+		prevItems['restrictZone'] = restrictZone;
+
+		for ( const [rowKey, value] of Object.entries(staleValue) ) {
+						
+			for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
+				
+				for( let zoneItem of zoneValue ) {
+					
+					if ( zoneItem === item.id ) {
+						prevItems['row'] = rowKey;
+						prevItems['zone'] = zoneKey;
+						prevItems['revertDrag'] = true;
+						prevItems['staleValue'] = staleValue;
+					}
+				}
+			}
+		}
+
+		return prevItems;
+	}
+
 	const onDragEnd = (row, zone, items) => {
 
 		let updateState = state.value;
@@ -369,32 +396,17 @@ const BuilderComponent = props => {
 
 				itemIncludesMenu = item.id.includes( 'menu' );
 
-				if ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) {
+				if ( ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) || 'popup' !== row && 'mobile-menu' === item.id ) {
 
 
-
-					for ( const [rowKey, value] of Object.entries(staleValue) ) {
-
-						for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
-
-							for( let zoneItem of zoneValue ) {
-
-								if ( zoneItem === item.id ) {
-									prevItems['row'] = rowKey;
-									prevItems['zone'] = zoneKey;
-									prevItems['revertDrag'] = true;
-									prevItems['staleValue'] = staleValue;
-								}
-							}
-						}
-					}
+					prevItems = setPreviousItems( item, row, zone );
 
 					setState(prevState => ({
 						...prevState,
 						prevItems: prevItems
 					}));
-				}
-
+				} 
+				
 				updateItems.push(item.id);
 			});
 		}
