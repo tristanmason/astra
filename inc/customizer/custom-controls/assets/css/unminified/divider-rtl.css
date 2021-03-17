@@ -79,3 +79,7 @@
 .ast-top-divider .ast-control-wrap .color-button-wrap {
     top: 20.5px;
 }
+
+.ast-top-divider.customize-control-ast-select .ast-divider-title {
+    margin-bottom: 25px;
+}
