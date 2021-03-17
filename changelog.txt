@@ -12,8 +12,8 @@ v3.2.0 (unreleased)
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
 - Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
+- Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
 - Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
-- Fix: Footer Builder - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
 
 v3.1.2
 - Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
