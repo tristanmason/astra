@@ -447,6 +447,20 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				return false;
 			}
 
+			$header_desktop_items = astra_get_option( 'header-desktop-items' );
+			
+			$default_header_desktop_primary_items = array(
+				'primary_left'         => array( 'logo' ),
+				'primary_left_center'  => array(),
+				'primary_center'       => array(),
+				'primary_right_center' => array(),
+				'primary_right'        => array( 'menu-1' ),
+			);
+			
+			if ( $header_desktop_items['primary'] !== $default_header_desktop_primary_items ) {
+				return false;
+			}
+
 			$header_mobile_items = astra_get_option( 'header-mobile-items' );
 
 			$default_header_mobile_items = array(

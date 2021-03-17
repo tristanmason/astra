@@ -1320,6 +1320,26 @@ function isJsonString( str ) {
 		} );
 	} );
 
+	wp.customize( 'astra-settings[header-desktop-items]', function( value ) {
+		value.bind( function( value ) {
+
+			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
+
+				var default_items = {
+					'primary_left' : [ 'logo' ],
+					'primary_left_center' : [],
+					'primary_center' : [],
+					'primary_right_center' : [],
+					'primary_right' : [ 'menu-1' ],
+				};
+
+				if ( JSON.stringify( value[ 'primary' ] ) !== JSON.stringify( default_items ) ) {
+					wp.customize.preview.send( 'refresh' );
+				}
+			}
+		} );
+	} );
+
 	if ( astraCustomizer.page_builder_button_style_css ) {
 
 		var btn_color_ele = '';
