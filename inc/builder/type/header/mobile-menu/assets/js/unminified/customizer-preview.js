@@ -270,6 +270,8 @@
                             dynamicStyle += '}';
 
                             astra_add_dynamic_css('header-mobile-menu-submenu-item-b-color', dynamicStyle);
+                        } else {
+                            wp.customize.preview.send( 'refresh' );
                         }
                     } else {
                         wp.customize.preview.send('refresh');
