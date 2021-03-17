@@ -70,7 +70,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
-	$css_output[ $selector . ' .ast-mobile-popup-inner' ]['color'] = $off_canvas_close_color;
+	$css_output[ $selector . ' .ast-mobile-popup-drawer.active .menu-toggle-close' ]['color'] = $off_canvas_close_color;
 
 	/* Parse CSS from array() */
 	$css_output = astra_parse_css( $css_output );
