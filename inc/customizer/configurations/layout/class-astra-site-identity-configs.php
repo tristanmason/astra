@@ -379,7 +379,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'title'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? __( 'Title Font', 'astra' ) : __( 'Typography', 'astra' ),
 						'section'   => $_section,
 						'transport' => 'postMessage',
-						'priority'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 16 : 7,
+						'priority'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 16 : 8,
 						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array(
 							Astra_Builder_Helper::$design_tab_config,
 							array(
