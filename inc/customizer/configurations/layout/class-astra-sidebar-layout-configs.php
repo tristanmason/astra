@@ -127,6 +127,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 50,
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				array(
