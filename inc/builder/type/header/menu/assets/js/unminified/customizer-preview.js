@@ -11,7 +11,8 @@
 ( function( $ ) {
 
 	var tablet_break_point    = AstraBuilderMenuData.tablet_break_point || 768,
-		mobile_break_point    = AstraBuilderMenuData.mobile_break_point || 544;
+		mobile_break_point    = AstraBuilderMenuData.mobile_break_point || 544,
+		isNavMenuEnabled      = AstraBuilderMenuData.nav_menu_enabled || false;
 
 	for ( var index = 1; index <= AstraBuilderMenuData.component_limit; index++ ) {
 
@@ -295,6 +296,26 @@
 						dynamicStyle += '.ast-desktop .ast-builder-menu-'+ index +' .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
 						astra_add_dynamic_css( 'header-menu'+ index +'-submenu-item-border', dynamicStyle );
 
+					} );
+				} );
+
+				// Animation preview support.
+				// Adding customizer-refresh because if megamenu is enabled on menu then caluculated left & width JS value of megamenu wrapper wiped out due to partial refresh.
+				wp.customize( 'astra-settings[header-menu'+ index +'-menu-hover-animation]', function( setting ) {
+					setting.bind( function( animation ) {
+						console.log( isNavMenuEnabled );
+						console.log( animation );
+
+						var menuWrapper = jQuery( '#ast-desktop-header #ast-hf-menu-'+ index  );
+						menuWrapper.removeClass('ast-menu-hover-style-underline');
+						menuWrapper.removeClass('ast-menu-hover-style-zoom');
+						menuWrapper.removeClass('ast-menu-hover-style-overline');
+
+						if ( isNavMenuEnabled ) {
+							wp.customize.preview.send('refresh');
+						} else {
+							menuWrapper.addClass( 'ast-menu-hover-style-' + animation );
+						}
 					} );
 				} );
 

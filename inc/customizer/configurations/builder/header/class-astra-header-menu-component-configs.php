@@ -114,11 +114,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'transport'  => 'postMessage',
-						'partial'    => array(
-							'selector'         => '#ast-hf-menu-' . $index,
-							'render_callback'  => array( Astra_Builder_Header::get_instance(), 'menu_' . $index ),
-							'fallback_refresh' => false,
-						),
 						'responsive' => false,
 						'renderAs'   => 'text',
 					),
