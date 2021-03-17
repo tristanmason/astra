@@ -4875,8 +4875,12 @@ i.fipicon-angle-left:before {
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	right: unset;
 }
-.ahfb-builder-areas.ahfb-builder-mode-header.popup-vertical-group .ahfb-builder-group-horizontal.ast-restrict-drop {
 
-	border-color: #d63638;
-	transition: all 2s;
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id="mobile-trigger"],
+#customize-control-astra-settings-header-desktop-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"],
+#customize-control-astra-settings-header-mobile-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id="mobile-trigger"],
+#customize-control-astra-settings-header-mobile-items .popup-vertical-group .ahfb-builder-area-content .sortable-ghost[data-id^="menu-"],
+#customize-control-astra-settings-header-desktop-items .ahfb-builder-row-items .sortable-ghost[data-id="mobile-menu"],
+#customize-control-astra-settings-header-mobile-items .ahfb-builder-row-items .sortable-ghost[data-id="mobile-menu"] {
+    background: #fff;
 }
