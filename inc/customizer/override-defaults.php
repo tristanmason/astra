@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Override Sections
  */
 $wp_customize->get_section( 'title_tagline' )->priority = 5;
+$wp_customize->get_section( 'title_tagline' )->panel    = 'panel-header-group';
 
 /**
  * Override Settings
