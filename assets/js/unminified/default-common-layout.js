@@ -213,7 +213,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-mobile-header .main-header-menu-toggle' )
 		var event_index = '0';
 
-        if(  this.closest( '.ast-desktop-mobile-common-layout' ) ) {
+        if(  null !== this.closest( '.ast-desktop-mobile-common-layout' ) ) {
 
 			__main_header_all = document.querySelectorAll('#masthead > #ast-desktop-header .main-header-bar-navigation');
 			menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-desktop-header .main-header-menu-toggle' )
@@ -225,6 +225,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			__main_header_all = document.querySelectorAll('#ast-fixed-header > #ast-mobile-header .main-header-bar-navigation');
 			menu_toggle_all 	 = document.querySelectorAll( '#ast-fixed-header .main-header-menu-toggle' )
 
+			if(  null !== this.closest( '.ast-desktop-mobile-common-layout' ) ) { 
+
+				__main_header_all = document.querySelectorAll('#ast-fixed-header > #ast-desktop-header .main-header-bar-navigation');
+				menu_toggle_all 	 = document.querySelectorAll( '#ast-fixed-header .main-header-menu-toggle' )
+
+			}
 			event_index = '0';
 		}
 
