@@ -369,24 +369,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	var get_window_width = function () {
 
-		if ( is_customizer_preview() ) {
-
-			return Math.min( screen.width,
-				window.innerWidth !== undefined ? window.innerWidth : document.documentElement.clientWidth );
-		}
-
-		return Math.max( screen.width,
-			window.innerWidth !== undefined ? window.innerWidth : document.documentElement.clientWidth );
-	}
-	var is_customizer_preview = function () {
-
-			var in_customizer = false;
-	
-			if ( typeof wp !== 'undefined' ) {
-				in_customizer =  typeof wp.customize !== 'undefined' ? true : false;
-			}
-			
-			return in_customizer;
+		return document.documentElement.clientWidth;
 	}
 
 	/* Add break point Class and related trigger */
