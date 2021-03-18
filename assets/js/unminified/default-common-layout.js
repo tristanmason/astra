@@ -261,6 +261,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
+	var get_window_width = function () {
+
+		return document.documentElement.clientWidth;
+	}
+
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
@@ -268,12 +273,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
 		var originalOverflow = body.style.overflow;
 		body.style.overflow = 'hidden';
-		var ww = window.outerWidth;
+		var ww = get_window_width();
 		body.style.overflow = originalOverflow;
-
-		if ( body.classList.contains( 'customize-partial-edit-shortcuts-shown' ) ) {
-			ww = window.innerWidth;
-		}
 
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
