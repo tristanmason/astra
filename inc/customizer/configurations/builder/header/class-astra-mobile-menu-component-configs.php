@@ -181,7 +181,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 90,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				// Option: Menu Color.
 				array(
