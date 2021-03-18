@@ -401,6 +401,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		});
 	}
 
+	var get_window_width = function () {
+
+		return document.documentElement.clientWidth;
+	}
+
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
@@ -408,12 +413,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
 		var originalOverflow = body.style.overflow;
 		body.style.overflow = 'hidden';
-		var ww = window.outerWidth;
+		var ww = get_window_width();
 		body.style.overflow = originalOverflow;
-
-		if ( body.classList.contains( 'customize-partial-edit-shortcuts-shown' ) ) {
-			ww = window.innerWidth;
-		}
 
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
@@ -429,7 +430,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					 * This mis-calculates the width of the window and header seems invisible.
 					 * This could be fixed by using `0 === ww` condition below.
 					 */
-					if (ww > break_point || 0 === ww) {
+					if (ww >= break_point || 0 === ww) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
@@ -941,13 +942,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if (undefined === main_header_masthead || null === main_header_masthead) {
 			return;
 		}
-		var window_width = body.clientWidth;
+		var window_width = get_window_width();
 		var break_point = astra.break_point;
 
 		var desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
 		var mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
-		if (window_width <= break_point) { // Rendering Mobile
+		if (window_width < break_point) { // Rendering Mobile
 
 			if ('mobile' === current_header) {
 				return;
