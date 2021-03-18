@@ -3,7 +3,7 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 .ast-container {
-  @include make-container-max-widths();
+  max-width: 100%;
 }
 
 
@@ -16,18 +16,6 @@
   @include make-container();
 }
 
-
-// Row
-//
-// Rows contain and clear the floats of your columns.
-
-@if $enable-grid-classes {
-  .ast-row {
-    @include make-row();
-  }
-}
-
-
 // Columns
 //
 // Common styles for small and large grid columns
@@ -36,6 +24,11 @@
   @include  make-grid-columns-frontend();
 }
 
+@if $enable-grid-classes {
+  .ast-row {
+    @include make-row();
+  }
+}
 
 // Flex variation
 //

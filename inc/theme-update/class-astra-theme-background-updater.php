@@ -76,6 +76,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.2.0' => array(
 				'astra_gutenberg_pattern_compatibility',
 				'astra_icons_svg_compatibility',
+				'astra_check_flex_based_css',
 			),
 		);
 
