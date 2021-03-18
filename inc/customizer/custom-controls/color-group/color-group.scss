@@ -118,4 +118,20 @@
 		display: inline-flex;
 		width: 100%;
 	}
+	.ast-divider-title {
+		+ {
+			.ast-control-wrap {
+				margin-top: 25px;
+				.ast-color-group-reset {
+					top: 47px;
+				}
+				.ast-responsive-btns {
+					top: 50px;
+				}
+				.astra-color-picker-wrap {
+					top: 73px;
+				}
+			}
+		}
+	}
 }

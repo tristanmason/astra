@@ -484,6 +484,22 @@
   width: 100%;
 }
 
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
+  margin-top: 25px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
+  top: 47px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 50px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+  top: 73px;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -1465,6 +1481,18 @@
   width: 100%;
 }
 
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
+  margin-top: 25px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
+  top: 47px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 50px;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -2189,7 +2217,8 @@ input[type="text"].select2-search__field {
 	padding-top: 25px;
 }
 
-.ast-top-divider > label.ast-divider-title {
+.ast-top-divider > label.ast-divider-title,
+.customize-control-ast-color-group > .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
@@ -3887,7 +3916,8 @@ input[type="text"].select2-search__field {
 	padding-top: 25px;
 }
 
-.ast-top-divider > label.ast-divider-title {
+.ast-top-divider > label.ast-divider-title,
+.customize-control-ast-color-group > .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
