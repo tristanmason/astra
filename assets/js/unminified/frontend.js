@@ -898,9 +898,19 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			if( mobile_header ) {
 				main_header_masthead.removeChild(mobile_header);
 			}
-
 		}
 
+		// Adding fallback for displaying either of the header based on breakpoint.
+		desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
+		mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
+
+		if( desktop_header == null ) {
+			mobile_header.style.display = '';
+		}
+
+		if( mobile_header == null ) {
+			desktop_header.style.display = '';
+		}
 	}
 
 	window.addEventListener('load', function () {
