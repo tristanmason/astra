@@ -48,6 +48,7 @@ class Astra_Icons {
 	 * @param string  $icon Key for the SVG you want to load.
 	 * @param boolean $is_echo whether to echo the output or return.
 	 * @param boolean $replace load close markup for SVG.
+	 * @param string  $menu_location Creates dynamic filter for passed parameter.
 	 *
 	 * @return string SVG for passed key.
 	 */
