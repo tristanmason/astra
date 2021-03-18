@@ -390,7 +390,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
 	$tabindex = ' tabindex="0"';
-	$icon     = defined( 'ASTRA_EXT_VER' ) ? '' : Astra_Icons::get_icons( 'arrow' );
+	$icon     = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) ? '' : Astra_Icons::get_icons( 'arrow' );
 	if ( isset( $args->container_class ) && 'main-header-bar-navigation' === $args->container_class ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value ) {

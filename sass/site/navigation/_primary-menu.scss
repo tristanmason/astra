@@ -181,10 +181,12 @@
 					}
 				}
 			}
-			.menu-item:not(.menu-item-has-children)  {
-				.menu-link {
-					.icon-arrow:first-of-type {
-						display: inline;
+			.sub-menu {
+				.menu-item:not(.menu-item-has-children)  {
+					.menu-link {
+						.icon-arrow:first-of-type {
+							display: inline;
+						}
 					}
 				}
 			}

@@ -1747,7 +1747,7 @@ body {
   margin-left: 5px;
 }
 
-.ast-header-break-point .main-navigation ul .menu-item:not(.menu-item-has-children) .menu-link .icon-arrow:first-of-type {
+.ast-header-break-point .main-navigation ul .sub-menu .menu-item:not(.menu-item-has-children) .menu-link .icon-arrow:first-of-type {
   display: inline;
 }
 
