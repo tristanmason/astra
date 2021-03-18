@@ -1307,39 +1307,6 @@ function isJsonString( str ) {
 	// Site Tagline - Text Transform
 	astra_css( 'astra-settings[text-transform-site-tagline]', 'text-transform', '.site-header .site-description' );
 
-	/**
-	 * Button border
-	 */
-	 wp.customize( 'astra-settings[header-mobile-items]', function( value ) {
-		value.bind( function( value ) {
-
-			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
-
-				wp.customize.preview.send( 'refresh' );
-			}
-		} );
-	} );
-
-	wp.customize( 'astra-settings[header-desktop-items]', function( value ) {
-		value.bind( function( value ) {
-
-			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
-
-				var default_items = {
-					'primary_left' : [ 'logo' ],
-					'primary_left_center' : [],
-					'primary_center' : [],
-					'primary_right_center' : [],
-					'primary_right' : [ 'menu-1' ],
-				};
-
-				if ( JSON.stringify( value[ 'primary' ] ) !== JSON.stringify( default_items ) ) {
-					wp.customize.preview.send( 'refresh' );
-				}
-			}
-		} );
-	} );
-
 	if ( astraCustomizer.page_builder_button_style_css ) {
 
 		var btn_color_ele = '';
@@ -1406,6 +1373,26 @@ function isJsonString( str ) {
 		astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'left', 'right' ] );
 	}
 
+	wp.customize( 'astra-settings[header-desktop-items]', function( value ) {
+		value.bind( function( value ) {
+	
+			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
+	
+				var default_items = {
+					'primary_left' : [ 'logo' ],
+					'primary_left_center' : [],
+					'primary_center' : [],
+					'primary_right_center' : [],
+					'primary_right' : [ 'menu-1' ],
+				};
+	
+				if ( JSON.stringify( value[ 'primary' ] ) !== JSON.stringify( default_items ) ) {
+					wp.customize.preview.send( 'refresh' );
+				}
+			}
+		} );
+	} );
+
 	// Global custom event which triggers when partial refresh occurs.
 	wp.customize.bind('preview-ready', function () {
 
@@ -1435,6 +1422,21 @@ function isJsonString( str ) {
 		});
 
 		wp.customize.selectiveRefresh.bind('partial-content-rendered', function (response) {
+			console.log(jQuery('.ast-desktop-mobile-common-layout').length);
+			console.log(response.partial.id);
+
+			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
+
+				if( 'astra-settings[header-mobile-items]' === response.partial.id ) {
+
+					wp.customize.preview.send( 'refresh' );
+				}
+
+				if( 'astra-settings[header-desktop-items]' === response.partial.id ) {
+					
+					wp.customize.preview.send( 'refresh' );
+				}
+			}
 
 			wp.customize.preview.send( 'AstraBuilderPartialContentRendered', response );
 
