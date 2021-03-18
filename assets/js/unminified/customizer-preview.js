@@ -1456,9 +1456,7 @@ function isJsonString( str ) {
 		});
 
 		wp.customize.selectiveRefresh.bind('partial-content-rendered', function (response) {
-			console.log(jQuery('.ast-desktop-mobile-common-layout').length);
-			console.log(response.partial.id);
-
+			
 			if ( 0 < jQuery('.ast-desktop-mobile-common-layout').length ) {
 
 				if( 'astra-settings[header-mobile-items]' === response.partial.id ) {
