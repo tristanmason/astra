@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				),
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
-					'astra-theme-css' => 'style',
+					'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'style-flex' : 'style',
 				),
 			);
 
@@ -146,16 +146,15 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => 'frontend',
+						'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
 					),
 				);
 
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
-				}
+				}           
 			}
-
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
 
