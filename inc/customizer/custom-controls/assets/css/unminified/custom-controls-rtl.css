@@ -484,10 +484,6 @@
   width: 100%;
 }
 
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
-  margin-top: 25px;
-}
-
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
   top: 47px;
 }
@@ -974,7 +970,8 @@
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap,
-.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap,
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
 }
 
@@ -1481,16 +1478,16 @@
   width: 100%;
 }
 
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
-  margin-top: 25px;
-}
-
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
   top: 47px;
 }
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
   top: 50px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+  top: 73px;
 }
 
  /** Remove Button Color */
@@ -1967,7 +1964,8 @@
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap,
-.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap,
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
 }
 

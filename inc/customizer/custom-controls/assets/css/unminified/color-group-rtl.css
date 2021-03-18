@@ -124,10 +124,6 @@
   width: 100%;
 }
 
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
-  margin-top: 25px;
-}
-
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
   top: 47px;
 }
