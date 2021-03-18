@@ -430,7 +430,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					 * This mis-calculates the width of the window and header seems invisible.
 					 * This could be fixed by using `0 === ww` condition below.
 					 */
-					if (ww >= break_point || 0 === ww) {
+					if (ww > break_point || 0 === ww) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
@@ -948,7 +948,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
 		var mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
-		if (window_width < break_point) { // Rendering Mobile
+		if (window_width <= break_point) { // Rendering Mobile
 
 			if ('mobile' === current_header) {
 				return;
