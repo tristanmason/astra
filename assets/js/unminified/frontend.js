@@ -175,6 +175,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	popupTriggerClick = function ( event ) {
 
+		var triggerType = event.currentTarget.trigger_type;
 		var popupWrap = document.getElementById( 'ast-mobile-popup' );
 
         if ( ! body.classList.contains( 'ast-popup-nav-open' ) ) {
@@ -188,7 +189,17 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( ! document.documentElement.classList.contains( 'ast-off-canvas-active' ) ) {
 			document.documentElement.classList.add( 'ast-off-canvas-active' );
 		}
-
+		
+		if ( 'desktop' === triggerType ) {
+			
+			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'none';
+			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'block';
+		}
+		if ( 'mobile' === triggerType ) {
+			
+			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'none';
+			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'block';
+		}
 		this.style.display = 'none';
 
 		popupWrap.classList.add( 'active', 'show' );
@@ -243,28 +254,43 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	function init( mobileHeaderType ) {
 
-		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
-		var popupClose = document.getElementById( 'menu-toggle-close' );
-		var submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
+		var popupTriggerMobile = document.querySelectorAll( '#ast-mobile-header .menu-toggle' );
+		var popupTriggerDesktop = document.querySelectorAll( '#ast-desktop-header .menu-toggle' );
 
 		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
-			if( ! mobileHeader ) {
-				return ;
+			if( mobileHeader ) {
+				mobileHeaderType = mobileHeader.dataset.type;
+			} else {
+				var desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
+				if ( desktopHeader ) {
+	
+					mobileHeaderType = desktopHeader.dataset.type;
+				} else {
+					return;
+				}
 			}
-			mobileHeaderType = mobileHeader.dataset.type;
 		}
 
 		if ( 'off-canvas' === mobileHeaderType ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
 				submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
 
-			for ( var item = 0;  item < popupTrigger.length; item++ ) {
+			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
-				popupTrigger[item].removeEventListener("click", astraNavMenuToggle, false);
+				popupTriggerMobile[item].removeEventListener("click", astraNavMenuToggle, false);
 				// Open the Popup when click on trigger
-				popupTrigger[item].addEventListener("click", popupTriggerClick, false);
+				popupTriggerMobile[item].addEventListener("click", popupTriggerClick, false);
+				popupTriggerMobile[item].trigger_type = 'mobile';
+
+			}
+			for ( var item = 0;  item < popupTriggerDesktop.length; item++ ) {
+
+				popupTriggerDesktop[item].removeEventListener("click", astraNavMenuToggle, false);
+				// Open the Popup when click on trigger
+				popupTriggerDesktop[item].addEventListener("click", popupTriggerClick, false);
+				popupTriggerDesktop[item].trigger_type = 'desktop';
 
 			}
 
@@ -296,10 +322,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			});
 			AstraToggleSetup();
 		} else if ( 'dropdown' === mobileHeaderType ) {
-			for ( var item = 0;  item < popupTrigger.length; item++ ) {
+			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
-				popupTrigger[item].removeEventListener("click", popupTriggerClick, false);
-				popupTrigger[item].addEventListener('click', astraNavMenuToggle, false);
+				popupTriggerMobile[item].removeEventListener("click", popupTriggerClick, false);
+				popupTriggerMobile[item].addEventListener('click', astraNavMenuToggle, false);
+				popupTriggerMobile[item].trigger_type = 'mobile';
+
+			}
+			for ( var item = 0;  item < popupTriggerDesktop.length; item++ ) {
+
+				popupTriggerDesktop[item].removeEventListener("click", popupTriggerClick, false);
+				popupTriggerDesktop[item].addEventListener('click', astraNavMenuToggle, false);
+				popupTriggerDesktop[item].trigger_type = 'desktop';
 
 			}
 
@@ -441,14 +475,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraToggleSubMenu = function() {
+	AstraToggleSubMenu = function( event ) {
+
+		event.preventDefault();
 
 		var parent_li = this.parentNode;
-
+		
 		if ( parent_li.classList.contains('ast-submenu-expanded') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') ) {
+			
 			if (!this.classList.contains('ast-menu-toggle')) {
+				
 				var link = parent_li.querySelector('a').getAttribute('href');
-				if ('' !== link || '#' !== link) {
+				if ( '' !== link && '#' !== link) {
 					window.location = link;
 				}
 			}
@@ -503,12 +541,26 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	AstraToggleSetup = function () {
+
 		if ( 'off-canvas' === mobileHeaderType || 'full-width' === mobileHeaderType ) {
-			var __main_header_all = document.querySelectorAll( '#ast-mobile-popup' ),
-				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+			var __main_header_all = document.querySelectorAll( '#ast-mobile-popup' );
+			if ( body.classList.contains('ast-header-break-point') ) {
+
+				var menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+			} else {
+				menu_toggle_all   = document.querySelectorAll( '#ast-desktop-header .main-header-menu-toggle' );
+			}
 		} else {
-			var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
-				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+
+			if ( body.classList.contains('ast-header-break-point') ) {
+
+				var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
+					menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+			} else {
+
+				var __main_header_all = document.querySelectorAll( '#ast-desktop-header' ),
+					menu_toggle_all   = document.querySelectorAll( '#ast-desktop-header .main-header-menu-toggle' );
+			}
 		}
 
 		if (menu_toggle_all.length > 0) {
@@ -529,7 +581,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					} else {
 						var astra_menu_toggle = __main_header_all[i].querySelectorAll('ul.main-header-menu .ast-menu-toggle');
 					}
-
 					// Add Eventlisteners for Submenu.
 					if (astra_menu_toggle.length > 0) {
 
@@ -546,16 +597,55 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	astraNavMenuToggle = function ( event ) {
 		
 		event.preventDefault();
+
+		var desktop_header = event.target.closest('#ast-desktop-header');
+
+		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
+
+		if ( null !== desktop_header && undefined !== desktop_header && '' !== desktop_header ) {
+
+			var desktop_toggle = desktop_header.querySelector( '.main-header-menu-toggle' );
+		} else {
+			var desktop_toggle = document.querySelector('#masthead > #ast-desktop-header .main-header-menu-toggle');
+		}
+		
+		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content .main-header-bar-navigation');
+
+		if ( 'desktop' === event.currentTarget.trigger_type ) {
+			
+			if ( null !== desktop_menu && '' !== desktop_menu && undefined !== desktop_menu ) {
+				astraToggleClass(desktop_menu, 'toggle-on');
+				if (desktop_menu.classList.contains('toggle-on')) {
+					desktop_menu.style.display = 'block';
+				} else {
+					desktop_menu.style.display = '';
+				}
+			}
+			astraToggleClass(desktop_toggle, 'toggled');
+			if ( desktop_toggle.classList.contains( 'toggled' ) ) {
+				body.classList.add("ast-main-header-nav-open");
+				if ( 'dropdown' === mobileHeaderType ) {
+					desktop_header_content.style.display = 'block';
+				}
+			} else {
+				body.classList.remove("ast-main-header-nav-open");
+				desktop_header_content.style.display = 'none';
+			}
+			return;
+		}
+
 		var __main_header_all = document.querySelectorAll('#masthead > #ast-mobile-header .main-header-bar-navigation');
 		menu_toggle_all 	 = document.querySelectorAll( '#masthead > #ast-mobile-header .main-header-menu-toggle' )
 		var event_index = '0';
-
+		var sticky_header = false;
 		if ( null !== this.closest( '#ast-fixed-header' ) ) {
 
 			__main_header_all = document.querySelectorAll('#ast-fixed-header > #ast-mobile-header .main-header-bar-navigation');
 			menu_toggle_all 	 = document.querySelectorAll( '#ast-fixed-header .main-header-menu-toggle' )
 
 			event_index = '0';
+			sticky_header = true;
+
 		}
 
 		if ('undefined' === typeof __main_header_all[event_index]) {
@@ -575,6 +665,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( menu_class.indexOf('main-header-menu-toggle') !== -1 ) {
 			astraToggleClass(__main_header_all[event_index], 'toggle-on');
 			astraToggleClass(menu_toggle_all[event_index], 'toggled');
+			if ( sticky_header ) {
+				astraToggleClass(menu_toggle_all['1'], 'toggled');
+			}
 			if (__main_header_all[event_index].classList.contains('toggle-on')) {
 				__main_header_all[event_index].style.display = 'block';
 				body.classList.add("ast-main-header-nav-open");

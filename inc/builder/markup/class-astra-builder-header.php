@@ -429,7 +429,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * @return array
 		 */
 		public function add_body_class( $classes ) {
-			$classes[] = 'astra-hfb-header';
+			$classes[] = 'ast-hfb-header';
+
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.2.0', '<' ) ) {
+				$classes[] = 'astra-hfb-header';
+			}
 			return $classes;
 		}
 

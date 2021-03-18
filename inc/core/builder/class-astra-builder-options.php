@@ -24,6 +24,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Header Builder - Desktop Defaults.
 	 */
 	$defaults['header-desktop-items'] = array(
+		'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
 		'above'   =>
 			array(
 				'above_left'         => array(),
