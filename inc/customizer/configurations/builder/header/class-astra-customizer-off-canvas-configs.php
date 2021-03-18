@@ -247,6 +247,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 28,
 					'context'   => Astra_Builder_Helper::$design_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -262,9 +263,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
+				// Option Group: Off-Canvas Colors Group.
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-background]',
+					'type'              => 'control',
+					'control'           => 'ast-background',
+					'title'             => __( 'Background', 'astra' ),
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'priority'          => 30,
+					'context'           => Astra_Builder_Helper::$design_tab,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'default'           => astra_get_option( 'off-canvas-background' ),
+				),
+
 				/**
 				 * Option: Popup Padding.
 				 */
+				
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[off-canvas-padding]',
 					'default'        => '',

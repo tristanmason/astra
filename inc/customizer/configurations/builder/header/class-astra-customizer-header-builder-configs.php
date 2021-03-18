@@ -455,28 +455,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'transport'  => 'postMessage',
 				'renderAs'   => 'text',
 				'responsive' => false,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[section-header-builder-layout-margin-padding-divider]',
-				'type'     => 'control',
-				'section'  => 'section-header-builder-layout',
-				'control'  => 'ast-divider',
-				'priority' => 200,
-				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-					array(
-						'setting' => 'ast_selected_device',
-						'value'   => 'desktop',
-					),
-				),
+				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			array(
