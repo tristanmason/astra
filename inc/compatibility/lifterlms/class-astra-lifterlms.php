@@ -734,7 +734,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'attribute' => 'site-sidebar-layout',
 								'id'        => 'site-sidebar-layout',
 								'label'     => esc_html__( 'Sidebar', 'astra' ),
-								'type'      => 'select',
+								'type'      => 'ast-select',
 								'options'   => array(
 									'default'       => esc_html__( 'Customizer Setting', 'astra' ),
 									'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
@@ -746,7 +746,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'attribute' => 'site-content-layout',
 								'id'        => 'site-content-layout',
 								'label'     => esc_html__( 'Content Layout', 'astra' ),
-								'type'      => 'select',
+								'type'      => 'ast-select',
 								'options'   => array(
 									'default'         => esc_html__( 'Customizer Setting', 'astra' ),
 									'boxed-container' => esc_html__( 'Boxed', 'astra' ),

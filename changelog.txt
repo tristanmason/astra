@@ -1,5 +1,6 @@
-v3.2.0
+v3.2.0 (unreleased)
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
+- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
 - Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
 - Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
 - Improvement: Gutenberg Editor - Block patterns compatibility.
@@ -10,6 +11,8 @@ v3.2.0
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+- Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
+- Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
 - Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
 
 v3.1.2
