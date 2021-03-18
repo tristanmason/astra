@@ -132,7 +132,7 @@
             // Sub Menu - Divider Size.
             wp.customize( 'astra-settings[header-mobile-menu-submenu-item-b-size]', function( value ) {
                 value.bind( function( borderSize ) {
-                    var selector = '.ast-header-break-point .ast-builder-menu-mobile .main-navigation';
+                    var selector = '.ast-hfb-header .ast-builder-menu-mobile .main-navigation';
                     var dynamicStyle = '';
                     dynamicStyle += selector + ' .main-header-menu {';
                     dynamicStyle += 'border-top-width: ' + borderSize + 'px;';
@@ -165,11 +165,17 @@
             wp.customize( 'astra-settings[header-mobile-menu-menu-spacing]', function( value ) {
                 value.bind( function( padding ) {
                     var dynamicStyle = '';
-                    dynamicStyle += '.ast-builder-menu-mobile .main-header-menu .menu-item > .menu-link {';
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-header-menu .menu-item > .menu-link {';
                     dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
                     dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
                     dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
                     dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
+                    dynamicStyle += '} ';
+
+                    // Toggle top.
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
+                    dynamicStyle += 'top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
+                    dynamicStyle += 'right: calc( ' + padding['desktop']['right'] + padding['desktop-unit'] + ' - 0.907em );'
                     dynamicStyle += '} ';
 
                     dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
@@ -180,7 +186,7 @@
                     dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
                     dynamicStyle += '} ';
                     // Toggle top.
-                    dynamicStyle += '.astra-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
                     dynamicStyle += 'top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
                     dynamicStyle += 'right: calc( ' + padding['tablet']['right'] + padding['tablet-unit'] + ' - 0.907em );'
                     dynamicStyle += '} ';
@@ -195,7 +201,7 @@
                     dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
                     dynamicStyle += '} ';
                     // Toggle top.
-                    dynamicStyle += '.astra-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
+                    dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation ul .menu-item.menu-item-has-children > .ast-menu-toggle {';
                     dynamicStyle += 'top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
                     dynamicStyle += 'right: calc( ' + padding['mobile']['right'] + padding['mobile-unit'] + ' - 0.907em );'
                     dynamicStyle += '} ';
@@ -246,25 +252,26 @@
                 value.bind(function (color) {
                     var insideBorder = wp.customize('astra-settings[header-mobile-menu-submenu-item-border]').get(),
                         borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
-                        console.log( borderSize );
                     if ('' != color) {
                         if ( true == insideBorder ) {
 
                             var dynamicStyle = '';
 
-                            dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
+                            dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
                             dynamicStyle += '{';
                             dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? borderSize + 'px;' : '0px;' );
                             dynamicStyle += 'border-color:' + color + ';';
                             dynamicStyle += 'border-style: solid;';
                             dynamicStyle += '}';
-                            dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .main-header-menu';
+                            dynamicStyle += '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu';
                             dynamicStyle += '{';
                             dynamicStyle += 'border-top-width:' + ( ( true === insideBorder ) ? borderSize + 'px;' : '0px;' );
                             dynamicStyle += 'border-color:' + color + ';';
                             dynamicStyle += '}';
 
                             astra_add_dynamic_css('header-mobile-menu-submenu-item-b-color', dynamicStyle);
+                        } else {
+                            wp.customize.preview.send( 'refresh' );
                         }
                     } else {
                         wp.customize.preview.send('refresh');
@@ -281,13 +288,13 @@
                         borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
 
                     if( true === border  ) {
-                        var dynamicStyle = '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
+                        var dynamicStyle = '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item .sub-menu .menu-link, .ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item .menu-link';
                         dynamicStyle += '{';
                         dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? borderSize + 'px;' : '0px;' );
                         dynamicStyle += 'border-color:'        + color + ';';
                         dynamicStyle += 'border-style: solid;';
                         dynamicStyle += '}';
-                        dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .main-header-menu';
+                        dynamicStyle += '.ast-builder-menu-mobile .main-navigation .main-header-menu';
                         dynamicStyle += '{';
                         dynamicStyle += 'border-top-width:' + ( ( true === border ) ? borderSize + 'px;' : '0px;' );
                         dynamicStyle += 'border-style: solid;';
