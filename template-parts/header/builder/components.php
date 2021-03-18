@@ -134,32 +134,59 @@ switch ( $component_slug ) {
 		break;
 	case 'widget-1':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1" aria-label="Header Widget 1">
+		<aside
+		<?php
+		echo astra_attr(
+			'header-widget-area-inner',
+			array(
+				'class'        => 'header-widget-area widget-area site-header-focus-item',
+				'data-section' => 'sidebar-widgets-header-widget-1',
+				'aria-label'   => 'Header Widget 1',
+			) 
+		); 
+		?>
+		>
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
-			<div class="header-widget-area-inner site-info-inner">
-				<?php astra_get_sidebar( 'header-widget-1' ); ?>
-			</div>
+			<?php 
+			astra_markup_open( 'header-widget-div' );
+			astra_get_sidebar( 'header-widget-1' );
+			astra_markup_close( 'header-widget-div' ); 
+			?>
 		</aside>
-		<?php
+			<?php 
 		break;
 	case 'widget-2':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2" aria-label="Header Widget 2">
+		<aside
+		<?php
+		echo astra_attr(
+			'header-widget-area-inner',
+			array(
+				'class'        => 'header-widget-area widget-area site-header-focus-item',
+				'data-section' => 'sidebar-widgets-header-widget-2',
+				'aria-label'   => 'Header Widget 2',
+			) 
+		); 
+		?>
+		>
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
-			<div class="header-widget-area-inner site-info-inner">
-				<?php astra_get_sidebar( 'header-widget-2' ); ?>
-			</div>
+			<?php
+			astra_markup_close( 'header-widget-div' );
+			astra_get_sidebar( 'header-widget-2' ); 
+			astra_markup_close( 'header-widget-div' ); 
+			?>
 		</aside>
-		<?php
+		<?php 
 		break;
+		
 	default:
 		do_action( 'astra_render_header_components', $component_slug );
 		break;
