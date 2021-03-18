@@ -1174,13 +1174,13 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 		$req       = get_option( 'require_name_email' );
 		$aria_req  = ( $req ? " aria-required='true'" : '' );
 
-		$fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
+		$fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ' . astra_attr( 'comment-form-grid-class' ) . '">' .
 					'<label for="author" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-		$fields['email']  = '<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
+		$fields['email']  = '<p class="comment-form-email ' . astra_attr( 'comment-form-grid-class' ) . '">' .
 					'<label for="email" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-		$fields['url']    = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
+		$fields['url']    = '<p class="comment-form-url ' . astra_attr( 'comment-form-grid-class' ) . '"><label for="url">' .
 					'<label for="url" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
 
@@ -1216,7 +1216,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 			$args['title_reply']       = astra_default_strings( 'string-comment-title-reply', false );
 			$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
 			$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
-			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ' . astra_attr( 'ast-grid-lg-12' ) . '"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		}
 		return apply_filters( 'astra_comment_form_default_markup', $args );
 
