@@ -131,6 +131,12 @@
   display: flex;
 }
 
+.llms-student-dashboard .llms-loop-item-content,
+.ast-container .llms-loop-item-content,
+.ast-lifterlms-container .llms-loop-item-content {
+  padding-bottom: 15px;
+}
+
 .llms-student-dashboard .llms-loop-item-content .llms-author,
 .llms-student-dashboard .llms-loop-item-content .llms-loop-title,
 .llms-student-dashboard .llms-loop-item-content .llms-meta,
@@ -199,12 +205,6 @@
 .ast-container .llms-loop-item-content .llms-loop-item-footer,
 .ast-lifterlms-container .llms-loop-item-content .llms-loop-item-footer {
   margin-top: 10px;
-}
-
-.llms-student-dashboard .llms-loop-item-content .llms-loop-item-content,
-.ast-container .llms-loop-item-content .llms-loop-item-content,
-.ast-lifterlms-container .llms-loop-item-content .llms-loop-item-content {
-  padding-bottom: 15px;
 }
 
 .course .llms-featured-image {
