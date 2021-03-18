@@ -106,7 +106,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 				
 				/**
@@ -129,7 +129,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 					'transport'  => 'postMessage',
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -197,7 +197,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				// Spacing Between every element in the flyout.

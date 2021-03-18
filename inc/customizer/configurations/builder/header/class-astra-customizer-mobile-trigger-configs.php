@@ -142,7 +142,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'      => 'control',
 				'control'   => 'text',
 				'context'   => Astra_Builder_Helper::$general_tab,
-				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 			),
 
 			/**
@@ -164,7 +164,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'max'  => 100,
 				),
 				'context'     => Astra_Builder_Helper::$design_tab,
-				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'     => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 			),
 
 			/**
