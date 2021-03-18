@@ -288,7 +288,7 @@
                         borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
 
                     if( true === border  ) {
-                        var dynamicStyle = '.ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
+                        var dynamicStyle = '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item .sub-menu .menu-link, .ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item .menu-link';
                         dynamicStyle += '{';
                         dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? borderSize + 'px;' : '0px;' );
                         dynamicStyle += 'border-color:'        + color + ';';
