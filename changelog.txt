@@ -1,5 +1,7 @@
-v3.2.0 (unreleased)
+v3.2.0
 - New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
+- Fix: Transparent Header - Header is not visible at exact tablet breakpoint device.
+- Fix: Transparent Header - Submenu background alpha not working for the old header.
 
 v3.1.2
 - Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
