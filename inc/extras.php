@@ -391,11 +391,9 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
 	$tabindex = ' tabindex="0"';
 	$icon     = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) ? '' : Astra_Icons::get_icons( 'arrow' );
-	if ( isset( $args->container_class ) && 'main-header-bar-navigation' === $args->container_class ) {
-		foreach ( $item->classes as $value ) {
-			if ( 'menu-item-has-children' === $value ) {
-				$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex . '>' . $icon . '</span>';
-			}
+	foreach ( $item->classes as $value ) {
+		if ( 'menu-item-has-children' === $value ) {
+			$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex . '>' . $icon . '</span>';
 		}
 	}
 	if ( 0 < $depth ) {
@@ -450,7 +448,7 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
 }
 
 /**
- * Generate HTML Open markup 
+ * Generate HTML Open markup
  *
  * @param string $context unique markup key.
  * @param array  $args {
@@ -478,7 +476,7 @@ function astra_markup_open( $context, $args = array() ) {
 			echo $open_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $open_tag;
-		}   
+		}
 	}
 	return false;
 }
@@ -505,7 +503,7 @@ function astra_markup_close( $context, $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 	if ( $context ) {
-		$args      = apply_filters( "astra_markup_{$context}_close", $args ); 
+		$args      = apply_filters( "astra_markup_{$context}_close", $args );
 		$close_tag = $args['close'];
 		if ( $args['echo'] ) {
 			echo $close_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
