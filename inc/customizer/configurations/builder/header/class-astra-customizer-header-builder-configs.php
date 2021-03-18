@@ -232,8 +232,11 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 				'input_attrs' => array(
 					'group'  => ASTRA_THEME_SETTINGS . '[header-desktop-items]',
-					'rows'   => array( 'above', 'primary', 'below' ),
+					'rows'   => array( 'popup', 'above', 'primary', 'below' ),
 					'zones'  => array(
+						'popup'   => array(
+							'popup_content' => 'Popup Content',
+						),
 						'above'   => array(
 							'above_left'         => 'Top - Left',
 							'above_left_center'  => 'Top - Left Center',
@@ -281,7 +284,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'priority'    => 30,
 				'input_attrs' => array(
 					'group' => ASTRA_THEME_SETTINGS . '[header-desktop-items]',
-					'zones' => array( 'above', 'primary', 'below' ),
+					'zones' => array( 'popup', 'above', 'primary', 'below' ),
 				),
 				'context'     => array(
 					array(
@@ -452,28 +455,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'transport'  => 'postMessage',
 				'renderAs'   => 'text',
 				'responsive' => false,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[section-header-builder-layout-margin-padding-divider]',
-				'type'     => 'control',
-				'section'  => 'section-header-builder-layout',
-				'control'  => 'ast-divider',
-				'priority' => 200,
-				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting' => 'ast_selected_tab',
-						'value'   => 'design',
-					),
-					array(
-						'setting' => 'ast_selected_device',
-						'value'   => 'desktop',
-					),
-				),
+				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			array(

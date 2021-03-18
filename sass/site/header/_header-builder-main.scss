@@ -52,8 +52,6 @@
 
 	.main-header-bar-navigation {
 
-		height: 100%;
-
 		&:empty {
 		    padding: 0;
 		}
@@ -344,16 +342,5 @@
 		.sub-menu {
 			width: 150px;
 		}
-	}
-}
-.ast-desktop {
-	.main-header-menu > .menu-item .sub-menu:before,
-	.main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		width: 100%;
-		transform: translateY(-100%);
 	}
 }

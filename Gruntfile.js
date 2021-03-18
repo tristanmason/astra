@@ -149,6 +149,21 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['main.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+                     /* Common Style felx based */
+                     {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['style-flex.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
 
                     /* Compatibility */
                     {
@@ -434,6 +449,10 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/frontend.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/main-rtl.css',
+                        dest: 'assets/css/minified/main.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
                         dest: 'assets/css/minified/extend-customizer.min-rtl.css',
                     },
@@ -461,8 +480,8 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
                     },
                     {
-                        src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        src: 'assets/css/unminified/compatibility/contact-form-7-main-rtl.css',
+                        dest: 'assets/css/minified/compatibility/contact-form-7-main.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
@@ -489,8 +508,20 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-grid.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout-grid.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
                         dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen-grid.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
