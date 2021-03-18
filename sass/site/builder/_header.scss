@@ -1009,3 +1009,7 @@ body.admin-bar {
 .ast-desktop-header-content .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
 	transform: rotateX(180deg);
 }
+
+.ast-builder-layout-element[data-section^="section-hb-button-"] {
+	display: flex;
+}

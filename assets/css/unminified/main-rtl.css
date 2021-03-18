@@ -3050,6 +3050,11 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   transform: rotateX(180deg);
 }
 
+.ast-builder-layout-element[data-section^="section-hb-button-"] {
+  -js-display: flex;
+  display: flex;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header
