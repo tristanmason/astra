@@ -1,4 +1,5 @@
 v3.2.0
+- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
 - Fix: Transparent Header - Header is not visible at exact tablet breakpoint device.
 - Fix: Transparent Header - Submenu background alpha not working for the old header.
 
@@ -15,7 +16,7 @@ v3.1.1
 - Fix: Transparent Header - Submenu background color not working.
 
 v3.1.0
-- Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
+- Improvement: Redesigned the entire customizer UI for better user experience. (https://wpastra.com/docs/revamped-astra-customizer/)
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.

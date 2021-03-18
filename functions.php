@@ -145,6 +145,7 @@ require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor-pro.php';
+	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-web-stories.php';
 }
 
 // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
