@@ -106,21 +106,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				
-				/**
-				 * Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-slide-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'context'  => Astra_Builder_Helper::$general_tab,
-					'control'  => 'ast-divider',
-					'priority' => 40,
-					'settings' => array(),
-				),
-
 				/**
 				 * Option: Toggle on click of button or link.
 				 */
@@ -141,19 +129,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 					'transport'  => 'postMessage',
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-builder-menu-toggle-target-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 40,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -166,7 +142,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'    => 'ast-selector',
 					'section'    => $_section,
 					'context'    => Astra_Builder_Helper::$general_tab,
-					'priority'   => 45,
+					'priority'   => 40,
 					'title'      => __( 'Content Alignment', 'astra' ),
 					'suffix'     => '',
 					'choices'    => array(
@@ -221,19 +197,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							),
 						),
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-canvas-close-color-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 28,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Spacing Between every element in the flyout.
@@ -248,19 +212,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 28,
 					'context'   => Astra_Builder_Helper::$design_tab,
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[off-canvas-inner-element-spacing-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 28,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Option Group: Off-Canvas Colors Group.

@@ -126,19 +126,6 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-menu-label-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'settings' => array(),
-				'priority' => 20,
-				'context'  => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
 			 * Option: Mobile Menu Label
 			 */
 			array(
@@ -155,6 +142,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'type'      => 'control',
 				'control'   => 'text',
 				'context'   => Astra_Builder_Helper::$general_tab,
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**
@@ -176,19 +164,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'max'  => 100,
 				),
 				'context'     => Astra_Builder_Helper::$design_tab,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'settings' => array(),
-				'priority' => 40,
-				'context'  => Astra_Builder_Helper::$design_tab,
+				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
