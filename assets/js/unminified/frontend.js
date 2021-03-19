@@ -908,12 +908,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if( desktop_header == null ) {
 			console.error("Enabling mobile header...");
-			mobile_header.style.display = '';
+			mobile_header.style.display = 'block !important';
 		}
 
 		if( mobile_header == null ) {
 			console.error("Enabling Desktop header...");
-			desktop_header.style.display = '';
+			desktop_header.style.display = 'block !important';
 		}
 	}
 
