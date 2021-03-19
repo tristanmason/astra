@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
 							'operator' => '==',
 							'value'    => 'ast-full-width-layout',
-						)
+						),
 					),
 					'suffix'      => 'px',
 					'input_attrs' => array(
