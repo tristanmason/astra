@@ -906,7 +906,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
 
-		debugger;
+
 		if( desktop_header == null ) {
 			console.error("Enabling mobile header...");
 			mobile_header.style.display = 'block';
@@ -933,6 +933,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			swap_header_on_breakpoint(true);
 			init();
 			document.dispatchEvent( new CustomEvent( "astLayoutWidthChanged",  { "detail": { 'response' : '' } }) );
-		}, 50);
+		}, 100);
 	});
 })();
