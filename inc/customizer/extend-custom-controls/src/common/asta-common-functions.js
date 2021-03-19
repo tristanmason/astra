@@ -1,4 +1,4 @@
-export default function isJSON(text) {
+export default function astraIsJSON(text) {
 	if (typeof text !== "string") {
 		return false;
 	}

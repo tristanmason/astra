@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
-import isJSON from "../common/astra-common-functions";
+import astraIsJSON from "../common/astra-common-function";
 import { useEffect, useState } from "react";
 import {
 	Dashicon,
@@ -145,126 +145,111 @@ const ColorPaletteComponent = (props) => {
 		props.control.setting.set(obj);
 	};
 
-	var patternhtml = (
-		<>
-			<div className="ast-color-palette1-wrap">
-				{Object.keys(state.pattern1).map((item, index) => {
-					return (
-						<div
-							className={`ast-color-picker-palette-${index + 1} `}
-							key={index}
+	const patternHtml = (
+		<div className="ast-color-palette-wrap">
+			{Object.keys(state.pattern1).map((item, index) => {
+				return (
+					<div
+						className={`ast-color-picker-palette-${index + 1} `}
+						key={index}
+					>
+						<TextControl
+							className="ast-color-palette-label"
+							value={state.pattern1[index][1]}
+							onChange={(value) => editLabel(value, index)}
+						/>
+						<span
+							title={
+								index <= 4
+									? __("This color can't be deleted", "astra")
+									: ""
+							}
 						>
-							<TextControl
-								className="ast-color-palette-label"
-								value={state.pattern1[index][1]}
-								onChange={(value) => editLabel(value, index)}
-							/>
-							<span
-								title={
-									index <= 4
-										? __(
-												"This color can't be deleted",
-												"astra"
-										  )
-										: ""
-								}
+							<Button
+								className="ast-palette-delete"
+								disabled={index <= 4 ? true : false}
+								onClick={() => {
+									deleteCustomPalette(index, item);
+								}}
 							>
-								<Button
-									className="ast-palette-delete"
-									disabled={index <= 4 ? true : false}
-									onClick={() => {
-										deleteCustomPalette(index, item);
-									}}
-								>
-									<Dashicon icon="trash" />
-								</Button>
-							</span>
-							<AstraColorPickerControl
-								color={
-									undefined !== state.pattern1 &&
-									state.pattern1
-										? state.pattern1[index][0]
-										: ""
-								}
-								onChangeComplete={(color, backgroundType) =>
-									handleChangeComplete(
-										color,
-										"pattern1",
-										index
-									)
-								}
-								backgroundType={"color"}
-								allowGradient={false}
-								allowImage={false}
-								disablePalette={true}
-								colorIndicator={
-									undefined !== state.pattern1 &&
-									state.pattern1
-										? state.pattern1[index][0]
-										: ""
-								}
-							/>
-						</div>
-					);
-				})}
-				<Button
-					className="ast-add-new-color"
-					isPrimary
-					onClick={() => addNewColorToPalette()}
-				>
-					<Dashicon icon="plus" />
-					<span> Add New Color</span>
-				</Button>
-				<Button
-					className="ast-palette-import"
-					isPrimary
-					onClick={() => {
-						state.isVisible ? toggleClose() : toggleVisible();
-					}}
-				>
-					<Dashicon icon="open-folder" /> Presets
-				</Button>
-			</div>
-		</>
+								<Dashicon icon="trash" />
+							</Button>
+						</span>
+						<AstraColorPickerControl
+							color={
+								undefined !== state.pattern1 && state.pattern1
+									? state.pattern1[index][0]
+									: ""
+							}
+							onChangeComplete={(color, backgroundType) =>
+								handleChangeComplete(color, "pattern1", index)
+							}
+							backgroundType={"color"}
+							allowGradient={false}
+							allowImage={false}
+							disablePalette={true}
+							colorIndicator={
+								undefined !== state.pattern1 && state.pattern1
+									? state.pattern1[index][0]
+									: ""
+							}
+						/>
+					</div>
+				);
+			})}
+			<Button
+				className="ast-add-new-color"
+				isPrimary
+				onClick={() => addNewColorToPalette()}
+			>
+				<Dashicon icon="plus" />
+				<span> Add New Color</span>
+			</Button>
+			<Button
+				className="ast-palette-import"
+				isPrimary
+				onClick={() => {
+					state.isVisible ? toggleClose() : toggleVisible();
+				}}
+			>
+				<Dashicon icon="open-folder" /> Presets
+			</Button>
+		</div>
 	);
 
-	const renderOperationButtons = () => {
+	const renderResetButton = () => {
 		return (
-			<span className="customize-control-title">
-				<>
-					<div className="ast-color-btn-reset-wrap">
-						<button
-							className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-							disabled={
-								JSON.stringify(state) ===
+			<>
+				<div className="ast-color-btn-reset-wrap">
+					<button
+						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+						disabled={
+							JSON.stringify(state) ===
+							JSON.stringify(defaultValue)
+						}
+						onClick={(e) => {
+							e.preventDefault();
+							let value = JSON.parse(
 								JSON.stringify(defaultValue)
+							);
+							if (undefined === value || "" === value) {
+								value = "";
+								wp.customize.previewer.refresh();
 							}
-							onClick={(e) => {
-								e.preventDefault();
-								let value = JSON.parse(
-									JSON.stringify(defaultValue)
-								);
-
-								if (undefined === value || "" === value) {
-									value = "";
-									wp.customize.previewer.refresh();
-								}
-
-								resetValue(value);
+							resetValue(value);
+						}}
+					>
+						<Dashicon
+							icon="image-rotate"
+							style={{
+								width: 12,
+								height: 12,
+								fontSize: 12,
 							}}
-						>
-							<Dashicon
-								icon="image-rotate"
-								style={{
-									width: 12,
-									height: 12,
-									fontSize: 12,
-								}}
-							/>
-						</button>
-					</div>
-				</>
-			</span>
+						/>
+					</button>
+				</div>
+			</>
 		);
 	};
 
@@ -360,7 +345,7 @@ const ColorPaletteComponent = (props) => {
 		}
 
 		if (
-			isJSON(importText) &&
+			astraIsJSON(importText) &&
 			Object.keys(JSON.parse(importText)).length === 5
 		) {
 			var customImportText = JSON.parse(importText);
@@ -432,9 +417,8 @@ const ColorPaletteComponent = (props) => {
 	return (
 		<>
 			<label className="customizer-text">{labelHtml}</label>
-			{renderOperationButtons()}
-
-			<div className="ast-color-palette-wrapper">{patternhtml}</div>
+			{renderResetButton()}
+			<div className="ast-color-palette-wrapper">{patternHtml}</div>
 			<input
 				type="hidden"
 				data-palette={JSON.stringify(state[state.patterntype])}
