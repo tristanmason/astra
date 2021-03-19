@@ -202,7 +202,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ),
 			),
 			$selector . ' .main-header-menu .menu-item > .menu-link' => array(
-				'color'          => $menu_resp_color_tablet,
+				'color' => $menu_resp_color_tablet,
 			),
 			$selector . ' .menu-item > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_tablet,
@@ -251,7 +251,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'mobile' ),
 			),
 			$selector . ' .main-header-menu .menu-item > .menu-link' => array(
-				'color'          => $menu_resp_color_mobile,
+				'color' => $menu_resp_color_mobile,
 			),
 			$selector . ' .menu-item  > .ast-menu-toggle' => array(
 				'color' => $menu_resp_color_mobile,
