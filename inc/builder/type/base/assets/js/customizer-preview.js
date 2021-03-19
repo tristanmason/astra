@@ -393,7 +393,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 						dynamicStyle += '} ';
 					}
 
-					astra_add_dynamic_css( builder_type + '-social-icons-icon-space-toggle-button', dynamicStyle );
+					astra_add_dynamic_css( builder_type + '-social-icons-icon-space', dynamicStyle );
 				} );
 			} );
 
@@ -601,9 +601,9 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 
 							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 							if( AstraBuilderWidgetData.is_flex_based_css ){
-								dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"].footer-widget-area-inner {'; 
+								dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"].footer-widget-area-inner {';
 							}else{
-								dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {'; 
+								dynamicStyle += '.footer-widget-area[data-section="sidebar-widgets-footer-widget-' + index + '"] .footer-widget-area-inner {';
 							}
 							dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
 							dynamicStyle += '} ';
