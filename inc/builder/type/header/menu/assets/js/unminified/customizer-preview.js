@@ -303,8 +303,6 @@
 				// Adding customizer-refresh because if megamenu is enabled on menu then caluculated left & width JS value of megamenu wrapper wiped out due to partial refresh.
 				wp.customize( 'astra-settings[header-menu'+ index +'-menu-hover-animation]', function( setting ) {
 					setting.bind( function( animation ) {
-						console.log( isNavMenuEnabled );
-						console.log( animation );
 
 						var menuWrapper = jQuery( '#ast-desktop-header #ast-hf-menu-'+ index  );
 						menuWrapper.removeClass('ast-menu-hover-style-underline');
