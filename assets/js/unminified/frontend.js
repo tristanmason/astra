@@ -906,14 +906,15 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
 
+		debugger;
 		if( desktop_header == null ) {
 			console.error("Enabling mobile header...");
-			mobile_header.style.display = 'block !important';
+			mobile_header.style.display = 'block';
 		}
 
 		if( mobile_header == null ) {
 			console.error("Enabling Desktop header...");
-			desktop_header.style.display = 'block !important';
+			desktop_header.style.display = 'block';
 		}
 	}
 
