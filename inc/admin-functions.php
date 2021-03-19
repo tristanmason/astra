@@ -39,7 +39,7 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 			register_nav_menus(
 				array(
 					'secondary_menu' => __( 'Secondary Menu', 'astra' ),
-					'mobile_menu'    => __( 'Mobile Menu', 'astra' ),
+					'mobile_menu'    => __( 'Off-Canvas Menu', 'astra' ),
 				)
 			);
 

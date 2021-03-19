@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 const BuilderComponent = props => {
 
 	let value = props.control.setting.get();
+	let staleValue = {};
 
 	let baseDefault = {};
 	let defaultValue = props.control.params.default ? {
@@ -28,11 +29,24 @@ const BuilderComponent = props => {
 
 
 	const component_track = props.customizer.control('astra-settings[cloned-component-track]').setting;
+	const prevItems = [];
+	prevItems['revertDrag'] = false;
 
 	const [state, setState] = useState({
 		value: value,
-		layout: controlParams.layouts
+		layout: controlParams.layouts,
+		isPopup: false,
+		prevItems: prevItems
 	});
+
+	let contFlag = false;
+
+	if ( props.control.container ) {
+		contFlag = props.control.container[0].getAttribute( 'isPopup' );
+	}
+	if ("astra-settings[header-desktop-items]" === controlParams.group || "astra-settings[header-mobile-items]" === controlParams.group) {
+		staleValue = JSON.parse( JSON.stringify(state.value) )
+	}
 
 	const updateValues = (value, row = '') => {
 
@@ -104,6 +118,41 @@ const BuilderComponent = props => {
 	};
 
 	const onDragStop = () => {
+
+		if ( state.prevItems.revertDrag ) {
+			let row = state.prevItems.row;
+			let zone = state.prevItems.zone;
+			let restrictRow = state.prevItems.restrictRow;
+			let restrictZone = state.prevItems.restrictZone;
+			let updateState = state.value;
+			let update = updateState[row];
+			let updateItems = state.prevItems.staleValue[row][zone];
+			let popupRemoveUpdate = updateState[restrictRow];
+			let popupRemoveUpdateItems = state.prevItems.staleValue[restrictRow][restrictZone];
+
+			update[zone] = updateItems;
+			popupRemoveUpdate[restrictZone] = popupRemoveUpdateItems;
+			updateState[row][zone] = updateItems;
+			updateState[restrictRow][restrictZone] = popupRemoveUpdateItems;
+
+			setPopupFlag(true);
+
+			setState(prevState => ({
+				...prevState,
+				value: updateState
+			}));
+
+			updateValues(updateState, row );
+
+			let prevItems = [];
+			prevItems['revertDrag'] = false;
+
+			setState(prevState => ({
+				...prevState,
+				prevItems: prevItems
+			}));
+		}
+
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
 		for (let i = 0; i < dropzones.length; ++i) {
 			dropzones[i].classList.remove('ahfb-dragging-dropzones');
@@ -264,7 +313,6 @@ const BuilderComponent = props => {
 
 	const removeItem = (item, row, zone) => {
 
-
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
@@ -295,6 +343,8 @@ const BuilderComponent = props => {
 		update[zone] = updateItems;
 		updateState[row][zone] = updateItems;
 
+		setPopupFlag(true);
+
 		setState(prevState => ({
 			...prevState,
 			value: updateState
@@ -307,18 +357,64 @@ const BuilderComponent = props => {
 		document.dispatchEvent(event);
 	};
 
+	const setPreviousItems = ( item, restrictRow, restrictZone ) => {
+
+		let prevItems = [];
+
+		prevItems['restrictRow'] = restrictRow;
+		prevItems['restrictZone'] = restrictZone;
+
+		for ( const [rowKey, value] of Object.entries(staleValue) ) {
+						
+			for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
+				
+				for( let zoneItem of zoneValue ) {
+					
+					if ( zoneItem === item.id ) {
+						prevItems['row'] = rowKey;
+						prevItems['zone'] = zoneKey;
+						prevItems['revertDrag'] = true;
+						prevItems['staleValue'] = staleValue;
+					}
+				}
+			}
+		}
+
+		return prevItems;
+	}
+
 	const onDragEnd = (row, zone, items) => {
+
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
+		let itemIncludesMenu = false;
+		let prevItems = [];
+
 		{
 			items.length > 0 && items.map(item => {
+
+				itemIncludesMenu = item.id.includes( 'menu' );
+
+				if ( ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) || 'popup' !== row && 'mobile-menu' === item.id ) {
+
+
+					prevItems = setPreviousItems( item, row, zone );
+
+					setState(prevState => ({
+						...prevState,
+						prevItems: prevItems
+					}));
+				} 
+				
 				updateItems.push(item.id);
 			});
 		}
 		;
 
-		if (!arraysEqual(update[zone], updateItems)) {
+
+		if (!arraysEqual(update[zone], updateItems) ) {
+
 			if ('astra-settings[header-desktop-items]' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {
 				if (update[row + '_left_center'].length > 0) {
 					update[row + '_left_center'].map(move => {
@@ -334,9 +430,10 @@ const BuilderComponent = props => {
 					updateState[row][row + '_right_center'] = [];
 				}
 			}
-
 			update[zone] = updateItems;
 			updateState[row][zone] = updateItems;
+
+			setPopupFlag(true);
 			setState(prevState => ({
 				...prevState,
 				value: updateState
@@ -381,10 +478,56 @@ const BuilderComponent = props => {
 		}
 	};
 
+	const setPopupFlag = (refresh) => {
+
+		let is_popup_flag = false;
+
+		if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
+			controlParams.rows.map(row => {
+				var rowContents = state.value[row];
+
+				for ( const [key, value] of Object.entries(rowContents) ) {
+
+					if( value.includes('mobile-trigger') ) {
+						is_popup_flag = true;
+						return;
+					}
+				}
+			});
+		}
+		if ( 'astra-settings[header-mobile-items]' === props.control.id ) {
+			controlParams.rows.map(row => {
+				var rowContents = state.value[row];
+
+				for ( const [key, value] of Object.entries(rowContents) ) {
+
+					if( value.includes('mobile-trigger') ) {
+						is_popup_flag = true;
+						return;
+					}
+				}
+			});
+		}
+
+		if ( refresh ) {
+			setState(prevState => ({
+				...prevState,
+				isPopup: is_popup_flag
+			}));
+		}
+
+		if ( props.control.container ) {
+			props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
+			contFlag = is_popup_flag;
+		}
+
+	}
+
+	setPopupFlag(false);
 	isCloneEnabled();
 
 	return <div className="ahfb-control-field ahfb-builder-items">
-		{controlParams.rows.includes('popup') &&
+		{ ( true === state.isPopup || true === contFlag ) && controlParams.rows.includes('popup') &&
 		<RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 					  focusItem={item => focusItem(item)}
 					  removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
