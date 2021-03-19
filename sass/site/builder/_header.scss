@@ -343,31 +343,6 @@
 	display: grid;
 	align-content: center;
 }
-/**
- * AST HF Builder - Widgets related CSS.
- * Header Nav and Submenu compatibility CSS.
- */
-.site-header-focus-item {
-	.main-header-bar-navigation {
-		.menu-item-has-children {
-			>.menu-link {
-				&:after {
-					content: "\e900";
-					display: inline-block;
-					font-family: 'Astra';
-					font-size: 9px;
-					font-size: .6rem;
-					font-weight: bold;
-					text-rendering: auto;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-					margin-left: 10px;
-					line-height: normal;
-				}
-			}
-		}
-	}
-}
 .main-header-bar,
 .ast-above-header,
 .ast-below-header {
@@ -444,7 +419,6 @@
 				padding: 0 0.907em;
 				font-weight: normal;
 				line-height: inherit;
-				transition: all .2s;
 			}
 			.sub-menu {
 				display: none;
@@ -473,26 +447,6 @@
 						&::before {
 							transform: rotateX(180deg);
 						}
-					}
-				}
-			}
-		}
-		.main-header-bar-navigation {
-			.menu-item-has-children {
-				>.ast-menu-toggle {
-					&::before {
-						font-weight: bold;
-						content: "\e900";
-						font-family: 'Astra';
-						text-decoration: inherit;
-						display: inline-block;
-					}
-				}
-			}
-			.ast-submenu-expanded {
-				>.ast-menu-toggle {
-					&::before {
-						transform: rotateX(180deg);
 					}
 				}
 			}
@@ -583,24 +537,8 @@
 	}
 	.main-header-bar-navigation {
 		.menu-item-has-children {
-			>.ast-menu-toggle {
-				&::before {
-					font-weight: bold;
-					content: "\e900";
-					font-family: 'Astra';
-					text-decoration: inherit;
-					display: inline-block;
-				}
-			}
 			.sub-menu {
 				display: none;
-			}
-		}
-		.ast-submenu-expanded {
-			>.ast-menu-toggle {
-				&::before {
-					transform: rotateX(180deg);
-				}
 			}
 		}
 	}
