@@ -814,6 +814,47 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-label-font-size']      = '';
 
 	/**
+	 * Global Color Palette.
+	 */
+	$defaults['global-color-palette'] = array(
+		'pattern'         => array(
+			array( '#3a3a3a', __( 'Text Color', 'astra' ) ),
+			array( '#0274be', __( 'Theme Color', 'astra' ) ),
+			array( '#0274b2', __( 'Link Color', 'astra' ) ),
+			array( '#3a3a31', __( 'Link Hover Color', 'astra' ) ),
+			array( '#3a3a3b', __( 'Heading Color ( H1 - H6 )', 'astra' ) ),
+		),
+		'isVisible'        => false,
+		'exportCopied'     => '',
+		'customImportText' => '',
+		'importError'      => false,
+		'presetPalette'    => array(
+			array(
+				'#7e6c6c',
+				'#f87575',
+				'#ffa9a3',
+				'#b9e6ff',
+				'#5c95ff',
+			),
+			array(
+				'#562c2c',
+				'#f2542d',
+				'#f5dfbb',
+				'#0e9594',
+				'#127475',
+			),
+			array(
+				'#0d1b2a',
+				'#1b263b',
+				'#415a77',
+				'#778da9',
+				'#e0e1dd',
+			),
+		),
+	);
+
+
+	/**
 	* Mobile Menu
 	*/
 
@@ -1698,6 +1739,7 @@ function prepare_menu_defaults( $defaults, $index ) {
 	 */
 	$defaults['transparent-header-main-sep']       = '';
 	$defaults['transparent-header-main-sep-color'] = '';
+
 
 	return $defaults;
 }

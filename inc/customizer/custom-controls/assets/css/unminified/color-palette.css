@@ -1,0 +1,78 @@
+#customize-control-astra-settings-global-color-palette
+	.ast-color-palette-wrap
+	> div {
+	margin-bottom: 8px;
+}
+
+#customize-control-astra-settings-global-color-palette .color-button-wrap {
+	display: unset;
+	position: unset;
+	right: unset;
+	top: unset;
+	vertical-align: sub;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.astra-color-picker-wrap {
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	width: 21em;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.ast-color-btn-reset-wrap {
+	left: 60px;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.ast-color-palette-label {
+	width: 65%;
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: top;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.ast-color-palette-label
+	input {
+	background: none;
+	border: none;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.ast-color-palette-label
+	input:focus {
+	border: 1px solid black;
+	outline: none;
+	box-shadow: none;
+	background: white;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.ast-add-new-color.is-primary {
+	width: 55%;
+}
+
+#customize-control-astra-settings-global-color-palette
+	button.components-button.ast-palette-delete:disabled:hover {
+	cursor: not-allowed;
+	color: unset;
+}
+
+#customize-control-astra-settings-global-color-palette
+	.ast-add-new-color
+	.dashicons-plus {
+	margin-right: 10px;
+}
+
+#customize-control-astra-settings-global-color-palette .ast-reset-btn:disabled {
+	opacity: 0.6;
+}
+
+@media (min-width: 1800px) {
+	#customize-control-astra-settings-global-color-palette
+		.astra-color-picker-wrap {
+		width: 24em;
+	}
+}
