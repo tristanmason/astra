@@ -385,6 +385,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
 
+		console.error("Width: " + ww);
 		if (headerWrap.length > 0) {
 			for (var i = 0; i < headerWrap.length; i++) {
 
@@ -904,11 +905,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
 		mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
 
+
 		if( desktop_header == null ) {
+			console.error("Enabling mobile header...");
 			mobile_header.style.display = '';
 		}
 
 		if( mobile_header == null ) {
+			console.error("Enabling Desktop header...");
 			desktop_header.style.display = '';
 		}
 	}
