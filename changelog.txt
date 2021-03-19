@@ -1,6 +1,7 @@
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
+- New: SVG Icons support ( deprecating astra.woff font file ).
 - Improvement: Builder - Mobile Menu - Renamed Mobile Menu to Off-Canvas Menu.
 - Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
 - Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
