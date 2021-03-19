@@ -180,7 +180,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	// Desktop CSS.
 	$css_output_desktop = array(
 
-		'.astra-hfb-header .site-header' => array(
+		'.ast-hfb-header .site-header' => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -192,7 +192,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	// Tablet CSS.
 	$css_output_tablet = array(
 
-		'.astra-hfb-header .site-header' => array(
+		'.ast-hfb-header .site-header' => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -204,7 +204,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	// Mobile CSS.
 	$css_output_mobile = array(
 
-		'.astra-hfb-header .site-header' => array(
+		'.ast-hfb-header .site-header' => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
