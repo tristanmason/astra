@@ -700,7 +700,7 @@ final class Astra_Builder_Helper {
 					'section' => 'section-header-mobile-trigger',
 				),
 				'mobile-menu'    => array(
-					'name'    => __( 'Mobile Menu', 'astra' ),
+					'name'    => __( 'Off-Canvas Menu', 'astra' ),
 					'icon'    => 'menu-alt',
 					'section' => 'section-header-mobile-menu',
 				),
@@ -933,6 +933,14 @@ final class Astra_Builder_Helper {
 							 * Astra Off-Canvas
 							 */
 							do_action( 'astra_render_mobile_popup', 'popup', 'content' );
+						?>
+					</div>
+					<div class="ast-desktop-popup-content">
+						<?php
+							/**
+							 * Astra Off-Canvas
+							 */
+							do_action( 'astra_render_desktop_popup', 'popup', 'content' );
 						?>
 					</div>
 				</div>
