@@ -379,7 +379,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 /**
  * Add dropdown icon if menu item has children.
  *
- * @since x.x.x
+ * @since 3.3.0
  *
  * @param string   $title The menu item title.
  * @param WP_Post  $item All of our menu item data.
@@ -456,7 +456,7 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
  *     @type array  attrs    Initial attributes to apply to `open` markup.
  *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
  * }
- * @since x.x.x
+ * @since 3.3.0
  * @return mixed
  */
 function astra_markup_open( $context, $args = array() ) {
@@ -491,7 +491,7 @@ function astra_markup_open( $context, $args = array() ) {
  *     @type array  attrs    Initial attributes to apply to `open` markup.
  *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
  * }
- * @since x.x.x
+ * @since 3.3.0
  * @return mixed
  */
 function astra_markup_close( $context, $args = array() ) {
