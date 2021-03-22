@@ -9,6 +9,11 @@ v3.3.0
 - Improvement: Compatibility with WordPress 5.7.
 - Improvement: Code quality improvements for better performance.
 - Improvement: Load minified customizer preview files for better performance.
+- Improvement: Frontend optimization - Comments, Pagination, Single Page, Single Post, Archive Page.
+- Improvement: Frontend optimization - WooCommerce - Shop Page, Single Product Page.
+- Improvement: Frontend optimization - EDD - Shop Page, Single Product Page.
+- Improvement: Frontend optimization - LifterLMS - All Courses Page.
+- Improvement: Frontend optimization - LearnDash - All Courses Page, Single Course Page.
 - Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
