@@ -61,7 +61,6 @@
 		}
 
 		.menu-item-has-children > .menu-link:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
@@ -315,7 +314,7 @@
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item > .sub-menu {
 				left: 100%;
 				right: auto;
-				
+
 			}
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item {
 				.ast-menu-toggle::before {

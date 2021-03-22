@@ -101,7 +101,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_spacing_mobile_top = astra_responsive_spacing( $menu_spacing, 'top', 'mobile' );
 
 	if ( isset( $menu_spacing_mobile_top ) && '' === $menu_spacing_mobile_top && isset( $menu_spacing_tablet_top ) && '' !== $menu_spacing_tablet_top && 0 !== $menu_spacing_tablet_top ) {
-		
+
 		$menu_spacing_mobile_top = $menu_spacing_tablet_top;
 	}
 
