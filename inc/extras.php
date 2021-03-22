@@ -389,11 +389,15 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
-	$tabindex = ' tabindex="0"';
-	$icon     = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) && ( isset( $args->container_class ) && 'account-main-header-bar-navigation' !== $args->container_class ) ? '' : Astra_Icons::get_icons( 'arrow' );
+	$tabindex = '0';
+	$icon     = '';
+
+	if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) && ( isset( $args->container_class ) && 'account-main-header-bar-navigation' !== $args->container_class ) ) ) {
+		$icon = Astra_Icons::get_icons( 'arrow' );
+	}
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
-			$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex . '>' . $icon . '</span>';
+			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
 		}
 	}
 	if ( 0 < $depth ) {
