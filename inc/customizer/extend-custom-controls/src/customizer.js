@@ -727,8 +727,6 @@
 
 				AstCustomizerAPI.addSection(clone_to_section, section_config);
 				is_cloning_index = clone_from_section.match(/\d+$/)[0];
-				AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section));
-
 				Promise.all([ AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section)) ]).then(function () {
 					is_cloning_index = false;
 				});
@@ -736,7 +734,6 @@
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
-
 
 			});
 
