@@ -1102,7 +1102,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$static_secondary_layout_css = array(
-					'#secondary.secondary'  => array(
+					'#secondary.secondary' => array(
 						'padding-top' => 0,
 					),
 					'.ast-separate-container.ast-right-sidebar #secondary' => array(
@@ -1246,14 +1246,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
 							'margin-bottom' => 0,
-						)
+						),
 					);
 				} else {
 					$static_layout_min_lang_direction_css = array(
-						'.ast-right-sidebar #primary' => array(
+						'.ast-right-sidebar #primary'   => array(
 							'border-right' => '1px solid #eee',
 						),
-						'.ast-left-sidebar #primary'  => array(
+						'.ast-left-sidebar #primary'    => array(
 							'border-left' => '1px solid #eee',
 						),
 						'.ast-right-sidebar #secondary' => array(
@@ -1279,7 +1279,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
 							'margin-bottom' => 0,
-						)
+						),
 					);
 				}
 
@@ -1645,10 +1645,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
-				$global_button_mobile[ '.ast-separate-container #secondary' ]  = array(
+				$global_button_mobile['.ast-separate-container #secondary']                           = array(
 					'padding-top' => 0,
 				);
-				$global_button_mobile[ '.ast-separate-container.ast-two-container #secondary .widget' ] = array(
+				$global_button_mobile['.ast-separate-container.ast-two-container #secondary .widget'] = array(
 					'margin-bottom' => '1.5em',
 					'padding-left'  => '1em',
 					'padding-right' => '1em',
