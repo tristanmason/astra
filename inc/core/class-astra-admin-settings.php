@@ -215,7 +215,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							</div>',
 						$image_path,
 						__( 'Thank you for installing Astra!', 'astra' ),
-						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter templates</a>? Install the Starter Templates plugin to get started.', 'astra' ),
+						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/starter-templates/?utm_source=install-notice">starter templates</a>? Install the Starter Templates plugin to get started.', 'astra' ),
 						esc_attr( $ast_sites_notice_btn['class'] ),
 						'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
 						'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
@@ -644,13 +644,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Template', 'astra' ) ) ); ?></span>
+					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( '150+ Starter Templates', 'astra' ) ) ); ?></span>
 				</h2>
 				<img class="ast-starter-sites-img" alt="Starter Templates" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
-							$astra_starter_sites_doc_link      = apply_filters( 'astra_starter_sites_documentation_link', astra_get_pro_url( 'https://wpastra.com/docs/installing-importing-astra-sites', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) );
+							$astra_starter_sites_doc_link      = apply_filters( 'astra_starter_sites_documentation_link', astra_get_pro_url( 'https://wpastra.com/docs/starter-templates-complete-site', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) );
 							$astra_starter_sites_doc_link_text = apply_filters( 'astra_starter_sites_doc_link_text', __( 'Starter Templates?', 'astra' ) );
 							printf(
 								/* translators: %1$s: Starter site link. */
@@ -663,7 +663,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 					<p>
 						<?php
-							esc_html_e( 'Import your favorite site in one click and start your project with style!', 'astra' );
+							esc_html_e( 'Choose from over 150 beautiful templates and kickstart your project!', 'astra' );
 						?>
 					</p>
 						<?php
