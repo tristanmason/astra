@@ -2770,11 +2770,18 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   height: auto;
 }
 
-.ast-mobile-popup-content > *:first-child:not(.ast-builder-menu),
-.ast-desktop-popup-content > *:first-child:not(.ast-builder-menu),
-.ast-mobile-header-content > *:first-child:not(.ast-builder-menu),
-.ast-desktop-header-content > *:first-child:not(.ast-builder-menu) {
+.ast-mobile-popup-content > *:first-child,
+.ast-desktop-popup-content > *:first-child,
+.ast-mobile-header-content > *:first-child,
+.ast-desktop-header-content > *:first-child {
   padding-top: 10px;
+}
+
+.ast-mobile-popup-content > .ast-builder-menu,
+.ast-desktop-popup-content > .ast-builder-menu,
+.ast-mobile-header-content > .ast-builder-menu,
+.ast-desktop-header-content > .ast-builder-menu {
+  padding-top: 0;
 }
 
 .ast-mobile-popup-content > *:last-child,

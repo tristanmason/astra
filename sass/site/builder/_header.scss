@@ -657,8 +657,11 @@ body.admin-bar {
 		padding: 10px 0;
 		height: auto;
 	}
-	>*:first-child:not(.ast-builder-menu) {
+	>*:first-child {
 		padding-top: 10px;
+	}
+	> .ast-builder-menu {
+		padding-top: 0;
 	}
 	>*:last-child {
 		padding-bottom: 0;
