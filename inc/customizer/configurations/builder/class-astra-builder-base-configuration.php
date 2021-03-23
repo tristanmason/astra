@@ -389,21 +389,23 @@ final class Astra_Builder_Base_Configuration {
 			);
 
 			if ( 'footer' === $type ) {
-				$_configs [] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
-					'default'   => astra_get_option( $type . '-widget-alignment-' . $index ),
-					'type'      => 'control',
-					'control'   => 'ast-selector',
-					'section'   => $_section,
-					'priority'  => 5,
-					'title'     => __( 'Alignment', 'astra' ),
-					'transport' => 'postMessage',
-					'choices'   => array(
-						'left'   => 'align-left',
-						'center' => 'align-center',
-						'right'  => 'align-right',
+				$html_config [] = array(
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-alignment-' . $index . ']',
+						'default'   => astra_get_option( $type . '-widget-alignment-' . $index ),
+						'type'      => 'control',
+						'control'   => 'ast-selector',
+						'section'   => $_section,
+						'priority'  => 5,
+						'title'     => __( 'Alignment', 'astra' ),
+						'transport' => 'postMessage',
+						'choices'   => array(
+							'left'   => 'align-left',
+							'center' => 'align-center',
+							'right'  => 'align-right',
+						),
+						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					),
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 
