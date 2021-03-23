@@ -1027,6 +1027,40 @@ function isJsonString( str ) {
 			buttons.removeClass('ast-mobile-menu-buttons-default ast-mobile-menu-buttons-fill ast-mobile-menu-buttons-outline');
 			buttons.removeClass('ast-mobile-menu-buttons-default ast-mobile-menu-buttons-fill ast-mobile-menu-buttons-minimal');
 			buttons.addClass( 'ast-mobile-menu-buttons-' + icon_style );
+
+			var themeColor = wp.customize( 'astra-settings[theme-color]' ).get();
+			var defaultColor = '#ffffff';
+			var toggleButtonColor = wp.customize( 'astra-settings[mobile-header-toggle-btn-color]' ).get();
+
+			if ( 'fill' !== icon_style ) {
+				defaultColor = themeColor
+			}
+			
+			var iconColor = defaultColor;
+
+			if ( '' !== toggleButtonColor && undefined !== toggleButtonColor && null !== toggleButtonColor ) {
+				iconColor = toggleButtonColor
+			}
+			
+			var dynamicStyle = '[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {';
+			dynamicStyle += 'fill: ' + iconColor + ';';
+			dynamicStyle +='}';
+
+			dynamicStyle += '[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-wrap .mobile-menu {';
+			dynamicStyle += 'color: ' + iconColor + ';';
+			dynamicStyle +='}';
+
+			dynamicStyle += '[data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-fill, [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal {';
+			dynamicStyle += 'color: ' + iconColor + ';';
+			dynamicStyle += 'border: none;';
+			dynamicStyle +='}';
+
+			dynamicStyle += '[data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-outline {';
+			dynamicStyle += 'color: ' + iconColor + ';';
+			dynamicStyle +='}';
+			;
+			astra_add_dynamic_css( 'mobile-header-toggle-btn-style', dynamicStyle );
+
 		} );
 	} );
 
@@ -1411,18 +1445,6 @@ function isJsonString( str ) {
 			document.dispatchEvent( new CustomEvent( "astPreviewDeviceChanged",  { "detail": device }) );
 
 		} );
-
-		wp.customize.preview.bind( 'active', function() {
-			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
-			Object.keys(partials).forEach(function ( key) {
-				wp.customize.selectiveRefresh.partial.add(
-					new wp.customize.selectiveRefresh.Partial(
-						key,
-						_.extend({params: partials[key]}, partials[key])
-					)
-				);
-			});
-		});
 
 	})
 
