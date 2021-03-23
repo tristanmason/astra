@@ -2,7 +2,7 @@
  * Slide Up
  */
 .ast-desktop {
-    .astra-menu-animation-slide-up {
+    .astra-menu-animation-slide-up:not(#ast-hf-mobile-menu) {
         > .menu-item {
             > .astra-full-megamenu-wrapper,
             > .sub-menu,
@@ -35,10 +35,10 @@
     }
 
     /**
-     * Slide Down
-     */
+    * Slide Down
+    */
 
-    .astra-menu-animation-slide-down {
+    .astra-menu-animation-slide-down:not(#ast-hf-mobile-menu) {
         > .menu-item {
             > .astra-full-megamenu-wrapper,
             > .sub-menu,
@@ -71,9 +71,9 @@
     }
 
     /**
-     * Fade
-     */
-    .astra-menu-animation-fade {
+    * Fade
+    */
+    .astra-menu-animation-fade:not(#ast-hf-mobile-menu) {
         > .menu-item {
             > .astra-full-megamenu-wrapper,
             > .sub-menu,

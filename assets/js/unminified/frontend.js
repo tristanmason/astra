@@ -266,7 +266,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
 				if ( desktopHeader ) {
 	
-					mobileHeaderType = desktopHeader.dataset.type;
+					mobileHeaderType = desktopHeader.dataset.toggleType;
 				} else {
 					return;
 				}
