@@ -660,6 +660,9 @@ body.admin-bar {
 	>*:first-child {
 		padding-top: 10px;
 	}
+	> .ast-builder-menu {
+		padding-top: 0;
+	}
 	>*:last-child {
 		padding-bottom: 0;
 	}

@@ -2777,6 +2777,13 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   padding-top: 10px;
 }
 
+.ast-mobile-popup-content > .ast-builder-menu,
+.ast-desktop-popup-content > .ast-builder-menu,
+.ast-mobile-header-content > .ast-builder-menu,
+.ast-desktop-header-content > .ast-builder-menu {
+  padding-top: 0;
+}
+
 .ast-mobile-popup-content > *:last-child,
 .ast-desktop-popup-content > *:last-child,
 .ast-mobile-header-content > *:last-child,
