@@ -1710,6 +1710,10 @@ body {
   margin-top: 15px;
 }
 
+.ast-mobile-popup-content .ast-icon.icon-search svg {
+  margin-top: 0;
+}
+
 .post-navigation a {
   background: transparent;
   font-size: 16px;
@@ -2771,6 +2775,13 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-header-content > *:first-child,
 .ast-desktop-header-content > *:first-child {
   padding-top: 10px;
+}
+
+.ast-mobile-popup-content > .ast-builder-menu,
+.ast-desktop-popup-content > .ast-builder-menu,
+.ast-mobile-header-content > .ast-builder-menu,
+.ast-desktop-header-content > .ast-builder-menu {
+  padding-top: 0;
 }
 
 .ast-mobile-popup-content > *:last-child,
