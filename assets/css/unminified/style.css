@@ -3119,11 +3119,11 @@ body {
 /**
  * 10 - Submenu container box shadow 
  */
-.ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper .sub-menu {
   box-shadow: none;
 }
 
-.ast-desktop .main-header-menu .astra-megamenu .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-megamenu .sub-menu {
   box-shadow: none;
 }
 

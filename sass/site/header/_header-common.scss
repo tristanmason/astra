@@ -156,7 +156,7 @@
  * 10 - Submenu container box shadow 
  */
 .ast-desktop {
-    .main-header-menu {
+    .main-header-menu:not(#ast-hf-mobile-menu) {
         .astra-full-megamenu-wrapper {
             .sub-menu {
                 box-shadow: none;
