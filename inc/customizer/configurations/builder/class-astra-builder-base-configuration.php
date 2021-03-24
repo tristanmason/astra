@@ -260,10 +260,10 @@ final class Astra_Builder_Base_Configuration {
 
 		if ( 'footer' === $type ) {
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
-				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
 		} else {
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
-				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_widgets;
+				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
 		}
 
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
