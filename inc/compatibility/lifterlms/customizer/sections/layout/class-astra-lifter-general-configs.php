@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 				 * Option: Course Columns
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[]',
+					'name'              => ASTRA_THEME_SETTINGS . '[llms-course-grid]',
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 							'desktop' => 3,
 							'tablet'  => 2,
 							'mobile'  => 1,
-						) 
+						)
 					),
 					'title'             => __( 'Course Columns', 'astra' ),
 					'priority'          => 0,
