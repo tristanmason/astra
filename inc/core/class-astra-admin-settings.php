@@ -630,6 +630,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
+		 * Starter Templates Post Box Title.
+		 *
+		 * @since x.x.x
+		 *
+		 * @return string Starter Templates Plugin name.
+		 */
+		public static function get_starter_templates_title() {
+
+			$astra_sites_name = __( '150+ Starter Templates', 'astra' );
+
+			if ( is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ) {
+				$white_labelled_astra_sites_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name' );
+				if ( ! empty( $white_labelled_astra_sites_name ) ) {
+					$astra_sites_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name' );
+				}
+			}
+
+			return $astra_sites_name;
+		}
+
+		/**
 		 * Include Welcome page right starter sites content
 		 *
 		 * @since 1.2.4
@@ -644,7 +665,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( '150+ Starter Templates', 'astra' ) ) ); ?></span>
+					<span><?php echo self::get_starter_templates_title(); ?></span>
 				</h2>
 				<img class="ast-starter-sites-img" alt="Starter Templates" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
 				<div class="inside">
