@@ -962,3 +962,15 @@ body.admin-bar {
 .ast-builder-layout-element[data-section^="section-hb-button-"] {
 	display: flex;
 }
+
+#ast-desktop-header .ast-desktop-header-content,
+.ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content,
+.ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content {
+	display: none;
+}
+.ast-main-header-nav-open.ast-header-break-point {
+	#ast-desktop-header .ast-desktop-header-content,
+	.ast-mobile-header-wrap .ast-mobile-header-content {
+		display: block;
+	}
+}

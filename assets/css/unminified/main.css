@@ -3074,6 +3074,17 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   display: flex;
 }
 
+#ast-desktop-header .ast-desktop-header-content,
+.ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content,
+.ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content {
+  display: none;
+}
+
+.ast-main-header-nav-open.ast-header-break-point #ast-desktop-header .ast-desktop-header-content,
+.ast-main-header-nav-open.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content {
+  display: block;
+}
+
 /*----------  Header  ----------*/
 /**
  * 	Header
