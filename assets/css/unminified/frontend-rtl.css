@@ -2964,11 +2964,11 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 body.admin-bar .ast-mobile-popup-drawer {
-  top: 46px;
+  top: 32px;
 }
 
 body.admin-bar .ast-mobile-popup-drawer .ast-mobile-popup-inner {
-  top: 46px;
+  top: 32px;
 }
 
 body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer {
@@ -2977,6 +2977,15 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer {
 
 body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mobile-popup-inner {
   top: 0px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .ast-mobile-popup-drawer {
+    top: 46px;
+  }
+  body.admin-bar .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+    top: 46px;
+  }
 }
 
 .ast-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-popup-drawer .main-header-bar-navigation ul .menu-item .sub-menu .menu-link {
