@@ -26,38 +26,22 @@ const ColorPaletteComponent = (props) => {
 	}
 
 	const editLabel = (value, index) => {
-		let obj = {
+		let updateState = {
 			...state,
 		};
 
-		let palette = {
-			...obj[obj.patterntype],
-		};
-		let palette_index = {
-			...palette[index],
-		};
+		const newItems = updateState.palette.map((item, thisIndex) => {
+			if (parseInt(index) === parseInt(thisIndex)) {
+				item.label = value;
+			}
 
-		palette_index[1] = value;
-		palette[index] = palette_index;
-		obj[obj.patterntype] = palette;
+			return item;
+		});
 
-		setState(obj);
-		props.control.setting.set(obj);
-	};
+		updateState.palette = newItems;
 
-	const deleteCustomPalette = (index, item) => {
-		let obj = {
-			...state,
-		};
-
-		var result = Object.keys(obj.pattern).map((key) => obj.pattern[key]);
-		const filteredItems = result
-			.slice(0, index)
-			.concat(result.slice(index + 1, result.length));
-		obj.pattern = filteredItems;
-
-		setState(obj);
-		props.control.setting.set(obj);
+		setState(updateState);
+		props.control.setting.set({ ...updateState, flag: !updateState.flag });
 	};
 
 	const handleChangeComplete = (color, index) => {
@@ -79,19 +63,21 @@ const ColorPaletteComponent = (props) => {
 			value = color.hex;
 		}
 
-		const newItems = updateState.palette.map( ( item, thisIndex ) => {
-			if ( parseInt( index ) === parseInt( thisIndex ) ) {
+		const newItems = updateState.palette.map((item, thisIndex) => {
+			if (parseInt(index) === parseInt(thisIndex)) {
 				item.color = value;
 			}
 
 			return item;
-		} );
+		});
 
 		updateState.palette = newItems;
 
-		setState( updateState );
-		props.control.setting.set( updateState );
+		setState(updateState);
+		props.control.setting.set({ ...updateState, flag: !updateState.flag });
 	};
+
+	const addNewColorToPalette = () => {};
 
 	var palettehtml = (
 		<>
@@ -104,7 +90,7 @@ const ColorPaletteComponent = (props) => {
 						>
 							<TextControl
 								className="ast-color-palette-label"
-								value={state.palette[index]['label']}
+								value={state.palette[index]["label"]}
 								onChange={(value) => editLabel(value, index)}
 							/>
 							<span
@@ -130,7 +116,7 @@ const ColorPaletteComponent = (props) => {
 							<AstraColorPickerControl
 								color={
 									undefined !== state.palette && state.palette
-										? state.palette[index]['color']
+										? state.palette[index]["color"]
 										: ""
 								}
 								onChangeComplete={(color, backgroundType) =>
@@ -142,7 +128,7 @@ const ColorPaletteComponent = (props) => {
 								disablePalette={true}
 								colorIndicator={
 									undefined !== state.palette && state.palette
-										? state.palette[index]['color']
+										? state.palette[index]["color"]
 										: ""
 								}
 							/>
