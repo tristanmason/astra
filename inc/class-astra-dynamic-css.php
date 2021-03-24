@@ -1038,9 +1038,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					// Adding CSS to highlight current paginated number.
 					'.post-page-numbers.current .page-link, .ast-pagination .page-numbers.current'                    => array(
 						'color'            => astra_get_foreground_color( $theme_color ),
-						'border-color' => esc_attr( $theme_color ),
+						'border-color'     => esc_attr( $theme_color ),
 						'background-color' => esc_attr( $theme_color ),
-						'border-radius' => '2px',
+						'border-radius'    => '2px',
 					),
 				);
 
