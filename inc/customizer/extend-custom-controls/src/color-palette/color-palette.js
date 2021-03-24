@@ -21,7 +21,7 @@ const ColorPaletteComponent = (props) => {
 		}
 	}, [props]);
 
-	if (true === label) {
+	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
 

@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'     => $_section,
 					'priority'    => 5,
 					'description' => __( 'Allows you to add predefined color palette', 'astra' ),
-					'title'       => __( 'Palette', 'astra' ),
+					'title'       => __( 'Global Palette', 'astra' ),
 					'default'     => astra_get_option( 'global-color-palette' ),
 					'settings'    => array(),
 					'transport'   => 'postMessage',
