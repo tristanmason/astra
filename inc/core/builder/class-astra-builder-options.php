@@ -817,18 +817,33 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Global Color Palette.
 	 */
 	$defaults['global-color-palette'] = array(
-		'pattern'         => array(
-			array( '#3a3a3a', __( 'Text Color', 'astra' ) ),
-			array( '#0274be', __( 'Theme Color', 'astra' ) ),
-			array( '#0274b2', __( 'Link Color', 'astra' ) ),
-			array( '#3a3a31', __( 'Link Hover Color', 'astra' ) ),
-			array( '#3a3a3b', __( 'Heading Color ( H1 - H6 )', 'astra' ) ),
+		'palette'         => array(
+			array(
+				'label' => __( 'Text Color', 'astra' ),
+				'color' => '#3a3a3a'
+			),
+			array(
+				'label' => __( 'Theme Color', 'astra' ),
+				'color' => '#0274be'
+			),
+			array(
+				'label' => __( 'Link Color', 'astra' ),
+				'color' => '#0274b2'
+			),
+			array(
+				'label' => __( 'Link Hover Color', 'astra' ),
+				'color' => '#3a3a31'
+			),
+			array(
+				'label' => __( 'Heading Color ( H1 - H6 )', 'astra' ),
+				'color' => '#3a3a3b'
+			)
 		),
 		'isVisible'        => false,
 		'exportCopied'     => '',
 		'customImportText' => '',
 		'importError'      => false,
-		'presetPalette'    => array(
+		'presets'          => array(
 			array(
 				'#7e6c6c',
 				'#f87575',

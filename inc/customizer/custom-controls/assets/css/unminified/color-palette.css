@@ -2,6 +2,7 @@
 	.ast-color-palette-wrap
 	> div {
 	margin-bottom: 8px;
+	position: relative;
 }
 
 #customize-control-astra-settings-global-color-palette .color-button-wrap {

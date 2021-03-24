@@ -60,12 +60,43 @@ const ColorPaletteComponent = (props) => {
 		props.control.setting.set(obj);
 	};
 
-	console.log( state );
+	const handleChangeComplete = (color, index) => {
+		let updateState = {
+			...state,
+		};
 
-	var patternhtml = (
+		let value;
+
+		if (typeof color === "string") {
+			value = color;
+		} else if (
+			undefined !== color.rgb &&
+			undefined !== color.rgb.a &&
+			1 !== color.rgb.a
+		) {
+			value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+		} else {
+			value = color.hex;
+		}
+
+		const newItems = updateState.palette.map( ( item, thisIndex ) => {
+			if ( parseInt( index ) === parseInt( thisIndex ) ) {
+				item.color = value;
+			}
+
+			return item;
+		} );
+
+		updateState.palette = newItems;
+
+		setState( updateState );
+		props.control.setting.set( updateState );
+	};
+
+	var palettehtml = (
 		<>
 			<div className="ast-color-palette-wrap">
-				{Object.keys(state.pattern).map((item, index) => {
+				{Object.keys(state.palette).map((item, index) => {
 					return (
 						<div
 							className={`ast-color-picker-palette-${index + 1} `}
@@ -73,7 +104,7 @@ const ColorPaletteComponent = (props) => {
 						>
 							<TextControl
 								className="ast-color-palette-label"
-								value={state.pattern[index][1]}
+								value={state.palette[index]['label']}
 								onChange={(value) => editLabel(value, index)}
 							/>
 							<span
@@ -98,26 +129,20 @@ const ColorPaletteComponent = (props) => {
 							</span>
 							<AstraColorPickerControl
 								color={
-									undefined !== state.pattern &&
-									state.pattern
-										? state.pattern[index][0]
+									undefined !== state.palette && state.palette
+										? state.palette[index]['color']
 										: ""
 								}
 								onChangeComplete={(color, backgroundType) =>
-									handleChangeComplete(
-										color,
-										"pattern",
-										index
-									)
+									handleChangeComplete(color, index)
 								}
 								backgroundType={"color"}
 								allowGradient={false}
 								allowImage={false}
 								disablePalette={true}
 								colorIndicator={
-									undefined !== state.pattern &&
-									state.pattern
-										? state.pattern[index][0]
+									undefined !== state.palette && state.palette
+										? state.palette[index]['color']
 										: ""
 								}
 							/>
@@ -148,7 +173,7 @@ const ColorPaletteComponent = (props) => {
 	return (
 		<>
 			<label className="customizer-text">{labelHtml}</label>
-			<div className="ast-color-palette-wrapper">{patternhtml}</div>
+			<div className="ast-color-palette-wrapper">{palettehtml}</div>
 		</>
 	);
 };

@@ -488,6 +488,7 @@
 	.ast-color-palette-wrap
 	> div {
 	margin-bottom: 8px;
+	position: relative;
 }
 
 #customize-control-astra-settings-global-color-palette .color-button-wrap {
@@ -1620,9 +1621,6 @@
 	#customize-control-astra-settings-global-color-palette
 		.astra-color-picker-wrap {
 		width: 24em;
-	}
-	#customize-control-astra-settings-global-color-palette .ast-palette-import {
-		padding: 0 26px;
 	}
 }
 
