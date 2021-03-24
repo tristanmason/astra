@@ -1064,18 +1064,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css( $outline_button_mobile_css, '', astra_get_mobile_breakpoint() );
 
-				$gb_patterns_min_mobile_css = array(
-					'.entry-content > .alignleft'    => array(
-						'margin-right' => '20px',
-					),
-					'.entry-content > .alignright'   => array(
-						'margin-left' => '20px',
-					),
-					'.wp-block-group.has-background' => array(
-						'padding' => '20px',
-					),
-				);
-
 				if ( $is_site_rtl ) {
 					$gb_patterns_min_mobile_css = array(
 						'.entry-content > .alignleft'    => array(
@@ -1083,6 +1071,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						'.entry-content > .alignright'   => array(
 							'margin-right' => '20px',
+						),
+						'.wp-block-group.has-background' => array(
+							'padding' => '20px',
+						),
+					);
+				} else {
+					$gb_patterns_min_mobile_css = array(
+						'.entry-content > .alignleft'    => array(
+							'margin-right' => '20px',
+						),
+						'.entry-content > .alignright'   => array(
+							'margin-left' => '20px',
 						),
 						'.wp-block-group.has-background' => array(
 							'padding' => '20px',
