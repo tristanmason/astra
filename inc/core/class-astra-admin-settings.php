@@ -665,7 +665,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php echo self::get_starter_templates_title(); ?></span>
+					<span><?php echo self::get_starter_templates_title();  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 				</h2>
 				<img class="ast-starter-sites-img" alt="Starter Templates" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
 				<div class="inside">
