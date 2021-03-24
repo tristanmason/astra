@@ -1035,6 +1035,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
 					),
+					// Adding CSS to highlight current paginated number.
+					'.post-page-numbers.current .page-link, .ast-pagination .page-numbers.current'                    => array(
+						'color'            => astra_get_foreground_color( $theme_color ),
+						'border-color' => esc_attr( $theme_color ),
+						'background-color' => esc_attr( $theme_color ),
+						'border-radius' => '2px',
+					),
 				);
 
 				/* Parse CSS from array() -> All media CSS */
