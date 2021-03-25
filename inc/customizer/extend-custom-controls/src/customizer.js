@@ -335,7 +335,7 @@
 
 			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
 
-				let panels = AstraBuilderCustomizerData.js_configs.passets/js/minified/frontend.min.jsanels || [];
+				let panels = AstraBuilderCustomizerData.js_configs.panels || [];
 				let sections = AstraBuilderCustomizerData.js_configs.sections || [];
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || []);
 
