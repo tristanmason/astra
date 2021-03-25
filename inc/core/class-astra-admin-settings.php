@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_external_links_scetion', 11 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 11 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
@@ -589,7 +589,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since x.x.x
 		 */
-		public static function astra_external_links_scetion() {
+		public static function external_important_links_section() {
 
 			if ( astra_is_white_labelled() ) {
 				return;
