@@ -335,7 +335,7 @@
 
 			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
 
-				let panels = AstraBuilderCustomizerData.js_configs.panels || [];
+				let panels = AstraBuilderCustomizerData.js_configs.passets/js/minified/frontend.min.jsanels || [];
 				let sections = AstraBuilderCustomizerData.js_configs.sections || [];
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || []);
 
@@ -727,13 +727,13 @@
 
 				AstCustomizerAPI.addSection(clone_to_section, section_config);
 				is_cloning_index = clone_from_section.match(/\d+$/)[0];
-				AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section));
-				is_cloning_index = false;
+				Promise.all([ AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section)) ]).then(function () {
+					is_cloning_index = false;
+				});
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {
 					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
 				});
-
 
 			});
 
