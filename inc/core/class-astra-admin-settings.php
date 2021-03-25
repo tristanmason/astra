@@ -640,10 +640,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$astra_sites_name = __( '150+ Starter Templates', 'astra' );
 
-			if ( is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ) {
+			if ( method_exists( 'Astra_Ext_White_Label_Markup', 'get_whitelabel_string' ) ) {
 				$white_labelled_astra_sites_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name' );
 				if ( ! empty( $white_labelled_astra_sites_name ) ) {
-					$astra_sites_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name' );
+					$astra_sites_name = $white_labelled_astra_sites_name;
 				}
 			}
 
