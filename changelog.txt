@@ -1,3 +1,5 @@
+- Fix: Builder - Toggle Button - On click of toggle button primary header creates spacing jerk.
+
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
