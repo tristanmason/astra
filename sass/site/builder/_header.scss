@@ -974,3 +974,21 @@ body.admin-bar {
 		display: block;
 	}
 }
+
+
+.ast-desktop {
+	.ast-desktop-popup-content,
+	.ast-desktop-header-content {
+		.astra-menu-animation-slide-up,
+		.astra-menu-animation-slide-down,
+		.astra-menu-animation-fade {
+			> .menu-item {
+				> .sub-menu,
+				.menu-item > .sub-menu {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+}
