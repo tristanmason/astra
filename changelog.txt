@@ -1,3 +1,5 @@
+- Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.
+
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
