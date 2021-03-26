@@ -189,14 +189,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( ! document.documentElement.classList.contains( 'ast-off-canvas-active' ) ) {
 			document.documentElement.classList.add( 'ast-off-canvas-active' );
 		}
-		
+
 		if ( 'desktop' === triggerType ) {
-			
+
 			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'none';
 			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'block';
 		}
 		if ( 'mobile' === triggerType ) {
-			
+
 			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'none';
 			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'block';
 		}
@@ -265,7 +265,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			} else {
 				var desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
 				if ( desktopHeader ) {
-	
+
 					mobileHeaderType = desktopHeader.dataset.toggleType;
 				} else {
 					return;
@@ -481,11 +481,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		event.preventDefault();
 
 		var parent_li = this.parentNode;
-		
+
 		if ( parent_li.classList.contains('ast-submenu-expanded') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') ) {
-			
+
 			if (!this.classList.contains('ast-menu-toggle')) {
-				
+
 				var link = parent_li.querySelector('a').getAttribute('href');
 				if ( '' !== link && '#' !== link) {
 					window.location = link;
@@ -609,11 +609,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} else {
 			var desktop_toggle = document.querySelector('#masthead > #ast-desktop-header .main-header-menu-toggle');
 		}
-		
+
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content .main-header-bar-navigation');
 
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
-			
+
 			if ( null !== desktop_menu && '' !== desktop_menu && undefined !== desktop_menu ) {
 				astraToggleClass(desktop_menu, 'toggle-on');
 				if (desktop_menu.classList.contains('toggle-on')) {

@@ -310,10 +310,10 @@
 						menuWrapper.removeClass('ast-menu-hover-style-overline');
 
 						if ( isNavMenuEnabled ) {
-							wp.customize.preview.send('refresh');
-						} else {
-							menuWrapper.addClass( 'ast-menu-hover-style-' + animation );
+							document.dispatchEvent( new CustomEvent( "astMenuHoverStyleChanged",  { "detail": {} }) );
 						}
+
+						menuWrapper.addClass( 'ast-menu-hover-style-' + animation );
 					} );
 				} );
 
