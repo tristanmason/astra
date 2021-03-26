@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes, { object } from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
 import { Dashicon, Button, TextControl } from "@wordpress/components";
@@ -24,25 +24,6 @@ const ColorPaletteComponent = (props) => {
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
-
-	const editLabel = (value, index) => {
-		let updateState = {
-			...state,
-		};
-
-		const newItems = updateState.palette.map((item, thisIndex) => {
-			if (parseInt(index) === parseInt(thisIndex)) {
-				item.label = value;
-			}
-
-			return item;
-		});
-
-		updateState.palette = newItems;
-
-		setState(updateState);
-		props.control.setting.set({ ...updateState, flag: !updateState.flag });
-	};
 
 	const handleChangeComplete = (color, index) => {
 		let updateState = {
@@ -77,82 +58,47 @@ const ColorPaletteComponent = (props) => {
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
 	};
 
-	const addNewColorToPalette = () => {};
+	const SinglePalette = ({ singlePalette }) => {
+		const singlePaletteHTML = Object.entries(singlePalette).map(
+			([key, value]) => {
+				return (
+					<div className="ast-color-picker-wrap" key={key}>
+						<AstraColorPickerControl
+							color={value}
+							onChangeComplete={(value) =>
+								handleChangeComplete(key, color)
+							}
+							backgroundType="color"
+						/>
+					</div>
+				);
+			}
+		);
+
+		return singlePaletteHTML;
+	};
 
 	var palettehtml = (
 		<>
-			<div className="ast-color-palette-wrap">
-				{Object.keys(state.palette).map((item, index) => {
+			{Object.entries(state.palettes).map(
+				([palette_key, palette_color_obj]) => {
+					let palette_label = (
+						palette_key[0].toUpperCase() + palette_key.substring(1)
+					).replace(/-/g, " ");
 					return (
 						<div
-							className={`ast-color-picker-palette-${index + 1} `}
-							key={index}
+							key={palette_key}
+							className={`ast-color-picker-${palette_key} ast-single-palette-wrap`}
 						>
-							<TextControl
-								className="ast-color-palette-label"
-								value={state.palette[index]["label"]}
-								onChange={(value) => editLabel(value, index)}
-							/>
-							<span
-								title={
-									index <= 4
-										? __(
-												"This color can't be deleted",
-												"astra"
-										  )
-										: ""
-								}
-							>
-								<Button
-									className="ast-palette-delete"
-									disabled={index <= 4 ? true : false}
-									onClick={() => {
-										deleteCustomPalette(index, item);
-									}}
-								>
-									<Dashicon icon="trash" />
-								</Button>
-							</span>
-							<AstraColorPickerControl
-								color={
-									undefined !== state.palette && state.palette
-										? state.palette[index]["color"]
-										: ""
-								}
-								onChangeComplete={(color, backgroundType) =>
-									handleChangeComplete(color, index)
-								}
-								backgroundType={"color"}
-								allowGradient={false}
-								allowImage={false}
-								disablePalette={true}
-								colorIndicator={
-									undefined !== state.palette && state.palette
-										? state.palette[index]["color"]
-										: ""
-								}
-							/>
+							<label>
+							<input type="radio" className="ast-palette-radio-input"/>
+							{palette_label}
+							</label>
+							<SinglePalette singlePalette={palette_color_obj} />
 						</div>
 					);
-				})}
-				<Button
-					className="ast-add-new-color"
-					isPrimary
-					onClick={() => addNewColorToPalette()}
-				>
-					<Dashicon icon="plus" />
-					<span>{__("Add New Color", "astra")}</span>
-				</Button>
-				<Button
-					className="ast-palette-import"
-					isPrimary
-					onClick={() => {
-						state.isVisible ? toggleClose() : toggleVisible();
-					}}
-				>
-					<Dashicon icon="open-folder" /> Presets
-				</Button>
-			</div>
+				}
+			)}
 		</>
 	);
 

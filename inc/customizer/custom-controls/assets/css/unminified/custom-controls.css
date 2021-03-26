@@ -542,6 +542,38 @@
 }
 
 #customize-control-astra-settings-global-color-palette
+	.ast-color-palette-wrapper
+	.ast-color-picker-wrap {
+	position: relative;
+	display: inline-block;
+	margin-left: 3px;
+}
+
+.ast-color-palette-wrapper .ast-single-palette-wrap{
+	display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.ast-single-palette-wrap > label {
+	display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.ast-single-palette-wrap .ast-palette-radio-input{
+	width: 15px;
+    height: 15px;
+    flex: 0 0 16px;
+}
+
+.ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
+	margin-left: 0;
+}
+
+#customize-control-astra-settings-global-color-palette
 	button.components-button.ast-palette-delete:disabled:hover {
 	cursor: not-allowed;
 	color: unset;
