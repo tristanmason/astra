@@ -3762,14 +3762,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   transition: all .2s;
 }
 
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
-  font-weight: bold;
-  content: "\e900";
-  font-family: 'Astra';
-  text-decoration: inherit;
-  display: inline-block;
-}
-
 .ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
   transform: rotateX(180deg);
 }

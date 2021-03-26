@@ -219,13 +219,6 @@
 					font-weight: normal;
 					line-height: inherit;
 					transition: all .2s;
-					&::before {
-						font-weight: bold;
-						content: "\e900";
-						font-family: 'Astra';
-						text-decoration: inherit;
-						display: inline-block;
-					}
 				}
 			}
 			.ast-submenu-expanded {
