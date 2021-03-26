@@ -484,6 +484,7 @@ p.demo_store a,
 .ast-header-break-point.ast-woocommerce-cart-menu .ast-site-header-cart {
   order: initial;
   line-height: 3;
+  padding: 0 1em 1em 0;
 }
 
 .ast-header-break-point.ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart {
@@ -506,6 +507,10 @@ p.demo_store a,
 .ast-header-break-point .ast-masthead-custom-menu-items.woocommerce-custom-menu-item .ast-site-header-cart a {
   border: none;
   display: inline-block;
+}
+
+.ast-header-break-point.ast-hfb-header.ast-woocommerce-cart-menu .ast-site-header-cart {
+  padding: 0;
 }
 
 /**

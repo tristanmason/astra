@@ -834,6 +834,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-theme.ast-woocommerce-cart-menu .ast-site-header-cart' => array(
 					'order'       => 'initial',
 					'line-height' => '3',
+					'padding'     => '0 1em 1em 0',
 				),
 				'.ast-theme.ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart' => array(
 					'padding' => '0 0 1em 1em',

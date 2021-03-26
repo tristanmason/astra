@@ -386,6 +386,7 @@ p.demo_store,
 		.ast-site-header-cart {
 	        order: initial;
 			line-height: 3;
+			padding: 0 1em 1em 0;
 
 	    }
 
@@ -414,6 +415,10 @@ p.demo_store,
 			}
 		}
 	}
+}
+
+.ast-header-break-point.ast-hfb-header.ast-woocommerce-cart-menu .ast-site-header-cart {
+	padding: 0;
 }
 
 /**
