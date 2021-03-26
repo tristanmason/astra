@@ -371,6 +371,12 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 						dynamicStyle += 'margin-left: ' + space + 'px;';
 						dynamicStyle += 'margin-right: ' + space + 'px;';
 						dynamicStyle += '} ';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element:first-child {';
+						dynamicStyle += 'margin-left: 0;';
+						dynamicStyle += '} ';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element:last-child {';
+						dynamicStyle += 'margin-right: 0;';
+						dynamicStyle += '} ';
 					}
 
 					if ( spacing.tablet != '' ) {
@@ -379,6 +385,12 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element {';
 						dynamicStyle += 'margin-left: ' + space + 'px;';
 						dynamicStyle += 'margin-right: ' + space + 'px;';
+						dynamicStyle += '} ';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element:first-child {';
+						dynamicStyle += 'margin-left: 0;';
+						dynamicStyle += '} ';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element:last-child {';
+						dynamicStyle += 'margin-right: 0;';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 					}
@@ -389,6 +401,12 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element {';
 						dynamicStyle += 'margin-left: ' + space + 'px;';
 						dynamicStyle += 'margin-right: ' + space + 'px;';
+						dynamicStyle += '} ';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element:first-child {';
+						dynamicStyle += 'margin-left: 0;';
+						dynamicStyle += '} ';
+						dynamicStyle += selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element:last-child {';
+						dynamicStyle += 'margin-right: 0;';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 					}
