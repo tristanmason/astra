@@ -242,7 +242,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-retina-logo]',
-					'default'  => false,
+					'default'  => astra_get_option( 'different-transparent-retina-logo' ),
 					'type'     => 'control',
 					'section'  => $_section,
 					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),

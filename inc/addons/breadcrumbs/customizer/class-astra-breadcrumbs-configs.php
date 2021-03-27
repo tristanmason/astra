@@ -289,7 +289,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
-					'default'    => 'left',
+					'default'    => astra_get_option( 'breadcrumb-alignment', 'left' ),
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'title'      => __( 'Alignment', 'astra' ),
@@ -351,7 +351,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 				$_configs[] = array(
 					'name'     => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
-					'default'  => 'default',
+					'default'  => astra_get_option( 'select-breadcrumb-source', 'default' ),
 					'section'  => $_section,
 					'title'    => __( 'Breadcrumb Source', 'astra' ),
 					'type'     => 'control',

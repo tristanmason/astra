@@ -1,3 +1,6 @@
+v3.4.0
+- Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
+
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
