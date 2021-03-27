@@ -12,10 +12,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Cache multiple paths
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
     - name: Build
       run: npm install && grunt release-no-clean
 
-    - name: rsync deployments
+    - name: Rsync Deployment
       uses: burnett01/rsync-deployments@4.1
       with:
         switches: -avzr --delete
