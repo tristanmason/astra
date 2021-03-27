@@ -93,128 +93,220 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return String Updated dynamic CSS with AMP specific changes.
 		 */
 		public function dynamic_css( $compiled_css ) {
-			$css = array(
-				'.ast-mobile-menu-buttons'                 => array(
-					'text-align'              => 'right',
-					'-js-display'             => 'flex',
-					'display'                 => '-webkit-box',
-					'display'                 => '-webkit-flex',
-					'display'                 => '-moz-box',
-					'display'                 => '-ms-flexbox',
-					'display'                 => 'flex',
-					'-webkit-box-pack'        => 'end',
-					'-webkit-justify-content' => 'flex-end',
-					'-moz-box-pack'           => 'end',
-					'-ms-flex-pack'           => 'end',
-					'justify-content'         => 'flex-end',
-					'-webkit-align-self'      => 'center',
-					'-ms-flex-item-align'     => 'center',
-					'align-self'              => 'center',
-				),
 
-				'.site-header .main-header-bar-wrap .site-branding' => array(
-					'display'             => '-webkit-box',
-					'display'             => '-webkit-flex',
-					'display'             => '-moz-box',
-					'display'             => '-ms-flexbox',
-					'display'             => 'flex',
-					'-webkit-box-flex'    => '1',
-					'-webkit-flex'        => '1',
-					'-moz-box-flex'       => '1',
-					'-ms-flex'            => '1',
-					'flex'                => '1',
-					'-webkit-align-self'  => 'center',
-					'-ms-flex-item-align' => 'center',
-					'align-self'          => 'center',
-				),
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$css = array(
+					'#ast-desktop-header'       => array(
+						'display' => 'none',
+					),
+	
+					'#ast-mobile-header'        => array(
+						'display' => 'block',
+					),
+	
+					'.ast-amp.ast-main-header-nav-open .ast-mobile-header-content' => array(
+						'display' => 'block',
+					),
+	
+					'.ast-mobile-header-content .ast-main-header-bar-alignment.toggle-on .main-header-bar-navigation' => array(
+						'display' => 'block',
+					),
+	
+					'.ast-amp .ast-mobile-header-content .main-navigation ul .menu-item .menu-link' => array(
+						'padding'             => '0 20px',
+						'display'             => 'inline-block',
+						'width'               => '100%',
+						'border'              => '0',
+						'border-bottom-width' => '1px',
+						'border-style'        => 'solid',
+						'border-color'        => '#eaeaea',
+					),
+	
+					'.ast-amp .ast-mobile-header-content .toggled-on .main-header-bar-navigation' => array(
+						'line-height' => '3',
+						'display'     => 'none',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .sub-menu' => array(
+						'line-height' => '3',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .menu-item-has-children .sub-menu' => array(
+						'display' => 'none',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .menu-item-has-children .dropdown-open+ul.sub-menu' => array(
+						'display' => 'block',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
+						'display'                => 'inline-block',
+						'position'               => 'absolute',
+						'font-size'              => 'inherit',
+						'top'                    => '-1px',
+						'right'                  => '20px',
+						'cursor'                 => 'pointer',
+						'webkit-font-smoothing'  => 'antialiased',
+						'moz-osx-font-smoothing' => 'grayscale',
+						'padding'                => '0 0.907em',
+						'font-weight'            => 'normal',
+						'line-height'            => 'inherit',
+						'transition'             => 'all 0.2s',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
+						'font-weight'     => 'bold',
+						'content'         => '"\e900"',
+						'font-family'     => '"Astra"',
+						'text-decoration' => 'inherit',
+						'display'         => 'inline-block',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before' => array(
+						'-webkit-transform' => 'rotateX(180deg)',
+						'transform'         => 'rotateX(180deg)',
+					),
+					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .main-header-menu' => array(
+						'border-top-width' => '1px',
+						'border-style'     => 'solid',
+						'border-color'     => '#eaeaea',
+					),
+					'.ast-amp .main-header-bar' => array(
+						'border-bottom-width' => '1px',
+					),
+					'.ast-amp .ast-below-header-bar, .ast-amp .main-header-bar, .ast-amp .ast-above-header-bar' => array(
+						'display' => 'grid',
+					),
+				);
+			} else {
+				$css = array(
+					'.ast-mobile-menu-buttons'             => array(
+						'text-align'              => 'right',
+						'-js-display'             => 'flex',
+						'display'                 => '-webkit-box',
+						'display'                 => '-webkit-flex',
+						'display'                 => '-moz-box',
+						'display'                 => '-ms-flexbox',
+						'display'                 => 'flex',
+						'-webkit-box-pack'        => 'end',
+						'-webkit-justify-content' => 'flex-end',
+						'-moz-box-pack'           => 'end',
+						'-ms-flex-pack'           => 'end',
+						'justify-content'         => 'flex-end',
+						'-webkit-align-self'      => 'center',
+						'-ms-flex-item-align'     => 'center',
+						'align-self'              => 'center',
+					),
 
-				'.ast-main-header-bar-alignment.toggle-on .main-header-bar-navigation' => array(
-					'display' => 'block',
-				),
+					'.site-header .main-header-bar-wrap .site-branding' => array(
+						'display'             => '-webkit-box',
+						'display'             => '-webkit-flex',
+						'display'             => '-moz-box',
+						'display'             => '-ms-flexbox',
+						'display'             => 'flex',
+						'-webkit-box-flex'    => '1',
+						'-webkit-flex'        => '1',
+						'-moz-box-flex'       => '1',
+						'-ms-flex'            => '1',
+						'flex'                => '1',
+						'-webkit-align-self'  => 'center',
+						'-ms-flex-item-align' => 'center',
+						'align-self'          => 'center',
+					),
 
-				'.main-navigation'                         => array(
-					'display' => 'block',
-					'width'   => '100%',
-				),
+					'.ast-main-header-bar-alignment.toggle-on .main-header-bar-navigation' => array(
+						'display' => 'block',
+					),
 
-				'.main-header-menu > .menu-item > .menu-link' => array(
-					'padding'             => '0 20px',
-					'display'             => 'inline-block',
-					'width'               => '100%',
-					'border-bottom-width' => '1px',
-					'border-style'        => 'solid',
-					'border-color'        => '#eaeaea',
-				),
+					'.main-navigation'                     => array(
+						'display' => 'block',
+						'width'   => '100%',
+					),
 
-				'.ast-main-header-bar-alignment.toggle-on' => array(
-					'display'                   => 'block',
-					'width'                     => '100%',
-					'-webkit-box-flex'          => '1',
-					'-webkit-flex'              => 'auto',
-					'-moz-box-flex'             => '1',
-					'-ms-flex'                  => 'auto',
-					'flex'                      => 'auto',
-					'-webkit-box-ordinal-group' => '5',
-					'-webkit-order'             => '4',
-					'-moz-box-ordinal-group'    => '5',
-					'-ms-flex-order'            => '4',
-					'order'                     => '4',
-				),
+					'.main-header-menu > .menu-item > .menu-link' => array(
+						'padding'             => '0 20px',
+						'display'             => 'inline-block',
+						'width'               => '100%',
+						'border-bottom-width' => '1px',
+						'border-style'        => 'solid',
+						'border-color'        => '#eaeaea',
+					),
 
-				'.main-header-menu .menu-item'             => array(
-					'width'      => '100%',
-					'text-align' => 'left',
-					'border-top' => '0',
-				),
+					'.ast-main-header-bar-alignment.toggle-on' => array(
+						'display'                   => 'block',
+						'width'                     => '100%',
+						'-webkit-box-flex'          => '1',
+						'-webkit-flex'              => 'auto',
+						'-moz-box-flex'             => '1',
+						'-ms-flex'                  => 'auto',
+						'flex'                      => 'auto',
+						'-webkit-box-ordinal-group' => '5',
+						'-webkit-order'             => '4',
+						'-moz-box-ordinal-group'    => '5',
+						'-ms-flex-order'            => '4',
+						'order'                     => '4',
+					),
 
-				'.header-main-layout-1 .main-navigation'   => array(
-					'padding' => '0',
-				),
+					'.main-header-menu .menu-item'         => array(
+						'width'      => '100%',
+						'text-align' => 'left',
+						'border-top' => '0',
+					),
 
-				'.main-header-bar-navigation'              => array(
-					'width'  => '-webkit-calc( 100% + 40px)',
-					'width'  => 'calc( 100% + 40px)',
-					'margin' => '0 -20px',
-				),
+					'.header-main-layout-1 .main-navigation' => array(
+						'padding' => '0',
+					),
 
-				'.main-header-bar .main-header-bar-navigation .main-header-menu' => array(
-					'border-top-width' => '1px',
-					'border-style'     => 'solid',
-					'border-color'     => '#eaeaea',
-				),
+					'.main-header-bar-navigation'          => array(
+						'width'  => '-webkit-calc( 100% + 40px)',
+						'width'  => 'calc( 100% + 40px)',
+						'margin' => '0 -20px',
+					),
 
-				'.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-					'display'                 => 'inline-block',
-					'position'                => 'absolute',
-					'font-size'               => 'inherit',
-					'top'                     => '-1px',
-					'right'                   => '20px',
-					'cursor'                  => 'pointer',
-					'-webkit-font-smoothing'  => 'antialiased',
-					'-moz-osx-font-smoothing' => 'grayscale',
-					'padding'                 => '0 0.907em',
-					'font-weight'             => 'normal',
-					'line-height'             => 'inherit',
-					'-webkit-transition'      => 'all .2s',
-					'transition'              => 'all .2s',
-				),
+					'.main-header-bar .main-header-bar-navigation .main-header-menu' => array(
+						'border-top-width' => '1px',
+						'border-style'     => 'solid',
+						'border-color'     => '#eaeaea',
+					),
 
-				'.main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
-					'content' => 'none',
-				),
+					'.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
+						'display'                 => 'inline-block',
+						'position'                => 'absolute',
+						'font-size'               => 'inherit',
+						'top'                     => '-1px',
+						'right'                   => '20px',
+						'cursor'                  => 'pointer',
+						'-webkit-font-smoothing'  => 'antialiased',
+						'-moz-osx-font-smoothing' => 'grayscale',
+						'padding'                 => '0 0.907em',
+						'font-weight'             => 'normal',
+						'line-height'             => 'inherit',
+						'-webkit-transition'      => 'all .2s',
+						'transition'              => 'all .2s',
+					),
 
-				'.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
-					'font-weight'     => 'bold',
-					'content'         => '"\e900"',
-					'font-family'     => 'Astra',
-					'text-decoration' => 'inherit',
-					'display'         => 'inline-block',
-				),
-				'.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before' => array(
-					'content' => "\e5cd",
-				),
+					'.main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+						'content' => 'none',
+					),
 
-			);
+					'.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
+						'font-weight'     => 'bold',
+						'content'         => '"\e900"',
+						'font-family'     => 'Astra',
+						'text-decoration' => 'inherit',
+						'display'         => 'inline-block',
+					),
+					'.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before' => array(
+						'content' => "\e5cd",
+					),
+
+					'.ast-amp .main-header-bar-navigation' => array(
+						'width'  => '-webkit-calc( 100% + 40px)',
+						'width'  => 'calc(100% + 40px )',
+						'margin' => '0 -20px',
+					),
+
+					'.ast-amp .ast-mobile-header-inline .site-branding' => array(
+						'text-align'     => 'left',
+						'padding-bottom' => '0',
+					),
+
+				);
+			}
 
 			$parse_css = $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
 
@@ -373,10 +465,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items' => array(
 					'display' => 'none',
 				),
-				'.ast-amp .ast-mobile-header-inline .site-branding' => array(
-					'text-align'     => 'left',
-					'padding-bottom' => '0',
-				),
 				'.ast-amp .ast-mobile-header-inline.header-main-layout-3 .site-branding' => array(
 					'text-align' => 'right',
 				),
@@ -496,11 +584,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 				'.ast-amp .main-navigation .widget:last-child' => array(
 					'margin-bottom' => '0',
-				),
-				'.ast-amp .main-header-bar-navigation'     => array(
-					'width'  => '-webkit-calc( 100% + 40px)',
-					'width'  => 'calc(100% + 40px )',
-					'margin' => '0 -20px',
 				),
 				'.ast-amp .main-header-menu ul ul'         => array(
 					'top' => '0',
