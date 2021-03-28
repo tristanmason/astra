@@ -16,7 +16,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          ~/node_modules
+          node_modules/
         key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
     - name: Build
