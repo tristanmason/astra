@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - next-release
 
 jobs:
   deploy:
@@ -12,12 +13,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache multiple paths
+    - name: Cache node modules
       uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
       with:
-        path: |
-          ~/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+        path: ${{ env.GITHUB_WORKSPACE }}/node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
 
     - name: Build
       run: npm install && grunt release-no-clean
