@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - next-release
 
 jobs:
   deploy:
