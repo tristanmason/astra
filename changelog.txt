@@ -5,6 +5,7 @@ v3.4.0 (Unreleased)
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
 - Fix: Customizer - Edit shortcut button design breaks when Elementor template kit is active on site.
 - Fix: Customizer - Maintained identical reset buttons UI in background control.
+- Fix: Builder - Footer - Background Color picker popup cutting at it's edge in Footer Builder section.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
