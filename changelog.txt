@@ -1,6 +1,7 @@
 v3.4.0 (Unreleased)
-- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices. 
+- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
+- Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
