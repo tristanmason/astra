@@ -121,14 +121,14 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_items          = count( edd_get_cart_contents() );
 			$cart_contents_count = $cart_items;
 
-			// Cart Icon markup with total number of items.
 			$cart_icon = sprintf(
 				'<span class="astra-icon ast-icon-shopping-%1$s %2$s"
 							%3$s
-						></span>',
+						>%4$s</span>',
 				( $icon ) ? $icon : '',
 				( $cart_count_display ) ? '' : 'no-cart-total',
-				( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
+				( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
+				( $icon ) ? ( ( false !== Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( $icon ) : '' ) : ''
 			);
 
 			// Theme's default icon with cart title and cart total.
