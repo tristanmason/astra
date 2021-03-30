@@ -1,4 +1,5 @@
-v3.4.0
+v3.4.0 (Unreleased)
+- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices. 
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 
 v3.3.0
