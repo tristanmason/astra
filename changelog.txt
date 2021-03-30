@@ -1,3 +1,7 @@
+v3.4.0 (Unreleased)
+- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices. 
+- Fix: Search Element alignment in Off-Canvas & Dropdown.
+
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.

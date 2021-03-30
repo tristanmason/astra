@@ -41,10 +41,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'woocommerce_product_catalog',
-					'default'           => array(
-						'desktop' => 4,
-						'tablet'  => 3,
-						'mobile'  => 2,
+					'default'           => astra_get_option(
+						'shop-grids',
+						array(
+							'desktop' => 4,
+							'tablet'  => 3,
+							'mobile'  => 2,
+						) 
 					),
 					'priority'          => 11,
 					'title'             => __( 'Shop Columns', 'astra' ),
