@@ -2,8 +2,9 @@ v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
-- Fix: Customizer - Maintained identical reset buttons UI in background control.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
+- Fix: Customizer - Edit shortcut button design breaks when Elementor template kit is active on site.
+- Fix: Customizer - Maintained identical reset buttons UI in background control.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
