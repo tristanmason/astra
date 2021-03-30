@@ -61,7 +61,6 @@
 		}
 
 		.menu-item-has-children > .menu-link:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
