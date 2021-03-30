@@ -2902,7 +2902,7 @@ function astra_gutenberg_pattern_compatibility() {
 	}
 }
 
-/** 
+/**
  * Set flag to provide backward compatibility of float based CSS for existing users.
  *
  * @since x.x.x
@@ -2915,4 +2915,4 @@ function astra_check_flex_based_css() {
 		$theme_options['is-flex-based-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-}   
+}
