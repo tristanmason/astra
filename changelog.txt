@@ -1,12 +1,29 @@
-v3.2.0
+v3.4.0 (Unreleased)
+- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
+- Fix: Search Element alignment in Off-Canvas & Dropdown.
+- Fix: Customizer - Edit shortcut button design breaks when Elementor template kit is active on site.
+
+v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
+- New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
+- Improvement: Builder - Mobile Menu - Renamed Mobile Menu to Off-Canvas Menu.
 - Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
 - Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
-- Improvement: Gutenberg Editor - Buttons block pattern compatibility.
+- Improvement: Gutenberg Editor - Block patterns compatibility.
+- Improvement: Compatibility with WordPress 5.7.
+- Improvement: Code quality improvements for better performance.
+- Improvement: Load minified customizer preview files for better performance.
 - Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+- Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
+- Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
+- Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
+
+v3.2.0
+- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
+- Fix: Transparent Header - Submenu background alpha not working for the old header.
 
 v3.1.2
 - Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
@@ -21,7 +38,7 @@ v3.1.1
 - Fix: Transparent Header - Submenu background color not working.
 
 v3.1.0
-- Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
+- Improvement: Redesigned the entire customizer UI for better user experience. (https://wpastra.com/docs/revamped-astra-customizer/)
 - Improvement: Added design options for Builder - Toggle Menu in Transparent header.
 - Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
 - Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.

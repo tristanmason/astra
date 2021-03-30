@@ -54,11 +54,13 @@ const DraggableComponent = props => {
 	const renderItem = (item, row) => {
 		let available = true;
 		controlParams.zones.map(zone => {
-			Object.keys(state.settings[zone]).map(area => {
-				if (state.settings[zone][area].includes(item)) {
-					available = false;
-				}
-			});
+			if ( state.settings[zone] ) {
+				Object.keys(state.settings[zone]).map(area => {
+					if (state.settings[zone][area].includes(item)) {
+						available = false;
+					}
+				});
+			}
 		});
 
 		return <Fragment key={item}>
@@ -75,11 +77,14 @@ const DraggableComponent = props => {
 	};
 
 	let droppedCount = 0;
-
 	controlParams.zones.map(zone => {
-		Object.keys(state.settings[zone]).map(area => {
-			droppedCount = droppedCount + state.settings[zone][area].length;
-		});
+
+		if ( state.settings[zone] ) {
+
+			Object.keys(state.settings[zone]).map(area => {
+				droppedCount = droppedCount + state.settings[zone][area].length;
+			});
+		}
 	});
 
 	return <div className="ahfb-control-field ahfb-available-items">
