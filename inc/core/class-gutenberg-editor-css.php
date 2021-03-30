@@ -309,15 +309,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			if( astra_wp_version_compare( '5.7', '>=' ) ) {
-				$desktop_css[ '.edit-post-visual-editor' ] = array(
+			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
+				$desktop_css['.edit-post-visual-editor']                            = array(
 					'padding' => '20px',
 				);
-				$desktop_css[ '.ast-page-builder-template .edit-post-visual-editor' ] = array(
+				$desktop_css['.ast-page-builder-template .edit-post-visual-editor'] = array(
 					'padding' => '10px',
 				);
-				$desktop_css[ '.edit-post-visual-editor .editor-styles-wrapper' ] = array(
-					'padding' => '0',
+				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
+					'padding'    => '0',
 					'background' => 'transparent',
 				);
 			}
