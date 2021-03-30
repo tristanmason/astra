@@ -11,11 +11,13 @@ body{
 	display: block;
 }
 
-.ast-container {
-	display: flex;
+@media ( min-width: 922px ){
+	.ast-container {
+		display: flex;
+	}
 }
 
-@media ( max-width: 922px ){
+@media ( max-width: 921px ){
 	.ast-container {
 		flex-direction: column;
 	}
