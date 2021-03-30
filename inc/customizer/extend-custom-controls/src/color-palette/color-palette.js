@@ -46,14 +46,13 @@ const ColorPaletteComponent = (props) => {
 
 		const newItems = updateState.palettes[currentPalette].map(( palette, colorIndex ) => {
 
-			if( index === colorIndex ) {
+			if( parseInt( index ) === parseInt( colorIndex ) ) {
+				console.log( value );
 				palette = value;
 			}
 
 			return palette;
 		});
-
-		console.log( newItems );
 
 		// props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
 
@@ -73,7 +72,9 @@ const ColorPaletteComponent = (props) => {
 							onChangeComplete={(color) =>
 								handleChangeComplete(key, color, currentPalette)
 							}
-							backgroundType="color"
+							backgroundType={'color'}
+							allowGradient={false}
+							allowImage={false}
 						/>
 					</div>
 				);
