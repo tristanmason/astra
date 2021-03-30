@@ -4,6 +4,8 @@ v3.4.0 (Unreleased)
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
 - Fix: Search - Search Box opens & get's closed automatically on click of Search Icon in Slide search style on Mobile devices.
+- Fix: Customizer - Edit shortcut button design breaks when Elementor template kit is active on site.
+- Fix: Customizer - Maintained identical reset buttons UI in background control.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
