@@ -1,6 +1,7 @@
 v3.4.0 (Unreleased)
-- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices. 
+- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
+- Fix: Builder - HTML - If element is used in Primary Header & line-height is blank in element then it's inheriting from Primary Header bar which is 3em.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
