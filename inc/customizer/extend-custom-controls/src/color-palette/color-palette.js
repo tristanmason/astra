@@ -25,7 +25,7 @@ const ColorPaletteComponent = (props) => {
 		labelHtml = <span className="customize-control-title">{label}</span>;
 	}
 
-	const handleChangeComplete = (color, index) => {
+	const handleChangeComplete = (index, color, currentPalette) => {
 		let updateState = {
 			...state,
 		};
@@ -44,29 +44,34 @@ const ColorPaletteComponent = (props) => {
 			value = color.hex;
 		}
 
-		const newItems = updateState.palette.map((item, thisIndex) => {
-			if (parseInt(index) === parseInt(thisIndex)) {
-				item.color = value;
+		const newItems = updateState.palettes[currentPalette].map(( palette, colorIndex ) => {
+
+			if( index === colorIndex ) {
+				palette = value;
 			}
 
-			return item;
+			return palette;
 		});
 
-		updateState.palette = newItems;
+		console.log( newItems );
 
-		setState(updateState);
+		// props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
+
+		updateState.palettes[currentPalette] = newItems;
+
+		setState( updateState );
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
 	};
 
-	const SinglePalette = ({ singlePalette }) => {
+	const SinglePalette = ({ singlePalette, currentPalette }) => {
 		const singlePaletteHTML = Object.entries(singlePalette).map(
 			([key, value]) => {
 				return (
 					<div className="ast-color-picker-wrap" key={key}>
 						<AstraColorPickerControl
 							color={value}
-							onChangeComplete={(value) =>
-								handleChangeComplete(key, color)
+							onChangeComplete={(color) =>
+								handleChangeComplete(key, color, currentPalette)
 							}
 							backgroundType="color"
 						/>
@@ -91,10 +96,20 @@ const ColorPaletteComponent = (props) => {
 							className={`ast-color-picker-${palette_key} ast-single-palette-wrap`}
 						>
 							<label>
-							<input type="radio" className="ast-palette-radio-input"/>
-							{palette_label}
+								<input
+									type="radio"
+									className="ast-palette-radio-input"
+									value={palette_key}
+									name="ast-color-palette-radio-input"
+								/>
+								{palette_label}
 							</label>
-							<SinglePalette singlePalette={palette_color_obj} />
+							<div className="ast-single-palette-color-group" >
+							<SinglePalette
+								currentPalette={palette_key}
+								singlePalette={palette_color_obj}
+							/>
+							</div>
 						</div>
 					);
 				}
