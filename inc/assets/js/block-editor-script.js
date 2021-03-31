@@ -14,18 +14,23 @@ function astra_onload_function() {
 
 				var bodyClass = document.querySelector('body'),
 					contentLayout = document.getElementById('site-content-layout').value;
-				if ( 'content-boxed-container' == contentLayout ) {
-					bodyClass.classList.add('ast-separate-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
-				} else if ( 'boxed-container' == contentLayout ) {
-					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
-					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
-				} else if ( 'page-builder' == contentLayout ) {
-					bodyClass.classList.add('ast-page-builder-template');
-					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
-				} else if ( 'plain-container' == contentLayout ) {
-					bodyClass.classList.add('ast-plain-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+				switch( contentLayout ) {
+					case 'content-boxed-container':
+						bodyClass.classList.add('ast-separate-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
+					break;
+					case 'boxed-container':
+						bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
+					break;
+					case 'page-builder':
+						bodyClass.classList.add('ast-page-builder-template');
+						bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
+					break;
+					case 'plain-container':
+						bodyClass.classList.add('ast-plain-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+					break;
 				}
 			});
 
