@@ -1,5 +1,6 @@
 v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
+- Improvement: Gutenberg Editor - Compatibility with WordPress 5.7.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
@@ -8,6 +9,7 @@ v3.4.0 (Unreleased)
 - Fix: Builder - HTML - If element is used in Primary Header & line-height is blank in element then it's inheriting from Primary Header bar which is 3em.
 - Fix: Builder - Footer - Background Color picker popup cutting at it's edge in Footer Builder section.
 - Fix: Menu Hover/Active link not working in Customizer & Frontend for tablet & mobile.
+- Fix: Gutenberg Editor - Unable to edit content in editor when background styles applied to Content and Site Layout is Max-Width.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
