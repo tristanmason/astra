@@ -10,7 +10,7 @@
 	&:last-child {
 		margin-bottom: 0;
 	}
-	
+
 	select {
 		max-width: 100%;
 	}
@@ -55,19 +55,22 @@
 		background: initial;
 		color: inherit;
 
-		&:after {
-			font-family: $font-family-astra;
-			font-size: 1.2em;
-			font-weight: normal;
-			content: "\e8b6";
-		    position: absolute;
-		    top: 50%;
-		    right: 15px;
-		    transform: translate(0,-50%);
-		}
-
 		> label {
 		    position: relative;
+		}
+
+		i {
+			color: rgb(58, 58, 58);
+		}
+
+		button {
+			position: absolute;
+			top: 0;
+			right: 15px;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+			background: transparent;
 		}
 
 		input[type="submit"],
@@ -95,7 +98,7 @@
 	.search-field,
 	.search-field:focus {
 	    width: 100%;
-	    padding: 16px 45px 16px 15px;
+		padding: 16px 45px 16px 15px;
 	}
 }
 
@@ -135,7 +138,7 @@
 		    font-size: 14px;
 		    margin-right: 4px;
 		    line-height: 1.5;
-		    @include ast-transition();    
+		    @include ast-transition();
 		}
 	}
 }
@@ -195,19 +198,5 @@
 	}
 	#today {
 	    background: $color-background-active;
-	}
-}
-
-//separate container content layout
-.ast-separate-container{
-	//two container content layout
-	&.ast-two-container{
-		#secondary{
-			.widget{
-				background-color: $color-background-content;
-				padding: 2em;
-				margin-bottom: 2em;
-			}
-		}
 	}
 }

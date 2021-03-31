@@ -5,10 +5,10 @@
  * 1 - Primary Menus
  * 2 - Secondary Menus
  * 3 - Header Top Menus
- * 
+ *
  * Contents
  * 1 - Toggle Button
- * 
+ *
 */
 
 /**
@@ -29,7 +29,7 @@
 /* Toggle Button */
 .ast-button-wrap {
     display: inline-block;
-    
+
     button {
 		box-shadow: none;
 		border: none;
@@ -47,7 +47,7 @@
 	    border-radius: 2px;
 	    vertical-align: middle;
 	    line-height: 1.85714285714286;
-	    
+
 	    &.main-header-menu-toggle{
 		    padding: 0 .5em;
 		    width: auto;
@@ -63,12 +63,15 @@
 			display: inline-block;
 			vertical-align: middle;
 			line-height: 2.05;
-    
+
 	    	&:before {
 		    	content: "\e5d2";
 				font-family: 'Astra';
 				text-decoration: inherit;
 			}
+		}
+		.icon-menu-bars svg:nth-child(2) {
+			display: none;
 		}
 		&.toggled{
 			.menu-toggle-icon {
@@ -76,15 +79,20 @@
 			    	content: "\e5cd";
 				}
 			}
+			.icon-menu-bars svg:nth-child(1) {
+				display: none;
+			}
+			.icon-menu-bars svg:nth-child(2) {
+				display: block;
+			}
 		}
 		.mobile-menu-wrap{
 			display: inline-block;
 		}
+		&:focus {
+			outline: thin dotted;
+		}
 	}
-}
-
-.main-header-bar-navigation {
-	flex: 1;
 }
 
 .header-main-layout-1 {
@@ -101,6 +109,10 @@
 
 #site-navigation {
 	height: 100%;
+}
+
+.site-header .menu-link * {
+    transition: none;
 }
 
 /* Responsive Screen */
@@ -143,8 +155,52 @@
 		width: 50%;
 		display: inline-block;
 	}
-	
+
 	.nav-next {
 		text-align: right;
 	}
+}
+
+.ast-icon {
+	svg {
+		fill: currentColor;
+	}
+}
+
+.ast-icon {
+	&.icon-arrow {
+		svg {
+			height: .6em;
+			width: .6em;
+			position: relative;
+			margin-left: 10px;
+		}
+	}
+	&.icon-search {
+		svg {
+			height: 1em;
+			width: 0.9em;
+			margin-top: 3px;
+			margin-right: 2px;
+		}
+	}
+}
+
+.ast-mobile-popup-content {
+	.ast-icon svg {
+		height: .85em;
+		width: .95em;
+		margin-top: 15px;
+	}
+	.ast-icon.icon-search svg {
+		margin-top: 0;
+	}
+}
+.post-navigation a {
+	background: transparent;
+	font-size: 16px;
+	font-size: 1.06666rem;
+	padding: 0 1.5em;
+	height: 2.33333em;
+	line-height: calc(2.33333em - 3px);
 }

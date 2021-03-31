@@ -21,11 +21,11 @@ textarea {
     @include ast-transition();
 }
 
-input[type="text"]:focus, 
-input[type="email"]:focus, 
-input[type="url"]:focus, 
-input[type="password"]:focus, 
-input[type="search"]:focus, 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
 input[type=reset]:focus,
 input[type=tel]:focus,
 select:focus,
@@ -49,5 +49,9 @@ input[type="button"]:focus {
 
 textarea {
 	width: 100%;
+}
+
+input[type="search"]:focus {
+	outline: thin dotted;
 }
 

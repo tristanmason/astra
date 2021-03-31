@@ -91,6 +91,22 @@
         }
     },
     {
+        "Akaya Kanadaka": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Akaya Telivigala": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Akronim": {
             "variants": [
                 "regular"
@@ -143,14 +159,16 @@
         "Alegreya": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "serif"
@@ -430,6 +448,17 @@
         }
     },
     {
+        "Andika New Basic": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Angkor": {
             "variants": [
                 "regular"
@@ -587,8 +616,12 @@
         "Arimo": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -701,6 +734,7 @@
                 "200",
                 "300",
                 "regular",
+                "500",
                 "600",
                 "700",
                 "800"
@@ -912,6 +946,14 @@
         }
     },
     {
+        "Ballet": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Baloo 2": {
             "variants": [
                 "regular",
@@ -1015,6 +1057,17 @@
                 "600",
                 "700",
                 "800"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Balsamiq Sans": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
             ],
             "category": "display"
         }
@@ -1258,6 +1311,14 @@
         }
     },
     {
+        "Benne": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Bentham": {
             "variants": [
                 "regular"
@@ -1291,6 +1352,66 @@
     },
     {
         "Big Shoulders Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Inline Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Inline Text": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Stencil Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Stencil Text": {
             "variants": [
                 "100",
                 "300",
@@ -1392,9 +1513,24 @@
     {
         "Bitter": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
                 "italic",
-                "700"
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -1436,6 +1572,25 @@
                 "900"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Bodoni Moda": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -1490,6 +1645,17 @@
         "Bree Serif": {
             "variants": [
                 "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Brygada 1918": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "serif"
         }
@@ -1587,12 +1753,12 @@
         "Cabin": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -1779,6 +1945,15 @@
         }
     },
     {
+        "Castoro": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Catamaran": {
             "variants": [
                 "100",
@@ -1809,6 +1984,8 @@
         "Caveat": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "handwriting"
@@ -2017,7 +2194,10 @@
         "Cinzel": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "serif"
@@ -2114,6 +2294,22 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Commissioner": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -2397,8 +2593,12 @@
         "Cuprum": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -2424,6 +2624,19 @@
         "Cutive Mono": {
             "variants": [
                 "regular"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
+        "DM Mono": {
+            "variants": [
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic"
             ],
             "category": "monospace"
         }
@@ -2635,6 +2848,8 @@
         "Domine": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -2674,6 +2889,14 @@
                 "600",
                 "700",
                 "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "DotGothic16": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }
@@ -2927,6 +3150,31 @@
         }
     },
     {
+        "Epilogue": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Erica One": {
             "variants": [
                 "regular"
@@ -2962,22 +3210,22 @@
         "Exo": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -3341,6 +3589,31 @@
         }
     },
     {
+        "Fraunces": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Freckle Face": {
             "variants": [
                 "regular"
@@ -3635,6 +3908,15 @@
         }
     },
     {
+        "Goldman": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Gorditas": {
             "variants": [
                 "regular",
@@ -3692,6 +3974,31 @@
         }
     },
     {
+        "Grandstander": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Gravitas One": {
             "variants": [
                 "regular"
@@ -3730,6 +4037,22 @@
                 "900italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Grenze Gotisch": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -3790,6 +4113,14 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Hachi Maru Pop": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -3856,7 +4187,8 @@
     {
         "Harmattan": {
             "variants": [
-                "regular"
+                "regular",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -3873,9 +4205,11 @@
         "Heebo": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
                 "800",
                 "900"
@@ -4180,10 +4514,12 @@
         "Ibarra Real Nova": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "serif"
@@ -4203,6 +4539,22 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Imbue": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -4378,6 +4730,29 @@
         }
     },
     {
+        "JetBrains Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Jim Nightshade": {
             "variants": [
                 "regular"
@@ -4442,17 +4817,46 @@
         "Josefin Slab": {
             "variants": [
                 "100",
-                "100italic",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Jost": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -4622,10 +5026,20 @@
     {
         "Karla": {
             "variants": [
+                "200",
+                "300",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic"
+                "800",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
             ],
             "category": "sans-serif"
         }
@@ -4888,6 +5302,25 @@
         }
     },
     {
+        "Kufam": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Kulim Park": {
             "variants": [
                 "200",
@@ -4918,6 +5351,16 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Kumbh Sans": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -4953,7 +5396,7 @@
                 "600",
                 "700"
             ],
-            "category": "serif"
+            "category": "sans-serif"
         }
     },
     {
@@ -4974,6 +5417,14 @@
     },
     {
         "Lancelot": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Langar": {
             "variants": [
                 "regular"
             ],
@@ -5164,6 +5615,14 @@
         }
     },
     {
+        "Libre Barcode EAN13 Text": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Libre Baskerville": {
             "variants": [
                 "regular",
@@ -5195,22 +5654,22 @@
         "Libre Franklin": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -5262,14 +5721,22 @@
     {
         "Literata": {
             "variants": [
+                "200",
+                "300",
                 "regular",
                 "500",
                 "600",
                 "700",
+                "800",
+                "900",
+                "200italic",
+                "300italic",
                 "italic",
                 "500italic",
                 "600italic",
-                "700italic"
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -5845,12 +6312,16 @@
         "Merriweather Sans": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic",
                 "800",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
                 "800italic"
             ],
             "category": "sans-serif"
@@ -6256,7 +6727,7 @@
         }
     },
     {
-        "Muli": {
+        "Mulish": {
             "variants": [
                 "200",
                 "300",
@@ -6276,6 +6747,22 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "MuseoModerno": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -6340,6 +6827,14 @@
         }
     },
     {
+        "Nerko One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Neucha": {
             "variants": [
                 "regular"
@@ -6375,6 +6870,27 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Newsreader": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -6752,6 +7268,14 @@
     },
     {
         "Offside": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Oi": {
             "variants": [
                 "regular"
             ],
@@ -7215,7 +7739,24 @@
     {
         "Petrona": {
             "variants": [
-                "regular"
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "serif"
         }
@@ -7229,6 +7770,31 @@
                 "700italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Piazzolla": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -7412,6 +7978,14 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Potta One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -7686,22 +8260,22 @@
         "Raleway": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -7804,6 +8378,20 @@
         }
     },
     {
+        "Recursive": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Red Hat Display": {
             "variants": [
                 "regular",
@@ -7832,6 +8420,18 @@
         }
     },
     {
+        "Red Rose": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Redressed": {
             "variants": [
                 "regular"
@@ -7853,6 +8453,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Reggae One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -7939,14 +8547,18 @@
         "Roboto Mono": {
             "variants": [
                 "100",
-                "100italic",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "monospace"
@@ -7982,6 +8594,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "RocknRoll One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -8052,6 +8672,16 @@
         }
     },
     {
+        "Rowdies": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Rozha One": {
             "variants": [
                 "regular"
@@ -8063,14 +8693,18 @@
         "Rubik": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic",
+                "800",
                 "900",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -8198,7 +8832,16 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -8297,6 +8940,20 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Sansita Swashed": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -8522,6 +9179,30 @@
         }
     },
     {
+        "Shippori Mincho": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Shippori Mincho B1": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Shojumaru": {
             "variants": [
                 "regular"
@@ -8566,6 +9247,7 @@
             "variants": [
                 "300",
                 "regular",
+                "500",
                 "600",
                 "700"
             ],
@@ -8746,6 +9428,21 @@
         }
     },
     {
+        "Sora": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Sorts Mill Goudy": {
             "variants": [
                 "regular",
@@ -8797,11 +9494,32 @@
     {
         "Source Serif Pro": {
             "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
                 "regular",
+                "italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "900",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Space Grotesk": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
                 "600",
                 "700"
             ],
-            "category": "serif"
+            "category": "sans-serif"
         }
     },
     {
@@ -8972,6 +9690,14 @@
         }
     },
     {
+        "Stick": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Stint Ultra Condensed": {
             "variants": [
                 "regular"
@@ -9124,6 +9850,34 @@
         }
     },
     {
+        "Syne": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Syne Mono": {
+            "variants": [
+                "regular"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
+        "Syne Tactile": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Tajawal": {
             "variants": [
                 "200",
@@ -9229,6 +9983,31 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Texturina": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -9376,6 +10155,21 @@
         }
     },
     {
+        "Trispace": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Trocchi": {
             "variants": [
                 "regular"
@@ -9391,6 +10185,22 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Truculenta": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -9565,6 +10375,18 @@
         }
     },
     {
+        "Varta": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Vast Shadow": {
             "variants": [
                 "regular"
@@ -9646,12 +10468,16 @@
         "Vollkorn": {
             "variants": [
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
+                "800",
                 "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "serif"
@@ -9758,6 +10584,15 @@
         }
     },
     {
+        "Xanh Mono": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Yanone Kaffeesatz": {
             "variants": [
                 "200",
@@ -9833,6 +10668,14 @@
                 "700"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Yusei Magic": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {

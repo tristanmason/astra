@@ -5,8 +5,8 @@
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 	</rule>
-	<config name="testVersion" value="5.3-"/>
 
+	<rule ref="WPThemeReview" />
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
@@ -18,6 +18,14 @@
 		</properties>
 	</rule>
 
+	<rule ref="PHPCompatibility.Keywords.NewKeywords.t_useFound">
+		<exclude-pattern>inc/compatibility/class-astra-web-stories.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PHPCompatibility.LanguageConstructs.NewLanguageConstructs">
+		<exclude-pattern>inc/compatibility/class-astra-web-stories.php</exclude-pattern>
+	</rule>
+
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
 	<file>.</file>
@@ -26,6 +34,7 @@
 	<arg value="s"/>
 
 	<exclude-pattern>inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php</exclude-pattern>
+	<exclude-pattern>inc/customizer/extend-custom-controls/build/index.asset.php</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<!-- Exclude Libraries -->

@@ -41,7 +41,7 @@ img {
 .entry-content h3,
 .entry-content h4,
 .entry-content h5,
-.entry-content h6 
+.entry-content h6
 {
     margin-bottom: 20px;
 }
@@ -113,6 +113,7 @@ input[type="submit"] {
 
 .ast-search-menu-icon {
     position: relative;
+    z-index: 3;
 }
 
 .ast-header-break-point {
@@ -151,7 +152,7 @@ input[type="submit"] {
                 overflow: hidden;
             }
         }
-        
+
     }
 }
 
@@ -170,14 +171,15 @@ input[type="submit"] {
     text-decoration: none;
     text-transform: none;
     top: -9999em;
-    
+
     &:focus {
         clip: auto;
         height: auto;
         left: 6px;
         top: 7px;
         width: auto;
-        z-index: 100000;
+		z-index: 100000;
+		outline: thin dotted;
     }
 
     .logged-in & {

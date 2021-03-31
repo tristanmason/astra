@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer = require('autoprefixer');
     var flexibility = require('postcss-flexibility');
-    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-background', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
+    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-background', 'responsive-select', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'color-group', 'slider', 'sortable', 'spacing', 'typography', 'toggle-control'];
 
     const sass = require('node-sass');
 
@@ -126,7 +126,6 @@ module.exports = function (grunt) {
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                     },
-
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
@@ -142,6 +141,30 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    /* Common Style with new Header-Footer Builder Style */
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['frontend.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['main.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+                     /* Common Style felx based */
+                     {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['style-flex.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+
                     /* Compatibility */
                     {
                         expand: true,
@@ -236,7 +259,157 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
-                    }
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/above-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/below-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/copyright/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/copyright/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/primary-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/primary-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/widget/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/above-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/above-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/account/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/account/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/below-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/below-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/edd-cart/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/edd-cart/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/mobile-menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/mobile-menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/mobile-trigger/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/mobile-trigger/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/off-canvas/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/off-canvas/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/primary-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/primary-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/search/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/search/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/site-identity/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/site-identity/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/widget/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/woo-cart/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
+                    },
                 ]
             }
         },
@@ -272,6 +445,14 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/style.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/frontend-rtl.css',
+                        dest: 'assets/css/minified/frontend.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/main-rtl.css',
+                        dest: 'assets/css/minified/main.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
                         dest: 'assets/css/minified/extend-customizer.min-rtl.css',
                     },
@@ -299,8 +480,8 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
                     },
                     {
-                        src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        src: 'assets/css/unminified/compatibility/contact-form-7-main-rtl.css',
+                        dest: 'assets/css/minified/compatibility/contact-form-7-main.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
@@ -327,8 +508,20 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-grid.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout-grid.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
                         dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen-grid.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
@@ -373,6 +566,13 @@ module.exports = function (grunt) {
                     '!composer.lock',
                     '!package-lock.json',
                     '!phpcs.xml.dist',
+                    '!assets/fonts/google-fonts.json',
+                    '!inc/customizer/extend-custom-controls/package.json',
+                    '!inc/customizer/extend-custom-controls/package-lock.json',
+                    '!inc/customizer/extend-custom-controls/src/**',
+                    '!inc/customizer/extend-custom-controls/node_modules/**',
+                    '!inc/customizer/extend-custom-controls/build/index.asset.php',
+                    '!inc/customizer/extend-custom-controls/build/index.js.map',
                 ],
                 dest: 'astra/'
             }
@@ -453,25 +653,19 @@ module.exports = function (grunt) {
                             '!inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+					},
+					{
+                        src: [
+                            'inc/customizer/custom-controls/link/link.js',
+                            'inc/customizer/custom-controls/typography/typography.js',
+                            'inc/customizer/custom-controls/typography/selectWoo.js',
+                        ],
+                        dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
                     },
                     {
                         src: [
-                            'inc/customizer/custom-controls/background/background.js',
-                            'inc/customizer/custom-controls/border/border.js',
-                            'inc/customizer/custom-controls/color/color.js',
-                            'inc/customizer/custom-controls/link/link.js',
-                            'inc/customizer/custom-controls/customizer-link/customizer-link.js',
-                            'inc/customizer/custom-controls/radio-image/radio-image.js',
-                            'inc/customizer/custom-controls/responsive/responsive.js',
-                            'inc/customizer/custom-controls/responsive-color/responsive-color.js',
-                            'inc/customizer/custom-controls/responsive-background/responsive-background.js',
-                            'inc/customizer/custom-controls/responsive-slider/responsive-slider.js',
-                            'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js',
-                            'inc/customizer/custom-controls/settings-group/settings-group.js',
-                            'inc/customizer/custom-controls/slider/slider.js',
-                            'inc/customizer/custom-controls/sortable/sortable.js',
-                            'inc/customizer/custom-controls/typography/typography.js'
-
+                            'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
+                            'inc/customizer/extend-custom-controls/build/index.js'
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                     },
@@ -542,7 +736,22 @@ module.exports = function (grunt) {
 					'README.md': 'readme.txt'
 				}
 			},
-		},
+        },
+
+        json2php: {
+            options: {
+                // Task-specific options go here.
+                compress: true,
+                cover: function (phpArrayString, destFilePath) {
+                    return '<?php\n/**\n * Google fonts array file.\n *\n * @package     Astra\n * @author      Astra\n * @copyright   Copyright (c) 2020, Astra\n * @link        https://wpastra.com/\n * @since       Astra 2.5.0\n */\n\n/**\n * Returns google fonts array\n *\n * @since 2.5.0\n */\nreturn ' + phpArrayString + ';\n';
+                }
+            },
+            your_target: {
+				files: {
+					'inc/google-fonts.php': 'assets/fonts/google-fonts.json'
+				}
+            },
+        },
     }
     );
 
@@ -559,7 +768,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
-    grunt.loadNpmTasks("grunt-wp-readme-to-markdown")
+    grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
+    grunt.loadNpmTasks('grunt-json2php');
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
@@ -573,8 +783,7 @@ module.exports = function (grunt) {
     // min all
     grunt.registerTask('minify', ['style', 'concat', 'uglify:js', 'cssmin:css']);
 
-    // Update google Fonts
-    grunt.registerTask('google-fonts', function () {
+    grunt.registerTask('download-google-fonts', function () {
         var done = this.async();
         var request = require('request');
         var fs = require('fs');
@@ -595,10 +804,17 @@ module.exports = function (grunt) {
                 fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
                     if (!err) {
                         console.log("Google Fonts Updated!");
+                        done();
                     }
                 });
             }
         });
+    });
+
+    // Update google Fonts
+    grunt.registerTask('google-fonts', function () {
+        grunt.task.run('download-google-fonts');
+        grunt.task.run('json2php');
     });
 
     // Grunt release - Create installable package of the local files
@@ -622,6 +838,47 @@ module.exports = function (grunt) {
 
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
+
+     // Update Font Awesome library.
+     grunt.registerTask('font-awesome', function () {
+        this.async();
+        var request = require('request');
+        var fs = require('fs');
+
+        request('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json', function (error, response, body) {
+
+            if (response && response.statusCode == 200) {
+
+                console.log('Fonts successfully fetched!');
+
+                var fonts = JSON.parse(body);
+
+                for ( var $i in fonts ) {
+
+                    delete fonts[$i].changes;
+                    delete fonts[$i].ligatures;
+                    delete fonts[$i].unicode;
+                    delete fonts[$i].voted;
+
+                    for ( var $j in fonts[$i]['styles'] ) {
+                        var s_index = fonts[$i]['styles'][$j]
+                        if ( undefined !== fonts[$i].svg[s_index] ) {
+                            delete fonts[$i].svg[s_index].last_modified
+                            delete fonts[$i].svg[s_index].raw
+                            delete fonts[$i].svg[s_index].width
+                            delete fonts[$i].svg[s_index].height
+                        }
+                    }
+                }
+
+                fs.writeFile('assets/svg/ast-social-icons.json', JSON.stringify(fonts, null, 4), function (err) {
+                    if (!err) {
+                        console.log("Font-Awesome library updated!");
+                    }
+                });
+            }
+        });
+    });
 
     grunt.util.linefeed = '\n';
 };

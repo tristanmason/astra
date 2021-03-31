@@ -5,7 +5,7 @@
  * @package Astra
  */
 
-namespace Elementor;
+namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
@@ -48,6 +48,80 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
+
+			/**
+			 * Compatibility for Elementor Headings after Elementor-v2.9.9.
+			 *
+			 * @since  2.4.5
+			 */
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+		}
+
+		/**
+		 * Compatibility CSS for Elementor Headings after Elementor-v2.9.9
+		 *
+		 * In v2.9.9 Elementor has removed [ .elementor-widget-heading .elementor-heading-title { margin: 0 } ] this CSS.
+		 * Again in v2.9.10 Elementor added this as .elementor-heading-title { margin: 0 } but still our [ .entry-content heading { margin-bottom: 20px } ] CSS overrding their fix.
+		 *
+		 * That's why adding this CSS fix to headings by setting bottom-margin to 0.
+		 *
+		 * @param  string $dynamic_css Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @return string $dynamic_css Generated CSS.
+		 *
+		 * @since  2.4.5
+		 */
+		public function enqueue_elementor_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+			global $post;
+			$id = astra_get_post_id();
+
+			if ( $this->is_elementor_activated( $id ) ) {
+
+				$elementor_heading_margin_comp = array(
+					'.elementor-widget-heading .elementor-heading-title' => array(
+						'margin' => '0',
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
+
+				$elementor_base_css = array(
+					'.elementor-post.elementor-grid-item.hentry' => array(
+						'margin-bottom' => '0',
+					),
+					'.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product, .elementor-element .elementor-wc-products .woocommerce[class*=\'columns-\'] ul.products li.product' => array(
+						'width'  => 'auto',
+						'margin' => '0',
+						'float'  => 'none',
+					),
+				);
+				// Load base static CSS when Elmentor is activated.
+				$parse_css .= astra_parse_css( $elementor_base_css );
+
+				if ( is_rtl() ) {
+					$elementor_rtl_support_css = array(
+						'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+							'max-width' => '100%',
+							'right'     => '0 !important',
+						),
+					);
+				} else {
+					$elementor_rtl_support_css = array(
+						'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+							'max-width' => '100%',
+							'left'      => '0 !important',
+						),
+					);
+				}
+				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
+				
+
+				$dynamic_css .= $parse_css;
+			}
+
+			return $dynamic_css;
 		}
 
 		/**
@@ -58,7 +132,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function elementor_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false === astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 
@@ -93,14 +167,14 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
 					add_filter(
 						'astra_page_layout',
-						function() {
+						function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 							return 'no-sidebar';
 						}
 					);
 
 					add_filter(
 						'astra_get_content_layout',
-						function () {
+						function () { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 							return 'page-builder';
 						}
 					);
