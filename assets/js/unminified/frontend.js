@@ -275,8 +275,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if ( 'off-canvas' === mobileHeaderType ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
-				submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
-
+				submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' ),
+				popupInner = document.querySelector( '.ast-mobile-popup-inner' ),
+				popupLinks = popupInner.getElementsByTagName('a');
+			
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
 				popupTriggerMobile[item].removeEventListener("click", astraNavMenuToggle, false);
@@ -320,8 +322,33 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					updateTrigger();
 				}
 			});
+
+			// Close Popup on # link click inside Popup.
+			for ( i = 0, len = popupLinks.length; i < len; i++ ) {
+				popupLinks[i].addEventListener( 'click', newToggleClose, true );
+				popupLinks[i].headerType = 'off-canvas';
+			}
+
 			AstraToggleSetup();
 		} else if ( 'dropdown' === mobileHeaderType ) {
+
+			var mobileDropdownContent = document.querySelector( '.ast-mobile-header-content' ),
+			    desktopDropdownContent = document.querySelector( '.ast-desktop-header-content' ),
+				mobileLinks = mobileDropdownContent.getElementsByTagName('a'),
+				desktopLinks = desktopDropdownContent.getElementsByTagName('a');
+
+			// Close Popup on # link click inside Popup.
+			for ( i = 0, len = mobileLinks.length; i < len; i++ ) {
+				mobileLinks[i].addEventListener( 'click', newToggleClose, true );
+				mobileLinks[i].headerType = 'dropdown';
+			}
+
+			// Close Popup on # link click inside Popup.
+			for ( i = 0, len = desktopLinks.length; i < len; i++ ) {
+				desktopLinks[i].addEventListener( 'click', newToggleClose, true );
+				desktopLinks[i].headerType = 'dropdown';
+			}
+
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
 				popupTriggerMobile[item].removeEventListener("click", popupTriggerClick, false);
@@ -341,6 +368,28 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
+
+	}
+
+	function newToggleClose( event ) {
+
+		var headerType = event.currentTarget.headerType;
+
+		if ( 'dropdown' === headerType ) {
+
+			var popupTrigger = document.querySelectorAll( '.menu-toggle' );
+
+			for ( var item = 0;  item < popupTrigger.length; item++ ) {
+
+				popupTrigger[item].click();
+			}
+		} else if ( 'off-canvas' === headerType ) {
+
+			var popupClose = document.getElementById( 'menu-toggle-close' );
+
+			popupClose.click();
+
+		}
 
 	}
 
