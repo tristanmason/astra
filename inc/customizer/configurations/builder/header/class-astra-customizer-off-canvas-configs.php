@@ -106,7 +106,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -118,7 +118,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'       => 'control',
 					'control'    => 'ast-selector',
 					'section'    => $_section,
-					'context'    => Astra_Builder_Helper::$responsive_general_tab,
+					'context'    => Astra_Builder_Helper::$general_tab,
 					'priority'   => 40,
 					'title'      => __( 'Dropdown Target', 'astra' ),
 					'suffix'     => '',
@@ -128,7 +128,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'transport'  => 'postMessage',
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -140,8 +141,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'       => 'control',
 					'control'    => 'ast-selector',
 					'section'    => $_section,
-					'context'    => Astra_Builder_Helper::$responsive_general_tab,
-					'priority'   => 45,
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'priority'   => 40,
 					'title'      => __( 'Content Alignment', 'astra' ),
 					'suffix'     => '',
 					'choices'    => array(
@@ -152,6 +153,51 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 					'transport'  => 'postMessage',
+				),
+
+				// Option Group: Off-Canvas Colors Group.
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-background]',
+					'type'              => 'control',
+					'control'           => 'ast-background',
+					'title'             => __( 'Background', 'astra' ),
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'priority'          => 26,
+					'context'           => Astra_Builder_Helper::$design_tab,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'default'           => astra_get_option( 'off-canvas-background' ),
+				),
+
+				// Option: Off-Canvas Close Icon Color.
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-close-color]',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'off-canvas-close-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => $_section,
+					'priority'          => 27,
+					'title'             => __( 'Close Icon Color', 'astra' ),
+					'context'           => array(
+						'relation' => 'AND',
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'off-canvas',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[mobile-header-type]',
+								'operator' => '==',
+								'value'    => 'full-width',
+							),
+						),
+					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				// Spacing Between every element in the flyout.
@@ -182,18 +228,28 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'           => astra_get_option( 'off-canvas-background' ),
 				),
 
-				// Option: Off-Canvas Close Icon Color.
+				/**
+				 * Option: Popup Padding.
+				 */
+
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[off-canvas-close-color]',
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'off-canvas-close-color' ),
-					'type'              => 'control',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'section'           => $_section,
-					'priority'          => 30,
-					'title'             => __( 'Close Icon Color', 'astra' ),
-					'context'           => array(
+					'name'           => ASTRA_THEME_SETTINGS . '[off-canvas-padding]',
+					'default'        => astra_get_option( 'off-canvas-padding' ),
+					'type'           => 'control',
+					'transport'      => 'postMessage',
+					'control'        => 'ast-responsive-spacing',
+					'section'        => $_section,
+					'priority'       => 210,
+					'title'          => __( 'Popup Padding', 'astra' ),
+					'linked_choices' => true,
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'        => array(
 						'relation' => 'AND',
 						Astra_Builder_Helper::$design_tab_config,
 						array(
@@ -211,6 +267,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 				),
+
 			);
 
 			return array_merge( $configurations, $_configs );
