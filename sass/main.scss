@@ -27,6 +27,22 @@
 --------------------------------------------------------------*/
 @import "normalize-frontend";
 
+node_modules/.bin/sass sass/_normalize-frontend.scss:sass/css/_normalize-frontend.css
+node_modules/.bin/sass sass/grid/bootstrap.scss:sass/css/grid-_bootstrap.css
+node_modules/.bin/sass sass/variables-site/_variables-site.scss:sass/css/variables-site-_variables-site.css
+node_modules/.bin/sass sass/mixins/_mixins-master.scss:sass/css/mixins-_mixins-master.css
+node_modules/.bin/sass sass/typography/_typography.scss:sass/css/typography-_typography.css
+node_modules/.bin/sass sass/elements/_elements.scss:sass/css/elements-_elements.css
+node_modules/.bin/sass sass/forms/_forms.scss:sass/css/forms-_forms.css
+node_modules/.bin/sass sass/navigation/_navigation.scss:sass/css/navigation-_navigation.css
+node_modules/.bin/sass sass/modules/_modules-flex.scss:sass/css/modules-_modules-flex.css
+node_modules/.bin/sass sass/media/_media.scss:sass/css/media-_media.css
+node_modules/.bin/sass sass/site/_main.scss:sass/css/site-_main.css
+
+
+
+node_modules/.bin/css-minify -d sass/css/site -o sass/css-min/site
+
 /*--------------------------------------------------------------
 # Bootstrap Grid
 --------------------------------------------------------------*/

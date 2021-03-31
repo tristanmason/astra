@@ -1,0 +1,184 @@
+/*----------  Font Size  ----------*/
+/*----------  Line Height  ----------*/
+/*----------  Site Basic Structure  ----------*/
+/*----------  z-index Structure   ----------*/
+/*----------  Mixins  ----------*/
+/*----------  Site Variables  ----------*/
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+/**
+ * 	Form Fields
+ *
+ * @import
+ * 1 - All fields common scss
+ * 2 - Field - Range
+ * 3 - Field - Color
+*/
+/* 1 - All fields common scss  */
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=search],
+input[type=reset],
+input[type=tel],
+select,
+textarea {
+  color: #666;
+  padding: 0.75em;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  border-radius: 2px;
+  background: #fafafa;
+  box-shadow: none;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=reset]:focus,
+input[type=tel]:focus,
+select:focus,
+textarea:focus {
+  background-color: #fff;
+  border-color: #eaeaea;
+  box-shadow: none;
+}
+
+input[type=reset],
+input[type=reset]:hover,
+input[type=reset]:focus,
+input[type=submit],
+input[type=submit]:hover,
+input[type=submit]:focus,
+input[type=button],
+input[type=button]:hover,
+input[type=button]:focus {
+  box-shadow: none;
+}
+
+textarea {
+  width: 100%;
+}
+
+input[type=search]:focus {
+  outline: thin dotted;
+}
+
+/* 2 - Field - Range */
+/* Range */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.7px 0;
+  padding: 0;
+  border: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.6px;
+  cursor: pointer;
+  box-shadow: 2.6px 2.6px 0.4px #cccccc, 0px 0px 2.6px #d9d9d9;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 13.6px;
+  border: 0px solid #ffffff;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
+  border: 7.9px solid #0274be;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #0274be;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.7px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.6px;
+  cursor: pointer;
+  box-shadow: 2.6px 2.6px 0.4px #cccccc, 0px 0px 2.6px #d9d9d9;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 13.6px;
+  border: 0px solid #ffffff;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
+  border: 7.9px solid #0274be;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #0274be;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: rgba(199, 199, 199, 0.2);
+  border: 0px solid #ffffff;
+  border-radius: 27.2px;
+  box-shadow: 2.6px 2.6px 0.4px #cccccc, 0px 0px 2.6px #d9d9d9;
+}
+input[type=range]::-ms-fill-upper {
+  background: rgba(255, 255, 255, 0.2);
+  border: 0px solid #ffffff;
+  border-radius: 27.2px;
+  box-shadow: 2.6px 2.6px 0.4px #cccccc, 0px 0px 2.6px #d9d9d9;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
+  border: 7.9px solid #0274be;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #0274be;
+  cursor: pointer;
+  height: 8.6px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: rgba(255, 255, 255, 0.2);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 3 - Field - Color */
+/* Color */
+input[type=color] {
+  border: none;
+  width: 100px;
+  padding: 0;
+  height: 30px;
+  cursor: pointer;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border: none;
+}
+input[type=color]::-webkit-color-swatch {
+  border: none;
+}
+
+/*# sourceMappingURL=forms-forms.css.map */

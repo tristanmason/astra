@@ -1,3 +1,14 @@
+@import "../../variables-site/variables-site";
+@import "../../mixins/mixins-master";
+
+/*----------  Mixins  ----------*/
+@import "../mixins/mixins-master";
+
+/*----------  Site Variables  ----------*/
+@import "../variables-site/colors";
+@import "../variables-site/structure";
+@import "../variables-site/typography";
+
 /**
  * Flexbox Framework
  *
@@ -66,7 +77,7 @@
  */
 
 .ast {
-    
+
     /*
     # LAYOUT
     ———————————————-

@@ -1,3 +1,14 @@
+@import "../../variables-site/variables-site";
+@import "../../mixins/mixins-master";
+
+/*----------  Mixins  ----------*/
+@import "../mixins/mixins-master";
+
+/*----------  Site Variables  ----------*/
+@import "../variables-site/colors";
+@import "../variables-site/structure";
+@import "../variables-site/typography";
+
 .single .entry-content .gallery {
     margin-left: -10px;
 	margin-right: -10px;
@@ -41,7 +52,7 @@
     max-width: 100%;
     height: auto;
 
-    iframe, object, embed{ 
+    iframe, object, embed{
         position: absolute;
         top: 0;
         left: 0;
@@ -51,7 +62,7 @@
 }
 
 body .ast-oembed-container {
-    *{ 
+    *{
         position: absolute;
         top: 0;
         left: 0;

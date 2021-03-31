@@ -1,0 +1,44 @@
+/*----------  Font Size  ----------*/
+/*----------  Line Height  ----------*/
+/*----------  Site Basic Structure  ----------*/
+/*----------  z-index Structure   ----------*/
+/*----------  Mixins  ----------*/
+/*----------  Site Variables  ----------*/
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+select,
+input {
+  line-height: 1;
+}
+
+body,
+button,
+input[type=button],
+input[type=submit],
+textarea,
+.ast-button,
+.ast-custom-button {
+  line-height: 1.8571428571;
+}
+
+.site-title a {
+  line-height: 1.2;
+}
+
+.site-header .site-description {
+  line-height: 1.5;
+}
+
+.ast-single-post .entry-title,
+.ast-single-post .entry-title a {
+  line-height: 1.2;
+}
+
+.entry-title,
+.entry-title a {
+  font-weight: normal;
+}
+
+/*# sourceMappingURL=site-normalize-typography.css.map */
