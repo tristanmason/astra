@@ -1,5 +1,6 @@
 v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
+- Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
@@ -19,7 +20,7 @@ v3.3.0
 - Improvement: Compatibility with WordPress 5.7.
 - Improvement: Code quality improvements for better performance.
 - Improvement: Load minified customizer preview files for better performance.
-- Fix: White Label - White-labeled the Astra Header Footer setting notice.
+- Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
 - Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
