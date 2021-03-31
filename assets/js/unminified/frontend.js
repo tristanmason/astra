@@ -876,9 +876,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	function toggleFocus() {
 		var self = this;
-		var k=0;
 		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+		while ( -1 === self.className.indexOf( 'navigation-accessibility' ) ) {
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				self.classList.toggle('focus');
