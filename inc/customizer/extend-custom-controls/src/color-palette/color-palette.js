@@ -47,7 +47,6 @@ const ColorPaletteComponent = (props) => {
 		const newItems = updateState.palettes[currentPalette].map(( palette, colorIndex ) => {
 
 			if( parseInt( index ) === parseInt( colorIndex ) ) {
-				console.log( value );
 				palette = value;
 			}
 
@@ -84,6 +83,17 @@ const ColorPaletteComponent = (props) => {
 		return singlePaletteHTML;
 	};
 
+	const onPaletteChange = (key) => {
+
+		let updateState = {
+			...state,
+		};
+
+		updateState.current_palette = key;
+		setState( updateState );
+		props.control.setting.set({ ...updateState, flag: !updateState.flag });
+	};
+
 	var palettehtml = (
 		<>
 			{Object.entries(state.palettes).map(
@@ -96,11 +106,15 @@ const ColorPaletteComponent = (props) => {
 							key={palette_key}
 							className={`ast-color-picker-${palette_key} ast-single-palette-wrap`}
 						>
-							<label>
+							<label
+								onClick={() => {
+									onPaletteChange( palette_key )
+							}}>
 								<input
 									type="radio"
 									className="ast-palette-radio-input"
 									value={palette_key}
+									checked={state.current_palette === palette_key}
 									name="ast-color-palette-radio-input"
 								/>
 								{palette_label}
