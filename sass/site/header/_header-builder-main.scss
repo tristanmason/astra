@@ -61,7 +61,6 @@
 		}
 
 		.menu-item-has-children > .menu-link:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
@@ -197,7 +196,9 @@
 	.main-header-bar {
 		display: block;
 		line-height: 3;
-
+		.ast-builder-html-element {
+			line-height: 1.85714285714286;
+		}
 		.main-header-bar-navigation {
 			line-height: 3;
 			.sub-menu {
@@ -315,7 +316,7 @@
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item > .sub-menu {
 				left: 100%;
 				right: auto;
-				
+
 			}
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item {
 				.ast-menu-toggle::before {
@@ -342,5 +343,16 @@
 		.sub-menu {
 			width: 150px;
 		}
+	}
+}
+.ast-desktop {
+	.main-header-menu > .menu-item .sub-menu:before,
+	.main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: translateY(-100%);
 	}
 }

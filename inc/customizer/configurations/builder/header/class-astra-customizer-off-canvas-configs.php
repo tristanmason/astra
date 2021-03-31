@@ -108,7 +108,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'responsive' => false,
 					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
-				
+
 				/**
 				 * Option: Toggle on click of button or link.
 				 */
@@ -231,10 +231,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				/**
 				 * Option: Popup Padding.
 				 */
-				
+
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[off-canvas-padding]',
-					'default'        => '',
+					'default'        => astra_get_option( 'off-canvas-padding' ),
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',

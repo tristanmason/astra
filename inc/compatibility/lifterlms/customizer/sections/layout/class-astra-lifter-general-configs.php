@@ -41,10 +41,13 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-lifterlms',
-					'default'           => array(
-						'desktop' => 3,
-						'tablet'  => 2,
-						'mobile'  => 1,
+					'default'           => astra_get_option(
+						'llms-course-grid',
+						array(
+							'desktop' => 3,
+							'tablet'  => 2,
+							'mobile'  => 1,
+						)
 					),
 					'title'             => __( 'Course Columns', 'astra' ),
 					'priority'          => 0,
@@ -65,10 +68,13 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-lifterlms',
-					'default'           => array(
-						'desktop' => 3,
-						'tablet'  => 2,
-						'mobile'  => 1,
+					'default'           => astra_get_option(
+						'llms-membership-grid',
+						array(
+							'desktop' => 3,
+							'tablet'  => 2,
+							'mobile'  => 1,
+						)
 					),
 					'title'             => __( 'Membership Columns', 'astra' ),
 					'priority'          => 0,
