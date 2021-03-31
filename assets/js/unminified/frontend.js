@@ -324,9 +324,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			});
 
 			// Close Popup on # link click inside Popup.
-			for ( i = 0, len = popupLinks.length; i < len; i++ ) {
-				popupLinks[i].addEventListener( 'click', newToggleClose, true );
-				popupLinks[i].headerType = 'off-canvas';
+			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
+				popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
+				popupLinks[link].headerType = 'off-canvas';
 			}
 
 			AstraToggleSetup();
@@ -338,15 +338,15 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				desktopLinks = desktopDropdownContent.getElementsByTagName('a');
 
 			// Close Popup on # link click inside Popup.
-			for ( i = 0, len = mobileLinks.length; i < len; i++ ) {
-				mobileLinks[i].addEventListener( 'click', newToggleClose, true );
-				mobileLinks[i].headerType = 'dropdown';
+			for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
+				mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
+				mobileLinks[link].headerType = 'dropdown';
 			}
 
 			// Close Popup on # link click inside Popup.
-			for ( i = 0, len = desktopLinks.length; i < len; i++ ) {
-				desktopLinks[i].addEventListener( 'click', newToggleClose, true );
-				desktopLinks[i].headerType = 'dropdown';
+			for ( link = 0, len = desktopLinks.length; link < len; link++ ) {
+				desktopLinks[link].addEventListener( 'click', triggerToggleClose, true );
+				desktopLinks[link].headerType = 'dropdown';
 			}
 
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
@@ -371,7 +371,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	}
 
-	function newToggleClose( event ) {
+	function triggerToggleClose( event ) {
 
 		var headerType = event.currentTarget.headerType;
 
