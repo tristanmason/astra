@@ -306,6 +306,23 @@
   margin-top: 0;
 }
 
+/*
+ * Divider compatibility CSS for setting group.
+ */
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
+}
+
+.ast-top-divider.customize-control-ast-settings-group .ast-divider-title + .ast-toggle-desc-wrap {
+    margin-top: 25px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.ast-top-divider.customize-control-ast-settings-group .ast-divider-title + .ast-toggle-desc-wrap .ast-adv-toggle-icon {
+    top: 77px;
+}
+
+.ast-top-divider.customize-control-ast-settings-group .ast-divider-title + .ast-toggle-desc-wrap + .ast-field-settings-wrap .ast-field-settings-modal {
+    margin-top: 15px;
 }
