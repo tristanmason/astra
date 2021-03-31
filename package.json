@@ -13,6 +13,7 @@
     "autoprefixer": "^9.8.6",
     "grunt": "^1.3.0",
     "grunt-bumpup": "^0.6.3",
+    "grunt-cli": "^1.3.2",
     "grunt-concat-css": "^0.3.2",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-compress": "^1.5.0",
@@ -22,7 +23,6 @@
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^4.0.1",
-    "grunt-cli": "^1.3.2",
     "grunt-json2php": "^0.1.4",
     "grunt-postcss": "^0.9.0",
     "grunt-rtlcss": "^2.0.2",
@@ -36,6 +36,9 @@
     "postcss-flexibility": "^2.0.0"
   },
   "scripts": {
+    "env:start": "./bin/local-env/start.sh",
+    "env:stop": "./bin/local-env/stop.sh",
+    "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site",
     "fake-build": "npm -v"
   }
 }
