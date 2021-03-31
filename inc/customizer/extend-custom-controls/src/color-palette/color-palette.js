@@ -53,12 +53,20 @@ const ColorPaletteComponent = (props) => {
 			return palette;
 		});
 
-		// props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
-
 		updateState.palettes[currentPalette] = newItems;
 
 		setState( updateState );
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
+
+		// If color is from selected palette, set color value in selected palette option also.
+		if( updateState.current_palette === currentPalette ) {
+
+			const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
+			const modifiedPalette = Object.assign([], sel_palettes, {[index]: value});
+
+			props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
+		}
+
 	};
 
 	const SinglePalette = ({ singlePalette, currentPalette }) => {
@@ -115,6 +123,7 @@ const ColorPaletteComponent = (props) => {
 									className="ast-palette-radio-input"
 									value={palette_key}
 									checked={state.current_palette === palette_key}
+									onChange={() => {}}
 									name="ast-color-palette-radio-input"
 								/>
 								{palette_label}

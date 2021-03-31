@@ -1636,7 +1636,6 @@
 #customize-control-astra-global-color-palette
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
-	position: relative;
 	display: inline-block;
 	margin-right: 3px;
 }
@@ -1679,10 +1678,6 @@
 
 #customize-control-astra-global-color-palette .ast-reset-btn:disabled {
 	opacity: 0.6;
-}
-
-.ast-color-palette-wrapper .astra-popover-color{
-	position: fixed;
 }
 
 @media (min-width: 1800px) {
