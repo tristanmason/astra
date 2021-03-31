@@ -170,9 +170,8 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 						'display' => 'grid',
 					),
 				);
-				$parse_css = $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
 			} else {
-				$css       = array(
+				$css = array(
 					'.ast-mobile-menu-buttons' => array(
 						'text-align'              => 'right',
 						'-js-display'             => 'flex',
@@ -194,8 +193,9 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 						'padding' => '0',
 					),
 				);
-				$parse_css = $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
 			}
+
+			$parse_css = $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
 
 			$css = array(
 				
@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 
 			);
 
-			$parse_css .= $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
+			$parse_css .= astra_parse_css( $css, '', astra_header_break_point() );
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
