@@ -592,8 +592,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
-			}          
-			
+			}
+
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -1227,7 +1227,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'',
 					'920'
 				);
-			}  
+			}
 
 			if ( $is_site_rtl ) {
 				$static_layout_min_lang_direction_css = array(
@@ -2849,6 +2849,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before' => array(
 						'transform' => 'rotateX(180deg)',
 					),
+					'.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+						'display' => 'none',
+					),
 				);
 			} else {
 				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -3339,7 +3342,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			body.admin-bar .astra-cart-drawer {
 				top: 46px;
 			}
-			  
+
 			.ast-mobile-cart-active body.ast-hfb-header {
 				overflow: hidden;
 			}
