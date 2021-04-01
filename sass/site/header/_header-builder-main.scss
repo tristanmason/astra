@@ -52,8 +52,6 @@
 
 	.main-header-bar-navigation {
 
-		height: 100%;
-
 		&:empty {
 		    padding: 0;
 		}
@@ -63,7 +61,6 @@
 		}
 
 		.menu-item-has-children > .menu-link:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
@@ -71,10 +68,6 @@
 			display: block;
 			z-index: 4;
 			position: relative;
-		}
-
-		&.toggle-on {
-			padding-top: 1em;
 		}
 	}
 
@@ -199,7 +192,9 @@
 	.main-header-bar {
 		display: block;
 		line-height: 3;
-
+		.ast-builder-html-element {
+			line-height: 1.85714285714286;
+		}
 		.main-header-bar-navigation {
 			line-height: 3;
 			.sub-menu {
@@ -317,7 +312,7 @@
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item > .sub-menu {
 				left: 100%;
 				right: auto;
-				
+
 			}
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item {
 				.ast-menu-toggle::before {
