@@ -548,7 +548,7 @@ module.exports = function (grunt) {
                     '!.git/**',
                     '!.github/**',
                     '!bin/**',
-					'!docs/**',
+                    '!docs/**',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
                     '!tests/**',
@@ -629,7 +629,7 @@ module.exports = function (grunt) {
                         '!node_modules/**',
                         '!php-tests/**',
                         '!bin/**',
-						'!docs/**',
+                        '!docs/**',
                         '!admin/bsf-core/**'
                     ]
                 }
@@ -720,7 +720,7 @@ module.exports = function (grunt) {
                     '!node_modules/**',
                     '!php-tests/**',
                     '!bin/**',
-					'!docs/**',
+                    '!docs/**',
                     '!admin/bsf-core/**'
                 ],
                 overwrite: true,
