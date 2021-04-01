@@ -1035,13 +1035,13 @@ function isJsonString( str ) {
 			if ( 'fill' !== icon_style ) {
 				defaultColor = themeColor
 			}
-			
+
 			var iconColor = defaultColor;
 
 			if ( '' !== toggleButtonColor && undefined !== toggleButtonColor && null !== toggleButtonColor ) {
 				iconColor = toggleButtonColor
 			}
-			
+
 			var dynamicStyle = '[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {';
 			dynamicStyle += 'fill: ' + iconColor + ';';
 			dynamicStyle +='}';
