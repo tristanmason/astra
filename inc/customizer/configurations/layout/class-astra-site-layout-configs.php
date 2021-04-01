@@ -40,20 +40,14 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
 					'title'       => __( 'Container Width', 'astra' ),
-					'context'     => defined( 'ASTRA_EXT_VER' ) ? array(
+					'context'     => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'site-layouts' ) ) ? array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
 							'operator' => '==',
 							'value'    => 'ast-full-width-layout',
 						),
-					) : array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
-							'operator' => '==',
-							'value'    => 'ast-full-width-layout',
-						),
-					),
+					) : array(),
 					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
