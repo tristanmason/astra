@@ -33,6 +33,7 @@ v3.3.0
 - Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
 - Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
 - Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
+- Fix: Container Width option hides in Container section when Astra Pro is active but all addons are deactivate.
 
 v3.2.0
 - New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
