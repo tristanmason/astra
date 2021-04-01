@@ -51,6 +51,8 @@ class AstraColorPickerControl extends Component {
 			allowImage
 		} = this.props
 
+		var disablePalette =  this.props.disablePalette;
+
 		const toggleVisible = () => {
 			if ( refresh === true ) {
 				this.setState( { refresh: false } );
@@ -106,13 +108,25 @@ class AstraColorPickerControl extends Component {
 
 		const defaultColorPalette = [...astColorPalette.colors];
 
-		defaultColorPalette.forEach( singleColor => {
-			let paletteColors = {};
-			Object.assign( paletteColors, { name: count + '_' + singleColor } );
-			Object.assign( paletteColors, { color: singleColor } );
-			finalpaletteColors.push(paletteColors);
-			count ++;
-		});
+		if( astra.customizer.display_old_palette ) {
+			defaultColorPalette.forEach( singleColor => {
+				let paletteColors = {};
+				Object.assign( paletteColors, { name: count + '_' + singleColor } );
+				Object.assign( paletteColors, { color: singleColor } );
+				finalpaletteColors.push(paletteColors);
+				count ++;
+			});
+		} else {
+			let globalColorPalette = wp.customize.control( 'astra-settings[selected-color-palette]' ).setting.get();
+
+			Object.entries(globalColorPalette).forEach(([ key, color])=>{
+
+				let paletteColors = {};
+				Object.assign( paletteColors, { name: key } );
+				Object.assign( paletteColors, { color: color } );
+				finalpaletteColors.push( paletteColors );
+			})
+		}
 
 		return (
 			<>
@@ -177,14 +191,19 @@ class AstraColorPickerControl extends Component {
 
 																</>
 															) }
-															<ColorPalette
-																colors={ finalpaletteColors }
-																value={ this.props.color }
-																clearable={ false }
-																disableCustomColors={ true }
-																className="ast-color-palette"
-																onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-															/>
+															{ ! disablePalette && (
+																<>
+																<ColorPalette
+																	colors={ finalpaletteColors }
+																	value={ this.props.color }
+																	clearable={ false }
+																	disableCustomColors={ true }
+																	className="ast-color-palette"
+																	onChange={ ( color ) => this.onPaletteChangeComplete( color )
+																}
+																/>
+																</>
+															) }
 															<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 														</>
 													);
@@ -215,14 +234,18 @@ class AstraColorPickerControl extends Component {
 
 										</>
 									) }
-									<ColorPalette
-										colors={ finalpaletteColors }
-										value={ this.props.color }
-										clearable={ false }
-										disableCustomColors={ true }
-										className="ast-color-palette"
-										onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-									/>
+									{ ! disablePalette && (
+										<>
+										<ColorPalette
+											colors={ finalpaletteColors }
+											value={ this.props.color }
+											clearable={ false }
+											disableCustomColors={ true }
+											className="ast-color-palette"
+											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
+										/>
+									</>
+									) }
 									<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
 								</>
 								}

@@ -1244,6 +1244,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
+							'display_old_palette' => false,
 							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),

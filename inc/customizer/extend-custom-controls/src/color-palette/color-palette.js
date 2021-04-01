@@ -81,6 +81,7 @@ const ColorPaletteComponent = (props) => {
 							backgroundType={'color'}
 							allowGradient={false}
 							allowImage={false}
+							disablePalette={true}
 						/>
 					</div>
 				);
@@ -99,6 +100,12 @@ const ColorPaletteComponent = (props) => {
 		updateState.current_palette = key;
 		setState( updateState );
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
+
+		// Set color palette in selected color palette option.
+		const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
+		const modifiedPalette = Object.assign({}, sel_palettes, updateState.palettes[key] );
+		props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
+
 	};
 
 	var palettehtml = (
