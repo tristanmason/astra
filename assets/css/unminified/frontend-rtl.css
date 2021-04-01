@@ -3186,10 +3186,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 .ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon,
 .ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.slide-search {
   width: 100%;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding-right: 20px;
-  padding-left: 20px;
   position: relative;
   display: block;
   left: auto;
@@ -3731,6 +3727,10 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   line-height: 3;
 }
 
+.ast-header-break-point .main-header-bar .ast-builder-html-element {
+  line-height: 1.85714285714286;
+}
+
 .ast-header-break-point .main-header-bar .main-header-bar-navigation {
   line-height: 3;
 }
@@ -3879,6 +3879,16 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
 
 .ast-header-break-point .inline-on-mobile .sub-menu {
   width: 150px;
+}
+
+.ast-desktop .main-header-menu > .menu-item .sub-menu:before,
+.ast-desktop .main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  width: 100%;
+  transform: translateY(-100%);
 }
 
 /*----------  Forms  ----------*/
