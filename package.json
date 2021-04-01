@@ -33,12 +33,13 @@
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "node-sass": "^4.14.1",
-    "postcss-flexibility": "^2.0.0"
+    "postcss-flexibility": "^2.0.0",
+    "puppeteer": "^8.0.0"
   },
   "scripts": {
     "env:start": "./bin/local-env/start.sh",
     "env:stop": "./bin/local-env/stop.sh",
     "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site",
-    "fake-build": "npm -v"
+    "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8890 '#astra-theme-css-inline-css'"
   }
 }
