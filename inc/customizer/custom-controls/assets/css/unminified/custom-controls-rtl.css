@@ -484,6 +484,18 @@
   width: 100%;
 }
 
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
+  top: 47px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 50px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+  top: 73px;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -967,7 +979,8 @@
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap,
-.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap,
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
 }
 
@@ -1474,6 +1487,18 @@
   width: 100%;
 }
 
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
+  top: 47px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 50px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+  top: 73px;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -1957,7 +1982,8 @@
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap,
-.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap,
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
     margin-top: 25px;
 }
 
@@ -2207,7 +2233,8 @@ input[type="text"].select2-search__field {
 	padding-top: 25px;
 }
 
-.ast-top-divider > label.ast-divider-title {
+.ast-top-divider > label.ast-divider-title,
+.customize-control-ast-color-group > .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
@@ -3905,7 +3932,8 @@ input[type="text"].select2-search__field {
 	padding-top: 25px;
 }
 
-.ast-top-divider > label.ast-divider-title {
+.ast-top-divider > label.ast-divider-title,
+.customize-control-ast-color-group > .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
