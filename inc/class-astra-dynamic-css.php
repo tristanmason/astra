@@ -2518,7 +2518,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$transparent_toggle_selector = '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"]';
 
-					$trigger_bg           = astra_get_option( 'transparent-header-toggle-btn-bg-color', $theme_color );
+					$trigger_bg           = astra_get_option( 'transparent-header-toggle-btn-bg-color' );
 					$trigger_border_color = astra_get_option( 'transparent-header-toggle-border-color', $trigger_bg );
 					$style                = astra_get_option( 'mobile-header-toggle-btn-style' );
 					$default              = '#ffffff';
@@ -2527,7 +2527,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						$default = $theme_color;
 					}
 
-					$icon_color = astra_get_option( 'transparent-header-toggle-btn-color', $default );
+					$icon_color = astra_get_option( 'transparent-header-toggle-btn-color' );
 
 					/**
 					 * Off-Canvas CSS.
