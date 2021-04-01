@@ -149,17 +149,9 @@ function off_canvas_static_css() {
 		display: flex;
 		box-shadow: none;
 	}
-	.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children .sub-menu {
-		display: none;
-	}
-	
 	.ast-mobile-popup-drawer.ast-mobile-popup-full-width .ast-mobile-popup-inner {
 		max-width: none;
 		transition: transform 0s ease-in, opacity 0.2s ease-in;
-	}
-	.ast-mobile-popup-drawer.show {
-		opacity: 1;
-		visibility: visible;
 	}
 	.ast-mobile-popup-drawer.active {
 		left: 0;
@@ -178,16 +170,10 @@ function off_canvas_static_css() {
 		cursor: pointer;
 		visibility: visible;
 	}
-	body.admin-bar .ast-mobile-popup-drawer {
+	body.admin-bar .ast-mobile-popup-drawer, body.admin-bar .ast-mobile-popup-drawer .ast-mobile-popup-inner {
 		top: 32px;
 	}
-	body.admin-bar .ast-mobile-popup-drawer .ast-mobile-popup-inner {
-		top: 32px;
-	}
-	body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer {
-		top: 0px;
-	}
-	body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+	body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer, body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mobile-popup-inner  {
 		top: 0px;
 	}
 	@media (max-width: 782px) {
@@ -215,6 +201,7 @@ function off_canvas_static_css() {
 	  padding-bottom: 0;
 	}
 	.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-icon,
+	.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children .sub-menu,
 	.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-icon {
 	  display: none;
 	}
@@ -239,6 +226,7 @@ function off_canvas_static_css() {
 	.ast-desktop .ast-desktop-popup-content .astra-menu-animation-slide-down > .menu-item > .sub-menu,
 	.ast-desktop .ast-desktop-popup-content .astra-menu-animation-slide-down > .menu-item .menu-item > .sub-menu,
 	.ast-desktop .ast-desktop-popup-content .astra-menu-animation-fade > .menu-item > .sub-menu,
+	.ast-mobile-popup-drawer.show,
 	.ast-desktop .ast-desktop-popup-content .astra-menu-animation-fade > .menu-item .menu-item > .sub-menu{
 	  opacity: 1;
 	  visibility: visible;
@@ -449,10 +437,6 @@ function dropdown_type_static_css() {
 	.ast-desktop-header-content > *:last-child {
 	  padding-bottom: 0;
 	}
-	.ast-mobile-header-content .ast-search-icon,
-	.ast-desktop-header-content .ast-search-icon {
-	  display: none;
-	}
 	.ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
 	.ast-desktop-header-content .ast-search-menu-icon.ast-inline-search label {
 	  width: 100%;
@@ -461,6 +445,8 @@ function dropdown_type_static_css() {
 	  transform: rotateX(180deg);
 	}
 	#ast-desktop-header .ast-desktop-header-content,
+	.ast-mobile-header-content .ast-search-icon,
+	.ast-desktop-header-content .ast-search-icon,
 	.ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content,
 	.ast-mobile-header-wrap .ast-mobile-header-content,
 	.ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content,
