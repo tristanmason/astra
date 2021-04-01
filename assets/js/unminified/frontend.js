@@ -369,12 +369,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		var menu_toggle_close = document.getElementById('menu-toggle-close');
 
-		if( menu_toggle_close ) {
-			menu_toggle_close.click();
-		}
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
 
+			if( menu_toggle_close ) {
+				menu_toggle_close.click();
+			}
+			
 			updateHeaderBreakPoint();
 			if ( 'dropdown' === mobileHeaderType ) {
 				AstraToggleSetup();
