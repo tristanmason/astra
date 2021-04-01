@@ -45,10 +45,10 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	}
 
 	if ( 'off-canvas' === $mobile_header_type || 'full-width' === $mobile_header_type || is_customize_preview() ) {
-		$dynamic_css .= off_canvas_static_css();
+		$dynamic_css .= astra_off_canvas_static_css();
 	}
 	if ( 'dropdown' === $mobile_header_type || is_customize_preview() ) {
-		$dynamic_css .= dropdown_type_static_css();
+		$dynamic_css .= astra_dropdown_type_static_css();
 	}
 	
 	/**
@@ -119,7 +119,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
  * @since x.x.x
  * @return string.
  */
-function off_canvas_static_css() {
+function astra_off_canvas_static_css() {
 	$off_canvas_css = '
 	.ast-mobile-popup-drawer .ast-mobile-popup-overlay {
 		background-color: rgba(0, 0, 0, 0.4);
@@ -417,7 +417,7 @@ function off_canvas_static_css() {
  * @since x.x.x
  * @return string.
  */
-function dropdown_type_static_css() {
+function astra_dropdown_type_static_css() {
 	$dropdown_type_css = '
 	.ast-mobile-header-content > *,
 	.ast-desktop-header-content > * {
