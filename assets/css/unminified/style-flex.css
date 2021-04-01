@@ -2443,10 +2443,6 @@ body {
   position: relative;
 }
 
-.main-header-bar .main-header-bar-navigation.toggle-on {
-  padding-top: 1em;
-}
-
 .main-header-bar .ast-search-menu-icon .search-form {
   background-color: #ffffff;
 }
