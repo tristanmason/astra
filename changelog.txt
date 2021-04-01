@@ -4,12 +4,16 @@ v3.4.0 (Unreleased)
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
+- Fix: Search - Search Box opens & gets closed automatically on click of search icon in slide search style on mobile devices.
 - Fix: Customizer - Edit shortcut button design breaks when Elementor template kit is active on site.
 - Fix: Customizer - Maintained identical reset buttons UI in background control.
 - Fix: Builder - HTML - If element is used in Primary Header & line-height is blank in element then it's inheriting from Primary Header bar which is 3em.
 - Fix: Builder - Footer - Background Color picker popup cutting at it's edge in Footer Builder section.
 - Fix: Menu Hover/Active link not working in Customizer & Frontend for tablet & mobile.
 - Fix: Gutenberg Editor - Unable to edit content in editor when background styles applied to Content and Site Layout is Max-Width.
+- Fix: Height of Mobile Header increases when we open Dropdown for Old Header.
+- Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.
+- Fix: Transparent Header - Normal colors not working for transparent header if colors are not set from Transparent Header settings.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
@@ -21,6 +25,7 @@ v3.3.0
 - Improvement: Compatibility with WordPress 5.7.
 - Improvement: Code quality improvements for better performance.
 - Improvement: Load minified customizer preview files for better performance.
+- Fix: Footer Builder - Social Icons - Vertical align breaking in customizer when adjusting Icon Spacing & Stack On options together.
 - Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
 - Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
