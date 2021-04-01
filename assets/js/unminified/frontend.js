@@ -275,7 +275,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if ( 'off-canvas' === mobileHeaderType ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
-				submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' ),
 				popupInner = document.querySelector( '.ast-mobile-popup-inner' ),
 				popupLinks = popupInner.getElementsByTagName('a');
 			
