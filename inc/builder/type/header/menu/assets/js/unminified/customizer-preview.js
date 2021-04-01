@@ -317,6 +317,20 @@
 					} );
 				} );
 
+				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-container-animation]', function( setting ) {
+					setting.bind( function( animation ) {
+
+						var menuWrapper = jQuery( '#ast-desktop-header #ast-hf-menu-'+ index  );
+						menuWrapper.removeClass('astra-menu-animation-fade');
+						menuWrapper.removeClass('astra-menu-animation-slide-down');
+						menuWrapper.removeClass('astra-menu-animation-slide-up');
+
+						if ( '' != animation ) {
+							menuWrapper.addClass( 'astra-menu-animation-' + animation );
+						}
+					} );
+				} );
+
 				// Stack on Mobile CSS
 				wp.customize( 'astra-settings[header-menu'+ index +'-menu-stack-on-mobile]', function( setting ) {
 					setting.bind( function( stack ) {
