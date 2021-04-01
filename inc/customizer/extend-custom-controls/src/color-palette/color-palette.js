@@ -1,7 +1,6 @@
 import PropTypes, { object } from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
-import { Dashicon, Button, TextControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {
@@ -65,7 +64,6 @@ const ColorPaletteComponent = (props) => {
 
 			props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
 		}
-
 	};
 
 	const SinglePalette = ({ singlePalette, currentPalette }) => {
@@ -147,6 +145,12 @@ const ColorPaletteComponent = (props) => {
 			)}
 		</>
 	);
+
+	const updatePaletteVariables = ( e ) => {
+		props.control.setPaletteVariables( e.detail.palette );
+	};
+
+	document.addEventListener( 'AstPaletteUpdated', updatePaletteVariables, false );
 
 	return (
 		<>

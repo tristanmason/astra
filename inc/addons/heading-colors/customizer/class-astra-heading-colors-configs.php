@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 				// Option: Base Heading Color.
 				array(
-					'default'           => astra_get_option( 'heading-base-color' ),
+					'default'           => astra_get_option( 'heading-base-color', 'var(--ast-global-heading-color)' ),
 					'type'              => 'control',
 					'control'           => 'ast-color',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),

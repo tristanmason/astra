@@ -35,60 +35,61 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			$_configs = array(
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[selected-color-palette]',
-					'type'        => 'control',
-					'control'     => 'ast-hidden',
-					'section'     => $_section,
-					'priority'    => 5,
-					'default'     => astra_get_option( 'selected-color-palette' ),
-					'settings'    => array(),
-					'transport'   => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[selected-color-palette]',
+					'type'      => 'control',
+					'control'   => 'ast-hidden',
+					'section'   => $_section,
+					'priority'  => 5,
+					'default'   => astra_get_option( 'selected-color-palette' ),
+					'settings'  => array(),
+					'transport' => 'postMessage',
 				),
 
 				array(
-					'name'    => 'astra-global-color-palette',
-					'type'    => 'control',
-					'control' => 'ast-color-palette',
-					'section'     => $_section,
-					'priority'    => 5,
-					'title'       => __( 'Global Palette', 'astra' ),
-					'default' =>  get_option( 'astra-global-color-palette',
+					'name'      => 'astra-global-color-palette',
+					'type'      => 'control',
+					'control'   => 'ast-color-palette',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Global Palette', 'astra' ),
+					'default'   => get_option(
+						'astra-global-color-palette',
 						array(
-							'current_palette'  => 'palette-1',
-							'isVisible'        => false,
-							'labels'           => array(
+							'current_palette' => 'palette-1',
+							'isVisible'       => false,
+							'labels'          => array(
 								'text-color'       => __( 'Text Color', 'astra' ),
 								'theme-color'      => __( 'Theme color', 'astra' ),
 								'link-color'       => __( 'Link color', 'astra' ),
 								'link-hover-color' => __( 'Link Hover Color', 'astra' ),
-								'heading-color'    => __( 'Heading Color (H1 - H6)', 'astra' )
+								'heading-color'    => __( 'Heading Color (H1 - H6)', 'astra' ),
 							),
-							'palettes'         => array(
+							'palettes'        => array(
 								'palette-1' => array(
 									'text-color'       => '#7e6c6c',
-									'theme-color' 	   => '#f87575',
-									'link-color'  	   => '#ffa9a3',
+									'theme-color'      => '#f87575',
+									'link-color'       => '#ffa9a3',
 									'link-hover-color' => '#b9e6ff',
-									'heading-color'    => '#5c95ff'
+									'heading-color'    => '#5c95ff',
 								),
 								'palette-2' => array(
 									'text-color'       => '#562c2c',
-									'theme-color' 	   => '#f2542d',
-									'link-color'  	   => '#f5dfbb',
+									'theme-color'      => '#f2542d',
+									'link-color'       => '#f5dfbb',
 									'link-hover-color' => '#0e9594',
-									'heading-color'    => '#127475'
+									'heading-color'    => '#127475',
 								),
 								'palette-3' => array(
 									'text-color'       => '#0d1b2a',
-									'theme-color' 	   => '#1b263b',
-									'link-color'  	   => '#415a77',
+									'theme-color'      => '#1b263b',
+									'link-color'       => '#415a77',
 									'link-hover-color' => '#778da9',
-									'heading-color'    => '#e0e1dd'
+									'heading-color'    => '#e0e1dd',
 								),
 							),
 						)
 					),
-					'transport'   => 'postMessage'
+					'transport' => 'postMessage',
 				),
 
 				/**
