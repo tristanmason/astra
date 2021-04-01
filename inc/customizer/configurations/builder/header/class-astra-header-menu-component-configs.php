@@ -306,7 +306,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'       => __( 'Border Radius', 'astra' ),
 						'suffix'      => 'px',
 						'context'     => Astra_Builder_Helper::$design_tab,
-						'transport'         => 'postMessage',
+						'transport'   => 'postMessage',
 						'input_attrs' => array(
 							'min'  => 0,
 							'step' => 1,
