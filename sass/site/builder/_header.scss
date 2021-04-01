@@ -111,14 +111,14 @@
 
 .ast-builder-layout-element {
 	align-items: center;
-	.ast-footer-social-wrap {
-		.ast-builder-social-element {
-			&:first-child {
-				margin-left: 0;
-			}
-			&:last-child {
-				margin-right: 0;
-			}
+}
+.ast-footer-social-wrap {
+	.ast-builder-social-element {
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 }
