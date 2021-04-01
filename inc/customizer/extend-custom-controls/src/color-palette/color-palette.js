@@ -44,16 +44,15 @@ const ColorPaletteComponent = (props) => {
 			value = color.hex;
 		}
 
-		const newItems = updateState.palettes[currentPalette].map(( palette, colorIndex ) => {
+		Object.entries( updateState.palettes ).map(item => {
+			var temp = Object.assign({}, item);
 
-			if( parseInt( index ) === parseInt( colorIndex ) ) {
-				palette = value;
+			if( temp[0] == currentPalette ) {
+				temp[1][index] = value;
 			}
 
-			return palette;
+			return temp;
 		});
-
-		updateState.palettes[currentPalette] = newItems;
 
 		setState( updateState );
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
@@ -62,7 +61,7 @@ const ColorPaletteComponent = (props) => {
 		if( updateState.current_palette === currentPalette ) {
 
 			const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
-			const modifiedPalette = Object.assign([], sel_palettes, {[index]: value});
+			const modifiedPalette = Object.assign({}, sel_palettes, {[index]: value});
 
 			props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
 		}
@@ -106,6 +105,7 @@ const ColorPaletteComponent = (props) => {
 		<>
 			{Object.entries(state.palettes).map(
 				([palette_key, palette_color_obj]) => {
+
 					let palette_label = (
 						palette_key[0].toUpperCase() + palette_key.substring(1)
 					).replace(/-/g, " ");

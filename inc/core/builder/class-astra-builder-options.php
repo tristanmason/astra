@@ -818,11 +818,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 
 	$defaults['selected-color-palette'] = array(
-		'#7e6c6c',
-		'#f87575',
-		'#ffa9a3',
-		'#b9e6ff',
-		'#5c95ff'
+		'text-color'       => '#7e6c6c',
+		'theme-color'      => '#f87575',
+		'link-color'       => '#ffa9a3',
+		'link-hover-color' => '#b9e6ff',
+		'heading-color'    => '#5c95ff'
 	);
 
 	/**
