@@ -549,6 +549,7 @@ module.exports = function (grunt) {
                     '!.github/**',
                     '!bin/**',
                     '!docs/**',
+                    '!assets/dynamic-css.css',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
                     '!tests/**',
