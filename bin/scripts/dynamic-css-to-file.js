@@ -11,7 +11,7 @@ async function getCssFromUrl( url, stylesheetId ) {
     const inlineCss = await page.$eval(stylesheetId, el => el.innerText)
     await browser.close()
 
-	fs.writeFileSync('assets/dynamic-css.css', inlineCss.replace(/(^[ \t]*\n)/gm, ""));
+    fs.writeFileSync('assets/dynamic-css.css', inlineCss.replace(/(^[ \t]*\n)/gm, ""));
 }
 
 getCssFromUrl(url,stylesheetId);
