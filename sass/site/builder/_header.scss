@@ -111,14 +111,14 @@
 
 .ast-builder-layout-element {
 	align-items: center;
-	.ast-footer-social-wrap {
-		.ast-builder-social-element {
-			&:first-child {
-				margin-left: 0;
-			}
-			&:last-child {
-				margin-right: 0;
-			}
+}
+.ast-footer-social-wrap {
+	.ast-builder-social-element {
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 }
@@ -857,10 +857,6 @@ body.admin-bar {
 	.ast-search-menu-icon,
 	.ast-search-menu-icon.slide-search {
 		width: 100%;
-		margin-bottom: 1em;
-		margin-top: 1em;
-		padding-left: 20px;
-		padding-right: 20px;
 		position: relative;
 		display: block;
 		right: auto;
