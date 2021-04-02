@@ -548,6 +548,9 @@ module.exports = function (grunt) {
                     '!.git/**',
                     '!.github/**',
                     '!bin/**',
+                    '!docs/**',
+                    '!assets/dynamic-css.css',
+                    '!contributing.md',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
                     '!tests/**',
@@ -628,6 +631,7 @@ module.exports = function (grunt) {
                         '!node_modules/**',
                         '!php-tests/**',
                         '!bin/**',
+                        '!docs/**',
                         '!admin/bsf-core/**'
                     ]
                 }
@@ -718,6 +722,7 @@ module.exports = function (grunt) {
                     '!node_modules/**',
                     '!php-tests/**',
                     '!bin/**',
+                    '!docs/**',
                     '!admin/bsf-core/**'
                 ],
                 overwrite: true,
@@ -819,6 +824,7 @@ module.exports = function (grunt) {
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+    grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
 
     // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
