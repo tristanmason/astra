@@ -114,6 +114,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-plain-container';
 			}
 
+			$site_layout = astra_get_option( 'site-layout' );
+			if ( 'ast-box-layout' === $site_layout ) {
+				$classes .= ' ast-max-width-layout';
+			}
+
 			$classes .= ' ast-' . astra_page_layout();
 
 			return $classes;
@@ -153,7 +158,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
-				}           
+				}
 			}
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
