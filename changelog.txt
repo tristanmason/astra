@@ -10,6 +10,7 @@ v3.4.0 (Unreleased)
 - Fix: Builder - HTML - If element is used in Primary Header & line-height is blank in element then it's inheriting from Primary Header bar which is 3em.
 - Fix: Builder - Footer - Background Color picker popup cutting at it's edge in Footer Builder section.
 - Fix: Menu Hover/Active link not working in Customizer & Frontend for tablet & mobile.
+- Fix: Off-Canvas & Dropdown does not close when you click a one page navigation link inside them.
 - Fix: Gutenberg Editor - Unable to edit content in editor when background styles applied to Content and Site Layout is Max-Width.
 - Fix: Height of Mobile Header increases when we open Dropdown for Old Header.
 - Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.

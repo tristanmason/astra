@@ -275,8 +275,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if ( 'off-canvas' === mobileHeaderType ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
-				submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
-
+				popupInner = document.querySelector( '.ast-mobile-popup-inner' ),
+				popupLinks = popupInner.getElementsByTagName('a');
+			
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
 				popupTriggerMobile[item].removeEventListener("click", astraNavMenuToggle, false);
@@ -320,8 +321,33 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					updateTrigger();
 				}
 			});
+
+			// Close Popup on # link click inside Popup.
+			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
+				popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
+				popupLinks[link].headerType = 'off-canvas';
+			}
+
 			AstraToggleSetup();
 		} else if ( 'dropdown' === mobileHeaderType ) {
+
+			var mobileDropdownContent = document.querySelector( '.ast-mobile-header-content' ),
+			    desktopDropdownContent = document.querySelector( '.ast-desktop-header-content' ),
+				mobileLinks = mobileDropdownContent.getElementsByTagName('a'),
+				desktopLinks = desktopDropdownContent.getElementsByTagName('a');
+
+			// Close Popup on # link click inside Popup.
+			for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
+				mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
+				mobileLinks[link].headerType = 'dropdown';
+			}
+
+			// Close Popup on # link click inside Popup.
+			for ( link = 0, len = desktopLinks.length; link < len; link++ ) {
+				desktopLinks[link].addEventListener( 'click', triggerToggleClose, true );
+				desktopLinks[link].headerType = 'dropdown';
+			}
+
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
 				popupTriggerMobile[item].removeEventListener("click", popupTriggerClick, false);
@@ -342,6 +368,32 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		accountPopupTrigger();
 
+	}
+
+	function triggerToggleClose( event ) {
+
+		var headerType = event.currentTarget.headerType;
+
+		switch( headerType ) {
+
+			case 'dropdown':
+
+				var popupTrigger = document.querySelectorAll( '.menu-toggle' );
+
+				for ( var item = 0;  item < popupTrigger.length; item++ ) {
+
+					popupTrigger[item].click();
+				}
+				break;
+			case 'off-canvas':
+
+				var popupClose = document.getElementById( 'menu-toggle-close' );
+
+				popupClose.click();
+				break;
+			default:
+				break;
+		}
 	}
 
 	window.addEventListener( 'load', function() {
@@ -841,12 +893,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
         var self = this || '',
 			hash = '#';
 
-        if( self && ! self.classList.contains('astra-search-icon') ) {
+        if( self && ! self.classList.contains('astra-search-icon') && null === self.closest('.ast-builder-menu') ) {
             var link = new String( self );
             if( link.indexOf( hash ) !== -1 ) {
             	var link_parent = self.parentNode;
                 if ( body.classList.contains('ast-header-break-point') ) {
-
 					if( ! ( document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') && link_parent.classList.contains('menu-item-has-children') ) ) {
 						/* Close Builder Header Menu */
 						var builder_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
