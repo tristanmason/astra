@@ -822,7 +822,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'theme-color'      => '#0274be',
 		'link-color'       => '#0274be',
 		'link-hover-color' => '#3a3a3a',
-		'heading-color'    => '#5c95ff'
+		'heading-color'    => '#5c95ff',
 	);
 
 	/**
