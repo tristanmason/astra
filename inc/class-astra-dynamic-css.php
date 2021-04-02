@@ -315,6 +315,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'html'                           => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				// root css for global palette style.
+				':root'                          => self::generate_global_palette_style(),
 				'a, .page-title'                 => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -592,8 +594,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
-			}          
-			
+			}
+
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -1227,7 +1229,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'',
 					'920'
 				);
-			}  
+			}
 
 			if ( $is_site_rtl ) {
 				$static_layout_min_lang_direction_css = array(
@@ -3339,7 +3341,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			body.admin-bar .astra-cart-drawer {
 				top: 46px;
 			}
-			  
+
 			.ast-mobile-cart-active body.ast-hfb-header {
 				overflow: hidden;
 			}
@@ -3473,6 +3475,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}';
 			}
 			return $cart_static_css;
+		}
+
+		/**
+		 * Generate palette CSS required to display on front end.
+		 *
+		 * @since x.x.x
+		 * @return array palette style array.
+		 */
+		public static function generate_global_palette_style() {
+
+			$palette       = astra_get_option( 'selected-color-palette' );
+			$palette_style = array();
+
+			foreach ( $palette as $key => $color ) {
+				$palette_key                   = '--ast-global-' . $key;
+				$palette_style[ $palette_key ] = $color;
+			}
+
+			return $palette_style;
 		}
 	}
 }
