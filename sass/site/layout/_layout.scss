@@ -138,13 +138,13 @@ body{
 }
 
 @media (max-width: $mx-col-lg) {
-	.ast-separate-container{	
-		&.ast-right-sidebar #primary,	
-		&.ast-left-sidebar #primary,	
-		#primary{	
-			padding-left:0;	
-			padding-right:0;	
-		}	
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary{
+			padding-left:0;
+			padding-right:0;
+		}
 	}
 	// Right Sidebar - Spacing Between Primary & Secondary
 	.ast-right-sidebar {

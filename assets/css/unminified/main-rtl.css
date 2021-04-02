@@ -1248,13 +1248,17 @@ body {
   }
 }
 
-#primary,
-#secondary {
-  width: 100%;
+body {
+  background-color: var(--body-background-color);
 }
 
 #primary {
-  margin: 4em 0;
+  margin: var(--primary-padding);
+}
+
+.ast-article-post {
+  background-color: var(--content-background-color);
+  padding: var(--article-padding);
 }
 
 .ast-separate-container {

@@ -23,13 +23,17 @@ body{
 	}
 }
 
-#primary,
-#secondary {
-	width: $width-site-main;
+body {
+	background-color: var(--body-background-color);
 }
 
-#primary{
-	margin: 4em 0;
+#primary {
+	margin: var(--primary-padding);
+}
+
+.ast-article-post {
+	background-color: var(--content-background-color);
+	padding: var(--article-padding);
 }
 
 //separate container content layout
@@ -44,7 +48,7 @@ body{
     	margin-left: 0;
     	margin-right: 0;
 	}
-	
+
 	.ast-article-post,
 	.ast-article-single{
 		background-color: $color-background-content;
@@ -96,13 +100,13 @@ body{
 }
 
 @media (max-width: $mx-col-lg) {
-	.ast-separate-container{	
-		&.ast-right-sidebar #primary,	
-		&.ast-left-sidebar #primary,	
-		#primary{	
-			padding-left:0;	
-			padding-right:0;	
-		}	
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary{
+			padding-left:0;
+			padding-right:0;
+		}
 	}
 	// Right Sidebar - Spacing Between Primary & Secondary
 	.ast-right-sidebar {
