@@ -104,28 +104,14 @@ class AstraColorPickerControl extends Component {
 		}
 
 		let finalpaletteColors = [];
-		let count = 0;
+		let globalColorPalette = wp.customize.control( 'astra-settings[selected-color-palette]' ).setting.get();
 
-		const defaultColorPalette = [...astColorPalette.colors];
-
-		if( astra.customizer.display_old_palette ) {
-			defaultColorPalette.forEach( singleColor => {
-				let paletteColors = {};
-				Object.assign( paletteColors, { name: count + '_' + singleColor } );
-				Object.assign( paletteColors, { color: singleColor } );
-				finalpaletteColors.push(paletteColors);
-				count ++;
-			});
-		} else {
-			let globalColorPalette = wp.customize.control( 'astra-settings[selected-color-palette]' ).setting.get();
-
-			Object.entries(globalColorPalette).forEach(([ key, color])=>{
-				let paletteColors = {};
-				Object.assign( paletteColors, { name: key } );
-				Object.assign( paletteColors, { color: 'var(--ast-global-'+ key +')' } );
-				finalpaletteColors.push( paletteColors );
-			})
-		}
+		Object.entries(globalColorPalette).forEach(([ key, color])=>{
+			let paletteColors = {};
+			Object.assign( paletteColors, { name: key } );
+			Object.assign( paletteColors, { color: 'var(--ast-global-'+ key +')' } );
+			finalpaletteColors.push( paletteColors );
+		})
 
 		return (
 			<>
