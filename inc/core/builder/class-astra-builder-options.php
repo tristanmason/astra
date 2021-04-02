@@ -1649,7 +1649,7 @@ function prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = '';
 
 	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = Astra_Builder_Helper::$default_responsive_spacing;
