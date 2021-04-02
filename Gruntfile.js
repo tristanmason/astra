@@ -548,6 +548,8 @@ module.exports = function (grunt) {
                     '!.git/**',
                     '!.github/**',
                     '!bin/**',
+					'!docs/**',
+					'!contributing.md',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
                     '!tests/**',
