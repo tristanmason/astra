@@ -550,6 +550,7 @@ module.exports = function (grunt) {
                     '!bin/**',
                     '!docs/**',
                     '!assets/dynamic-css.css',
+                    '!contributing.md',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
                     '!tests/**',
@@ -823,6 +824,7 @@ module.exports = function (grunt) {
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+    grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
 
     // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
