@@ -66,10 +66,10 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 							),
 							'palettes'        => array(
 								'palette-1' => array(
-									'text-color'       => '#7e6c6c',
-									'theme-color'      => '#f87575',
-									'link-color'       => '#ffa9a3',
-									'link-hover-color' => '#b9e6ff',
+									'text-color'       => '#3a3a3a',
+									'theme-color'      => '#0274be',
+									'link-color'       => '#0274be',
+									'link-hover-color' => '#3a3a3a',
 									'heading-color'    => '#5c95ff',
 								),
 								'palette-2' => array(
