@@ -1,19 +1,50 @@
-name: Simple Asset Size Reporter
+name: Compressed Size
 
-on: [pull_request]
+# Run the deployment only when code is committed to the branch.
+on:
+  pull_request:
 
 jobs:
-  assetSizeReporter:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2-beta
+    - uses: actions/checkout@v2
+
+    - name: Get npm cache directory
+      id: npm-cache
+      run: echo "::set-output name=dir::$(npm config get cache)"
+
+    - name: Configure npm cache
+      uses: actions/cache@v2
       with:
-        fetch-depth: 0
-    - uses: chrysanthos/simple-asset-size-reporter@1.0.0
+        path: ${{ steps.npm-cache.outputs.dir }}
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+
+    - name: npm install, build
+      run: |
+        npm install
+
+    - name: Start Docker environment
+      run: npm run env:start
+      env:
+        COMPOSE_INTERACTIVE_NO_CLI: true
+
+    - uses: preactjs/compressed-size-action@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        files: '["assets/css/minified/main.min.css", "assets/css/minified/frontend.min.css", "assets/css/minified/style.min.css", "assets/css/minified/menu-animation.min.css", "assets/css/unminified/main.css", "assets/css/unminified/frontend.css", "assets/css/unminified/style.css", "assets/css/unminified/menu-animation.css", "assets/js/minified/frontend.min.js", "assets/js/minified/style.min.js", "assets/js/unminified/frontend.js", "assets/js/unminified/style.js",
-                "assets/css/unminified/style-flex.css","assets/css/minified/style-flex.min.css","assets/css/unminified/compatibility/woocommerce/woocommerce-grid.css","assets/css/minified/compatibility/woocommerce/woocommerce-grid.min.css","assets/css/unminified/compatibility/woocommerce/woocommerce.css","assets/css/minified/compatibility/woocommerce/woocommerce.min.css","assets/css/unminified/compatibility/woocommerce/woocommerce-layout-grid.css","assets/css/minified/compatibility/woocommerce/woocommerce-layout-grid.min.css","assets/css/unminified/compatibility/woocommerce/woocommerce-layout.css","assets/css/minified/compatibility/woocommerce/woocommerce-layout.min.css","assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen.css","assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min.css","assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-grid.css","assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen-grid.min,css","assets/css/unminified/compatibility/edd.css","assets/css/minified/compatibility/edd.min.css","assets/css/unminified/compatibility/edd-grid.css","assets/css/minified/compatibility/edd-grid.min.css","assets/css/unminified/compatibility/lifterlms-flex.css","assets/css/minified/compatibility/lifterlms-flex.min.css","assets/css/unminified/compatibility/lifterlms.css","assets/css/minified/compatibility/lifterlms.min.css","assets/css/minified/compatibility/contact-form-7.min.css","assets/css/unminified/compatibility/contact-form-7.css","assets/css/minified/compatibility/contact-form-7-main.min.css","assets/css/unminified/compatibility/contact-form-7-main.css"]'
-        with-same: 'true'
-        build-assets: 'false'
+        # Any JS files anywhere within a dist directory:
+        pattern: "{assets/**/**/*.js,assets/**/**/*.css}"
+
+        # Always ignore SourceMaps and node_modules:
+        exclude: "{**/*.map,**/node_modules/**}"
+        build-script: "dynamic-css"
+
+    - name: Stop Docker environment
+      run: npm run env:stop
+      if: always()
+      env:
+        COMPOSE_INTERACTIVE_]NO_CLI: true

@@ -2653,6 +2653,10 @@ body {
   margin-top: 15px;
 }
 
+.ast-mobile-popup-content .ast-icon.icon-search svg {
+  margin-top: 0;
+}
+
 .post-navigation a {
   background: transparent;
   font-size: 16px;
@@ -3115,19 +3119,19 @@ body {
 /**
  * 10 - Submenu container box shadow 
  */
-.ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper .sub-menu {
   box-shadow: none;
 }
 
-.ast-desktop .main-header-menu .astra-megamenu .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-megamenu .sub-menu {
   box-shadow: none;
 }
 
-.ast-desktop .main-header-menu .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .sub-menu {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
-.ast-desktop .main-header-menu .astra-full-megamenu-wrapper {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -3243,10 +3247,6 @@ body {
   display: block;
   z-index: 4;
   position: relative;
-}
-
-.main-header-bar .main-header-bar-navigation.toggle-on {
-  padding-top: 1em;
 }
 
 .main-header-bar .ast-search-menu-icon .search-form {

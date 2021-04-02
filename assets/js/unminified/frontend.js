@@ -189,14 +189,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( ! document.documentElement.classList.contains( 'ast-off-canvas-active' ) ) {
 			document.documentElement.classList.add( 'ast-off-canvas-active' );
 		}
-		
+
 		if ( 'desktop' === triggerType ) {
-			
+
 			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'none';
 			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'block';
 		}
 		if ( 'mobile' === triggerType ) {
-			
+
 			popupWrap.querySelector( '.ast-desktop-popup-content' ).style.display = 'none';
 			popupWrap.querySelector( '.ast-mobile-popup-content' ).style.display = 'block';
 		}
@@ -265,8 +265,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			} else {
 				var desktopHeader = main_header_masthead.querySelector("#ast-desktop-header");
 				if ( desktopHeader ) {
-	
-					mobileHeaderType = desktopHeader.dataset.type;
+
+					mobileHeaderType = desktopHeader.dataset.toggleType;
 				} else {
 					return;
 				}
@@ -369,12 +369,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		var menu_toggle_close = document.getElementById('menu-toggle-close');
 
-		if( menu_toggle_close ) {
-			menu_toggle_close.click();
-		}
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
 
+			if( menu_toggle_close ) {
+				menu_toggle_close.click();
+			}
+			
 			updateHeaderBreakPoint();
 			if ( 'dropdown' === mobileHeaderType ) {
 				AstraToggleSetup();
@@ -481,11 +482,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		event.preventDefault();
 
 		var parent_li = this.parentNode;
-		
+
 		if ( parent_li.classList.contains('ast-submenu-expanded') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') ) {
-			
+
 			if (!this.classList.contains('ast-menu-toggle')) {
-				
+
 				var link = parent_li.querySelector('a').getAttribute('href');
 				if ( '' !== link && '#' !== link) {
 					window.location = link;
@@ -609,11 +610,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} else {
 			var desktop_toggle = document.querySelector('#masthead > #ast-desktop-header .main-header-menu-toggle');
 		}
-		
+
 		var desktop_menu = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content .main-header-bar-navigation');
 
 		if ( 'desktop' === event.currentTarget.trigger_type ) {
-			
+
 			if ( null !== desktop_menu && '' !== desktop_menu && undefined !== desktop_menu ) {
 				astraToggleClass(desktop_menu, 'toggle-on');
 				if (desktop_menu.classList.contains('toggle-on')) {
@@ -932,85 +933,4 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
-	var swap_out_header = null,
-	    current_header = null;
-
-	function swap_header_on_breakpoint( swap ) {
-
-		main_header_masthead = document.getElementById('masthead');
-
-		if (undefined === main_header_masthead || null === main_header_masthead) {
-			return;
-		}
-		var window_width = get_window_width();
-		var break_point = astra.break_point;
-
-		var desktop_header = main_header_masthead.querySelector("#masthead > #ast-desktop-header");
-		var mobile_header = main_header_masthead.querySelector("#masthead > #ast-mobile-header");
-
-		if (window_width <= break_point) { // Rendering Mobile
-
-			if ('mobile' === current_header) {
-				return;
-			}
-
-			if (swap && swap_out_header) {
-				if (mobile_header) {
-					main_header_masthead.removeChild(mobile_header);
-				}
-				main_header_masthead.appendChild(swap_out_header);
-			}
-			if (swap && desktop_header) {
-				swap_out_header = desktop_header.cloneNode(true);
-			}
-
-			current_header = 'mobile';
-			if( desktop_header ) {
-				main_header_masthead.removeChild(desktop_header);
-			}
-
-
-		} else { // Rendering Desktop
-
-			if ('desktop' === current_header) {
-				return;
-			}
-
-			if (swap && swap_out_header) {
-				if (desktop_header) {
-					main_header_masthead.removeChild(desktop_header);
-				}
-				main_header_masthead.appendChild(swap_out_header);
-			}
-
-			if (swap && mobile_header) {
-				swap_out_header = mobile_header.cloneNode(true);
-			}
-
-			current_header = 'desktop';
-			if( mobile_header ) {
-				main_header_masthead.removeChild(mobile_header);
-			}
-
-		}
-
-	}
-
-	window.addEventListener('load', function () {
-		swap_header_on_breakpoint(true);
-	});
-
-	document.addEventListener('astPartialContentRendered', function () {
-		swap_header_on_breakpoint();
-	});
-
-	var doit;
-	window.addEventListener('resize', function () {
-		clearTimeout(doit);
-		doit = setTimeout(function () {
-			swap_header_on_breakpoint(true);
-			init();
-			document.dispatchEvent( new CustomEvent( "astLayoutWidthChanged",  { "detail": { 'response' : '' } }) );
-		}, 50);
-	});
 })();

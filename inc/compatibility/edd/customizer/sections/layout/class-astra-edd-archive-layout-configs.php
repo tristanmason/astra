@@ -41,10 +41,13 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-edd-archive',
-					'default'           => array(
-						'desktop' => 4,
-						'tablet'  => 3,
-						'mobile'  => 2,
+					'default'           => astra_get_option(
+						'edd-archive-grids',
+						array(
+							'desktop' => 4,
+							'tablet'  => 3,
+							'mobile'  => 2,
+						) 
 					),
 					'priority'          => 10,
 					'title'             => __( 'Archive Columns', 'astra' ),
