@@ -1250,10 +1250,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( $is_site_rtl ) {
 					$static_layout_min_lang_direction_css = array(
-						'.ast-left-sidebar #primary'    => array(
+						'.ast-left-sidebar #primary'   => array(
 							'border-right' => '1px solid #eee',
 						),
-						'.ast-left-sidebar #secondary'  => array(
+						'.ast-left-sidebar #secondary' => array(
 							'border-left' => '1px solid #eee',
 							'margin-left' => '-1px',
 						),
@@ -1271,10 +1271,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				} else {
 					$static_layout_min_lang_direction_css = array(
-						'.ast-left-sidebar #primary'    => array(
+						'.ast-left-sidebar #primary'   => array(
 							'border-left' => '1px solid #eee',
 						),
-						'.ast-left-sidebar #secondary'  => array(
+						'.ast-left-sidebar #secondary' => array(
 							'border-right' => '1px solid #eee',
 							'margin-right' => '-1px',
 						),

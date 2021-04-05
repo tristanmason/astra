@@ -55,13 +55,13 @@ class Astra_Primary_Header_Loader {
 		// // Apply separate container class to the body.
 		// $content_layout = astra_get_content_layout();
 		// if ( 'content-boxed-container' == $content_layout ) {
-		// 	$classes[] = 'ast-separate-container';
+		// $classes[] = 'ast-separate-container';
 		// } elseif ( 'boxed-container' == $content_layout ) {
-		// 	$classes[] = 'ast-separate-container ast-two-container';
+		// $classes[] = 'ast-separate-container ast-two-container';
 		// } elseif ( 'page-builder' == $content_layout ) {
-		// 	$classes[] = 'ast-page-builder-template';
+		// $classes[] = 'ast-page-builder-template';
 		// } elseif ( 'plain-container' == $content_layout ) {
-		// 	$classes[] = 'ast-plain-container';
+		// $classes[] = 'ast-plain-container';
 		// }
 		// // Sidebar location.
 		// $page_layout = 'ast-' . astra_page_layout();

@@ -33,7 +33,6 @@ function astra_css_global_variables( $dynamic_css ) {
 				--article-margin: 0;
 				--article-bottom-border: 1px solid #eeeeee;
 
-
 				--body-background-color: #f5f5f5;
 				--content-background-color: #ffffff;
 			}';
