@@ -1250,10 +1250,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( $is_site_rtl ) {
 					$static_layout_min_lang_direction_css = array(
-						'.ast-right-sidebar #secondary' => array(
-							'border-right' => '1px solid #eee',
-							'margin-right' => '-1px',
-						),
 						'.ast-left-sidebar #primary'    => array(
 							'border-right' => '1px solid #eee',
 						),
@@ -1268,11 +1264,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
 							'padding-left'  => '30px',
 							'padding-right' => 0,
-						),
-						'.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' => array(
-							'border'       => 0,
-							'margin-left'  => 'auto',
-							'margin-right' => 'auto',
 						),
 						'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
 							'margin-bottom' => 0,
@@ -1283,10 +1274,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.ast-left-sidebar #primary'    => array(
 							'border-left' => '1px solid #eee',
 						),
-						'.ast-right-sidebar #secondary' => array(
-							'border-left' => '1px solid #eee',
-							'margin-left' => '-1px',
-						),
 						'.ast-left-sidebar #secondary'  => array(
 							'border-right' => '1px solid #eee',
 							'margin-right' => '-1px',
@@ -1298,11 +1285,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.ast-separate-container.ast-two-container.ast-left-sidebar #secondary' => array(
 							'padding-right' => '30px',
 							'padding-left'  => 0,
-						),
-						'.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' => array(
-							'border'       => 0,
-							'margin-left'  => 'auto',
-							'margin-right' => 'auto',
 						),
 						'.ast-separate-container.ast-two-container #secondary .widget:last-child' => array(
 							'margin-bottom' => 0,
@@ -3181,10 +3163,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				@media (min-width: 993px) {
 					.ast-left-sidebar #secondary {
 						padding-left: 60px;
-					}
-
-					.ast-right-sidebar #secondary {
-						padding-right: 60px;
 					}
 				}
 				@media (max-width: 993px) {
