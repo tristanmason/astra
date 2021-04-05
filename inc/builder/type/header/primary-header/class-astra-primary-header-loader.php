@@ -52,8 +52,8 @@ class Astra_Primary_Header_Loader {
 			$classes[] = 'ast-amp';
 		}
 
-		// Apply separate container class to the body.
-		$content_layout = astra_get_content_layout();
+		// // Apply separate container class to the body.
+		// $content_layout = astra_get_content_layout();
 		// if ( 'content-boxed-container' == $content_layout ) {
 		// 	$classes[] = 'ast-separate-container';
 		// } elseif ( 'boxed-container' == $content_layout ) {
@@ -63,7 +63,7 @@ class Astra_Primary_Header_Loader {
 		// } elseif ( 'plain-container' == $content_layout ) {
 		// 	$classes[] = 'ast-plain-container';
 		// }
-		// Sidebar location.
+		// // Sidebar location.
 		// $page_layout = 'ast-' . astra_page_layout();
 		// $classes[]   = esc_attr( $page_layout );
 

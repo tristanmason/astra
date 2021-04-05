@@ -37,17 +37,6 @@ body {
 
 //separate container content layout
 .ast-separate-container{
-	background-color: $color-background-sep-content-body;
-	#primary{
-		padding: 4em 0;
-		margin: 0;
-		border: 0;
-	}
-	.site-main > .ast-row {
-    	margin-left: 0;
-    	margin-right: 0;
-	}
-
 	.ast-article-post,
 	.ast-article-single{
 		background-color: $color-background-content;
@@ -74,22 +63,6 @@ body {
 }
 
 @media (min-width: $col-lg) {
-	// padding of the content
-	.ast-separate-container{
-		&.ast-right-sidebar #primary,
-		&.ast-left-sidebar #primary,
-		#primary {
-		    margin: 4em 0 ;
-		    padding: 0;
-		}
-	}
-	// Right Sidebar - Spacing Between Primary & Secondary
-	.ast-right-sidebar {
-		#primary {
-			padding-right: $space-between-primary-seconday * 2;
-		}
-	}
-
 	// Left Sidebar - Spacing Between Primary & Secondary
 	.ast-left-sidebar {
 		#primary {
