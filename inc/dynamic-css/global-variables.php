@@ -28,7 +28,10 @@ function astra_css_global_variables( $dynamic_css ) {
 			:root {
 				--primary-padding: 4em 0;
 				--secondary-padding: 4em;
+
 				--article-padding: 5.34em 6.67em;
+				--article-margin: 0;
+				--article-bottom-border: 1px solid #eeeeee;
 
 
 				--body-background-color: #f5f5f5;
@@ -37,6 +40,13 @@ function astra_css_global_variables( $dynamic_css ) {
 			.ast-row {
 				margin-left: 0;
     			margin-right: 0;
+			}
+			.blog-layout-1 {
+				width: 100%;
+				display: inline-block;
+				padding-bottom: 2em;
+				vertical-align: middle;
+				border-bottom: 1px solid #eeeeee;
 			}';
 			break;
 

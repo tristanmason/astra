@@ -156,6 +156,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+					{
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['main-cv.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
                      /* Common Style felx based */
                      {
                         expand: true,
@@ -451,6 +458,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/main-rtl.css',
                         dest: 'assets/css/minified/main.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/main-cv-rtl.css',
+                        dest: 'assets/css/minified/main-cv.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',

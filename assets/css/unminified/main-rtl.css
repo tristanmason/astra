@@ -1248,21 +1248,13 @@ body {
   }
 }
 
-body {
-  background-color: var(--body-background-color);
+#primary,
+#secondary {
+  width: 100%;
 }
 
 #primary {
-  margin: var(--primary-padding);
-}
-
-#secondary {
-  padding-right: var(--secondary-padding);
-}
-
-.ast-article-post {
-  background-color: var(--content-background-color);
-  padding: var(--article-padding);
+  margin: 4em 0;
 }
 
 .ast-separate-container {
@@ -3614,7 +3606,10 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-article-post {
-  margin-bottom: 2.5em;
+  background-color: var(--content-background-color);
+  padding: var(--article-padding);
+  margin: var(--article-margin);
+  border-bottom: var(--article-bottom-border);
 }
 
 .ast-article-post:last-child {

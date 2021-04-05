@@ -151,7 +151,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
+						// 'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
+						'astra-theme-css' => 'main-cv',
 					),
 				);
 

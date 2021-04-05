@@ -3847,7 +3847,10 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-article-post {
-  margin-bottom: 2.5em;
+  background-color: var(--content-background-color);
+  padding: var(--article-padding);
+  margin: var(--article-margin);
+  border-bottom: var(--article-bottom-border);
 }
 
 .ast-article-post:last-child {
