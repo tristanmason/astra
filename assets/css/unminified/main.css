@@ -3606,10 +3606,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-article-post {
-  background-color: var(--content-background-color);
-  padding: var(--article-padding);
-  margin: var(--article-margin);
-  border-bottom: var(--article-bottom-border);
+  margin-bottom: 2.5em;
 }
 
 .ast-article-post:last-child {

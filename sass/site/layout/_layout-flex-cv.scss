@@ -37,18 +37,6 @@ body {
 
 //separate container content layout
 .ast-separate-container{
-	.ast-article-post,
-	.ast-article-single{
-		background-color: $color-background-content;
-		border-bottom: 1px solid $color-border-content;
-		 margin: 0;
-		 padding: 5.34em 6.67em;
-	}
-	.blog-layout-1{
-        padding: 0;
-        /*background-color: $color-background-content;*/
-        border-bottom: 0;
-    }
 	.ast-article-single {
 		border-bottom: 0;
 	}

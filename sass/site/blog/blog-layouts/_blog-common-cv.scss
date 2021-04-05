@@ -2,7 +2,7 @@
  *  Blog Common
  */
 
- .page .entry-header {
+.page .entry-header {
 	margin-bottom: 1.5em;
 }
 
@@ -91,7 +91,10 @@
 }
 
 .ast-article-post {
-    margin-bottom: 2.5em;
+    background-color: var(--content-background-color);
+	padding: var(--article-padding);
+	margin: var(--article-margin);
+	border-bottom: var(--article-bottom-border);
 }
 .ast-article-post:last-child {
 	margin-bottom: 0;
