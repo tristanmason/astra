@@ -1256,6 +1256,10 @@ body {
   margin: var(--primary-padding);
 }
 
+#secondary {
+  padding-right: var(--secondary-padding);
+}
+
 .ast-article-post {
   background-color: var(--content-background-color);
   padding: var(--article-padding);
