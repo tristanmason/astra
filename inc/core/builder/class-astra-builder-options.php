@@ -917,7 +917,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']             = 'none';
+	$defaults['woo-header-cart-icon-style']             = 'outline';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
 	$defaults['woo-header-cart-icon-radius']            = 3;
@@ -946,7 +946,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * EDD-Cart.
 	*/
-	$defaults['edd-header-cart-icon-style']             = 'none';
+	$defaults['edd-header-cart-icon-style']             = 'outline';
 	$defaults['edd-header-cart-icon-color']             = '';
 	$defaults['edd-header-cart-icon-radius']            = 3;
 	$defaults['transparent-header-edd-cart-icon-color'] = '';
