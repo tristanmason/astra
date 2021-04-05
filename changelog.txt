@@ -15,6 +15,7 @@ v3.4.0 (Unreleased)
 - Fix: Height of Mobile Header increases when we open Dropdown for Old Header.
 - Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.
 - Fix: Transparent Header - Normal colors not working for transparent header if colors are not set from Transparent Header settings.
+- Fix: Deprecated the Cart Style 'None' & merged it with existing option 'Outline' for WooCommerce and EDD.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
