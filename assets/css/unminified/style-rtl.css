@@ -2647,16 +2647,6 @@ body {
   margin-left: 2px;
 }
 
-.ast-mobile-popup-content .ast-icon svg {
-  height: .85em;
-  width: .95em;
-  margin-top: 15px;
-}
-
-.ast-mobile-popup-content .ast-icon.icon-search svg {
-  margin-top: 0;
-}
-
 .post-navigation a {
   background: transparent;
   font-size: 16px;

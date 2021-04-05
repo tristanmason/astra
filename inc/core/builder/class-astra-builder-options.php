@@ -690,7 +690,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'background-attachment' => 'scroll',
 	);
 	$defaults['off-canvas-close-color']             = '#3a3a3a';
-	$defaults['mobile-header-type']                 = 'off-canvas';
+	$defaults['mobile-header-type']                 = 'dropdown';
 	$defaults['off-canvas-inner-spacing']           = '';
 	$defaults['footer-menu-layout']                 = array(
 		'desktop' => 'horizontal',
@@ -1649,7 +1649,7 @@ function prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = '';
 
 	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = Astra_Builder_Helper::$default_responsive_spacing;
@@ -1701,4 +1701,3 @@ function prepare_menu_defaults( $defaults, $index ) {
 
 	return $defaults;
 }
-
