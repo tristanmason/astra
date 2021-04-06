@@ -435,24 +435,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	});
 
-	if ( 'dropdown' === mobileHeaderType ) {
+	document.addEventListener('DOMContentLoaded', function () {
+		AstraToggleSetup();
+		/**
+		 * Navigation Keyboard Navigation.
+		 */
+		var container, count;
 
-		document.addEventListener('DOMContentLoaded', function () {
-			AstraToggleSetup();
-			/**
-			 * Navigation Keyboard Navigation.
-			 */
-			var container, count;
+		container = document.querySelectorAll( '.navigation-accessibility' );
 
-			container = document.querySelectorAll( '.navigation-accessibility' );
-
-			for ( count = 0; count <= container.length - 1; count++ ) {
-				if ( container[count] ) {
-					navigation_accessibility( container[count] );
-				}
+		for ( count = 0; count <= container.length - 1; count++ ) {
+			if ( container[count] ) {
+				navigation_accessibility( container[count] );
 			}
-		});
-	}
+		}
+	});
 
 	var get_window_width = function () {
 
@@ -874,7 +871,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( i = 0, len = links.length; i < len; i++ ) {
 			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleBlurFocus, true );
+			links[i].addEventListener( 'blur', toggleFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}
 	}
@@ -929,43 +926,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function toggleFocus() {
 		var self = this;
 		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
+		while ( -1 === self.className.indexOf( 'navigation-accessibility' ) ) {
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
+				self.classList.toggle('focus');
 			}
-
-			self = self.parentElement;
-		}
-	}
-
-	/**
-	 * Sets or removes .focus class on an element on blur.
-	 */
-	function toggleBlurFocus() {
-		var self = this || '',
-            hash = '#';
-		var	link = new String( self );
-        if( link.indexOf( hash ) !== -1 && body.classList.contains('ast-mouse-clicked') ) {
-        	return;
-        }
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
 			self = self.parentElement;
 		}
 	}
