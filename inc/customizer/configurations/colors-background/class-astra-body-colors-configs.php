@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'default'   => get_option(
 						'astra-global-color-palette',
 						array(
-							'current_palette' => 'palette-1',
+							'currentPalette' => 'palette-1',
 							'isVisible'       => false,
 							'labels'          => array(
 								__( 'Text Color', 'astra' ),
