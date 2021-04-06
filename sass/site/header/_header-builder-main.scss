@@ -69,10 +69,6 @@
 			z-index: 4;
 			position: relative;
 		}
-
-		&.toggle-on {
-			padding-top: 1em;
-		}
 	}
 
 	.ast-search-menu-icon .search-form {
@@ -196,7 +192,9 @@
 	.main-header-bar {
 		display: block;
 		line-height: 3;
-
+		.ast-builder-html-element {
+			line-height: 1.85714285714286;
+		}
 		.main-header-bar-navigation {
 			line-height: 3;
 			.sub-menu {
@@ -341,5 +339,16 @@
 		.sub-menu {
 			width: 150px;
 		}
+	}
+}
+.ast-desktop {
+	.main-header-menu > .menu-item .sub-menu:before,
+	.main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: translateY(-100%);
 	}
 }
