@@ -435,24 +435,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	});
 
-	if ( 'dropdown' === mobileHeaderType ) {
+	document.addEventListener('DOMContentLoaded', function () {
+		AstraToggleSetup();
+		/**
+		 * Navigation Keyboard Navigation.
+		 */
+		var container, count;
 
-		document.addEventListener('DOMContentLoaded', function () {
-			AstraToggleSetup();
-			/**
-			 * Navigation Keyboard Navigation.
-			 */
-			var container, count;
+		container = document.querySelectorAll( '.navigation-accessibility' );
 
-			container = document.querySelectorAll( '.navigation-accessibility' );
-
-			for ( count = 0; count <= container.length - 1; count++ ) {
-				if ( container[count] ) {
-					navigation_accessibility( container[count] );
-				}
+		for ( count = 0; count <= container.length - 1; count++ ) {
+			if ( container[count] ) {
+				navigation_accessibility( container[count] );
 			}
-		});
-	}
+		}
+	});
 
 	var get_window_width = function () {
 
@@ -469,37 +466,34 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var ww = get_window_width();
 		body.style.overflow = originalOverflow;
 
-		var break_point = astra.break_point,
-			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
+		var break_point = astra.break_point;
 
-		if (headerWrap.length > 0) {
-			for (var i = 0; i < headerWrap.length; i++) {
+		/**
+		 * This case is when one hits a URL one after the other via `Open in New Tab` option
+		 * Chrome returns the value of outer width as 0 in this case.
+		 * This mis-calculates the width of the window and header seems invisible.
+		 * This could be fixed by using `0 === ww` condition below.
+		 */
+		if (ww > break_point || 0 === ww) {
+			//remove menu toggled class.
+			if ( menu_toggle_all.length > 0 ) {
 
-				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
+				for (var i = 0; i < menu_toggle_all.length; i++) {
 
-					/**
-					 * This case is when one hits a URL one after the other via `Open in New Tab` option
-					 * Chrome returns the value of outer width as 0 in this case.
-					 * This mis-calculates the width of the window and header seems invisible.
-					 * This could be fixed by using `0 === ww` condition below.
-					 */
-					if (ww > break_point || 0 === ww) {
-						//remove menu toggled class.
-						if (null != menu_toggle_all[i]) {
-							menu_toggle_all[i].classList.remove('toggled');
-						}
-						body.classList.remove("ast-header-break-point");
-						body.classList.add("ast-desktop");
-						astraTriggerEvent(body, "astra-header-responsive-enabled");
-
-					} else {
-
-						body.classList.add("ast-header-break-point");
-						body.classList.remove("ast-desktop");
-						astraTriggerEvent(body, "astra-header-responsive-disabled")
+					if( null !== menu_toggle_all[i] ) {
+						menu_toggle_all[i].classList.remove('toggled');
 					}
 				}
 			}
+			body.classList.remove("ast-header-break-point");
+			body.classList.add("ast-desktop");
+			astraTriggerEvent(body, "astra-header-responsive-enabled");
+
+		} else {
+
+			body.classList.add("ast-header-break-point");
+			body.classList.remove("ast-desktop");
+			astraTriggerEvent(body, "astra-header-responsive-disabled")
 		}
 	}
 
@@ -877,7 +871,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( i = 0, len = links.length; i < len; i++ ) {
 			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleBlurFocus, true );
+			links[i].addEventListener( 'blur', toggleFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}
 	}
@@ -932,43 +926,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function toggleFocus() {
 		var self = this;
 		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
+		while ( -1 === self.className.indexOf( 'navigation-accessibility' ) ) {
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
+				self.classList.toggle('focus');
 			}
-
-			self = self.parentElement;
-		}
-	}
-
-	/**
-	 * Sets or removes .focus class on an element on blur.
-	 */
-	function toggleBlurFocus() {
-		var self = this || '',
-            hash = '#';
-		var	link = new String( self );
-        if( link.indexOf( hash ) !== -1 && body.classList.contains('ast-mouse-clicked') ) {
-        	return;
-        }
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
 			self = self.parentElement;
 		}
 	}
