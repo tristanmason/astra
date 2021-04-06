@@ -56,15 +56,15 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 						'astra-global-color-palette',
 						array(
 							'currentPalette' => 'palette-1',
-							'isVisible'       => false,
-							'labels'          => array(
+							'isVisible'      => false,
+							'labels'         => array(
 								__( 'Text Color', 'astra' ),
 								__( 'Theme color', 'astra' ),
 								__( 'Link color', 'astra' ),
 								__( 'Link Hover Color', 'astra' ),
 								__( 'Heading Color (H1 - H6)', 'astra' ),
 							),
-							'palettes'        => array(
+							'palettes'       => array(
 								'palette-1' => array(
 									'#7e6c6c',
 									'#f87575',
