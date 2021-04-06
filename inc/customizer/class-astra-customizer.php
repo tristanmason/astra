@@ -1329,7 +1329,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'page_builder_button_style_css'        => Astra_Dynamic_CSS::page_builder_button_style_css(),
 				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
-				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_button_patterns_compat(),
+				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_core_patterns_compat(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
