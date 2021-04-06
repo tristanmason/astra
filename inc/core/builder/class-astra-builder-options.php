@@ -816,7 +816,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Global Color Palette.
 	 */
-
 	$defaults['selected-color-palette'] = array(
 		'#7e6c6c',
 		'#f87575',
@@ -1711,7 +1710,5 @@ function prepare_menu_defaults( $defaults, $index ) {
 	$defaults['transparent-header-main-sep']       = '';
 	$defaults['transparent-header-main-sep-color'] = '';
 
-
 	return $defaults;
 }
-
