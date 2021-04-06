@@ -1,6 +1,7 @@
 v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
 - Improvement: Gutenberg Editor - Compatibility with WordPress 5.7.
+- Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
@@ -15,6 +16,7 @@ v3.4.0 (Unreleased)
 - Fix: Height of Mobile Header increases when we open Dropdown for Old Header.
 - Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.
 - Fix: Transparent Header - Normal colors not working for transparent header if colors are not set from Transparent Header settings.
+- Fix: Container Width option hides in Container section when Astra Pro is active but all addons are deactivate.
 - Fix: Context Switch does not work if there are no elements in Primary Header for both Desktop & Mobile.
 - Fix: Deprecated the Cart Style 'None' & merged it with existing option 'Outline' for WooCommerce and EDD.
 - Fix: Accessibility - Tab navigation does not highlight menu with submenus.
@@ -37,7 +39,6 @@ v3.3.0
 - Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
 - Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
 - Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
-- Fix: Container Width option hides in Container section when Astra Pro is active but all addons are deactivate.
 
 v3.2.0
 - New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
