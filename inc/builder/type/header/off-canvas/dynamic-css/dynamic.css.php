@@ -34,6 +34,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	$padding                     = astra_get_option( 'off-canvas-padding' );
 	$menu_content_alignment      = 'center';
 	$inner_spacing               = astra_get_option( 'off-canvas-inner-spacing' );
+	$mobile_header_type          = astra_get_option( 'mobile-header-type' );
 
 	$inner_spacing = ( isset( $inner_spacing ) ) ? (int) $inner_spacing : '';
 

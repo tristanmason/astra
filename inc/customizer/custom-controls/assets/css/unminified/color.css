@@ -271,9 +271,9 @@
     right: 0;
     bottom: 0;
 }
-.ast-field-settings-modal .astra-color-picker-wrap {
+.ast-field-settings-modal .astra-color-picker-wrap, .ast-top-divider .ast-field-settings-modal .ast-control-wrap .astra-color-picker-wrap {
     position: relative;
-	top: 0;
+	top: 10px;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
@@ -347,9 +347,12 @@
 .ast-field-settings-modal .color-button-wrap {
     right: 16px;
 }
-.ast-field-settings-modal .ast-color-btn-reset-wrap {
+.ast-field-settings-modal .ast-color-btn-reset-wrap, .ast-top-divider .ast-field-settings-modal .ast-control-wrap .ast-color-btn-reset-wrap {
     right: 59px;
 	top: 0;
+}
+.ast-top-divider .ast-field-settings-modal .ast-control-wrap .color-button-wrap {
+	top: -4.5px;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;
