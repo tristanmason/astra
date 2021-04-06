@@ -59,6 +59,9 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 			'display'       => 'flex',
 			'margin-bottom' => '0',
 		),
+		'.ast-builder-grid-row-' . $desk_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $desk_layout ],
+		),
 
 	);
 

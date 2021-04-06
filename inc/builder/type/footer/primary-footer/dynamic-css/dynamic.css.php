@@ -72,6 +72,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'display'       => 'flex',
 			'margin-bottom' => '0',
 		),
+		'.ast-builder-grid-row-' . $desk_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $desk_layout ],
+		),
 
 	);
 
@@ -80,7 +83,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		$css_output_desktop[ $selector ]['border-style'] = 'solid';
 
 		$css_output_desktop[ $selector ]['border-width'] = '0px';
-		
+
 		$css_output_desktop[ $selector ]['border-top-width'] = astra_get_css_value( $footer_top_border_size, 'px' );
 
 		$css_output_desktop[ $selector ]['border-top-color'] = $footer_top_border_color;
