@@ -397,7 +397,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	 *
 	 * Hence skipping these menus from getting overriden by blank SVG Icons and adding the icons from theme.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 */
 	$skip_menu_locations = array(
 		'ast-hf-account-menu',
