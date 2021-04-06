@@ -294,7 +294,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					'header-main-menu-label'               => '',
 					'header-main-menu-align'               => 'inline',
-					'header-main-submenu-container-animation' => 'fade',
+					'header-main-submenu-container-animation' => '',
 					'mobile-header-breakpoint'             => '',
 					'mobile-header-logo'                   => '',
 					'mobile-header-logo-width'             => '',
