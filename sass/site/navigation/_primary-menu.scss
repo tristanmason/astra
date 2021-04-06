@@ -1,14 +1,3 @@
-.astra-search-icon::before {
-	content: "\e8b6";
-	font-family: 'Astra';
-	font-style: normal;
-	font-weight: normal;
-	text-decoration: inherit;
-	text-align: center;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
 .ast-search-icon .astra-search-icon {
 	font-size: 1.3em;
 }
@@ -107,15 +96,33 @@
 			word-wrap: break-word;
 		}
 
-		.menu-item.menu-item-has-children > .menu-link:after {
-			position: absolute;
-			right: 1em;
-			top: 50%;
-			transform: translate(0, -50%) rotate(270deg);
+		.menu-item:not(.menu-item-has-children) {
+			.menu-link {
+				.icon-arrow {
+					&:first-of-type {
+						display: none;
+					}
+				}
+			}
 		}
-
 	}
+}
 
+#ast-desktop-header {
+	.main-header-menu {
+		.sub-menu {
+			.menu-item.menu-item-has-children>.menu-link {
+				.icon-arrow {
+					svg {
+						position: absolute;
+						right: .60em;
+						top: 50%;
+						transform: translate(0, -50%) rotate(270deg);
+					}
+				}
+			}
+		}
+	}
 }
 
 .main-header-menu {
@@ -167,8 +174,23 @@
 					border-bottom-width: 1px;
 					border-style: solid;
 					border-color: #eaeaea;
+					.icon-arrow {
+						&:first-of-type {
+							margin-right: 5px;
+						}
+					}
 				}
 			}
+			.sub-menu {
+				.menu-item:not(.menu-item-has-children)  {
+					.menu-link {
+						.icon-arrow:first-of-type {
+							display: inline;
+						}
+					}
+				}
+			}
+
 			.button-custom-menu-item {
 				.menu-link {
 					padding: 0 20px;
@@ -177,17 +199,6 @@
 					border-bottom-width: 1px;
 					border-style: solid;
 					border-color: #eaeaea;
-				}
-			}
-			&.sub-menu .menu-item .menu-link {
-				&:before{
-					content: "\e900";
-					font-family: 'Astra';
-					font-size: .65em;
-					text-decoration: inherit;
-					display: inline-block;
-					transform: translate(0, -2px) rotateZ(270deg);
-					margin-right: 5px;
 				}
 			}
 		}
@@ -236,5 +247,9 @@
 		.sub-menu {
 			border: 0;
 		}
+	}
+
+	.dropdown-menu-toggle {
+		display: none;
 	}
 }
