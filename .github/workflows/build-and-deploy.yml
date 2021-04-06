@@ -6,6 +6,9 @@ on:
     branches:
       - development
       - next-release
+      - dev
+      - release-candidate
+      - master
 
 jobs:
   deploy:
@@ -41,6 +44,14 @@ jobs:
           if [ '${{github.ref}}' = 'refs/heads/release-candidate' ]
           then
             echo "ENVIRONMENT=RELEASE_CANDIDATE" >> $GITHUB_ENV
+          fi
+          if [ '${{github.ref}}' = 'refs/heads/dev' ]
+          then
+            echo "ENVIRONMENT=RELEASE_CANDIDATE" >> $GITHUB_ENV
+          fi
+          if [ '${{github.ref}}' = 'refs/heads/master' ]
+          then
+            echo "ENVIRONMENT=MASTER" >> $GITHUB_ENV
           fi
 
     - name: Rsync Deployment
