@@ -1,15 +1,15 @@
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
-- New: SVG Icons support ( deprecating astra.woff font file ).
+- New: SVG Icons support ( deprecating astra.woff font file ). (https://wpastra.com/docs/ast-font-icons-to-svg/)
 - Improvement: Builder - Mobile Menu - Renamed Mobile Menu to Off-Canvas Menu.
 - Improvement: Builder - Added instructive message in the builder side panel when builder layout does not have any element in use.
 - Improvement: Replaced responsive number control with a responsive slider control for Base Font Size in Typography section.
-- Improvement: Gutenberg Editor - Block patterns compatibility.
+- Improvement: Gutenberg Editor - Block patterns compatibility. (https://wpastra.com/docs/fix-spacing-gb-blocks/)
 - Improvement: Compatibility with WordPress 5.7.
 - Improvement: Code quality improvements for better performance.
 - Improvement: Load minified customizer preview files for better performance.
-- Improvement: Frontend optimization - Comments, Pagination, Single Page, Single Post, Archive Page.
+- Improvement: Frontend optimization - Comments, Pagination, Single Page, Single Post, Archive Page. (https://wpastra.com/docs/optimize-css-html-before-3-3/)
 - Improvement: Frontend optimization - WooCommerce - Shop Page, Single Product Page.
 - Improvement: Frontend optimization - EDD - Shop Page, Single Product Page.
 - Improvement: Frontend optimization - LifterLMS - All Courses Page.
