@@ -469,37 +469,34 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var ww = get_window_width();
 		body.style.overflow = originalOverflow;
 
-		var break_point = astra.break_point,
-			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
+		var break_point = astra.break_point;
 
-		if (headerWrap.length > 0) {
-			for (var i = 0; i < headerWrap.length; i++) {
+		/**
+		 * This case is when one hits a URL one after the other via `Open in New Tab` option
+		 * Chrome returns the value of outer width as 0 in this case.
+		 * This mis-calculates the width of the window and header seems invisible.
+		 * This could be fixed by using `0 === ww` condition below.
+		 */
+		if (ww > break_point || 0 === ww) {
+			//remove menu toggled class.
+			if ( menu_toggle_all.length > 0 ) {
 
-				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
+				for (var i = 0; i < menu_toggle_all.length; i++) {
 
-					/**
-					 * This case is when one hits a URL one after the other via `Open in New Tab` option
-					 * Chrome returns the value of outer width as 0 in this case.
-					 * This mis-calculates the width of the window and header seems invisible.
-					 * This could be fixed by using `0 === ww` condition below.
-					 */
-					if (ww > break_point || 0 === ww) {
-						//remove menu toggled class.
-						if (null != menu_toggle_all[i]) {
-							menu_toggle_all[i].classList.remove('toggled');
-						}
-						body.classList.remove("ast-header-break-point");
-						body.classList.add("ast-desktop");
-						astraTriggerEvent(body, "astra-header-responsive-enabled");
-
-					} else {
-
-						body.classList.add("ast-header-break-point");
-						body.classList.remove("ast-desktop");
-						astraTriggerEvent(body, "astra-header-responsive-disabled")
+					if( null !== menu_toggle_all[i] ) {
+						menu_toggle_all[i].classList.remove('toggled');
 					}
 				}
 			}
+			body.classList.remove("ast-header-break-point");
+			body.classList.add("ast-desktop");
+			astraTriggerEvent(body, "astra-header-responsive-enabled");
+
+		} else {
+
+			body.classList.add("ast-header-break-point");
+			body.classList.remove("ast-desktop");
+			astraTriggerEvent(body, "astra-header-responsive-disabled")
 		}
 	}
 
