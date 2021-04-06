@@ -157,4 +157,4 @@ ColorPaletteComponent.propTypes = {
 	control: PropTypes.object.isRequired,
 };
 
-export default ColorPaletteComponent;
+export default React.memo( ColorPaletteComponent );
