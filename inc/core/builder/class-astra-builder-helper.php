@@ -800,9 +800,7 @@ final class Astra_Builder_Helper {
 	 */
 	public static function is_header_footer_builder_active() {
 
-		$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
-		$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? (bool) $astra_settings['is-header-footer-builder'] : true;
-		return apply_filters( 'astra_is_header_footer_builder_active', $astra_settings['is-header-footer-builder'] );
+		return apply_filters( 'astra_is_header_footer_builder_active', (bool) astra_get_option( 'is-header-footer-builder', true ) );
 	}
 
 	/**
