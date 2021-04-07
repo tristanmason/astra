@@ -1,5 +1,6 @@
 v3.3.2
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
+- Fix: Blog Archive - Layout 1 and Layout 2 are not working for existing users when addon activated.
 
 v3.3.1
 - Fix: WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
