@@ -1,3 +1,6 @@
+v3.3.1
+- Fix: Blog Archive - Layout 1 and Layout 2 are not working for existing users when addon activated.
+
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
