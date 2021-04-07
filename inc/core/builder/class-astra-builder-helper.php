@@ -1137,7 +1137,7 @@ final class Astra_Builder_Helper {
 	/**
 	 * For existing users, do not apply dynamic CSS chages.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 * @return boolean true if it is an existing user , false if not.
 	 */
 	public static function apply_flex_based_css() {
