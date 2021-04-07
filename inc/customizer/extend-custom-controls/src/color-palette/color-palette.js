@@ -71,28 +71,6 @@ const ColorPaletteComponent = (props) => {
 		}
 	};
 
-	const SinglePalette = ({ singlePalette, currentPalette }) => {
-		const singlePaletteHTML = Object.entries(singlePalette).map(
-			([key, value]) => {
-				return (
-					<div className="ast-color-picker-wrap" key={key}>
-						<AstraColorPickerControl
-							color={value}
-							onChangeComplete={(color) =>
-								handleChangeComplete(key, color, currentPalette)
-							}
-							backgroundType={"color"}
-							allowGradient={false}
-							allowImage={false}
-						/>
-					</div>
-				);
-			}
-		);
-
-		return singlePaletteHTML;
-	};
-
 	const onPaletteChange = (key) => {
 		let updateState = {
 			...state,
@@ -133,10 +111,34 @@ const ColorPaletteComponent = (props) => {
 								{paletteLabel}
 							</label>
 							<div className="ast-single-palette-color-group">
-								<SinglePalette
-									currentPalette={palette_key}
-									singlePalette={paletteColorObj}
-								/>
+								{Object.entries(
+									state.palettes[palette_key]
+								).map(([key, value]) => {
+									return (
+										<div
+											className="ast-color-picker-wrap"
+											key={key}
+										>
+											<AstraColorPickerControl
+												color={
+													state.palettes[palette_key][
+														key
+													]
+												}
+												onChangeComplete={(color) =>
+													handleChangeComplete(
+														key,
+														color,
+														palette_key
+													)
+												}
+												backgroundType={"color"}
+												allowGradient={false}
+												allowImage={false}
+											/>
+										</div>
+									);
+								})}
 							</div>
 						</div>
 					);
@@ -157,4 +159,4 @@ ColorPaletteComponent.propTypes = {
 	control: PropTypes.object.isRequired,
 };
 
-export default React.memo( ColorPaletteComponent );
+export default React.memo(ColorPaletteComponent);
