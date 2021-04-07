@@ -1,5 +1,6 @@
 v3.3.1
 - Fix: WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
+- Fix: Fatal error on sites due to incorrect migration flag.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
