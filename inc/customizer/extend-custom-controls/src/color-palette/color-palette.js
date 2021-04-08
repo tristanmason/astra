@@ -131,6 +131,7 @@ const ColorPaletteComponent = (props) => {
 													backgroundType={"color"}
 													allowGradient={false}
 													allowImage={false}
+													disablePalette={true}
 												/>
 											</div>
 										);
