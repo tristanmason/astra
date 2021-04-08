@@ -1664,6 +1664,11 @@
 	display: none;
 }
 
+.ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 24px;
+    height: 24px;
+}
+
 .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
 	margin-right: 0;
 }

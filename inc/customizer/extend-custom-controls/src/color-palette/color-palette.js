@@ -85,9 +85,6 @@ const ColorPaletteComponent = (props) => {
 		<>
 			{Object.entries(state.palettes).map(
 				([palette_key, paletteColorObj]) => {
-					let paletteLabel = (
-						palette_key[0].toUpperCase() + palette_key.substring(1)
-					).replace(/-/g, " ");
 					return (
 						<div
 							key={palette_key}
