@@ -58,11 +58,15 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 							'currentPalette' => 'palette-1',
 							'isVisible'      => false,
 							'labels'         => array(
+								__( 'Primary Color', 'astra' ),
+								__( 'Secondary color', 'astra' ),
+								__( 'Heading color', 'astra' ),
 								__( 'Text Color', 'astra' ),
-								__( 'Theme color', 'astra' ),
-								__( 'Link color', 'astra' ),
-								__( 'Link Hover Color', 'astra' ),
-								__( 'Heading Color (H1 - H6)', 'astra' ),
+								__( 'Extra Color 1', 'astra' ),
+								__( 'Extra Color 2', 'astra' ),
+								__( 'Extra Color 3', 'astra' ),
+								__( 'Background 1', 'astra' ),
+								__( 'Background 2', 'astra' ),
 							),
 							'palettes'       => array(
 								'palette_1' => array(
