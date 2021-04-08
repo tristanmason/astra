@@ -1,4 +1,5 @@
 v3.3.2
+- Fix: Transparent Header - Disappears if we have Widget 2 in it.
 - Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
 - Fix: Blog Archive - Layout 1 and Layout 2 are not working for existing users when addon activated.
 
