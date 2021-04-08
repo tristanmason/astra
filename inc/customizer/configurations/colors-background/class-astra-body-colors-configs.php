@@ -55,36 +55,48 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'default'   => get_option(
 						'astra-global-color-palette',
 						array(
-							'current_palette' => 'palette-1',
-							'isVisible'       => false,
-							'labels'          => array(
-								'text-color'       => __( 'Text Color', 'astra' ),
-								'theme-color'      => __( 'Theme color', 'astra' ),
-								'link-color'       => __( 'Link color', 'astra' ),
-								'link-hover-color' => __( 'Link Hover Color', 'astra' ),
-								'heading-color'    => __( 'Heading Color (H1 - H6)', 'astra' ),
+							'currentPalette' => 'palette-1',
+							'isVisible'      => false,
+							'labels'         => array(
+								__( 'Text Color', 'astra' ),
+								__( 'Theme color', 'astra' ),
+								__( 'Link color', 'astra' ),
+								__( 'Link Hover Color', 'astra' ),
+								__( 'Heading Color (H1 - H6)', 'astra' ),
 							),
-							'palettes'        => array(
-								'palette-1' => array(
-									'text-color'       => '#3a3a3a',
-									'theme-color'      => '#0274be',
-									'link-color'       => '#0274be',
-									'link-hover-color' => '#3a3a3a',
+							'palettes'       => array(
+								'palette_1' => array(
+									'primary-color'    => '#3a3a3a',
+									'secondary-color'  => '#0274be',
 									'heading-color'    => '#5c95ff',
+									'text-color'       => '#0274be',
+									'extra-1'          => '#3a3a3a',
+									'extra-2'          => '#F3F4F7',
+									'extra-3'          => '#F9F9FB',
+									'background-1'     => '#FFFFFF',
+									'background-2'     => '#7B8794'
 								),
-								'palette-2' => array(
-									'text-color'       => '#562c2c',
-									'theme-color'      => '#f2542d',
-									'link-color'       => '#f5dfbb',
-									'link-hover-color' => '#0e9594',
-									'heading-color'    => '#127475',
+								'palette_2' => array(
+									'primary-color'    => '#3a3a3a',
+									'secondary-color'  => '#0274be',
+									'heading-color'    => '#5c95ff',
+									'text-color'       => '#0274be',
+									'extra-1'          => '#3a3a3a',
+									'extra-2'          => '#F3F4F7',
+									'extra-3'          => '#F9F9FB',
+									'background-1'     => '#FFFFFF',
+									'background-2'     => '#7B8794'
 								),
-								'palette-3' => array(
-									'text-color'       => '#0d1b2a',
-									'theme-color'      => '#1b263b',
-									'link-color'       => '#415a77',
-									'link-hover-color' => '#778da9',
-									'heading-color'    => '#e0e1dd',
+								'palette_3' => array(
+									'primary-color'    => '#3a3a3a',
+									'secondary-color'  => '#0274be',
+									'heading-color'    => '#5c95ff',
+									'text-color'       => '#0274be',
+									'extra-1'          => '#3a3a3a',
+									'extra-2'          => '#F3F4F7',
+									'extra-3'          => '#F9F9FB',
+									'background-1'     => '#FFFFFF',
+									'background-2'     => '#7B8794'
 								),
 							),
 						)
@@ -153,5 +165,3 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 }
 
 new Astra_Body_Colors_Configs();
-
-

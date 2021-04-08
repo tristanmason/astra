@@ -566,22 +566,16 @@
 	width: 15px;
     height: 15px;
     flex: 0 0 16px;
+	display: none;
+}
+
+.ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 24px;
+    height: 24px;
 }
 
 .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
 	margin-right: 0;
-}
-
-#customize-control-astra-global-color-palette
-	button.components-button.ast-palette-delete:disabled:hover {
-	cursor: not-allowed;
-	color: unset;
-}
-
-#customize-control-astra-global-color-palette
-	.ast-add-new-color
-	.dashicons-plus {
-	margin-left: 10px;
 }
 
 #customize-control-astra-global-color-palette .ast-reset-btn:disabled {
@@ -1667,22 +1661,16 @@
 	width: 15px;
     height: 15px;
     flex: 0 0 16px;
+	display: none;
+}
+
+.ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 24px;
+    height: 24px;
 }
 
 .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
 	margin-right: 0;
-}
-
-#customize-control-astra-global-color-palette
-	button.components-button.ast-palette-delete:disabled:hover {
-	cursor: not-allowed;
-	color: unset;
-}
-
-#customize-control-astra-global-color-palette
-	.ast-add-new-color
-	.dashicons-plus {
-	margin-left: 10px;
 }
 
 #customize-control-astra-global-color-palette .ast-reset-btn:disabled {
