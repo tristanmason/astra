@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 					),
 				),
 			);
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'blog-pro' ) ) ) {
 				$grid_config = array(
 					/**
 					 * Option: Grid Layout

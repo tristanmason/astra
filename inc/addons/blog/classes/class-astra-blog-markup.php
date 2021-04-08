@@ -54,9 +54,9 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 			// Apply grid class to archive page.
 			if ( ( is_home() ) || is_archive() || is_search() ) {
 
-				$blog_grid   = astra_get_option( 'blog-grid' );
-				$blog_layout = astra_get_option( 'blog-layout' );
-				if ( 'blog-layout-1' == $blog_layout ) {
+				$blog_grid = astra_get_option( 'blog-grid' );
+
+				if ( self::is_blog_layout_1() ) {
 					$classes[] = 'ast-grid-' . esc_attr( $blog_grid );
 				}
 				$classes = apply_filters( 'astra_primary_class_blog_grid', $classes );
@@ -79,9 +79,8 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 
 				$blog_grid            = astra_get_option( 'blog-grid' );
 				$blog_space_bet_posts = astra_get_option( 'blog-space-bet-posts' );
-				$blog_layout          = astra_get_option( 'blog-layout' );
 				
-				if ( 'blog-layout-1' == $blog_layout ) {
+				if ( self::is_blog_layout_1() ) {
 					$classes[] = Astra_Builder_Helper::apply_flex_based_css() ? 'ast-width-md-' . ( 12 / $blog_grid ) : 'ast-col-md-' . ( 12 / $blog_grid );
 				}
 
@@ -146,6 +145,17 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 			}
 
 			return $text;
+		}
+
+		/**
+		 * Check is blog layout 1 is selected or add-on is deactivated.
+		 * 
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		public static function is_blog_layout_1() {
+			$blog_layout = astra_get_option( 'blog-layout' );
+			return ( 'blog-layout-1' == $blog_layout || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'blog-pro' ) ) ) ? true : false;
 		}
 
 	}
