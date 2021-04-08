@@ -1,6 +1,6 @@
 <?php
 /**
- * Blog Pro General Options for our theme.
+ * Astra Blog  General Options for our theme.
  *
  * @package     Astra
  * @author      Brainstorm Force

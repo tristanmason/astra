@@ -1,9 +1,9 @@
 <?php
 /**
- * Blog Pro - Customizer.
+ * Astra Blog - Customizer.
  *
  * @package Astra Addon
- * @since 1.0.0
+ * @since x.x.x
  */
 
 if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
@@ -11,7 +11,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 	/**
 	 * Customizer Initialization
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	class Astra_Blog_Loader {
 
