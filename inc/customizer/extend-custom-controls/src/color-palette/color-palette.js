@@ -108,38 +108,38 @@ const ColorPaletteComponent = (props) => {
 									onChange={() => {}}
 									name="ast-color-palette-radio-input"
 								/>
-								{paletteLabel}
+
+								<div className="ast-single-palette-color-group">
+									{Object.entries(
+										state.palettes[palette_key]
+									).map(([key, value]) => {
+										return (
+											<div
+												className="ast-color-picker-wrap"
+												key={key}
+											>
+												<AstraColorPickerControl
+													color={
+														state.palettes[palette_key][
+															key
+														]
+													}
+													onChangeComplete={(color) =>
+														handleChangeComplete(
+															key,
+															color,
+															palette_key
+														)
+													}
+													backgroundType={"color"}
+													allowGradient={false}
+													allowImage={false}
+												/>
+											</div>
+										);
+									})}
+								</div>
 							</label>
-							<div className="ast-single-palette-color-group">
-								{Object.entries(
-									state.palettes[palette_key]
-								).map(([key, value]) => {
-									return (
-										<div
-											className="ast-color-picker-wrap"
-											key={key}
-										>
-											<AstraColorPickerControl
-												color={
-													state.palettes[palette_key][
-														key
-													]
-												}
-												onChangeComplete={(color) =>
-													handleChangeComplete(
-														key,
-														color,
-														palette_key
-													)
-												}
-												backgroundType={"color"}
-												allowGradient={false}
-												allowImage={false}
-											/>
-										</div>
-									);
-								})}
-							</div>
 						</div>
 					);
 				}

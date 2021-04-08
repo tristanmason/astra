@@ -71,6 +71,10 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 									'#ffa9a3',
 									'#b9e6ff',
 									'#5c95ff',
+									'#F3F4F7',
+									'#F9F9FB',
+									'#FFFFFF',
+									'#7B8794'
 								),
 								'palette-2' => array(
 									'#562c2c',
@@ -78,6 +82,10 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 									'#f5dfbb',
 									'#0e9594',
 									'#127475',
+									'#F3F4F7',
+									'#F9F9FB',
+									'#FFFFFF',
+									'#7B8794'
 								),
 								'palette-3' => array(
 									'#0d1b2a',
@@ -85,6 +93,10 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 									'#415a77',
 									'#778da9',
 									'#e0e1dd',
+									'#F3F4F7',
+									'#F9F9FB',
+									'#FFFFFF',
+									'#7B8794'
 								),
 							),
 						)
