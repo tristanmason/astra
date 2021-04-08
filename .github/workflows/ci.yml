@@ -1,8 +1,13 @@
-name: Compressed Size
+name: CI
 
 # Run the deployment only when code is committed to the branch.
 on:
   pull_request:
+      branches:
+      - next-release
+      - milestones
+      - release-candidate
+      - master
 
 jobs:
   build:
