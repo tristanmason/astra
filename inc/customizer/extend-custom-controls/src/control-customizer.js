@@ -105,14 +105,14 @@
 		 api('astra-settings[selected-color-palette]', function (value) {
 			value.bind(function (palette) {
 
-				let event = new CustomEvent(
+				let paletteUpdateEvent = new CustomEvent(
 					'AstPaletteUpdated', {
 						'detail': {
 							'palette': palette,
 						}
 					});
 
-				document.dispatchEvent(event);
+				document.dispatchEvent(paletteUpdateEvent);
 			});
 		});
 

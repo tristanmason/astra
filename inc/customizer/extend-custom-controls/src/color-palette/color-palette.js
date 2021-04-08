@@ -10,6 +10,7 @@ const ColorPaletteComponent = (props) => {
 	const { label } = props.control.params;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
+	const currentPaletteControl = props.customizer.control( 'astra-settings[selected-color-palette]' );
 
 	useEffect(() => {
 		// If settings are changed externally.
@@ -57,10 +58,10 @@ const ColorPaletteComponent = (props) => {
 		// If color is from selected palette, set color value in selected palette option also.
 		if( updateState.current_palette === currentPalette ) {
 
-			const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
+			const sel_palettes = currentPaletteControl.setting.get();
 			const modifiedPalette = Object.assign({}, sel_palettes, {[index]: value});
 
-			props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
+			currentPaletteControl.setting.set( modifiedPalette );
 		}
 	};
 
@@ -74,9 +75,9 @@ const ColorPaletteComponent = (props) => {
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
 
 		// Set color palette in selected color palette option.
-		const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
+		const sel_palettes = currentPaletteControl.setting.get();
 		const modifiedPalette = Object.assign({}, sel_palettes, updateState.palettes[key] );
-		props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
+		currentPaletteControl.setting.set( modifiedPalette );
 
 	};
 
