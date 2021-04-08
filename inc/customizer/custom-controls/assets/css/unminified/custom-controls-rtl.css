@@ -556,6 +556,11 @@
     position: relative;
 }
 
+.ast-color-palette-wrapper .ast-single-palette-wrap.active {
+	background: #FFFFFF;
+	border-radius: 15px;
+}
+
 .ast-single-palette-wrap > label {
 	display: flex;
     align-items: center;
@@ -1649,6 +1654,11 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
+}
+
+.ast-color-palette-wrapper .ast-single-palette-wrap.active {
+	background: #FFFFFF;
+	border-radius: 15px;
 }
 
 .ast-single-palette-wrap > label {

@@ -84,10 +84,11 @@ const ColorPaletteComponent = (props) => {
 		<>
 			{Object.entries(state.palettes).map(
 				([palette_key, paletteColorObj]) => {
+					let activePaletteClass = ( palette_key === state.currentPalette ) ? 'active' : '';
 					return (
 						<div
 							key={palette_key}
-							className={`ast-color-picker-${palette_key} ast-single-palette-wrap`}
+							className={`ast-color-picker-${palette_key} ast-single-palette-wrap ${activePaletteClass}`}
 						>
 							<label
 								onClick={() => {
