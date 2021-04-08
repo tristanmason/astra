@@ -55,10 +55,7 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$tablet_max_css = array(
 		// Single Post author info.
-		'.ast-separate-container .ast-grid-2 .ast-article-post, .ast-separate-container .ast-grid-3 .ast-article-post, .ast-separate-container .ast-grid-4 .ast-article-post' => array(
-			'width' => '100%',
-		),
-		'.ast-plain-container .ast-grid-2 .ast-article-post, .ast-plain-container .ast-grid-3 .ast-article-post, .ast-plain-container .ast-grid-4 .ast-article-post, .ast-page-builder-template .ast-grid-2 .ast-article-post, .ast-page-builder-template .ast-grid-3 .ast-article-post, .ast-page-builder-template .ast-grid-4 .ast-article-post' => array(
+		'.ast-grid-2 .ast-article-post, .ast-grid-3 .ast-article-post, .ast-grid-4 .ast-article-post' => array(
 			'width' => '100%',
 		),
 	);

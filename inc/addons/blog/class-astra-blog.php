@@ -1,6 +1,6 @@
 <?php
 /**
- * Blog Pro Extension
+ * Blog Extension
  *
  * @package Astra
  */
@@ -11,9 +11,9 @@ define( 'ASTRA_THEME_BLOG_URI', ASTRA_THEME_URI . 'inc/addons/blog/' );
 if ( ! class_exists( 'Astra_Blog' ) ) {
 
 	/**
-	 * Blog Pro Initial Setup
+	 * Blog Initial Setup
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	class Astra_Blog {
 
