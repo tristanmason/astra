@@ -436,7 +436,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
-
 			updateHeaderBreakPoint();
 			if ( 'dropdown' === mobileHeaderType ) {
 				AstraToggleSetup();
