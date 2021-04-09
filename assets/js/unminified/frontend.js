@@ -449,7 +449,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				navigation_accessibility( container[count] );
 			}
 		}
-		stickFooter();
 	});
 
 	var get_window_width = function () {
@@ -947,11 +946,4 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
-	var stickFooter = function() {
-		var headerHeight = document.querySelector("header").clientHeight;
-		var footerHeight = document.querySelector("footer").clientHeight;
-		var headerFooter = headerHeight + footerHeight;
-		var content = document.querySelector("#content");
-		content.style.minHeight = "calc( 100vh - " + headerFooter + "px )";
-	}
 })();

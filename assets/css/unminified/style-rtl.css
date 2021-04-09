@@ -4868,6 +4868,17 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+#page {
+  -js-display: flex;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content {
+  flex: 1 0 auto;
+}
+
 /*--------------------------------------------------------------
 ## Single Blog Post Layouts
 --------------------------------------------------------------*/
