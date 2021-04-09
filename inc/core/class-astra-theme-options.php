@@ -131,6 +131,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'link-color'                           => 'var(--ast-global-link-color)',
 					'theme-color'                          => 'var(--ast-global-theme-color)',
 					'link-h-color'                         => 'var(--ast-global-link-hover-color)',
+					'heading-base-color'                   => 'var(--ast-global-heading-color)',
 
 					// Footer Bar Background.
 					'footer-bg-obj'                        => array(
