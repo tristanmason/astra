@@ -277,7 +277,7 @@ function astra_footer_widget_bg() {
 /**
  * Check if we need to load icons as font or SVG.
  *
- * @since x.x.x
+ * @since 3.3.0
  * @return void
  */
 function astra_icons_svg_compatibility() {
@@ -2889,7 +2889,7 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 /**
  * Gutenberg pattern compatibility changes.
  *
- * @since x.x.x
+ * @since 3.3.0
  *
  * @return void
  */
@@ -2905,7 +2905,7 @@ function astra_gutenberg_pattern_compatibility() {
 /**
  * Set flag to provide backward compatibility of float based CSS for existing users.
  *
- * @since x.x.x
+ * @since 3.3.0
  * @return void.
  */
 function astra_check_flex_based_css() {
@@ -2915,4 +2915,30 @@ function astra_check_flex_based_css() {
 		$theme_options['is-flex-based-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
+}
+
+/**
+ * Update the Cart Style, Icon color & Border radius if None style is selected.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_update_cart_style() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+	
+	if ( isset( $theme_options['woo-header-cart-icon-style'] ) && 'none' === $theme_options['woo-header-cart-icon-style'] ) {
+		$theme_options['woo-header-cart-icon-style']  = 'outline';
+		$theme_options['header-woo-cart-icon-color']  = '';
+		$theme_options['woo-header-cart-icon-color']  = '';
+		$theme_options['woo-header-cart-icon-radius'] = '';
+	}
+
+	if ( isset( $theme_options['edd-header-cart-icon-style'] ) && 'none' === $theme_options['edd-header-cart-icon-style'] ) {
+		$theme_options['edd-header-cart-icon-style']  = 'outline';
+		$theme_options['edd-header-cart-icon-color']  = '';
+		$theme_options['edd-header-cart-icon-radius'] = '';
+	}
+
+	update_option( 'astra-settings', $theme_options );
 }
