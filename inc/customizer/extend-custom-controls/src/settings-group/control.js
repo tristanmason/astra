@@ -11,6 +11,7 @@ import ResponsiveColorComponent from '../responsive-color/responsive-color-compo
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
+import SelectorComponent from '../selector/selector-component.js';
 
 import {
 	astraGetBackground,
@@ -481,6 +482,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
+			'ast-selector' : SelectorComponent,
 		};
 
 		if( astra.customizer.is_pro ) {
