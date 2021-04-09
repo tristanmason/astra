@@ -108,8 +108,7 @@ class AstraColorPickerControl extends Component {
 
 		Object.entries(globalColorPalette).forEach(([ key, color])=>{
 			let paletteColors = {};
-			Object.assign( paletteColors, { name: key } );
-			Object.assign( paletteColors, { color: 'var(--ast-global-'+ key +')' } );
+			Object.assign( paletteColors, { name: key, color: 'var(--ast-global-'+ key +')' } );
 			finalpaletteColors.push( paletteColors );
 		})
 

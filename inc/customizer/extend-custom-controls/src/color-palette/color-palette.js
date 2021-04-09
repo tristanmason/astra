@@ -10,6 +10,9 @@ const ColorPaletteComponent = (props) => {
 	const { label } = props.control.params;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
+	const currentPaletteControl = props.customizer.control(
+		"astra-settings[selected-color-palette]"
+	);
 
 	useEffect(() => {
 		// If settings are changed externally.
@@ -41,10 +44,10 @@ const ColorPaletteComponent = (props) => {
 			value = color.hex;
 		}
 
-		Object.entries( updateState.palettes ).map(item => {
+		Object.entries(updateState.palettes).map((item) => {
 			var paletteItem = Object.assign({}, item);
 
-			if( paletteItem[0] == currentPalette ) {
+			if (paletteItem[0] == currentPalette) {
 				paletteItem[1][index] = value;
 			}
 
@@ -55,89 +58,56 @@ const ColorPaletteComponent = (props) => {
 		props.control.setting.set({ ...updateState, flag: !updateState.flag });
 
 		// If color is from selected palette, set color value in selected palette option also.
-		if( updateState.current_palette === currentPalette ) {
+		if ( updateState.currentPalette === currentPalette ) {
+			const sel_palettes = currentPaletteControl.setting.get();
+			const modifiedPalette = Object.assign({}, sel_palettes, {
+				[index]: value,
+			});
 
-			const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
-			const modifiedPalette = Object.assign({}, sel_palettes, {[index]: value});
-
-			props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
+			currentPaletteControl.setting.set(modifiedPalette);
 		}
-	};
-
-	const onPaletteChange = (key) => {
-		let updateState = {
-			...state,
-		};
-
-		updateState.currentPalette = key;
-		setState(updateState);
-		props.control.setting.set({ ...updateState, flag: !updateState.flag });
-
-		// Set color palette in selected color palette option.
-		const sel_palettes = props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.get();
-		const modifiedPalette = Object.assign({}, sel_palettes, updateState.palettes[key] );
-		props.customizer.control( 'astra-settings[selected-color-palette]' ).setting.set( modifiedPalette );
-
 	};
 
 	var palettehtml = (
 		<>
 			{Object.entries(state.palettes).map(
 				([palette_key, paletteColorObj]) => {
-					let activePaletteClass = ( palette_key === state.currentPalette ) ? 'active' : '';
 					return (
 						<div
 							key={palette_key}
-							className={`ast-color-picker-${palette_key} ast-single-palette-wrap ${activePaletteClass}`}
+							className={`ast-color-picker-${palette_key} ast-single-palette-wrap`}
 						>
-							<label
-								onClick={() => {
-									onPaletteChange(palette_key);
-								}}
-							>
-								<input
-									type="radio"
-									className="ast-palette-radio-input"
-									value={palette_key}
-									checked={
-										state.currentPalette === palette_key
-									}
-									onChange={() => {}}
-									name="ast-color-palette-radio-input"
-								/>
-
-								<div className="ast-single-palette-color-group">
-									{Object.entries(
-										state.palettes[palette_key]
-									).map(([key, value]) => {
-										return (
-											<div
-												className="ast-color-picker-wrap"
-												key={key}
-											>
-												<AstraColorPickerControl
-													color={
-														state.palettes[palette_key][
-															key
-														]
-													}
-													onChangeComplete={(color) =>
-														handleChangeComplete(
-															key,
-															color,
-															palette_key
-														)
-													}
-													backgroundType={"color"}
-													allowGradient={false}
-													allowImage={false}
-													disablePalette={true}
-												/>
-											</div>
-										);
-									})}
-								</div>
-							</label>
+							<div className="ast-single-palette-color-group">
+								{Object.entries(
+									state.palettes[palette_key]
+								).map(([key, value]) => {
+									return (
+										<div
+											className="ast-color-picker-wrap"
+											key={key}
+										>
+											<AstraColorPickerControl
+												color={
+													state.palettes[palette_key][
+														key
+													]
+												}
+												onChangeComplete={(color) =>
+													handleChangeComplete(
+														key,
+														color,
+														palette_key
+													)
+												}
+												backgroundType={"color"}
+												allowGradient={false}
+												allowImage={false}
+												disablePalette={true}
+											/>
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					);
 				}
@@ -145,11 +115,15 @@ const ColorPaletteComponent = (props) => {
 		</>
 	);
 
-	const updatePaletteVariables = ( e ) => {
-		props.control.setPaletteVariables( e.detail.palette );
+	const updatePaletteVariables = (e) => {
+		props.control.setPaletteVariables(e.detail.palette);
 	};
 
-	document.addEventListener( 'AstPaletteUpdated', updatePaletteVariables, false );
+	document.addEventListener(
+		"AstPaletteUpdated",
+		updatePaletteVariables,
+		false
+	);
 
 	return (
 		<>

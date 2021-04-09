@@ -817,15 +817,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Global Color Palette.
 	 */
 	$defaults['selected-color-palette'] = array(
-		'primary-color'    => '#3a3a3a',
-		'secondary-color'  => '#0274be',
-		'heading-color'    => '#5c95ff',
-		'text-color'       => '#0274be',
-		'extra-1'          => '#3a3a3a',
-		'extra-2'          => '#F3F4F7',
-		'extra-3'          => '#F9F9FB',
-		'background-1'     => '#FFFFFF',
-		'background-2'     => '#7B8794'
+		'text-color'       => '#3a3a3a',
+		'theme-color'      => '#0274be',
+		'link-color'       => '#0274b2',
+		'link-hover-color' => '#3a3a31',
+		'heading-color'    => '#3a3a3b',
 	);
 
 	/**

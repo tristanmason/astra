@@ -59,7 +59,7 @@
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	display: inline-block;
-	margin-right: 3px;
+	margin-right: 10px;
 }
 
 .ast-color-palette-wrapper .ast-single-palette-wrap{
@@ -68,11 +68,6 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-}
-
-.ast-color-palette-wrapper .ast-single-palette-wrap.active {
-	background: #FFFFFF;
-	border-radius: 15px;
 }
 
 .ast-single-palette-wrap > label {
@@ -89,11 +84,11 @@
 }
 
 .ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
 }
 
-.ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
+#customize-control-astra-global-color-palette .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
 	margin-right: 0;
 }
 
