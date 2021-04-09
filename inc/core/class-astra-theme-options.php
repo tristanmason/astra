@@ -127,10 +127,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'author',
 					),
 					// Colors.
-					'text-color'                           => '#3a3a3a',
-					'link-color'                           => '#0274be',
-					'theme-color'                          => '#0274be',
-					'link-h-color'                         => '#3a3a3a',
+					'text-color'                           => 'var(--ast-global-text-color)',
+					'link-color'                           => 'var(--ast-global-link-color)',
+					'theme-color'                          => 'var(--ast-global-theme-color)',
+					'link-h-color'                         => 'var(--ast-global-link-hover-color)',
+					'heading-base-color'                   => 'var(--ast-global-heading-color)',
 
 					// Footer Bar Background.
 					'footer-bg-obj'                        => array(
