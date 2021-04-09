@@ -6,13 +6,13 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 3.3.0
  */
 
 /**
  * Icons Initial Setup
  *
- * @since x.x.x
+ * @since 3.3.0
  */
 class Astra_Icons {
 	/**
@@ -29,7 +29,7 @@ class Astra_Icons {
 	 * Check if we need to load icons as SVG or fonts.
 	 * Returns true if SVG false if font.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 *
 	 * @return boolean should be svg or font.
 	 */
@@ -43,7 +43,7 @@ class Astra_Icons {
 	 * Get SVG icons.
 	 * Returns the SVG icon you want to display.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 *
 	 * @param string  $icon Key for the SVG you want to load.
 	 * @param boolean $is_echo whether to echo the output or return.
