@@ -1,11 +1,11 @@
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-color-palette-wrap
 	> div {
 	margin-bottom: 8px;
 	position: relative;
 }
 
-#customize-control-astra-global-color-palette .color-button-wrap {
+#customize-control-astra-settings-global-color-palette .color-button-wrap {
 	display: unset;
 	position: unset;
 	right: unset;
@@ -13,7 +13,7 @@
 	vertical-align: sub;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.astra-color-picker-wrap {
 	position: absolute;
 	z-index: 1;
@@ -21,12 +21,12 @@
 	width: 21em;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-color-btn-reset-wrap {
 	left: 60px;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-color-palette-label {
 	width: 65%;
 	display: inline-block;
@@ -34,14 +34,14 @@
 	vertical-align: top;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-color-palette-label
 	input {
 	background: none;
 	border: none;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-color-palette-label
 	input:focus {
 	border: 1px solid black;
@@ -50,12 +50,12 @@
 	background: white;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-add-new-color.is-primary {
 	width: 55%;
 }
 
-#customize-control-astra-global-color-palette
+#customize-control-astra-settings-global-color-palette
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	display: inline-block;
@@ -88,16 +88,16 @@
     height: 28px;
 }
 
-#customize-control-astra-global-color-palette .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
+#customize-control-astra-settings-global-color-palette .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
 	margin-left: 0;
 }
 
-#customize-control-astra-global-color-palette .ast-reset-btn:disabled {
+#customize-control-astra-settings-global-color-palette .ast-reset-btn:disabled {
 	opacity: 0.6;
 }
 
 @media (min-width: 1800px) {
-	#customize-control-astra-global-color-palette
+	#customize-control-astra-settings-global-color-palette
 		.astra-color-picker-wrap {
 		width: 24em;
 	}

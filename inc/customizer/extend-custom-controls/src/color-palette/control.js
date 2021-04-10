@@ -17,11 +17,13 @@ export const colorPaletteControl = wp.customize.astraControl.extend( {
 			}
 		});
 
-		const palette = wp.customize.control( 'astra-settings[selected-color-palette]' ).setting.get();
-		this.setPaletteVariables( palette );
+		const globalPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
+		this.setPaletteVariables( globalPalette.palette );
 
 	},
 	setPaletteVariables: function( palette ) {
+
+		console.log( palette );
 
 		var customizer_preview_container =  document.getElementById('customize-preview')
 		var iframe = customizer_preview_container.getElementsByTagName('iframe')[0]
