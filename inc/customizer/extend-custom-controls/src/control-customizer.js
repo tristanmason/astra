@@ -102,13 +102,13 @@
 		/**
 		 * Pass data to previewer when palette is modified.
 		 */
-		 api('astra-settings[selected-color-palette]', function (value) {
+		 api('astra-settings[global-color-palette]', function (value) {
 			value.bind(function (palette) {
 
 				let paletteUpdateEvent = new CustomEvent(
 					'AstPaletteUpdated', {
 						'detail': {
-							'palette': palette,
+							'data': palette,
 						}
 					});
 

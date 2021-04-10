@@ -3488,10 +3488,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function generate_global_palette_style() {
 
-			$palette       = astra_get_option( 'selected-color-palette' );
+			$palette       = astra_get_option( 'global-color-palette' );
 			$palette_style = array();
 
-			foreach ( $palette as $key => $color ) {
+			foreach ( $palette['palette'] as $key => $color ) {
 				$palette_key                   = '--ast-global-' . $key;
 				$palette_style[ $palette_key ] = $color;
 			}
