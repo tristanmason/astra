@@ -90,9 +90,13 @@
     margin-bottom: 0.2em;
 }
 
-.ast-article-post {
-    background-color: var(--content-background-color);
+.ast-article-post,
+.ast-article-single {
 	padding: var(--article-padding);
+	background-color: var(--content-background-color);
+}
+
+.ast-article-post {
 	margin: var(--article-margin);
 	border-bottom: var(--article-bottom-border);
 }
