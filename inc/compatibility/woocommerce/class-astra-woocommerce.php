@@ -1319,16 +1319,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)'] = array(
+						'margin-left' => '20px',
+						'clear'       => 'none',
+					);
 					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-6>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-6>ul.products li.product:nth-child(2n)'] = array(
 						'margin-left' => 0,
 						'clear'       => 'left',
 					);
 					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n+1)'] = array(
 						'clear' => 'right',
-					);
-					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)'] = array(
-						'margin-left' => '20px',
-						'clear'       => 'none',
 					);
 					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-] ul.products li.product:nth-child(n), .woocommerce[class*=columns-] ul.products li.product:nth-child(n)'] = array(
 						'margin-left' => '20px',
