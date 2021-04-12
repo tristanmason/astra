@@ -259,6 +259,7 @@ function astra_off_canvas_static_css() {
 			display: flex;
 			flex-direction: column;
 			transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+			overflow-y:auto;
 		}
 		.ast-mobile-popup-drawer.ast-mobile-popup-left .ast-mobile-popup-inner {
 			transform: translateX(-100%);
@@ -346,6 +347,7 @@ function astra_off_canvas_static_css() {
 			display: flex;
 			flex-direction: column;
 			transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+			overflow-y:auto;
 		}
 		.ast-mobile-popup-drawer.ast-mobile-popup-left .ast-mobile-popup-inner {
 			transform: translateX(-100%);
