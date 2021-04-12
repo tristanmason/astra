@@ -20,6 +20,7 @@ v3.4.0 (Unreleased)
 - Fix: Context Switch does not work if there are no elements in Primary Header for both Desktop & Mobile.
 - Fix: Deprecated the Cart Style 'None' & merged it with existing option 'Outline' for WooCommerce and EDD.
 - Fix: Accessibility - Tab navigation does not highlight menu with submenus.
+- Fix: Scroll does not work in Off-Canvas.
 
 v3.3.2
 - Fix: Transparent Header disappears if we add Widget 2 element.
