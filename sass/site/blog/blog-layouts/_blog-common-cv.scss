@@ -92,14 +92,12 @@
 
 .ast-article-post,
 .ast-article-single {
-	padding: var(--article-padding);
 	background-color: var(--content-background-color);
-}
-
-.ast-article-post {
+	padding: var(--article-padding);
 	margin: var(--article-margin);
 	border-bottom: var(--article-bottom-border);
 }
+
 .ast-article-post:last-child {
 	margin-bottom: 0;
 	border-bottom:0;

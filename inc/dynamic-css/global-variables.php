@@ -24,18 +24,33 @@ function astra_css_global_variables( $dynamic_css ) {
 
 	switch ( astra_get_content_layout() ) {
 		case 'content-boxed-container':
-			$global_css_variables = '
-			:root {
-				--primary-padding: 4em 0;
-				--secondary-padding: 4em;
+			if ( is_archive() || is_home() || is_search() ) {
+				$global_css_variables = '
+				:root {
+					--primary-padding: 4em 0;
+					--secondary-padding: 4em;
 
-				--article-padding: 5.34em 6.67em;
-				--article-margin: 0;
-				--article-bottom-border: 1px solid #eeeeee;
+					--article-padding: 5.34em 6.67em;
+					--article-margin: 0;
+					--article-bottom-border: 1px solid #eeeeee;
 
-				--body-background-color: #f5f5f5;
-				--content-background-color: #ffffff;
-			}';
+					--body-background-color: #f5f5f5;
+					--content-background-color: #ffffff;
+				}';
+			} elseif ( is_singular() ) {
+				$global_css_variables = '
+				:root {
+					--primary-padding: 4em 0;
+					--secondary-padding: 4em;
+
+					--article-padding: 5.34em 6.67em;
+					--article-margin: 0;
+					--article-bottom-border: 0;
+
+					--body-background-color: #f5f5f5;
+					--content-background-color: #ffffff;
+				}';
+			}
 			break;
 
 		default:
