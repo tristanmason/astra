@@ -39,4 +39,4 @@ jobs:
       run: npm run env:stop
       if: always()
       env:
-        COMPOSE_INTERACTIVE_]NO_CLI: false
+        COMPOSE_INTERACTIVE_NO_CLI : false
