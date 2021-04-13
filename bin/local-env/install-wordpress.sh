@@ -70,7 +70,8 @@ echo -e $(status_message "Ensuring that files can be uploaded...")
 container mkdir -p \
 	/var/www/html/wp-content/uploads \
 	/var/www/html/wp-content/upgrade
-container chmod 767 \
+container chmod 777 \
+	/var/ \
 	/var/www/html/wp-content \
 	/var/www/html/wp-content/plugins \
 	/var/www/html/wp-config.php \
@@ -127,9 +128,8 @@ if [ "$SCRIPT_DEBUG" != $SCRIPT_DEBUG_CURRENT ]; then
 	echo -e $(status_message "SCRIPT_DEBUG: $SCRIPT_DEBUG_RESULT...")
 fi
 
-echo -e $(status_message "anhskohbo/wp-cli-themecheck...")
-ls -d */
 # Configure Theme check.
+echo -e $(status_message "anhskohbo/wp-cli-themecheck...")
 wp package install anhskohbo/wp-cli-themecheck --allow-root
 
 echo -e $(status_message "themecheck --theme=astra...")
