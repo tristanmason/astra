@@ -129,7 +129,7 @@ fi
 
 # Configure Theme check.
 echo -e $(status_message "anhskohbo/wp-cli-themecheck...")
-wp package install anhskohbo/wp-cli-themecheck --allow-root
+php -d memory_limit=1024M "$(which wp)" package install anhskohbo/wp-cli-themecheck --allow-root
 
 echo -e $(status_message "themecheck --theme=astra...")
 wp plugin install theme-check --activate --allow-root
