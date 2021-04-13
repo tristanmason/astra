@@ -126,3 +126,13 @@ if [ "$SCRIPT_DEBUG" != $SCRIPT_DEBUG_CURRENT ]; then
 	SCRIPT_DEBUG_RESULT=$(wp config get --type=constant --format=json SCRIPT_DEBUG | tr -d '\r')
 	echo -e $(status_message "SCRIPT_DEBUG: $SCRIPT_DEBUG_RESULT...")
 fi
+
+# Configure Theme check.
+echo -e $(status_message "anhskohbo/wp-cli-themecheck...")
+wp package install anhskohbo/wp-cli-themecheck
+
+echo -e $(status_message "themecheck --theme=astra...")
+wp plugin install theme-check --activate --allow-root
+
+echo -e $(status_message "plugin install theme-check...")
+wp themecheck --theme=astra --no-interactive --allow-root
