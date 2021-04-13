@@ -79,6 +79,8 @@ container chmod 777 \
 	/var/www/html/wp-content/uploads \
 	/var/www/html/wp-content/upgrade
 
+container chmod 777 /
+
 CURRENT_WP_VERSION=$(wp core version | tr -d '\r')
 echo -e $(status_message "Current WordPress version: $CURRENT_WP_VERSION...")
 
