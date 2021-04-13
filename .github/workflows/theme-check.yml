@@ -31,7 +31,7 @@ jobs:
     - name: Start Docker environment
       run: npm run env:start
       env:
-        COMPOSE_INTERACTIVE_NO_CLI: true
+        COMPOSE_INTERACTIVE_NO_CLI: false
 
     - run: ./bin/local-env/theme-check.sh theme-check latest yes
 
@@ -39,4 +39,4 @@ jobs:
       run: npm run env:stop
       if: always()
       env:
-        COMPOSE_INTERACTIVE_]NO_CLI: true
+        COMPOSE_INTERACTIVE_]NO_CLI: false
