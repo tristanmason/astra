@@ -17,10 +17,5 @@ jobs:
       id: test
       uses: Wordpress/theme-review-action@trunk
       with:
-        accessible-ready: true
-        ui-debug: true
-
-    - uses: actions/upload-artifact@v2
-      if: ${{ always() }}
-      with:
-        name: Screenshots
+        accessible-ready: false
+        ui-debug: false
