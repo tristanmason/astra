@@ -1,22 +1,42 @@
-name: Theme Check
+name: Theme check
 
-on: pull_request
+# Run the deployment only when code is committed to the branch.
+on:
+  pull_request:
 
 jobs:
-  run_tests:
+  themeCheck:
     runs-on: ubuntu-latest
 
     steps:
 
-    ## We need to keep this around until Gutenberg 9.6 is launched.
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12'
+    - uses: actions/checkout@v2
 
-    - name: Theme Test
-      id: test
-      uses: Wordpress/theme-review-action@trunk
+    - name: Get npm cache directory
+      id: npm-cache
+      run: echo "::set-output name=dir::$(npm config get cache)"
+
+    - name: Configure npm cache
+      uses: actions/cache@v2
       with:
-        root-folder: 'astra/*'
-        accessible-ready: false
-        ui-debug: false
+        path: ${{ steps.npm-cache.outputs.dir }}
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+
+    - name: npm install, build
+      run: |
+        npm install
+
+    - name: Start Docker environment
+      run: npm run env:start
+      env:
+        COMPOSE_INTERACTIVE_NO_CLI: true
+
+    - run: ./bin/local-env/theme-check.sh theme-check latest yes
+
+    - name: Stop Docker environment
+      run: npm run env:stop
+      if: always()
+      env:
+        COMPOSE_INTERACTIVE_]NO_CLI: true
