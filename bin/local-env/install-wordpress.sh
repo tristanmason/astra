@@ -77,6 +77,7 @@ container chmod 767 \
 	/var/www/html/wp-settings.php \
 	/var/www/html/wp-content/uploads \
 	/var/www/html/wp-content/upgrade
+	/var/www/html/etc/X11/fs/.wp-cli/packages
 
 CURRENT_WP_VERSION=$(wp core version | tr -d '\r')
 echo -e $(status_message "Current WordPress version: $CURRENT_WP_VERSION...")
@@ -126,9 +127,6 @@ if [ "$SCRIPT_DEBUG" != $SCRIPT_DEBUG_CURRENT ]; then
 	SCRIPT_DEBUG_RESULT=$(wp config get --type=constant --format=json SCRIPT_DEBUG | tr -d '\r')
 	echo -e $(status_message "SCRIPT_DEBUG: $SCRIPT_DEBUG_RESULT...")
 fi
-
-echo -e $(status_message "Give permission to /etc/X11/fs/.wp-cli/packages")
-chmod 777 /etc/X11/fs/.wp-cli/packages
 
 echo -e $(status_message "anhskohbo/wp-cli-themecheck...")
 # Configure Theme check.
