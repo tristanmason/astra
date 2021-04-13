@@ -17,6 +17,6 @@ jobs:
       id: test
       uses: Wordpress/theme-review-action@trunk
       with:
-        root-folder: './*'
+        root-folder: 'astra/*'
         accessible-ready: false
         ui-debug: false
