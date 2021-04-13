@@ -1,22 +1,26 @@
-name: Theme check
+name: Theme Check
 
 on: pull_request
 
-  themecheck:
-    name: Theme Check
+jobs:
+  run_tests:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v1
-        with:
-          path: ~/.wp-content
-          key: ${{ runner.os }}-wpcore
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      - run: ./bin/envs/init.sh theme-check latest yes
+
+    ## We need to keep this around until Gutenberg 9.6 is launched.
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+
+    - name: Theme Test
+      id: test
+      uses: Wordpress/theme-review-action@trunk
+      with:
+        accessible-ready: true
+        ui-debug: true
+
+    - uses: actions/upload-artifact@v2
+      if: ${{ always() }}
+      with:
+        name: Screenshots
