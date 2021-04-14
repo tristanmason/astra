@@ -35,7 +35,6 @@ class Astra_Global_Palette {
 	 * @return array palette style array.
 	 */
 	public static function generate_global_palette_style() {
-
 		$palette_data  = astra_get_option( 'global-color-palette' );
 		$palette_style = array();
 
