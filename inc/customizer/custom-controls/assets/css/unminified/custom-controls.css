@@ -771,7 +771,7 @@
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
-	top: 0;
+	top: 10px;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
@@ -2535,20 +2535,6 @@ input[type="text"].select2-search__field {
  */
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
-}
-
-.ast-top-divider.customize-control-ast-settings-group .ast-divider-title + .ast-toggle-desc-wrap {
-    margin-top: 25px;
-    display: inline-flex;
-    width: 100%;
-}
-
-.ast-top-divider.customize-control-ast-settings-group .ast-divider-title + .ast-toggle-desc-wrap .ast-adv-toggle-icon {
-    top: 77px;
-}
-
-.ast-top-divider.customize-control-ast-settings-group .ast-divider-title + .ast-toggle-desc-wrap + .ast-field-settings-wrap .ast-field-settings-modal {
-    margin-top: 15px;
 }
 
 .customize-control-ast-slider .wrapper {
