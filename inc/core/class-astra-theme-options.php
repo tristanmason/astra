@@ -96,6 +96,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				return self::$defaults;
 			}
 
+			$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+
 			// Defaults list of options.
 			self::$defaults = apply_filters(
 				'astra_theme_defaults',
@@ -127,11 +129,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'author',
 					),
 					// Colors.
-					'text-color'                           => 'var(--ast-global-text-color)',
-					'link-color'                           => 'var(--ast-global-link-color)',
-					'theme-color'                          => 'var(--ast-global-theme-color)',
-					'link-h-color'                         => 'var(--ast-global-link-hover-color)',
-					'heading-base-color'                   => 'var(--ast-global-heading-color)',
+					'text-color'                           => 'var(' . $palette_css_var_prefix . 'text-color)',
+					'link-color'                           => 'var(' . $palette_css_var_prefix . 'link-color)',
+					'theme-color'                          => 'var(' . $palette_css_var_prefix . 'theme-color)',
+					'link-h-color'                         => 'var(' . $palette_css_var_prefix . 'link-hover-color)',
+					'heading-base-color'                   => 'var(' . $palette_css_var_prefix . 'heading-color)',
 
 					// Footer Bar Background.
 					'footer-bg-obj'                        => array(

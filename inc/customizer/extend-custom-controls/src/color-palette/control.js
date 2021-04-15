@@ -28,10 +28,11 @@ export const colorPaletteControl = wp.customize.astraControl.extend( {
 		var customizer_preview_container =  document.getElementById('customize-preview')
 		var iframe = customizer_preview_container.getElementsByTagName('iframe')[0]
 		var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+		var stylePrefix = astra.customizer.globalPaletteStylePrefix;
 
 		Object.entries( palette ).map( ( paletteItem, index ) => {
-			innerDoc.documentElement.style.setProperty('--ast-global-' + paletteItem[0], paletteItem[1] );
-			document.documentElement.style.setProperty('--ast-global-' + paletteItem[0], paletteItem[1] );
+			innerDoc.documentElement.style.setProperty( stylePrefix + paletteItem[0], paletteItem[1] );
+			document.documentElement.style.setProperty( stylePrefix + paletteItem[0], paletteItem[1] );
 		} );
 	}
 } );

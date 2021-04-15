@@ -316,7 +316,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
 				// root css for global palette style.
-				':root'                          => self::generate_global_palette_style(),
+				':root'                          => Astra_Global_Palette::generate_global_palette_style(),
 				'a, .page-title'                 => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -3478,25 +3478,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}';
 			}
 			return $cart_static_css;
-		}
-
-		/**
-		 * Generate palette CSS required to display on front end.
-		 *
-		 * @since x.x.x
-		 * @return array palette style array.
-		 */
-		public static function generate_global_palette_style() {
-
-			$palette       = astra_get_option( 'global-color-palette' );
-			$palette_style = array();
-
-			foreach ( $palette['palette'] as $key => $color ) {
-				$palette_key                   = '--ast-global-' . $key;
-				$palette_style[ $palette_key ] = $color;
-			}
-
-			return $palette_style;
 		}
 	}
 }
