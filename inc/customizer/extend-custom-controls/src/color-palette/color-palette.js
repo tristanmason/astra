@@ -51,17 +51,17 @@ const ColorPaletteComponent = (props) => {
 			<div className="ast-single-palette-wrap">
 				<div className="ast-single-palette-color-group">
 					{Object.entries(state.palette).map(
-						([palette_key, color]) => {
+						([colorIndex, color]) => {
 							return (
 								<div
 									className="ast-color-picker-wrap"
-									key={palette_key}
+									key={colorIndex}
 								>
 									<AstraColorPickerControl
-										color={state.palette[palette_key]}
+										color={state.palette[colorIndex]}
 										onChangeComplete={(color) =>
 											handleChangeComplete(
-												palette_key,
+												colorIndex,
 												color
 											)
 										}

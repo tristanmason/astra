@@ -106,9 +106,12 @@ class AstraColorPickerControl extends Component {
 		let finalpaletteColors = [];
 		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
 
-		Object.entries(globalColorPalette.palette).forEach(([ key, color])=>{
+		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
+
+			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
+
 			let paletteColors = {};
-			Object.assign( paletteColors, { name: key, color: 'var(--ast-global-'+ key +')' } );
+			Object.assign( paletteColors, { name: index, color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
 		})
 

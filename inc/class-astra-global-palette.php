@@ -25,7 +25,7 @@ class Astra_Global_Palette {
 	 * @return string variable prefix
 	 */
 	public static function get_css_variable_prefix() {
-		return '--ast-global-';
+		return '--ast-global-color-';
 	}
 
 	/**
@@ -38,10 +38,8 @@ class Astra_Global_Palette {
 		$palette_data  = astra_get_option( 'global-color-palette' );
 		$palette_style = array();
 
-		$palette = isset( $palette_data['palette'] ) ? $palette_data['palette'] : '';
-
-		if ( ! empty( $palette ) ) {
-			foreach ( $palette as $key => $color ) {
+		if ( isset( $palette_data['palette'] ) ) {
+			foreach ( $palette_data['palette'] as $key => $color ) {
 				$palette_key                   = self::get_css_variable_prefix() . $key;
 				$palette_style[ $palette_key ] = $color;
 			}

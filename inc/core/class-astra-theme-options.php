@@ -129,11 +129,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'author',
 					),
 					// Colors.
-					'text-color'                           => 'var(' . $palette_css_var_prefix . 'text-color)',
-					'link-color'                           => 'var(' . $palette_css_var_prefix . 'link-color)',
-					'theme-color'                          => 'var(' . $palette_css_var_prefix . 'theme-color)',
-					'link-h-color'                         => 'var(' . $palette_css_var_prefix . 'link-hover-color)',
-					'heading-base-color'                   => 'var(' . $palette_css_var_prefix . 'heading-color)',
+					'text-color'                           => 'var(' . $palette_css_var_prefix . '3)',
+					'link-color'                           => 'var(' . $palette_css_var_prefix . '0)',
+					'theme-color'                          => 'var(' . $palette_css_var_prefix . '0)',
+					'link-h-color'                         => 'var(' . $palette_css_var_prefix . '1)',
+					'heading-base-color'                   => 'var(' . $palette_css_var_prefix . '2)',
 
 					// Footer Bar Background.
 					'footer-bg-obj'                        => array(
