@@ -825,11 +825,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			__( 'Heading Color', 'astra' ),
 		),
 		'palette' => array(
-			'text-color'       => '#3a3a3a',
-			'theme-color'      => '#0274be',
-			'link-color'       => '#0274b2',
-			'link-hover-color' => '#3a3a31',
-			'heading-color'    => '#3a3a3b',
+			'#3a3a3a',
+			'#0274be',
+			'#0274b2',
+			'#3a3a31',
+			'#3a3a3b',
 		),
 	);
 

@@ -63,7 +63,6 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
-			add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
 			add_action( 'wp', array( $this, 'setup_content_width' ) );
 		}
 
@@ -252,35 +251,6 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			}
 
 			return $html;
-		}
-
-		public function support_editor_color_palette() {
-			// Disable Custom Colors.
-			add_theme_support( 'disable-custom-colors' );
-
-			$global_palette = astra_get_option( 'global-color-palette' );
-			$editor_palette = $this->format_global_palette( $global_palette );
-
-			// Editor Color Palette.
-			add_theme_support( 'editor-color-palette', $editor_palette );
-		}
-
-		public function format_global_palette( $global_palette ) {
-
-			$editor_palette = array();
-			$color_index = 0;
-			foreach( $global_palette['palette'] as $key => $color ) {
-				$label = $global_palette['labels'][$color_index];
-
-				$editor_palette[] = array(
-					'name'   => $label,
-					'slug'   => $key,
-					'color'  => $color
-				);
-				$color_index++;
-			}
-
-			return $editor_palette;
 		}
 	}
 }

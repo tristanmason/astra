@@ -31,8 +31,8 @@ export const colorPaletteControl = wp.customize.astraControl.extend( {
 		var stylePrefix = astra.customizer.globalPaletteStylePrefix;
 
 		Object.entries( palette ).map( ( paletteItem, index ) => {
-			innerDoc.documentElement.style.setProperty( stylePrefix + paletteItem[0], paletteItem[1] );
-			document.documentElement.style.setProperty( stylePrefix + paletteItem[0], paletteItem[1] );
+			innerDoc.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+			document.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
 		} );
 	}
 } );
