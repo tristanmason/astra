@@ -3685,13 +3685,6 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
-@media (max-width: 420px) {
-  .single .post-navigation {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
 .single .post-navigation a {
   margin: 2px;
   display: inline-block;

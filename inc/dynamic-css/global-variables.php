@@ -54,6 +54,9 @@ function astra_css_global_variables( $dynamic_css ) {
 					--post-navigation-padding: 2em 3.33333em 0 3.33333em;
 
 					--entry-header-margin: 2em;
+
+					--comment-border-top: 0;
+					--comment-tittle-padding: 1.2em 3.99em 0;
 				}';
 			}
 			break;
