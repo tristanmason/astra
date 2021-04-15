@@ -49,6 +49,11 @@ function astra_css_global_variables( $dynamic_css ) {
 
 					--body-background-color: #f5f5f5;
 					--content-background-color: #ffffff;
+
+					--post-navigation-border: 0;
+					--post-navigation-padding: 2em 3.33333em 0 3.33333em;
+
+					--entry-header-margin: 2em;
 				}';
 			}
 			break;
