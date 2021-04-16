@@ -44,7 +44,8 @@ class Astra_Global_Palette {
 	 * @return array palette style array.
 	 */
 	public static function generate_global_palette_style() {
-		$palette_data  = astra_get_option( 'global-color-palette' );
+		$palette_data = astra_get_option( 'global-color-palette' );
+
 		$palette_style = array();
 
 		if ( isset( $palette_data['palette'] ) ) {
@@ -90,13 +91,43 @@ class Astra_Global_Palette {
 
 			$editor_palette[] = array(
 				'name'  => $label,
-				'slug'  => $key,
+				'slug'  => self::get_css_variable_prefix() . $key,
 				'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
 			);
 			$color_index++;
 		}
 
 		return $editor_palette;
+	}
+
+	/**
+	 * Generate editor style on front end compatible for global palette.
+	 *
+	 * @since x.x.x
+	 * @return array
+	 */
+	public static function generate_frontend_editor_style() {
+
+		$global_palette  = astra_get_option( 'global-color-palette' );
+		$palette_style   = array();
+		$variable_prefix = self::get_css_variable_prefix();
+
+		if ( isset( $global_palette ) ) {
+			foreach ( $global_palette['palette'] as $key => $color ) {
+				$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
+
+				$palette_style[ ':root .has' . $palette_key . '-color' ] = array(
+					'color' => 'var(' . $variable_prefix . $key . ')',
+				);
+
+				$palette_style[ ':root .has' . $palette_key . '-background-color' ] = array(
+					'background-color' => 'var(' . $variable_prefix . $key . ')',
+				);
+			}
+		}
+
+		return $palette_style;
+
 	}
 }
 

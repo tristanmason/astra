@@ -517,6 +517,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
+			$css_output = array_merge( $css_output, Astra_Global_Palette::generate_frontend_editor_style() );
+
 			// Remove this condition after 2-3 updates of add-on.
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {
 				$css_output['.single .ast-author-details .author-title'] = array(
