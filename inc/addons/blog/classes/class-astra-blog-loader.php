@@ -101,14 +101,21 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 			 */
 			require_once ASTRA_THEME_BLOG_DIR . 'classes/sections/class-astra-customizer-blog-configs.php'; // phpcs:ignore  WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
+
 		/**
 		 * Customizer Preview
 		 */
 		public function preview_scripts() {
 			wp_enqueue_script( 'astra-blog-customizer-preview-js', ASTRA_THEME_BLOG_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+			wp_localize_script(
+				'astra-blog-customizer-preview-js',
+				'astBlogGrid',
+				array(
+					'apply_flex_based_css' => Astra_Builder_Helper::apply_flex_based_css(),
+				) 
+			);
 		}
 	}
-
 }
 
 /**

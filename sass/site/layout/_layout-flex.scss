@@ -1,4 +1,9 @@
 // class to hide elements
+:root{
+    --postRowGap : 0px;
+    --postColumnGap : 0px;
+    --gridColumns : 1;
+}
 .ast-hidden {
 	display: none !important;
 }
@@ -40,17 +45,17 @@ body{
 		margin: 0;
 		border: 0;
 	}
-	.site-main > .ast-row {
-    	margin-left: 0;
-    	margin-right: 0;
-	}
 	
-	.ast-article-post,
+	.ast-article-post {
+		background-color: $color-background-content;
+		border-bottom: 1px solid $color-border-content;
+		margin: 0;
+	}
 	.ast-article-single{
 		background-color: $color-background-content;
 		border-bottom: 1px solid $color-border-content;
-		 margin: 0;
-		 padding: 5.34em 6.67em;
+		margin: 0;
+		padding: 5.34em 6.67em;
 	}
 	.blog-layout-1{
         padding: 0;
@@ -117,4 +122,11 @@ body{
 			padding-left: $space-between-primary-seconday;
 		}
 	}
+}
+
+.ast-blog-grid{
+    grid-column-gap: var( --postColumnGap );
+    display: grid;
+    grid-template-columns: repeat( var( --gridColumns ) ,1fr);
+    grid-row-gap: var( --postRowGap );
 }

@@ -40,6 +40,7 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 			add_filter( 'post_class', array( $this, 'astra_post_class_blog_grid' ) );
 			add_filter( 'astra_primary_class', array( $this, 'astra_primary_class_blog_grid' ) );
 			add_action( 'init', array( $this, 'init_action' ) );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'astra_blog_grid_css' ) );
 		}
 
 		/**
@@ -65,6 +66,26 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 		}
 
 		/**
+		 * Update grid columns base on selected grid layout columns.
+		 *
+		 * @since x.x.x
+		 * @param string $dynamic_css inline css.
+		 * @return string.
+		 */
+		public function astra_blog_grid_css( $dynamic_css ) {
+			if ( self::is_blog_layout_1() ) {
+				$blog_grid           = astra_get_option( 'blog-grid' );
+				$blog_grid_variables = array(
+					':root' => array(
+						'--gridColumns' => $blog_grid,
+					),
+				);
+				$dynamic_css        .= astra_parse_css( $blog_grid_variables );
+			}
+			return $dynamic_css;
+		}
+
+		/**
 		 * Add Post Class Blog Grid
 		 *
 		 * @since x.x.x
@@ -80,7 +101,7 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 				$blog_grid            = astra_get_option( 'blog-grid' );
 				$blog_space_bet_posts = astra_get_option( 'blog-space-bet-posts' );
 				
-				if ( self::is_blog_layout_1() ) {
+				if ( self::is_blog_layout_1() && ! Astra_Builder_Helper::apply_flex_based_css() ) {
 					$classes[] = Astra_Builder_Helper::apply_flex_based_css() ? 'ast-width-md-' . ( 12 / $blog_grid ) : 'ast-col-md-' . ( 12 / $blog_grid );
 				}
 
