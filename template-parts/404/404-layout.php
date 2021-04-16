@@ -9,8 +9,19 @@
  * @since       Astra 1.0.0
  */
 
+/**
+ * Filter to retrive classes.
+ *
+ * @return mixed|void
+ */
+function astra_get_404_layout_classes() {
+
+	$classes[] = 'ast-404-layout-1';
+	return apply_filters( 'astra_get_404_page_classes', $classes );
+}
+
 ?>
-<div class="ast-404-layout-1">
+<div class="<?php echo esc_attr( implode( ' ', astra_get_404_layout_classes() ) ); ?>">
 
 	<?php astra_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
 
