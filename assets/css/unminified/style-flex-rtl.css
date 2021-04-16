@@ -3891,6 +3891,11 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+.ast-page-builder-template .ast-article-post .entry-header {
+  margin: auto auto 1em auto;
+  padding: 0;
+}
+
 .blog .posted-on {
   z-index: 1;
 }
