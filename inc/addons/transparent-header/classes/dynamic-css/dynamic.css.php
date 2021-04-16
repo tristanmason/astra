@@ -423,7 +423,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	$mobile_header_type = astra_get_option( 'mobile-header-type' );
 
-	if ( 'dropdown' === $mobile_header_type ) {
+	if ( 'dropdown' === $mobile_header_type || is_customize_preview() ) {
 		$header_child_selector = '[CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 	} else {
 		$header_child_selector = '[CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
