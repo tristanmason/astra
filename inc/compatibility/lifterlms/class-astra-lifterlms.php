@@ -769,7 +769,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Llms single lesson static CSS move to dynamic to load conditionally.
 		 * 
-		 * @since x.x.x
+		 * @since 3.3.0
 		 * @return string
 		 */
 		public function llms_single_lesson_css() {
