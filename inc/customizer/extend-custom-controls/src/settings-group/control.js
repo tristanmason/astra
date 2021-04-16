@@ -11,7 +11,7 @@ import ResponsiveColorComponent from '../responsive-color/responsive-color-compo
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
-import SelectorComponent from '../selector/selector-component.js';
+import SelectorComponent from '../selector/selector-component';
 
 import {
 	astraGetBackground,
@@ -464,6 +464,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		}
 		if ( undefined !== attr.responsive && ( undefined === controlObject.params['responsive'] || '' === controlObject.params['responsive'] || null === controlObject.params['responsive'] ) ) {
 			controlObject.params['responsive'] = attr.responsive;
+		}
+		if ( undefined !== attr.renderAs && ( undefined === controlObject.params['renderAs'] || '' === controlObject.params['renderAs'] || null === controlObject.params['renderAs'] ) ) {
+			controlObject.params['renderAs'] = attr.renderAs;
 		}
 
 		return controlObject;
