@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 						'featured-image' => __( 'Featured Image', 'astra' ),
 						'title-meta'     => __( 'Title & Post Meta', 'astra' ),
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				array(
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'title'    => __( 'Enable Post Excerpt', 'astra' ),
 					'section'  => 'section-blog-single',
 					'priority' => 12,
-					'context'           => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
@@ -476,7 +476,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'title'    => __( 'Related Posts', 'astra' ),
-					'context'   => array(
+					'context'  => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -524,7 +524,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'section'           => 'section-blog-single',
 					'transport'         => 'postMessage',
 					'priority'          => 14,
-					'context'   => array(
+					'context'           => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 						array(

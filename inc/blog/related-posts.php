@@ -4,7 +4,6 @@
  *
  * @package Astra
  * @since x.x.x
- *
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

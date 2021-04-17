@@ -24,7 +24,7 @@ function astra_related_posts_css( $dynamic_css ) {
 
 	if ( ast_target_rules_for_related_posts() ) {
 
-		$link_color       = astra_get_option( 'link-color' );
+		$link_color         = astra_get_option( 'link-color' );
 		$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );
 
 		// Related Posts -> Post Title typography dyanamic stylings.
@@ -56,8 +56,8 @@ function astra_related_posts_css( $dynamic_css ) {
 		$related_posts_section_title_text_transform = astra_get_option( 'related-posts-section-title-text-transform' );
 
 		// Related Posts -> Color dyanamic stylings.
-		$related_posts_title_color = astra_get_option( 'related-posts-title-color' );
-		$related_posts_bg_color = astra_get_option( 'related-posts-background-color', '#ffffff' );
+		$related_posts_title_color           = astra_get_option( 'related-posts-title-color' );
+		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', '#ffffff' );
 		$related_post_text_color             = astra_get_option( 'related-posts-text-color' );
 		$related_posts_meta_color            = astra_get_option( 'related-posts-meta-color' );
 		$related_posts_link_color            = astra_get_option( 'related-posts-link-color' );
