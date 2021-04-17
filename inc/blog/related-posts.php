@@ -355,7 +355,7 @@ function related_posts_markup() {
 	}
 }
 
-add_action( 'astra_entry_after', array( $this, 'related_posts_markup' ), 10 );
+add_action( 'astra_entry_after', 'related_posts_markup', 10 );
 
 /**
  * Adds custom classes to the array of body classes.
