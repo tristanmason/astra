@@ -436,6 +436,150 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'section'   => 'section-blog-single',
 					'transport' => 'postMessage',
 				),
+
+				/**
+				 * Option: Related post block text color
+				 */
+				array(
+					'name'      => 'related-posts-text-color',
+					'tab'       => __( 'Normal', 'astra' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[related-posts-colors-group]',
+					'section'   => 'section-blog-single',
+					'default'   => astra_get_option( 'related-posts-text-color' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Text Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Related post block CTA link color
+				 */
+				array(
+					'name'      => 'related-posts-link-color',
+					'tab'       => __( 'Normal', 'astra' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[related-posts-colors-group]',
+					'section'   => 'section-blog-single',
+					'default'   => astra_get_option( 'related-posts-link-color' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Link Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Related Posts Query
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[related-posts-design-section-heading]',
+					'section'  => 'section-blog-single',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'title'    => __( 'Related Posts', 'astra' ),
+					'context'   => array(
+						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'priority' => 14,
+				),
+
+				/**
+				 * Option: Related post block BG color
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[related-posts-title-color]',
+					'default'           => astra_get_option( 'related-posts-title-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => 'section-blog-single',
+					'transport'         => 'postMessage',
+					'priority'          => 14,
+					'context'           => array(
+						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'title'             => __( 'Section Title', 'astra' ),
+				),
+
+				/**
+				 * Option: Related post block BG color
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[related-posts-background-color]',
+					'default'           => astra_get_option( 'related-posts-background-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => 'section-blog-single',
+					'transport'         => 'postMessage',
+					'priority'          => 14,
+					'context'   => array(
+						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'title'             => __( 'Section Background', 'astra' ),
+				),
+
+				/**
+				 * Option: Related post meta color
+				 */
+				array(
+					'name'      => 'related-posts-meta-color',
+					'default'   => astra_get_option( 'related-posts-meta-color' ),
+					'tab'       => __( 'Normal', 'astra' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[related-posts-colors-group]',
+					'section'   => 'section-blog-single',
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Meta Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Related hover CTA link color
+				 */
+				array(
+					'name'      => 'related-posts-link-hover-color',
+					'type'      => 'sub-control',
+					'tab'       => __( 'Hover', 'astra' ),
+					'parent'    => ASTRA_THEME_SETTINGS . '[related-posts-colors-group]',
+					'section'   => 'section-blog-single',
+					'control'   => 'ast-color',
+					'default'   => astra_get_option( 'related-posts-link-hover-color' ),
+					'transport' => 'postMessage',
+					'title'     => __( 'Link Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Related hover meta link color
+				 */
+				array(
+					'name'      => 'related-posts-meta-link-hover-color',
+					'type'      => 'sub-control',
+					'tab'       => __( 'Hover', 'astra' ),
+					'parent'    => ASTRA_THEME_SETTINGS . '[related-posts-colors-group]',
+					'section'   => 'section-blog-single',
+					'control'   => 'ast-color',
+					'default'   => astra_get_option( 'related-posts-meta-link-hover-color' ),
+					'transport' => 'postMessage',
+					'title'     => __( 'Meta Link Color', 'astra' ),
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
