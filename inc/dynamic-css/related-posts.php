@@ -95,7 +95,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			 * Related Posts - Post Title
 			 */
 			'.ast-single-post .ast-related-post-content .ast-related-post-title *' => array(
-				'font-family'    => astra_get_css_value( $related_post_title_font_family, 'font', $body_font_family ),
+				'font-family'    => astra_get_css_value( $related_post_title_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_post_title_font_weight, 'font' ),
 				'font-size'      => astra_responsive_font( $related_post_title_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $related_post_title_line_height ),
@@ -106,7 +106,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			 * Related Posts - Meta
 			 */
 			'.ast-single-post .ast-related-post-content .entry-meta, .ast-single-post .ast-related-post-content .entry-meta *' => array(
-				'font-family'    => astra_get_css_value( $related_post_meta_font_family, 'font', $body_font_family ),
+				'font-family'    => astra_get_css_value( $related_post_meta_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_post_meta_font_weight, 'font' ),
 				'font-size'      => astra_responsive_font( $related_post_meta_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $related_post_meta_line_height ),
