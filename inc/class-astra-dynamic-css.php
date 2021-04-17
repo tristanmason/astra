@@ -648,6 +648,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			// Related Posts Dynamic CSS.
+			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/related-posts.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
