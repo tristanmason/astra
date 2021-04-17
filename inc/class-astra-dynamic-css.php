@@ -594,6 +594,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
+			if ( ast_target_rules_for_related_posts() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::related_posts_static_css() );
+			}
+
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -648,6 +652,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			// Related Posts Dynamic CSS.
+			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/related-posts.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
@@ -1835,7 +1841,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'search', 'header', 'mobile' ) ) {
 
-				if ( is_rtl() ) {
+				if ( $is_site_rtl ) {
 					$global_button_tablet_lang_direction_css = array(
 						'.ast-header-break-point .ast-search-menu-icon.slide-search .search-form' => array(
 							'left' => '0',
@@ -3521,6 +3527,110 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}';
 			}
 			return $cart_static_css;
+		}
+
+		/**
+		 * Load static Related Posts CSS.
+		 *
+		 * @since x.x.x
+		 *
+		 * @return string static css for Related Posts section.
+		 */
+		public static function related_posts_static_css() {
+
+			$related_posts_static_css = '
+			.ast-related-posts-title-section {
+				border-top: 1px solid #eeeeee;
+			}
+			.ast-related-posts-title-section .ast-related-posts-title {
+				margin: 20px 0;
+			}
+			.ast-page-builder-template .ast-related-posts-title-section {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			.ast-page-builder-template .ast-related-post .entry-header {
+				margin: auto auto 1em auto;
+				padding: 0;
+			}
+			.ast-related-posts-wrapper {
+				display: grid;
+				grid-column-gap: 25px;
+				grid-row-gap: 25px;
+			}
+			.ast-single-related-posts-container {
+				margin-top: 2em;
+				margin-bottom: 2em;
+			}
+			.ast-single-related-posts-container .ast-related-posts-wrapper .ast-related-post {
+				padding: 0;
+				margin: 0;
+				-js-display: flex;
+				display: flex;
+				width: 100%;
+			}
+			.ast-related-post-content .entry-meta {
+				margin-top: 0.5em;
+				margin-bottom: 1em;
+			}
+			.ast-related-post-content .entry-header {
+				margin-bottom: 1em;
+				word-wrap: break-word;
+			}
+			.ast-related-post-featured-section {
+				padding-left: 0;
+				padding-right: 0;
+				position: relative;
+			}
+			.ast-related-post-featured-section .post-thumb-img-content + * .posted-on {
+				position: absolute;
+				top: 0;
+			}
+			.ast-related-post-featured-section .posted-on {
+				position: relative;
+				display: inline-block;
+				width: 5.714285714em;
+				height: 5.714285714em;
+				padding: 0.7em;
+				margin-bottom: 1.5em;
+			}
+			.ast-related-post-featured-section .posted-on .entry-date span {
+				display: block;
+				width: 100%;
+				text-align: center;
+			}
+			.ast-related-post-featured-section .posted-on .date-month, .ast-related-post-featured-section .posted-on .date-year {
+				font-size: 0.8571428571em;
+				line-height: 1em;
+			}
+			.ast-related-post-featured-section .posted-on .date-day {
+				font-size: 2.5em;
+				line-height: .9em;
+				font-weight: 900;
+				margin: .1em 0;
+			}
+			.ast-related-posts-inner-section {
+				width: 100%;
+				display: inline-block;
+			}
+			.ast-related-posts-inner-section .post-thumb-img-content {
+				margin: 0;
+				position: relative;
+			}
+			.ast-separate-container .ast-single-related-posts-container {
+				padding: 5.34em 6.67em;
+			}
+			.ast-separate-container .ast-related-posts-title-section {
+				border-top: 0;
+				margin-top: 0;
+			}
+			@media (max-width: 1200px) {
+				.ast-separate-container .ast-single-related-posts-container {
+					padding: 3.34em 2.4em;
+				}
+			}';
+
+			return $related_posts_static_css;
 		}
 	}
 }
