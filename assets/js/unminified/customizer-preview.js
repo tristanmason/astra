@@ -1448,4 +1448,34 @@ function isJsonString( str ) {
 
 	})
 
+	/**
+	 * Related Posts Query Arguments - Customizer preview support.
+	 */
+	 wp.customize( 'astra-settings[related-posts-based-on]', function( setting ) {
+		setting.bind( function() {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
+	wp.customize( 'astra-settings[related-posts-order-by]', function( setting ) {
+		setting.bind( function() {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
+	wp.customize( 'astra-settings[related-posts-order]', function( setting ) {
+		setting.bind( function() {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
+
+	/**
+	 * Related Posts color stylings.
+	 */
+	astra_css( 'astra-settings[related-posts-text-color]', 'color', '.ast-single-post .ast-related-post-content .ast-related-post-title *, .ast-single-post .ast-related-post-content .ast-related-post-excerpt' );
+	astra_css( 'astra-settings[related-posts-meta-color]', 'color', '.ast-single-post .ast-related-post-content .entry-meta, .ast-single-post .ast-related-post-content .entry-meta *' );
+	astra_css( 'astra-settings[related-posts-title-color]', 'color', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
+	astra_css( 'astra-settings[related-posts-background-color]', 'background-color', '.ast-single-related-posts-container, .ast-related-posts-wrapper .ast-related-posts-inner-section' );
+	astra_css( 'astra-settings[related-posts-link-color]', 'color', '.ast-single-post .ast-related-post-content .ast-related-post-cta a' );
+	astra_css( 'astra-settings[related-posts-link-hover-color]', 'color', '.ast-single-post .ast-related-post-content .ast-related-post-cta a:hover' );
+	astra_css( 'astra-settings[related-posts-meta-link-hover-color]', 'color', '.ast-single-post .ast-related-post-content .entry-meta a:hover, .ast-single-post .ast-related-post-content .entry-meta span a span:hover' );
+
 } )( jQuery );

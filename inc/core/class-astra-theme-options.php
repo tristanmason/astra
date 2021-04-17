@@ -131,6 +131,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					'related-posts-text-color' => '',
+					'related-posts-link-color' => '',
+					'related-posts-title-color' => '',
+					'related-posts-background-color' => '#ffffff',
+					'related-posts-meta-color' => '',
+					'related-posts-link-hover-color' => '',
+					'related-posts-meta-link-hover-color' => '',
 					// Blog.
 					'blog-post-structure'                  => array(
 						'image',
