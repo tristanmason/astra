@@ -26,6 +26,8 @@ function astra_related_posts_css( $dynamic_css ) {
 
 		$link_color       = astra_get_option( 'link-color' );
 		$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );
+		$related_posts_title_color = astra_get_option( 'related-posts-title-color' );
+		$related_posts_bg_color = astra_get_option( 'related-posts-background-color', '#ffffff' );
 
 		$css_desktop_output = array(
 			'.ast-single-related-posts-container .ast-grid-' . $related_posts_grid => array(
@@ -37,6 +39,12 @@ function astra_related_posts_css( $dynamic_css ) {
 			),
 			'.ast-related-posts-inner-section .ast-date-meta .posted-on .date-month, .ast-related-posts-inner-section .ast-date-meta .posted-on .date-year' => array(
 				'color' => astra_get_foreground_color( $link_color ),
+			),
+			'.ast-related-posts-title-section .ast-related-posts-title' => array(
+				'color' => esc_attr( $related_posts_title_color ),
+			),
+			'.ast-single-related-posts-container, .ast-related-posts-wrapper .ast-related-posts-inner-section' => array(
+				'background-color' => esc_attr( $related_posts_bg_color ),
 			),
 		);
 
