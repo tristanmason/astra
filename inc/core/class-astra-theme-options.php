@@ -113,6 +113,24 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					// Related Posts.
+					'enable-related-posts'         => false,
+					'related-posts-total-count'    => 2,
+					'enable-related-posts-excerpt' => false,
+					'related-posts-excerpt-count'  => 25,
+					'related-posts-based-on'       => 'categories',
+					'related-posts-order-by'       => 'date',
+					'related-posts-order'          => 'asc',
+					'related-posts-grid'           => '2',
+					'related-posts-structure'      => array(
+						'featured-image',
+						'title-meta',
+					),
+					'related-posts-meta-structure' => array(
+						'comments',
+						'category',
+						'author',
+					),
 					// Blog.
 					'blog-post-structure'                  => array(
 						'image',
