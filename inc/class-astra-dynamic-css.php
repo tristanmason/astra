@@ -3188,7 +3188,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				margin-bottom: 2em;
 			}
 			';
-			if ( $is_site_rtl ) {
+			if ( is_rtl() ) {
 				$sidebar_static_css .= '
 				@media (min-width: 993px) {
 					.ast-left-sidebar #secondary {
@@ -3405,7 +3405,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 			';
-			if ( $is_site_rtl ) {
+			if ( is_rtl() ) {
 				$cart_static_css .= '
 				.ast-site-header-cart i.astra-icon:after {
 					content: attr(data-cart-total);
