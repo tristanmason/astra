@@ -267,24 +267,8 @@ function astra_get_related_posts() {
 			return apply_filters( 'astra_related_posts_no_posts_avilable_message', '', $post_id );
 		}
 
-		$grid_class = ( $related_posts_grid ) ? 'ast-grid-' . $related_posts_grid : 'ast-grid-2';
-
-		echo '<div class="ast-single-related-posts-container">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-		do_action( 'astra_related_posts_title_before' );
-
-		echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			'astra_related_posts_title',
-			sprintf(
-				'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
-				'h2',
-				esc_html__( 'Related Posts', 'astra-addon' )
-			)
-		);
-
-		do_action( 'astra_related_posts_title_after' );
-
-		echo '<div class="ast-related-posts-wrapper ' . $grid_class . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// Added flag to load wrapper section 'ast-single-related-posts-container' only once, because as we removed 'posts__not_in' param from WP_Query and we conditionally handle posts__not_in below so it needs to verify if there are other posts as well to load, then only we will display wrapper.
+		$related_posts_section_loaded = false;
 
 		do_action( 'astra_related_posts_loop_before' );
 
@@ -295,49 +279,72 @@ function astra_get_related_posts() {
 
 			if ( is_array( $exclude_ids ) && ! in_array( $post_id, $exclude_ids ) ) {
 
+				if ( false === $related_posts_section_loaded ) {
+					$grid_class = ( $related_posts_grid ) ? 'ast-grid-' . $related_posts_grid : 'ast-grid-2';
+
+					echo '<div class="ast-single-related-posts-container">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+					do_action( 'astra_related_posts_title_before' );
+
+					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						'astra_related_posts_title',
+						sprintf(
+							'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
+							'h2',
+							esc_html__( 'Related Posts', 'astra-addon' )
+						)
+					);
+
+					do_action( 'astra_related_posts_title_after' );
+
+					echo '<div class="ast-related-posts-wrapper ' . $grid_class . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+					$related_posts_section_loaded = true;
+				}
+
 				?>
-				<article <?php post_class( 'ast-related-post' ); ?>>
-					<div class="ast-related-posts-inner-section">
-						<div class="ast-related-post-content">
-							<?php
-								// Render post based on order of Featured Image & Title-Meta.
-							if ( is_array( $related_post_structure ) ) {
-								foreach ( $related_post_structure as $post_thumb_title_order ) {
-									if ( 'featured-image' === $post_thumb_title_order ) {
-										get_related_post_featured_image( $post_id );
-									} else {
-										?>
-												<header class="entry-header">
+					<article <?php post_class( 'ast-related-post' ); ?>>
+						<div class="ast-related-posts-inner-section">
+							<div class="ast-related-post-content">
+								<?php
+									// Render post based on order of Featured Image & Title-Meta.
+								if ( is_array( $related_post_structure ) ) {
+									foreach ( $related_post_structure as $post_thumb_title_order ) {
+										if ( 'featured-image' === $post_thumb_title_order ) {
+											get_related_post_featured_image( $post_id );
+										} else {
+											?>
+													<header class="entry-header">
+													<?php
+														get_related_post_title( $post_id );
+														echo apply_filters( 'astra_related_posts_meta_html', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+													?>
+													</header>
 												<?php
-													get_related_post_title( $post_id );
-													echo apply_filters( 'astra_related_posts_meta_html', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-												?>
-												</header>
-											<?php
+										}
 									}
 								}
-							}
-							?>
-							<div class="entry-content clear">
-								<?php
-									get_related_post_excerpt( $post_id );
-									get_related_post_read_more( $post_id );
 								?>
+								<div class="entry-content clear">
+									<?php
+										get_related_post_excerpt( $post_id );
+										get_related_post_read_more( $post_id );
+									?>
+								</div>
 							</div>
 						</div>
-					</div>
-				</article>
+					</article>
 				<?php
-
-			} else {
-				echo apply_filters( 'astra_related_posts_no_posts_avilable_message', esc_html__( 'No posts found!', 'astra-addon' ), $post_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
+
+			wp_reset_postdata();
+		}
+
+		if ( true === $related_posts_section_loaded ) {
+			echo '</div> </div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		do_action( 'astra_related_posts_loop_after' );
-
-		wp_reset_postdata();
-		echo '</div> </div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
