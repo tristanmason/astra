@@ -36,11 +36,47 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[global-color-palette]',
 					'type'      => 'control',
-					'control'   => 'ast-color-palette',
+					'control'   => 'ast-hidden',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Global Palette', 'astra' ),
 					'default'   => astra_get_option( 'global-color-palette' ),
+					'transport' => 'postMessage',
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[color-palettes]',
+					'type'      => 'control',
+					'control'   => 'ast-color-palette',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Global Palette', 'astra' ),
+					'default'   => astra_get_option( 'color-palettes', array(
+						'currentPalette' => 'palette_1',
+						'palettes' => array(
+							'palette_1' => array(
+								'#3a3a3a',
+								'#0274be',
+								'#0274b2',
+								'#3a3a31',
+								'#3a3a3b'
+							),
+							'palette_2' => array(
+								'#26bcdb',
+								'#1f90a6',
+								'#121212',
+								'#1a1a1a',
+								'#1a1a1a'
+							),
+							'palette_3' => array(
+								'#77b978',
+								'#f37262',
+								'#0e509a',
+								'#393939',
+								'#3a3a3b'
+							),
+						)
+					) ),
 					'transport' => 'postMessage',
 				),
 
