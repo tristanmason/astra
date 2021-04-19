@@ -3542,12 +3542,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-related-posts-title-section {
 				border-top: 1px solid #eeeeee;
 			}
-			.ast-related-posts-title-section .ast-related-posts-title {
-				margin: 20px 0;
+			.ast-related-posts-title {
+				margin: 0 0 20px 0;
 			}
 			.ast-page-builder-template .ast-related-posts-title-section {
-				padding-left: 20px;
-				padding-right: 20px;
+				padding: 0 20px;
 			}
 			.ast-page-builder-template .ast-related-post .entry-header {
 				margin: auto auto 1em auto;
@@ -3559,14 +3558,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				grid-row-gap: 25px;
 			}
 			.ast-single-related-posts-container {
-				margin-top: 2em;
-				margin-bottom: 2em;
+				margin: 2em 0;
 			}
-			.ast-single-related-posts-container .ast-related-posts-wrapper .ast-related-post {
+			.ast-related-posts-wrapper .ast-related-post, .ast-related-post-featured-section {
 				padding: 0;
 				margin: 0;
-				-js-display: flex;
-				display: flex;
 				width: 100%;
 			}
 			.ast-related-post-content .entry-meta {
@@ -3577,45 +3573,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				margin-bottom: 1em;
 				word-wrap: break-word;
 			}
-			.ast-related-post-featured-section {
-				padding-left: 0;
-				padding-right: 0;
-				position: relative;
-			}
-			.ast-related-post-featured-section .post-thumb-img-content + * .posted-on {
-				position: absolute;
-				top: 0;
-			}
-			.ast-related-post-featured-section .posted-on {
-				position: relative;
-				display: inline-block;
-				width: 5.714285714em;
-				height: 5.714285714em;
-				padding: 0.7em;
-				margin-bottom: 1.5em;
-			}
-			.ast-related-post-featured-section .posted-on .entry-date span {
-				display: block;
-				width: 100%;
-				text-align: center;
-			}
-			.ast-related-post-featured-section .posted-on .date-month, .ast-related-post-featured-section .posted-on .date-year {
-				font-size: 0.8571428571em;
-				line-height: 1em;
-			}
-			.ast-related-post-featured-section .posted-on .date-day {
-				font-size: 2.5em;
-				line-height: .9em;
-				font-weight: 900;
-				margin: .1em 0;
-			}
-			.ast-related-posts-inner-section {
-				width: 100%;
-				display: inline-block;
-			}
 			.ast-related-posts-inner-section .post-thumb-img-content {
 				margin: 0;
-				position: relative;
 			}
 			.ast-separate-container .ast-single-related-posts-container {
 				padding: 5.34em 6.67em;
