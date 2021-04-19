@@ -8,6 +8,7 @@ on:
       - milestones
       - release-candidate
       - master
+      - dev
 
 jobs:
   build:
