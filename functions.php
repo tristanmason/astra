@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.4.0' );
+define( 'ASTRA_THEME_VERSION', '3.5.0' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -144,7 +144,7 @@ require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-co
 require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
 
 // blog options compatibility with add-on version.
-if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.3.0', '>' ) || ! defined( 'ASTRA_EXT_VER' ) ) {
+if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.4.0', '>' ) || ! defined( 'ASTRA_EXT_VER' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/addons/blog/class-astra-blog.php';
 }
 
@@ -168,3 +168,4 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
+add_filter( 'astra_apply_flex_based_css', '__return_true' );
