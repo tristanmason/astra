@@ -3566,6 +3566,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				width: 100%;
 				-js-display: flex;
 				display: flex;
+				position: relative;
 			}
 			.ast-related-post-content .entry-meta {
 				margin-top: 0.5em;

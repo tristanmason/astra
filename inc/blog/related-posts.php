@@ -107,8 +107,7 @@ function astra_get_related_post_featured_image( $current_post_id, $before = '', 
 			)
 		);
 		$featured_img_markup .= $post_thumb;
-		$featured_img_markup .= astra_markup_close( 'ast-related-post-image' );
-		$featured_img_markup .= '</div>';
+		$featured_img_markup .= '</a> </div>';
 	}
 
 	$featured_img_markup = apply_filters( 'astra_related_post_featured_image_after', $featured_img_markup );
