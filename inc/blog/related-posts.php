@@ -80,8 +80,6 @@ function astra_get_related_post_featured_image( $current_post_id, $before = '', 
 		return;
 	}
 
-	do_action( 'astra_related_post_before_featured_image', $current_post_id );
-
 	$post_thumb = apply_filters(
 		'astra_related_post_featured_image_markup',
 		get_the_post_thumbnail(
@@ -97,32 +95,30 @@ function astra_get_related_post_featured_image( $current_post_id, $before = '', 
 
 	if ( '' != $post_thumb ) {
 		$featured_img_markup .= '<div class="post-thumb-img-content post-thumb">';
-		$featured_img_markup .= apply_filters(
-			'astra_related_posts_featured_image_link',
-			'<a ' . astra_attr(
-				'article-image-url',
-				array(
+		$featured_img_markup .= astra_markup_open( 'ast-related-post-image',
+			array(
+				'open' => '<a %s>',
+				'echo'    => false,
+				'attrs'   => array(
 					'class' => '',
 					'href'  => esc_url( get_permalink() ),
 				)
-			) . ' >'
+			)
 		);
 		$featured_img_markup .= $post_thumb;
-		$featured_img_markup .= '</a> </div>';
+		$featured_img_markup .= astra_markup_close( 'ast-related-post-image' );
+		$featured_img_markup .= '</div>';
 	}
 
-	$featured_img_markup  = apply_filters( 'astra_related_post_featured_image_after', $featured_img_markup );
 	$featured_img_markup .= '</div>';
 
 	$featured_img_markup = apply_filters( 'astra_related_post_thumbnail', $featured_img_markup, $before, $after );
 
-	if ( $echo ) {
-		echo $before . $featured_img_markup . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	} else {
+	if ( false === $echo ) {
 		return $before . $featured_img_markup . $after;
 	}
 
-	do_action( 'astra_related_post_after_featured_image', $current_post_id );
+	echo $before . $featured_img_markup . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**
@@ -301,7 +297,9 @@ function astra_get_related_posts() {
 								if ( is_array( $related_post_structure ) ) {
 									foreach ( $related_post_structure as $post_thumb_title_order ) {
 										if ( 'featured-image' === $post_thumb_title_order ) {
+											do_action( 'astra_related_post_before_featured_image', $post_id );
 											astra_get_related_post_featured_image( $post_id );
+											do_action( 'astra_related_post_after_featured_image', $post_id );
 										} else {
 											?>
 													<header class="entry-header">
