@@ -3543,12 +3543,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				border-top: 1px solid #eeeeee;
 			}
 			.ast-related-posts-title {
+				margin: 20px 0;
+			}
+			.ast-separate-container .ast-related-posts-title {
 				margin: 0 0 20px 0;
 			}
-			.ast-page-builder-template .ast-related-posts-title-section {
+			.ast-page-builder-template .ast-related-posts-title-section, .ast-page-builder-template .ast-single-related-posts-container {
 				padding: 0 20px;
 			}
-			.ast-page-builder-template .ast-related-post .entry-header {
+			.ast-page-builder-template .ast-related-post .entry-header, .ast-related-post-content .entry-header, .ast-related-post-content .entry-meta {
 				margin: auto auto 1em auto;
 				padding: 0;
 			}
@@ -3564,17 +3567,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 0;
 				margin: 0;
 				width: 100%;
-				-js-display: flex;
-				display: flex;
 				position: relative;
 			}
 			.ast-related-post-content .entry-meta {
 				margin-top: 0.5em;
-				margin-bottom: 1em;
-			}
-			.ast-related-post-content .entry-header {
-				margin-bottom: 1em;
-				word-wrap: break-word;
 			}
 			.ast-related-posts-inner-section .post-thumb-img-content {
 				margin: 0;
