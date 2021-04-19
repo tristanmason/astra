@@ -93,16 +93,17 @@ function astra_get_related_post_featured_image( $current_post_id, $before = '', 
 
 	$featured_img_markup = '<div class="ast-related-post-featured-section ' . $appended_class . '">';
 
-	if ( '' != $post_thumb ) {
+	if ( '' !== $post_thumb ) {
 		$featured_img_markup .= '<div class="post-thumb-img-content post-thumb">';
-		$featured_img_markup .= astra_markup_open( 'ast-related-post-image',
+		$featured_img_markup .= astra_markup_open(
+			'ast-related-post-image',
 			array(
-				'open' => '<a %s>',
-				'echo'    => false,
-				'attrs'   => array(
+				'open'  => '<a %s>',
+				'echo'  => false,
+				'attrs' => array(
 					'class' => '',
 					'href'  => esc_url( get_permalink() ),
-				)
+				),
 			)
 		);
 		$featured_img_markup .= $post_thumb;
@@ -110,6 +111,7 @@ function astra_get_related_post_featured_image( $current_post_id, $before = '', 
 		$featured_img_markup .= '</div>';
 	}
 
+	$featured_img_markup = apply_filters( 'astra_related_post_featured_image_after', $featured_img_markup );
 	$featured_img_markup .= '</div>';
 
 	$featured_img_markup = apply_filters( 'astra_related_post_thumbnail', $featured_img_markup, $before, $after );

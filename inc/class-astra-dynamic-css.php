@@ -3564,6 +3564,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 0;
 				margin: 0;
 				width: 100%;
+				-js-display: flex;
+				display: flex;
 			}
 			.ast-related-post-content .entry-meta {
 				margin-top: 0.5em;
@@ -3575,6 +3577,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			.ast-related-posts-inner-section .post-thumb-img-content {
 				margin: 0;
+				position: relative;
 			}
 			.ast-separate-container .ast-single-related-posts-container {
 				padding: 5.34em 6.67em;

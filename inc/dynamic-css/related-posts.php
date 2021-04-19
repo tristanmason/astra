@@ -81,8 +81,8 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - Section Title
 			 */
-			'.ast-related-posts-title' => array(
-				'color' => esc_attr( $related_posts_title_color ),
+			'.ast-related-posts-title'      => array(
+				'color'          => esc_attr( $related_posts_title_color ),
 				'font-family'    => astra_get_css_value( $related_posts_section_title_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_posts_section_title_font_weight, 'font' ),
 				'font-size'      => astra_responsive_font( $related_posts_section_title_font_size, 'desktop' ),
@@ -117,7 +117,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - CTA
 			 */
-			'.ast-related-post-cta a' => array(
+			'.ast-related-post-cta a'       => array(
 				'color' => esc_attr( $related_posts_link_color ),
 			),
 			'.ast-related-post-cta a:hover' => array(
@@ -126,7 +126,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - Content
 			 */
-			'.ast-related-post-excerpt' => array(
+			'.ast-related-post-excerpt'     => array(
 				'font-family'    => astra_get_css_value( $related_post_content_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_post_content_font_weight, 'font' ),
 				'font-size'      => astra_responsive_font( $related_post_content_font_size, 'desktop' ),
@@ -151,10 +151,10 @@ function astra_related_posts_css( $dynamic_css ) {
 			'.ast-related-post-content .entry-meta *' => array(
 				'font-size' => astra_responsive_font( $related_post_meta_font_size, 'tablet' ),
 			),
-			'.ast-related-post-excerpt' => array(
+			'.ast-related-post-excerpt'               => array(
 				'font-size' => astra_responsive_font( $related_post_content_font_size, 'tablet' ),
 			),
-			'.ast-related-posts-title' => array(
+			'.ast-related-posts-title'                => array(
 				'font-size' => astra_responsive_font( $related_posts_section_title_font_size, 'tablet' ),
 			),
 		);
@@ -171,10 +171,10 @@ function astra_related_posts_css( $dynamic_css ) {
 			'.ast-related-post-content .entry-meta *' => array(
 				'font-size' => astra_responsive_font( $related_post_meta_font_size, 'mobile' ),
 			),
-			'.ast-related-post-excerpt' => array(
+			'.ast-related-post-excerpt'               => array(
 				'font-size' => astra_responsive_font( $related_post_content_font_size, 'mobile' ),
 			),
-			'.ast-related-posts-title' => array(
+			'.ast-related-posts-title'                => array(
 				'font-size' => astra_responsive_font( $related_posts_section_title_font_size, 'mobile' ),
 			),
 		);
