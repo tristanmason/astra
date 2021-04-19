@@ -543,7 +543,7 @@ function astra_markup_close( $context, $args = array() ) {
  * @since x.x.x
  * @return bool
  */
-function ast_target_rules_for_related_posts() {
+function astra_target_rules_for_related_posts() {
 
 	$allow_related_posts = false;
 	$supported_post_type = apply_filters( 'astra_related_posts_supported_post_types', 'post' );

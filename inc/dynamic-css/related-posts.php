@@ -2,7 +2,7 @@
 /**
  * Related Posts - Dynamic CSS
  *
- * @package astra-builder
+ * @package astra
  * @since x.x.x
  */
 
@@ -22,7 +22,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_related_posts_css', 11 );
  */
 function astra_related_posts_css( $dynamic_css ) {
 
-	if ( ast_target_rules_for_related_posts() ) {
+	if ( astra_target_rules_for_related_posts() ) {
 
 		$link_color         = astra_get_option( 'link-color' );
 		$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );

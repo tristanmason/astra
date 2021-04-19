@@ -345,7 +345,7 @@ function astra_get_related_posts() {
  * @return void
  */
 function astra_related_posts_markup() {
-	if ( ast_target_rules_for_related_posts() ) {
+	if ( astra_target_rules_for_related_posts() ) {
 		astra_get_related_posts();
 	}
 }
@@ -360,7 +360,7 @@ add_action( 'astra_entry_after', 'astra_related_posts_markup', 10 );
  * @return array
  */
 function astra_related_posts_body_class( $classes ) {
-	if ( ast_target_rules_for_related_posts() ) {
+	if ( astra_target_rules_for_related_posts() ) {
 		$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );
 
 		$classes[] = 'ast-related-posts-grid-' . esc_attr( $related_posts_grid );
