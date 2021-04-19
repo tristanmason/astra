@@ -2894,6 +2894,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before' => array(
 						'transform' => 'rotateX(180deg)',
 					),
+					'.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+						'display' => 'none',
+					),
 				);
 			} else {
 				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -3144,7 +3147,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Gutenberg pattern compatibility changes.
 		 *
-		 * @since x.x.x
+		 * @since 3.3.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gutenberg_core_patterns_compat() {
