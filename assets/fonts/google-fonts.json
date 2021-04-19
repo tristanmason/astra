@@ -553,14 +553,24 @@
     {
         "Archivo": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic"
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -686,12 +696,12 @@
         "Asap": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -1655,7 +1665,11 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -2745,6 +2759,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Dela Gothic One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -5169,6 +5191,16 @@
         }
     },
     {
+        "Kiwi Maru": {
+            "variants": [
+                "300",
+                "regular",
+                "500"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Knewave": {
             "variants": [
                 "regular"
@@ -5508,6 +5540,20 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Lexend": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -6861,6 +6907,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "New Tegomin": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -10123,6 +10177,14 @@
     },
     {
         "Trade Winds": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Train One": {
             "variants": [
                 "regular"
             ],

@@ -277,7 +277,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
 				popupInner = document.querySelector( '.ast-mobile-popup-inner' ),
 				popupLinks = popupInner.getElementsByTagName('a');
-			
+
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
 
 				popupTriggerMobile[item].removeEventListener("click", astraNavMenuToggle, false);
@@ -419,15 +419,23 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener('resize', function () {
 
-		var menu_toggle_close = document.getElementById('menu-toggle-close');
+		var menu_offcanvas_close = document.getElementById('menu-toggle-close');
+		var menu_dropdown_close = document.querySelector('.menu-toggle.toggled');
+		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
+		if ( menu_dropdown_close ) {
+			menu_dropdown_close.click();
+		}
+		if ( desktop_header_content ) {
+			desktop_header_content.style.display = 'none';
+		}
+		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
+
+		if( menu_offcanvas_close ) {
+			menu_offcanvas_close.click();
+		}
 
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
-
-			if( menu_toggle_close ) {
-				menu_toggle_close.click();
-			}
-			
 			updateHeaderBreakPoint();
 			if ( 'dropdown' === mobileHeaderType ) {
 				AstraToggleSetup();
@@ -713,7 +721,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( menu_class.indexOf('main-header-menu-toggle') !== -1 ) {
 			astraToggleClass(__main_header_all[event_index], 'toggle-on');
 			astraToggleClass(menu_toggle_all[event_index], 'toggled');
-			if ( sticky_header ) {
+			if ( sticky_header && 1 < menu_toggle_all.length ) {
 				astraToggleClass(menu_toggle_all['1'], 'toggled');
 			}
 			if (__main_header_all[event_index].classList.contains('toggle-on')) {
