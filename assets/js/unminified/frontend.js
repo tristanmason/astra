@@ -721,7 +721,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( menu_class.indexOf('main-header-menu-toggle') !== -1 ) {
 			astraToggleClass(__main_header_all[event_index], 'toggle-on');
 			astraToggleClass(menu_toggle_all[event_index], 'toggled');
-			if ( sticky_header ) {
+			if ( sticky_header && 1 < menu_toggle_all.length ) {
 				astraToggleClass(menu_toggle_all['1'], 'toggled');
 			}
 			if (__main_header_all[event_index].classList.contains('toggle-on')) {
