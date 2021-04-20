@@ -183,7 +183,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			Astra_Fonts::add_font( $heading_font_family, $heading_font_weight );
 			Astra_Fonts::add_font( $heading_font_family, $heading_font_variant );
 
-			if( astra_target_rules_for_related_posts() ) {
+			if ( astra_target_rules_for_related_posts() ) {
 				// Related Posts Section title.
 				$section_title_font_family = astra_get_option( 'related-posts-section-title-font-family' );
 				$section_title_font_weight = astra_get_option( 'related-posts-section-title-font-weight' );

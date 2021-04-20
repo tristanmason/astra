@@ -56,9 +56,9 @@ function astra_related_posts_css( $dynamic_css ) {
 		$related_posts_section_title_text_transform = astra_get_option( 'related-posts-section-title-text-transform' );
 
 		// Setting up container BG color by default to Related Posts's section BG color.
-		$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
+		$content_bg_obj     = astra_get_option( 'content-bg-obj-responsive' );
 		$container_bg_color = '#ffffff';
-		if( isset( $content_bg_obj['desktop'] ) && isset( $content_bg_obj['desktop']['background-color'] ) && '' !== $content_bg_obj['desktop']['background-color'] ) {
+		if ( isset( $content_bg_obj['desktop'] ) && isset( $content_bg_obj['desktop']['background-color'] ) && '' !== $content_bg_obj['desktop']['background-color'] ) {
 			$container_bg_color = $content_bg_obj['desktop']['background-color'];
 		}
 
@@ -88,7 +88,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - Section Title
 			 */
-			'.ast-related-posts-title'      => array(
+			'.ast-related-posts-title'            => array(
 				'color'          => esc_attr( $related_posts_title_color ),
 				'font-family'    => astra_get_css_value( $related_posts_section_title_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_posts_section_title_font_weight, 'font' ),
@@ -124,16 +124,16 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - CTA
 			 */
-			'.ast-related-post-cta a'       => array(
+			'.ast-related-post-cta a'             => array(
 				'color' => esc_attr( $related_posts_link_color ),
 			),
-			'.ast-related-post-cta a:hover' => array(
+			'.ast-related-post-cta a:hover'       => array(
 				'color' => esc_attr( $related_posts_link_hover_color ),
 			),
 			/**
 			 * Related Posts - Content
 			 */
-			'.ast-related-post-excerpt'     => array(
+			'.ast-related-post-excerpt'           => array(
 				'font-family'    => astra_get_css_value( $related_post_content_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_post_content_font_weight, 'font' ),
 				'font-size'      => astra_responsive_font( $related_post_content_font_size, 'desktop' ),
