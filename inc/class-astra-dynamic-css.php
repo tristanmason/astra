@@ -594,6 +594,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
+			if ( astra_target_rules_for_related_posts() ) {
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::related_posts_static_css() );
+			}
+
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -648,6 +652,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			// Related Posts Dynamic CSS.
+			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/related-posts.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
@@ -1835,7 +1841,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'search', 'header', 'mobile' ) ) {
 
-				if ( is_rtl() ) {
+				if ( $is_site_rtl ) {
 					$global_button_tablet_lang_direction_css = array(
 						'.ast-header-break-point .ast-search-menu-icon.slide-search .search-form' => array(
 							'left' => '0',
@@ -2002,7 +2008,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Width for Comments for Full Width / Stretched Template */
 			if ( 'page-builder' == $container_layout ) {
 				$page_builder_comment = array(
-					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
+					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation, .single.ast-page-builder-template .ast-single-related-posts-container' => array(
 						'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
@@ -3521,6 +3527,72 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}';
 			}
 			return $cart_static_css;
+		}
+
+		/**
+		 * Load static Related Posts CSS.
+		 *
+		 * @since x.x.x
+		 *
+		 * @return string static css for Related Posts section.
+		 */
+		public static function related_posts_static_css() {
+
+			$related_posts_static_css = '
+			.ast-related-posts-title-section {
+				border-top: 1px solid #eeeeee;
+			}
+			.ast-related-posts-title {
+				margin: 20px 0;
+			}
+			.ast-separate-container .ast-related-posts-title {
+				margin: 0 0 20px 0;
+			}
+			.ast-page-builder-template .ast-related-posts-title-section, .ast-page-builder-template .ast-single-related-posts-container {
+				padding: 0 20px;
+			}
+			.ast-page-builder-template .ast-related-post .entry-header, .ast-related-post-content .entry-header, .ast-related-post-content .entry-meta {
+				margin: auto auto 1em auto;
+				padding: 0;
+			}
+			.ast-related-posts-wrapper {
+				display: grid;
+				grid-column-gap: 25px;
+				grid-row-gap: 25px;
+			}
+			.ast-single-related-posts-container {
+				margin: 2em 0;
+			}
+			.ast-related-posts-wrapper .ast-related-post, .ast-related-post-featured-section {
+				padding: 0;
+				margin: 0;
+				width: 100%;
+				position: relative;
+			}
+			.ast-related-post-featured-section + .entry-header, .ast-related-post-featured-section + .entry-content {
+				margin-top: 1em;
+			}
+			.ast-related-post-content .entry-meta {
+				margin-top: 0.5em;
+			}
+			.ast-related-posts-inner-section .post-thumb-img-content {
+				margin: 0;
+				position: relative;
+			}
+			.ast-separate-container .ast-single-related-posts-container {
+				padding: 5.34em 6.67em;
+			}
+			.ast-separate-container .ast-related-posts-title-section {
+				border-top: 0;
+				margin-top: 0;
+			}
+			@media (max-width: 1200px) {
+				.ast-separate-container .ast-single-related-posts-container {
+					padding: 3.34em 2.4em;
+				}
+			}';
+
+			return $related_posts_static_css;
 		}
 	}
 }

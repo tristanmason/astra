@@ -1,4 +1,5 @@
 v3.4.0 (Unreleased)
+- New: Related Posts for single layouts.
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
 - Improvement: Gutenberg Editor - Compatibility with WordPress 5.7.
 - Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
@@ -20,10 +21,6 @@ v3.4.0 (Unreleased)
 - Fix: Context Switch does not work if there are no elements in Primary Header for both Desktop & Mobile.
 - Fix: Deprecated the Cart Style 'None' & merged it with existing option 'Outline' for WooCommerce and EDD.
 - Fix: Accessibility - Tab navigation does not highlight menu with submenus.
-- Fix: JavaScript error when clicking on the Dropdown Toggle for Sticky Header on Mobile.
-- Fix: Scroll does not work in Off-Canvas.
-- Fix: RTL WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
-- Fix: 'Take Last Item Outside Menu' option not visible when 'Hide Last Item in Menu on Mobile' is enabled in old header.
 
 v3.3.2
 - Fix: Transparent Header disappears if we add Widget 2 element.
