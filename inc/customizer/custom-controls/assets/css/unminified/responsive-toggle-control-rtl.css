@@ -1,0 +1,31 @@
+.customize-control-ast-responsive-toggle-control .components-toggle-control .components-base-control__field, .ast-responsive-toggle-control .components-base-control__field {
+    margin: 0;
+}
+
+.customize-control-ast-responsive-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-responsive-toggle-control .components-form-toggle {
+    margin: 0;
+    order: 2;
+}
+
+.customize-control-ast-link .ast-responsive-toggle-control .components-base-control__field {
+    margin: 20px 0;
+}
+
+.customize-control-ast-responsive-toggle-control .components-toggle-control .components-toggle-control__label, .ast-responsive-toggle-control label {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control {
+    display: none;
+}
+
+.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control.active {
+    width: 90%;
+    display: inline-block;
+}
+
+.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-slider-btns {
+    position: unset;
+    float: left;
+}
