@@ -4868,11 +4868,17 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+@media (min-width: 768px) {
+  .admin-bar {
+    --admin-bar:32px;
+  }
+}
+
 #page {
   -js-display: flex;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--admin-bar, 0px));
 }
 
 #content {

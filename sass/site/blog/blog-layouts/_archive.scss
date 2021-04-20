@@ -58,10 +58,16 @@
 		}
 	}
 }
+
+@media ( min-width: $mx-col-md ){
+	.admin-bar {
+		--admin-bar:32px;
+	}
+}
 #page{ 
 	display: flex;
  	flex-direction: column;
- 	min-height: 100vh;
+ 	min-height: calc(100vh - var(--admin-bar, 0px))
 }
 #content{
  	flex: 1 0 auto
