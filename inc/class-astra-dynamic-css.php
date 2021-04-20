@@ -3571,6 +3571,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				display: flex;
 				position: relative;
 			}
+			.ast-related-post-featured-section + .entry-header, .ast-related-post-featured-section + .entry-content {
+				margin-top: 1em;
+			}
 			.ast-related-post-content .entry-meta {
 				margin-top: 0.5em;
 				margin-bottom: 1em;
