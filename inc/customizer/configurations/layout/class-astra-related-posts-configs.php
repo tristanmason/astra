@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'control'  => 'ast-toggle-control',
 					'title'    => __( 'Enable Related Posts', 'astra' ),
 					'section'  => 'section-blog-single',
-					'priority' => 9,
+					'priority' => 10,
 				),
 
 				/**

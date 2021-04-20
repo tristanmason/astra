@@ -3545,6 +3545,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-related-posts-title {
 				margin: 0 0 20px 0;
 			}
+			.ast-related-post-title {
+				margin: 10px 0;
+			}
 			.ast-page-builder-template .ast-related-posts-title-section {
 				padding: 0 20px;
 			}
