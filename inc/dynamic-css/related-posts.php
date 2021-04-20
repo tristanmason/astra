@@ -92,7 +92,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - Post Title
 			 */
-			'.ast-related-post-content .ast-related-post-title, .ast-related-post-content .ast-related-post-title *' => array(
+			'.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' => array(
 				'font-family'    => astra_get_css_value( $related_post_title_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $related_post_title_font_weight, 'font' ),
 				'font-size'      => astra_responsive_font( $related_post_title_font_size, 'desktop' ),
