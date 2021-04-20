@@ -96,13 +96,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				return self::$defaults;
 			}
 
-			$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
-			$container_bg_color = '#ffffff';
-			if( isset( $content_bg_obj['desktop'] ) && isset( $content_bg_obj['desktop']['background-color'] ) && '' !== $content_bg_obj['desktop']['background-color'] ) {
-				// Setting up container BG color by default to Related Posts's section BG color.
-				$container_bg_color = $content_bg_obj['desktop']['background-color'];
-			}
-
 			// Defaults list of options.
 			self::$defaults = apply_filters(
 				'astra_theme_defaults',
@@ -142,7 +135,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'related-posts-text-color'             => '',
 					'related-posts-link-color'             => '',
 					'related-posts-title-color'            => '',
-					'related-posts-background-color'       => $container_bg_color,
+					'related-posts-background-color'       => '#ffffff',
 					'related-posts-meta-color'             => '',
 					'related-posts-link-hover-color'       => '',
 					'related-posts-meta-link-hover-color'  => '',
