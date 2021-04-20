@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'related-posts-title-font-family'      => 'inherit',
 					'related-posts-title-font-weight'      => 'inherit',
 					'related-posts-title-text-transform'   => '',
-					'related-posts-title-line-height'      => '',
+					'related-posts-title-line-height'      => '1',
 					'related-posts-title-font-size'        => array(
 						'desktop'      => '20',
 						'tablet'       => '',

@@ -126,3 +126,6 @@ if [ "$SCRIPT_DEBUG" != $SCRIPT_DEBUG_CURRENT ]; then
 	SCRIPT_DEBUG_RESULT=$(wp config get --type=constant --format=json SCRIPT_DEBUG | tr -d '\r')
 	echo -e $(status_message "SCRIPT_DEBUG: $SCRIPT_DEBUG_RESULT...")
 fi
+
+# Enable Related posts.
+wp eval "astra_update_option('enable-related-posts', true);"

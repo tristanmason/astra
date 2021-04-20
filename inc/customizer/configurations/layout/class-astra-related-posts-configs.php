@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
+ * @copyright   Copyright (c) 2021, Astra
  * @link        https://wpastra.com/
  * @since       Astra x.x.x
  */
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'control'  => 'ast-toggle-control',
 					'title'    => __( 'Enable Related Posts', 'astra' ),
 					'section'  => 'section-blog-single',
-					'priority' => 9,
+					'priority' => 10,
 				),
 
 				/**
@@ -332,10 +332,16 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'context'   => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 							'operator' => '==',
 							'value'    => true,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-structure]',
+							'operator' => 'contains',
+							'value'    => 'title-meta',
 						),
 					),
 					'title'     => __( 'Content Colors', 'astra' ),
@@ -376,10 +382,16 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'context'   => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 							'operator' => '==',
 							'value'    => true,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-structure]',
+							'operator' => 'contains',
+							'value'    => 'title-meta',
 						),
 					),
 					'title'     => __( 'Post Title Font', 'astra' ),
@@ -398,10 +410,16 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'context'   => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 							'operator' => '==',
 							'value'    => true,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-structure]',
+							'operator' => 'contains',
+							'value'    => 'title-meta',
 						),
 					),
 					'title'     => __( 'Meta Font', 'astra' ),
