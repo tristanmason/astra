@@ -58,7 +58,7 @@ function astra_related_posts_css( $dynamic_css ) {
 		// Setting up container BG color by default to Related Posts's section BG color.
 		$content_bg_obj     = astra_get_option( 'content-bg-obj-responsive' );
 		$container_bg_color = '#ffffff';
-		if ( isset( $content_bg_obj['desktop'] ) && isset( $content_bg_obj['desktop']['background-color'] ) && '' !== $content_bg_obj['desktop']['background-color'] ) {
+		if ( isset( $content_bg_obj['desktop']['background-color'] ) && '' !== $content_bg_obj['desktop']['background-color'] ) {
 			$container_bg_color = $content_bg_obj['desktop']['background-color'];
 		}
 

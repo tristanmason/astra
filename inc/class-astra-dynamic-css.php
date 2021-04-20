@@ -3572,7 +3572,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				width: 100%;
 				position: relative;
 			}
-			.ast-related-posts-wrapper .ast-related-posts-inner-section {
+			.ast-related-posts-inner-section {
 				height: 100%;
 			}
 			.post-has-thumb + .entry-header, .post-has-thumb + .entry-content {
