@@ -24408,6 +24408,7 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       state = _ref2[0],
       setState = _ref2[1];
 
+  console.log(state);
   Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
     // If settings are changed externally.
     if (state !== value) {
@@ -24435,6 +24436,18 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     }
 
     updateState.palettes[updateState.currentPalette][colorIndex] = value;
+    setState(updateState);
+    props.control.setting.set(_objectSpread(_objectSpread({}, updateState), {}, {
+      flag: !props.control.setting.get().flag
+    }));
+  };
+
+  var _onDeleteColor = function onDeleteColor(index, currentPalette) {
+    var updateState = _objectSpread({}, state);
+
+    console.log(currentPalette);
+    console.log(updateState.palettes[currentPalette][index]);
+    delete updateState.palettes[currentPalette][index];
     setState(updateState);
     props.control.setting.set(_objectSpread(_objectSpread({}, updateState), {}, {
       flag: !props.control.setting.get().flag
@@ -24473,7 +24486,12 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       },
       backgroundType: "color",
       allowGradient: false,
-      allowImage: false
+      allowImage: false,
+      enableDeleteIcon: index > 4 ? true : false,
+      disablePalette: true,
+      onDeleteColor: function onDeleteColor(color) {
+        return _onDeleteColor(index, state.currentPalette);
+      }
     }));
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-add-palette-color-wrap"
@@ -24556,8 +24574,7 @@ var colorPaletteControl = wp.customize.astraControl.extend({
         container.find('.components-button.astra-color-icon-indicate.open').click();
       }
     });
-    var globalPalette = wp.customize.control('astra-settings[global-color-palette]').setting.get();
-    this.setPaletteVariables(globalPalette.palette);
+    var globalPalette = wp.customize.control('astra-settings[global-color-palette]').setting.get(); //this.setPaletteVariables( globalPalette.palette );
   },
   setPaletteVariables: function setPaletteVariables(palette) {
     console.log(palette);
@@ -24862,6 +24879,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
           allowGradient = _this$props.allowGradient,
           allowImage = _this$props.allowImage;
       var disablePalette = this.props.disablePalette;
+      var enableDeleteIcon = this.props.enableDeleteIcon;
 
       var toggleVisible = function toggleVisible() {
         if (refresh === true) {
@@ -24944,7 +24962,12 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         colorValue: "#ffffff"
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__["Dashicon"], {
         icon: "format-image"
-      })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
+      }))), enableDeleteIcon && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", {
+        onClick: this.props.onDeleteColor,
+        className: "ast-color-delete-icon"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", {
+        className: "dashicons dashicons-trash"
+      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "astra-color-picker-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
         className: "astra-popover-color",

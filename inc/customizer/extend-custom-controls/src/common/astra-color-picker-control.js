@@ -52,6 +52,7 @@ class AstraColorPickerControl extends Component {
 		} = this.props
 
 		var disablePalette =  this.props.disablePalette;
+		var enableDeleteIcon = this.props.enableDeleteIcon;
 
 		const toggleVisible = () => {
 			if ( refresh === true ) {
@@ -106,7 +107,7 @@ class AstraColorPickerControl extends Component {
 		let finalpaletteColors = [];
 		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
 
-		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
+		Object.entries(globalColorPalette.palettes).forEach(([ index, color])=>{
 
 			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
 
@@ -129,6 +130,13 @@ class AstraColorPickerControl extends Component {
 						</>
 						}
 					</Button>
+					{ enableDeleteIcon &&
+						<span
+						onClick={this.props.onDeleteColor}
+						className="ast-color-delete-icon" >
+							<span className="dashicons dashicons-trash"></span>
+						</span>
+					}
 				</div>
 				<div className="astra-color-picker-wrap">
 					<>

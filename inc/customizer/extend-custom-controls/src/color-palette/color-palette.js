@@ -42,10 +42,28 @@ const ColorPaletteComponent = (props) => {
 		}
 
 		updateState.palettes[updateState.currentPalette][colorIndex] = value;
+		updateValues(updateState);
+	};
 
-		setState(updateState);
+	const onDeleteColor = (index, color) => {
+		let updateState = {
+			...state,
+		};
+
+		const modifiedColorObj = updateState.palettes[
+			updateState.currentPalette
+		].filter(function (value, colorIndex) {
+			return parseInt(colorIndex) != parseInt(index);
+		});
+
+		updateState.palettes[updateState.currentPalette] = modifiedColorObj;
+		updateValues(updateState);
+	};
+
+	const updateValues = (stateObj) => {
+		setState(stateObj);
 		props.control.setting.set({
-			...updateState,
+			...stateObj,
 			flag: !props.control.setting.get().flag,
 		});
 	};
@@ -56,20 +74,16 @@ const ColorPaletteComponent = (props) => {
 		};
 
 		updateState.palettes[updateState.currentPalette].push("#000000");
-		setState(updateState);
-		props.control.setting.set({ ...updateState, flag: !updateState.flag });
+		updateValues(updateState);
 	};
 
 	const onPaletteChange = (paletteKey) => {
-
 		let updateState = {
 			...state,
 		};
 
 		updateState.currentPalette = paletteKey;
-		setState(updateState);
-		props.control.setting.set({ ...updateState, flag: !updateState.flag });
-
+		updateValues(updateState);
 	};
 
 	var paletteColors = (
@@ -86,6 +100,11 @@ const ColorPaletteComponent = (props) => {
 								backgroundType={"color"}
 								allowGradient={false}
 								allowImage={false}
+								enableDeleteIcon={index > 4 ? true : false}
+								disablePalette={true}
+								onDeleteColor={(color) =>
+									onDeleteColor(index, value)
+								}
 							/>
 						</div>
 					);
@@ -104,14 +123,16 @@ const ColorPaletteComponent = (props) => {
 		<>
 			{Object.keys(state.palettes).map((paletteKey, index) => {
 				return (
-					<div className={ "ast-color-palette-wrap " +
-						( paletteKey === state.currentPalette  ? "active" : "" )
-					} key={index}>
-						<label
-							onClick={() =>
-								onPaletteChange(paletteKey)
-							}
-						>
+					<div
+						className={
+							"ast-color-palette-wrap " +
+							(paletteKey === state.currentPalette
+								? "active"
+								: "")
+						}
+						key={index}
+					>
+						<label onClick={() => onPaletteChange(paletteKey)}>
 							{state.palettes[paletteKey].map((color, index) => {
 								return (
 									<div

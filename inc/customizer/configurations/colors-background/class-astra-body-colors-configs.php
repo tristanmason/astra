@@ -45,13 +45,13 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				),
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[color-palettes]',
+					'name'      => 'astra-color-palettes',
 					'type'      => 'control',
 					'control'   => 'ast-color-palette',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Global Palette', 'astra' ),
-					'default'   => astra_get_option( 'color-palettes', array(
+					'default'   => get_option( 'astra-color-palettes', array(
 						'currentPalette' => 'palette_1',
 						'palettes' => array(
 							'palette_1' => array(

@@ -18,7 +18,7 @@ export const colorPaletteControl = wp.customize.astraControl.extend( {
 		});
 
 		const globalPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
-		this.setPaletteVariables( globalPalette.palette );
+		//this.setPaletteVariables( globalPalette.palette );
 
 	},
 	setPaletteVariables: function( palette ) {
