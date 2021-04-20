@@ -1,6 +1,7 @@
 v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
 - Improvement: Gutenberg Editor - Compatibility with WordPress 5.7.
+- Improvement: Update toolset-config.json towards Toolset 1.5 compatibility. (Props - https://github.com/decodekult)
 - Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
