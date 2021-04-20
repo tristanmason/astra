@@ -75,7 +75,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			'.ast-related-posts-inner-section .ast-date-meta .posted-on .date-month, .ast-related-posts-inner-section .ast-date-meta .posted-on .date-year' => array(
 				'color' => astra_get_foreground_color( $link_color ),
 			),
-			'.ast-single-related-posts-container, .ast-related-posts-wrapper .ast-related-posts-inner-section' => array(
+			'.ast-single-related-posts-container' => array(
 				'background-color' => esc_attr( $related_posts_bg_color ),
 			),
 			/**

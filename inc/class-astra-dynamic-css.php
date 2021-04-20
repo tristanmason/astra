@@ -3572,7 +3572,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				width: 100%;
 				position: relative;
 			}
-			.ast-related-post-featured-section + .entry-header, .ast-related-post-featured-section + .entry-content {
+			.ast-related-posts-wrapper .ast-related-posts-inner-section {
+				height: 100%;
+			}
+			.post-has-thumb + .entry-header, .post-has-thumb + .entry-content {
 				margin-top: 1em;
 			}
 			.ast-related-post-content .entry-meta {
