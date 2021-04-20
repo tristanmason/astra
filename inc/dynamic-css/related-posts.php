@@ -55,9 +55,16 @@ function astra_related_posts_css( $dynamic_css ) {
 		$related_posts_section_title_line_height    = astra_get_option( 'related-posts-section-title-line-height' );
 		$related_posts_section_title_text_transform = astra_get_option( 'related-posts-section-title-text-transform' );
 
+		// Setting up container BG color by default to Related Posts's section BG color.
+		$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
+		$container_bg_color = '#ffffff';
+		if( isset( $content_bg_obj['desktop'] ) && isset( $content_bg_obj['desktop']['background-color'] ) && '' !== $content_bg_obj['desktop']['background-color'] ) {
+			$container_bg_color = $content_bg_obj['desktop']['background-color'];
+		}
+
 		// Related Posts -> Color dyanamic stylings.
 		$related_posts_title_color           = astra_get_option( 'related-posts-title-color' );
-		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', '#ffffff' );
+		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', $container_bg_color );
 		$related_post_text_color             = astra_get_option( 'related-posts-text-color' );
 		$related_posts_meta_color            = astra_get_option( 'related-posts-meta-color' );
 		$related_posts_link_color            = astra_get_option( 'related-posts-link-color' );
