@@ -140,10 +140,7 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		'.ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts' => array(
 			'border-bottom' => 0,
 		),
-		'.ast-separate-container .ast-grid-2 > .site-main > .ast-row:before, .ast-separate-container .ast-grid-2 > .site-main > .ast-row:after, .ast-separate-container .ast-grid-3 > .site-main > .ast-row:before, .ast-separate-container .ast-grid-3 > .site-main > .ast-row:after, .ast-separate-container .ast-grid-4 > .site-main > .ast-row:before, .ast-separate-container .ast-grid-4 > .site-main > .ast-row:after,.ast-plain-container .ast-grid-2 > .site-main > .ast-row:before, .ast-plain-container .ast-grid-2 > .site-main > .ast-row:after, .ast-plain-container .ast-grid-3 > .site-main > .ast-row:before, .ast-plain-container .ast-grid-3 > .site-main > .ast-row:after, .ast-plain-container .ast-grid-4 > .site-main > .ast-row:before, .ast-plain-container .ast-grid-4 > .site-main > .ast-row:after, .ast-page-builder-template .ast-grid-2 > .site-main > .ast-row:before, .ast-page-builder-template .ast-grid-2 > .site-main > .ast-row:after, .ast-page-builder-template .ast-grid-3 > .site-main > .ast-row:before, .ast-page-builder-template .ast-grid-3 > .site-main > .ast-row:after, .ast-page-builder-template .ast-grid-4 > .site-main > .ast-row:before, .ast-page-builder-template .ast-grid-4 > .site-main > .ast-row:after' => array(
-			'flex-basis' => 0,
-			'width'      => 0,
-		),
+		
 		'.ast-separate-container .ast-grid-2 .ast-article-post, .ast-separate-container .ast-grid-3 .ast-article-post, .ast-separate-container .ast-grid-4 .ast-article-post' => array(
 			'display' => 'flex',
 			'padding' => 0,
@@ -162,6 +159,13 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'margin-bottom' => '2.5em',
 		),
 	);
+	
+	if( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+		$tablet_min_css['.ast-separate-container .ast-grid-2 > .site-main > .ast-row:before, .ast-separate-container .ast-grid-2 > .site-main > .ast-row:after, .ast-separate-container .ast-grid-3 > .site-main > .ast-row:before, .ast-separate-container .ast-grid-3 > .site-main > .ast-row:after, .ast-separate-container .ast-grid-4 > .site-main > .ast-row:before, .ast-separate-container .ast-grid-4 > .site-main > .ast-row:after,.ast-plain-container .ast-grid-2 > .site-main > .ast-row:before, .ast-plain-container .ast-grid-2 > .site-main > .ast-row:after, .ast-plain-container .ast-grid-3 > .site-main > .ast-row:before, .ast-plain-container .ast-grid-3 > .site-main > .ast-row:after, .ast-plain-container .ast-grid-4 > .site-main > .ast-row:before, .ast-plain-container .ast-grid-4 > .site-main > .ast-row:after, .ast-page-builder-template .ast-grid-2 > .site-main > .ast-row:before, .ast-page-builder-template .ast-grid-2 > .site-main > .ast-row:after, .ast-page-builder-template .ast-grid-3 > .site-main > .ast-row:before, .ast-page-builder-template .ast-grid-3 > .site-main > .ast-row:after, .ast-page-builder-template .ast-grid-4 > .site-main > .ast-row:before, .ast-page-builder-template .ast-grid-4 > .site-main > .ast-row:after'] = array(
+			'flex-basis' => 0,
+			'width'      => 0,
+		);
+	}
 
 	/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px */
 	$dynamic_css .= astra_parse_css( $tablet_min_css, astra_get_tablet_breakpoint( '', 1 ) );
