@@ -3545,6 +3545,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-related-posts-title {
 				margin: 20px 0;
 			}
+			.ast-related-post-title {
+				word-break: break-word;
+			}
 			.ast-separate-container .ast-related-posts-title {
 				margin: 0 0 20px 0;
 			}
