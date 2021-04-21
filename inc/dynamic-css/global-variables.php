@@ -56,7 +56,18 @@ function astra_css_global_variables( $dynamic_css ) {
 					--entry-header-margin: 2em;
 
 					--comment-border-top: 0;
+					--comment-padding-bottom: 1em;
+					--comment-transparent-color: transparent;
+					--comment-layout-padding: 4em 6.67em;
+					--comment-respond-padding: 3em 2.34em; 
+					--comment-border-bottom: 0;
+					--comment-padding-bottom: 0;
+					--comment-padding-top: 0;
+					--comment-lidepth-padding: 4em 6.67em;
 					--comment-tittle-padding: 1.2em 3.99em 0;
+					--comment-bypostauthor-padding: 2em;
+					--comment-bypostauthor-child-padding: 0 0 0 2em;
+					--comment-list-margin-bottom: 2em;
 				}';
 			}
 			break;
@@ -65,6 +76,10 @@ function astra_css_global_variables( $dynamic_css ) {
 			$global_css_variables = '';
 			break;
 	}
+	$global_css_variables .= '
+	:root {
+		--list-margin-left : 1.5em;
+	}';
 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $global_css_variables );
 

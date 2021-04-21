@@ -231,9 +231,9 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 fieldset {
-  border: 1px solid #eaeaea;
-  margin: 0 0px;
-  padding: 0.35em 0.625em 0.75em;
+  border: var(--fieldset-border, 1px solid #eaeaea);
+  margin: var(--fieldset-margin, 0 0px);
+  padding: var(--fieldset-padding, 0.35em 0.625em 0.75em);
 }
 
 legend {
@@ -440,7 +440,7 @@ body {
 }
 
 ul, ol {
-  margin: 0 0 1.5em 3em;
+  margin: 0 0 var(--list-margin-left) 3em;
 }
 
 ul {
@@ -454,7 +454,7 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
-  margin-left: 1.5em;
+  margin-left: var(--list-margin-left);
 }
 
 dt {
@@ -462,7 +462,7 @@ dt {
 }
 
 dd {
-  margin: 0 1.5em 1.5em;
+  margin: 0 var(--list-margin-left) var(--list-margin-left);
 }
 
 b, strong {
@@ -570,32 +570,6 @@ mark,
 ins {
   background: transparent;
   text-decoration: none;
-}
-
-ul, ol {
-  margin: 0 0 1.5em 3em;
-}
-
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
-}
-
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin: 0 1.5em 1.5em;
 }
 
 table, th, td {
