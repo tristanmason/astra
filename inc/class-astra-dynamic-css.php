@@ -60,10 +60,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * - Variable Declaration
 			 */
-			$is_site_rtl        = is_rtl();
-			$site_content_width = astra_get_option( 'site-content-width', 1200 );
-			$header_logo_width  = astra_get_option( 'ast-header-responsive-logo-width' );
-			$container_layout   = astra_get_option( 'site-content-layout' );
+			$is_site_rtl              = is_rtl();
+			$site_content_width       = astra_get_option( 'site-content-width', 1200 );
+			$header_logo_width        = astra_get_option( 'ast-header-responsive-logo-width' );
+			$container_layout         = astra_get_option( 'site-content-layout' );
+			$desktop_title_visibility = ( ( astra_get_option( 'responsive-display-site-title' ) )['desktop'] ) ? 'block' : 'none';
+			$tablet_title_visibility  = ( ( astra_get_option( 'responsive-display-site-title' ) )['tablet'] ) ? 'block' : 'none';
+			$mobile_title_visibility  = ( ( astra_get_option( 'responsive-display-site-title' ) )['mobile'] ) ? 'block' : 'none';
 
 			// Site Background Color.
 			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
@@ -347,6 +350,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				'.site-title'                    => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
+					'display'   => esc_attr( $desktop_title_visibility ),
 				),
 				'header .custom-logo-link img'   => array(
 					'max-width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
@@ -2040,6 +2044,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.site-title'                    => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'tablet' ),
+					'display'   => esc_attr( $tablet_title_visibility ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
@@ -2133,6 +2138,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.site-title'                    => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'mobile' ),
+					'display'   => esc_attr( $mobile_title_visibility ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),

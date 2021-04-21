@@ -646,6 +646,21 @@ function isJsonString( str ) {
 	} );
 
 	/*
+	 * Responsive Logo Visibility
+	 */
+	wp.customize( 'astra-settings[responsive-display-site-title]', function( setting ) {
+		setting.bind( function( logo_visibility ) {
+			console.log('hellooooooo');
+			console.log(logo_visibility);
+			var desktop_title_visibility  = ( logo_visibility['desktop'] ) ? 'block' : 'none';
+			var tablet_title_visibility  = ( logo_visibility['tablet'] ) ? 'block' : 'none';
+			var mobile_title_visibility  = ( logo_visibility['mobile'] ) ? 'block' : 'none';
+			var dynamicStyle = '.ast-site-title-wrap .site-title { display: ' + desktop_title_visibility + ';} @media( max-width: 921px ) { .ast-site-title-wrap .site-title { display: ' + tablet_title_visibility + ';} } @media( max-width: 544px ) { .ast-site-title-wrap .site-title { display: ' + mobile_title_visibility + ';} }';
+			astra_add_dynamic_css( 'responsive-display-site-title', dynamicStyle );
+		} );
+	} );
+
+	/*
 	 * Full width layout
 	 */
 	wp.customize( 'astra-settings[site-content-width]', function( setting ) {

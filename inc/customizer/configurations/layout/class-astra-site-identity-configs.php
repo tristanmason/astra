@@ -247,6 +247,21 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[responsive-display-site-title]',
+					'type'      => 'control',
+					'control'   => 'ast-responsive-toggle-control',
+					'default'   => astra_get_option( 'responsive-display-site-title' ),
+					'section'   => 'title_tagline',
+					'title'     => __( 'Test responsive Display Site Title', 'astra' ),
+					'priority'  => 7,
+					'transport' => 'postMessage',
+					'partial'   => array(
+						'selector'            => '.site-branding',
+						'container_inclusive' => false,
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
+					),
+				),
 
 				/**
 				 * Option: Divider

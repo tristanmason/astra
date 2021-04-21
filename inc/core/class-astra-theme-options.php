@@ -217,6 +217,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile'  => '',
 					),
 					'display-site-title'                   => 1,
+					'responsive-display-site-title'        => array(
+						'desktop' => 1,
+						'tablet'  => 1,
+						'mobile'  => 1,
+					),
 					'display-site-tagline'                 => 0,
 					'logo-title-inline'                    => 1,
 					// Header - Primary.
