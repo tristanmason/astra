@@ -3227,7 +3227,7 @@ input[type="text"].select2-search__field {
 
 .ast-adv-toggle-icon {
   left: 2px;
-  top: -2px;
+  top: 0;
   position: absolute;
   width: 18px;
   height: 18px;
@@ -3328,7 +3328,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-wrap .ast-field-settings-modal {
   border-radius: 3px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -3535,10 +3535,6 @@ input[type="text"].select2-search__field {
 
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
-}
-
-.customize-control-ast-settings-group .ast-toggle-desc-wrap {
-	line-height: 16px;
 }
 
 .customize-control-ast-slider .wrapper {
