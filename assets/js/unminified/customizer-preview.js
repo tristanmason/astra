@@ -1473,7 +1473,7 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[related-posts-text-color]', 'color', '.ast-related-post-content .ast-related-post-title *, .ast-related-post-content .ast-related-post-excerpt' );
 	astra_css( 'astra-settings[related-posts-meta-color]', 'color', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
 	astra_css( 'astra-settings[related-posts-title-color]', 'color', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
-	astra_css( 'astra-settings[related-posts-background-color]', 'background-color', '.ast-single-related-posts-container, .ast-related-posts-wrapper .ast-related-posts-inner-section' );
+	astra_css( 'astra-settings[related-posts-background-color]', 'background-color', '.ast-single-related-posts-container' );
 	astra_css( 'astra-settings[related-posts-link-color]', 'color', '.ast-related-post-content .ast-related-post-cta a' );
 	astra_css( 'astra-settings[related-posts-link-hover-color]', 'color', '.ast-related-post-content .ast-related-post-cta a:hover' );
 	astra_css( 'astra-settings[related-posts-meta-link-hover-color]', 'color', '.ast-related-post-content .entry-meta a:hover, .ast-related-post-content .entry-meta span a span:hover' );
