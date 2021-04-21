@@ -366,7 +366,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_left_border   = ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '1px';
 			$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '1px';
 
-			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+			if ( Astra_Dynamic_CV_CSS::page_builder_button_style_css() ) {
 				$button_desktop_css = array(
 					/**
 					 * Gutenberg button compatibility for default styling.
@@ -430,7 +430,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( Astra_Dynamic_CSS::gutenberg_core_patterns_compat() ) {
+			if ( Astra_Dynamic_CV_CSS::gutenberg_core_patterns_compat() ) {
 
 				$link_hover_color     = astra_get_option( 'link-h-color' );
 				$btn_text_hover_color = astra_get_option( 'button-h-color' );
@@ -537,7 +537,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $gb_patterns_min_mobile_css );
 			}
 
-			if ( Astra_Dynamic_CSS::gutenberg_core_blocks_css_comp() ) {
+			if ( Astra_Dynamic_CV_CSS::gutenberg_core_blocks_css_comp() ) {
 
 				$desktop_screen_gb_css = array(
 					'.wp-block-columns'                  => array(
@@ -636,7 +636,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( Astra_Dynamic_CSS::gutenberg_core_patterns_compat() ) {
+			if ( Astra_Dynamic_CV_CSS::gutenberg_core_patterns_compat() ) {
 
 				// Added CSS compatibility support for Gutenberg Editor's Media & Text block pattern.
 				if ( $is_site_rtl ) {
