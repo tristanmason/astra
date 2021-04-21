@@ -55,6 +55,8 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 * @since  2.4.5
 			 */
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+
+			add_action( 'elementor/editor/init', array( $this, 'elementor_add_theme_colors' ) );
 		}
 
 		/**
@@ -116,7 +118,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
-				
+
 
 				$dynamic_css .= $parse_css;
 			}
@@ -235,6 +237,96 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			}
 
 			return false;
+		}
+
+		/**
+	 	 * Add theme colors in Elementor global color list.
+	 	*/
+		public function elementor_add_theme_colors() {
+			if ( ! method_exists( \Elementor\Plugin::$instance->kits_manager, 'get_current_settings' ) ) {
+				return;
+			}
+			$current = \Elementor\Plugin::$instance->kits_manager->get_current_settings();
+
+			if ( $current && isset( $current['custom_colors'] ) ) {
+
+				$custom_colors = $current['custom_colors'];
+
+				$editor_palette = array();
+				$extra_color_index = 1;
+				$color_index    = 0;
+				$global_palette = astra_get_option( 'global-color-palette' );
+				$palette_ids = array();
+				$clear_cache = false;
+				$add_colors = true;
+				$skip_color_to_add = array();
+
+				foreach ( $global_palette['palette'] as $key => $color ) {
+
+					if( isset( $global_palette['labels'][ $color_index ] ) ) {
+						$label = $global_palette['labels'][ $color_index ];
+					} else {
+						$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
+						$extra_color_index++;
+					}
+
+					$id = '--ast-global-color-' . $key;
+
+					$editor_palette[] = array(
+						'_id'   => $id,
+						'title' => $label,
+						'color' => $color,
+					);
+					$palette_ids[] = $id;
+					$color_index++;
+				}
+
+				foreach( $custom_colors as $key => $value ) {
+
+					if( is_array( $value ) && isset( $value['_id'] ) && in_array( $value['_id'], $palette_ids ) ) {
+
+						$add_colors = false;
+
+						foreach( $editor_palette as $palette_index => $palette ) {
+							if( $value['_id'] === $palette['_id'] ) {
+								$color = $palette['color'];
+								$skip_color_to_add[] = $palette_index;
+								$custom_colors[ $key ] = $palette;
+								break;
+							}
+						}
+
+						if( $custom_colors[ $key ]['color'] !== $color ) {
+							$clear_cache = true;
+						}
+					}
+				}
+
+				// Add all colors from palette to Elementor global palette.
+				if( $add_colors ) {
+					$custom_colors = array_merge( $editor_palette, $custom_colors );
+				} else {
+
+					$new_colors = array();
+					foreach( $editor_palette as $key => $value ) {
+
+						if( ! in_array( $key, $skip_color_to_add ) ) {
+							$new_colors[] = $value;
+						}
+					}
+
+					// New colors to add to Elementor palette.
+					if ( ! empty( $new_colors ) ) {
+						$custom_colors = array_merge( $new_colors, $custom_colors );
+					}
+				}
+
+				\Elementor\Plugin::$instance->kits_manager->update_kit_settings_based_on_option( 'custom_colors', $custom_colors );
+
+				if( $clear_cache ) {
+					\Elementor\Plugin::instance()->files_manager->clear_cache();
+				}
+			}
 		}
 
 	}
