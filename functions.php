@@ -79,7 +79,7 @@ require_once ASTRA_THEME_DIR . 'inc/extras.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog-config.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/single-blog.php';
-require_once ASTRA_THEME_DIR . 'inc/blog/related-posts.php';
+require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/related-posts.php';
 /**
  * Markup Files
  */
