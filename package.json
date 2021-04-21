@@ -40,6 +40,6 @@
     "env:start": "./bin/local-env/start.sh",
     "env:stop": "./bin/local-env/stop.sh",
     "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site",
-    "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8890/?p=1 '#astra-theme-css-inline-css'"
+    "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8890 '#astra-theme-css-inline-css'"
   }
 }
