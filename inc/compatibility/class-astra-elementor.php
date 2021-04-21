@@ -55,6 +55,8 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 * @since  2.4.5
 			 */
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+
+			add_action( 'elementor/editor/init', array( $this, 'elementor_add_theme_colors' ) );
 		}
 
 		/**
@@ -116,7 +118,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
-				
+
 
 				$dynamic_css .= $parse_css;
 			}
@@ -235,6 +237,23 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			}
 
 			return false;
+		}
+
+		/**
+	 	 * Add some css styles for Restrict Content Pro
+	 	*/
+		public function elementor_add_theme_colors() {
+
+			if ( ! method_exists( \Elementor\Plugin::$instance->kits_manager, 'get_current_settings' ) ) {
+				return;
+			}
+			$current = \Elementor\Plugin::$instance->kits_manager->get_current_settings();
+
+			error_log( print_r( $current, true ) );
+
+			if ( $current && isset( $current['custom_colors'] ) ) {
+
+			}
 		}
 
 	}
