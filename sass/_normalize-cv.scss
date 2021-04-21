@@ -204,9 +204,9 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 fieldset {
-	border: 1px solid #eaeaea;
-	margin: 0 0px;
-	padding: 0.35em 0.625em 0.75em;
+	border: var( --fieldset-border, 1px solid #eaeaea);
+    margin: var( --fieldset-margin, 0 0px);
+    padding: var( --fieldset-padding, 0.35em 0.625em 0.75em);
 }
 
 legend {
