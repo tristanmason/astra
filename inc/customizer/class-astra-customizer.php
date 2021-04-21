@@ -1324,12 +1324,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$localize_array = array(
 				'headerBreakpoint'                     => astra_header_break_point(),
-				'includeAnchorsInHeadindsCss'          => Astra_Dynamic_CSS::anchors_in_css_selectors_heading(),
+				'includeAnchorsInHeadindsCss'          => Astra_Dynamic_CV_CSS::anchors_in_css_selectors_heading(),
 				'googleFonts'                          => Astra_Font_Families::get_google_fonts(),
-				'page_builder_button_style_css'        => Astra_Dynamic_CSS::page_builder_button_style_css(),
-				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
+				'page_builder_button_style_css'        => Astra_Dynamic_CV_CSS::page_builder_button_style_css(),
+				'elementor_default_color_font_setting' => Astra_Dynamic_CV_CSS::elementor_default_color_font_setting(),
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
-				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_core_patterns_compat(),
+				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CV_CSS::gutenberg_core_patterns_compat(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
