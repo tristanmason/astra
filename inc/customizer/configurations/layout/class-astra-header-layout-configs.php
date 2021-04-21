@@ -454,9 +454,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-toggle-control',
 					'context'  => array(
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
-							'operator' => '!=',
-							'value'    => '1',
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => 'in',
+							'value'    => array( 'button', 'text-html' ),
 						),
 					),
 					'default'  => astra_get_option( 'header-display-outside-menu' ),

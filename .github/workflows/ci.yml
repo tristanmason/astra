@@ -1,11 +1,18 @@
-name: Simple Asset Size Reporter
+name: CI
 
 # Run the deployment only when code is committed to the branch.
 on:
   pull_request:
+      branches:
+      - next-release
+      - milestones
+      - release-candidate
+      - master
+      - dev
 
 jobs:
-  assetSizeReporter:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
