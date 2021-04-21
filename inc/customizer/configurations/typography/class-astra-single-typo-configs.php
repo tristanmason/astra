@@ -69,7 +69,6 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'title'     => __( 'Post / Page Title Font', 'astra' ),
 						'section'   => 'section-blog-single',
 						'transport' => 'postMessage',
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
