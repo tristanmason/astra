@@ -653,7 +653,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			// Related Posts Dynamic CSS.
-			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/related-posts.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/dynamic-css/related-posts.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
@@ -3532,7 +3532,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Load static Related Posts CSS.
 		 *
-		 * @since x.x.x
+		 * @since 3.4.0
 		 *
 		 * @return string static css for Related Posts section.
 		 */
@@ -3544,6 +3544,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			.ast-related-posts-title {
 				margin: 20px 0;
+			}
+			.ast-related-post-title {
+				word-break: break-word;
 			}
 			.ast-separate-container .ast-related-posts-title {
 				margin: 0 0 20px 0;
@@ -3569,7 +3572,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				width: 100%;
 				position: relative;
 			}
-			.ast-related-post-featured-section + .entry-header, .ast-related-post-featured-section + .entry-content {
+			.ast-related-posts-inner-section {
+				height: 100%;
+			}
+			.post-has-thumb + .entry-header, .post-has-thumb + .entry-content {
 				margin-top: 1em;
 			}
 			.ast-related-post-content .entry-meta {

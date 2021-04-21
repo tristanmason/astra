@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'related-posts-text-color'             => '',
 					'related-posts-link-color'             => '',
 					'related-posts-title-color'            => '',
-					'related-posts-background-color'       => '#ffffff',
+					'related-posts-background-color'       => '',
 					'related-posts-meta-color'             => '',
 					'related-posts-link-hover-color'       => '',
 					'related-posts-meta-link-hover-color'  => '',

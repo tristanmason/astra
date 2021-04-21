@@ -3,7 +3,7 @@
  * Related Posts Functions
  *
  * @package Astra
- * @since x.x.x
+ * @since 3.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param int $post_id Current Post ID.
  *
- * @since x.x.x
+ * @since 3.4.0
  *
  * @return WP_Query|bool
  */
@@ -71,7 +71,7 @@ function astra_get_related_posts_by_query( $post_id ) {
  * @param boolean $echo   Output print or return.
  * @return string|null
  *
- * @since x.x.x
+ * @since 3.4.0
  */
 function astra_get_related_post_featured_image( $current_post_id, $before = '', $after = '', $echo = true ) {
 	$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
@@ -127,7 +127,7 @@ function astra_get_related_post_featured_image( $current_post_id, $before = '', 
  *
  * @param int $current_post_id current post ID.
  *
- * @since x.x.x
+ * @since 3.4.0
  */
 function astra_get_related_post_title( $current_post_id ) {
 	$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
@@ -153,7 +153,7 @@ function astra_get_related_post_title( $current_post_id ) {
  *
  * @param int $current_post_id current post ID.
  *
- * @since x.x.x
+ * @since 3.4.0
  */
 function astra_get_related_post_excerpt( $current_post_id ) {
 	if ( ! astra_get_option( 'enable-related-posts-excerpt' ) ) {
@@ -192,7 +192,7 @@ function astra_get_related_post_excerpt( $current_post_id ) {
  *
  * @param int $current_post_id current post ID.
  *
- * @since x.x.x
+ * @since 3.4.0
  */
 function astra_get_related_post_read_more( $current_post_id ) {
 	if ( ! astra_get_option( 'enable-related-posts-excerpt' ) ) {
@@ -233,7 +233,7 @@ function astra_get_related_post_read_more( $current_post_id ) {
 /**
  * Related Posts markup.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return bool
  */
 function astra_get_related_posts() {
@@ -340,7 +340,7 @@ function astra_get_related_posts() {
 /**
  * Enable/Disable Single Post -> Related Posts section.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return void
  */
 function astra_related_posts_markup() {
@@ -354,7 +354,7 @@ add_action( 'astra_entry_after', 'astra_related_posts_markup', 10 );
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @param array $classes Classes for the body element.
  * @return array
  */
