@@ -85,9 +85,16 @@ class Astra_Global_Palette {
 	public function format_global_palette( $global_palette ) {
 
 		$editor_palette = array();
+		$extra_color_index = 1;
 		$color_index    = 0;
 		foreach ( $global_palette['palette'] as $key => $color ) {
-			$label = $global_palette['labels'][ $color_index ];
+
+			if( isset( $global_palette['labels'][ $color_index ] ) ) {
+				$label = $global_palette['labels'][ $color_index ];
+			} else {
+				$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
+				$extra_color_index++;
+			}
 
 			$editor_palette[] = array(
 				'name'  => $label,

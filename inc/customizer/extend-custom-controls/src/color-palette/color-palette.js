@@ -66,6 +66,18 @@ const ColorPaletteComponent = (props) => {
 			...stateObj,
 			flag: !props.control.setting.get().flag,
 		});
+
+		let globalPaletteControl = props.customizer.control(
+			"astra-settings[global-color-palette]"
+		);
+
+		var globalPalette = globalPaletteControl.setting.get();
+
+		globalPalette.palette = stateObj.palettes[stateObj.currentPalette];
+		globalPaletteControl.setting.set({
+			...globalPalette,
+			flag: !globalPaletteControl.setting.get().flag,
+		});
 	};
 
 	const addColorToPalette = () => {
