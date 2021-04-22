@@ -814,6 +814,17 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-label-font-size']      = '';
 
 	/**
+	 * Global Color Palette.
+	 */
+	$defaults['selected-color-palette'] = array(
+		'text-color'       => '#3a3a3a',
+		'theme-color'      => '#0274be',
+		'link-color'       => '#0274b2',
+		'link-hover-color' => '#3a3a31',
+		'heading-color'    => '#3a3a3b',
+	);
+
+	/**
 	* Mobile Menu
 	*/
 
@@ -1701,4 +1712,3 @@ function prepare_menu_defaults( $defaults, $index ) {
 
 	return $defaults;
 }
-

@@ -480,7 +480,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
 			'ast-select' : SelectComponent,
-			'ast-divider' : DividerComponent,
+			'ast-divider' : DividerComponent
 		};
 
 		if( astra.customizer.is_pro ) {

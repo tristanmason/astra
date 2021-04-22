@@ -484,6 +484,111 @@
   width: 100%;
 }
 
+#customize-control-astra-global-color-palette
+	.ast-color-palette-wrap
+	> div {
+	margin-bottom: 8px;
+	position: relative;
+}
+
+#customize-control-astra-global-color-palette .color-button-wrap {
+	display: unset;
+	position: unset;
+	left: unset;
+	top: unset;
+	vertical-align: sub;
+}
+
+#customize-control-astra-global-color-palette
+	.astra-color-picker-wrap {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	width: 21em;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-btn-reset-wrap {
+	right: 60px;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-label {
+	width: 65%;
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-label
+	input {
+	background: none;
+	border: none;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-label
+	input:focus {
+	border: 1px solid black;
+	outline: none;
+	box-shadow: none;
+	background: white;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-add-new-color.is-primary {
+	width: 55%;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-wrapper
+	.ast-color-picker-wrap {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.ast-color-palette-wrapper .ast-single-palette-wrap{
+	display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.ast-single-palette-wrap > label {
+	display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.ast-single-palette-wrap .ast-palette-radio-input{
+	width: 15px;
+    height: 15px;
+    flex: 0 0 16px;
+	display: none;
+}
+
+.ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 28px;
+    height: 28px;
+}
+
+#customize-control-astra-global-color-palette .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
+	margin-right: 0;
+}
+
+#customize-control-astra-global-color-palette .ast-reset-btn:disabled {
+	opacity: 0.6;
+}
+
+@media (min-width: 1800px) {
+	#customize-control-astra-global-color-palette
+		.astra-color-picker-wrap {
+		width: 24em;
+	}
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -1472,6 +1577,116 @@
 .customize-control-ast-color-group .ast-control-wrap {
   display: inline-flex;
   width: 100%;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-wrap
+	> div {
+	margin-bottom: 8px;
+	position: relative;
+}
+
+#customize-control-astra-global-color-palette .color-button-wrap {
+	display: unset;
+	position: unset;
+	left: unset;
+	top: unset;
+	vertical-align: sub;
+}
+
+#customize-control-astra-global-color-palette
+	.astra-color-picker-wrap {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	width: 21em;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-btn-reset-wrap {
+	right: 60px;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-label {
+	width: 65%;
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-label
+	input {
+	background: none;
+	border: none;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-label
+	input:focus {
+	border: 1px solid black;
+	outline: none;
+	box-shadow: none;
+	background: white;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-add-new-color.is-primary {
+	width: 55%;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-wrapper
+	.ast-color-picker-wrap {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.ast-color-palette-wrapper .ast-single-palette-wrap{
+	display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.ast-color-palette-wrapper .ast-single-palette-wrap.active {
+	background: #FFFFFF;
+	border-radius: 15px;
+}
+
+.ast-single-palette-wrap > label {
+	display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.ast-single-palette-wrap .ast-palette-radio-input{
+	width: 15px;
+    height: 15px;
+    flex: 0 0 16px;
+	display: none;
+}
+
+.ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
+    width: 28px;
+    height: 28px;
+}
+
+#customize-control-astra-global-color-palette .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
+	margin-right: 0;
+}
+
+#customize-control-astra-global-color-palette .ast-reset-btn:disabled {
+	opacity: 0.6;
+}
+
+@media (min-width: 1800px) {
+	#customize-control-astra-global-color-palette
+		.astra-color-picker-wrap {
+		width: 24em;
+	}
 }
 
  /** Remove Button Color */
