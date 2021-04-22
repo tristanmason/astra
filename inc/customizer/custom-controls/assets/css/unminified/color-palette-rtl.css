@@ -1,6 +1,4 @@
-#customize-control-astra-color-palettes
-	.ast-color-palette-wrap
-	> div {
+#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
 	margin-bottom: 8px;
 	position: relative;
 }
@@ -13,112 +11,111 @@
 	vertical-align: sub;
 }
 
-#customize-control-astra-color-palettes
-	.astra-color-picker-wrap {
+#customize-control-astra-color-palettes .astra-color-picker-wrap {
 	position: absolute;
 	z-index: 1;
 	left: 0;
 	width: 21em;
+	display: none;
 }
 
-#customize-control-astra-color-palettes
-	.ast-color-btn-reset-wrap {
+#customize-control-astra-color-palettes .astra-color-picker-wrap.open {
+	display: block;
+}
+
+#customize-control-astra-color-palettes .ast-color-btn-reset-wrap {
 	right: 60px;
 }
 
-#customize-control-astra-color-palettes
-	.ast-color-palette-label {
+#customize-control-astra-color-palettes .ast-color-palette-label {
 	width: 65%;
 	display: inline-block;
 	margin-left: 10px;
 	vertical-align: top;
 }
 
-#customize-control-astra-color-palettes
-	.ast-color-palette-label
-	input {
+#customize-control-astra-color-palettes .ast-color-palette-label input {
 	background: none;
 	border: none;
 }
 
-#customize-control-astra-color-palettes
-	.ast-color-palette-label
-	input:focus {
+#customize-control-astra-color-palettes .ast-color-palette-label input:focus {
 	border: 1px solid black;
 	outline: none;
 	box-shadow: none;
 	background: white;
 }
 
-#customize-control-astra-color-palettes
-	.ast-add-new-color.is-primary {
+#customize-control-astra-color-palettes .ast-add-new-color.is-primary {
 	width: 55%;
+}
+
+.ast-color-palette-wrapper .ast-single-palette-wrap {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	align-items: center;
+	position: relative;
+}
+
+.ast-single-palette-wrap > label {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.ast-single-palette-wrap .ast-palette-radio-input {
+	width: 15px;
+	height: 15px;
+	flex: 0 0 16px;
+	display: none;
+}
+
+.ast-single-palette-wrap
+	.components-button.astra-color-icon-indicate
+	.component-color-indicator.astra-advanced-color-indicate {
+	width: 28px;
+	height: 28px;
+}
+
+#customize-control-astra-color-palettes
+	.ast-color-palette-wrapper
+	.ast-color-picker-wrap:first-child {
+	margin-right: 0;
 }
 
 #customize-control-astra-color-palettes
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
-	display: inline-block;
-	margin-right: 10px;
-}
-
-.ast-color-palette-wrapper .ast-single-palette-wrap{
-	display: flex;
-    height: 50px;
-    align-items: center;
-    position: relative;
-	flex-wrap: wrap;
-}
-
-.ast-single-palette-wrap > label {
-	display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.ast-single-palette-wrap .ast-palette-radio-input{
-	width: 15px;
-    height: 15px;
-    flex: 0 0 16px;
-	display: none;
-}
-
-.ast-single-palette-wrap .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
-    width: 28px;
-    height: 28px;
-}
-
-#customize-control-astra-color-palettes .ast-color-palette-wrapper .ast-color-picker-wrap:first-child{
-	margin-right: 0;
+	margin-top: 12px;
 }
 
 #customize-control-astra-color-palettes .ast-reset-btn:disabled {
 	opacity: 0.6;
 }
 
-#customize-control-astra-color-palettes .ast-single-color-container{
+#customize-control-astra-color-palettes .ast-single-color-container {
 	width: 20%;
-    height: 100%;
+	height: 100%;
 	display: inline-block;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap{
+#customize-control-astra-color-palettes .ast-color-palette-wrap {
 	height: 40px;
-    width: 30%;
+	width: 30%;
 	float: right;
-    margin-right: 12px;
+	margin-right: 12px;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap.active{
-	outline: 3px solid #037FB8;
+#customize-control-astra-color-palettes .ast-color-palette-wrap.active {
+	outline: 3px solid #037fb8;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrapper{
+#customize-control-astra-color-palettes .ast-color-palette-wrapper {
 	clear: both;
 	margin-top: 10px;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap:first-child{
+#customize-control-astra-color-palettes .ast-color-palette-wrap:first-child {
 	margin-right: 0;
 }
 
@@ -127,36 +124,34 @@
 	padding: 2px;
 }
 
-
-#customize-control-astra-color-palettes .ast-add-palette-color-wrap{
-	margin-right: 10px;
-    border: 1px solid black;
-    border-radius: 100%;
-    padding: 3px;
+#customize-control-astra-color-palettes
+	.ast-add-palette-color-wrap
+	.dashicons-plus {
+	padding: 2px;
+	border: 1px solid grey;
+	border-radius: 100%;
+	font-weight: 100;
+	margin-top: 10px;
 	cursor: pointer;
 }
 
 #customize-control-astra-color-palettes .ast-color-delete-icon {
 	position: absolute;
-    top: -21px;
-    left: 0;
-    height: 10px;
-    width: 10px;
-	display: none;
+	top: -21px;
+	left: 0;
+	height: 10px;
+	width: 10px;
 	cursor: pointer;
 }
 
-#customize-control-astra-color-palettes .ast-color-delete-icon .dashicons-trash{
-    font-size: 15px;
-}
-
-#customize-control-astra-color-palettes .ast-color-picker-wrap:hover .ast-color-delete-icon{
-	display: block;
+#customize-control-astra-color-palettes
+	.ast-color-delete-icon
+	.dashicons-trash {
+	font-size: 15px;
 }
 
 @media (min-width: 1800px) {
-	#customize-control-astra-color-palettes
-		.astra-color-picker-wrap {
+	#customize-control-astra-color-palettes .astra-color-picker-wrap {
 		width: 24em;
 	}
 }

@@ -114,7 +114,9 @@ class AstraColorPickerControl extends Component {
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: index, color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
-		})
+		});
+
+		const pickerClass = isVisible ? 'open' : '';
 
 		return (
 			<>
@@ -138,7 +140,7 @@ class AstraColorPickerControl extends Component {
 						</span>
 					}
 				</div>
-				<div className="astra-color-picker-wrap">
+				<div className={`astra-color-picker-wrap ${pickerClass}`}>
 					<>
 						{ isVisible && (
 							<div className="astra-popover-color" onClose={ toggleClose }>
