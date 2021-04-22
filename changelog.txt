@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
@@ -9,7 +8,7 @@ v3.4.0 (Unreleased)
 - Fix: Builder - HTML - If element is used in Primary Header & line-height is blank in element then it's inheriting from Primary Header bar which is 3em.
 - Fix: Builder - Footer - Background Color picker popup cutting at it's edge in Footer Builder section.
 - Fix: Menu Hover/Active link not working in Customizer & Frontend for tablet & mobile.
-=======
+
 v3.3.2
 - Fix: Transparent Header disappears if we add Widget 2 element.
 - Fix: Builder - Multiple headers visible on frontend.
@@ -19,7 +18,6 @@ v3.3.2
 v3.3.1
 - Fix: WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
 - Fix: Fatal error on sites due to incorrect migration flag.
->>>>>>> 444bfd6c57f0f106599da6bf5d88537e705258fd
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
