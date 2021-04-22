@@ -1765,6 +1765,7 @@
 	border: 1px solid grey;
 	border-radius: 100%;
 	font-weight: 100;
+	margin-top: 10px;
 	cursor: pointer;
 }
 
