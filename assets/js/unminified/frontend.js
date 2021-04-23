@@ -367,9 +367,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener('resize', function () {
 
-		var menu_offcanvas_close = document.getElementById('menu-toggle-close');
-		var menu_dropdown_close = document.querySelector('.menu-toggle.toggled');
-		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
+		var astraBodyElement = document.querySelector('body[CLASS*="astra-"]');
+		var menu_offcanvas_close = astraBodyElement.getElementById('menu-toggle-close');
+		var menu_dropdown_close = astraBodyElement.querySelector('.menu-toggle.toggled');
+		var desktop_header_content = astraBodyElement.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
 		if ( menu_dropdown_close ) {
 			menu_dropdown_close.click();
 		}
