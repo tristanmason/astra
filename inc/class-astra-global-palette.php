@@ -130,6 +130,15 @@ class Astra_Global_Palette {
 				$palette_style[ ':root .has' . $palette_key . '-background-color' ] = array(
 					'background-color' => 'var(' . $variable_prefix . $key . ')',
 				);
+
+				$palette_style[ ':root .wp-block-button .has' . $palette_key . '-color' ] = array(
+					'color' => 'var(' . $variable_prefix . $key . ')',
+				);
+
+				$palette_style[ ':root .wp-block-button .has' . $palette_key . '-background-color' ] = array(
+					'background-color' => 'var(' . $variable_prefix . $key . ')',
+				);
+
 			}
 		}
 
