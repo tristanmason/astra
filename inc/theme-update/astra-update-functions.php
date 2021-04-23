@@ -2926,7 +2926,7 @@ function astra_check_flex_based_css() {
 function astra_update_cart_style() {
 
 	$theme_options = get_option( 'astra-settings', array() );
-	
+
 	if ( isset( $theme_options['woo-header-cart-icon-style'] ) && 'none' === $theme_options['woo-header-cart-icon-style'] ) {
 		$theme_options['woo-header-cart-icon-style']  = 'outline';
 		$theme_options['header-woo-cart-icon-color']  = '';
@@ -2941,4 +2941,32 @@ function astra_update_cart_style() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
+}
+
+function astra_update_global_colors() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+
+	/// Options mapping to global palette colors index.
+	$global_color_options_mapping = array(
+		'text-color'         => 3,
+		'theme-color'        => 0,
+		'link-color'         => 0,
+		'link-h-color'       => 1,
+		'heading-base-color' => 2
+	);
+
+	$global_palette_default_options =  Astra_Global_Palette::get_default_color_palette();
+
+	foreach( $global_color_options_mapping as $option => $palette_index ) {
+
+		$existing_color = $theme_options[ $option ];
+		$global_palette_default_options[ 'palettes' ]['palette_1'][$palette_index] = $existing_color;
+		$theme_options[ $option ] = 'var(' . $palette_css_var_prefix .  $palette_index .')';
+	}
+
+	update_option( 'astra-settings', $theme_options );
+	update_option( 'astra-color-palettes', $global_palette_default_options );
+
 }

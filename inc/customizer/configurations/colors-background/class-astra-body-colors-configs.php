@@ -51,47 +51,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Global Palette', 'astra' ),
-					'default'   => get_option(
-						'astra-color-palettes',
-						array(
-							'currentPalette' => 'palette_1',
-							'palettes'       => array(
-								'palette_1' => array(
-									'#3a3a3a',
-									'#0274be',
-									'#0274b2',
-									'#3a3a31',
-									'#3a3a3b',
-									'#7B8794',
-									'#52606D',
-									'#3E4C59',
-									'#F3F4F7',
-								),
-								'palette_2' => array(
-									'#26bcdb',
-									'#1f90a6',
-									'#121212',
-									'#1a1a1a',
-									'#1a1a1a',
-									'#7B8794',
-									'#52606D',
-									'#3E4C59',
-									'#F3F4F7',
-								),
-								'palette_3' => array(
-									'#77b978',
-									'#f37262',
-									'#0e509a',
-									'#393939',
-									'#3a3a3b',
-									'#7B8794',
-									'#52606D',
-									'#3E4C59',
-									'#F3F4F7',
-								),
-							),
-						)
-					),
+					'default'   => get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() ),
 					'transport' => 'postMessage',
 				),
 
