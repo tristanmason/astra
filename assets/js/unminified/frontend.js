@@ -367,10 +367,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener('resize', function () {
 
-		var menu_offcanvas_close = document.getElementById('menu-toggle-close');
-		var menu_dropdown_close = document.querySelector('.menu-toggle.toggled');
-		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
-		if ( menu_dropdown_close ) {
+		var menu_offcanvas_close 	= document.getElementById('menu-toggle-close');
+		var menu_dropdown_close 	= document.querySelector('.menu-toggle.toggled');
+		var desktop_header_content	= document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
+		var elementor_editor 		= document.querySelector('.elementor-editor-active');
+		if ( menu_dropdown_close && null === elementor_editor) {
 			menu_dropdown_close.click();
 		}
 		if ( desktop_header_content ) {
@@ -378,7 +379,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 
-		if( menu_offcanvas_close ) {
+		if( menu_offcanvas_close && null === elementor_editor ) {
 			menu_offcanvas_close.click();
 		}
 

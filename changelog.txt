@@ -1,5 +1,6 @@
 v3.3.3
 - Fix: Elementor - Theme Builder archive page contents are not aligned center.
+- Fix: Elementor - Elementor editor panel switches back to the main panel while using the responsive view.
 
 v3.3.2
 - Fix: Transparent Header disappears if we add Widget 2 element.
