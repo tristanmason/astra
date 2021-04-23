@@ -484,9 +484,6 @@
   width: 100%;
 }
 
-<<<<<<< HEAD
-#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
-=======
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
   top: 47px;
 }
@@ -499,10 +496,7 @@
   top: 73px;
 }
 
-#customize-control-astra-global-color-palette
-	.ast-color-palette-wrap
-	> div {
->>>>>>> f0274628d0d75e6c25f44549b60cd9fc8cc5c573
+#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
 	margin-bottom: 8px;
 	position: relative;
 }
@@ -1615,8 +1609,21 @@
   width: 100%;
 }
 
-<<<<<<< HEAD
-#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
+  top: 47px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 50px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+  top: 73px;
+}
+
+#customize-control-astra-global-color-palette
+	.ast-color-palette-wrap
+	> div {
 	margin-bottom: 8px;
 	position: relative;
 }
@@ -1736,18 +1743,6 @@
 	#customize-control-astra-color-palettes .astra-color-picker-wrap {
 		width: 24em;
 	}
-=======
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
-  top: 47px;
-}
-
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
-  top: 50px;
-}
-
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
-  top: 73px;
->>>>>>> f0274628d0d75e6c25f44549b60cd9fc8cc5c573
 }
 
  /** Remove Button Color */
