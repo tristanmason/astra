@@ -2960,13 +2960,18 @@ function astra_update_global_colors() {
 	$global_palette_default_options =  Astra_Global_Palette::get_default_color_palette();
 
 	foreach( $global_color_options_mapping as $option => $palette_index ) {
-
 		$existing_color = $theme_options[ $option ];
 		$global_palette_default_options[ 'palettes' ]['palette_1'][$palette_index] = $existing_color;
 		$theme_options[ $option ] = 'var(' . $palette_css_var_prefix .  $palette_index .')';
 	}
 
+	$global_color_palette = array(
+		'labels'  => Astra_Global_Palette::get_palette_labels(),
+		'palette' => $global_palette_default_options[ 'palettes' ]['palette_1']
+	);
+
+	$theme_options['global-color-palette'] = $global_color_palette;
+
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'astra-color-palettes', $global_palette_default_options );
-
 }

@@ -79,6 +79,16 @@ class Astra_Global_Palette {
 		);
 	}
 
+	public static function get_palette_labels() {
+		return array(
+			__( 'Text Color', 'astra' ),
+			__( 'Theme color', 'astra' ),
+			__( 'Link color', 'astra' ),
+			__( 'Link Hover Color', 'astra' ),
+			__( 'Heading Color', 'astra' ),
+		);
+	}
+
 	/**
 	 * Include required files.
 	 *
