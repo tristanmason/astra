@@ -25,6 +25,7 @@ class Astra_Global_Palette {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		$this->includes();
 	}
 
 	/**
@@ -35,6 +36,15 @@ class Astra_Global_Palette {
 	 */
 	public static function get_css_variable_prefix() {
 		return '--ast-global-color-';
+	}
+
+	/**
+	 * Include required files.
+	 *
+	 * @since x.x.x
+	 */
+	public function includes() {
+		require_once ASTRA_THEME_DIR . 'inc/dynamic-css/global-color-palette.php';// PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**
@@ -84,12 +94,12 @@ class Astra_Global_Palette {
 	 */
 	public function format_global_palette( $global_palette ) {
 
-		$editor_palette = array();
+		$editor_palette    = array();
 		$extra_color_index = 1;
-		$color_index    = 0;
+		$color_index       = 0;
 		foreach ( $global_palette['palette'] as $key => $color ) {
 
-			if( isset( $global_palette['labels'][ $color_index ] ) ) {
+			if ( isset( $global_palette['labels'][ $color_index ] ) ) {
 				$label = $global_palette['labels'][ $color_index ];
 			} else {
 				$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
@@ -105,45 +115,6 @@ class Astra_Global_Palette {
 		}
 
 		return $editor_palette;
-	}
-
-	/**
-	 * Generate editor style on front end compatible for global palette.
-	 *
-	 * @since x.x.x
-	 * @return array
-	 */
-	public static function generate_frontend_editor_style() {
-
-		$global_palette  = astra_get_option( 'global-color-palette' );
-		$palette_style   = array();
-		$variable_prefix = self::get_css_variable_prefix();
-
-		if ( isset( $global_palette ) ) {
-			foreach ( $global_palette['palette'] as $key => $color ) {
-				$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
-
-				$palette_style[ ':root .has' . $palette_key . '-color' ] = array(
-					'color' => 'var(' . $variable_prefix . $key . ')',
-				);
-
-				$palette_style[ ':root .has' . $palette_key . '-background-color' ] = array(
-					'background-color' => 'var(' . $variable_prefix . $key . ')',
-				);
-
-				$palette_style[ ':root .wp-block-button .has' . $palette_key . '-color' ] = array(
-					'color' => 'var(' . $variable_prefix . $key . ')',
-				);
-
-				$palette_style[ ':root .wp-block-button .has' . $palette_key . '-background-color' ] = array(
-					'background-color' => 'var(' . $variable_prefix . $key . ')',
-				);
-
-			}
-		}
-
-		return $palette_style;
-
 	}
 }
 

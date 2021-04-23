@@ -833,7 +833,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'#7B8794',
 			'#52606D',
 			'#3E4C59',
-			'#F3F4F7'
+			'#F3F4F7',
 		),
 	);
 

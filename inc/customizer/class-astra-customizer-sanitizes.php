@@ -410,7 +410,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			}
 
 			// CSS variable value sanitize.
-			if( 0 === strpos( $color, 'var(--' ) ) {
+			if ( 0 === strpos( $color, 'var(--' ) ) {
 				return preg_replace( '/[^A-Za-z0-9_)(\-,.]/', '', $color );
 			}
 
