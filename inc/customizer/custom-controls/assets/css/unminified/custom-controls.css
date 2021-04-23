@@ -502,11 +502,6 @@
 	z-index: 1;
 	right: 0;
 	width: 21em;
-	display: none;
-}
-
-#customize-control-astra-color-palettes .astra-color-picker-wrap.open {
-	display: block;
 }
 
 #customize-control-astra-color-palettes .ast-color-btn-reset-wrap {
@@ -532,35 +527,18 @@
 	background: white;
 }
 
-#customize-control-astra-color-palettes .ast-add-new-color.is-primary {
-	width: 55%;
-}
-
 .ast-color-palette-wrapper .ast-single-palette-wrap {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(9, 1fr);
 	align-items: center;
 	position: relative;
-}
-
-.ast-single-palette-wrap > label {
-	display: flex;
-	align-items: center;
-	height: 100%;
-}
-
-.ast-single-palette-wrap .ast-palette-radio-input {
-	width: 15px;
-	height: 15px;
-	flex: 0 0 16px;
-	display: none;
 }
 
 .ast-single-palette-wrap
 	.components-button.astra-color-icon-indicate
 	.component-color-indicator.astra-advanced-color-indicate {
-	width: 28px;
-	height: 28px;
+	width: 25px;
+	height: 25px;
 }
 
 #customize-control-astra-color-palettes
@@ -586,10 +564,11 @@
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap {
-	height: 40px;
+	height: 50px;
 	width: 30%;
 	float: left;
 	margin-left: 12px;
+	position: relative;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap.active {
@@ -610,30 +589,15 @@
 	padding: 2px;
 }
 
-#customize-control-astra-color-palettes
-	.ast-add-palette-color-wrap
-	.dashicons-plus {
-	padding: 2px;
-	border: 1px solid grey;
-	border-radius: 100%;
-	font-weight: 100;
-	margin-top: 10px;
-	cursor: pointer;
-}
-
-#customize-control-astra-color-palettes .ast-color-delete-icon {
+#customize-control-astra-color-palettes .ast-palette-label-wrap{
 	position: absolute;
-	top: -21px;
-	right: 0;
-	height: 10px;
-	width: 10px;
-	cursor: pointer;
-}
-
-#customize-control-astra-color-palettes
-	.ast-color-delete-icon
-	.dashicons-trash {
-	font-size: 15px;
+    bottom: -1%;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+    color: #FFF;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
 }
 
 @media (min-width: 1800px) {

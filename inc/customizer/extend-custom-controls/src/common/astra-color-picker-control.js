@@ -116,8 +116,6 @@ class AstraColorPickerControl extends Component {
 			finalpaletteColors.push( paletteColors );
 		});
 
-		const pickerClass = isVisible ? 'open' : '';
-
 		return (
 			<>
 				<div className="color-button-wrap">
@@ -132,15 +130,8 @@ class AstraColorPickerControl extends Component {
 						</>
 						}
 					</Button>
-					{ enableDeleteIcon &&
-						<span
-						onClick={this.props.onDeleteColor}
-						className="ast-color-delete-icon" >
-							<span className="dashicons dashicons-trash"></span>
-						</span>
-					}
 				</div>
-				<div className={`astra-color-picker-wrap ${pickerClass}`}>
+				<div className="astra-color-picker-wrap">
 					<>
 						{ isVisible && (
 							<div className="astra-popover-color" onClose={ toggleClose }>
