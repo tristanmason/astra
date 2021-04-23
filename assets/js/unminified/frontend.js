@@ -368,7 +368,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	window.addEventListener('resize', function () {
 
 		var astraBodyElement = document.querySelector('body[CLASS*="astra-"]');
-		var menu_offcanvas_close = astraBodyElement.getElementById('menu-toggle-close');
+		var menu_offcanvas_close = astraBodyElement.querySelector('#menu-toggle-close');
 		var menu_dropdown_close = astraBodyElement.querySelector('.menu-toggle.toggled');
 		var desktop_header_content = astraBodyElement.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
 		if ( menu_dropdown_close ) {
