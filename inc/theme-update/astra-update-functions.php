@@ -2943,8 +2943,13 @@ function astra_update_cart_style() {
 	update_option( 'astra-settings', $theme_options );
 }
 
+/**
+ * Update global palette colors in DB.
+ *
+ * @since x.x.x
+ * @return void
+ */
 function astra_update_global_colors() {
-
 	$theme_options = get_option( 'astra-settings', array() );
 	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
 
@@ -2961,7 +2966,10 @@ function astra_update_global_colors() {
 
 	foreach( $global_color_options_mapping as $option => $palette_index ) {
 		$existing_color = $theme_options[ $option ];
+		// Save color values in first palette.
 		$global_palette_default_options[ 'palettes' ]['palette_1'][$palette_index] = $existing_color;
+
+		// Save CSS variable value in color options.
 		$theme_options[ $option ] = 'var(' . $palette_css_var_prefix .  $palette_index .')';
 	}
 

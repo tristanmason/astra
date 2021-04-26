@@ -25,6 +25,7 @@ class Astra_Global_Palette {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		add_filter( 'astra_before_fg_color_generate', array( $this, 'get_color_by_palette_variable' ) );
 		$this->includes();
 	}
 
@@ -144,7 +145,6 @@ class Astra_Global_Palette {
 	 * @return bool
 	 */
 	public function format_global_palette( $global_palette ) {
-
 		$editor_palette    = array();
 		$extra_color_index = 1;
 		$color_index       = 0;
@@ -166,6 +166,30 @@ class Astra_Global_Palette {
 		}
 
 		return $editor_palette;
+	}
+
+	/**
+	 * Pass hex value for global palette to process forground color.
+	 *
+	 * @since x.x.x
+	 * @param string $hex hex color / css variable.
+	 * @return string
+	 */
+	public function get_color_by_palette_variable( $color ) {
+		// Check if color is CSS variable.
+		if( 0 === strpos( $color, 'var(--' ) ) {
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+
+			foreach( $global_palette['palette'] as $palette_index => $value ) {
+
+				if( $color == 'var(' . self::get_css_variable_prefix() . $palette_index . ')' ) {
+					return $value;
+				}
+			}
+		}
+
+		return $color;
 	}
 }
 
