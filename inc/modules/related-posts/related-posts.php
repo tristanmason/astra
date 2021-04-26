@@ -310,7 +310,7 @@ function astra_get_related_posts() {
 						sprintf(
 							'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
 							'h2',
-							esc_html__( 'Related Posts', 'astra-addon' )
+							esc_html__( 'Related Posts', 'astra' )
 						)
 					);
 
