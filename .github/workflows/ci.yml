@@ -9,6 +9,7 @@ on:
       - release-candidate
       - master
       - single-post-cv
+      - dev
 
 jobs:
   build:

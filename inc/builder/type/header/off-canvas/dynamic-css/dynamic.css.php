@@ -50,7 +50,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	if ( 'dropdown' === $mobile_header_type || is_customize_preview() ) {
 		$dynamic_css .= astra_dropdown_type_static_css();
 	}
-	
+
 	/**
 	 * Off-Canvas CSS.
 	 */
@@ -59,7 +59,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-mobile-popup-inner' => astra_get_background_obj( $off_canvas_background ),
 
 		'.ast-mobile-header-wrap .ast-mobile-header-content, .ast-desktop-header-content' => astra_get_background_obj( $off_canvas_background ),
-		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array( 
+		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array(
 			// Padding CSS.
 			'padding-top'    => astra_responsive_spacing( $padding, 'top', 'desktop' ),
 			'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', 'desktop' ),
@@ -85,7 +85,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 
 	// Tablet CSS.
 	$css_output_tablet = array(
-		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array( 
+		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array(
 			// Padding CSS.
 			'padding-top'    => astra_responsive_spacing( $padding, 'top', 'tablet' ),
 			'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', 'tablet' ),
@@ -96,7 +96,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 
 	$css_output_mobile = array(
 
-		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array( 
+		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array(
 			// Padding CSS.
 			'padding-top'    => astra_responsive_spacing( $padding, 'top', 'mobile' ),
 			'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', 'mobile' ),
@@ -113,9 +113,9 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 	return $dynamic_css;
 }
 
-/** 
+/**
  * Add static CSS for Off-canvas flyout.
- * 
+ *
  * @since x.x.x
  * @return string.
  */
@@ -186,12 +186,12 @@ function astra_off_canvas_static_css() {
 	  padding: 10px 0;
 	  height: auto;
 	}
-	
+
 	.ast-mobile-popup-content > *:first-child,
 	.ast-desktop-popup-content > *:first-child{
 	  padding-top: 10px;
 	}
-	
+
 	.ast-mobile-popup-content > .ast-builder-menu,
 	.ast-desktop-popup-content > .ast-builder-menu{
 	  padding-top: 0;
@@ -205,7 +205,7 @@ function astra_off_canvas_static_css() {
 	.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-icon {
 	  display: none;
 	}
-	
+
 	.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search label,
 	.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.ast-inline-search label {
 	  width: 100%;
@@ -217,7 +217,7 @@ function astra_off_canvas_static_css() {
 		height: .85em;
 		width: .95em;
 		margin-top: 15px;
-	}  
+	}
 	.ast-mobile-popup-content .ast-icon.icon-search svg {
 		margin-top: 0;
 	}
@@ -259,6 +259,8 @@ function astra_off_canvas_static_css() {
 			display: flex;
 			flex-direction: column;
 			transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+			overflow-y:auto;
+			overflow-x:hidden;
 		}
 		.ast-mobile-popup-drawer.ast-mobile-popup-left .ast-mobile-popup-inner {
 			transform: translateX(-100%);
@@ -301,7 +303,7 @@ function astra_off_canvas_static_css() {
 			display: block;
 			overflow: hidden;
 		}
-		
+
 		.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search .search-field,
 		.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field,
 		.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.ast-inline-search .search-field,
@@ -346,6 +348,8 @@ function astra_off_canvas_static_css() {
 			display: flex;
 			flex-direction: column;
 			transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+			overflow-y:auto;
+			overflow-x:hidden;
 		}
 		.ast-mobile-popup-drawer.ast-mobile-popup-left .ast-mobile-popup-inner {
 			transform: translateX(-100%);
@@ -388,7 +392,7 @@ function astra_off_canvas_static_css() {
 			display: block;
 			overflow: hidden;
 		}
-		
+
 		.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon.ast-inline-search .search-field,
 		.ast-mobile-popup-drawer .ast-mobile-popup-content .ast-search-menu-icon .search-field,
 		.ast-mobile-popup-drawer .ast-desktop-popup-content .ast-search-menu-icon.ast-inline-search .search-field,
@@ -411,9 +415,9 @@ function astra_off_canvas_static_css() {
 }
 
 
-/** 
+/**
  * Add static CSS for Dropdown Type.
- * 
+ *
  * @since x.x.x
  * @return string.
  */
@@ -432,7 +436,7 @@ function astra_dropdown_type_static_css() {
 	.ast-desktop-header-content > .ast-builder-menu {
 	  padding-top: 0;
 	}
-	
+
 	.ast-mobile-header-content > *:last-child,
 	.ast-desktop-header-content > *:last-child {
 	  padding-bottom: 0;
