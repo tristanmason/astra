@@ -405,7 +405,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[related-posts-meta-typography-group]',
 					'type'      => 'control',
-					'priority'  => 19,
+					'priority'  => 18,
 					'control'   => 'ast-settings-group',
 					'context'   => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
