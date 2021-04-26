@@ -286,10 +286,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			);
 
 			if ( false === Astra_Icons::is_svg_icons() ) {
-				$css['.main-header-bar-navigation .menu-item-has-children > .menu-link:after'] = array(
+				$css['.main-header-bar-navigation .menu-item-has-children > .menu-link:after']                          = array(
 					'content' => 'none',
 				);
-				$css['.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before'] = array(
+				$css['.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before']                                  = array(
 					'content' => "\e5cd",
 				);
 				$css['.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before'] = array(
@@ -1071,7 +1071,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			);
 
 			if ( false === Astra_Icons::is_svg_icons() ) {
-				$astra_break_point_navigation['.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before'] = array(
+				$astra_break_point_navigation['.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before']     = array(
 					'content'         => '"\e900"',
 					'font-family'     => '"Astra"',
 					'font-size'       => '0.65em',
@@ -1090,11 +1090,11 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			} else {
 				$astra_break_point_navigation['[data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-buttons-minimal'] = array(
 					'background' => 'transparent',
-					'border'         => 'none',
+					'border'     => 'none',
 				);
 			}
 
-			$parse_css                   .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
+			$parse_css .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
 
 			return $parse_css;
 		}
