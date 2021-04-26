@@ -57,6 +57,9 @@ function astra_css_global_variables( $dynamic_css ) {
 
 					--comment-border-top: 0;
 					--comment-tittle-padding: 1.2em 3.99em 0;
+					--comment-depth-1-padding: 4em 6.67em;
+					--comment-depth-1-margin: 0 0 2em 0;
+					--comment-reply-title-padding: 0;
 				}';
 			}
 			break;

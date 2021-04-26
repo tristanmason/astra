@@ -605,32 +605,6 @@ body {
   font-style: normal;
 }
 
-ul, ol {
-  margin: 0 3em 1.5em 0;
-}
-
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
-}
-
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-right: 1.5em;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin: 0 1.5em 1.5em;
-}
-
 b,
 strong {
   font-weight: bold;
@@ -3904,20 +3878,13 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .single .entry-header {
-  margin-bottom: var(--entry-header-margin);
+  margin-bottom: 2em;
 }
 
 .single .post-navigation {
   margin: 0;
-  padding: var(--post-navigation-padding);
-  border-top: var(--post-navigation-border);
-}
-
-@media (max-width: 420px) {
-  .single .post-navigation {
-    padding-right: 0;
-    padding-left: 0;
-  }
+  padding: 2em 0 0;
+  border-top: 1px solid #eeeeee;
 }
 
 @media (max-width: 768px) {
@@ -3999,6 +3966,25 @@ input[type="color"]::-webkit-color-swatch {
 .post-password-form input[type="submit"] {
   padding: 10px 20px;
   border-radius: 2px;
+}
+
+.ast-separate-container .post-navigation {
+  border-top: 0;
+  padding-right: 3.33333em;
+  padding-left: 3.33333em;
+}
+
+@media (max-width: 420px) {
+  .ast-separate-container .post-navigation {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ast-separate-container .entry-header {
+    margin-bottom: 1em;
+  }
 }
 
 /*----------  404  ----------*/

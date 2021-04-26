@@ -37,10 +37,6 @@ body {
 
 //separate container content layout
 .ast-separate-container{
-	.ast-article-single {
-		border-bottom: 0;
-	}
-
 	@media (max-width: $mx-col-xl) {
 		.ast-article-post,
 		.ast-article-single {
