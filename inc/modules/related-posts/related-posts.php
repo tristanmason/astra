@@ -22,14 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 function astra_get_related_posts_by_query( $post_id ) {
 	$term_ids                  = array();
 	$current_post_type         = get_post_type( $post_id );
-	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 ) + 1; // Taking one post extra in loop because if current post excluded from while loop then this extra one post will cover total post count. Apperently avoided 'post__not_in' from WP_Query.
+	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 );
+	// Taking one post extra in loop because if current post excluded from while loop then this extra one post will cover total post count. Apperently avoided 'post__not_in' from WP_Query.
+	$updated_total_posts_count = ( $related_posts_total_count >= 1 ) ? ( $related_posts_total_count + 1 ) : $related_posts_total_count;
 	$related_posts_order_by    = astra_get_option( 'related-posts-order-by', 'date' );
 	$related_posts_order       = astra_get_option( 'related-posts-order', 'desc' );
 	$related_posts_based_on    = astra_get_option( 'related-posts-based-on', 'categories' );
 
 	$query_args = array(
 		'update_post_meta_cache' => false,
-		'posts_per_page'         => $related_posts_total_count,
+		'posts_per_page'         => $updated_total_posts_count,
 		'no_found_rows'          => true,
 		'post_status'            => 'publish',
 		'post_type'              => $current_post_type,
@@ -244,7 +246,7 @@ function astra_get_related_posts() {
 	$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
 	$output_str                = astra_get_post_meta( $related_post_meta );
 	$exclude_ids               = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
-	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 ) + 1;
+	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 );
 
 	// Get related posts by WP_Query.
 	$query_posts = astra_get_related_posts_by_query( $post_id );
@@ -260,9 +262,37 @@ function astra_get_related_posts() {
 
 		do_action( 'astra_related_posts_loop_before' );
 
-		$post_count = 1;
+		/**
+		 * To manage posts loop counter & total posts count has been managed here.
+		 *
+		 * # Loop count as per post set count.
+		 *
+		 * +-------+-------------------+---------------------------------+-----------------------------------------------------------+
+		 * | option  | expectation     | posts counter for further loop  | total posts on which our loop will execute                |
+		 * +-------+-------------------+---------------------------------+-----------------------------------------------------------+
+		 * | -1      | All posts       | -20                             | Assigned count of posts                                   |
+		 * |  0      | 0 posts         | -1                              | Assigned count of posts                                   |
+		 * |  1 & 1+ | Assigned posts  |  1                              | Count + 1 post (to exclude 1 post if post__not_in match ) |
+		 * +-------+-------------------+---------------------------------+-----------------------------------------------------------+
+		 *
+		 * @since x.x.x
+		 */
+		switch ( $related_posts_total_count ) {
+			case -1:
+				$post_counter      = -21; // -21 Because we will show max 20 posts.
+				$total_posts_count = $related_posts_total_count;
+				break;
+			case 0:
+				$post_counter      = -1;
+				$total_posts_count = $related_posts_total_count;
+				break;
+			default:
+				$post_counter      = 1;
+				$total_posts_count = $related_posts_total_count + 1;
+				break;
+		}
 
-		while ( $query_posts->have_posts() && $post_count < $related_posts_total_count ) {
+		while ( $query_posts->have_posts() && $post_counter < $total_posts_count ) {
 			$query_posts->the_post();
 			$post_id = get_the_ID();
 
@@ -326,7 +356,7 @@ function astra_get_related_posts() {
 						</div>
 					</article>
 				<?php
-				$post_count++;
+				$post_counter++;
 			}
 
 			wp_reset_postdata();
