@@ -100,19 +100,19 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'#ast-desktop-header' => array(
 						'display' => 'none',
 					),
-			
+
 					'#ast-mobile-header'  => array(
 						'display' => 'block',
 					),
-			
+
 					'.ast-amp.ast-main-header-nav-open .ast-mobile-header-content' => array(
 						'display' => 'block',
 					),
-			
+
 					'.ast-mobile-header-content .ast-main-header-bar-alignment.toggle-on .main-header-bar-navigation' => array(
 						'display' => 'block',
 					),
-			
+
 					'.ast-amp .ast-mobile-header-content .main-navigation ul .menu-item .menu-link' => array(
 						'padding'             => '0 20px',
 						'display'             => 'inline-block',
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 						'border-style'        => 'solid',
 						'border-color'        => '#eaeaea',
 					),
-			
+
 					'.ast-amp .ast-mobile-header-content .toggled-on .main-header-bar-navigation' => array(
 						'line-height' => '3',
 						'display'     => 'none',
@@ -150,13 +150,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 						'line-height'            => 'inherit',
 						'transition'             => 'all 0.2s',
 					),
-					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
-						'font-weight'     => 'bold',
-						'content'         => '"\e900"',
-						'font-family'     => '"Astra"',
-						'text-decoration' => 'inherit',
-						'display'         => 'inline-block',
-					),
 					'.ast-amp .ast-mobile-header-content .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before' => array(
 						'-webkit-transform' => 'rotateX(180deg)',
 						'transform'         => 'rotateX(180deg)',
@@ -170,6 +163,15 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 						'display' => 'grid',
 					),
 				);
+				if ( false === Astra_Icons::is_svg_icons() ) {
+					$css['.ast-amp .ast-mobile-header-content .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before'] = array(
+						'font-weight'     => 'bold',
+						'content'         => '"\e900"',
+						'font-family'     => '"Astra"',
+						'text-decoration' => 'inherit',
+						'display'         => 'inline-block',
+					);
+				}
 			} else {
 				$css = array(
 					'.ast-mobile-menu-buttons' => array(
@@ -198,7 +200,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			$parse_css = $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
 
 			$css = array(
-				
+
 				'.site-header .main-header-bar-wrap .site-branding' => array(
 					'display'             => '-webkit-box',
 					'display'             => '-webkit-flex',
@@ -281,23 +283,23 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'-webkit-transition'      => 'all .2s',
 					'transition'              => 'all .2s',
 				),
+			);
 
-				'.main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$css['.main-header-bar-navigation .menu-item-has-children > .menu-link:after'] = array(
 					'content' => 'none',
-				),
-
-				'.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
+				);
+				$css['.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before'] = array(
+					'content' => "\e5cd",
+				);
+				$css['.main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before'] = array(
 					'font-weight'     => 'bold',
 					'content'         => '"\e900"',
 					'font-family'     => 'Astra',
 					'text-decoration' => 'inherit',
 					'display'         => 'inline-block',
-				),
-				'.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before' => array(
-					'content' => "\e5cd",
-				),
-
-			);
+				);
+			}
 
 			$parse_css .= astra_parse_css( $css, '', astra_header_break_point() );
 
@@ -308,7 +310,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 						'margin' => '0',
 					),
 				);
-				
+
 			} else {
 				$astra_break_point_navigation = array(
 					'.ast-amp .main-header-bar-navigation' => array(
@@ -831,7 +833,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 
 			// Move all header-break-point css from class based css to media query based CSS.
 			$astra_break_point_navigation = array(
-				
+
 				'.ast-amp .entry-content .alignwide'       => array(
 					'margin-left'  => 'auto',
 					'margin-right' => 'auto',
@@ -849,15 +851,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 				'.ast-amp .main-navigation .sub-menu .menu-item .menu-link' => array(
 					'padding-left' => '30px',
-				),
-				'.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before' => array(
-					'content'         => '"\e900"',
-					'font-family'     => '"Astra"',
-					'font-size'       => '0.65em',
-					'text-decoration' => 'inherit',
-					'display'         => 'inline-block',
-					'transform'       => 'translate(0, -2px) rotateZ(270deg)',
-					'margin-right'    => '5px',
 				),
 				'.ast-amp .main-navigation .sub-menu .menu-item .menu-item .menu-link' => array(
 					'padding-left' => '40px',
@@ -988,13 +981,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'line-height'            => 'inherit',
 					'transition'             => 'all 0.2s',
 				),
-				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
-					'font-weight'     => 'bold',
-					'content'         => '"\e900"',
-					'font-family'     => '"Astra"',
-					'text-decoration' => 'inherit',
-					'display'         => 'inline-block',
-				),
 				'.ast-amp .main-header-bar .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before' => array(
 					'-webkit-transform' => 'rotateX(180deg)',
 					'transform'         => 'rotateX(180deg)',
@@ -1083,6 +1069,31 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'border-width' => '1px',
 				),
 			);
+
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$astra_break_point_navigation['.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before'] = array(
+					'content'         => '"\e900"',
+					'font-family'     => '"Astra"',
+					'font-size'       => '0.65em',
+					'text-decoration' => 'inherit',
+					'display'         => 'inline-block',
+					'transform'       => 'translate(0, -2px) rotateZ(270deg)',
+					'margin-right'    => '5px',
+				);
+				$astra_break_point_navigation['.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before'] = array(
+					'font-weight'     => 'bold',
+					'content'         => '"\e900"',
+					'font-family'     => '"Astra"',
+					'text-decoration' => 'inherit',
+					'display'         => 'inline-block',
+				);
+			} else {
+				$astra_break_point_navigation['[data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-buttons-minimal'] = array(
+					'background' => 'transparent',
+					'border'         => 'none',
+				);
+			}
+
 			$parse_css                   .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
 
 			return $parse_css;
