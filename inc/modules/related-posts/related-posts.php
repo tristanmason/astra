@@ -22,9 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 function astra_get_related_posts_by_query( $post_id ) {
 	$term_ids                  = array();
 	$current_post_type         = get_post_type( $post_id );
-	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 );
+	$related_posts_total_count = absint( astra_get_option( 'related-posts-total-count', 2 ) );
 	// Taking one post extra in loop because if current post excluded from while loop then this extra one post will cover total post count. Apperently avoided 'post__not_in' from WP_Query.
-	$updated_total_posts_count = ( $related_posts_total_count >= 1 ) ? ( $related_posts_total_count + 1 ) : $related_posts_total_count;
+	$updated_total_posts_count = $related_posts_total_count + 1;
 	$related_posts_order_by    = astra_get_option( 'related-posts-order-by', 'date' );
 	$related_posts_order       = astra_get_option( 'related-posts-order', 'desc' );
 	$related_posts_based_on    = astra_get_option( 'related-posts-based-on', 'categories' );
@@ -168,7 +168,7 @@ function astra_get_related_post_excerpt( $current_post_id ) {
 		return the_content();
 	}
 
-	$excerpt_length = (int) astra_get_option( 'related-posts-excerpt-count' );
+	$excerpt_length = absint( astra_get_option( 'related-posts-excerpt-count' ) );
 
 	$excerpt = wp_trim_words( get_the_excerpt(), $excerpt_length );
 
@@ -246,7 +246,7 @@ function astra_get_related_posts() {
 	$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
 	$output_str                = astra_get_post_meta( $related_post_meta );
 	$exclude_ids               = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
-	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 );
+	$related_posts_total_count = absint( astra_get_option( 'related-posts-total-count', 2 ) );
 
 	// Get related posts by WP_Query.
 	$query_posts = astra_get_related_posts_by_query( $post_id );
@@ -263,34 +263,20 @@ function astra_get_related_posts() {
 		do_action( 'astra_related_posts_loop_before' );
 
 		/**
-		 * To manage posts loop counter & total posts count has been managed here.
+		 * WP_Query posts loop.
 		 *
-		 * # Loop count as per post set count.
+		 * Used $post_counter & ( $post_counter < $total_posts_count ) condition to manage posts in while loop because there is case where manual 'post__not_in' condition handling scenario fails within loop.
 		 *
-		 * +-------+-------------------+---------------------------------+-----------------------------------------------------------+
-		 * | option  | expectation     | posts counter for further loop  | total posts on which our loop will execute                |
-		 * +-------+-------------------+---------------------------------+-----------------------------------------------------------+
-		 * | -1      | All posts       | -20                             | Assigned count of posts                                   |
-		 * |  0      | 0 posts         | -1                              | Assigned count of posts                                   |
-		 * |  1 & 1+ | Assigned posts  |  1                              | Count + 1 post (to exclude 1 post if post__not_in match ) |
-		 * +-------+-------------------+---------------------------------+-----------------------------------------------------------+
+		 * # CASE EXAMPLE - If total posts set to 4 (where 'post__not_in' not used in WP_Query) so there is a chance that out of those 4 posts, 1 post will be currently active on frontend.
+		 *
+		 * So what will happen in this case - Within following loop the current post will exclude by if condition & only 3 posts will be shown up.
+		 *
+		 * To avoid such cases $post_counter & ( $post_counter < $total_posts_count ) condition used.
 		 *
 		 * @since x.x.x
 		 */
-		switch ( $related_posts_total_count ) {
-			case -1:
-				$post_counter      = -21; // -21 Because we will show max 20 posts.
-				$total_posts_count = $related_posts_total_count;
-				break;
-			case 0:
-				$post_counter      = -1;
-				$total_posts_count = $related_posts_total_count;
-				break;
-			default:
-				$post_counter      = 1;
-				$total_posts_count = $related_posts_total_count + 1;
-				break;
-		}
+		$post_counter      = 1;
+		$total_posts_count = $related_posts_total_count + 1;
 
 		while ( $query_posts->have_posts() && $post_counter < $total_posts_count ) {
 			$query_posts->the_post();

@@ -197,7 +197,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'title'       => __( 'Total Number of Related Posts', 'astra' ),
 					'priority'    => 11,
 					'input_attrs' => array(
-						'min'  => -1,
+						'min'  => 1,
 						'step' => 1,
 						'max'  => 20,
 					),
