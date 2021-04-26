@@ -2942,3 +2942,34 @@ function astra_update_cart_style() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Migrate Site Title Responsive options to new array.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_site_title_responsive_control_migration() {
+
+	$db_options = array(
+		'display-site-title',
+	);
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	foreach ( $db_options as $option_name ) {
+
+		if( ! isset( $theme_options[ $option_name ]['desktop'] ) && isset( $theme_options[ $option_name ] ) ){
+
+			$option_value = $theme_options[ $option_name ];
+			$theme_options[ $option_name ] = array();
+			$theme_options[ $option_name ]['desktop'] = $option_value;
+			$theme_options[ $option_name ]['tablet'] = $option_value;
+			$theme_options[ $option_name ]['mobile'] = $option_value;
+
+			error_log( sprintf( 'Astra: Migrating Background Response Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			update_option( 'astra-settings', $theme_options );
+		}
+	}
+}
