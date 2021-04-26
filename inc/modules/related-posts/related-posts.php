@@ -238,12 +238,12 @@ function astra_get_related_post_read_more( $current_post_id ) {
  */
 function astra_get_related_posts() {
 	global $post;
-	$post_id                = $post->ID;
-	$related_posts_grid     = astra_get_option( 'related-posts-grid', 2 );
-	$related_post_meta      = astra_get_option( 'related-posts-meta-structure' );
-	$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
-	$output_str             = astra_get_post_meta( $related_post_meta );
-	$exclude_ids            = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
+	$post_id                   = $post->ID;
+	$related_posts_grid        = astra_get_option( 'related-posts-grid', 2 );
+	$related_post_meta         = astra_get_option( 'related-posts-meta-structure' );
+	$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
+	$output_str                = astra_get_post_meta( $related_post_meta );
+	$exclude_ids               = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
 	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 ) + 1;
 
 	// Get related posts by WP_Query.
