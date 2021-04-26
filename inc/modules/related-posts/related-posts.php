@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function astra_get_related_posts_by_query( $post_id ) {
 	$term_ids                  = array();
 	$current_post_type         = get_post_type( $post_id );
-	$related_posts_total_count = astra_get_option( 'related-posts-total-count', 2 );
+	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 ) + 1; // Taking one post extra in loop because if current post excluded from while loop then this extra one post will cover total post count. Apperently avoided 'post__not_in' from WP_Query.
 	$related_posts_order_by    = astra_get_option( 'related-posts-order-by', 'date' );
 	$related_posts_order       = astra_get_option( 'related-posts-order', 'desc' );
 	$related_posts_based_on    = astra_get_option( 'related-posts-based-on', 'categories' );
@@ -244,6 +244,7 @@ function astra_get_related_posts() {
 	$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
 	$output_str             = astra_get_post_meta( $related_post_meta );
 	$exclude_ids            = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
+	$related_posts_total_count = (int) astra_get_option( 'related-posts-total-count', 2 ) + 1;
 
 	// Get related posts by WP_Query.
 	$query_posts = astra_get_related_posts_by_query( $post_id );
@@ -259,8 +260,9 @@ function astra_get_related_posts() {
 
 		do_action( 'astra_related_posts_loop_before' );
 
-		while ( $query_posts->have_posts() ) {
+		$post_count = 1;
 
+		while ( $query_posts->have_posts() && $post_count < $related_posts_total_count ) {
 			$query_posts->the_post();
 			$post_id = get_the_ID();
 
@@ -324,6 +326,7 @@ function astra_get_related_posts() {
 						</div>
 					</article>
 				<?php
+				$post_count++;
 			}
 
 			wp_reset_postdata();
