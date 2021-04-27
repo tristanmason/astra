@@ -493,7 +493,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'section'  => 'section-blog-single',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'title'    => __( 'Related Posts', 'astra' ),
+					'title'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? __( 'Related Posts', 'astra' ) : __( 'Related Posts Design', 'astra' ),
 					'context'  => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
