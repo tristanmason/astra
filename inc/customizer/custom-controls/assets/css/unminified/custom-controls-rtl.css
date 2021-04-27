@@ -1621,9 +1621,7 @@
   top: 73px;
 }
 
-#customize-control-astra-global-color-palette
-	.ast-color-palette-wrap
-	> div {
+#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
 	margin-bottom: 8px;
 	position: relative;
 }
