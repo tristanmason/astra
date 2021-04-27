@@ -430,7 +430,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
 
-	if( in_array( $args->menu_id, $astra_menu_locations ) ) {
+	if ( in_array( $args->menu_id, $astra_menu_locations ) ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value ) {
 				$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
