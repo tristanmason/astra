@@ -176,7 +176,7 @@ class AstraColorPickerControl extends Component {
 															{ refresh && (
 																<>
 																	<ColorPicker
-																		color={ '#313131' }
+																		color={ this.props.color }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																</>
