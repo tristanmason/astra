@@ -30,16 +30,10 @@ class AstraColorPickerControl extends Component {
 		this.open = this.open.bind( this );
 		this.onColorClearClick = this.onColorClearClick.bind( this );
 
-		let selectedColor = this.props.color;
-
-		if (selectedColor.includes('var')) {
-			selectedColor = '#e92626';
-		}
-
 		this.state = {
 			isVisible: false,
 			refresh: false,
-			color: selectedColor,
+			color: this.props.color,
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
