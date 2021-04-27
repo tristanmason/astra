@@ -29,6 +29,7 @@ v3.4.0 (Unreleased)
 - Fix: Spacing not working properly for Social Element when 'Stack on' & 'Icon Spacing' options value is changed in Customizer Preview.
 - Fix: RTL WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
 - Fix: 'Take Last Item Outside Menu' option not visible when 'Hide Last Item in Menu on Mobile' is enabled in old header.
+- Fix: Page Builder's menu elements shows double arrow icons when Astra's SVG icons are enabled.
 
 v3.3.3
 - Fix: Elementor - Theme Builder archive page contents are not aligned center.

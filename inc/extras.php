@@ -411,17 +411,36 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		'ast-hf-menu-10',
 	);
 
+	/**
+	 * Other menus like Page Builder's, Menu plugin's are overridden by this filter & it tends to visible 2 icons in menus.
+	 * 1. Astra's ast-icon.
+	 * 2. Page Builder menu's arrow icon.
+	 *
+	 * Hence including only Astra's menus to update.
+	 *
+	 * @since x.x.x
+	 */
+	$astra_menu_locations = array(
+		'mobile-menu',
+		'ast-hf-menu-1',
+		'ast-hf-menu-2',
+	);
+
 	if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) && ( isset( $args->container_class ) && ! in_array( $args->menu_id, $skip_menu_locations ) ) ) ) {
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
-	foreach ( $item->classes as $value ) {
-		if ( 'menu-item-has-children' === $value ) {
-			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
+
+	if( in_array( $args->menu_id, $astra_menu_locations ) ) {
+		foreach ( $item->classes as $value ) {
+			if ( 'menu-item-has-children' === $value ) {
+				$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
+			}
+		}
+		if ( 0 < $depth ) {
+			$title = $icon . $title;
 		}
 	}
-	if ( 0 < $depth ) {
-		$title = $icon . $title;
-	}
+
 	return $title;
 }
 
