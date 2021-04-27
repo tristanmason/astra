@@ -4,10 +4,22 @@ import { Component } from '@wordpress/element';
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
+const maybeGetColorForVariable = ( color, palette ) => {
+	const paletteColors = palette.palette;
+
+	// Quick solution to get color id
+	const colorIndex = color.charAt(color.length - 2);
+
+	if ( color.includes('var') ) {
+		color = paletteColors[colorIndex];
+	}
+
+	return color;
+}
+
 class AstraColorPickerControl extends Component {
 
 	constructor( props ) {
-
 		super( ...arguments );
 		this.onChangeComplete = this.onChangeComplete.bind( this );
 		this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind( this );
@@ -18,10 +30,16 @@ class AstraColorPickerControl extends Component {
 		this.open = this.open.bind( this );
 		this.onColorClearClick = this.onColorClearClick.bind( this );
 
+		let selectedColor = this.props.color;
+
+		if (selectedColor.includes('var')) {
+			selectedColor = '#e92626';
+		}
+
 		this.state = {
 			isVisible: false,
 			refresh: false,
-			color: this.props.color,
+			color: selectedColor,
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
 			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
@@ -108,7 +126,6 @@ class AstraColorPickerControl extends Component {
 		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
-
 			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
 
 			let paletteColors = {};
@@ -165,7 +182,7 @@ class AstraColorPickerControl extends Component {
 															{ refresh && (
 																<>
 																	<ColorPicker
-																		color={ this.props.color }
+																		color={ '#313131' }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																</>
@@ -208,7 +225,7 @@ class AstraColorPickerControl extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
