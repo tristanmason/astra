@@ -24458,6 +24458,14 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
     updateValues(updateState);
   };
 
+  var handleColorReset = function handleColorReset(index, color) {
+    var updateState = _objectSpread({}, state);
+
+    var resetValue = defaultValue.palettes[updateState.currentPalette][index];
+    updateState.palettes[updateState.currentPalette][index] = resetValue;
+    updateValues(updateState);
+  };
+
   var paletteColors = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "ast-single-palette-wrap"
   }, state.palettes[state.currentPalette].map(function (value, index) {
@@ -24471,7 +24479,10 @@ var ColorPaletteComponent = function ColorPaletteComponent(props) {
       backgroundType: "color",
       allowGradient: false,
       allowImage: false,
-      disablePalette: true
+      disablePalette: true,
+      onColorResetClick: function onColorResetClick(color, backgroundType) {
+        return handleColorReset(index, color);
+      }
     }));
   })));
   var paletteOptions = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object.keys(state.palettes).map(function (paletteKey, index) {
@@ -24818,6 +24829,7 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
     _this.onSelectImage = _this.onSelectImage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.open = _this.open.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.onColorClearClick = _this.onColorClearClick.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    _this.onColorResetClick = _this.onColorResetClick.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.state = {
       isVisible: false,
       refresh: false,
@@ -25016,13 +25028,19 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
         onChange: function onChange(color) {
           return _this2.onPaletteChangeComplete(color);
         }
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("button", {
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("button", {
         type: "button",
         onClick: function onClick() {
           _this2.onColorClearClick();
         },
         className: "ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small"
-      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])('Clear', 'astra')))))));
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])('Clear', 'astra'))), disablePalette && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("button", {
+        type: "button",
+        onClick: function onClick() {
+          _this2.onColorResetClick();
+        },
+        className: "ast-reset-btn-inside-picker components-button common components-circular-option-picker__reset is-secondary is-small"
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_9__["__"])('Reset', 'astra')))))));
     }
   }, {
     key: "onColorClearClick",
@@ -25039,6 +25057,21 @@ var AstraColorPickerControl = /*#__PURE__*/function (_Component) {
 
       this.props.onChangeComplete('', 'color');
       wp.customize.previewer.refresh();
+    }
+  }, {
+    key: "onColorResetClick",
+    value: function onColorResetClick() {
+      if (this.state.refresh === true) {
+        this.setState({
+          refresh: false
+        });
+      } else {
+        this.setState({
+          refresh: true
+        });
+      }
+
+      this.props.onColorResetClick('', 'color');
     }
   }, {
     key: "onChangeGradientComplete",

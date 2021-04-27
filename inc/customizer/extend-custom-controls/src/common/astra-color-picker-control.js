@@ -17,6 +17,7 @@ class AstraColorPickerControl extends Component {
 		this.onSelectImage = this.onSelectImage.bind( this );
 		this.open = this.open.bind( this );
 		this.onColorClearClick = this.onColorClearClick.bind( this );
+		this.onColorResetClick = this.onColorResetClick.bind( this );
 
 		this.state = {
 			isVisible: false,
@@ -193,6 +194,7 @@ class AstraColorPickerControl extends Component {
 																</>
 															) }
 															<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+
 														</>
 													);
 												}
@@ -232,9 +234,14 @@ class AstraColorPickerControl extends Component {
 											className="ast-color-palette"
 											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 										/>
-									</>
+
+										<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+										</>
 									) }
-									<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+
+									{ disablePalette &&
+										<button type="button" onClick = { () => { this.onColorResetClick() } } className="ast-reset-btn-inside-picker components-button common components-circular-option-picker__reset is-secondary is-small">{ __( 'Reset', 'astra' ) }</button>
+									}
 								</>
 								}
 							</div>
@@ -254,6 +261,17 @@ class AstraColorPickerControl extends Component {
 		}
 		this.props.onChangeComplete( '', 'color' );
 		wp.customize.previewer.refresh();
+	}
+
+	onColorResetClick() {
+
+		if ( this.state.refresh === true ) {
+			this.setState( { refresh: false } );
+		} else {
+			this.setState( { refresh: true } );
+		}
+		this.props.onColorResetClick( '', 'color' );
+
 	}
 
 	onChangeGradientComplete( gradient ) {
