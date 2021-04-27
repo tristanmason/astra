@@ -304,6 +304,23 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
 				),
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[responsive-display-site-tagline]',
+					'type'      => 'control',
+					'control'   => 'ast-responsive-toggle-control',
+					'default'   => astra_get_option( 'responsive-display-site-tagline' ),
+					'section'   => 'title_tagline',
+					'priority'  => 11,
+					'title'     => __( 'Test responsive Display Site Tagline', 'astra' ),
+					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
+					'partial'   => array(
+
+						'selector'            => '.site-branding',
+						'container_inclusive' => false,
+						'render_callback'     => 'Astra_Builder_Header::site_identity',
+					),
+				),
 
 				/**
 				 * Option: Logo inline title.

@@ -181,7 +181,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 	 */
 	function astra_logo( $echo = true ) {
 
-		$display_site_tagline = astra_get_option( 'display-site-tagline' );
+		$site_tagline         = astra_get_option( 'responsive-display-site-tagline' );
+		$display_site_tagline = ( $site_tagline['desktop'] || $site_tagline['tablet'] || $site_tagline['mobile'] ) ? true : false;
 		$site_title           = astra_get_option( 'responsive-display-site-title' );
 		$display_site_title   = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
 
