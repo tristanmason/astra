@@ -85,10 +85,6 @@
 	position: relative;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap.active {
-	outline: 3px solid #037fb8;
-}
-
 #customize-control-astra-color-palettes .ast-color-palette-wrapper {
 	clear: both;
 	margin-top: 10px;
@@ -118,4 +114,45 @@
 	#customize-control-astra-color-palettes .astra-color-picker-wrap {
 		width: 24em;
 	}
+}
+
+#customize-control-astra-color-palettes .ast-color-palette-wrap:hover{
+    box-shadow: 0 0 0 2px #eeeeee;
+}
+#customize-control-astra-color-palettes .ast-color-palette-wrap.active{
+    outline: none;
+    box-shadow: 0 0 0 2px #0574bd;
+}
+#customize-control-astra-color-palettes .ast-palette-label-wrap{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 10px;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 0 5px;
+    background-color: rgb(0 0 0 / 55%);
+    transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
+}
+
+#customize-control-astra-color-palettes .ast-color-palette-wrap.active .ast-palette-label-wrap,
+#customize-control-astra-color-palettes .ast-color-palette-wrap:hover .ast-palette-label-wrap{
+    background-color: rgb(0 0 0 / 80%);
+}
+
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate .global-color{
+    color: #fff;
+    opacity: 1;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    display: block;
+    transform: translate(50%, -50%);
+    text-align: center;
+}
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate .global-color svg{
+    width: 10px;
+    height: 10px;
+    transform: scale(1.5);
 }
