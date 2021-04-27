@@ -32,8 +32,10 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'lifterlms' ) ) {
 				$divider_array = array( 'ast_class' => 'ast-bottom-divider' );
+				$section = 'section-lifterlms-general';
 			} else {
 				$divider_array = array();
+				$section = 'section-lifterlms';
 			}
 
 			$_configs = array(
@@ -46,7 +48,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'section'           => 'section-lifterlms-general',
+					'section'           => $section,
 					'default'           => astra_get_option(
 						'llms-course-grid',
 						array(
@@ -73,7 +75,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'section'           => 'section-lifterlms-general',
+					'section'           => $section,
 					'default'           => astra_get_option(
 						'llms-membership-grid',
 						array(
