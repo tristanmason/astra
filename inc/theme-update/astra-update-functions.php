@@ -2950,10 +2950,11 @@ function astra_update_cart_style() {
  *
  * @return void
  */
-function astra_site_title_responsive_control_migration() {
+function astra_site_title_tagline_responsive_control_migration() {
 
 	$db_options = array(
 		'display-site-title',
+		'display-site-tagline',
 	);
 
 	$theme_options = get_option( 'astra-settings', array() );
