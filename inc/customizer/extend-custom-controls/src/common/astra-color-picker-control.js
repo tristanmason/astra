@@ -4,10 +4,22 @@ import { Component } from '@wordpress/element';
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
+const maybeGetColorForVariable = ( color, palette ) => {
+	const paletteColors = palette.palette;
+
+	if ( color.includes('var') ) {
+
+		// Get color index from palette for color variable.
+		const colorIndex = color.charAt(color.length - 2);
+		color = paletteColors[colorIndex];
+	}
+
+	return color;
+}
+
 class AstraColorPickerControl extends Component {
 
 	constructor( props ) {
-
 		super( ...arguments );
 		this.onChangeComplete = this.onChangeComplete.bind( this );
 		this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind( this );
@@ -17,6 +29,7 @@ class AstraColorPickerControl extends Component {
 		this.onSelectImage = this.onSelectImage.bind( this );
 		this.open = this.open.bind( this );
 		this.onColorClearClick = this.onColorClearClick.bind( this );
+		this.onColorResetClick = this.onColorResetClick.bind( this );
 
 		this.state = {
 			isVisible: false,
@@ -108,13 +121,12 @@ class AstraColorPickerControl extends Component {
 		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
-
 			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
 
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: index, color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
-		})
+		});
 
 		return (
 			<>
@@ -130,13 +142,6 @@ class AstraColorPickerControl extends Component {
 						</>
 						}
 					</Button>
-					{ enableDeleteIcon &&
-						<span
-						onClick={this.props.onDeleteColor}
-						className="ast-color-delete-icon" >
-							<span className="dashicons dashicons-trash"></span>
-						</span>
-					}
 				</div>
 				<div className="astra-color-picker-wrap">
 					<>
@@ -172,7 +177,7 @@ class AstraColorPickerControl extends Component {
 															{ refresh && (
 																<>
 																	<ColorPicker
-																		color={ this.props.color }
+																		color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																</>
@@ -180,7 +185,7 @@ class AstraColorPickerControl extends Component {
 															{ ! refresh &&  (
 																<>
 																	<ColorPicker
-																		color={ this.props.color }
+																		color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 
@@ -200,6 +205,7 @@ class AstraColorPickerControl extends Component {
 																</>
 															) }
 															<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+
 														</>
 													);
 												}
@@ -215,7 +221,7 @@ class AstraColorPickerControl extends Component {
 									{ refresh && (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 										</>
@@ -223,7 +229,7 @@ class AstraColorPickerControl extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 
@@ -239,9 +245,14 @@ class AstraColorPickerControl extends Component {
 											className="ast-color-palette"
 											onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
 										/>
-									</>
+
+										<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+										</>
 									) }
-									<button type="button" onClick = { () => { this.onColorClearClick() } } className="ast-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+
+									{ disablePalette &&
+										<button type="button" onClick = { () => { this.onColorResetClick() } } className="ast-reset-btn-inside-picker components-button common components-circular-option-picker__reset is-secondary is-small">{ __( 'Reset', 'astra' ) }</button>
+									}
 								</>
 								}
 							</div>
@@ -261,6 +272,17 @@ class AstraColorPickerControl extends Component {
 		}
 		this.props.onChangeComplete( '', 'color' );
 		wp.customize.previewer.refresh();
+	}
+
+	onColorResetClick() {
+
+		if ( this.state.refresh === true ) {
+			this.setState( { refresh: false } );
+		} else {
+			this.setState( { refresh: true } );
+		}
+		this.props.onColorResetClick( '', 'color' );
+
 	}
 
 	onChangeGradientComplete( gradient ) {

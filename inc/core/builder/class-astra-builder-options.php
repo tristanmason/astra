@@ -690,7 +690,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'background-attachment' => 'scroll',
 	);
 	$defaults['off-canvas-close-color']             = '#3a3a3a';
-	$defaults['mobile-header-type']                 = 'off-canvas';
+	$defaults['mobile-header-type']                 = 'dropdown';
 	$defaults['off-canvas-inner-spacing']           = '';
 	$defaults['footer-menu-layout']                 = array(
 		'desktop' => 'horizontal',
@@ -817,19 +817,17 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Global Color Palette.
 	 */
 	$defaults['global-color-palette'] = array(
-		'labels'  => array(
-			__( 'Text Color', 'astra' ),
-			__( 'Theme color', 'astra' ),
-			__( 'Link color', 'astra' ),
-			__( 'Link Hover Color', 'astra' ),
-			__( 'Heading Color', 'astra' ),
-		),
+		'labels'  => Astra_Global_Palette::get_palette_labels(),
 		'palette' => array(
-			'#3a3a3a',
-			'#0274be',
-			'#0274b2',
-			'#3a3a31',
-			'#3a3a3b'
+			'#1D53DD',
+			'#0235B7',
+			'#1A1C23',
+			'#4B4F58',
+			'#F6F7F8',
+			'#00123A',
+			'#243673',
+			'#FBFCFF',
+			'#BFD1FF',
 		),
 	);
 
@@ -937,7 +935,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']             = 'none';
+	$defaults['woo-header-cart-icon-style']             = 'outline';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
 	$defaults['woo-header-cart-icon-radius']            = 3;
@@ -966,7 +964,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * EDD-Cart.
 	*/
-	$defaults['edd-header-cart-icon-style']             = 'none';
+	$defaults['edd-header-cart-icon-style']             = 'outline';
 	$defaults['edd-header-cart-icon-color']             = '';
 	$defaults['edd-header-cart-icon-radius']            = 3;
 	$defaults['transparent-header-edd-cart-icon-color'] = '';
@@ -1669,7 +1667,7 @@ function prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = '';
 
 	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = Astra_Builder_Helper::$default_responsive_spacing;

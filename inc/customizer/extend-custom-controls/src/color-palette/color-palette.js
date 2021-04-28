@@ -45,21 +45,6 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
-	const onDeleteColor = (index, color) => {
-		let updateState = {
-			...state,
-		};
-
-		const modifiedColorObj = updateState.palettes[
-			updateState.currentPalette
-		].filter(function (value, colorIndex) {
-			return parseInt(colorIndex) != parseInt(index);
-		});
-
-		updateState.palettes[updateState.currentPalette] = modifiedColorObj;
-		updateValues(updateState);
-	};
-
 	const updateValues = (stateObj) => {
 		setState(stateObj);
 		props.control.setting.set({
@@ -80,15 +65,6 @@ const ColorPaletteComponent = (props) => {
 		});
 	};
 
-	const addColorToPalette = () => {
-		let updateState = {
-			...state,
-		};
-
-		updateState.palettes[updateState.currentPalette].push("#000000");
-		updateValues(updateState);
-	};
-
 	const onPaletteChange = (paletteKey) => {
 		let updateState = {
 			...state,
@@ -96,6 +72,18 @@ const ColorPaletteComponent = (props) => {
 
 		updateState.currentPalette = paletteKey;
 		updateValues(updateState);
+	};
+
+	const handleColorReset = ( index, color ) => {
+
+		let updateState = {
+			...state,
+		};
+
+		let resetValue = defaultValue.palettes[updateState.currentPalette][index];
+
+		updateState.palettes[updateState.currentPalette][index] = resetValue;
+		updateValues( updateState );
 	};
 
 	var paletteColors = (
@@ -112,21 +100,14 @@ const ColorPaletteComponent = (props) => {
 								backgroundType={"color"}
 								allowGradient={false}
 								allowImage={false}
-								enableDeleteIcon={index > 4 ? true : false}
 								disablePalette={true}
-								onDeleteColor={(color) =>
-									onDeleteColor(index, value)
+								onColorResetClick={(color, backgroundType) =>
+									handleColorReset(index, color)
 								}
 							/>
 						</div>
 					);
 				})}
-				<div className="ast-add-palette-color-wrap">
-					<span
-						onClick={addColorToPalette}
-						className="dashicons dashicons-plus"
-					></span>
-				</div>
 			</div>
 		</>
 	);
@@ -147,13 +128,18 @@ const ColorPaletteComponent = (props) => {
 						<label onClick={() => onPaletteChange(paletteKey)}>
 							{state.palettes[paletteKey].map((color, index) => {
 								return (
-									<div
-										className="ast-single-color-container"
-										style={{ backgroundColor: color }}
-										key={index}
-									></div>
+									<>
+										<div
+											className="ast-single-color-container"
+											style={{ backgroundColor: color }}
+											key={index}
+										></div>
+									</>
 								);
 							})}
+							<span className="ast-palette-label-wrap">
+								{__("Palette", "astra") + " " + (index + 1)}
+							</span>
 						</label>
 					</div>
 				);

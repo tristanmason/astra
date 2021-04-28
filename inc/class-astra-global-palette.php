@@ -25,6 +25,8 @@ class Astra_Global_Palette {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		add_filter( 'astra_before_fg_color_generate', array( $this, 'get_color_by_palette_variable' ) );
+		$this->includes();
 	}
 
 	/**
@@ -35,6 +37,66 @@ class Astra_Global_Palette {
 	 */
 	public static function get_css_variable_prefix() {
 		return '--ast-global-color-';
+	}
+
+	public static function get_default_color_palette() {
+		return array(
+			'currentPalette' => 'palette_1',
+			'palettes'       => array(
+				'palette_1' => array(
+					'#1D53DD',
+					'#0235B7',
+					'#1A1C23',
+					'#4B4F58',
+					'#F6F7F8',
+					'#00123A',
+					'#243673',
+					'#FBFCFF',
+					'#BFD1FF',
+				),
+				'palette_2' => array(
+					'#FF6333',
+					'#FA430B',
+					'#19150F',
+					'#413E3A',
+					'#F7F3ED',
+					'#AE7867',
+					'#462903',
+					'#FFE1B4',
+					'#FFFFFF',
+				),
+				'palette_3' => array(
+					'#FD4973',
+					'#F81B4F',
+					'#19150F',
+					'#483D40',
+					'#F7F2F3',
+					'#A46E7B',
+					'#C8002F',
+					'#FFD8E0',
+					'#FFFFFF',
+				),
+			),
+		);
+	}
+
+	public static function get_palette_labels() {
+		return array(
+			__( 'Text Color', 'astra' ),
+			__( 'Theme color', 'astra' ),
+			__( 'Link color', 'astra' ),
+			__( 'Link Hover Color', 'astra' ),
+			__( 'Heading Color', 'astra' ),
+		);
+	}
+
+	/**
+	 * Include required files.
+	 *
+	 * @since x.x.x
+	 */
+	public function includes() {
+		require_once ASTRA_THEME_DIR . 'inc/dynamic-css/global-color-palette.php';// PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	/**
@@ -83,13 +145,12 @@ class Astra_Global_Palette {
 	 * @return bool
 	 */
 	public function format_global_palette( $global_palette ) {
-
-		$editor_palette = array();
+		$editor_palette    = array();
 		$extra_color_index = 1;
-		$color_index    = 0;
+		$color_index       = 0;
 		foreach ( $global_palette['palette'] as $key => $color ) {
 
-			if( isset( $global_palette['labels'][ $color_index ] ) ) {
+			if ( isset( $global_palette['labels'][ $color_index ] ) ) {
 				$label = $global_palette['labels'][ $color_index ];
 			} else {
 				$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
@@ -108,33 +169,27 @@ class Astra_Global_Palette {
 	}
 
 	/**
-	 * Generate editor style on front end compatible for global palette.
+	 * Pass hex value for global palette to process forground color.
 	 *
 	 * @since x.x.x
-	 * @return array
+	 * @param string $hex hex color / css variable.
+	 * @return string
 	 */
-	public static function generate_frontend_editor_style() {
+	public function get_color_by_palette_variable( $color ) {
+		// Check if color is CSS variable.
+		if( 0 === strpos( $color, 'var(--' ) ) {
 
-		$global_palette  = astra_get_option( 'global-color-palette' );
-		$palette_style   = array();
-		$variable_prefix = self::get_css_variable_prefix();
+			$global_palette = astra_get_option( 'global-color-palette' );
 
-		if ( isset( $global_palette ) ) {
-			foreach ( $global_palette['palette'] as $key => $color ) {
-				$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
+			foreach( $global_palette['palette'] as $palette_index => $value ) {
 
-				$palette_style[ ':root .has' . $palette_key . '-color' ] = array(
-					'color' => 'var(' . $variable_prefix . $key . ')',
-				);
-
-				$palette_style[ ':root .has' . $palette_key . '-background-color' ] = array(
-					'background-color' => 'var(' . $variable_prefix . $key . ')',
-				);
+				if( $color == 'var(' . self::get_css_variable_prefix() . $palette_index . ')' ) {
+					return $value;
+				}
 			}
 		}
 
-		return $palette_style;
-
+		return $color;
 	}
 }
 
