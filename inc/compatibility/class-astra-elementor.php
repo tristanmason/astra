@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
-				
+
 
 				$dynamic_css .= $parse_css;
 			}

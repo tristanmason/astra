@@ -33,44 +33,61 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			$_section = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background';
 
 			$_configs = array(
-
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[selected-color-palette]',
+					'name'      => ASTRA_THEME_SETTINGS . '[global-color-palette]',
 					'type'      => 'control',
 					'control'   => 'ast-hidden',
 					'section'   => $_section,
 					'priority'  => 5,
-					'default'   => astra_get_option( 'selected-color-palette' ),
-					'settings'  => array(),
+					'title'     => __( 'Global Palette', 'astra' ),
+					'default'   => astra_get_option( 'global-color-palette' ),
 					'transport' => 'postMessage',
 				),
 
 				array(
-					'name'      => 'astra-global-color-palette',
+					'name'      => 'astra-color-palettes',
 					'type'      => 'control',
 					'control'   => 'ast-color-palette',
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Global Palette', 'astra' ),
 					'default'   => get_option(
-						'astra-global-color-palette',
+						'astra-color-palettes',
 						array(
-							'currentPalette' => 'palette-1',
-							'isVisible'      => false,
-							'labels'         => array(
-								__( 'Text Color', 'astra' ),
-								__( 'Theme color', 'astra' ),
-								__( 'Link color', 'astra' ),
-								__( 'Link Hover Color', 'astra' ),
-								__( 'Heading Color', 'astra' ),
-							),
+							'currentPalette' => 'palette_1',
 							'palettes'       => array(
 								'palette_1' => array(
-									'text-color'       => '#3a3a3a',
-									'theme-color'      => '#0274be',
-									'link-color'       => '#0274b2',
-									'link-hover-color' => '#3a3a31',
-									'heading-color'    => '#3a3a3b',
+									'#3a3a3a',
+									'#0274be',
+									'#0274b2',
+									'#3a3a31',
+									'#3a3a3b',
+									'#7B8794',
+									'#52606D',
+									'#3E4C59',
+									'#F3F4F7',
+								),
+								'palette_2' => array(
+									'#26bcdb',
+									'#1f90a6',
+									'#121212',
+									'#1a1a1a',
+									'#1a1a1a',
+									'#7B8794',
+									'#52606D',
+									'#3E4C59',
+									'#F3F4F7',
+								),
+								'palette_3' => array(
+									'#77b978',
+									'#f37262',
+									'#0e509a',
+									'#393939',
+									'#3a3a3b',
+									'#7B8794',
+									'#52606D',
+									'#3E4C59',
+									'#F3F4F7',
 								),
 							),
 						)

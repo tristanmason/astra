@@ -1224,7 +1224,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
-							'settings'         => array(
+							'settings'                 => array(
 								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
@@ -1245,9 +1245,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $template,
-							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
-							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'group_modal_tmpl'         => $template,
+							'is_pro'                   => defined( 'ASTRA_EXT_VER' ),
+							'upgrade_link'             => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'globalPaletteStylePrefix' => Astra_Global_Palette::get_css_variable_prefix(),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
