@@ -74,6 +74,18 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
+	const handleColorReset = ( index, color ) => {
+
+		let updateState = {
+			...state,
+		};
+
+		let resetValue = defaultValue.palettes[updateState.currentPalette][index];
+
+		updateState.palettes[updateState.currentPalette][index] = resetValue;
+		updateValues( updateState );
+	};
+
 	var paletteColors = (
 		<>
 			<div className="ast-single-palette-wrap">
@@ -89,6 +101,9 @@ const ColorPaletteComponent = (props) => {
 								allowGradient={false}
 								allowImage={false}
 								disablePalette={true}
+								onColorResetClick={(color, backgroundType) =>
+									handleColorReset(index, color)
+								}
 							/>
 						</div>
 					);
