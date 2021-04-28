@@ -319,9 +319,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			self::$contexts['blogname'] = array(
 				Astra_Builder_Helper::$general_tab_config,
 				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
-					'operator' => '==',
-					'value'    => true,
+					'relation' => 'OR',
+					array(
+						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'setting-key' => 'desktop',
+						'operator'    => '==',
+						'value'       => true,
+					),
+					array(
+						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'setting-key' => 'tablet',
+						'operator'    => '==',
+						'value'       => true,
+					),
+					array(
+						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'setting-key' => 'mobile',
+						'operator'    => '==',
+						'value'       => true,
+					),
 				),
 
 			);

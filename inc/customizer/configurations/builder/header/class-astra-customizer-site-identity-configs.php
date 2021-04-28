@@ -68,7 +68,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title]',
 					'type'      => 'control',
-					'control'   => 'ast-toggle-control',
+					'control'   => 'ast-responsive-toggle-control',
 					'default'   => astra_get_option( 'display-site-title' ),
 					'section'   => 'title_tagline',
 					'title'     => __( 'Display Site Title', 'astra' ),

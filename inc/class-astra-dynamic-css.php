@@ -64,9 +64,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_get_option( 'site-content-layout' );
-			$desktop_title_visibility   = ( ( astra_get_option( 'responsive-display-site-title' ) )['desktop'] ) ? 'block' : 'none';
-			$tablet_title_visibility    = ( ( astra_get_option( 'responsive-display-site-title' ) )['tablet'] ) ? 'block' : 'none';
-			$mobile_title_visibility    = ( ( astra_get_option( 'responsive-display-site-title' ) )['mobile'] ) ? 'block' : 'none';
+			$desktop_title_visibility   = ( ( astra_get_option( 'display-site-title' ) )['desktop'] ) ? 'block' : 'none';
+			$tablet_title_visibility    = ( ( astra_get_option( 'display-site-title' ) )['tablet'] ) ? 'block' : 'none';
+			$mobile_title_visibility    = ( ( astra_get_option( 'display-site-title' ) )['mobile'] ) ? 'block' : 'none';
 			$desktop_tagline_visibility = ( ( astra_get_option( 'responsive-display-site-tagline' ) )['desktop'] ) ? 'block' : 'none';
 			$tablet_tagline_visibility  = ( ( astra_get_option( 'responsive-display-site-tagline' ) )['tablet'] ) ? 'block' : 'none';
 			$mobile_tagline_visibility  = ( ( astra_get_option( 'responsive-display-site-tagline' ) )['mobile'] ) ? 'block' : 'none';

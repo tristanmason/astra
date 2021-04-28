@@ -451,7 +451,9 @@
 						if (undefined == operator || '=' == operator) {
 							operator = '==';
 						}
-
+						if(typeof currentValue === 'object'){
+							currentValue = currentValue[rule['setting-key']];
+						}
 						switch (operator) {
 							case '>':
 								result = currentValue > comparedValue;
