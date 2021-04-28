@@ -400,7 +400,6 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	 * @since 3.3.0
 	 */
 	$skip_menu_locations = array(
-		'ast-hf-account-menu',
 		'ast-hf-menu-3',
 		'ast-hf-menu-4',
 		'ast-hf-menu-5',
@@ -424,7 +423,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		'mobile-menu',
 		'ast-hf-menu-1',
 		'ast-hf-menu-2',
-		'loggedin_account_menu'
+		'ast-hf-account-menu'
 	);
 
 	if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) && ( isset( $args->container_class ) && ! in_array( $args->menu_id, $skip_menu_locations ) ) ) ) {
