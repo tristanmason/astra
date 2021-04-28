@@ -7,10 +7,10 @@ import { MediaUpload } from '@wordpress/media-utils';
 const maybeGetColorForVariable = ( color, palette ) => {
 	const paletteColors = palette.palette;
 
-	// Quick solution to get color id
-	const colorIndex = color.charAt(color.length - 2);
-
 	if ( color.includes('var') ) {
+
+		// Get color index from palette for color variable.
+		const colorIndex = color.charAt(color.length - 2);
 		color = paletteColors[colorIndex];
 	}
 
@@ -176,7 +176,7 @@ class AstraColorPickerControl extends Component {
 															{ refresh && (
 																<>
 																	<ColorPicker
-																		color={ this.props.color }
+																		color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 																</>
@@ -184,7 +184,7 @@ class AstraColorPickerControl extends Component {
 															{ ! refresh &&  (
 																<>
 																	<ColorPicker
-																		color={ this.props.color }
+																		color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 																		onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 																	/>
 
@@ -227,7 +227,7 @@ class AstraColorPickerControl extends Component {
 									{ ! refresh &&  (
 										<>
 											<ColorPicker
-												color={ this.props.color }
+												color={ maybeGetColorForVariable(this.props.color, globalColorPalette) }
 												onChangeComplete={ ( color ) => this.onChangeComplete( color ) }
 											/>
 
