@@ -688,7 +688,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
@@ -782,7 +782,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
@@ -876,7 +876,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
@@ -970,7 +970,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
