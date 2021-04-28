@@ -22,14 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 function astra_get_related_posts_by_query( $post_id ) {
 	$term_ids                  = array();
 	$current_post_type         = get_post_type( $post_id );
-	$related_posts_total_count = astra_get_option( 'related-posts-total-count', 2 );
+	$related_posts_total_count = absint( astra_get_option( 'related-posts-total-count', 2 ) );
+	// Taking one post extra in loop because if current post excluded from while loop then this extra one post will cover total post count. Apperently avoided 'post__not_in' from WP_Query.
+	$updated_total_posts_count = $related_posts_total_count + 1;
 	$related_posts_order_by    = astra_get_option( 'related-posts-order-by', 'date' );
 	$related_posts_order       = astra_get_option( 'related-posts-order', 'desc' );
 	$related_posts_based_on    = astra_get_option( 'related-posts-based-on', 'categories' );
 
 	$query_args = array(
 		'update_post_meta_cache' => false,
-		'posts_per_page'         => $related_posts_total_count,
+		'posts_per_page'         => $updated_total_posts_count,
 		'no_found_rows'          => true,
 		'post_status'            => 'publish',
 		'post_type'              => $current_post_type,
@@ -166,7 +168,7 @@ function astra_get_related_post_excerpt( $current_post_id ) {
 		return the_content();
 	}
 
-	$excerpt_length = (int) astra_get_option( 'related-posts-excerpt-count' );
+	$excerpt_length = absint( astra_get_option( 'related-posts-excerpt-count' ) );
 
 	$excerpt = wp_trim_words( get_the_excerpt(), $excerpt_length );
 
@@ -238,12 +240,13 @@ function astra_get_related_post_read_more( $current_post_id ) {
  */
 function astra_get_related_posts() {
 	global $post;
-	$post_id                = $post->ID;
-	$related_posts_grid     = astra_get_option( 'related-posts-grid', 2 );
-	$related_post_meta      = astra_get_option( 'related-posts-meta-structure' );
-	$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
-	$output_str             = astra_get_post_meta( $related_post_meta );
-	$exclude_ids            = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
+	$post_id                   = $post->ID;
+	$related_posts_grid        = astra_get_option( 'related-posts-grid', 2 );
+	$related_post_meta         = astra_get_option( 'related-posts-meta-structure' );
+	$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
+	$output_str                = astra_get_post_meta( $related_post_meta );
+	$exclude_ids               = apply_filters( 'astra_related_posts_exclude_post_ids', array( $post_id ), $post_id );
+	$related_posts_total_count = absint( astra_get_option( 'related-posts-total-count', 2 ) );
 
 	// Get related posts by WP_Query.
 	$query_posts = astra_get_related_posts_by_query( $post_id );
@@ -259,8 +262,23 @@ function astra_get_related_posts() {
 
 		do_action( 'astra_related_posts_loop_before' );
 
-		while ( $query_posts->have_posts() ) {
+		/**
+		 * WP_Query posts loop.
+		 *
+		 * Used $post_counter & ( $post_counter < $total_posts_count ) condition to manage posts in while loop because there is case where manual 'post__not_in' condition handling scenario fails within loop.
+		 *
+		 * # CASE EXAMPLE - If total posts set to 4 (where 'post__not_in' not used in WP_Query) so there is a chance that out of those 4 posts, 1 post will be currently active on frontend.
+		 *
+		 * So what will happen in this case - Within following loop the current post will exclude by if condition & only 3 posts will be shown up.
+		 *
+		 * To avoid such cases $post_counter & ( $post_counter < $total_posts_count ) condition used.
+		 *
+		 * @since x.x.x
+		 */
+		$post_counter      = 1;
+		$total_posts_count = $related_posts_total_count + 1;
 
+		while ( $query_posts->have_posts() && $post_counter < $total_posts_count ) {
 			$query_posts->the_post();
 			$post_id = get_the_ID();
 
@@ -278,7 +296,7 @@ function astra_get_related_posts() {
 						sprintf(
 							'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
 							'h2',
-							esc_html__( 'Related Posts', 'astra-addon' )
+							esc_html__( 'Related Posts', 'astra' )
 						)
 					);
 
@@ -324,6 +342,7 @@ function astra_get_related_posts() {
 						</div>
 					</article>
 				<?php
+				$post_counter++;
 			}
 
 			wp_reset_postdata();
