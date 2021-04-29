@@ -561,7 +561,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'transport' => 'postMessage',
 						'priority'  => 75,
 						'context'   => Astra_Builder_Helper::$design_tab,
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: HTML Text Color.
