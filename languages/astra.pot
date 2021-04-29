@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-28T07:32:58+00:00\n"
+"POT-Creation-Date: 2021-04-29T07:19:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -694,7 +694,7 @@ msgstr ""
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:229
 #: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:49
 #: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:71
-#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:88
+#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:89
 msgid "Size"
 msgstr ""
 
@@ -840,8 +840,8 @@ msgid "Transparent Header"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/class-astra-ext-transparent-header-markup.php:330
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:739
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:751
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:740
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:752
 #: inc/metabox/class-astra-meta-boxes.php:244
 #: inc/metabox/class-astra-meta-boxes.php:260
 msgid "Customizer Setting"
@@ -1423,7 +1423,7 @@ msgstr ""
 
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-container-configs.php:49
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-container-configs.php:49
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:752
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:753
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php:50
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-container-configs.php:49
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:47
@@ -1436,7 +1436,7 @@ msgstr ""
 
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-container-configs.php:50
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-container-configs.php:50
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:753
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:754
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php:51
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-container-configs.php:50
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:48
@@ -1449,7 +1449,7 @@ msgstr ""
 
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-container-configs.php:51
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-container-configs.php:51
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:754
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:755
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php:52
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-container-configs.php:51
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:49
@@ -1462,7 +1462,7 @@ msgstr ""
 
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-container-configs.php:52
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-container-configs.php:52
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:755
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:756
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php:53
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-container-configs.php:52
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:50
@@ -1476,7 +1476,7 @@ msgstr ""
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:49
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:68
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-sidebar-configs.php:50
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:742
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:743
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php:48
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php:67
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-sidebar-configs.php:48
@@ -1492,7 +1492,7 @@ msgstr ""
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:50
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:69
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-sidebar-configs.php:51
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:740
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:741
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php:49
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php:68
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-sidebar-configs.php:49
@@ -1508,7 +1508,7 @@ msgstr ""
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:51
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:70
 #: inc/compatibility/learndash/customizer/sections/class-astra-learndash-sidebar-configs.php:52
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:741
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:742
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php:50
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php:69
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-sidebar-configs.php:50
@@ -1638,90 +1638,90 @@ msgstr ""
 msgid "Differentiate Rows"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:235
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:236
 msgid "What Others Have Said"
 msgstr ""
 
 #. translators: 1 Author Name.
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:264
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:265
 msgid "By: %s"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:301
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:318
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:302
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:319
 msgid "Thank you for your review!"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:307
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:308
 msgid "Write a Review"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:308
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:309
 msgid "Review Title"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:309
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:310
 msgid "Review Title is required."
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:310
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:311
 msgid "Review Text"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:311
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:312
 msgid "Review Text is required."
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:315
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:316
 msgid "Leave Review"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:665
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:666
 #: inc/metabox/class-astra-meta-boxes.php:290
 msgid "Disable Primary Header"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:675
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:676
 #: inc/metabox/class-astra-meta-boxes.php:282
 msgid "Disable Above Header"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:685
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:686
 #: inc/metabox/class-astra-meta-boxes.php:298
 msgid "Disable Below Header"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:695
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:696
 #: inc/metabox/class-astra-meta-boxes.php:306
 msgid "Disable Mobile Header"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:703
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:704
 #: inc/metabox/class-astra-meta-boxes.php:315
 msgid "Disable Title"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:712
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:713
 #: inc/metabox/class-astra-meta-boxes.php:346
 msgid "Disable Footer Widgets"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:721
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:722
 #: inc/metabox/class-astra-meta-boxes.php:358
 msgid "Disable Footer"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:727
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:728
 msgid "Astra Settings"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:736
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:737
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:221
 #: inc/metabox/class-astra-meta-boxes.php:241
 msgid "Sidebar"
 msgstr ""
 
-#: inc/compatibility/lifterlms/class-astra-lifterlms.php:748
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:749
 #: inc/metabox/class-astra-meta-boxes.php:257
 msgid "Content Layout"
 msgstr ""
@@ -1733,6 +1733,12 @@ msgstr ""
 msgid "LifterLMS"
 msgstr ""
 
+#: inc/compatibility/lifterlms/customizer/class-astra-liferlms-section-configs.php:48
+#: inc/compatibility/woocommerce/customizer/class-astra-customizer-register-woo-section.php:38
+#: inc/customizer/extend-custom-controls/src/builder-layout/builder-header-control.js:51
+msgid "General"
+msgstr ""
+
 #: inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php:47
 msgid "LifterLMS Layout"
 msgstr ""
@@ -1741,11 +1747,11 @@ msgstr ""
 msgid "LifterLMS Course/Lesson"
 msgstr ""
 
-#: inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php:52
+#: inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php:60
 msgid "Course Columns"
 msgstr ""
 
-#: inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php:79
+#: inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php:87
 msgid "Membership Columns"
 msgstr ""
 
@@ -1767,11 +1773,6 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/class-astra-woocommerce.php:564
 msgid "This sidebar will be used on Single Product page."
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/class-astra-customizer-register-woo-section.php:38
-#: inc/customizer/extend-custom-controls/src/builder-layout/builder-header-control.js:51
-msgid "General"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/class-astra-customizer-register-woo-section.php:45
@@ -3519,7 +3520,7 @@ msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:56
 #: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:496
-#: inc/modules/related-posts/related-posts.php:281
+#: inc/modules/related-posts/related-posts.php:299
 msgid "Related Posts"
 msgstr ""
 
@@ -3622,6 +3623,10 @@ msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:425
 msgid "Meta Font"
+msgstr ""
+
+#: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:496
+msgid "Related Posts Design"
 msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:530
@@ -3758,11 +3763,11 @@ msgstr ""
 msgid "Tagline Font Size"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:69
+#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:70
 msgid "Post / Page Title Font"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:113
+#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:114
 msgid "Post / Page Title Font Size"
 msgstr ""
 
