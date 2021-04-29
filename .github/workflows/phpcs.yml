@@ -21,3 +21,6 @@ jobs:
 
       - name: Detect coding standard violations
         run: vendor/bin/phpcs
+
+      - name: "Static Analysis"
+        run: php -d memory_limit=1G vendor/bin/phpstan analyse -c phpstan.neon.dist

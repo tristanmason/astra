@@ -49,9 +49,6 @@ jobs:
         exclude: "{**/*.map,**/node_modules/**}"
         build-script: "dynamic-css"
 
-    - name: "Static Analysis"
-      run: php -d memory_limit=1G vendor/bin/phpstan analyse -c phpstan.neon.dist
-
     - name: Stop Docker environment
       run: npm run env:stop
       if: always()
