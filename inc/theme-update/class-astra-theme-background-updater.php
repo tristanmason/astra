@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @since 2.3.0
 		 *
-		 * @return true if there is a problem spawning a call to Wp-Cron system.
+		 * @return bool true if there is a problem spawning a call to WP-Cron system, else false.
 		 */
 		public function test_cron() {
 
