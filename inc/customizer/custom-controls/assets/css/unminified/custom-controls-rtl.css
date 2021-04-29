@@ -771,7 +771,7 @@
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
-	top: 0;
+	top: 10px;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
@@ -1775,7 +1775,7 @@
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
-	top: 0;
+	top: 10px;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
@@ -3134,7 +3134,6 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control {
-    width: 90%;
     display: none;
 }
 
@@ -3567,6 +3566,9 @@ input[type="text"].select2-search__field {
   margin-top: 0;
 }
 
+/*
+ * Divider compatibility CSS for setting group.
+ */
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
 }
@@ -5296,6 +5298,9 @@ input[type="text"].select2-search__field {
   margin-top: 0;
 }
 
+/*
+ * Divider compatibility CSS for setting group.
+ */
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
 }
