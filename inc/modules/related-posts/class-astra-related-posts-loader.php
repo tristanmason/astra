@@ -71,37 +71,37 @@ class Astra_Related_Posts_Loader {
 	public function theme_defaults( $defaults ) {
 
 		// Related Posts.
-		$defaults['enable-related-posts']               = false;
-		$defaults['related-posts-total-count']          = 2;
-		$defaults['enable-related-posts-excerpt']       = false;
-		$defaults['related-posts-excerpt-count']        = 25;
-		$defaults['related-posts-based-on']             = 'categories';
-		$defaults['related-posts-order-by']             = 'date';
-		$defaults['related-posts-order']                = 'asc';
-		$defaults['related-posts-grid']                 = '2';
-		$defaults['related-posts-structure']            = array (
+		$defaults['enable-related-posts']         = false;
+		$defaults['related-posts-total-count']    = 2;
+		$defaults['enable-related-posts-excerpt'] = false;
+		$defaults['related-posts-excerpt-count']  = 25;
+		$defaults['related-posts-based-on']       = 'categories';
+		$defaults['related-posts-order-by']       = 'date';
+		$defaults['related-posts-order']          = 'asc';
+		$defaults['related-posts-grid']           = '2';
+		$defaults['related-posts-structure']      = array(
 			'featured-image',
 			'title-meta',
 		);
-		$defaults['related-posts-meta-structure']         = array(
+		$defaults['related-posts-meta-structure'] = array(
 			'comments',
 			'category',
 			'author',
 		);
 		// Related Posts - Color styles.
-		$defaults['related-posts-text-color']             = '';
-		$defaults['related-posts-link-color']             = '';
-		$defaults['related-posts-title-color']            = '';
-		$defaults['related-posts-background-color']       = '';
-		$defaults['related-posts-meta-color']             = '';
-		$defaults['related-posts-link-hover-color']       = '';
-		$defaults['related-posts-meta-link-hover-color']  = '';
+		$defaults['related-posts-text-color']            = '';
+		$defaults['related-posts-link-color']            = '';
+		$defaults['related-posts-title-color']           = '';
+		$defaults['related-posts-background-color']      = '';
+		$defaults['related-posts-meta-color']            = '';
+		$defaults['related-posts-link-hover-color']      = '';
+		$defaults['related-posts-meta-link-hover-color'] = '';
 		// Related Posts - Title typo.
-		$defaults['related-posts-section-title-font-family'] = 'inherit';
-		$defaults['related-posts-section-title-font-weight'] = 'inherit';
+		$defaults['related-posts-section-title-font-family']    = 'inherit';
+		$defaults['related-posts-section-title-font-weight']    = 'inherit';
 		$defaults['related-posts-section-title-text-transform'] = '';
-		$defaults['related-posts-section-title-line-height'] = '';
-		$defaults['related-posts-section-title-font-size'] = array(
+		$defaults['related-posts-section-title-line-height']    = '';
+		$defaults['related-posts-section-title-font-size']      = array(
 			'desktop'      => '30',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -125,11 +125,11 @@ class Astra_Related_Posts_Loader {
 		);
 
 		// Related Posts - Meta typo.
-		$defaults['related-posts-meta-font-family']     = 'inherit';
-		$defaults['related-posts-meta-font-weight']     = 'inherit';
-		$defaults['related-posts-meta-text-transform']  = '';
-		$defaults['related-posts-meta-line-height']     = '';
-		$defaults['related-posts-meta-font-size']       = array(
+		$defaults['related-posts-meta-font-family']    = 'inherit';
+		$defaults['related-posts-meta-font-weight']    = 'inherit';
+		$defaults['related-posts-meta-text-transform'] = '';
+		$defaults['related-posts-meta-line-height']    = '';
+		$defaults['related-posts-meta-font-size']      = array(
 			'desktop'      => '14',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -139,11 +139,11 @@ class Astra_Related_Posts_Loader {
 		);
 
 		// Related Posts - Content typo.
-		$defaults['related-posts-content-font-family']   = 'inherit';
-		$defaults['related-posts-content-font-weight']   = 'inherit';
-		$defaults['related-posts-content-text-transform']= '';
-		$defaults['related-posts-content-line-height']   = '';
-		$defaults['related-posts-content-font-size']     = array(
+		$defaults['related-posts-content-font-family']    = 'inherit';
+		$defaults['related-posts-content-font-weight']    = 'inherit';
+		$defaults['related-posts-content-text-transform'] = '';
+		$defaults['related-posts-content-line-height']    = '';
+		$defaults['related-posts-content-font-size']      = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
