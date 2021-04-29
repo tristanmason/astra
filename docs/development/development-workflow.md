@@ -12,7 +12,7 @@ All the changes that are to be added to the Astra theme should come in a pull re
 
 Main (protected) branches in Astra are -
 1. `master` - This branch always has the stable release that is available on WordPres.org
-2. `dev` (This will be renamed to `release-candidate`) - The code is merged into this branch by the release squad just before the release. This branch is used by the QA to do final release testing.
+2. `release-candidate` - The code is merged into this branch by the release squad just before the release. This branch is used by the QA to do final release testing.
 3. `next-release` - All the pull reuqests should be made against this branch.
 4. `development` - The developers will manually merge the code into this branch to have it deployed to the dev site for testing.
 

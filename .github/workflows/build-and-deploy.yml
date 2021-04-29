@@ -6,7 +6,6 @@ on:
     branches:
       - development
       - next-release
-      - dev
       - release-candidate
       - master
 
