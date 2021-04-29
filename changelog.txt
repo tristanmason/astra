@@ -1,3 +1,6 @@
+v3.5.0 (Unreleased)
+- Improvement: Added responsive control for 'Display Site Title' and 'Display Site Tagline' settings.
+
 v3.4.0 (Unreleased)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
 - Improvement: Gutenberg Editor - Compatibility with WordPress 5.7.
