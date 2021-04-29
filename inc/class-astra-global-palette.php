@@ -83,10 +83,28 @@ class Astra_Global_Palette {
 	public static function get_palette_labels() {
 		return array(
 			__( 'Text Color', 'astra' ),
-			__( 'Theme color', 'astra' ),
-			__( 'Link color', 'astra' ),
+			__( 'Theme Color', 'astra' ),
+			__( 'Link Color', 'astra' ),
 			__( 'Link Hover Color', 'astra' ),
 			__( 'Heading Color', 'astra' ),
+			__( 'Extra Color 1', 'astra' ),
+			__( 'Extra Color 2', 'astra' ),
+			__( 'Extra Color 3', 'astra' ),
+			__( 'Extra Color 4', 'astra' )
+		);
+	}
+
+	public static function get_palette_slugs() {
+		return array(
+			'text-color',
+			'theme-color',
+			'link-hover',
+			'link-hover-color',
+			'heading-color',
+			'extra-color-1',
+			'extra-color-2',
+			'extra-color-3',
+			'extra-color-4'
 		);
 	}
 
