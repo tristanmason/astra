@@ -594,11 +594,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
-			if ( astra_target_rules_for_related_posts() ) {
-				require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/css/static-css.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( related_posts_static_css() );
-			}
-
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -654,7 +649,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			// Related Posts Dynamic CSS.
-			require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/css/dynamic-css.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *

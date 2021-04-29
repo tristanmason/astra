@@ -1470,7 +1470,7 @@ function isJsonString( str ) {
 	/**
 	 * Related Posts color stylings.
 	 */
-	astra_css( 'astra-settings[related-posts-text-color]', 'color', '.ast-related-post-content .ast-related-post-title *, .ast-related-post-content .ast-related-post-excerpt' );
+	astra_css( 'astra-settings[related-posts-text-color]', 'color', '.ast-related-post-content .entry-header .ast-related-post-title a, .ast-related-post-content .ast-related-post-excerpt' );
 	astra_css( 'astra-settings[related-posts-meta-color]', 'color', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
 	astra_css( 'astra-settings[related-posts-title-color]', 'color', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[related-posts-background-color]', 'background-color', '.ast-single-related-posts-container' );
@@ -1479,11 +1479,11 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[related-posts-meta-link-hover-color]', 'color', '.ast-related-post-content .entry-meta a:hover, .ast-related-post-content .entry-meta span a span:hover' );
 
 	// Related Posts - Customizer preview for Post Title.
-	astra_generate_outside_font_family_css( 'astra-settings[related-posts-title-font-family]', '.ast-related-post-content .ast-related-post-title, .ast-related-post-content .ast-related-post-title *' );
-	astra_css( 'astra-settings[related-posts-title-font-weight]', 'font-weight', '.ast-related-post-content .ast-related-post-title, .ast-related-post-content .ast-related-post-title *' );
-	astra_responsive_font_size( 'astra-settings[related-posts-title-font-size]', '.ast-related-post-content .ast-related-post-title, .ast-related-post-content .ast-related-post-title *' );
-	astra_css( 'astra-settings[related-posts-title-line-height]', 'line-height', '.ast-related-post-content .ast-related-post-title, .ast-related-post-content .ast-related-post-title *' );
-	astra_css( 'astra-settings[related-posts-title-text-transform]', 'text-transform', '.ast-related-post-content .ast-related-post-title, .ast-related-post-content .ast-related-post-title *' );
+	astra_generate_outside_font_family_css( 'astra-settings[related-posts-title-font-family]', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
+	astra_css( 'astra-settings[related-posts-title-font-weight]', 'font-weight', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
+	astra_responsive_font_size( 'astra-settings[related-posts-title-font-size]', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
+	astra_css( 'astra-settings[related-posts-title-line-height]', 'line-height', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
+	astra_css( 'astra-settings[related-posts-title-text-transform]', 'text-transform', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
 
 	// Related Posts - Customizer preview for Section Title.
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-section-title-font-family]', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );

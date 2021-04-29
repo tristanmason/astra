@@ -518,6 +518,20 @@
         }
     },
     {
+        "Antonio": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Arapey": {
             "variants": [
                 "regular",
@@ -5046,6 +5060,16 @@
         }
     },
     {
+        "Karantina": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Karla": {
             "variants": [
                 "200",
@@ -7425,6 +7449,14 @@
             "variants": [
                 "regular",
                 "italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Orelega One": {
+            "variants": [
+                "regular"
             ],
             "category": "display"
         }
@@ -10762,6 +10794,14 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Zen Dots": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
