@@ -514,6 +514,11 @@
 	z-index: 1;
 	right: 0;
 	width: 21em;
+	display: none;
+}
+
+#customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{
+	display: block;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-label {
