@@ -1,0 +1,11 @@
+parameters:
+	level: 3
+	paths:
+		- functions.php
+		- inc/
+	bootstrapFiles:
+		- %currentWorkingDirectory%/tests/php/static-analysis-stubs/constants.php
+	excludes_analyse:
+		- %currentWorkingDirectory%/inc/lib/*
+	ignoreErrors:
+		- '#Variable \$wp_customize might not be defined.#'
