@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'ASTRA_RELATED_POSTS_DIR', ASTRA_THEME_DIR . 'inc/modules/related-posts/' );
-define( 'ASTRA_RELATED_POSTS_URI', ASTRA_THEME_URI . 'inc/modules/related-posts/' );
 
 /**
  * Related Posts Initial Setup
