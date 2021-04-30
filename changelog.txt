@@ -1,6 +1,6 @@
 v3.5.0 (Unreleased)
 - Fix: 'Take Last Item Outside Menu' option not visible when 'Hide Last Item in Menu on Mobile' is enabled in old header.
-- Fix: Page Builder's menu elements show double arrow icons when theme's SVG icons are enabled.
+- Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
 
 v3.4.0
 - New: 'Related Posts' feature for single post layout. (https://wpastra.com/docs/display-related-posts/)
