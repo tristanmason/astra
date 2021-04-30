@@ -1,5 +1,5 @@
 v3.4.0.1 (Unreleased)
-- Fix: Menu hides on mobile when menu item anchor tag has hash(#) value for href attribute.
+- Fix: Menu hides on mobile when menu item anchor tag has hash(#) or null value for href attribute.
 
 v3.4.0
 - New: 'Related Posts' feature for single post layout. (https://wpastra.com/docs/display-related-posts/)

@@ -324,7 +324,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			// Close Popup on # link click inside Popup.
 			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
-				if( '#' !== popupLinks[link].getAttribute("href")){
+				if( null !== popupLinks[link].getAttribute("href") && '#' !== popupLinks[link].getAttribute("href") ){
 					popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
 					popupLinks[link].headerType = 'off-canvas';
 				}
@@ -340,7 +340,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			// Close Popup on # link click inside Popup.
 			for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
-				if( '#' !== mobileLinks[link].getAttribute("href")){
+				if( null !== popupLinks[link].getAttribute("href") && '#' !== mobileLinks[link].getAttribute("href") ){
 					mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
 					mobileLinks[link].headerType = 'dropdown';
 				}
