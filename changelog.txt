@@ -1,5 +1,5 @@
-v3.4.0.1 (Unreleased)
-- Fix: Off-canvas - Left flyout style not working.
+v3.4.1
+- Fix: Off-canvas - Mobile - Left aligned flyout style not working.
 
 v3.4.0
 - New: 'Related Posts' feature for single post layout. (https://wpastra.com/docs/display-related-posts/)
