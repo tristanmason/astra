@@ -407,6 +407,7 @@ function astra_off_canvas_static_css() {
 		}';
 	}
 
+	// Adding this CSS to bottom because it needs to be load after above style loads. As it required to hide/show flyout offcanvas.
 	$off_canvas_css .= '
 	.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {
 		opacity: 1;
