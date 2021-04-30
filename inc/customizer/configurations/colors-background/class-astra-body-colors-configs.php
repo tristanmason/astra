@@ -53,6 +53,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'title'     => __( 'Global Palette', 'astra' ),
 					'default'   => get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() ),
 					'transport' => 'postMessage',
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
