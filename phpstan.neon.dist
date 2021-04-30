@@ -10,3 +10,4 @@ parameters:
 	ignoreErrors:
 		- '#Variable \$wp_customize might not be defined.#'
 		- '#^Function apply_filters invoked with [34567] parameters, 2 required\.$#'
+		- '#Constant [a-zA-Z0-9\\_()]+ not found#'
