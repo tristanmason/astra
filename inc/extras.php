@@ -430,17 +430,14 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) && ( isset( $args->container_class ) && ! in_array( $args->menu_id, $skip_menu_locations ) ) ) && ! in_array( $args->menu_class, $page_builder_menus ) ) {
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
-
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
 			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
 		}
 	}
-
 	if ( 0 < $depth ) {
 		$title = $icon . $title;
 	}
-
 	return $title;
 }
 
