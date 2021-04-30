@@ -23,4 +23,4 @@ jobs:
         run: vendor/bin/phpcs
 
       - name: "Static Analysis"
-        run: php -d memory_limit=1G vendor/bin/phpstan analyse -c phpstan.neon.dist
+        run: vendor/bin/phpstan analyse -c phpstan.neon.dist --memory-limit=1G
