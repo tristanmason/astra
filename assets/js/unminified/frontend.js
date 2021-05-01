@@ -382,7 +382,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			case 'dropdown':
 
-				var popupTrigger = document.querySelectorAll( '.menu-toggle' );
+				var popupTrigger = document.querySelectorAll( '.menu-toggle.toggled' );
 
 				for ( var item = 0;  item < popupTrigger.length; item++ ) {
 
