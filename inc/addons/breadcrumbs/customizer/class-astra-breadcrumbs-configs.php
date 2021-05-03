@@ -101,7 +101,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -366,6 +365,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 
