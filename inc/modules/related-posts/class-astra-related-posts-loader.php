@@ -73,6 +73,7 @@ class Astra_Related_Posts_Loader {
 		// Related Posts.
 		$defaults['enable-related-posts']         = false;
 		$defaults['related-posts-title']          = __( 'Related Posts', 'astra' );
+		$defaults['releted-posts-title-alignment'] = 'left';
 		$defaults['related-posts-total-count']    = 2;
 		$defaults['enable-related-posts-excerpt'] = false;
 		$defaults['related-posts-excerpt-count']  = 25;

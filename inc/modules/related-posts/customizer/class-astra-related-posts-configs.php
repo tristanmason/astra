@@ -90,6 +90,41 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Related Posts Title Alignment
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[releted-posts-title-alignment]',
+				'default'    => astra_get_option( 'releted-posts-title-alignment' ),
+				'section'  => 'section-blog-single',
+				'transport'  => 'postMessage',
+				'title'      => __( 'Alignment', 'astra' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'priority'   => 11,
+				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+				'context'           => array(
+					Astra_Builder_Helper::$general_tab_config,
+					'relation' => 'AND',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+						'operator' => '!=',
+						'value'    => '',
+					),
+				),
+				'choices'    => array(
+					'left'   => 'align-left',
+					'center' => 'align-center',
+					'right'  => 'align-right',
+				),
+			),
+
+			/**
 			 * Option: Related Posts Structure
 			 */
 			array(
@@ -384,10 +419,16 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'context'   => array(
 					true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 					Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					'relation' => 'AND',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 						'operator' => '==',
 						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+						'operator' => '!=',
+						'value'    => '',
 					),
 				),
 				'title'     => __( 'Section Title Font', 'astra' ),
@@ -545,10 +586,16 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'context'           => array(
 					true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 					Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					'relation' => 'AND',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 						'operator' => '==',
 						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+						'operator' => '!=',
+						'value'    => '',
 					),
 				),
 				'title'             => __( 'Section Title', 'astra' ),

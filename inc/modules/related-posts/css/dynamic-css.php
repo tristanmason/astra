@@ -26,6 +26,7 @@ function astra_related_posts_css( $dynamic_css ) {
 
 		$link_color         = astra_get_option( 'link-color' );
 		$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );
+		$related_posts_title_alignment = astra_get_option( 'releted-posts-title-alignment' );
 
 		// Related Posts -> Post Title typography dyanamic stylings.
 		$related_post_title_font_family    = astra_get_option( 'related-posts-title-font-family' );
@@ -95,6 +96,7 @@ function astra_related_posts_css( $dynamic_css ) {
 				'font-size'      => astra_responsive_font( $related_posts_section_title_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $related_posts_section_title_line_height ),
 				'text-transform' => esc_attr( $related_posts_section_title_text_transform ),
+				'text-align' => esc_attr( $related_posts_title_alignment ),
 			),
 			/**
 			 * Related Posts - Post Title
