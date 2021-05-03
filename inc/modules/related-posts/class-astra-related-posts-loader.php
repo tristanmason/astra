@@ -71,21 +71,21 @@ class Astra_Related_Posts_Loader {
 	public function theme_defaults( $defaults ) {
 
 		// Related Posts.
-		$defaults['enable-related-posts']         = false;
-		$defaults['related-posts-title']          = __( 'Related Posts', 'astra' );
+		$defaults['enable-related-posts']          = false;
+		$defaults['related-posts-title']           = __( 'Related Posts', 'astra' );
 		$defaults['releted-posts-title-alignment'] = 'left';
-		$defaults['related-posts-total-count']    = 2;
-		$defaults['enable-related-posts-excerpt'] = false;
-		$defaults['related-posts-excerpt-count']  = 25;
-		$defaults['related-posts-based-on']       = 'categories';
-		$defaults['related-posts-order-by']       = 'date';
-		$defaults['related-posts-order']          = 'asc';
-		$defaults['related-posts-grid']           = '2';
-		$defaults['related-posts-structure']      = array(
+		$defaults['related-posts-total-count']     = 2;
+		$defaults['enable-related-posts-excerpt']  = false;
+		$defaults['related-posts-excerpt-count']   = 25;
+		$defaults['related-posts-based-on']        = 'categories';
+		$defaults['related-posts-order-by']        = 'date';
+		$defaults['related-posts-order']           = 'asc';
+		$defaults['related-posts-grid']            = '2';
+		$defaults['related-posts-structure']       = array(
 			'featured-image',
 			'title-meta',
 		);
-		$defaults['related-posts-meta-structure'] = array(
+		$defaults['related-posts-meta-structure']  = array(
 			'comments',
 			'category',
 			'author',

@@ -117,7 +117,7 @@ class Astra_Related_Posts_Markup {
 
 						do_action( 'astra_related_posts_title_before' );
 
-						if( '' !== $related_posts_title ) {
+						if ( '' !== $related_posts_title ) {
 							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								'astra_related_posts_title',
 								sprintf(
