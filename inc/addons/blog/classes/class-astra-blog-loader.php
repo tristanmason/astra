@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 			$defaults['blog-grid-layout']         = 1;
 			$defaults['blog-layout']              = 'blog-layout-1';
 			$defaults['blog-excerpt-count']       = 16;
-			$defaults['blog-read-more-text']      = __( 'Read More »', 'astra-addon' );
+			$defaults['blog-read-more-text']      = __( 'Read More »', 'astra' );
 			$defaults['blog-post-inside-spacing'] = array(
 				'desktop'      => array(
 					'top'    => 30,
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 				'astBlogGrid',
 				array(
 					'apply_flex_based_css' => Astra_Builder_Helper::apply_flex_based_css(),
-				) 
+				)
 			);
 		}
 	}

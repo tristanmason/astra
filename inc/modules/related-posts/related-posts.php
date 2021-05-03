@@ -273,7 +273,7 @@ function astra_get_related_posts() {
 		 *
 		 * To avoid such cases $post_counter & ( $post_counter < $total_posts_count ) condition used.
 		 *
-		 * @since x.x.x
+		 * @since 3.4.0
 		 */
 		$post_counter      = 1;
 		$total_posts_count = $related_posts_total_count + 1;
