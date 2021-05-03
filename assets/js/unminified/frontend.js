@@ -324,8 +324,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			// Close Popup on # link click inside Popup.
 			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
-				popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
-				popupLinks[link].headerType = 'off-canvas';
+				if( null !== popupLinks[link].getAttribute("href") && '#' !== popupLinks[link].getAttribute("href") ){
+					popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
+					popupLinks[link].headerType = 'off-canvas';
+				}
 			}
 
 			AstraToggleSetup();
@@ -338,8 +340,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			// Close Popup on # link click inside Popup.
 			for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
-				mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
-				mobileLinks[link].headerType = 'dropdown';
+				if( null !== popupLinks[link].getAttribute("href") && '#' !== mobileLinks[link].getAttribute("href") ){
+					mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
+					mobileLinks[link].headerType = 'dropdown';
+				}
 			}
 
 			// Close Popup on # link click inside Popup.
@@ -419,10 +423,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener('resize', function () {
 
-		var menu_offcanvas_close = document.getElementById('menu-toggle-close');
-		var menu_dropdown_close = document.querySelector('.menu-toggle.toggled');
-		var desktop_header_content = document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
-		if ( menu_dropdown_close ) {
+		var menu_offcanvas_close 	= document.getElementById('menu-toggle-close');
+		var menu_dropdown_close 	= document.querySelector('.menu-toggle.toggled');
+		var desktop_header_content	= document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
+		var elementor_editor 		= document.querySelector('.elementor-editor-active');
+		if ( menu_dropdown_close && null === elementor_editor) {
 			menu_dropdown_close.click();
 		}
 		if ( desktop_header_content ) {
@@ -430,7 +435,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 
-		if( menu_offcanvas_close ) {
+		if( menu_offcanvas_close && null === elementor_editor ) {
 			menu_offcanvas_close.click();
 		}
 
