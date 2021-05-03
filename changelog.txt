@@ -1,5 +1,5 @@
 v3.5.0(unreleased)
-- Improvement: Improved accessibility for Search button.
+- Fix: Added accessibility for search button of search form.
 
 v3.4.1
 - Fix: Off-canvas - Mobile - Left aligned flyout style not working.
