@@ -1,3 +1,7 @@
+v3.4.2 (Unreleased)
+- New: Related Posts - Option to change "Related Posts" title.
+- New: Related Posts - Alignment option for "Related Posts" title.
+
 v3.4.1
 - Fix: Off-canvas - Mobile - Left aligned flyout style not working.
 - Fix: Mobile Menu hides when menu item having hash(#) link is clicked.
