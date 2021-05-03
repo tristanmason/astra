@@ -171,32 +171,6 @@ html {
   text-decoration: none;
 }
 
-.edit-post-visual-editor ul, .edit-post-visual-editor ol {
-  margin: 0 0 1.5em 3em;
-}
-
-.edit-post-visual-editor ul {
-  list-style: disc;
-}
-
-.edit-post-visual-editor ol {
-  list-style: decimal;
-}
-
-.edit-post-visual-editor li > ul,
-.edit-post-visual-editor li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
-}
-
-.edit-post-visual-editor dt {
-  font-weight: bold;
-}
-
-.edit-post-visual-editor dd {
-  margin: 0 1.5em 1.5em;
-}
-
 .edit-post-visual-editor table, .edit-post-visual-editor th, .edit-post-visual-editor td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
