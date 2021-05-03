@@ -79,7 +79,7 @@ require_once ASTRA_THEME_DIR . 'inc/extras.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog-config.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/single-blog.php';
-require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/related-posts.php';
+
 /**
  * Markup Files
  */
@@ -113,12 +113,15 @@ if ( is_admin() ) {
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
 
-
 /**
  * Customizer additions.
  */
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
 
+/**
+ * Astra Modules.
+ */
+require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/class-astra-related-posts.php';
 
 /**
  * Compatibility
