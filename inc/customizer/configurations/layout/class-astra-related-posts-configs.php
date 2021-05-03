@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2021, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 3.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,7 +25,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since x.x.x
+		 * @since 3.4.0
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -197,7 +197,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'title'       => __( 'Total Number of Related Posts', 'astra' ),
 					'priority'    => 11,
 					'input_attrs' => array(
-						'min'  => -1,
+						'min'  => 1,
 						'step' => 1,
 						'max'  => 20,
 					),
@@ -405,7 +405,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[related-posts-meta-typography-group]',
 					'type'      => 'control',
-					'priority'  => 19,
+					'priority'  => 18,
 					'control'   => 'ast-settings-group',
 					'context'   => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
@@ -493,7 +493,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'section'  => 'section-blog-single',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'title'    => __( 'Related Posts', 'astra' ),
+					'title'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? __( 'Related Posts', 'astra' ) : __( 'Related Posts Design', 'astra' ),
 					'context'  => array(
 						true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 						Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
@@ -688,7 +688,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
@@ -782,7 +782,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
@@ -876,7 +876,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),
@@ -970,7 +970,7 @@ if ( ! class_exists( 'Astra_Related_Posts_Configs' ) ) {
 					'suffix'            => '',
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
+						'step' => 1,
 						'max'  => 5,
 					),
 				),

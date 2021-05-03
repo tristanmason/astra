@@ -81,9 +81,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.4.0' => array(
 				'astra_update_cart_style',
 			),
-			'3.5.0' => array(
-				'astra_update_global_colors',
-			),
 		);
 
 		/**

@@ -64,7 +64,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 						'type'      => 'control',
-						'priority'  => 13,
+						'priority'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						13 : 20,
 						'control'   => 'ast-settings-group',
 						'title'     => __( 'Post / Page Title Font', 'astra' ),
 						'section'   => 'section-blog-single',
@@ -109,7 +110,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'default'     => astra_get_option( 'font-size-entry-title' ),
 					'transport'   => 'postMessage',
-					'priority'    => 13,
+					'priority'    => 9,
 					'title'       => __( 'Post / Page Title Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
