@@ -16,10 +16,11 @@
 	z-index: 1;
 	left: 0;
 	width: 21em;
+	display: none;
 }
 
-#customize-control-astra-color-palettes .ast-color-btn-reset-wrap {
-	right: 60px;
+#customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{
+	display: block;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-label {
@@ -141,8 +142,13 @@
     background-color: rgb(0 0 0 / 80%);
 }
 
-.components-button.astra-color-icon-indicate .astra-advanced-color-indicate .global-color{
+.astra-advanced-color-indicate .global-color{
+	display: none;
+}
+
+.color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color{
     color: #fff;
+	display: block;
     opacity: 1;
     position: absolute;
     right: 50%;
@@ -150,8 +156,9 @@
     display: block;
     transform: translate(50%, -50%);
     text-align: center;
+	font-size: 12px;
 }
-.components-button.astra-color-icon-indicate .astra-advanced-color-indicate .global-color svg{
+.color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;
     height: 10px;
     transform: scale(1.5);
