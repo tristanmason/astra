@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 				array(
 					'name'     => 'section-lifterlms-general',
 					'type'     => 'section',
-					'title'    => __( 'General', 'astra-addon' ),
+					'title'    => __( 'General', 'astra' ),
 					'section'  => 'section-lifterlms',
 					'priority' => 0,
 				),

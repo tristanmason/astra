@@ -1,7 +1,11 @@
-v3.4.0 (Unreleased)
-- New: 'Related Posts' feature for single post layout.
+v3.4.1
+- Fix: Off-canvas - Mobile - Left aligned flyout style not working.
+- Fix: Mobile Menu hides when menu item having hash(#) link is clicked.
+
+v3.4.0
+- New: 'Related Posts' feature for single post layout. (https://wpastra.com/docs/display-related-posts/)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
-- Improvement: Gutenberg Editor - Compatibility with Starter Templates Blocks design in editor.
+- Improvement: Gutenberg Editor - Compatibility with Starter Templates Blocks design in editor. (https://wpastra.com/docs/fix-spacing-gb-blocks/)
 - Improvement: Update toolset-config.json towards Toolset 1.5 compatibility. (Props - https://github.com/decodekult)
 - Improvement: Frontend optimization by reducing one request for Menu animation CSS in default theme though option is available to add menu animation.
 - Improvement: Frontend optimization by replacing Flyout Menu with Dropdown menu for default theme.
