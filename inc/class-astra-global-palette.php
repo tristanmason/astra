@@ -39,6 +39,12 @@ class Astra_Global_Palette {
 		return '--ast-global-color-';
 	}
 
+	/**
+	 * Default global palette options.
+	 *
+	 * @since x.x.x
+	 * @return array Palette options.
+	 */
 	public static function get_default_color_palette() {
 		return array(
 			'currentPalette' => 'palette_1',
@@ -80,6 +86,12 @@ class Astra_Global_Palette {
 		);
 	}
 
+	/**
+	 * Get labels for palette colors.
+	 *
+	 * @since x.x.x
+	 * @return array Palette labels.
+	 */
 	public static function get_palette_labels() {
 		return array(
 			__( 'Text Color', 'astra' ),
@@ -172,18 +184,18 @@ class Astra_Global_Palette {
 	 * Pass hex value for global palette to process forground color.
 	 *
 	 * @since x.x.x
-	 * @param string $hex hex color / css variable.
+	 * @param string $color hex color / css variable.
 	 * @return string
 	 */
 	public function get_color_by_palette_variable( $color ) {
 		// Check if color is CSS variable.
-		if( 0 === strpos( $color, 'var(--' ) ) {
+		if ( 0 === strpos( $color, 'var(--' ) ) {
 
 			$global_palette = astra_get_option( 'global-color-palette' );
 
-			foreach( $global_palette['palette'] as $palette_index => $value ) {
+			foreach ( $global_palette['palette'] as $palette_index => $value ) {
 
-				if( $color == 'var(' . self::get_css_variable_prefix() . $palette_index . ')' ) {
+				if ( 'var(' . self::get_css_variable_prefix() . $palette_index . ')' === $color ) {
 					return $value;
 				}
 			}
