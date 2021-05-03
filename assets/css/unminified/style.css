@@ -4885,6 +4885,12 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+@media (max-width: 544px) {
+  .admin-bar {
+    --admin-bar:0px;
+  }
+}
+
 #page {
   -js-display: flex;
   display: flex;

@@ -64,6 +64,14 @@
 		--admin-bar:32px;
 	}
 }
+
+@media ( max-width: $mx-col-sm ){
+	.admin-bar {
+		--admin-bar:0px;
+	}
+}
+
+
 #page{ 
 	display: flex;
  	flex-direction: column;
