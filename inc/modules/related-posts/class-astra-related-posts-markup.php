@@ -66,6 +66,7 @@ class Astra_Related_Posts_Markup {
 	public function astra_get_related_posts() {
 		global $post;
 		$post_id                   = $post->ID;
+		$related_posts_title       = astra_get_option( 'related-posts-title' );
 		$related_posts_grid        = astra_get_option( 'related-posts-grid', 2 );
 		$related_post_meta         = astra_get_option( 'related-posts-meta-structure' );
 		$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
@@ -116,14 +117,16 @@ class Astra_Related_Posts_Markup {
 
 						do_action( 'astra_related_posts_title_before' );
 
-						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							'astra_related_posts_title',
-							sprintf(
-								'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
-								'h2',
-								esc_html__( 'Related Posts', 'astra' )
-							)
-						);
+						if( '' !== $related_posts_title ) {
+							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								'astra_related_posts_title',
+								sprintf(
+									'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
+									'h2',
+									$related_posts_title
+								)
+							);
+						}
 
 						do_action( 'astra_related_posts_title_after' );
 

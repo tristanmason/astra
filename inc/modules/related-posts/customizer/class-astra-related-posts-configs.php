@@ -69,6 +69,27 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Related Posts Title
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+				'default'  => astra_get_option( 'related-posts-title' ),
+				'type'     => 'control',
+				'section'  => 'section-blog-single',
+				'priority' => 11,
+				'title'    => __( 'Related Posts Title', 'astra' ),
+				'control'  => 'text',
+				'context'  => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
 			 * Option: Related Posts Structure
 			 */
 			array(
@@ -204,7 +225,7 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 20,
 				),
-				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 			),
 
 			/**
