@@ -3534,7 +3534,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Load static Related Posts CSS.
 		 *
-		 * @since x.x.x
+		 * @since 3.4.0
 		 *
 		 * @return string static css for Related Posts section.
 		 */
