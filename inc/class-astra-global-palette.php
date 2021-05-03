@@ -26,6 +26,7 @@ class Astra_Global_Palette {
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
 		add_filter( 'astra_before_fg_color_generate', array( $this, 'get_color_by_palette_variable' ) );
+		add_filter( 'astra_theme_customizer_js_localize', array( $this, 'localize_variables' ) );
 		$this->includes();
 	}
 
@@ -39,6 +40,29 @@ class Astra_Global_Palette {
 		return '--ast-global-color-';
 	}
 
+	/**
+	 * Localize variables used in the customizer.
+	 *
+	 * @since x.x.x
+	 * @param object $object localize object.
+	 * @return array $object localize object.
+	 */
+	public function localize_variables( $object ) {
+
+		if ( isset( $object['customizer'] ) ) {
+			$object['customizer']['globalPaletteStylePrefix'] = self::get_css_variable_prefix();
+			$object['customizer']['isElementorActive']        = astra_is_elemetor_active();
+			$object['customizer']['globalPaletteSlugs']       = self::get_palette_slugs();
+		}
+		return $object;
+	}
+
+	/**
+	 * Default global palette options.
+	 *
+	 * @since x.x.x
+	 * @return array Palette options.
+	 */
 	public static function get_default_color_palette() {
 		return array(
 			'currentPalette' => 'palette_1',
@@ -80,6 +104,12 @@ class Astra_Global_Palette {
 		);
 	}
 
+	/**
+	 * Get labels for palette colors.
+	 *
+	 * @since x.x.x
+	 * @return array Palette labels.
+	 */
 	public static function get_palette_labels() {
 		return array(
 			__( 'Text Color', 'astra' ),
@@ -90,10 +120,16 @@ class Astra_Global_Palette {
 			__( 'Extra Color 1', 'astra' ),
 			__( 'Extra Color 2', 'astra' ),
 			__( 'Extra Color 3', 'astra' ),
-			__( 'Extra Color 4', 'astra' )
+			__( 'Extra Color 4', 'astra' ),
 		);
 	}
 
+	/**
+	 * Get slugs for palette colors.
+	 *
+	 * @since x.x.x
+	 * @return array Palette slugs.
+	 */
 	public static function get_palette_slugs() {
 		return array(
 			'text-color',
@@ -104,7 +140,7 @@ class Astra_Global_Palette {
 			'extra-color-1',
 			'extra-color-2',
 			'extra-color-3',
-			'extra-color-4'
+			'extra-color-4',
 		);
 	}
 
@@ -190,18 +226,18 @@ class Astra_Global_Palette {
 	 * Pass hex value for global palette to process forground color.
 	 *
 	 * @since x.x.x
-	 * @param string $hex hex color / css variable.
+	 * @param string $color hex color / css variable.
 	 * @return string
 	 */
 	public function get_color_by_palette_variable( $color ) {
 		// Check if color is CSS variable.
-		if( 0 === strpos( $color, 'var(--' ) ) {
+		if ( 0 === strpos( $color, 'var(--' ) ) {
 
 			$global_palette = astra_get_option( 'global-color-palette' );
 
-			foreach( $global_palette['palette'] as $palette_index => $value ) {
+			foreach ( $global_palette['palette'] as $palette_index => $value ) {
 
-				if( $color == 'var(' . self::get_css_variable_prefix() . $palette_index . ')' ) {
+				if ( 'var(' . self::get_css_variable_prefix() . $palette_index . ')' === $color ) {
 					return $value;
 				}
 			}

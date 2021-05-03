@@ -554,3 +554,13 @@ function astra_target_rules_for_related_posts() {
 
 	return apply_filters( 'astra_showcase_related_posts', $allow_related_posts );
 }
+
+/**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}

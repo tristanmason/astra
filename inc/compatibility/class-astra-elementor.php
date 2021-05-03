@@ -6,6 +6,7 @@
  */
 
 namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
+
 use Astra_Global_Palette;
 
 // If plugin - 'Elementor' not exist then return.
@@ -58,8 +59,8 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 
 			add_action( 'rest_request_after_callbacks', array( $this, 'elementor_add_theme_colors' ), 999, 3 );
-			add_filter( 'rest_request_after_callbacks', [ $this, 'display_global_colors_front_end' ], 999, 3 );
-			add_filter( 'astra_dynamic_theme_css', [ $this, 'generate_global_elementor_style' ], 11 );
+			add_filter( 'rest_request_after_callbacks', array( $this, 'display_global_colors_front_end' ), 999, 3 );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'generate_global_elementor_style' ), 11 );
 		}
 
 		/**
@@ -253,34 +254,34 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Display theme global colors to Elementor Global colors
 		 *
 		 * @since x.x.x
-		 * @param object $response rest request response
-		 * @param array $handler Route handler used for the request.
-		 * @param array $request Request used to generate the response.
+		 * @param object $response rest request response.
+		 * @param array  $handler Route handler used for the request.
+		 * @param object $request Request used to generate the response.
 		 * @return object
 		 */
 		public function elementor_add_theme_colors( $response, $handler, \WP_REST_Request $request ) {
 
 			$route = $request->get_route();
 
-			if ( $route !== '/elementor/v1/globals' ) {
+			if ( '/elementor/v1/globals' != $route ) {
 				return $response;
 			}
 
 			$global_palette = astra_get_option( 'global-color-palette' );
-			$data   = $response->get_data();
-			$slugs = Astra_Global_Palette::get_palette_slugs();
+			$data           = $response->get_data();
+			$slugs          = Astra_Global_Palette::get_palette_slugs();
 
 			foreach ( $global_palette['palette'] as $key => $color ) {
 
-				$slug = $slugs[ $key ];
+				$slug = 'astra' . $slugs[ $key ];
 				// Remove hyphens from slug.
 				$no_hyphens = str_replace( '-', '', $slug );
 
-				$data['colors'][ $no_hyphens ] = [
+				$data['colors'][ $no_hyphens ] = array(
 					'id'    => esc_attr( $no_hyphens ),
-					'title' => $global_palette['labels'][$key],
+					'title' => $global_palette['labels'][ $key ],
 					'value' => $color,
-				];
+				);
 			}
 
 			$response->set_data( $data );
@@ -291,9 +292,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Display global paltte colors on Elementor front end Page.
 		 *
 		 * @since x.x.x
-		 * @param object $response rest request response
-		 * @param array $handler Route handler used for the request.
-		 * @param array $request Request used to generate the response.
+		 * @param object $response rest request response.
+		 * @param array  $handler Route handler used for the request.
+		 * @param object $request Request used to generate the response.
 		 * @return object
 		 */
 		public function display_global_colors_front_end( $response, $handler, \WP_REST_Request $request ) {
@@ -301,8 +302,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			$slug_map      = array();
 			$palette_slugs = Astra_Global_Palette::get_palette_slugs();
 
-			foreach( $palette_slugs as $key => $slug ) {
-				$no_hyphens = str_replace( '-', '', $slug );
+			foreach ( $palette_slugs as $key => $slug ) {
+				// Remove hyphens as hyphens do not work with Elementor global styles.
+				$no_hyphens              = 'astra' . str_replace( '-', '', $slug );
 				$slug_map[ $no_hyphens ] = $key;
 			}
 
@@ -314,11 +316,11 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 			$colors   = astra_get_option( 'global-color-palette' );
 			$response = new \WP_REST_Response(
-				[
+				array(
 					'id'    => esc_attr( $rest_id ),
 					'title' => Astra_Global_Palette::get_css_variable_prefix() . esc_html( $slug_map[ $rest_id ] ),
 					'value' => $colors['palette'][ $slug_map[ $rest_id ] ],
-				]
+				)
 			);
 			return $response;
 		}
@@ -331,19 +333,20 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return object
 		 */
 		public function generate_global_elementor_style( $dynamic_css ) {
-			$global_palette  = astra_get_option( 'global-color-palette' );
-			$palette_style   = array();
-			$slugs = Astra_Global_Palette::get_palette_slugs();
-			$style = array();
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+			$palette_style  = array();
+			$slugs          = Astra_Global_Palette::get_palette_slugs();
+			$style          = array();
 
 			if ( isset( $global_palette['palette'] ) ) {
 				foreach ( $global_palette['palette'] as $color_index => $color ) {
-					$variable_key = '--e-global-color-' . str_replace( "-", "", $slugs[ $color_index ] );
+					$variable_key           = '--e-global-color-astra' . str_replace( '-', '', $slugs[ $color_index ] );
 					$style[ $variable_key ] = $color;
 				}
 
-				$palette_style[ ':root' ] = $style;
-				$dynamic_css .= astra_parse_css( $palette_style );
+				$palette_style[':root'] = $style;
+				$dynamic_css           .= astra_parse_css( $palette_style );
 			}
 
 			return $dynamic_css;

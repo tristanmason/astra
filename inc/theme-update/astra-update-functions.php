@@ -2950,32 +2950,32 @@ function astra_update_cart_style() {
  * @return void
  */
 function astra_update_global_colors() {
-	$theme_options = get_option( 'astra-settings', array() );
+	$theme_options          = get_option( 'astra-settings', array() );
 	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
 
-	/// Options mapping to global palette colors index.
+	// Options mapping to global palette colors index.
 	$global_color_options_mapping = array(
 		'text-color'         => 3,
 		'theme-color'        => 0,
 		'link-color'         => 0,
 		'link-h-color'       => 1,
-		'heading-base-color' => 2
+		'heading-base-color' => 2,
 	);
 
-	$global_palette_default_options =  Astra_Global_Palette::get_default_color_palette();
+	$global_palette_default_options = Astra_Global_Palette::get_default_color_palette();
 
-	foreach( $global_color_options_mapping as $option => $palette_index ) {
+	foreach ( $global_color_options_mapping as $option => $palette_index ) {
 		$existing_color = $theme_options[ $option ];
 		// Save color values in first palette.
-		$global_palette_default_options[ 'palettes' ]['palette_1'][$palette_index] = $existing_color;
+		$global_palette_default_options['palettes']['palette_1'][ $palette_index ] = $existing_color;
 
 		// Save CSS variable value in color options.
-		$theme_options[ $option ] = 'var(' . $palette_css_var_prefix .  $palette_index .')';
+		$theme_options[ $option ] = 'var(' . $palette_css_var_prefix . $palette_index . ')';
 	}
 
 	$global_color_palette = array(
 		'labels'  => Astra_Global_Palette::get_palette_labels(),
-		'palette' => $global_palette_default_options[ 'palettes' ]['palette_1']
+		'palette' => $global_palette_default_options['palettes']['palette_1'],
 	);
 
 	$theme_options['global-color-palette'] = $global_color_palette;
