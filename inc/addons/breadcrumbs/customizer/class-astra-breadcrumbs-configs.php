@@ -372,6 +372,22 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			if ( $this->is_selected_breadcrumb_active() ) {
 
 				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'settings' => array(),
+					'priority' => 15,
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+				);
+				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
 					'type'      => 'control',
 					'control'   => 'text',
@@ -388,7 +404,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						Astra_Builder_Helper::$general_tab_config,
 					),
 					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 
