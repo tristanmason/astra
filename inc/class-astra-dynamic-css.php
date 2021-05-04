@@ -1700,7 +1700,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
 			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
 
-			if ( is_current_post_comment_enabled() ) {
+			if ( is_current_post_comment_enabled() || 0 < get_comments_number() ) {
 
 				$global_button_comment_mobile = array(
 					'.ast-separate-container .comments-count-wrapper' => array(
@@ -1791,7 +1791,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
-			if ( is_current_post_comment_enabled() ) {
+			if ( is_current_post_comment_enabled() || 0 < get_comments_number() ) {
 
 				$global_button_comment_tablet = array(
 					'.ast-comment-avatar-wrap img' => array(
