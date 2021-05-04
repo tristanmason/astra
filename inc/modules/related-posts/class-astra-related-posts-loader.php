@@ -80,7 +80,11 @@ class Astra_Related_Posts_Loader {
 		$defaults['related-posts-based-on']        = 'categories';
 		$defaults['related-posts-order-by']        = 'date';
 		$defaults['related-posts-order']           = 'asc';
-		$defaults['related-posts-grid']            = '2';
+		$defaults['related-posts-grid-responsive'] = array(
+			'desktop' => '2-equal',
+			'tablet'  => '2-equal',
+			'mobile'  => 'full',
+		);
 		$defaults['related-posts-structure']       = array(
 			'featured-image',
 			'title-meta',

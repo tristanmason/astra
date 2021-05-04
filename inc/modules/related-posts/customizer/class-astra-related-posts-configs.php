@@ -267,11 +267,11 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Related Posts Columns
 			 */
 			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[related-posts-grid]',
+				'name'       => ASTRA_THEME_SETTINGS . '[related-posts-grid-responsive]',
 				'type'       => 'control',
 				'control'    => 'ast-selector',
 				'section'    => 'section-blog-single',
-				'default'    => astra_get_option( 'related-posts-grid' ),
+				'default'    => astra_get_option( 'related-posts-grid-responsive' ),
 				'priority'   => 11,
 				'context'    => array(
 					Astra_Builder_Helper::$general_tab_config,
@@ -283,12 +283,12 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'      => __( 'Grid Column Layout', 'astra' ),
 				'choices'    => array(
-					'1' => __( '1', 'astra' ),
-					'2' => __( '2', 'astra' ),
-					'3' => __( '3', 'astra' ),
-					'4' => __( '4', 'astra' ),
+					'full' => __( '1', 'astra' ),
+					'2-equal' => __( '2', 'astra' ),
+					'3-equal' => __( '3', 'astra' ),
+					'4-equal' => __( '4', 'astra' ),
 				),
-				'responsive' => false,
+				'responsive' => true,
 				'renderAs'   => 'text',
 				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
