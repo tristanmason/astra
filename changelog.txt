@@ -1,4 +1,6 @@
 v3.4.2
+- Fix: JS console error when Off-canvas type 'Dropdown' is selected.
+- Fix: Dropdown does not close when you click a one page navigation link inside them.
 - Fix: Existing comments are not styled when post comments are disabled.
 
 v3.4.1
