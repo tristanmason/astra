@@ -291,7 +291,7 @@ class Astra_Social_Component_Dynamic_CSS {
 			$generated_css .= $css_output;
 		}
 		if ( $social_css_flag ) {
-			return  self::get_social_static_css() . $generated_css;
+			return self::get_social_static_css() . $generated_css;
 		}
 
 		return $generated_css;
@@ -303,7 +303,7 @@ class Astra_Social_Component_Dynamic_CSS {
 	 * @since 3.0.0
 	 */
 	public static function get_social_static_css() {
-		$social_Static_css = '
+		$social_static_css = '
 		.ast-social-color-type-official .ast-builder-social-element, .ast-social-color-type-official .social-item-label {
 			color: var(--color);
 			background-color: var(--background-color);
@@ -332,8 +332,8 @@ class Astra_Social_Component_Dynamic_CSS {
 		  margin-bottom: 6px;
 		}';
 		
-		if( is_rtl() ){
-			$social_Static_css .= '.ast-footer-social-wrap .ast-builder-social-element:first-child {
+		if ( is_rtl() ) {
+			$social_static_css .= '.ast-footer-social-wrap .ast-builder-social-element:first-child {
 				margin-right: 0;
 			}
 			.ast-footer-social-wrap .ast-builder-social-element:last-child {
@@ -370,8 +370,8 @@ class Astra_Social_Component_Dynamic_CSS {
 			.ast-builder-social-element .social-item-label {
 				padding-right: 6px;
 			}';
-		}else{
-			$social_Static_css .= '.ast-footer-social-wrap .ast-builder-social-element:first-child {
+		} else {
+			$social_static_css .= '.ast-footer-social-wrap .ast-builder-social-element:first-child {
 				margin-left: 0;
 			}  
 			.ast-footer-social-wrap .ast-builder-social-element:last-child {
@@ -410,7 +410,7 @@ class Astra_Social_Component_Dynamic_CSS {
 			}';
 		}
 
-		return Astra_Enqueue_Scripts::trim_css( $social_Static_css );
+		return Astra_Enqueue_Scripts::trim_css( $social_static_css );
 	}
 }
 
