@@ -1247,6 +1247,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							),
 							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
+							'update_slider_initialposition' => astra_get_option( 'can-update-slider-with-initialPosition', true ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
 						'theme'      => array(

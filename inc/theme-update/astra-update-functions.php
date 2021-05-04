@@ -2926,7 +2926,7 @@ function astra_check_flex_based_css() {
 function astra_update_cart_style() {
 
 	$theme_options = get_option( 'astra-settings', array() );
-	
+
 	if ( isset( $theme_options['woo-header-cart-icon-style'] ) && 'none' === $theme_options['woo-header-cart-icon-style'] ) {
 		$theme_options['woo-header-cart-icon-style']  = 'outline';
 		$theme_options['header-woo-cart-icon-color']  = '';
@@ -2938,6 +2938,26 @@ function astra_update_cart_style() {
 		$theme_options['edd-header-cart-icon-style']  = 'outline';
 		$theme_options['edd-header-cart-icon-color']  = '';
 		$theme_options['edd-header-cart-icon-radius'] = '';
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Setup the flag to not add initialPosition={ 0 } directly inside slider (range) control in customizer.
+ * Backward needed in this case because if any user kept slider control blank then it means this control has '' value.
+ * But after using initialPosition={ 0 } these blank value converts into 0. Which can afect styles/dimensions on frontend.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_validate_slider_empty_state() {
+
+	$theme_options = get_option( 'astra-settings' );
+
+	if ( ! isset( $theme_options['can-update-slider-with-initialPosition'] ) ) {
+		// Set a flag to check if we need to change the slider control configs.
+		$theme_options['can-update-slider-with-initialPosition'] = false;
 	}
 
 	update_option( 'astra-settings', $theme_options );

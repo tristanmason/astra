@@ -64,6 +64,8 @@ const SliderComponent = props => {
 		savedValue = ( props_value ) ? parseInt( props_value ) : '';
 	}
 
+	let sliderInitialPosition = ( astra.customizer.update_slider_initialposition ) ? 0 : '';
+
 	return <div className="ast-slider-wrap">
 		{labelHtml}
 		{descriptionHtml}
@@ -76,7 +78,7 @@ const SliderComponent = props => {
 				min={ min < 0 ? min : 0 }
 				max={ max || 500 }
 				step={ step || 1 }
-				initialPosition={ 0 }
+				initialPosition={ sliderInitialPosition }
 			/>
 			{ suffixHtml }
 		</div>
