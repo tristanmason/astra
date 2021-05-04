@@ -29012,6 +29012,7 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
       min: min < 0 ? min : 0,
       max: max || 100,
       step: step || 1,
+      initialPosition: 0,
       onChange: function onChange(newVal) {
         updateValues(device, newVal);
       }
@@ -30992,7 +30993,8 @@ var SliderComponent = function SliderComponent(props) {
     resetFallbackValue: defaultVal,
     min: min < 0 ? min : 0,
     max: max || 500,
-    step: step || 1
+    step: step || 1,
+    initialPosition: 0
   }), suffixHtml));
 };
 
