@@ -63,6 +63,7 @@ const ResponsiveSliderComponent = props => {
 				min={ min < 0 ? min : 0 }
 				max={ max || 100 }
 				step={ step || 1 }
+				initialPosition={ 0 }
 				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
 			/>
 		</div>;
