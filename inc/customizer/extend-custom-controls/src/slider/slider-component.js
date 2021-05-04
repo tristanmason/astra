@@ -76,6 +76,7 @@ const SliderComponent = props => {
 				min={ min < 0 ? min : 0 }
 				max={ max || 500 }
 				step={ step || 1 }
+				initialPosition={ 0 }
 			/>
 			{ suffixHtml }
 		</div>
