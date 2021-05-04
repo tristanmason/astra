@@ -46,6 +46,9 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		 * Copyright CSS.
 		 */
 		$css_output_desktop = array(
+			'.footer-widget-area[data-section^="section-fb-html-"] .ast-builder-html-element' => array(
+				'text-align' => 'center',
+			),
 			$selector . ' .ast-builder-html-element' => array(
 				'text-align' => $desktop_alignment,
 			),
