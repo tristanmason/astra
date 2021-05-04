@@ -283,7 +283,7 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'      => __( 'Grid Column Layout', 'astra' ),
 				'choices'    => array(
-					'full' => __( '1', 'astra' ),
+					'full'    => __( '1', 'astra' ),
 					'2-equal' => __( '2', 'astra' ),
 					'3-equal' => __( '3', 'astra' ),
 					'4-equal' => __( '4', 'astra' ),

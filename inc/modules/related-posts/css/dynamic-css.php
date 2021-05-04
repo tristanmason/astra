@@ -29,9 +29,9 @@ function astra_related_posts_css( $dynamic_css ) {
 
 		// Related Posts Grid layout params.
 		$related_posts_grid = astra_get_option( 'related-posts-grid-responsive' );
-		$desktop_grid = ( isset( $related_posts_grid['desktop'] ) ) ? $related_posts_grid['desktop'] : '2-equal';
-		$tablet_grid  = ( isset( $related_posts_grid['tablet'] ) ) ? $related_posts_grid['tablet'] : '2-equal';
-		$mobile_grid  = ( isset( $related_posts_grid['mobile'] ) ) ? $related_posts_grid['mobile'] : 'full';
+		$desktop_grid       = ( isset( $related_posts_grid['desktop'] ) ) ? $related_posts_grid['desktop'] : '2-equal';
+		$tablet_grid        = ( isset( $related_posts_grid['tablet'] ) ) ? $related_posts_grid['tablet'] : '2-equal';
+		$mobile_grid        = ( isset( $related_posts_grid['mobile'] ) ) ? $related_posts_grid['mobile'] : 'full';
 
 		// Related Posts -> Post Title typography dyanamic stylings.
 		$related_post_title_font_family    = astra_get_option( 'related-posts-title-font-family' );
