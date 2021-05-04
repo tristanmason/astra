@@ -1,3 +1,6 @@
+v3.4.2
+- Fix: Existing comments are not styled when post comments are disabled.
+
 v3.4.1
 - Fix: Off-canvas - Mobile - Left aligned flyout style not working.
 - Fix: Mobile Menu hides when menu item having hash(#) link is clicked.
