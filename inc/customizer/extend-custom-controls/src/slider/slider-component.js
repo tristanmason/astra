@@ -58,13 +58,11 @@ const SliderComponent = props => {
 		);
 	};
 
-	let savedValue = ( props_value ) ? parseFloat( props_value ) : '';
+	let savedValue = ( props_value || 0 === props_value ) ? parseFloat( props_value ) : '';
 
 	if ( 1 === step ) {
-		savedValue = ( props_value ) ? parseInt( props_value ) : '';
+		savedValue = ( props_value || 0 === props_value ) ? parseInt( props_value ) : '';
 	}
-
-	let sliderInitialPosition = ( astra.customizer.update_slider_initialposition ) ? 0 : '';
 
 	return <div className="ast-slider-wrap">
 		{labelHtml}
@@ -78,7 +76,6 @@ const SliderComponent = props => {
 				min={ min < 0 ? min : 0 }
 				max={ max || 500 }
 				step={ step || 1 }
-				initialPosition={ sliderInitialPosition }
 			/>
 			{ suffixHtml }
 		</div>
