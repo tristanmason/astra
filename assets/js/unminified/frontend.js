@@ -427,6 +427,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var menu_dropdown_close 	= document.querySelector('.menu-toggle.toggled');
 		var desktop_header_content	= document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
 		var elementor_editor 		= document.querySelector('.elementor-editor-active');
+		// Added this var to check the current active element consition. 
 		var menu_close_flag = 'INPUT' !== document.activeElement.tagName;
 
 
