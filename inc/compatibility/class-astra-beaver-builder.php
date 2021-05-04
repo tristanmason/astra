@@ -45,6 +45,7 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		public function __construct() {
 			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
 			add_action( 'do_meta_boxes', array( $this, 'beaver_builder_default_setting' ), 20 );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -85,6 +86,18 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 					}
 				}
 			}
+		}
+
+		/**
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 * @since x.x.x
+		 */
+		public function add_styles( $assets ) {
+			$assets['css']['astra-bb-builder'] = 'compatibility/page-builder/bb-plugin';
+			return $assets;
 		}
 
 	}

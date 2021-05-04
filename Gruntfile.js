@@ -175,6 +175,13 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'sass/site/compatibility/page-builder/',
+                        src: ['**.scss'],
+                        dest: 'assets/css/unminified/compatibility/page-builder/',
+                        ext: '.css'
+                    },
+                    {
+                        expand: true,
                         cwd: 'sass/site/compatibility/woocommerce',
                         src: ['**.scss'],
                         dest: 'assets/css/unminified/compatibility/woocommerce',
@@ -526,6 +533,14 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
                         dest: 'assets/css/minified/compatibility/divi-builder.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/page-builder/bb-plugin-rtl.css',
+                        dest: 'assets/css/minified/compatibility/page-builder/bb-plugin.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/page-builder/vc-plugin-rtl.css',
+                        dest: 'assets/css/minified/compatibility/page-builder/vc-plugin.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/edd-rtl.css',
