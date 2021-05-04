@@ -56,6 +56,8 @@ const ResponsiveSliderComponent = props => {
 			savedValue = ( state[device] ) ? parseInt( state[device] ) : '';
 		}
 
+		let sliderInitialPosition = ( astra.customizer.update_slider_initialposition ) ? 0 : '';
+
 		return <div className={`input-field-wrapper ${device} ${active}`}>
 			<RangeControl
 				resetFallbackValue={defaultVal}
@@ -63,7 +65,7 @@ const ResponsiveSliderComponent = props => {
 				min={ min < 0 ? min : 0 }
 				max={ max || 100 }
 				step={ step || 1 }
-				initialPosition={ 0 }
+				initialPosition={ sliderInitialPosition }
 				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
 			/>
 		</div>;
