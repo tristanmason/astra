@@ -2203,6 +2203,14 @@ body .entry-content .wp-block-latest-posts li {
   align-items: center;
 }
 
+.ast-footer-social-wrap .ast-builder-social-element:first-child {
+  margin-left: 0;
+}
+
+.ast-footer-social-wrap .ast-builder-social-element:last-child {
+  margin-right: 0;
+}
+
 .ast-builder-grid-row.ast-grid-center-col-layout-only {
   -js-display: flex;
   display: flex;
@@ -2316,6 +2324,37 @@ body .entry-content .wp-block-latest-posts li {
   text-align: left;
 }
 
+/**
+ * AST HF Builder - Widgets related CSS.
+ * Social Widget.
+ */
+.ast-builder-social-element {
+  line-height: 1;
+  color: #3a3a3a;
+  background: transparent;
+  vertical-align: middle;
+  transition: all 0.01s;
+  margin-left: 6px;
+  margin-right: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ast-builder-social-element:hover {
+  color: #0274be;
+}
+
+.ast-builder-social-element .social-item-label {
+  padding-left: 6px;
+}
+
+.ast-social-stack-desktop .ast-builder-social-element,
+.ast-social-stack-tablet .ast-builder-social-element,
+.ast-social-stack-mobile .ast-builder-social-element {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 .ahfb-svg-iconset {
   -js-display: inline-flex;
   display: inline-flex;
@@ -2330,6 +2369,23 @@ body .entry-content .wp-block-latest-posts li {
 
 .ahfb-svg-iconset svg > * {
   transition: none;
+}
+
+.social-show-label-true .ast-builder-social-element {
+  width: auto;
+  padding: 0 0.4em;
+}
+
+.ast-header-social-wrap .ast-builder-social-element:first-child {
+  margin-left: 0;
+}
+
+.ast-header-social-wrap .ast-builder-social-element:last-child {
+  margin-right: 0;
+}
+
+[data-section^="section-fb-social-icons-"] .footer-social-inner-wrap {
+  text-align: center;
 }
 
 /**
@@ -2380,6 +2436,10 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .ast-footer-copyright {
+  width: 100%;
+}
+
+.ast-footer-social-wrap {
   width: 100%;
 }
 
