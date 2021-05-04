@@ -205,9 +205,24 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
 					'priority' => 30,
 					'control'  => 'ast-toggle-control',
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-logo-separator]',
+					'type'     => 'control',
+					'section'  => $_section,
+					'settings' => array(),
+					'priority' => 30,
+					'control'  => 'ast-divider',
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+				),
 
 				/**
 				 * Option: Transparent header logo selector
