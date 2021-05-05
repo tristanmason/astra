@@ -1658,10 +1658,6 @@ body {
   margin-left: 2px;
 }
 
-.ast-mobile-popup-content .ast-icon.icon-search svg {
-  margin-top: 0;
-}
-
 /* Responsive Screen */
 .ast-header-break-point .user-select {
   clear: both;

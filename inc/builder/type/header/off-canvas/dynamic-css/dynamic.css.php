@@ -225,7 +225,11 @@ function astra_off_canvas_static_css() {
 	.ast-desktop .ast-desktop-popup-content .astra-menu-animation-fade > .menu-item .menu-item > .sub-menu{
 	  opacity: 1;
 	  visibility: visible;
-	}';
+	}
+	.ast-mobile-popup-content .ast-icon.icon-search svg {
+		margin-top: 0;
+	}
+	';
 
 	if ( is_rtl() ) {
 		$off_canvas_css .= '
