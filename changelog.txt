@@ -1,6 +1,8 @@
 v3.5.0 (Unreleased)
 - Fix: 'Take Last Item Outside Menu' option not visible when 'Hide Last Item in Menu on Mobile' is enabled in old header.
 - Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
+- Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
+- Fix: Added accessibility for search button of search form.
 
 v3.4.1
 - Fix: Off-canvas - Mobile - Left aligned flyout style not working.
