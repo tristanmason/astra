@@ -3516,7 +3516,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					text-align: right;
 				}';
 			}
-			// This CSS requires in case of :before Astra icons.
+			// This CSS requires in case of :before Astra icons. But in case of SVGs this loads twice that's why removed this from static & loading conditionally.
 			if ( false === Astra_Icons::is_svg_icons() ) {
 				$cart_static_css .= '
 				.ast-site-header-cart .cart-container *,
