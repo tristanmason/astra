@@ -77,7 +77,7 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'type'     => 'control',
 				'section'  => 'section-blog-single',
 				'priority' => 11,
-				'title'    => __( 'Related Posts Title', 'astra' ),
+				'title'    => __( 'Title', 'astra' ),
 				'control'  => 'text',
 				'context'  => array(
 					Astra_Builder_Helper::$general_tab_config,
@@ -97,7 +97,7 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'default'    => astra_get_option( 'releted-posts-title-alignment' ),
 				'section'    => 'section-blog-single',
 				'transport'  => 'postMessage',
-				'title'      => __( 'Alignment', 'astra' ),
+				'title'      => __( 'Title Alignment', 'astra' ),
 				'type'       => 'control',
 				'control'    => 'ast-selector',
 				'priority'   => 11,

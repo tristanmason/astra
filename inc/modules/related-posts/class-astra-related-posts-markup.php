@@ -110,7 +110,7 @@ class Astra_Related_Posts_Markup {
 
 						do_action( 'astra_related_posts_title_after' );
 
-						echo '<div class="ast-related-posts-wrapper ast-posts-grid">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<div class="ast-related-posts-wrapper">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 						$related_posts_section_loaded = true;
 					}
