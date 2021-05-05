@@ -399,35 +399,18 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	 *
 	 * @since 3.3.0
 	 */
-	$skip_menu_locations = array(
-		'ast-hf-menu-3',
-		'ast-hf-menu-4',
-		'ast-hf-menu-5',
-		'ast-hf-menu-6',
-		'ast-hf-menu-7',
-		'ast-hf-menu-8',
-		'ast-hf-menu-9',
-		'ast-hf-menu-10',
+	$astra_menu_locations = array(
+		'ast-hf-menu-1', 		// Builder - Primary menu.
+		'ast-hf-menu-2', 		// Builder - Secondary menu.
+		'ast-hf-mobile-menu',	// Builder - Mobile Menu.
+		'ast-hf-account-menu',  // Builder - Login Account Menu.
+		'primary-menu',			// Old header - Primary Menu.
+		'above_header-menu',	// Old header - Above Menu.
+		'below_header-menu'		// Old header - Below Menu.
 	);
 
-	/**
-	 * Other menus created from Page Builder's, Menu plugin's are overridden by this filter & it tends to visible 2 icons in menus.
-	 * 1st. Astra's ast-icon.
-	 * 2nd. Page Builder menu's arrow icon.
-	 *
-	 * As in some cases menu ids genearating with random number (Example: Elementor Pro Menu - 'menu-1-2a08810') so could not skip this from above array, but we get $args->menu_class in all scenarios where we get menu classes added on ul tag. Which we can use further conditionally to skip these menus.
-	 *
-	 * @since x.x.x
-	 */
-	$page_builder_menus = apply_filters(
-		'astra_avoid_svg_icons_in_menus',
-		array(
-			'nav-menu', // Footer Menu.
-			'elementor-nav-menu', // Elementor Pro's menu element.
-		)
-	);
-
-	if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'nav-menu' ) && ( isset( $args->container_class ) && ! in_array( $args->menu_id, $skip_menu_locations ) ) ) && ! in_array( $args->menu_class, $page_builder_menus ) ) {
+	if ( in_array( $args->menu_id, $astra_menu_locations ) ) {
+		// Assign icons to only those menu which are registered by Astra.
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
 	foreach ( $item->classes as $value ) {
