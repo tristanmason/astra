@@ -108,27 +108,6 @@
 	flex-grow: 1;
 }
 
-/* Account Component */
-.ast-header-account-type-icon {
-	display: inline-flex;
-	align-self: center;
-	vertical-align: middle;
-}
-
-.ast-header-account-type-avatar {
-	.avatar {
-		display: inline;
-		border-radius: 100%;
-		max-width: 100%;
-	}
-}
-.site-header-focus-item.ast-header-account:hover > .customize-partial-edit-shortcut {
-	opacity: 0;
-}
-.site-header-focus-item.ast-header-account:hover > * > .customize-partial-edit-shortcut {
-	opacity: 1;
-}
-
 /**
  * AST HF Builder - Widgets related CSS.
  * Text/HTML Widget.
