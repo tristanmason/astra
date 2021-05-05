@@ -248,15 +248,10 @@
  * AST HF Builder - Widgets related CSS.
  * Button.
  */
-[data-section*="section-hb-button-"],
-[data-section*="section-fb-button-"] {
+[data-section*="section-hb-button-"]{
 	.menu-link {
 		display: none;
 	}
-}
-
-[CLASS*="ast-footer-button-"][data-section^="section-fb-button-"] {
-	justify-content: center;
 }
 
 .ast-footer-copyright {
@@ -588,8 +583,4 @@
 			}
 		}
 	}
-}
-
-.ast-builder-layout-element[data-section^="section-hb-button-"] {
-	display: flex;
 }

@@ -2412,13 +2412,8 @@ body .entry-content .wp-block-latest-posts li {
  * AST HF Builder - Widgets related CSS.
  * Button.
  */
-[data-section*="section-hb-button-"] .menu-link,
-[data-section*="section-fb-button-"] .menu-link {
+[data-section*="section-hb-button-"] .menu-link {
   display: none;
-}
-
-[CLASS*="ast-footer-button-"][data-section^="section-fb-button-"] {
-  justify-content: center;
 }
 
 .ast-footer-copyright p {
@@ -2719,11 +2714,6 @@ body .entry-content .wp-block-latest-posts li {
   .footer-nav-wrap .astra-footer-horizontal-menu a {
     padding: 0 0.5em;
   }
-}
-
-.ast-builder-layout-element[data-section^="section-hb-button-"] {
-  -js-display: flex;
-  display: flex;
 }
 
 /*----------  Header  ----------*/
