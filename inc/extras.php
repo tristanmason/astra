@@ -400,13 +400,13 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	 * @since 3.3.0
 	 */
 	$astra_menu_locations = array(
-		'ast-hf-menu-1', 		// Builder - Primary menu.
-		'ast-hf-menu-2', 		// Builder - Secondary menu.
-		'ast-hf-mobile-menu',	// Builder - Mobile Menu.
+		'ast-hf-menu-1',        // Builder - Primary menu.
+		'ast-hf-menu-2',        // Builder - Secondary menu.
+		'ast-hf-mobile-menu',   // Builder - Mobile Menu.
 		'ast-hf-account-menu',  // Builder - Login Account Menu.
-		'primary-menu',			// Old header - Primary Menu.
-		'above_header-menu',	// Old header - Above Menu.
-		'below_header-menu'		// Old header - Below Menu.
+		'primary-menu',         // Old header - Primary Menu.
+		'above_header-menu',    // Old header - Above Menu.
+		'below_header-menu',     // Old header - Below Menu.
 	);
 
 	if ( in_array( $args->menu_id, $astra_menu_locations ) ) {
