@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-toggle-control',
 					'section'   => 'section-blog',
-					'title'     => __( 'Add Space Between Posts', 'astra-addon' ),
+					'title'     => __( 'Add Space Between Posts', 'astra' ),
 					'transport' => 'postMessage',
 					'priority'  => 15,
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => 'section-blog',
 					'priority' => 85,
-					'title'    => __( 'Read More Text', 'astra-addon' ),
+					'title'    => __( 'Read More Text', 'astra' ),
 					'control'  => 'text',
 					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 						),
 					),
 				),
-				
+
 				/**
 				 * Option: Excerpt Count
 				 */
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 					'control'     => 'number',
 					'section'     => 'section-blog',
 					'priority'    => 80,
-					'title'       => __( 'Excerpt Count', 'astra-addon' ),
+					'title'       => __( 'Excerpt Count', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -118,15 +118,15 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 					'context'           => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					'priority'          => 170,
-					'title'             => __( 'Inside Post Spacing', 'astra-addon' ),
+					'title'             => __( 'Inside Post Spacing', 'astra' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'choices'           => array(
-						'top'    => __( 'Top', 'astra-addon' ),
-						'right'  => __( 'Right', 'astra-addon' ),
-						'bottom' => __( 'Bottom', 'astra-addon' ),
-						'left'   => __( 'Left', 'astra-addon' ),
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
 				),
 			);
@@ -142,12 +142,12 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Configs' ) ) {
 						'section'  => 'section-blog',
 						'default'  => astra_get_option( 'blog-grid' ),
 						'priority' => 10,
-						'title'    => __( 'Grid Layout', 'astra-addon' ),
+						'title'    => __( 'Grid Layout', 'astra' ),
 						'choices'  => array(
-							'1' => __( '1 Column', 'astra-addon' ),
-							'2' => __( '2 Columns', 'astra-addon' ),
-							'3' => __( '3 Columns', 'astra-addon' ),
-							'4' => __( '4 Columns', 'astra-addon' ),
+							'1' => __( '1 Column', 'astra' ),
+							'2' => __( '2 Columns', 'astra' ),
+							'3' => __( '3 Columns', 'astra' ),
+							'4' => __( '4 Columns', 'astra' ),
 						),
 						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
