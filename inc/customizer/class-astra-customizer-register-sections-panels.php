@@ -320,6 +320,15 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'panel'    => 'panel-global',
 				),
 
+				array(
+					'name'     => 'section-global-typo',
+					'type'     => 'section',
+					'title'    => __( 'Global Fonts', 'astra' ),
+					'section'  => 'section-typography',
+					'priority' => 35,
+					'panel'    => 'panel-global',
+				),
+
 				/**
 				 * Buttons Section
 				 */

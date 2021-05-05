@@ -1,0 +1,8 @@
+.ast-font-presets .ast-font-list-item {
+	padding: 22px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background: #f6f7f7;
+    border: 2px solid #E6E6E6;
+}
