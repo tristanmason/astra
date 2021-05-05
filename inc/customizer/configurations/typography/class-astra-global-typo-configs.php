@@ -100,7 +100,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 				'section'     => 'section-global-typo',
 				'transport'   => 'postMessage',
 				'priority'    => 5,
-				'title'       => __( 'Font Presets', 'astra' ),
+				'title'       => __( 'Choose Preset', 'astra' ),
 			),
 
 		);
