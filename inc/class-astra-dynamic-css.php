@@ -579,6 +579,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$parse_css .= astra_container_layout_css();
 
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$parse_css .= astra_icons_css();
+			}
+
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
 			}
