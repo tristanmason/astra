@@ -15,11 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-<<<<<<< HEAD
 define( 'ASTRA_THEME_VERSION', '3.5.0' );
-=======
-define( 'ASTRA_THEME_VERSION', '3.4.1' );
->>>>>>> 87711d73ed01ada056d0964d62eb32fe44b36d47
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
