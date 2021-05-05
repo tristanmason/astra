@@ -88,7 +88,7 @@ const AddComponent = props => {
 			Object.keys(props.settings[zone]).map(area => {
 				if( 'astra-settings[header-desktop-items]' === controlParams.group && ! astra.customizer.is_pro && 'popup' === zone ) {
 					/*
-					 * Reducing Dropped & Droppable component count here because by it fails in following case.
+					 * Reducing Dropped & Droppable component count here because it fails in following case:
 					 * When "Toggle for Desktop" option introduced in Astra, this component comes from addon but offcanvas panel comes from theme & already 'mobile-menu' component present in this panel.
 					 * That's why the count fails here by 1.
 					 */
