@@ -1,4 +1,5 @@
-v3.5.0(unreleased)
+v3.5.0
+- Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
 
 v3.4.1
