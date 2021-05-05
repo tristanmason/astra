@@ -2328,10 +2328,6 @@ body .entry-content .wp-block-latest-posts li {
   align-items: center;
 }
 
-.ast-logo-title-inline .site-logo-img {
-  padding-left: 1em;
-}
-
 .ast-grid-section-center {
   justify-content: center;
 }
@@ -2806,10 +2802,6 @@ body .entry-content .wp-block-latest-posts li {
 .main-header-bar {
   margin-right: auto;
   margin-left: auto;
-}
-
-.site-logo-img img {
-  transition: all 0.2s linear;
 }
 
 /**

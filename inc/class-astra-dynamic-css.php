@@ -547,6 +547,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			if ( get_theme_mod( 'custom_logo' ) || is_customize_preview() ) {
+				$css_output['.ast-logo-title-inline .site-logo-img'] = array(
+					'padding-right' => '1em',
+				);
+
+				$css_output['.site-logo-img img'] = array(
+					' transition' => 'all 0.2s linear',
+				);
+			}
+
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
