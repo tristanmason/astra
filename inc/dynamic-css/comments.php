@@ -239,13 +239,20 @@ function astra_comments_css( $dynamic_css ) {
       }
 
       @media (max-width: 1200px) {
-      .ast-separate-container .comment-respond {
-        padding: 3em 2.34em;
-      }
+        .ast-separate-container .comment-respond {
+          padding: 3em 2.34em;
+        }
       }
 
       .ast-separate-container .comment-reply-title {
-      padding-top: 0;
+        padding-top: 0;
+      }
+
+      .comment-content a {
+        word-wrap: break-word;
+      }
+      .bypostauthor {
+        display: block;
       }';
 		if ( is_rtl() ) {
 			$single_post_comment_css .= '
