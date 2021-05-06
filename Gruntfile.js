@@ -164,6 +164,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    {
+                        expand: true,
+                        cwd: 'sass/media/',
+                        src: ['galleries.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
 
                     /* Compatibility */
                     {
@@ -530,6 +537,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/compatibility/edd-rtl.css',
                         dest: 'assets/css/minified/compatibility/edd.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/galleries-rtl.css',
+                        dest: 'assets/css/minified/galleries.min-rtl.css',
                     },
                 ]
             }
