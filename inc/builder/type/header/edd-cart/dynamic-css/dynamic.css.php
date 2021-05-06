@@ -36,7 +36,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$link_color                 = astra_get_option( 'link-color', $theme_color );
 	$header_cart_icon_style     = astra_get_option( 'edd-header-cart-icon-style' );
 	$header_cart_icon_color     = astra_get_option( 'edd-header-cart-icon-color', $theme_color );
-	$border_width 			 = astra_get_option( 'edd-header-cart-border-width' );
+	$border_width               = astra_get_option( 'edd-header-cart-border-width' );
 	$header_cart_icon_radius    = astra_get_option( 'edd-header-cart-icon-radius' );
 	$cart_h_color               = astra_get_foreground_color( $header_cart_icon_color );
 
@@ -284,11 +284,11 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 			// Outline icon colors.
 			'.ast-edd-menu-cart-outline .ast-addon-cart-wrap' => array(
-				'background' => '#ffffff',
+				'background'   => '#ffffff',
 				'border-width' => astra_get_css_value( $border_width, 'px' ),
 				'border-style' => 'solid',
 				'border-color' => esc_attr( $header_cart_icon_color ),
-				'color'      => esc_attr( $header_cart_icon_color ),
+				'color'        => esc_attr( $header_cart_icon_color ),
 			),
 			// Outline Info colors.
 			$selector . ' .ast-menu-cart-outline .ast-edd-header-cart-info-wrap' => array(
@@ -325,11 +325,11 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 			// Transparent Header - Outline icon colors.
 			'.ast-theme-transparent-header .ast-edd-menu-cart-outline .ast-addon-cart-wrap' => array(
-				'background' => '#ffffff',
+				'background'   => '#ffffff',
 				'border-width' => astra_get_css_value( $border_width, 'px' ),
 				'border-style' => 'solid',
 				'border-color' => esc_attr( $trans_header_cart_icon_color ),
-				'color'      => esc_attr( $trans_header_cart_icon_color ),
+				'color'        => esc_attr( $trans_header_cart_icon_color ),
 			),
 			// Transparent Header - Outline Info colors.
 			$trans_header_cart_selector . ' .ast-menu-cart-outline .ast-edd-header-cart-info-wrap' => array(
