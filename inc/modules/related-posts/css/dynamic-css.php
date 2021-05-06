@@ -28,7 +28,7 @@ function astra_related_posts_css( $dynamic_css ) {
 		$related_posts_title_alignment = astra_get_option( 'releted-posts-title-alignment' );
 
 		// Added RTL language support for title alignment.
-		if( is_rtl() && 'center' !== $related_posts_title_alignment ) {
+		if ( is_rtl() && 'center' !== $related_posts_title_alignment ) {
 			$related_posts_title_alignment = ( 'left' === $related_posts_title_alignment ) ? 'right' : 'left';
 		}
 
