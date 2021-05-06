@@ -2969,7 +2969,6 @@ function astra_site_title_tagline_responsive_control_migration() {
 			$theme_options[ $option_name ]['tablet']  = $option_value;
 			$theme_options[ $option_name ]['mobile']  = $option_value;
 
-			error_log( sprintf( 'Astra: Migrating Background Response Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			update_option( 'astra-settings', $theme_options );
 		}
 	}
