@@ -3130,19 +3130,7 @@ body .entry-content .wp-block-latest-posts li {
 /**
  * 10 - Submenu container box shadow 
  */
-.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper .sub-menu {
-  box-shadow: none;
-}
-
-.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-megamenu .sub-menu {
-  box-shadow: none;
-}
-
 .ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .sub-menu {
-  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
-}
-
-.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -3500,8 +3488,7 @@ body .entry-content .wp-block-latest-posts li {
   width: 150px;
 }
 
-.ast-desktop .main-header-menu > .menu-item .sub-menu:before,
-.ast-desktop .main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+.ast-desktop .main-header-menu > .menu-item .sub-menu:before {
   position: absolute;
   content: '';
   top: 0;
