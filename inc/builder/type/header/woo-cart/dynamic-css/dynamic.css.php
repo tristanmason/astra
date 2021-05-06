@@ -34,6 +34,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$trans_header_selector   = '.ast-theme-transparent-header .ast-site-header-cart';
 	$theme_color             = astra_get_option( 'theme-color' );
 	$icon_color              = esc_attr( astra_get_option( 'header-woo-cart-icon-color', $theme_color ) );
+	$border_width 			 = astra_get_option( 'woo-header-cart-border-width' );
 	$header_cart_icon_radius = astra_get_option( 'woo-header-cart-icon-radius' );
 	$cart_h_color            = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
@@ -364,7 +365,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 			// Outline icon colors.
 			'.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-addon-cart-wrap' => array(
-				'border' => '2px solid ' . $icon_color,
+				'border-width' => astra_get_css_value( $border_width, 'px' ),
+				'border-style' => 'solid',
+				'border-color' => esc_attr( $icon_color ),
 				'color'  => esc_attr( $icon_color ),
 			),
 			// Outline Info colors.
@@ -389,7 +392,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 			// Outline icon colors.
 			'.ast-theme-transparent-header .ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-outline .ast-addon-cart-wrap' => array(
-				'border' => '2px solid ' . $transparent_header_icon_color,
+				'border-width' => astra_get_css_value( $border_width, 'px' ),
+				'border-style' => 'solid',
+				'border-color' => esc_attr( $transparent_header_icon_color ),
 				'color'  => esc_attr( $transparent_header_icon_color ),
 			),
 			// Outline Info colors.
