@@ -147,8 +147,8 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
+						'operator' => '==',
+						'value'    => 'outline',
 					),
 				),
 				'title'       => __( 'Border Width', 'astra' ),
@@ -175,8 +175,8 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
+						'operator' => '==',
+						'value'    => 'outline',
 					),
 				),
 				'title'       => __( 'Border Radius', 'astra' ),

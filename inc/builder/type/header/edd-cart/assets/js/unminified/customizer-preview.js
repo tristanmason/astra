@@ -135,6 +135,11 @@
 	});
 
 	/**
+	 * Cart Border Width.
+	 */
+	astra_css( 'astra-settings[edd-header-cart-border-width]', 'border-width', '.ast-edd-menu-cart-outline .ast-addon-cart-wrap, .ast-theme-transparent-header .ast-edd-menu-cart-outline .ast-addon-cart-wrap', 'px' );
+
+	/**
 	 * Button Border Radius
 	 */
 	wp.customize( 'astra-settings[edd-header-cart-icon-radius]', function( setting ) {
