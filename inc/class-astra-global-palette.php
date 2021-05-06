@@ -68,9 +68,9 @@ class Astra_Global_Palette {
 			'currentPalette' => 'palette_1',
 			'palettes'       => array(
 				'palette_1' => array(
-					'#1D53DD',
-					'#0235B7',
-					'#1A1C23',
+					'#0274be',
+					'#3a3a3a',
+					'#3a3a3a',
 					'#4B4F58',
 					'#F6F7F8',
 					'#00123A',
