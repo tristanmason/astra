@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
+import {Tooltip} from '@wordpress/components';
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {
@@ -75,38 +76,42 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
-	const handleColorReset = ( index, color ) => {
-
+	const handleColorReset = (index, color) => {
 		let updateState = {
 			...state,
 		};
 
-		let resetValue = defaultValue.palettes[updateState.currentPalette][index];
+		let resetValue =
+			defaultValue.palettes[updateState.currentPalette][index];
 
 		updateState.palettes[updateState.currentPalette][index] = resetValue;
-		updateValues( updateState );
+		updateValues(updateState);
 	};
 
 	var paletteColors = (
 		<>
 			<div className="ast-single-palette-wrap">
 				{state.palettes[state.currentPalette].map((value, index) => {
+					let paletteLables = astra.customizer.globalPaletteLabels;
 					return (
-						<div className="ast-color-picker-wrap">
-							<AstraColorPickerControl
-								color={value ? value : ""}
-								onChangeComplete={(color, backgroundType) =>
-									handleChangeComplete(index, color)
-								}
-								backgroundType={"color"}
-								allowGradient={false}
-								allowImage={false}
-								disablePalette={true}
-								onColorResetClick={(color, backgroundType) =>
-									handleColorReset(index, color)
-								}
-							/>
-						</div>
+						<Tooltip key={index} text={paletteLables[index]} position="top center">
+							<div className="ast-color-picker-wrap">
+								<AstraColorPickerControl
+									color={value ? value : ""}
+									onChangeComplete={(color, backgroundType) =>
+										handleChangeComplete(index, color)
+									}
+									backgroundType={"color"}
+									allowGradient={false}
+									allowImage={false}
+									disablePalette={true}
+									onColorResetClick={(
+										color,
+										backgroundType
+									) => handleColorReset(index, color)}
+								/>
+							</div>
+						</Tooltip>
 					);
 				})}
 			</div>
@@ -149,13 +154,14 @@ const ColorPaletteComponent = (props) => {
 	);
 
 	const updatePaletteVariables = (e) => {
-
-		clearTimeout( UpdatePaletteEvent );
+		clearTimeout(UpdatePaletteEvent);
 
 		// Throttle events when user tries to drag inside color picker.
-		UpdatePaletteEvent = setTimeout( function() {
-			document.dispatchEvent( new CustomEvent( 'AstUpdatePaletteVariables', {} ) );
-		}, 500 );
+		UpdatePaletteEvent = setTimeout(function () {
+			document.dispatchEvent(
+				new CustomEvent("AstUpdatePaletteVariables", {})
+			);
+		}, 500);
 	};
 
 	document.addEventListener(

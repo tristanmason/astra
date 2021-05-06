@@ -53,6 +53,7 @@ class Astra_Global_Palette {
 			$object['customizer']['globalPaletteStylePrefix'] = self::get_css_variable_prefix();
 			$object['customizer']['isElementorActive']        = astra_is_elemetor_active();
 			$object['customizer']['globalPaletteSlugs']       = self::get_palette_slugs();
+			$object['customizer']['globalPaletteLabels']      = self::get_palette_labels();
 		}
 		return $object;
 	}

@@ -140,9 +140,9 @@ class AstraColorPickerControl extends Component {
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
 			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
-
+			let paletteLables = astra.customizer.globalPaletteLabels;
 			let paletteColors = {};
-			Object.assign( paletteColors, { name: index, color: 'var('+ palettePrefix + index +')' } );
+			Object.assign( paletteColors, { name: paletteLables[index], color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
 		});
 
