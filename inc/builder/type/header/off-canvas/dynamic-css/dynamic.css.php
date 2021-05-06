@@ -116,7 +116,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 /**
  * Add static CSS for Off-canvas flyout.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return string.
  */
 function astra_off_canvas_static_css() {
@@ -159,11 +159,6 @@ function astra_off_canvas_static_css() {
 		right: 0;
 		z-index: 100000;
 		transition: opacity 0.25s ease-out;
-	}
-	.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {
-		opacity: 1;
-		visibility: visible;
-		transform: translateX(0%);
 	}
 	.ast-mobile-popup-drawer.active .ast-mobile-popup-overlay {
 		opacity: 1;
@@ -411,6 +406,15 @@ function astra_off_canvas_static_css() {
 			border-radius: 0;
 		}';
 	}
+
+	// Adding this CSS to bottom because it needs to be load after above style loads. As it required to hide/show flyout offcanvas.
+	$off_canvas_css .= '
+	.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0%);
+	}';
+
 	return Astra_Enqueue_Scripts::trim_css( $off_canvas_css );
 }
 
@@ -418,7 +422,7 @@ function astra_off_canvas_static_css() {
 /**
  * Add static CSS for Dropdown Type.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return string.
  */
 function astra_dropdown_type_static_css() {
