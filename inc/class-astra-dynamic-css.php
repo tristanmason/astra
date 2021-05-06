@@ -1700,60 +1700,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
 			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
 
-			if ( is_current_post_comment_enabled() ) {
-
-				$global_button_comment_mobile = array(
-					'.ast-separate-container .comments-count-wrapper' => array(
-						'padding' => '1.5em 1em',
-					),
-					'.ast-separate-container .ast-comment-list li.depth-1' => array(
-						'padding'       => '1.5em 1em',
-						'margin-bottom' => '1.5em',
-					),
-					'.ast-separate-container .ast-comment-list .bypostauthor' => array(
-						'padding' => '.5em',
-					),
-					'.ast-separate-container .comment-respond' => array(
-						'padding' => '1.5em 1em',
-					),
-					// Single Post Meta.
-					'.ast-comment-meta'    => array(
-						'font-size' => ! empty( $body_font_size['mobile'] ) ? astra_get_font_css_value( (int) $body_font_size['mobile'] * 0.8571428571, 'px', 'mobile' ) : '',
-					),
-					'.comment-reply-title' => array(
-						'font-size' => ! empty( $body_font_size['mobile'] ) ? astra_get_font_css_value( (int) $body_font_size['mobile'] * 1.66666, 'px', 'mobile' ) : '',
-					),
-					'.ast-comment-list #cancel-comment-reply-link' => array(
-						'font-size' => astra_responsive_font( $body_font_size, 'mobile' ),
-					),
-				);
-
-				$parse_css .= astra_parse_css( $global_button_comment_mobile, '', astra_get_mobile_breakpoint() );
-
-				if ( $is_site_rtl ) {
-					$global_button_mobile_lang_direction_css = array(
-						'.ast-comment-list .children' => array(
-							'margin-right' => '0.66666em',
-						),
-						'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
-							'padding' => '0 .5em 0 0',
-						),
-					);
-				} else {
-					$global_button_mobile_lang_direction_css = array(
-						'.ast-comment-list .children' => array(
-							'margin-left' => '0.66666em',
-						),
-						'.ast-separate-container .ast-comment-list .bypostauthor li' => array(
-							'padding' => '0 0 0 .5em',
-						),
-					);
-				}
-				/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
-				$parse_css .= astra_parse_css( $global_button_mobile_lang_direction_css, '', astra_get_mobile_breakpoint() );
-
-			}
-
 			/**
 			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
 			 */
@@ -1790,54 +1736,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
 			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
-
-			if ( is_current_post_comment_enabled() ) {
-
-				$global_button_comment_tablet = array(
-					'.ast-comment-avatar-wrap img' => array(
-						'max-width' => '2.5em',
-					),
-					'.comments-area'               => array(
-						'margin-top' => '1.5em',
-					),
-					'.ast-separate-container .comments-count-wrapper' => array(
-						'padding' => '2em 2.14em',
-					),
-					'.ast-separate-container .ast-comment-list li.depth-1' => array(
-						'padding' => '1.5em 2.14em',
-					),
-					'.ast-separate-container .comment-respond' => array(
-						'padding' => '2em 2.14em',
-					),
-					// Single Post Meta.
-					'.ast-comment-meta'            => array(
-						'font-size' => ! empty( $body_font_size['tablet'] ) ? astra_get_font_css_value( (int) $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ) : '',
-					),
-					'.comment-reply-title'         => array(
-						'font-size' => ! empty( $body_font_size['tablet'] ) ? astra_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ) : '',
-					),
-					'.ast-comment-list #cancel-comment-reply-link' => array(
-						'font-size' => astra_responsive_font( $body_font_size, 'tablet' ),
-					),
-				);
-
-				$parse_css .= astra_parse_css( $global_button_comment_tablet, '', astra_get_tablet_breakpoint() );
-
-				if ( $is_site_rtl ) {
-					$global_button_tablet_lang_direction_css = array(
-						'.ast-comment-avatar-wrap' => array(
-							'margin-left' => '0.5em',
-						),
-					);
-				} else {
-					$global_button_tablet_lang_direction_css = array(
-						'.ast-comment-avatar-wrap' => array(
-							'margin-right' => '0.5em',
-						),
-					);
-				}
-				$parse_css .= astra_parse_css( $global_button_tablet_lang_direction_css, '', astra_get_tablet_breakpoint() );
-			}
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'search', 'header', 'mobile' ) ) {
 
