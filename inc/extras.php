@@ -402,14 +402,36 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$astra_menu_locations = array(
 		'ast-hf-menu-1',        // Builder - Primary menu.
 		'ast-hf-menu-2',        // Builder - Secondary menu.
+		'ast-hf-menu-3',
+		'ast-hf-menu-4',
+		'ast-hf-menu-5',
+		'ast-hf-menu-6',
+		'ast-hf-menu-7',
+		'ast-hf-menu-8',
+		'ast-hf-menu-9',
+		'ast-hf-menu-10',		// Cloned builder menus.
 		'ast-hf-mobile-menu',   // Builder - Mobile Menu.
 		'ast-hf-account-menu',  // Builder - Login Account Menu.
 		'primary-menu',         // Old header - Primary Menu.
 		'above_header-menu',    // Old header - Above Menu.
-		'below_header-menu',     // Old header - Below Menu.
+		'below_header-menu',    // Old header - Below Menu.
 	);
 
-	if ( in_array( $args->menu_id, $astra_menu_locations ) ) {
+	$load_svg_menu_icons = false;
+
+	if( defined( 'ASTRA_EXT_VER' ) ) {
+		// Check whether Astra Pro is active + Nav menu addon is deactivate + menu registered by Astra only.
+		if ( ! Astra_Ext_Extension::is_active( 'nav-menu' ) && in_array( $args->menu_id, $astra_menu_locations ) ) {
+			$load_svg_menu_icons = true;
+		}
+	} else {
+		// Check menu registered by Astra only.
+		if ( in_array( $args->menu_id, $astra_menu_locations ) ) {
+			$load_svg_menu_icons = true;
+		}
+	}
+
+	if ( $load_svg_menu_icons ) {
 		// Assign icons to only those menu which are registered by Astra.
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
