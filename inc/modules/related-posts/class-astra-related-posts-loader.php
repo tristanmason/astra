@@ -177,6 +177,15 @@ class Astra_Related_Posts_Loader {
 		require_once ASTRA_RELATED_POSTS_DIR . 'customizer/class-astra-related-posts-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
+
+	/**
+	 * Render the Related Posts title for the selective refresh partial.
+	 *
+	 * @since x.x.x
+	 */
+	public function render_related_posts_title() {
+		return astra_get_option( 'related-posts-title' );
+	}
 }
 
 /**

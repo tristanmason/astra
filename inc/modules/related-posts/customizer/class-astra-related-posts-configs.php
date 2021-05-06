@@ -72,14 +72,20 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Related Posts Title
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[related-posts-title]',
-				'default'  => astra_get_option( 'related-posts-title' ),
-				'type'     => 'control',
-				'section'  => 'section-blog-single',
-				'priority' => 11,
-				'title'    => __( 'Title', 'astra' ),
-				'control'  => 'text',
-				'context'  => array(
+				'name'      => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+				'default'   => astra_get_option( 'related-posts-title' ),
+				'type'      => 'control',
+				'section'   => 'section-blog-single',
+				'priority'  => 11,
+				'title'     => __( 'Title', 'astra' ),
+				'control'   => 'text',
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'            => '.ast-related-posts-title-section .ast-related-posts-title',
+					'container_inclusive' => false,
+					'render_callback'     => array( 'Astra_Related_Posts_Loader', 'render_related_posts_title' ),
+				),
+				'context'   => array(
 					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
