@@ -27,6 +27,11 @@ function astra_related_posts_css( $dynamic_css ) {
 		$link_color                    = astra_get_option( 'link-color' );
 		$related_posts_title_alignment = astra_get_option( 'releted-posts-title-alignment' );
 
+		// Added RTL language support for title alignment.
+		if( is_rtl() && 'center' !== $related_posts_title_alignment ) {
+			$related_posts_title_alignment = ( 'left' === $related_posts_title_alignment ) ? 'right' : 'left';
+		}
+
 		// Related Posts Grid layout params.
 		$related_posts_grid = astra_get_option( 'related-posts-grid-responsive' );
 		$desktop_grid       = ( isset( $related_posts_grid['desktop'] ) ) ? $related_posts_grid['desktop'] : '2-equal';
