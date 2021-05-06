@@ -2926,7 +2926,7 @@ function astra_check_flex_based_css() {
 function astra_update_cart_style() {
 
 	$theme_options = get_option( 'astra-settings', array() );
-	
+
 	if ( isset( $theme_options['woo-header-cart-icon-style'] ) && 'none' === $theme_options['woo-header-cart-icon-style'] ) {
 		$theme_options['woo-header-cart-icon-style']  = 'outline';
 		$theme_options['header-woo-cart-icon-color']  = '';

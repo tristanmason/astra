@@ -255,7 +255,7 @@ function astra_css( control, css_property, selector, unit ) {
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
 
-			if ( new_value ) {
+			if ( new_value || 0 === new_value ) {
 
 				/**
 				 *	If ( unit == 'url' ) then = url('{VALUE}')
