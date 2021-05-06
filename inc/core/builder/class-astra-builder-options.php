@@ -920,7 +920,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-icon-style']             = 'outline';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
-	$defaults['woo-header-cart-border-width']           = '';
+	$defaults['woo-header-cart-border-width']           = 2;
 	$defaults['woo-header-cart-icon-radius']            = 3;
 	$defaults['woo-header-cart-total-display']          = true;
 	$defaults['woo-header-cart-title-display']          = true;
@@ -949,7 +949,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	*/
 	$defaults['edd-header-cart-icon-style']             = 'outline';
 	$defaults['edd-header-cart-icon-color']             = '';
-	$defaults['edd-header-cart-border-width']           = '';
+	$defaults['edd-header-cart-border-width']           = 1;
 	$defaults['edd-header-cart-icon-radius']            = 3;
 	$defaults['transparent-header-edd-cart-icon-color'] = '';
 	$defaults['edd-header-cart-total-display']          = true;
