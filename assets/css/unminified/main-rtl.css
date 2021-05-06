@@ -1632,10 +1632,6 @@ body {
   margin-right: auto;
 }
 
-.header-main-layout-3 .ast-main-header-bar-alignment {
-  margin-left: auto;
-}
-
 #site-navigation {
   height: 100%;
 }
@@ -2338,10 +2334,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-grid-section-center .ast-site-identity > :first-child {
   text-align: center;
-}
-
-.header-main-layout-2 .site-header-section-left .ast-site-identity {
-  text-align: right;
 }
 
 /**
