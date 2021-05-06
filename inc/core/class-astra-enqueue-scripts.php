@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		}
 
 		/**
-		 * Enqueue galleries relates CSS on gallery_style fileter.
+		 * Enqueue galleries relates CSS on gallery_style filter.
 		 *
 		 * @since x.x.x
 		 * @return void
