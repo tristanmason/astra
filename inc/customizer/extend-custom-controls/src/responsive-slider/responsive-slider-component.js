@@ -50,10 +50,10 @@ const ResponsiveSliderComponent = props => {
 		};
 		const { min, max, step } = controlProps;
 
-		let savedValue = ( state[device] ) ? parseFloat( state[device] ) : '';
+		let savedValue = ( state[device] || 0 === state[device] ) ? parseFloat( state[device] ) : '';
 
 		if ( 1 === step ) {
-			savedValue = ( state[device] ) ? parseInt( state[device] ) : '';
+			savedValue = ( state[device] || 0 === state[device] ) ? parseInt( state[device] ) : '';
 		}
 
 		return <div className={`input-field-wrapper ${device} ${active}`}>
