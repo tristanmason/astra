@@ -3,6 +3,7 @@ v3.5.0 (Unreleased)
 - New: Related Posts - Alignment option for "Related Posts" title.
 - Improvement: Related Posts - Added responsive support to posts Grid Column Layout.
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
+- Fix: Added accessibility for search button of search form.
 
 v3.4.1
 - Fix: Off-canvas - Mobile - Left aligned flyout style not working.
