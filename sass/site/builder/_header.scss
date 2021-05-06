@@ -355,18 +355,6 @@
 		.ast-main-header-wrap,
 		.ast-below-header-wrap {
 			.main-header-bar-navigation {
-				.inline-on-mobile {
-					.menu-item .menu-link {
-						border: none;
-					}
-					.menu-item-has-children {
-						>.ast-menu-toggle {
-							&::before {
-								font-size: .6rem;
-							}
-						}
-					}
-				}
 				.ast-submenu-expanded {
 					>.ast-menu-toggle {
 						&::before {

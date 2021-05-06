@@ -548,8 +548,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Parse CSS from array() */
-			$parse_css = astra_parse_css( $css_output );
-
+			$parse_css  = astra_parse_css( $css_output );
+			$parse_css .= astra_inline_on_mobile_css();
+			
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$old_header_mobile_toggle = array(
