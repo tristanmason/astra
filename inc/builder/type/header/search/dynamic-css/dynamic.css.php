@@ -51,18 +51,46 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	 * Search CSS.
 	 */
 	$css_output_desktop = array(
-
-		$selector . ' .astra-search-icon'         => array(
+		'.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form' => array(
+			'padding'  => '0',
+			'display'  => 'block',
+			'overflow' => 'hidden',
+		),
+		'.ast-search-menu-icon'                         => array(
+			'position' => 'relative',
+			'z-index'  => '3',
+		),
+		'.ast-search-menu-icon.ast-inline-search .search-field' => array(
+			'width'         => '100%',
+			'padding'       => '0.60em',
+			'padding-right' => '5.5em',
+		),
+		'.site-header-section-left .ast-search-menu-icon.slide-search .search-form .search-field' => array(
+			'margin-right' => 'unset',
+			'margin-left'  => '10px',
+		),
+		$selector . ' .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder,' . $selector . ' .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder' => array(
+			'opacity' => '0.5',
+		),
+		$selector . ' .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form' => array(
+			'-js-display' => 'flex',
+			'display'     => 'flex',
+			'align-items' => 'center',
+		),
+		'.ast-builder-layout-element.ast-header-search' => array(
+			'height' => 'auto',
+		),
+		$selector . ' .astra-search-icon'               => array(
 			'color'     => esc_attr( $icon_color_desktop ),
 			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
-		$selector . ' .search-field::placeholder' => array(
+		$selector . ' .search-field::placeholder'       => array(
 			'color' => esc_attr( $icon_color_desktop ),
 		),
 		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
 			'margin-right' => astra_get_css_value( $icon_size_desktop - 10, 'px' ),
 		),
-		$margin_selector                          => array(
+		$margin_selector                                => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -114,7 +142,8 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	);
 
 	/* Parse CSS from array() */
-	$css_output  = astra_parse_css( $css_output_desktop );
+	$css_output  = astra_search_static_css();
+	$css_output .= astra_parse_css( $css_output_desktop );
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
@@ -123,4 +152,177 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector );
 
 	return $dynamic_css;
+}
+
+/**
+ * Search Component static CSS.
+ * 
+ * @return string
+ * @since x.x.x
+ */
+function astra_search_static_css() {
+	$search_css = '
+	.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
+		display: none;
+	}
+	.ast-search-icon .astra-search-icon {
+		font-size: 1.3em;
+	}
+	.main-header-bar .main-header-bar-navigation .ast-search-icon {
+		display: block;
+		z-index: 4;
+		position: relative;
+	}
+	  
+	.ast-search-icon {
+		z-index: 4;
+		position: relative;
+		line-height: normal;
+	}
+	.main-header-bar .ast-search-menu-icon .search-form {
+		background-color: #ffffff;
+	}
+	.ast-search-menu-icon.ast-dropdown-active.slide-search .search-form {
+		visibility: visible;
+		opacity: 1;
+	}
+	.ast-search-menu-icon .search-form {
+		border: 1px solid #e7e7e7;
+		line-height: normal;
+		padding: 0 3em 0 0;
+		border-radius: 2px;
+		display: inline-block;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		position: relative;
+		color: inherit;
+		background-color: #fff;
+	}
+	.ast-search-menu-icon .astra-search-icon {
+		-js-display: flex;
+		display: flex;
+		line-height: normal;
+	}
+	.ast-search-menu-icon .astra-search-icon:focus {
+		outline: none;
+	}
+	.ast-search-menu-icon .search-field {
+		border: none;
+		background-color: transparent;
+		transition: width .2s;
+		border-radius: inherit;
+		color: inherit;
+		font-size: inherit;
+		width: 0;
+		color: #757575;
+	}
+	.ast-search-menu-icon .search-submit {
+		display: none;
+		background: none;
+		border: none;
+		font-size: 1.3em;
+		color: #757575;
+	}
+	.ast-search-menu-icon.ast-dropdown-active {
+		visibility: visible;
+		opacity: 1;
+		position: relative;
+	}
+	  
+	.ast-search-menu-icon.ast-dropdown-active .search-field {
+		width: 235px;
+	}
+	.ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
+		-js-display: flex;
+		display: flex;
+		align-items: center;
+	}';
+
+	if ( is_rtl() ) {
+		$search_css .= '
+		.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
+			margin-left: 1em;
+		}
+		.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
+			display: block;
+			position: absolute;
+			height: 100%;
+			top: 0;
+			left: 0;
+			padding: 0 1em;
+			border-radius: 0;
+		}
+		.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
+		.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
+		  width: 100%;
+		  padding-left: 5.5em;
+		}
+		.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
+			padding-right: 3em;
+			padding-left: unset;
+			right: -1em;
+			left: unset;
+		}
+		  
+		.site-header-section-left .ast-search-menu-icon.slide-search .search-form .search-field {
+			margin-left: unset;
+			margin-right: 10px;
+		}
+		.ast-search-menu-icon.slide-search .search-form {
+			-webkit-backface-visibility: visible;
+			backface-visibility: visible;
+			visibility: hidden;
+			opacity: 0;
+			transition: all .2s;
+			position: absolute;
+			z-index: 3;
+			left: -1em;
+			top: 50%;
+			transform: translateY(-50%);
+		}';
+	} else {
+		$search_css .= '
+		.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
+			margin-right: 1em;
+		}
+		.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
+			display: block;
+			position: absolute;
+			height: 100%;
+			top: 0;
+			right: 0;
+			padding: 0 1em;
+			border-radius: 0;
+		}
+		.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
+		.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
+		  width: 100%;
+		  padding-right: 5.5em;
+		}
+		.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
+			padding-left: 3em;
+			padding-right: unset;
+			left: -1em;
+			right: unset;
+		}
+		  
+		.site-header-section-left .ast-search-menu-icon.slide-search .search-form .search-field {
+			margin-right: unset;
+			margin-left: 10px;
+		}
+		.ast-search-menu-icon.slide-search .search-form {
+			-webkit-backface-visibility: visible;
+			backface-visibility: visible;
+			visibility: hidden;
+			opacity: 0;
+			transition: all .2s;
+			position: absolute;
+			z-index: 3;
+			right: -1em;
+			top: 50%;
+			transform: translateY(-50%);
+		}';
+	}
+
+	return Astra_Enqueue_Scripts::trim_css( $search_css );
 }

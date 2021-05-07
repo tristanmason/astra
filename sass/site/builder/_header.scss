@@ -475,13 +475,6 @@
 		display: flex;
 	}
 }
-.ast-search-menu-icon.ast-inline-search {
-	.search-field {
-		width: 100%;
-		padding: 0.60em;
-		padding-right: 5.5em;
-	}
-}
 .site-footer-focus-item[CLASS*="ast-footer-button-"] {
 	display: flex;
 }
@@ -539,28 +532,6 @@
 		>.menu-link:hover {
 			transition: all .3s ease;
 			transform: scale(1.2);
-		}
-	}
-}
-
-.ast-header-search {
-	.ast-search-menu-icon .search-form .search-field::placeholder {
-		opacity: 0.5;
-	}
-}
-
-/** Search CSS for Left side rows */
-.site-header-section-left {
-	.ast-search-menu-icon.slide-search {
-		.search-form {
-			padding-left: 3em;
-			padding-right: unset;
-			left: -1em;
-			right: unset;
-			.search-field {
-				margin-right: unset;
-				margin-left: 10px;
-			}
 		}
 	}
 }

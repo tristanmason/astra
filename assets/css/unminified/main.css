@@ -989,41 +989,6 @@ input[type="submit"]:focus {
   outline: none;
 }
 
-.ast-search-menu-icon {
-  position: relative;
-  z-index: 3;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
-  margin-right: 1em;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
-  display: none;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
-  width: 100%;
-  padding-right: 5.5em;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
-  display: block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  border-radius: 0;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form {
-  padding: 0;
-  display: block;
-  overflow: hidden;
-}
-
 /* must have higher specificity than alternative color schemes inline styles */
 .site .skip-link {
   background-color: #f1f1f1;
@@ -2635,12 +2600,6 @@ body .entry-content .wp-block-latest-posts li {
   display: flex;
 }
 
-.ast-search-menu-icon.ast-inline-search .search-field {
-  width: 100%;
-  padding: 0.60em;
-  padding-right: 5.5em;
-}
-
 .site-footer-focus-item[CLASS*="ast-footer-button-"] {
   -js-display: flex;
   display: flex;
@@ -2677,27 +2636,6 @@ body .entry-content .wp-block-latest-posts li {
 .ast-desktop .ast-menu-hover-style-zoom > .menu-item > .menu-link:hover {
   transition: all .3s ease;
   transform: scale(1.2);
-}
-
-.ast-header-search .ast-search-menu-icon .search-form .search-field:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.ast-header-search .ast-search-menu-icon .search-form .search-field::placeholder {
-  opacity: 0.5;
-}
-
-/** Search CSS for Left side rows */
-.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
-  padding-left: 3em;
-  padding-right: unset;
-  left: -1em;
-  right: unset;
-}
-
-.site-header-section-left .ast-search-menu-icon.slide-search .search-form .search-field {
-  margin-right: unset;
-  margin-left: 10px;
 }
 
 /** Above header z-index for Sticky Above Header Submenu */
@@ -2995,98 +2933,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .main-header-bar .main-header-bar-navigation .menu-item-has-children > .menu-link:after {
-  line-height: normal;
-}
-
-.main-header-bar .main-header-bar-navigation .ast-search-icon {
-  display: block;
-  z-index: 4;
-  position: relative;
-}
-
-.main-header-bar .ast-search-menu-icon .search-form {
-  background-color: #ffffff;
-}
-
-.ast-search-menu-icon.slide-search .search-form {
-  -webkit-backface-visibility: visible;
-  backface-visibility: visible;
-  visibility: hidden;
-  opacity: 0;
-  transition: all .2s;
-  position: absolute;
-  z-index: 3;
-  right: -1em;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.ast-search-menu-icon.ast-dropdown-active.slide-search .search-form {
-  visibility: visible;
-  opacity: 1;
-}
-
-.ast-search-menu-icon .search-form {
-  border: 1px solid #e7e7e7;
-  line-height: normal;
-  padding: 0 3em 0 0;
-  border-radius: 2px;
-  display: inline-block;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  position: relative;
-  color: inherit;
-  background-color: #fff;
-}
-
-.ast-search-menu-icon .astra-search-icon {
-  -js-display: flex;
-  display: flex;
-  line-height: normal;
-}
-
-.ast-search-menu-icon .astra-search-icon:focus {
-  outline: none;
-}
-
-.ast-search-menu-icon .search-field {
-  border: none;
-  background-color: transparent;
-  transition: width .2s;
-  border-radius: inherit;
-  color: inherit;
-  font-size: inherit;
-  width: 0;
-  color: #757575;
-}
-
-.ast-search-menu-icon .search-submit {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.3em;
-  color: #757575;
-}
-
-.ast-search-menu-icon.ast-dropdown-active {
-  visibility: visible;
-  opacity: 1;
-  position: relative;
-}
-
-.ast-search-menu-icon.ast-dropdown-active .search-field {
-  width: 235px;
-}
-
-.ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
-  -js-display: flex;
-  display: flex;
-  align-items: center;
-}
-
-.ast-search-icon {
-  z-index: 4;
-  position: relative;
   line-height: normal;
 }
 
