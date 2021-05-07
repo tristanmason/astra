@@ -491,9 +491,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Get grid columns for either Archive|Single product.
 		 * Introducing this function to reduce lot of CSS we write for 'grid-template-columns' for every count (till 6).
 		 *
-		 * @param type - WooCommerce page type Archive/Single.
-		 * @param device - Device specific grid option.
-		 * @param default - Default grid count (fallback basically).
+		 * @param string $type - WooCommerce page type Archive/Single.
+		 * @param string $device - Device specific grid option.
+		 * @param int $default - Default grid count (fallback basically).
 		 *
 		 * @return int grid count.
 		 * @since x.x.x
