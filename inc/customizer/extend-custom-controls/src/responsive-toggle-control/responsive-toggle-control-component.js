@@ -7,13 +7,12 @@ const AstResponsiveToggleControl = props => {
 
     let htmlTitle = null;
 	let responsiveHtml = null;
-	let inputHtml = null;
 
-    const [props_value, setPropsValue] = useState(props.control.setting.get());
+    const [propsValue, setPropsValue] = useState(props.control.setting.get());
   
     if (props.control.params.title) {
       htmlTitle = <span className="toggle-control-label">{props.control.params.title}</span>;
-      responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-slider-btns">
+      responsiveHtml = <ul className="ast-responsive-toggle-btns">
             <li className="desktop active">
                 <button type="button" className="preview-desktop active" data-device="desktop">
                     <i className="dashicons dashicons-desktop"></i>
@@ -33,8 +32,8 @@ const AstResponsiveToggleControl = props => {
     }
   
     const updateValues = (device) => {
-        let updateProps = {...props_value};
-        updateProps[device] = ! props_value[device];
+        let updateProps = {...propsValue};
+        updateProps[device] = ! propsValue[device];
         setPropsValue( updateProps );
         props.control.setting.set( updateProps );
 	};
@@ -44,14 +43,14 @@ const AstResponsiveToggleControl = props => {
 		return <div className={`ast-responsive-toggle-control ${device} ${active}`}>
 			<ToggleControl
 			label={htmlTitle}
-			checked={props_value[device]}
+			checked={propsValue[device]}
 			onChange={() => updateValues(device)}
 			/>
 		</div>;
 
 	}
 	
-	inputHtml = <>
+	const inputHtml = <>
 		{renderInputHtml('desktop', 'active')}
 		{renderInputHtml('tablet')}
 		{renderInputHtml('mobile')}

@@ -321,19 +321,19 @@ export function astraGetResponsiveToggleControlJs ( control ) {
 
     jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control.' + device ).addClass( 'active' );
 
-    jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-slider-btns li' ).removeClass( 'active' );
+    jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-btns li' ).removeClass( 'active' );
 
-    jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-slider-btns li.' + device ).addClass( 'active' );
+    jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-btns li.' + device ).addClass( 'active' );
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
         let device = jQuery(this).attr('data-device');
 
-        jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control, .customize-control .ast-responsive-slider-btns > li' ).removeClass( 'active' );
-        jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
+        jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control, .customize-control .ast-responsive-toggle-btns > li' ).removeClass( 'active' );
+        jQuery( '.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control.' + device + ', .customize-control .ast-responsive-toggle-btns > li.' + device ).addClass( 'active' );
     });
 
-    control.container.find( '.ast-responsive-slider-btns button i' ).on( 'click', function( event ) {
+    control.container.find( '.ast-responsive-toggle-btns button i' ).on( 'click', function( event ) {
         event.preventDefault();
         let device = jQuery(this).parent('button').attr('data-device');
         if( 'desktop' == device ) {

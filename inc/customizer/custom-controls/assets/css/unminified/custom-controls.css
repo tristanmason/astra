@@ -2138,9 +2138,34 @@ input[type="text"].select2-search__field {
     display: inline-block;
 }
 
-.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-slider-btns {
+.customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
     position: unset;
     float: right;
+}
+
+.ast-responsive-toggle-btns > li {
+    margin-bottom: 0;
+    display: none;
+}
+  
+.ast-responsive-toggle-btns > li.active {
+    display: inline-block;
+}
+
+.ast-responsive-toggle-btns button[type="button"] {
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    opacity: .75;
+    outline: none;
+}
+
+.ast-responsive-toggle-btns button[type="button"] > i {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
 }
 .ast-responsive-btns {
   display: inline-block;
