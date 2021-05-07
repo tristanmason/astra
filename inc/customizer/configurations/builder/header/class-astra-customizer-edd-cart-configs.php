@@ -135,34 +135,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Border Width
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[edd-header-cart-border-width]',
-				'default'     => astra_get_option( 'edd-header-cart-border-width' ),
-				'type'        => 'control',
-				'transport'   => 'postMessage',
-				'section'     => $_section,
-				'context'     => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
-						'operator' => '==',
-						'value'    => 'outline',
-					),
-				),
-				'title'       => __( 'Border Width', 'astra' ),
-				'suffix'      => 'px',
-				'control'     => 'ast-slider',
-				'priority'    => 46,
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 20,
-				),
-			),
-
-			/**
 			 * Option: Border Radius
 			 */
 			array(
