@@ -5,7 +5,7 @@ v3.5.0 (Unreleased)
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
 - Fix: Removed unwanted dividers from customizer setting sections.
-- Fix: WooCommerce - Shop Grid and Related Product's column layout not working with 'astra_apply_flex_based_css' filter.
+- Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users.
 
 v3.4.2
 - Fix: JS console error when Off-canvas type 'Dropdown' is selected.
