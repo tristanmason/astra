@@ -136,7 +136,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-						'operator' => '==',
+						'operator' => '!=',
 						'value'    => 'none',
 					),
 				),
