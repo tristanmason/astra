@@ -32,7 +32,7 @@ function astra_related_posts_static_css( $dynamic_css ) {
 		.ast-related-posts-title {
 			margin: 20px 0;
 		}
-		.ast-related-post-title {
+		.ast-related-post-title, .entry-meta * {
 			word-break: break-word;
 		}
 		.ast-separate-container .ast-related-posts-title {
