@@ -320,7 +320,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				);
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
 					'padding'    => '0',
-					'background' => 'transparent',
+					'background' => 'inherit',
 				);
 			}
 
