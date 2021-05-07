@@ -493,7 +493,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $type - WooCommerce page type Archive/Single.
 		 * @param string $device - Device specific grid option.
-		 * @param int $default - Default grid count (fallback basically).
+		 * @param int    $default - Default grid count (fallback basically).
 		 *
 		 * @return int grid count.
 		 * @since x.x.x
