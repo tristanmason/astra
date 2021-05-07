@@ -2997,10 +2997,6 @@ body {
   position: relative;
 }
 
-.main-header-bar-wrap .nav-fallback-text {
-  float: right;
-}
-
 .main-header-bar {
   background-color: #fff;
   border-bottom-color: #eaeaea;
@@ -3012,10 +3008,6 @@ body {
  */
 .ast-header-break-point .main-header-bar {
   border: 0;
-}
-
-.ast-header-break-point .nav-fallback-text {
-  float: none;
 }
 
 .ast-header-break-point .main-header-bar {
