@@ -321,19 +321,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				array(
 					'relation' => 'OR',
 					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 						'setting-key' => 'desktop',
 						'operator'    => '==',
 						'value'       => true,
 					),
 					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 						'setting-key' => 'tablet',
 						'operator'    => '==',
 						'value'       => true,
 					),
 					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 						'setting-key' => 'mobile',
 						'operator'    => '==',
 						'value'       => true,

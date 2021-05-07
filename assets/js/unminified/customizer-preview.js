@@ -648,13 +648,13 @@ function isJsonString( str ) {
 	/*
 	 * Responsive Logo Visibility
 	 */
-	wp.customize( 'astra-settings[display-site-title]', function( setting ) {
+	wp.customize( 'astra-settings[display-site-title-responsive]', function( setting ) {
 		setting.bind( function( logo_visibility ) {
 			var desktop_title_visibility  = ( logo_visibility['desktop'] ) ? 'block' : 'none';
 			var tablet_title_visibility  = ( logo_visibility['tablet'] ) ? 'block' : 'none';
 			var mobile_title_visibility  = ( logo_visibility['mobile'] ) ? 'block' : 'none';
 			var dynamicStyle = '.ast-site-title-wrap .site-title { display: ' + desktop_title_visibility + ';} @media( max-width: 921px ) { .ast-site-title-wrap .site-title { display: ' + tablet_title_visibility + ';} } @media( max-width: 544px ) { .ast-site-title-wrap .site-title { display: ' + mobile_title_visibility + ';} }';
-			astra_add_dynamic_css( 'display-site-title', dynamicStyle );
+			astra_add_dynamic_css( 'display-site-title-responsive', dynamicStyle );
 		} );
 	} );
 

@@ -2952,24 +2952,13 @@ function astra_update_cart_style() {
  */
 function astra_site_title_tagline_responsive_control_migration() {
 
-	$db_options = array(
-		'display-site-title',
-		'display-site-tagline',
-	);
-
 	$theme_options = get_option( 'astra-settings', array() );
 
-	foreach ( $db_options as $option_name ) {
-
-		if ( ! isset( $theme_options[ $option_name ]['desktop'] ) && isset( $theme_options[ $option_name ] ) ) {
-
-			$option_value                             = $theme_options[ $option_name ];
-			$theme_options[ $option_name ]            = array();
-			$theme_options[ $option_name ]['desktop'] = $option_value;
-			$theme_options[ $option_name ]['tablet']  = $option_value;
-			$theme_options[ $option_name ]['mobile']  = $option_value;
-
-			update_option( 'astra-settings', $theme_options );
-		}
+	if ( false === get_option( 'display-site-title-responsive', false ) && isset( $theme_options['display-site-title'] ) ) {
+		$theme_options['display-site-title-responsive']['desktop'] = $theme_options['display-site-title'];
+		$theme_options['display-site-title-responsive']['tablet']  = $theme_options['display-site-title'];
+		$theme_options['display-site-title-responsive']['mobile']  = $theme_options['display-site-title'];
 	}
+
+	update_option( 'astra-settings', $theme_options );
 }

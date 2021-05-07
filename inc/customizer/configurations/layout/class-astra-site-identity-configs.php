@@ -233,10 +233,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Display Title
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title]',
+					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 					'type'      => 'control',
 					'control'   => 'ast-responsive-toggle-control',
-					'default'   => astra_get_option( 'display-site-title' ),
+					'default'   => astra_get_option( 'display-site-title-responsive' ),
 					'section'   => 'title_tagline',
 					'title'     => __( 'Display Site Title', 'astra' ),
 					'priority'  => 7,
@@ -319,19 +319,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						array(
 							'relation' => 'OR',
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 								'setting-key' => 'desktop',
 								'operator'    => '==',
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 								'setting-key' => 'tablet',
 								'operator'    => '==',
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 								'setting-key' => 'mobile',
 								'operator'    => '==',
 								'value'       => true,
@@ -427,19 +427,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							array(
 								'relation' => 'OR',
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 									'setting-key' => 'desktop',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 									'setting-key' => 'tablet',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 									'setting-key' => 'mobile',
 									'operator'    => '==',
 									'value'       => true,
@@ -449,19 +449,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							array(
 								'relation' => 'OR',
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 									'setting-key' => 'desktop',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 									'setting-key' => 'tablet',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 									'setting-key' => 'mobile',
 									'operator'    => '==',
 									'value'       => true,
