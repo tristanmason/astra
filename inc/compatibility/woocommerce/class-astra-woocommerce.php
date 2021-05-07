@@ -1214,7 +1214,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 					$archive_tablet_grid = $this->get_grid_column_count( 'archive', 'tablet' );
 
-					$css_global_button_tablet['.woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products'] = array(
+					$css_global_button_tablet[ '.woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products' ]                                 = array(
 						'grid-template-columns' => 'repeat(' . $archive_tablet_grid . ', minmax(0, 1fr))',
 					);
 					$css_global_button_tablet['.woocommerce[class*="tablet-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
@@ -1226,7 +1226,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 					$single_tablet_grid = $this->get_grid_column_count( 'single', 'tablet' );
 
-					$css_global_button_tablet['.woocommerce.tablet-rel-up-columns-' . $single_tablet_grid . ' ul.products'] = array(
+					$css_global_button_tablet[ '.woocommerce.tablet-rel-up-columns-' . $single_tablet_grid . ' ul.products' ]                                  = array(
 						'grid-template-columns' => 'repeat(' . $single_tablet_grid . ', minmax(0, 1fr))',
 					);
 					$css_global_button_tablet['.woocommerce[class*="tablet-rel-up-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
@@ -1323,12 +1323,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			} else {
 
 				$archive_mobile_grid = $this->get_grid_column_count( 'archive', 'mobile' );
-				$single_mobile_grid = $this->get_grid_column_count( 'single', 'mobile' );
+				$single_mobile_grid  = $this->get_grid_column_count( 'single', 'mobile' );
 
-				$css_global_button_mobile['.woocommerce ul.products, .woocommerce-page ul.products, .woocommerce.mobile-columns-' . $archive_mobile_grid . ' ul.products, .woocommerce-page.mobile-columns-' . $archive_mobile_grid . ' ul.products'] = array(
+				$css_global_button_mobile[ '.woocommerce ul.products, .woocommerce-page ul.products, .woocommerce.mobile-columns-' . $archive_mobile_grid . ' ul.products, .woocommerce-page.mobile-columns-' . $archive_mobile_grid . ' ul.products' ] = array(
 					'grid-template-columns' => 'repeat(' . $archive_mobile_grid . ', minmax(0, 1fr))',
 				);
-				$css_global_button_mobile['.woocommerce.mobile-rel-up-columns-' . $single_mobile_grid . ' ul.products'] = array(
+				$css_global_button_mobile[ '.woocommerce.mobile-rel-up-columns-' . $single_mobile_grid . ' ul.products' ] = array(
 					'grid-template-columns' => 'repeat(' . $single_mobile_grid . ', minmax(0, 1fr))',
 				);
 			}
