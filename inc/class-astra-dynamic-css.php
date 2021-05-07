@@ -67,9 +67,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$desktop_title_visibility   = ( ( astra_get_option( 'display-site-title-responsive' ) )['desktop'] ) ? 'block' : 'none';
 			$tablet_title_visibility    = ( ( astra_get_option( 'display-site-title-responsive' ) )['tablet'] ) ? 'block' : 'none';
 			$mobile_title_visibility    = ( ( astra_get_option( 'display-site-title-responsive' ) )['mobile'] ) ? 'block' : 'none';
-			$desktop_tagline_visibility = ( ( astra_get_option( 'display-site-tagline' ) )['desktop'] ) ? 'block' : 'none';
-			$tablet_tagline_visibility  = ( ( astra_get_option( 'display-site-tagline' ) )['tablet'] ) ? 'block' : 'none';
-			$mobile_tagline_visibility  = ( ( astra_get_option( 'display-site-tagline' ) )['mobile'] ) ? 'block' : 'none';
+			$desktop_tagline_visibility = ( ( astra_get_option( 'display-site-tagline-responsive' ) )['desktop'] ) ? 'block' : 'none';
+			$tablet_tagline_visibility  = ( ( astra_get_option( 'display-site-tagline-responsive' ) )['tablet'] ) ? 'block' : 'none';
+			$mobile_tagline_visibility  = ( ( astra_get_option( 'display-site-tagline-responsive' ) )['mobile'] ) ? 'block' : 'none';
 
 			// Site Background Color.
 			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );

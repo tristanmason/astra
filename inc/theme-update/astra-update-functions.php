@@ -2944,7 +2944,7 @@ function astra_update_cart_style() {
 }
 
 /**
- * Migrate Site Title Responsive options to new array.
+ * Migrate Site Title & Site Tagline options to new responsive array.
  *
  * @since x.x.x
  *
@@ -2958,6 +2958,12 @@ function astra_site_title_tagline_responsive_control_migration() {
 		$theme_options['display-site-title-responsive']['desktop'] = $theme_options['display-site-title'];
 		$theme_options['display-site-title-responsive']['tablet']  = $theme_options['display-site-title'];
 		$theme_options['display-site-title-responsive']['mobile']  = $theme_options['display-site-title'];
+	}
+
+	if ( false === get_option( 'display-site-tagline-responsive', false ) && isset( $theme_options['display-site-tagline'] ) ) {
+		$theme_options['display-site-tagline-responsive']['desktop'] = $theme_options['display-site-tagline'];
+		$theme_options['display-site-tagline-responsive']['tablet']  = $theme_options['display-site-tagline'];
+		$theme_options['display-site-tagline-responsive']['mobile']  = $theme_options['display-site-tagline'];
 	}
 
 	update_option( 'astra-settings', $theme_options );

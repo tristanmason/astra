@@ -264,19 +264,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						array(
 							'relation' => 'OR',
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 								'setting-key' => 'desktop',
 								'operator'    => '==',
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 								'setting-key' => 'tablet',
 								'operator'    => '==',
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 								'setting-key' => 'mobile',
 								'operator'    => '==',
 								'value'       => true,
@@ -289,10 +289,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Display Tagline
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 					'type'      => 'control',
 					'control'   => 'ast-responsive-toggle-control',
-					'default'   => astra_get_option( 'display-site-tagline' ),
+					'default'   => astra_get_option( 'display-site-tagline-responsive' ),
 					'section'   => 'title_tagline',
 					'priority'  => 11,
 					'title'     => __( 'Display Site Tagline', 'astra' ),
@@ -337,19 +337,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 								'setting-key' => 'desktop',
 								'operator'    => '==',
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 								'setting-key' => 'tablet',
 								'operator'    => '==',
 								'value'       => true,
 							),
 							array(
-								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 								'setting-key' => 'mobile',
 								'operator'    => '==',
 								'value'       => true,
@@ -487,19 +487,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							array(
 								'relation' => 'OR',
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 									'setting-key' => 'desktop',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 									'setting-key' => 'tablet',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 									'setting-key' => 'mobile',
 									'operator'    => '==',
 									'value'       => true,
@@ -509,19 +509,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							array(
 								'relation' => 'OR',
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 									'setting-key' => 'desktop',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 									'setting-key' => 'tablet',
 									'operator'    => '==',
 									'value'       => true,
 								),
 								array(
-									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
 									'setting-key' => 'mobile',
 									'operator'    => '==',
 									'value'       => true,
