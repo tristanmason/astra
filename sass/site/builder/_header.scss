@@ -269,8 +269,7 @@
 	align-content: center;
 }
 .main-header-bar,
-.ast-above-header,
-.ast-below-header {
+.ast-above-header {
 	.main-header-bar-navigation {
 		height: 100%;
 	}
@@ -352,8 +351,7 @@
 	}
 	.ast-mobile-header-wrap {
 		.ast-above-header-wrap,
-		.ast-main-header-wrap,
-		.ast-below-header-wrap {
+		.ast-main-header-wrap{
 			.main-header-bar-navigation {
 				.inline-on-mobile {
 					.menu-item .menu-link {
