@@ -255,7 +255,7 @@ function astra_css( control, css_property, selector, unit ) {
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
 
-			if ( new_value ) {
+			if ( new_value || 0 === new_value ) {
 
 				/**
 				 *	If ( unit == 'url' ) then = url('{VALUE}')
@@ -1491,6 +1491,7 @@ function isJsonString( str ) {
 	astra_responsive_font_size( 'astra-settings[related-posts-section-title-font-size]', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[related-posts-section-title-line-height]', 'line-height', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[related-posts-section-title-text-transform]', 'text-transform', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
+	astra_css( 'astra-settings[releted-posts-title-alignment]', 'text-align', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 
 	// Related Posts - Customizer preview for Post Meta.
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-meta-font-family]', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );

@@ -1,6 +1,17 @@
-v3.5.0
+v3.5.0 (Unreleased)
+- New: Related Posts - Option to change "Related Posts" title.
+- New: Related Posts - Alignment option for "Related Posts" title.
+- Improvement: Related Posts - Added responsive support to posts Grid Column Layout.
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
+- Fix: Removed unwanted dividers from customizer setting sections.
+
+v3.4.2
+- Fix: JS console error when Off-canvas type 'Dropdown' is selected.
+- Fix: Dropdown does not close when you click a one page navigation link inside them.
+- Fix: Zero value not accepting in slider customizer settings.
+- Fix: Existing comments are not styled when post comments are disabled.
+- Fix: Gutenberg editor getting Grey overlay when layout is Full-width Contained or Full-width Stretched.
 
 v3.4.1
 - Fix: Off-canvas - Mobile - Left aligned flyout style not working.
