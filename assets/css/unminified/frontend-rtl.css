@@ -2672,7 +2672,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .main-header-bar .main-header-bar-navigation,
-.ast-above-header .main-header-bar-navigation,
 .ast-below-header .main-header-bar-navigation {
   height: 100%;
 }
@@ -2758,19 +2757,16 @@ body .entry-content .wp-block-latest-posts li {
   display: none;
 }
 
-.ast-header-break-point .ast-mobile-header-wrap .ast-above-header-wrap .main-header-bar-navigation .inline-on-mobile .menu-item .menu-link,
 .ast-header-break-point .ast-mobile-header-wrap .ast-main-header-wrap .main-header-bar-navigation .inline-on-mobile .menu-item .menu-link,
 .ast-header-break-point .ast-mobile-header-wrap .ast-below-header-wrap .main-header-bar-navigation .inline-on-mobile .menu-item .menu-link {
   border: none;
 }
 
-.ast-header-break-point .ast-mobile-header-wrap .ast-above-header-wrap .main-header-bar-navigation .inline-on-mobile .menu-item-has-children > .ast-menu-toggle::before,
 .ast-header-break-point .ast-mobile-header-wrap .ast-main-header-wrap .main-header-bar-navigation .inline-on-mobile .menu-item-has-children > .ast-menu-toggle::before,
 .ast-header-break-point .ast-mobile-header-wrap .ast-below-header-wrap .main-header-bar-navigation .inline-on-mobile .menu-item-has-children > .ast-menu-toggle::before {
   font-size: .6rem;
 }
 
-.ast-header-break-point .ast-mobile-header-wrap .ast-above-header-wrap .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before,
 .ast-header-break-point .ast-mobile-header-wrap .ast-main-header-wrap .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before,
 .ast-header-break-point .ast-mobile-header-wrap .ast-below-header-wrap .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
   transform: rotateX(180deg);
@@ -2939,11 +2935,6 @@ body .entry-content .wp-block-latest-posts li {
 .site-header-section-left .ast-search-menu-icon.slide-search .search-form .search-field {
   margin-left: unset;
   margin-right: 10px;
-}
-
-/** Above header z-index for Sticky Above Header Submenu */
-.ast-above-header-bar.ast-header-sticked {
-  z-index: 9;
 }
 
 /* Footer menu spacing between each menu items. */

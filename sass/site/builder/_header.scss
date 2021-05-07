@@ -269,7 +269,6 @@
 	align-content: center;
 }
 .main-header-bar,
-.ast-above-header,
 .ast-below-header {
 	.main-header-bar-navigation {
 		height: 100%;
@@ -351,7 +350,6 @@
 		}
 	}
 	.ast-mobile-header-wrap {
-		.ast-above-header-wrap,
 		.ast-main-header-wrap,
 		.ast-below-header-wrap {
 			.main-header-bar-navigation {
@@ -563,11 +561,6 @@
 			}
 		}
 	}
-}
-
-/** Above header z-index for Sticky Above Header Submenu */
-.ast-above-header-bar.ast-header-sticked {
-	z-index: 9;
 }
 
 /* Footer menu spacing between each menu items. */
