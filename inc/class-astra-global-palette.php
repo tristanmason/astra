@@ -25,7 +25,7 @@ class Astra_Global_Palette {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
-		add_filter( 'astra_before_fg_color_generate', array( $this, 'get_color_by_palette_variable' ) );
+		add_filter( 'astra_before_foreground_color_generation', array( $this, 'get_color_by_palette_variable' ) );
 		$this->includes();
 	}
 
