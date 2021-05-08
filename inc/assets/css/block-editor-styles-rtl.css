@@ -24,13 +24,6 @@ html {
   box-sizing: border-box;
 }
 
-.edit-post-visual-editor *,
-.edit-post-visual-editor *:before,
-.edit-post-visual-editor *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-  box-sizing: inherit;
-}
-
 .edit-post-visual-editor body {
   color: #808285;
   background: #ffffff;
