@@ -425,9 +425,9 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	return $title;
 }
 
-if ( Astra_Icons::is_svg_icons() ) {
-	add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
-}
+// if ( Astra_Icons::is_svg_icons() ) {
+// 	add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
+// }
 
 /**
  * Is theme existing header footer configs enable.
