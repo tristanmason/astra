@@ -1,5 +1,5 @@
 v3.5.0(unreleased)
-- Improvement: Builder - WooCommerce & EDD Cart - Compatibility with Border width option for cart outline style.
+- Improvement: Builder - WooCommerce & EDD Cart - Compatibility with Border width option for cart outline style from Astra Pro.
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
 - Fix: Removed unwanted dividers from customizer setting sections.
