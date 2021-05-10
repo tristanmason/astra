@@ -24,25 +24,7 @@ class Astra_Related_Posts_Markup {
 	 *  Constructor
 	 */
 	public function __construct() {
-		add_filter( 'body_class', array( $this, 'astra_related_posts_body_class' ) );
 		add_action( 'astra_entry_after', array( $this, 'astra_related_posts_markup' ), 10 );
-	}
-
-	/**
-	 * Adds custom classes to the array of body classes.
-	 *
-	 * @since x.x.x
-	 * @param array $classes Classes for the body element.
-	 * @return array
-	 */
-	public function astra_related_posts_body_class( $classes ) {
-		if ( astra_target_rules_for_related_posts() ) {
-			$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );
-
-			$classes[] = 'ast-related-posts-grid-' . esc_attr( $related_posts_grid );
-		}
-
-		return $classes;
 	}
 
 	/**
@@ -66,7 +48,7 @@ class Astra_Related_Posts_Markup {
 	public function astra_get_related_posts() {
 		global $post;
 		$post_id                   = $post->ID;
-		$related_posts_grid        = astra_get_option( 'related-posts-grid', 2 );
+		$related_posts_title       = astra_get_option( 'related-posts-title' );
 		$related_post_meta         = astra_get_option( 'related-posts-meta-structure' );
 		$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
 		$output_str                = astra_get_post_meta( $related_post_meta );
@@ -110,24 +92,25 @@ class Astra_Related_Posts_Markup {
 				if ( is_array( $exclude_ids ) && ! in_array( $post_id, $exclude_ids ) ) {
 
 					if ( false === $related_posts_section_loaded ) {
-						$grid_class = ( $related_posts_grid ) ? 'ast-grid-' . $related_posts_grid : 'ast-grid-2';
 
 						echo '<div class="ast-single-related-posts-container">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 						do_action( 'astra_related_posts_title_before' );
 
-						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							'astra_related_posts_title',
-							sprintf(
-								'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
-								'h2',
-								esc_html__( 'Related Posts', 'astra' )
-							)
-						);
+						if ( '' !== $related_posts_title ) {
+							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								'astra_related_posts_title',
+								sprintf(
+									'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
+									'h2',
+									$related_posts_title
+								)
+							);
+						}
 
 						do_action( 'astra_related_posts_title_after' );
 
-						echo '<div class="ast-related-posts-wrapper ' . $grid_class . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<div class="ast-related-posts-wrapper">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 						$related_posts_section_loaded = true;
 					}
