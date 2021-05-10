@@ -653,7 +653,9 @@ function isJsonString( str ) {
 			var desktop_title_visibility  = ( logo_visibility['desktop'] ) ? 'block' : 'none';
 			var tablet_title_visibility  = ( logo_visibility['tablet'] ) ? 'block' : 'none';
 			var mobile_title_visibility  = ( logo_visibility['mobile'] ) ? 'block' : 'none';
-			var dynamicStyle = '.ast-site-title-wrap .site-title { display: ' + desktop_title_visibility + ';} @media( max-width: 921px ) { .ast-site-title-wrap .site-title { display: ' + tablet_title_visibility + ';} } @media( max-width: 544px ) { .ast-site-title-wrap .site-title { display: ' + mobile_title_visibility + ';} }';
+			var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+				mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+			var dynamicStyle = '.ast-site-title-wrap .site-title { display: ' + desktop_title_visibility + ';} @media( max-width: ' + tablet_break_point + 'px) { .ast-site-title-wrap .site-title { display: ' + tablet_title_visibility + ';} } @media( max-width: ' + mobile_break_point + 'px) { .ast-site-title-wrap .site-title { display: ' + mobile_title_visibility + ';} }';
 			astra_add_dynamic_css( 'display-site-title-responsive', dynamicStyle );
 		} );
 	} );
@@ -666,7 +668,9 @@ function isJsonString( str ) {
 			var desktop_tagline_visibility  = ( tagline_visibility['desktop'] ) ? 'block' : 'none';
 			var tablet_tagline_visibility  = ( tagline_visibility['tablet'] ) ? 'block' : 'none';
 			var mobile_tagline_visibility  = ( tagline_visibility['mobile'] ) ? 'block' : 'none';
-			var dynamicStyle = '.ast-site-title-wrap .site-description { display: ' + desktop_tagline_visibility + ';} @media( max-width: 921px ) { .ast-site-title-wrap .site-description { display: ' + tablet_tagline_visibility + ';} } @media( max-width: 544px ) { .ast-site-title-wrap .site-description { display: ' + mobile_tagline_visibility + ';} }';
+			var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+				mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+			var dynamicStyle = '.ast-site-title-wrap .site-description { display: ' + desktop_tagline_visibility + ';} @media( max-width: ' + tablet_break_point + 'px) { .ast-site-title-wrap .site-description { display: ' + tablet_tagline_visibility + ';} } @media( max-width: ' + mobile_break_point + 'px) { .ast-site-title-wrap .site-description { display: ' + mobile_tagline_visibility + ';} }';
 			astra_add_dynamic_css( 'display-site-tagline-responsive', dynamicStyle );
 		} );
 	} );
