@@ -25,6 +25,7 @@ class Astra_Global_Palette {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		add_filter( 'astra_before_foreground_color_generation', array( $this, 'get_color_by_palette_variable' ) );
 		$this->includes();
 	}
 
@@ -36,6 +37,69 @@ class Astra_Global_Palette {
 	 */
 	public static function get_css_variable_prefix() {
 		return '--ast-global-color-';
+	}
+
+	/**
+	 * Default global palette options.
+	 *
+	 * @since x.x.x
+	 * @return array Palette options.
+	 */
+	public static function get_default_color_palette() {
+		return array(
+			'currentPalette' => 'palette_1',
+			'palettes'       => array(
+				'palette_1' => array(
+					'#0274be',
+					'#3a3a3a',
+					'#3a3a3a',
+					'#4B4F58',
+					'#F6F7F8',
+					'#00123A',
+					'#243673',
+					'#FBFCFF',
+					'#BFD1FF',
+				),
+				'palette_2' => array(
+					'#FF6333',
+					'#FA430B',
+					'#19150F',
+					'#413E3A',
+					'#F7F3ED',
+					'#AE7867',
+					'#462903',
+					'#FFE1B4',
+					'#FFFFFF',
+				),
+				'palette_3' => array(
+					'#FD4973',
+					'#F81B4F',
+					'#19150F',
+					'#483D40',
+					'#F7F2F3',
+					'#A46E7B',
+					'#C8002F',
+					'#FFD8E0',
+					'#FFFFFF',
+				),
+			),
+		);
+	}
+
+	/**
+	 * Get labels for palette colors.
+	 *
+	 * @since x.x.x
+	 * @return array Palette labels.
+	 */
+	public static function get_palette_labels() {
+		return array(
+			__( 'Text Color', 'astra' ),
+			__( 'Theme color', 'astra' ),
+			__( 'Link color', 'astra' ),
+			__( 'Link Hover Color', 'astra' ),
+			__( 'Heading Color', 'astra' ),
+		);
 	}
 
 	/**
@@ -93,7 +157,6 @@ class Astra_Global_Palette {
 	 * @return bool
 	 */
 	public function format_global_palette( $global_palette ) {
-
 		$editor_palette    = array();
 		$extra_color_index = 1;
 		$color_index       = 0;
@@ -115,6 +178,30 @@ class Astra_Global_Palette {
 		}
 
 		return $editor_palette;
+	}
+
+	/**
+	 * Pass hex value for global palette to process forground color.
+	 *
+	 * @since x.x.x
+	 * @param string $color hex color / css variable.
+	 * @return string
+	 */
+	public function get_color_by_palette_variable( $color ) {
+		// Check if color is CSS variable.
+		if ( 0 === strpos( $color, 'var(--' ) ) {
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+
+			foreach ( $global_palette['palette'] as $palette_index => $value ) {
+
+				if ( 'var(' . self::get_css_variable_prefix() . $palette_index . ')' === $color ) {
+					return $value;
+				}
+			}
+		}
+
+		return $color;
 	}
 }
 

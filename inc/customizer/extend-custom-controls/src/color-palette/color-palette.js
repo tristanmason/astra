@@ -8,6 +8,7 @@ const ColorPaletteComponent = (props) => {
 	const defaultValue = props.control.params.default;
 	let labelHtml = null;
 	const { label } = props.control.params;
+	let UpdatePaletteEvent;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
 
@@ -74,6 +75,18 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
+	const handleColorReset = ( index, color ) => {
+
+		let updateState = {
+			...state,
+		};
+
+		let resetValue = defaultValue.palettes[updateState.currentPalette][index];
+
+		updateState.palettes[updateState.currentPalette][index] = resetValue;
+		updateValues( updateState );
+	};
+
 	var paletteColors = (
 		<>
 			<div className="ast-single-palette-wrap">
@@ -89,6 +102,9 @@ const ColorPaletteComponent = (props) => {
 								allowGradient={false}
 								allowImage={false}
 								disablePalette={true}
+								onColorResetClick={(color, backgroundType) =>
+									handleColorReset(index, color)
+								}
 							/>
 						</div>
 					);
@@ -133,7 +149,13 @@ const ColorPaletteComponent = (props) => {
 	);
 
 	const updatePaletteVariables = (e) => {
-		props.control.setPaletteVariables(e.detail.data.palette);
+
+		clearTimeout( UpdatePaletteEvent );
+
+		// Throttle events when user tries to drag inside color picker.
+		UpdatePaletteEvent = setTimeout( function() {
+			document.dispatchEvent( new CustomEvent( 'AstUpdatePaletteVariables', {} ) );
+		}, 500 );
 	};
 
 	document.addEventListener(
