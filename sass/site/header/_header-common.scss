@@ -145,17 +145,3 @@
         }
     }
 }
-
-.button-custom-menu-item {
-    .ast-custom-button-link {
-        .ast-custom-button {
-            font-size: inherit;
-            font-family: inherit;
-            font-weight: inherit;
-
-            &:hover {
-                @include ast-transition(all, 0.1s, ease-in-out);
-            }
-        }
-    }
-}

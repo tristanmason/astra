@@ -23,6 +23,7 @@ function astra_old_header_custom_menu_css( $dynamic_css ) {
 	$menu_item = astra_get_option( 'header-main-rt-section' );
 	if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
+		$static_css = '';
 		if ( 'widget' == $menu_item ) {
 
 			$static_css = '
@@ -70,7 +71,27 @@ function astra_old_header_custom_menu_css( $dynamic_css ) {
                 margin: .5em 0;
                 display: block;
             }';
-		}   
+		}
+		if ( 'button' == $menu_item ) {
+			$static_css .= '
+            .ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-link {
+                padding: 0 20px;
+                display: inline-block;
+                width: 100%;
+                border-bottom-width: 1px;
+                border-style: solid;
+                border-color: #eaeaea;
+            }
+            .button-custom-menu-item .ast-custom-button-link .ast-custom-button {
+                font-size: inherit;
+                font-family: inherit;
+                font-weight: inherit;
+            }
+            .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover {
+                transition: all 0.1s ease-in-out;
+            }';
+
+		}
 		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $static_css );
 	}
 	return $dynamic_css;

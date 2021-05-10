@@ -2430,15 +2430,6 @@ body {
   display: inline;
 }
 
-.ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-link {
-  padding: 0 20px;
-  display: inline-block;
-  width: 100%;
-  border-bottom-width: 1px;
-  border-style: solid;
-  border-color: #eaeaea;
-}
-
 .ast-header-break-point .main-navigation .sub-menu .menu-item .menu-link {
   padding-right: 30px;
 }
@@ -3099,16 +3090,6 @@ body {
 
 .ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .menu-link {
   display: block;
-}
-
-.button-custom-menu-item .ast-custom-button-link .ast-custom-button {
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-}
-
-.button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover {
-  transition: all 0.1s ease-in-out;
 }
 
 /* 4 - Header Main */
