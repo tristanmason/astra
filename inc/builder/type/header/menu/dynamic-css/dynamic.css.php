@@ -313,7 +313,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	}
 
-	$dynamic_css .= menu_hover_style_css();
+	$dynamic_css .= astra_menu_hover_style_css();
 	return $dynamic_css;
 }
 
@@ -323,7 +323,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
  * @return string
  * @since x.x.x
  */
-function menu_hover_style_css() {
+function astra_menu_hover_style_css() {
 	$hover_style_flg = false;
 	$menu_hover_css  = '';
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
