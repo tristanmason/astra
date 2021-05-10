@@ -318,7 +318,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				$load_site_tagline_color_controls = false;
 			}
 
-			if( $load_site_tagline_color_controls ) {
+			if ( $load_site_tagline_color_controls ) {
 				$_configs = array_merge(
 					$_configs,
 					array(
@@ -401,7 +401,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 									'value'    => true,
 								),
 							),
-						)
+						),
 					)
 				);
 			}

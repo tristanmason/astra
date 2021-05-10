@@ -33,12 +33,12 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	$_section            = 'title_tagline';
 	$selector            = '.ast-builder-layout-element .ast-site-identity';
 	$visibility_selector = '.ast-builder-layout-element[data-section="title_tagline"]';
-	$margin            = astra_get_option( $_section . '-margin' );
+	$margin              = astra_get_option( $_section . '-margin' );
 
 	// Desktop CSS.
 	$css_output_desktop = array(
 
-		$selector                          => array(
+		$selector => array(
 
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
