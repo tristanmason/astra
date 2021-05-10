@@ -3425,7 +3425,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 1;
+					z-index: 4;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
@@ -3482,7 +3482,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 1;
+					z-index: 4;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
