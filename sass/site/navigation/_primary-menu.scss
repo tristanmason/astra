@@ -20,6 +20,7 @@
 	> a {
 		text-decoration: none;
 		display: inline-block;
+		@include ast-transition();
 	}
 
 	.menu-item {

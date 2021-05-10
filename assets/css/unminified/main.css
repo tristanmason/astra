@@ -1312,6 +1312,7 @@ body {
 .main-header-menu > a {
   text-decoration: none;
   display: inline-block;
+  transition: all 0.2s linear;
 }
 
 .main-header-menu .menu-item {
