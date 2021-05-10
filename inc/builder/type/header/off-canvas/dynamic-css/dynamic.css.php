@@ -458,10 +458,8 @@ function astra_dropdown_type_static_css() {
 	#ast-desktop-header .ast-desktop-header-content,
 	.ast-mobile-header-content .ast-search-icon,
 	.ast-desktop-header-content .ast-search-icon,
-	.ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content,
 	.ast-mobile-header-wrap .ast-mobile-header-content,
 	.ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content,
-	.ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content,
 	.ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content {
 	  display: none;
 	}
