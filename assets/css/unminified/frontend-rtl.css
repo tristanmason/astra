@@ -3054,63 +3054,6 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 /**
- * 8 - Header Widget Area
- */
-.ast-header-widget-area {
-  line-height: 1.65;
-}
-
-.ast-header-widget-area .widget-title,
-.ast-header-widget-area .no-widget-text {
-  margin-bottom: 0;
-}
-
-.ast-header-widget-area .widget {
-  margin: .5em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.ast-header-widget-area .widget p {
-  margin-bottom: 0;
-}
-
-.ast-header-widget-area .widget ul {
-  position: static;
-  border: 0;
-  width: auto;
-}
-
-.ast-header-widget-area .widget ul a {
-  border: 0;
-}
-
-.ast-header-widget-area .widget.widget_search .search-field,
-.ast-header-widget-area .widget.widget_search .search-field:focus {
-  padding: 10px 15px 10px 45px;
-}
-
-.ast-header-widget-area .widget:last-child {
-  margin-bottom: 0.5em;
-  margin-left: 0;
-}
-
-.submenu-with-border .ast-header-widget-area .widget ul {
-  position: static;
-  border: 0;
-  width: auto;
-}
-
-.submenu-with-border .ast-header-widget-area .widget ul a {
-  border: 0;
-}
-
-.ast-header-break-point .ast-header-widget-area .widget {
-  margin: .5em 0;
-  display: block;
-}
-
-/**
  * 9 - Header Widget Area
  */
 .ast-header-custom-item .widget {
