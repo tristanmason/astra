@@ -1,6 +1,11 @@
 v3.5.0
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
+<<<<<<< HEAD
+=======
+- Fix: Removed unwanted dividers from customizer setting sections.
+
+>>>>>>> 47f0e4b6160ddd8ed6d473c9e99944a5aeecf0e5
 v3.4.2
 - Fix: JS console error when Off-canvas type 'Dropdown' is selected.
 - Fix: Dropdown does not close when you click a one page navigation link inside them.
