@@ -310,6 +310,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
 			$css_output = array(
+
+				// HTML.
+				'html'                           => array(
+					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
+				),
 				'a, .page-title'                 => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -1645,7 +1650,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() -> min-width: (mobile-breakpoint) px CSS  */
 			$parse_css .= astra_parse_css( $container_min_mobile_css, astra_get_mobile_breakpoint() );
-
+			
 			$global_button_mobile = array(
 				$article_post_selector . '.ast-separate-container .ast-article-single, .ast-separate-container .comments-title, .ast-separate-container .ast-archive-description' => array(
 					'padding' => '1.5em 1em',
