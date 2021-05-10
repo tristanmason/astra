@@ -990,6 +990,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output = array_merge( $css_output, $compat_css_desktop );
 			}
 
+			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+				$css_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product'] = array(
+					'width' => '100%',
+				);
+			}
+
 			/* Parse WooCommerce General CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
