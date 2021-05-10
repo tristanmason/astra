@@ -121,6 +121,9 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
  */
 function astra_off_canvas_static_css() {
 	$off_canvas_css = '
+	.ast-off-canvas-active body.ast-main-header-nav-open {
+		overflow: hidden;
+	}
 	.ast-mobile-popup-drawer .ast-mobile-popup-overlay {
 		background-color: rgba(0, 0, 0, 0.4);
 		position: fixed;
