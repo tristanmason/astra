@@ -53,17 +53,6 @@
         border-bottom-color: #eaeaea;
         border-bottom-style: solid;
     }
-    .ast-header-custom-item{
-        .ast-masthead-custom-menu-items{
-            padding-left: 20px;
-            padding-right: 20px;
-            margin-bottom: 1em;
-            margin-top: 1em;
-        }
-        .widget:last-child{
-            margin-bottom: 1em;
-        }
-    }
 }
 
 /**
@@ -76,23 +65,6 @@
 
 .site-logo-img img {
     @include ast-transition();
-}
-
-/**
- * 9 - Header Widget Area
- */
-.ast-header-custom-item{
-    .widget {
-        margin: 0.5em;
-        display: inline-block;
-        vertical-align: middle;
-        p {
-            margin-bottom: 0;
-        }
-        li{
-            width: auto;
-        }
-    }
 }
 
 /**
@@ -120,28 +92,6 @@
         } 
         .astra-full-megamenu-wrapper {
             box-shadow: 0 4px 10px -2px rgba(0,0,0, 0.1);
-        }
-    }
-}
-
-.ast-header-custom-item-inside {
-    .button-custom-menu-item{
-        .menu-link {
-            display: none;
-        }
-    }
-    &.ast-header-break-point {
-        .button-custom-menu-item {
-            .ast-custom-button-link {
-                display: none;
-            }
-            .menu-link {
-                display: block;
-            }
-            padding-left: 0;
-            padding-right: 0;
-            margin-top: 0;
-            margin-bottom: 0;
         }
     }
 }

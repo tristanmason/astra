@@ -1867,36 +1867,6 @@ input[type="submit"]:focus {
   z-index: 3;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
-  margin-right: 1em;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
-  display: none;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
-  width: 100%;
-  padding-right: 5.5em;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
-  display: block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  border-radius: 0;
-}
-
-.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form {
-  padding: 0;
-  display: block;
-  overflow: hidden;
-}
-
 /* must have higher specificity than alternative color schemes inline styles */
 .site .skip-link {
   background-color: #f1f1f1;

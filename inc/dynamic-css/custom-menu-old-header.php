@@ -22,10 +22,10 @@ function astra_old_header_custom_menu_css( $dynamic_css ) {
 
 	$menu_item = astra_get_option( 'header-main-rt-section' );
 	if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
+		$static_css = '';
 		if ( 'widget' == $menu_item ) {
 
-			$static_css = '
+			$static_css .= '
             .ast-header-widget-area {
                 line-height: 1.65;
             }
@@ -70,7 +70,104 @@ function astra_old_header_custom_menu_css( $dynamic_css ) {
                 margin: .5em 0;
                 display: block;
             }';
-		}   
+		}  
+
+		$static_css .= '
+        .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
+            display: none;
+        }
+        .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form {
+            padding: 0;
+            display: block;
+            overflow: hidden;
+        }
+        .ast-header-break-point .ast-header-custom-item .widget:last-child {
+            margin-bottom: 1em;
+        }
+        .ast-header-custom-item .widget {
+            margin: 0.5em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .ast-header-custom-item .widget p {
+            margin-bottom: 0;
+        }
+        .ast-header-custom-item .widget li {
+            width: auto;
+        }
+        .ast-header-custom-item-inside .button-custom-menu-item .menu-link {
+            display: none;
+        }
+        
+        .ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .ast-custom-button-link {
+            display: none;
+        }
+        .ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .menu-link {
+            display: block;
+        }';
+		if ( is_rtl() ) {
+			$static_css .= '
+            .ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
+                margin-left: 1em;
+            }
+            .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
+            .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
+                width: 100%;
+                padding-left: 5.5em;
+            }
+            .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
+                display: block;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                left: 0;
+                padding: 0 1em;
+                border-radius: 0;
+            }
+            .ast-header-break-point .ast-header-custom-item .ast-masthead-custom-menu-items {
+                padding-right: 20px;
+                padding-left: 20px;
+                margin-bottom: 1em;
+                margin-top: 1em;
+            }
+            .ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item {
+                padding-right: 0;
+                padding-left: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+            }';
+		} else {
+			$static_css .= '
+            .ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
+                margin-right: 1em;
+            }
+            .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
+            .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
+                width: 100%;
+                padding-right: 5.5em;
+            }
+            .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
+                display: block;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                right: 0;
+                padding: 0 1em;
+                border-radius: 0;
+            }
+            .ast-header-break-point .ast-header-custom-item .ast-masthead-custom-menu-items {
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-bottom: 1em;
+                margin-top: 1em;
+            }
+            .ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item {
+                padding-left: 0;
+                padding-right: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+            }';
+		}
 		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $static_css );
 	}
 	return $dynamic_css;

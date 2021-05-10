@@ -347,36 +347,6 @@ html {
   z-index: 3;
 }
 
-.edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
-  margin-right: 1em;
-}
-
-.edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
-  display: none;
-}
-
-.edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,
-.edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {
-  width: 100%;
-  padding-right: 5.5em;
-}
-
-.edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {
-  display: block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  border-radius: 0;
-}
-
-.edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form {
-  padding: 0;
-  display: block;
-  overflow: hidden;
-}
-
 .edit-post-visual-editor .site .skip-link {
   background-color: #f1f1f1;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
