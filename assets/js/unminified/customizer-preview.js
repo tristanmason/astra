@@ -1506,4 +1506,26 @@ function isJsonString( str ) {
 	astra_responsive_font_size( 'astra-settings[related-posts-content-font-size]', '.ast-related-post-content .ast-related-post-excerpt' );
 	astra_css( 'astra-settings[related-posts-content-line-height]', 'line-height', '.ast-related-post-content .ast-related-post-excerpt' );
 	astra_css( 'astra-settings[related-posts-content-text-transform]', 'text-transform', '.ast-related-post-content .ast-related-post-excerpt' );
+
+	// Title Color.
+    astra_css(
+        'astra-settings[header-color-site-title]',
+        'color',
+        '.ast-site-identity .site-title a, .ast-site-identity .site-title'
+    );
+
+    // Title Hover Color.
+    astra_css(
+        'astra-settings[header-color-h-site-title]',
+        'color',
+        '.ast-site-identity .site-title a:hover, .ast-site-identity .site-title:hover'
+    );
+
+	// Tagline Color.
+    astra_css(
+        'astra-settings[header-color-site-tagline]',
+        'color',
+        '.ast-site-identity .site-description'
+    );
+
 } )( jQuery );

@@ -249,27 +249,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-title-tagline-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 13,
-					'settings' => array(),
-					'context'  => array(
-						'relation' => 'AND',
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
-
-				/**
 				 * Option: Display Tagline
 				 */
 				array(
@@ -327,6 +306,105 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					),
 				),
 			);
+
+			/**
+			 * We adding this control only to maintain backwards. Remove this condition after 2-3 updates of add-on.
+			 * Moving Site Title color & Tagline color option into theme.
+			 *
+			 * @since x.x.x
+			 */
+			$load_site_tagline_color_controls = true;
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.5.0', '<' ) ) {
+				$load_site_tagline_color_controls = false;
+			}
+
+			if( $load_site_tagline_color_controls ) {
+				$_configs = array_merge(
+					$_configs,
+					array(
+						// Color Group control for site title colors.
+						array(
+							'name'       => ASTRA_THEME_SETTINGS . '[site-identity-title-color-group]',
+							'default'    => astra_get_option( 'site-identity-title-color-group' ),
+							'type'       => 'control',
+							'control'    => 'ast-color-group',
+							'title'      => Astra_Builder_Helper::$is_header_footer_builder_active ? __( 'Title Color', 'astra' ) : __( 'Colors', 'astra' ),
+							'section'    => $_section,
+							'responsive' => false,
+							'transport'  => 'postMessage',
+							'priority'   => 8,
+							'context'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array(
+								Astra_Builder_Helper::$design_tab_config,
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'operator' => '==',
+									'value'    => true,
+								),
+							) : array(
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+									'operator' => '==',
+									'value'    => true,
+								),
+							),
+						),
+
+						// Option: Site Title Color.
+						array(
+							'name'      => 'header-color-site-title',
+							'parent'    => ASTRA_THEME_SETTINGS . '[site-identity-title-color-group]',
+							'section'   => 'title_tagline',
+							'type'      => 'sub-control',
+							'control'   => 'ast-color',
+							'priority'  => 5,
+							'default'   => astra_get_option( 'header-color-site-title' ),
+							'transport' => 'postMessage',
+							'title'     => __( 'Normal', 'astra' ),
+							'context'   => Astra_Builder_Helper::$design_tab,
+						),
+
+						// Option: Site Title Hover Color.
+						array(
+							'name'      => 'header-color-h-site-title',
+							'parent'    => ASTRA_THEME_SETTINGS . '[site-identity-title-color-group]',
+							'section'   => 'title_tagline',
+							'type'      => 'sub-control',
+							'control'   => 'ast-color',
+							'priority'  => 10,
+							'transport' => 'postMessage',
+							'default'   => astra_get_option( 'header-color-h-site-title' ),
+							'title'     => __( 'Hover', 'astra' ),
+							'context'   => Astra_Builder_Helper::$design_tab,
+						),
+
+						// Option: Site Tagline Color.
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[header-color-site-tagline]',
+							'type'      => 'control',
+							'control'   => 'ast-color',
+							'transport' => 'postMessage',
+							'default'   => astra_get_option( 'header-color-site-tagline' ),
+							'title'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? __( 'Tagline', 'astra-addon' ) : __( 'Color', 'astra-addon' ),
+							'section'   => 'title_tagline',
+							'priority'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 8 : 12,
+							'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array(
+								Astra_Builder_Helper::$design_tab_config,
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'operator' => '==',
+									'value'    => true,
+								),
+							) : array(
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+									'operator' => '==',
+									'value'    => true,
+								),
+							),
+						)
+					)
+				);
+			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
