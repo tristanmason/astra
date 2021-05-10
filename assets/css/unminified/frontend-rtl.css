@@ -2658,10 +2658,6 @@ body .entry-content .wp-block-latest-posts li {
   display: none;
 }
 
-[CLASS*="ast-footer-button-"][data-section^="section-fb-button-"] {
-  justify-content: center;
-}
-
 .ast-footer-copyright p {
   margin-bottom: 0;
 }
@@ -2880,11 +2876,6 @@ body .entry-content .wp-block-latest-posts li {
   width: 100%;
   padding: 0.60em;
   padding-left: 5.5em;
-}
-
-.site-footer-focus-item[CLASS*="ast-footer-button-"] {
-  -js-display: flex;
-  display: flex;
 }
 
 /** Hover menu style CSS */
