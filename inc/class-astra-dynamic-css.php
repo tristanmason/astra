@@ -319,7 +319,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'body, button, input, select, textarea, .ast-button, .ast-custom-button' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
-					'font-size'      => '15px',
+					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 					'line-height'    => esc_attr( $body_line_height ),
 					'text-transform' => esc_attr( $body_text_transform ),
 				),
