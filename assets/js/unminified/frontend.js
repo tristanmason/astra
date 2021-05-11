@@ -427,20 +427,28 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var menu_dropdown_close 	= document.querySelector('.menu-toggle.toggled');
 		var desktop_header_content	= document.querySelector('#masthead > #ast-desktop-header .ast-desktop-header-content');
 		var elementor_editor 		= document.querySelector('.elementor-editor-active');
-		if ( menu_dropdown_close && null === elementor_editor) {
+		// Added this var to check the current active element consition. 
+		var menu_close_flag = 'INPUT' !== document.activeElement.tagName;
+
+
+		if ( menu_dropdown_close && null === elementor_editor && menu_close_flag) {
 			menu_dropdown_close.click();
 		}
-		if ( desktop_header_content ) {
+
+		if ( desktop_header_content && menu_close_flag ) {
 			desktop_header_content.style.display = 'none';
 		}
-		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 
-		if( menu_offcanvas_close && null === elementor_editor ) {
+		if(menu_close_flag){
+			document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
+		}
+
+		if( menu_offcanvas_close && null === elementor_editor && menu_close_flag) {
 			menu_offcanvas_close.click();
 		}
 
 		// Skip resize event when keyboard display event triggers on devices.
-		if( 'INPUT' !== document.activeElement.tagName ) {
+		if( menu_close_flag ) {
 			updateHeaderBreakPoint();
 			if ( 'dropdown' === mobileHeaderType ) {
 				AstraToggleSetup();
