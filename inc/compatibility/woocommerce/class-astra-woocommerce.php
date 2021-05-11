@@ -1031,24 +1031,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 			} else {
+				$archive_tablet_grid = $this->get_grid_column_count( 'archive', 'tablet' );
+
 				$tablet_css_shop_page_grid = array(
-					'.woocommerce.tablet-columns-6 ul.products li.product, .woocommerce-page.tablet-columns-6 ul.products' => array(
-						'grid-template-columns' => 'repeat(6, minmax(0, 1fr))',
-					),
-					'.woocommerce.tablet-columns-5 ul.products li.product, .woocommerce-page.tablet-columns-5 ul.products' => array(
-						'grid-template-columns' => 'repeat(5, minmax(0, 1fr))',
-					),
-					'.woocommerce.tablet-columns-4 ul.products li.product, .woocommerce-page.tablet-columns-4 ul.products' => array(
-						'grid-template-columns' => 'repeat(4, minmax(0, 1fr))',
-					),
-					'.woocommerce.tablet-columns-3 ul.products li.product, .woocommerce-page.tablet-columns-3 ul.products' => array(
-						'grid-template-columns' => 'repeat(3, minmax(0, 1fr))',
-					),
-					'.woocommerce.tablet-columns-2 ul.products li.product, .woocommerce-page.tablet-columns-2 ul.products' => array(
-						'grid-template-columns' => 'repeat(2, minmax(0, 1fr))',
+					'.woocommerce.tablet-columns-' . $archive_tablet_grid . ' ul.products li.product, .woocommerce-page.tablet-columns-' . $archive_tablet_grid . ' ul.products' => array(
+						'grid-template-columns' => 'repeat(' . $archive_tablet_grid . ', minmax(0, 1fr))',
 					),
 				);
-
 			}
 			$css_output .= astra_parse_css( $tablet_css_shop_page_grid, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 
