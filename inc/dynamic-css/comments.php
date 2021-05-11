@@ -239,11 +239,11 @@ function astra_comments_css( $dynamic_css ) {
       border-bottom: 0;
       }
 
-    @media (max-width: 1200px) {
-      .ast-separate-container .comment-respond {
-        padding: 3em 2.34em;
-      }
-    }
+     @media (max-width: 1200px) {
+       .ast-separate-container .comment-respond {
+         padding: 3em 2.34em;
+       }
+     }
 
       .ast-separate-container .comment-reply-title {
         padding-top: 0;
