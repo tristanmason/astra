@@ -1153,12 +1153,6 @@ body .ast-oembed-container * {
 }
 
 /*----------  Basic Layout  ----------*/
-:root {
-  --postRowGap: 0px;
-  --postColumnGap: 0px;
-  --gridColumns: 1;
-}
-
 .ast-hidden {
   display: none !important;
 }
