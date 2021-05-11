@@ -15,20 +15,22 @@ add_filter( 'astra_dynamic_theme_css', 'astra_inline_on_mobile_css' );
 /**
  * Inline On Mobile - Dynamic CSS.
  *
+ * @param string $dynamic_css Dynamic CSS.
  * @since x.x.x
+ * @return string
  */
-function astra_inline_on_mobile_css() {
+function astra_inline_on_mobile_css( $dynamic_css ) {
 
-	$stack_on_mobile_enable = false;
+	$inline_on_mobile_enable = false;
 	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 		if ( false === astra_get_option( 'header-menu' . $index . '-menu-stack-on-mobile' ) ) {
-			$stack_on_mobile_enable = true;
+			$inline_on_mobile_enable = true;
 			break;
 		}
 	}
 
-	if ( false === $stack_on_mobile_enable ) {
-		return;
+	if ( false === $inline_on_mobile_enable ) {
+		return $dynamic_css;
 	}
 
 	$inline_on_mobile_css = '
@@ -158,5 +160,5 @@ function astra_inline_on_mobile_css() {
         }';
 	}
 
-	return Astra_Enqueue_Scripts::trim_css( $inline_on_mobile_css );
+	return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $inline_on_mobile_css );
 }
