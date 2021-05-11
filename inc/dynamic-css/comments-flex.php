@@ -34,7 +34,7 @@ function astra_comments_css( $dynamic_css ) {
 		} else {
 			$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 		}
-		
+
 		$desktop_comment_global = array(
 			'.comment-reply-title'                         => array(
 				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
@@ -47,7 +47,7 @@ function astra_comments_css( $dynamic_css ) {
 			),
 			'.ast-comment-list #cancel-comment-reply-link' => array(
 				'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
-			),                  
+			),
 		);
 		$dynamic_css .= astra_parse_css( $desktop_comment_global );
 
@@ -226,25 +226,25 @@ function astra_comments_css( $dynamic_css ) {
             .ast-comment-list .children {
                 margin-right: 2em;
             }
-        
+
             @media (max-width: 992px) {
                 .ast-comment-list .children {
                     margin-right: 1em;
                 }
             }
-    
+
             .ast-comment-list #cancel-comment-reply-link {
                 white-space: nowrap;
                 font-size: 15px;
                 font-size: 1rem;
                 margin-right: 1em;
             }
-            
+
             .ast-comment-meta {
                 justify-content: left;
                 padding: 0 3.4em 1.333em;
             }
-            
+
             .ast-comment-time .timendate,
                 .ast-comment-time .reply {
                 margin-left: 0.5em;
@@ -255,7 +255,7 @@ function astra_comments_css( $dynamic_css ) {
             .ast-page-builder-template .comments-area {
                 padding-right: 20px;
                 padding-left: 20px;
-                margin-top: 2em;
+                margin-top: 0;
                 margin-bottom: 2em;
             }
             .ast-separate-container .ast-comment-list .bypostauthor .bypostauthor {
@@ -270,20 +270,20 @@ function astra_comments_css( $dynamic_css ) {
             .ast-comment-list .children {
                 margin-left: 2em;
             }
-        
+
             @media (max-width: 992px) {
                 .ast-comment-list .children {
                     margin-left: 1em;
                 }
             }
-        
+
             .ast-comment-list #cancel-comment-reply-link {
                 white-space: nowrap;
                 font-size: 15px;
                 font-size: 1rem;
                 margin-left: 1em;
             }
-                
+
             .ast-comment-info {
                 display: flex;
                 position: relative;
@@ -301,7 +301,7 @@ function astra_comments_css( $dynamic_css ) {
             .ast-page-builder-template .comments-area {
                 padding-left: 20px;
                 padding-right: 20px;
-                margin-top: 2em;
+                margin-top: 0;
                 margin-bottom: 2em;
             }
             .ast-separate-container .ast-comment-list .bypostauthor .bypostauthor {
