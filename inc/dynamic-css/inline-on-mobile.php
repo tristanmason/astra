@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+add_filter( 'astra_dynamic_theme_css', 'astra_inline_on_mobile_css' );
+
 /**
  * Inline On Mobile - Dynamic CSS.
  *
@@ -19,7 +21,7 @@ function astra_inline_on_mobile_css() {
 
 	$stack_on_mobile_enable = false;
 	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
-		if ( ! astra_get_option( 'header-menu' . $index . '-menu-stack-on-mobile' ) ) {
+		if ( false === astra_get_option( 'header-menu' . $index . '-menu-stack-on-mobile' ) ) {
 			$stack_on_mobile_enable = true;
 			break;
 		}
