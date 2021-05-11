@@ -182,9 +182,6 @@ class Astra_Global_Palette {
 	 * @return void
 	 */
 	public function support_editor_color_palette() {
-		// Disable Custom Colors.
-		add_theme_support( 'disable-custom-colors' );
-
 		$global_palette = astra_get_option( 'global-color-palette' );
 		$editor_palette = $this->format_global_palette( $global_palette );
 
