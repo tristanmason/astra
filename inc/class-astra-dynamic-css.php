@@ -266,6 +266,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
 			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 
+			/**
+			 * Button visited color options.
+			 */
 			$btn_visited_color       = astra_get_option( 'button-visited-color', $btn_text_color );
 			$btn_visited_bg_color    = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
 
@@ -1361,7 +1364,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
+					),
+					'.menu-toggle:visited, button:visited, .ast-button:visited, .ast-custom-button:visited, .button:visited, input#submit:visited, input[type="button"]:visited, input[type="submit"]:visited, input[type="reset"]:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 
@@ -1432,12 +1438,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'color'            => esc_attr( $btn_text_hover_color ),
 							'background-color' => esc_attr( $btn_bg_hover_color ),
 							'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
 						),
 					);
 
 					if( '' !== $btn_text_visited_color_selectors ) {
-						$ele_btn_color_builder_desktop[$btn_text_color_selectors]                  = array(
+						$ele_btn_color_builder_desktop[$btn_text_visited_color_selectors]                  = array(
 							'color'            => esc_attr( $btn_visited_color ),
 							'background-color' => esc_attr( $btn_visited_bg_color ),
 						);
@@ -1479,6 +1484,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+					),
+					'.wp-block-button .wp-block-button__link:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 					'.elementor-widget-heading h1.elementor-heading-title' => array(
 						'line-height' => esc_attr( $h1_line_height ),
@@ -1636,7 +1645,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
+					),
+					'.menu-toggle:visited, button:visited, .ast-button:visited, .ast-custom-button-link:visited .ast-custom-button:visited, .button:visited, input#submit:visited, input[type="button"]:visited, input[type="submit"]:visited, input[type="reset"]:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 			}

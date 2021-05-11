@@ -118,7 +118,7 @@ class Astra_Button_Component_Dynamic_CSS {
 			 */
 			$css_output_tablet = array(
 
-				
+
 				/**
 				 * Button font size.
 				 */
@@ -151,7 +151,7 @@ class Astra_Button_Component_Dynamic_CSS {
 			 * Button CSS.
 			 */
 			$css_output_mobile = array(
-				
+
 				/**
 				 * Button font size.
 				 */
