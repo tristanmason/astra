@@ -78,7 +78,7 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 		$css_output_desktop[ $selector ]['border-style'] = 'solid';
 
 		$css_output_desktop[ $selector ]['border-width'] = '0px';
-		
+
 		$css_output_desktop[ $selector ]['border-top-width'] = astra_get_css_value( $footer_top_border_size, 'px' );
 
 		$css_output_desktop[ $selector ]['border-top-color'] = $footer_top_border_color;

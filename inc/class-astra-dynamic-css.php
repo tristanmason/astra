@@ -648,6 +648,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			// Related Posts Dynamic CSS.
 
 			/**
 			 *
@@ -1835,7 +1836,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'search', 'header', 'mobile' ) ) {
 
-				if ( is_rtl() ) {
+				if ( $is_site_rtl ) {
 					$global_button_tablet_lang_direction_css = array(
 						'.ast-header-break-point .ast-search-menu-icon.slide-search .search-form' => array(
 							'left' => '0',
@@ -2002,7 +2003,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Width for Comments for Full Width / Stretched Template */
 			if ( 'page-builder' == $container_layout ) {
 				$page_builder_comment = array(
-					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
+					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation, .single.ast-page-builder-template .ast-single-related-posts-container' => array(
 						'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
