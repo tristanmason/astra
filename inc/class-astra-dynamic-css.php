@@ -2251,6 +2251,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.5.0', '<' ) ) {
+				$mega_menu_css = array(
+					'.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-megamenu .sub-menu' => array(
+						'box-shadow' => 'none',
+					),
+					'.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper' => array(
+						'box-shadow' => '0 4px 10px -2px rgba(0, 0, 0, 0.1)',
+					),
+					'.ast-desktop .main-header-menu > .menu-item .astra-full-megamenu-wrapper:before' => array(
+						'position'  => 'absolute',
+						'content'   => '',
+						'top'       => '0',
+						'right'     => '0',
+						'width'     => '100%',
+						'transform' => 'translateY(-100%)',
+					),
+				);
+				$parse_css    .= astra_parse_css( $mega_menu_css );
+			}
 			/**
 			 * Astra Fonts
 			 */
