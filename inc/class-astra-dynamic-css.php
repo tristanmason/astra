@@ -269,8 +269,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Button visited color options.
 			 */
-			$btn_visited_color       = astra_get_option( 'button-visited-color', $btn_text_color );
-			$btn_visited_bg_color    = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_text_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				// Spacing of Big Footer.
@@ -1423,7 +1423,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					// Check if Global Elementor - Theme Style - button color is set. If yes then remove ( :visited ) CSS for the compatibility.
 					$btn_text_visited_color_selectors = '';
 					if ( false === self::is_elementor_kit_button_color_set() ) {
-						$btn_text_color_selectors .= '.elementor-button-wrapper .elementor-button';
+						$btn_text_color_selectors        .= '.elementor-button-wrapper .elementor-button';
 						$btn_text_visited_color_selectors = '.elementor-button-wrapper .elementor-button:visited';
 					} else {
 						$btn_text_color_selectors .= '.elementor-button-wrapper .elementor-button';
@@ -1441,8 +1441,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 
-					if( '' !== $btn_text_visited_color_selectors ) {
-						$ele_btn_color_builder_desktop[$btn_text_visited_color_selectors]                  = array(
+					if ( '' !== $btn_text_visited_color_selectors ) {
+						$ele_btn_color_builder_desktop[ $btn_text_visited_color_selectors ] = array(
 							'color'            => esc_attr( $btn_visited_color ),
 							'background-color' => esc_attr( $btn_visited_bg_color ),
 						);
