@@ -547,7 +547,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
-			if ( get_theme_mod( 'custom_logo' ) || is_customize_preview() ) {
+			$page_header_logo = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'logo-url' ) );
+
+			if ( get_theme_mod( 'custom_logo' ) 
+				|| astra_get_option( 'transparent-header-logo' ) 
+				|| astra_get_option( 'sticky-header-logo' ) 
+				|| $page_header_logo 
+				|| is_customize_preview() ) {
+
 				$css_output['.ast-logo-title-inline .site-logo-img'] = array(
 					'padding-right' => '1em',
 				);
