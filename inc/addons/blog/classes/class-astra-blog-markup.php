@@ -37,6 +37,7 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 		 */
 		public function __construct() {
 
+			add_filter( 'body_class', array( $this, 'astra_blog_body_classes' ) );
 			add_filter( 'post_class', array( $this, 'astra_post_class_blog_grid' ) );
 			add_filter( 'astra_primary_class', array( $this, 'astra_primary_class_blog_grid' ) );
 			add_action( 'init', array( $this, 'init_action' ) );
@@ -62,6 +63,31 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 				}
 				$classes = apply_filters( 'astra_primary_class_blog_grid', $classes );
 			}
+			return $classes;
+		}
+
+		/**
+		 * Add Body Classes
+		 *
+		 * @param array $classes Body Class Array.
+		 * @return array
+		 */
+		public function astra_blog_body_classes( $classes ) {
+
+			if ( is_archive() || is_home() || is_search() ) {
+
+				$blog_layout = astra_get_option( 'blog-layout' );
+				$blog_grid   = astra_get_option( 'blog-grid' );
+
+				// Blog layout.
+				if ( 'blog-layout-1' == $blog_layout ) {
+					$classes[] = 'ast-blog-grid-' . esc_attr( $blog_grid );
+				}
+
+				// Blog layout.
+				$classes[] = 'ast-' . esc_attr( $blog_layout );
+			}
+
 			return $classes;
 		}
 

@@ -28,7 +28,7 @@ class Astra_Blog {
 
 		// Include front end files.
 		if ( ! is_admin() ) {
-			require_once ASTRA_THEME_BLOG_DIR . 'classes/dynamic.php'; // phpcs:ignore  WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require_once ASTRA_THEME_BLOG_DIR . 'classes/dynamic-css.php'; // phpcs:ignore  WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 	}
