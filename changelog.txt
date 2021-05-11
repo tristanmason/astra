@@ -6,7 +6,7 @@ v3.5.0 (Unreleased)
 - Fix: Added accessibility for search button of search form.
 - Fix: Text alignment issue for footer Widget 3 and Widget 4 when Astra Pro is deactivated.
 - Fix: Removed unwanted dividers from customizer setting sections.
-- Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users.
+- Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users on responsive devices.
 
 v3.4.2
 - Fix: JS console error when Off-canvas type 'Dropdown' is selected.
