@@ -1,5 +1,5 @@
 import AstResponsiveToggleControl from './responsive-toggle-control-component';
-import {astraGetResponsiveToggleControlJs} from '../common/responsive-helper';
+import {astraGetResponsiveToggleControlJs, siteTitleTaglineDependentControl} from '../common/responsive-helper';
 
 export const responsiveToggleControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -8,5 +8,6 @@ export const responsiveToggleControl = wp.customize.astraControl.extend( {
 	},
 	ready: function() {
 		astraGetResponsiveToggleControlJs( this );
+		siteTitleTaglineDependentControl( this );
 	}
 } );

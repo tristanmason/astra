@@ -221,7 +221,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet'  => 1,
 						'mobile'  => 1,
 					),
-					'display-site-tagline-responsive'                 => array(
+					'display-site-tagline-responsive'      => array(
 						'desktop' => 0,
 						'tablet'  => 0,
 						'mobile'  => 0,

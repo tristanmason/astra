@@ -347,3 +347,108 @@ export function astraGetResponsiveToggleControlJs ( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
+
+/**
+ * Conditionally hide/show Site Title and Tagline dependent controls
+ */
+export function siteTitleTaglineDependentControl ( control ) {
+    'use strict';
+    if('astra-settings[display-site-title-responsive]' === control.id){
+
+        siteTitleDependentControls(control);
+
+        var desktopToggleControl = jQuery(control.container).find('.ast-responsive-toggle-control.desktop .components-form-toggle__input');
+        var tabletToggleControl = jQuery(control.container).find('.ast-responsive-toggle-control.tablet .components-form-toggle__input');
+        var mobileToggleControl = jQuery(control.container).find('.ast-responsive-toggle-control.mobile .components-form-toggle__input');
+
+        jQuery( desktopToggleControl ).change(function(){
+            siteTitleDependentControls(control);
+        });
+        jQuery( tabletToggleControl ).change(function(){
+            siteTitleDependentControls(control);
+        });
+        jQuery( mobileToggleControl ).change(function(){
+            siteTitleDependentControls(control);
+        });
+    }
+
+    if('astra-settings[display-site-tagline-responsive]' === control.id){
+
+        siteTaglineDependentControls(control);
+
+        var desktopToggleControl = jQuery(control.container).find('.ast-responsive-toggle-control.desktop .components-form-toggle__input');
+        var tabletToggleControl = jQuery(control.container).find('.ast-responsive-toggle-control.tablet .components-form-toggle__input');
+        var mobileToggleControl = jQuery(control.container).find('.ast-responsive-toggle-control.mobile .components-form-toggle__input');
+
+        jQuery( desktopToggleControl ).change(function(){
+            siteTaglineDependentControls(control);
+        });
+        jQuery( tabletToggleControl ).change(function(){
+            siteTaglineDependentControls(control);
+        });
+        jQuery( mobileToggleControl ).change(function(){
+            siteTaglineDependentControls(control);
+        });
+    }
+}
+
+/**
+ * Conditionally hide/show Site Title dependent controls
+ */
+function siteTitleDependentControls(control){
+
+    var container = jQuery(control.container);
+    var desktopToggleVal = ( true === container.find('.ast-responsive-toggle-control.desktop .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+    var tabletToggleVal = ( true === container.find('.ast-responsive-toggle-control.tablet .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+    var mobileToggleVal = ( true === container.find('.ast-responsive-toggle-control.mobile .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+
+    var dynamicStyle = '.preview-desktop #customize-control-blogname { display: ' + desktopToggleVal + ';} .preview-tablet #customize-control-blogname { display: ' + tabletToggleVal + ';} .preview-mobile #customize-control-blogname { display: ' + mobileToggleVal + ';}';
+    astra_add_dynamic_css( 'site-title-textbox-visibility', dynamicStyle );
+
+    inlineLogoTitleToggleVisibility();
+}
+
+/**
+ * Conditionally hide/show Site Tagline dependent controls
+ */
+function siteTaglineDependentControls(control){
+
+    var container = jQuery(control.container);
+    var desktopToggleVal = ( true === container.find('.ast-responsive-toggle-control.desktop .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+    var tabletToggleVal = ( true === container.find('.ast-responsive-toggle-control.tablet .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+    var mobileToggleVal = ( true === container.find('.ast-responsive-toggle-control.mobile .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+
+    var dynamicStyle = '.preview-desktop #customize-control-blogdescription, .preview-desktop #customize-control-astra-settings-ast-site-title-tagline-divider { display: ' + desktopToggleVal + ';} .preview-tablet #customize-control-blogdescription, .preview-tablet #customize-control-astra-settings-ast-site-title-tagline-divider { display: ' + tabletToggleVal + ';} .preview-mobile #customize-control-blogdescription, .preview-mobile #customize-control-astra-settings-ast-site-title-tagline-divider { display: ' + mobileToggleVal + ';}';
+    astra_add_dynamic_css( 'site-tagline-textbox-visibility', dynamicStyle );
+
+    inlineLogoTitleToggleVisibility();
+}
+
+/**
+ * Conditionally hide/show Inline Logo & Site Title dependent controls
+ */
+function inlineLogoTitleToggleVisibility(){
+
+    var titleContainer = jQuery('#customize-control-astra-settings-display-site-title-responsive');
+    var taglineContainer = jQuery('#customize-control-astra-settings-display-site-tagline-responsive');
+
+    var desktopToggleVal = ( true === titleContainer.find('.ast-responsive-toggle-control.desktop .components-form-toggle__input').prop("checked") || true === taglineContainer.find('.ast-responsive-toggle-control.desktop .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+    var tabletToggleVal = ( true === titleContainer.find('.ast-responsive-toggle-control.tablet .components-form-toggle__input').prop("checked") || true === taglineContainer.find('.ast-responsive-toggle-control.tablet .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+    var mobileToggleVal = ( true === titleContainer.find('.ast-responsive-toggle-control.mobile .components-form-toggle__input').prop("checked") || true === taglineContainer.find('.ast-responsive-toggle-control.mobile .components-form-toggle__input').prop("checked") ) ? 'block' : 'none';
+
+    var dynamicStyle = '.preview-desktop #customize-control-astra-settings-logo-title-inline { display: ' + desktopToggleVal + ';} .preview-tablet #customize-control-astra-settings-logo-title-inline { display: ' + tabletToggleVal + ';} .preview-mobile #customize-control-astra-settings-logo-title-inline { display: ' + mobileToggleVal + ';}';
+    astra_add_dynamic_css( 'inline-logo-title-toggle-visibility', dynamicStyle );
+}
+
+/**
+ * Dynamic Internal/Embedded Style for a Control
+ */
+function astra_add_dynamic_css( control, style ) {
+	control = control.replace( '[', '-' );
+	control = control.replace( ']', '' );
+	jQuery( 'style#' + control ).remove();
+
+	jQuery( 'head' ).append(
+		'<style id="' + control + '">' + style + '</style>'
+	);
+}

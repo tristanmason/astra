@@ -318,53 +318,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			self::$contexts['blogname'] = array(
 				Astra_Builder_Helper::$general_tab_config,
-				array(
-					'relation' => 'OR',
-					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
-						'setting-key' => 'desktop',
-						'operator'    => '==',
-						'value'       => true,
-					),
-					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
-						'setting-key' => 'tablet',
-						'operator'    => '==',
-						'value'       => true,
-					),
-					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
-						'setting-key' => 'mobile',
-						'operator'    => '==',
-						'value'       => true,
-					),
-				),
 
 			);
 
 			self::$contexts['blogdescription'] = array(
 				Astra_Builder_Helper::$general_tab_config,
-				array(
-					'relation' => 'OR',
-					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
-						'setting-key' => 'desktop',
-						'operator'    => '==',
-						'value'       => true,
-					),
-					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
-						'setting-key' => 'tablet',
-						'operator'    => '==',
-						'value'       => true,
-					),
-					array(
-						'setting'     => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
-						'setting-key' => 'mobile',
-						'operator'    => '==',
-						'value'       => true,
-					),
-				),
 
 			);
 
