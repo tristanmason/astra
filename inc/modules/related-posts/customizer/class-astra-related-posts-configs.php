@@ -69,6 +69,68 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Related Posts Title
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+				'default'   => astra_get_option( 'related-posts-title' ),
+				'type'      => 'control',
+				'section'   => 'section-blog-single',
+				'priority'  => 11,
+				'title'     => __( 'Title', 'astra' ),
+				'control'   => 'text',
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'            => '.ast-related-posts-title-section .ast-related-posts-title',
+					'container_inclusive' => false,
+					'render_callback'     => array( 'Astra_Related_Posts_Loader', 'render_related_posts_title' ),
+				),
+				'context'   => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Related Posts Title Alignment
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[releted-posts-title-alignment]',
+				'default'    => astra_get_option( 'releted-posts-title-alignment' ),
+				'section'    => 'section-blog-single',
+				'transport'  => 'postMessage',
+				'title'      => __( 'Title Alignment', 'astra' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'priority'   => 11,
+				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+				'context'    => array(
+					Astra_Builder_Helper::$general_tab_config,
+					'relation' => 'AND',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+						'operator' => '!=',
+						'value'    => '',
+					),
+				),
+				'choices'    => array(
+					'left'   => 'align-left',
+					'center' => 'align-center',
+					'right'  => 'align-right',
+				),
+			),
+
+			/**
 			 * Option: Related Posts Structure
 			 */
 			array(
@@ -204,18 +266,18 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 20,
 				),
-				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 			),
 
 			/**
 			 * Option: Related Posts Columns
 			 */
 			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[related-posts-grid]',
+				'name'       => ASTRA_THEME_SETTINGS . '[related-posts-grid-responsive]',
 				'type'       => 'control',
 				'control'    => 'ast-selector',
 				'section'    => 'section-blog-single',
-				'default'    => astra_get_option( 'related-posts-grid' ),
+				'default'    => astra_get_option( 'related-posts-grid-responsive' ),
 				'priority'   => 11,
 				'context'    => array(
 					Astra_Builder_Helper::$general_tab_config,
@@ -227,12 +289,12 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'      => __( 'Grid Column Layout', 'astra' ),
 				'choices'    => array(
-					'1' => __( '1', 'astra' ),
-					'2' => __( '2', 'astra' ),
-					'3' => __( '3', 'astra' ),
-					'4' => __( '4', 'astra' ),
+					'full'    => __( '1', 'astra' ),
+					'2-equal' => __( '2', 'astra' ),
+					'3-equal' => __( '3', 'astra' ),
+					'4-equal' => __( '4', 'astra' ),
 				),
-				'responsive' => false,
+				'responsive' => true,
 				'renderAs'   => 'text',
 				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
@@ -363,10 +425,16 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'context'   => array(
 					true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 					Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					'relation' => 'AND',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 						'operator' => '==',
 						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+						'operator' => '!=',
+						'value'    => '',
 					),
 				),
 				'title'     => __( 'Section Title Font', 'astra' ),
@@ -524,10 +592,16 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'context'           => array(
 					true === Astra_Builder_Helper::$is_header_footer_builder_active ?
 					Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					'relation' => 'AND',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[enable-related-posts]',
 						'operator' => '==',
 						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[related-posts-title]',
+						'operator' => '!=',
+						'value'    => '',
 					),
 				),
 				'title'             => __( 'Section Title', 'astra' ),
