@@ -320,30 +320,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				);
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
 					'padding'    => '0',
-					'background' => 'transparent',
 				);
-
-				/**
-				 * Adding compatibility CSS to handle the case where 'is-dark-theme' body class from WordPress adding white BG & color to following sections with opacity.
-				 *
-				 * Applying WP CSS - rgba(255, 255, 255, 0.65);
-				 *
-				 * 1. Figure. Video, Gallery, Table caption
-				 * 2. Spacer BG color
-				 * 3. Placeholder color
-				 * 4. Textarea placeholder color
-				 *
-				 * @since x.x.x
-				 */
-				$desktop_base_bg_color = $box_bg_obj['desktop']['background-color'];
-				// if ( '' === $desktop_base_bg_color || '#ffffff' === $desktop_base_bg_color ) {
-					$desktop_css['.ast-separate-container.is-dark-theme .blocks-shortcode__textarea::-webkit-input-placeholder, .ast-separate-container.is-dark-theme .blocks-shortcode__textarea::-moz-placeholder, .ast-separate-container.is-dark-theme .wp-block-table figcaption, .ast-separate-container.is-dark-theme .blocks-shortcode__textarea:-ms-input-placeholder, .ast-separate-container.is-dark-theme .wp-block-image figcaption, .ast-separate-container.is-dark-theme .wp-block-audio figcaption, .ast-separate-container.is-dark-theme .wp-block-video figcaption, .ast-separate-container.is-dark-theme .wp-block-embed figcaption, .ast-separate-container.is-dark-theme .blocks-gallery-caption']     = array(
-						'color'    => 'rgba(0, 0, 0, 0.65)',
-					);
-					$desktop_css['.ast-separate-container.is-dark-theme .wp-block-spacer.is-hovered .block-library-spacer__resize-container, .ast-separate-container.is-dark-theme .block-library-spacer__resize-container.has-show-handle']     = array(
-						'background'    => 'rgba(0, 0, 0, 0.15)',
-					);
-				// }
+				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper']     = array(
+					'background-color' => 'transparent',
+				);
 			}
 
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
