@@ -320,8 +320,30 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				);
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
 					'padding'    => '0',
-					'background' => 'inherit',
+					'background' => 'transparent',
 				);
+
+				/**
+				 * Adding compatibility CSS to handle the case where 'is-dark-theme' body class from WordPress adding white BG & color to following sections with opacity.
+				 *
+				 * Applying WP CSS - rgba(255, 255, 255, 0.65);
+				 *
+				 * 1. Figure. Video, Gallery, Table caption
+				 * 2. Spacer BG color
+				 * 3. Placeholder color
+				 * 4. Textarea placeholder color
+				 *
+				 * @since x.x.x
+				 */
+				$desktop_base_bg_color = $box_bg_obj['desktop']['background-color'];
+				// if ( '' === $desktop_base_bg_color || '#ffffff' === $desktop_base_bg_color ) {
+					$desktop_css['.ast-separate-container.is-dark-theme .blocks-shortcode__textarea::-webkit-input-placeholder, .ast-separate-container.is-dark-theme .blocks-shortcode__textarea::-moz-placeholder, .ast-separate-container.is-dark-theme .wp-block-table figcaption, .ast-separate-container.is-dark-theme .blocks-shortcode__textarea:-ms-input-placeholder, .ast-separate-container.is-dark-theme .wp-block-image figcaption, .ast-separate-container.is-dark-theme .wp-block-audio figcaption, .ast-separate-container.is-dark-theme .wp-block-video figcaption, .ast-separate-container.is-dark-theme .wp-block-embed figcaption, .ast-separate-container.is-dark-theme .blocks-gallery-caption']     = array(
+						'color'    => 'rgba(0, 0, 0, 0.65) !important',
+					);
+					$desktop_css['.ast-separate-container.is-dark-theme .wp-block-spacer.is-hovered .block-library-spacer__resize-container, .ast-separate-container.is-dark-theme .block-library-spacer__resize-container.has-show-handle']     = array(
+						'background'    => 'rgba(0, 0, 0, 0.15)',
+					);
+				// }
 			}
 
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
@@ -693,9 +715,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'.edit-post-visual-editor h6, .wp-block-heading h6, .wp-block-freeform.block-library-rich-text__tinymce h6, .edit-post-visual-editor .wp-block-heading h6, .wp-block-heading h6.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
-				),
-				'.edit-post-layout .interface-interface-skeleton__content' => array(
-					'background' => 'transparent',
 				),
 				'.ast-separate-container .edit-post-visual-editor, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor, .ast-separate-container #wpwrap #editor .edit-post-visual-editor' => astra_get_responsive_background_obj( $box_bg_obj, 'tablet' ),
 			);
