@@ -321,9 +321,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
 					'padding'    => '0',
 				);
-				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper']     = array(
-					'background-color' => 'transparent',
-				);
+				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow']     = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
 			}
 
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
@@ -349,6 +347,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
+			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
+				$css_prod_button_tablet['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow']     = astra_get_responsive_background_obj( $box_bg_obj, 'tablet' );
+			}
+
 			$css .= astra_parse_css( $css_prod_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			/**
@@ -362,6 +364,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 				),
 			);
+
+			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
+				$css_prod_button_mobile['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow']     = astra_get_responsive_background_obj( $box_bg_obj, 'mobile' );
+			}
 
 			$css .= astra_parse_css( $css_prod_button_mobile, '', astra_get_mobile_breakpoint() );
 
