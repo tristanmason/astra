@@ -319,9 +319,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding' => '10px',
 				);
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
-					'padding'    => '0',
+					'padding' => '0',
 				);
-				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow']     = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
+				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow'] = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
 			}
 
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
@@ -348,7 +348,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
-				$css_prod_button_tablet['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow']     = astra_get_responsive_background_obj( $box_bg_obj, 'tablet' );
+				$css_prod_button_tablet['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow'] = astra_get_responsive_background_obj( $box_bg_obj, 'tablet' );
 			}
 
 			$css .= astra_parse_css( $css_prod_button_tablet, '', astra_get_tablet_breakpoint() );
@@ -366,7 +366,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
-				$css_prod_button_mobile['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow']     = astra_get_responsive_background_obj( $box_bg_obj, 'mobile' );
+				$css_prod_button_mobile['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow'] = astra_get_responsive_background_obj( $box_bg_obj, 'mobile' );
 			}
 
 			$css .= astra_parse_css( $css_prod_button_mobile, '', astra_get_mobile_breakpoint() );
