@@ -338,7 +338,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$desktop_base_bg_color = $box_bg_obj['desktop']['background-color'];
 				// if ( '' === $desktop_base_bg_color || '#ffffff' === $desktop_base_bg_color ) {
 					$desktop_css['.ast-separate-container.is-dark-theme .blocks-shortcode__textarea::-webkit-input-placeholder, .ast-separate-container.is-dark-theme .blocks-shortcode__textarea::-moz-placeholder, .ast-separate-container.is-dark-theme .wp-block-table figcaption, .ast-separate-container.is-dark-theme .blocks-shortcode__textarea:-ms-input-placeholder, .ast-separate-container.is-dark-theme .wp-block-image figcaption, .ast-separate-container.is-dark-theme .wp-block-audio figcaption, .ast-separate-container.is-dark-theme .wp-block-video figcaption, .ast-separate-container.is-dark-theme .wp-block-embed figcaption, .ast-separate-container.is-dark-theme .blocks-gallery-caption']     = array(
-						'color'    => 'rgba(0, 0, 0, 0.65) !important',
+						'color'    => 'rgba(0, 0, 0, 0.65)',
 					);
 					$desktop_css['.ast-separate-container.is-dark-theme .wp-block-spacer.is-hovered .block-library-spacer__resize-container, .ast-separate-container.is-dark-theme .block-library-spacer__resize-container.has-show-handle']     = array(
 						'background'    => 'rgba(0, 0, 0, 0.15)',
