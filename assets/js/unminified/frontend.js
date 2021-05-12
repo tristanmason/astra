@@ -421,8 +421,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	} );
 
-
-	function astraHandleResizeEvent() {
+	function AstraHandleResizeEvent() {
 
 		var menu_offcanvas_close 	= document.getElementById('menu-toggle-close');
 		var menu_dropdown_close 	= document.querySelector('.menu-toggle.toggled');
@@ -453,7 +452,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	window.addEventListener('resize', function(){
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
-			astraHandleResizeEvent();
+			AstraHandleResizeEvent();
 		}
 	} );
 
