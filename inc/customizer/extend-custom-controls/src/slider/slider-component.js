@@ -58,10 +58,10 @@ const SliderComponent = props => {
 		);
 	};
 
-	let savedValue = ( props_value ) ? parseFloat( props_value ) : '';
+	let savedValue = ( props_value || 0 === props_value ) ? parseFloat( props_value ) : '';
 
 	if ( 1 === step ) {
-		savedValue = ( props_value ) ? parseInt( props_value ) : '';
+		savedValue = ( props_value || 0 === props_value ) ? parseInt( props_value ) : '';
 	}
 
 	return <div className="ast-slider-wrap">
