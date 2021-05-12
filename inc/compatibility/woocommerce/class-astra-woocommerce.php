@@ -1262,10 +1262,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce ul.products a.button, .woocommerce-page ul.products a.button' => array(
 					'padding' => '0.5em 0.75em',
 				),
-				'.woocommerce div.product .related.products ul.products li.product' => array(
-					'width' => '46.1%',
-					'width' => 'calc(50% - 10px)',
-				),
 				'.woocommerce table.cart td.actions .button, .woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button' => array(
 					'padding-left'  => '1em',
 					'padding-right' => '1em',
@@ -1292,7 +1288,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-				$css_global_button_mobile['.woocommerce.mobile-columns-2 ul.products li.product, .woocommerce-page.mobile-columns-2 ul.products li.product'] = array(
+				$css_global_button_mobile['.woocommerce div.product .related.products ul.products li.product, .woocommerce.mobile-columns-2 ul.products li.product, .woocommerce-page.mobile-columns-2 ul.products li.product'] = array(
 					'width' => '46.1%',
 					'width' => 'calc(50% - 10px)',
 				);
