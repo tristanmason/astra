@@ -422,7 +422,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	} );
 
 	var mobile_width = window.innerWidth;
-	window.addEventListener('resize', function () {
+	function AstraHandleResizeEvent() {
 
 		var menu_offcanvas_close 	= document.getElementById('menu-toggle-close');
 		var menu_dropdown_close 	= document.querySelector('.menu-toggle.toggled');
@@ -434,24 +434,29 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		if (window.innerWidth !== mobile_width) {
-			if ( menu_dropdown_close && null === elementor_editor) {
+			if ( menu_dropdown_close && null === elementor_editor ) {
 				menu_dropdown_close.click();
 			}
 			document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 		}
 
+		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 		if( menu_offcanvas_close && null === elementor_editor ) {
 			menu_offcanvas_close.click();
 		}
+		updateHeaderBreakPoint();
+		
+		if ( 'dropdown' === mobileHeaderType ) {
+			AstraToggleSetup();
+		}
+	}
 
+	window.addEventListener('resize', function(){
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
-			updateHeaderBreakPoint();
-			if ( 'dropdown' === mobileHeaderType ) {
-				AstraToggleSetup();
-			}
+			AstraHandleResizeEvent();
 		}
-	});
+	} );
 
 	document.addEventListener('DOMContentLoaded', function () {
 		AstraToggleSetup();
