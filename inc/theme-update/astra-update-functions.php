@@ -2924,9 +2924,7 @@ function astra_check_flex_based_css() {
  * @return void.
  */
 function astra_update_cart_style() {
-
 	$theme_options = get_option( 'astra-settings', array() );
-
 	if ( isset( $theme_options['woo-header-cart-icon-style'] ) && 'none' === $theme_options['woo-header-cart-icon-style'] ) {
 		$theme_options['woo-header-cart-icon-style']  = 'outline';
 		$theme_options['header-woo-cart-icon-color']  = '';
@@ -2941,4 +2939,55 @@ function astra_update_cart_style() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Update existing 'Grid Column Layout' option in responsive way in Related Posts.
+ * Till this update x.x.x we have 'Grid Column Layout' only for singular option, but now we are improving it as responsive.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_update_related_posts_grid_layout() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['related-posts-grid-responsive'] ) && isset( $theme_options['related-posts-grid'] ) ) {
+
+		/**
+		 * Managed here switch case to reduce further conditions in dynamic-css to get CSS value based on grid-template-columns. Because there are following CSS props used.
+		 *
+		 * '1' = grid-template-columns: 1fr;
+		 * '2' = grid-template-columns: repeat(2,1fr);
+		 * '3' = grid-template-columns: repeat(3,1fr);
+		 * '4' = grid-template-columns: repeat(4,1fr);
+		 *
+		 * And we already have Astra_Builder_Helper::$grid_size_mapping (used for footer layouts) for getting CSS values based on grid layouts. So migrating old value of grid here to new grid value.
+		 */
+		switch ( $theme_options['related-posts-grid'] ) {
+			case '1':
+				$grid_layout = 'full';
+				break;
+
+			case '2':
+				$grid_layout = '2-equal';
+				break;
+
+			case '3':
+				$grid_layout = '3-equal';
+				break;
+
+			case '4':
+				$grid_layout = '4-equal';
+				break;
+		}
+
+		$theme_options['related-posts-grid-responsive'] = array(
+			'desktop' => $grid_layout,
+			'tablet'  => $grid_layout,
+			'mobile'  => 'full',
+		);
+
+		update_option( 'astra-settings', $theme_options );
+	}
 }

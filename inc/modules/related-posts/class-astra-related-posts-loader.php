@@ -71,19 +71,25 @@ class Astra_Related_Posts_Loader {
 	public function theme_defaults( $defaults ) {
 
 		// Related Posts.
-		$defaults['enable-related-posts']         = false;
-		$defaults['related-posts-total-count']    = 2;
-		$defaults['enable-related-posts-excerpt'] = false;
-		$defaults['related-posts-excerpt-count']  = 25;
-		$defaults['related-posts-based-on']       = 'categories';
-		$defaults['related-posts-order-by']       = 'date';
-		$defaults['related-posts-order']          = 'asc';
-		$defaults['related-posts-grid']           = '2';
-		$defaults['related-posts-structure']      = array(
+		$defaults['enable-related-posts']          = false;
+		$defaults['related-posts-title']           = __( 'Related Posts', 'astra' );
+		$defaults['releted-posts-title-alignment'] = 'left';
+		$defaults['related-posts-total-count']     = 2;
+		$defaults['enable-related-posts-excerpt']  = false;
+		$defaults['related-posts-excerpt-count']   = 25;
+		$defaults['related-posts-based-on']        = 'categories';
+		$defaults['related-posts-order-by']        = 'date';
+		$defaults['related-posts-order']           = 'asc';
+		$defaults['related-posts-grid-responsive'] = array(
+			'desktop' => '2-equal',
+			'tablet'  => '2-equal',
+			'mobile'  => 'full',
+		);
+		$defaults['related-posts-structure']       = array(
 			'featured-image',
 			'title-meta',
 		);
-		$defaults['related-posts-meta-structure'] = array(
+		$defaults['related-posts-meta-structure']  = array(
 			'comments',
 			'category',
 			'author',
@@ -170,6 +176,15 @@ class Astra_Related_Posts_Loader {
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_RELATED_POSTS_DIR . 'customizer/class-astra-related-posts-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+	}
+
+	/**
+	 * Render the Related Posts title for the selective refresh partial.
+	 *
+	 * @since x.x.x
+	 */
+	public function render_related_posts_title() {
+		return astra_get_option( 'related-posts-title' );
 	}
 }
 
