@@ -1093,7 +1093,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 				}
 				$css_output .= astra_parse_css( $tablet_shop_page_grid_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
-			}   
+			}
 
 			/**
 			 * Global button CSS - Tablet = min-wdth: (tablet + 1)px
@@ -1212,7 +1212,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'order'      => '1',
 					'margin-top' => '.5em',
 				),
-				
+
 				'.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering' => array(
 					'float'         => 'none',
 					'margin-bottom' => '2em',
@@ -1249,7 +1249,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'display' => 'block',
 				),
 			);
-			
+
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$css_global_button_mobile['.woocommerce.mobile-columns-2 ul.products li.product, .woocommerce-page.mobile-columns-2 ul.products li.product'] = array(
 					'width' => '46.1%',
