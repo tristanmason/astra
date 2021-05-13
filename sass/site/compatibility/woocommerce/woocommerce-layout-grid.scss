@@ -128,7 +128,7 @@
 	/**
 	 * Product loops
 	 */
-	
+
 	ul.products {
 		display: grid;
 		grid-template-columns:  repeat(4, 1fr);
@@ -236,7 +236,7 @@
 				float: none;
 
 				li {
-					width: 48%;
+					width: calc(50% - 10px);
 				}
 				li.first {
 					clear: both;
