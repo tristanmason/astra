@@ -358,6 +358,15 @@
   margin-bottom: 8px;
 }
 
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item .btn{
+	cursor: pointer;
+}
+
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -1359,6 +1368,15 @@
 }
 .customize-control-ast-border .input-wrapper.ast-border-wrapper {
   margin-bottom: 8px;
+}
+
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item{
+	cursor: pointer;
 }
 
 .color-group-item .components-tooltip .components-popover__content {

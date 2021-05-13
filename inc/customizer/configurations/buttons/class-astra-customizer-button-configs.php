@@ -44,6 +44,50 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'control'   => 'ast-button-presets',
 					'title'     => __( 'Button Styles', 'astra' ),
 					'section'   => 'section-buttons',
+					'options'   => array(
+						'simple' => array(
+							'border-size' => array(
+								'top' => 5,
+								'right' => 5,
+								'bottom' => 5,
+								'left' => 5
+							),
+							'border-radius' => 2,
+							'button-padding' => array(
+								'desktop' => array(
+									'top'    => 15,
+									'right'  => 30,
+									'bottom' => 15,
+									'left'   => 30
+								)
+							),
+							'button-color'      => '#FFFFFF',
+							'button-h-color'    => '',
+							'button-bg-color'   => '#f14e4e',
+							'button-bg-h-color' => ''
+						),
+						'rounded' => array(
+							'border-size' => array(
+								'top' => 5,
+								'right' => 5,
+								'bottom' => 5,
+								'left' => 5
+							),
+							'border-radius' => 6,
+							'button-padding' => array(
+								'desktop' => array(
+									'top'    => 15,
+									'right'  => 30,
+									'bottom' => 15,
+									'left'   => 30
+								)
+							),
+							'button-color'      => '#FFFFFF',
+							'button-h-color'    => '',
+							'button-bg-color'   => '#4e9af1',
+							'button-bg-h-color' => ''
+						)
+					),
 					'transport' => 'postMessage',
 					'priority'  => 18,
 				),

@@ -1,0 +1,8 @@
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item .btn{
+	cursor: pointer;
+}

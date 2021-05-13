@@ -17706,14 +17706,17 @@ var RowComponent = function RowComponent(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -17724,14 +17727,55 @@ var ButtonPresetsComponent = function ButtonPresetsComponent(props) {
       title = _props$control$params.title,
       options = _props$control$params.options;
   var value = props.control.setting.get();
-  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {}, []);
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {}, []);
+
+  var onChangePreset = function onChangePreset(presetKey) {
+    var borderRadius = options[presetKey]["border-radius"];
+    var btnBackgroundColor = options[presetKey]["button-bg-color"];
+    var btnColor = options[presetKey]["button-color"];
+    props.customizer.control("astra-settings[button-radius]").setting.set(borderRadius);
+    props.customizer.control("astra-settings[button-bg-color]").setting.set(btnBackgroundColor);
+    props.customizer.control("astra-settings[button-color]").setting.set(btnColor);
+  };
+
+  var renderBtnPresetHtml = function renderBtnPresetHtml() {
+    var htmlContent = Object.entries(options).map(function (_ref) {
+      var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2),
+          key = _ref2[0],
+          value = _ref2[1];
+
+      var btnStyle = {
+        borderRadius: value["border-radius"],
+        backgroundColor: value["button-bg-color"],
+        color: value["button-color"],
+        paddingTop: value["button-padding"]["desktop"]["top"],
+        paddingRight: value["button-padding"]["desktop"]["right"],
+        paddingBottom: value["button-padding"]["desktop"]["bottom"],
+        paddingLeft: value["button-padding"]["desktop"]["left"]
+      };
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+        className: "ast-btn-style-item"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+        className: "btn",
+        style: btnStyle,
+        type: "button",
+        onClick: function onClick() {
+          return onChangePreset(key);
+        }
+      }, "Button"));
+    });
+    return htmlContent;
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title"
-  }, title)));
+  }, title)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "ast-btn-preset-wrap"
+  }, renderBtnPresetHtml()));
 };
 
 ButtonPresetsComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(ButtonPresetsComponent));
 
@@ -17756,7 +17800,8 @@ var ButtonPresetControl = wp.customize.astraControl.extend({
   renderContent: function renderContent() {
     var control = this;
     ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_button_presets_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      control: control
+      control: control,
+      customizer: wp.customize
     }), control.container[0]);
   },
   ready: function ready() {
