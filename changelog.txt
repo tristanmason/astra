@@ -2,6 +2,7 @@ v3.5.0 (Unreleased)
 - New: Related Posts - Option to change "Related Posts" title.
 - New: Related Posts - Alignment option for "Related Posts" title.
 - Improvement: Related Posts - Added responsive support to posts Grid Column Layout.
+- Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
 - Fix: Text alignment issue for footer Widget 3 and Widget 4 when Astra Pro is deactivated.
