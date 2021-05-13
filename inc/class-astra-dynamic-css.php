@@ -3253,11 +3253,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				transition: all 0.2s linear;
 			}
 
-			.ast-site-header-cart .cart-container *,
-			.ast-edd-site-header-cart .ast-edd-cart-container * {
-				transition: all 0s linear;
-			}
-
 			.ast-site-header-cart .ast-woo-header-cart-info-wrap,
 			.ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
 				padding: 0 2px;
@@ -3525,6 +3520,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					vertical-align: middle;
 					text-align: right;
 				}';
+			}
+			// This CSS requires in case of :before Astra icons. But in case of SVGs this loads twice that's why removed this from static & loading conditionally.
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$cart_static_css .= '
+				.ast-site-header-cart .cart-container *,
+				.ast-edd-site-header-cart .ast-edd-cart-container * {
+					transition: all 0s linear;
+				}
+				';
 			}
 			return $cart_static_css;
 		}
