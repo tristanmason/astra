@@ -37,6 +37,17 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
+				array(
+					'name'      => 'astra-button-presets',
+					'default'   => get_option( 'astra-button-presets' ),
+					'type'      => 'control',
+					'control'   => 'ast-button-presets',
+					'title'     => __( 'Button Styles', 'astra' ),
+					'section'   => 'section-buttons',
+					'transport' => 'postMessage',
+					'priority'  => 18,
+				),
+
 				/**
 				 * Group: Theme Button color Group
 				 */
