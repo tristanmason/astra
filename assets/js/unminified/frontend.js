@@ -433,14 +433,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			desktop_header_content.style.display = 'none';
 		}
 
-		if (window.innerWidth !== mobile_width) {
+		if ( window.innerWidth !== mobile_width ) {
 			if ( menu_dropdown_close && null === elementor_editor ) {
 				menu_dropdown_close.click();
 			}
 			document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 		}
 
-		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
 		if( menu_offcanvas_close && null === elementor_editor ) {
 			menu_offcanvas_close.click();
 		}
