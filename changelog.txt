@@ -4,7 +4,6 @@ v3.4.3
 - Fix: Elementor popup close on click of input fields.
 - Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
 - Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users on responsive devices.
-- Fix: Zero value not accepting in slider customizer settings.
 
 v3.4.2
 - Fix: JS console error when Off-canvas type 'Dropdown' is selected.
