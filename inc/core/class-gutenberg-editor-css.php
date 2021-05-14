@@ -315,11 +315,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				) : $base_background_color;
 				$desktop_css['.edit-post-visual-editor'] = array(
 					'padding' => '20px',
+					'padding-top' => 'calc(2em + 20px)',
+				);
+				$desktop_css['.ast-page-builder-template .edit-post-visual-editor'] = array(
+					'padding' => '10px',
+					'padding-top' => 'calc(2em + 10px)',
 				);
 				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow'] = array(
 					'height' => '100%',
 				);
-				$desktop_css['.ast-page-builder-template .edit-post-visual-editor, .editor-styles-wrapper .block-editor-writing-flow'] = array(
+				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow'] = array(
 					'padding' => '10px',
 				);
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper'] = array(
