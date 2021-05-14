@@ -309,11 +309,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
-				$base_background_color                   = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
-				$background_style_data                   = empty( $base_background_color ) ? array(
-					'background-color' => '#ffffff',
-				) : $base_background_color;
-				$desktop_css['.edit-post-visual-editor'] = array(
+				$base_background_color = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
+				if ( empty( $base_background_color ) ) {
+					$background_style_data = array(
+						'background-color' => '#ffffff',
+					);
+				} else {
+					$background_style_data = $base_background_color;
+				}
+
+				$desktop_css['.edit-post-visual-editor']                            = array(
 					'padding'     => '20px',
 					'padding-top' => 'calc(2em + 20px)',
 				);
@@ -325,7 +330,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-top' => '0',
 				);
 				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow']   = array(
-					'height' => '100%',
+					'height'  => '100%',
 					'padding' => '10px',
 				);
 				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
@@ -333,12 +338,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin'    => '0 auto',
 					'padding'   => '0',
 				);
-				$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper']   = array(
-					'max-width'   => '100%',
+				$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper'] = array(
+					'max-width' => '100%',
 				);
-				$desktop_css['.ast-separate-container .edit-post-visual-editor .block-editor-block-list__layout .wp-block[data-align="full"] figure.wp-block-image, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-cover']   = array(
-					'margin-left'    => 'calc(-4.8em - 10px)',
-					'margin-right'   => 'calc(-4.8em - 10px)',
+				$desktop_css['.ast-separate-container .edit-post-visual-editor .block-editor-block-list__layout .wp-block[data-align="full"] figure.wp-block-image, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-cover'] = array(
+					'margin-left'  => 'calc(-4.8em - 10px)',
+					'margin-right' => 'calc(-4.8em - 10px)',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow, #editor .edit-post-visual-editor'] = $background_style_data;
 			}
