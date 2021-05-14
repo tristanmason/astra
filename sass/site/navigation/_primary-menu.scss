@@ -19,6 +19,7 @@
 	.menu-link,
 	> a {
 		text-decoration: none;
+		padding: 0 1em;
 		display: inline-block;
 		@include ast-transition();
 	}
