@@ -20,6 +20,7 @@
 	> a {
 		text-decoration: none;
 		display: inline-block;
+		padding: 0 1em;
 		@include ast-transition();
 	}
 
