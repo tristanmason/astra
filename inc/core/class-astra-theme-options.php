@@ -128,7 +128,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					// Colors.
 					'text-color'                           => '#3a3a3a',
-					'link-color'                           => '#0274be',
+					'link-color'                           => '#0170B9',
 					'theme-color'                          => '#0274be',
 					'link-h-color'                         => '#3a3a3a',
 
