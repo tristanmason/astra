@@ -79,7 +79,6 @@ function astra_hb_site_identity_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 	$dynamic_css .= $css_output;
-
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
 
 	return $dynamic_css;
