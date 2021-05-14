@@ -314,20 +314,23 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background-color' => '#ffffff',
 				) : $base_background_color;
 				$desktop_css['.edit-post-visual-editor'] = array(
-					'padding' => '20px',
+					'padding'     => '20px',
 					'padding-top' => 'calc(2em + 20px)',
 				);
 				$desktop_css['.ast-page-builder-template .edit-post-visual-editor'] = array(
-					'padding' => '10px',
+					'padding'     => '10px',
 					'padding-top' => 'calc(2em + 10px)',
 				);
-				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow'] = array(
+				$desktop_css['.ast-separate-container .editor-post-title'] = array(
+					'margin-top'  => '0',
+				);
+				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow']   = array(
 					'height' => '100%',
 				);
-				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow'] = array(
+				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow']   = array(
 					'padding' => '10px',
 				);
-				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper'] = array(
+				$desktop_css['.edit-post-visual-editor .editor-styles-wrapper']     = array(
 					'max-width' => astra_get_css_value( $site_content_width - 56, 'px' ),
 					'margin'    => '0 auto',
 					'padding'   => '0',
