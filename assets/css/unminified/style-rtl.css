@@ -2310,7 +2310,6 @@ body {
 .main-header-menu > a {
   text-decoration: none;
   display: inline-block;
-  padding: 0 1em;
   transition: all 0.2s linear;
 }
 
