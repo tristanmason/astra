@@ -321,8 +321,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding'     => '10px',
 					'padding-top' => 'calc(2em + 10px)',
 				);
-				$desktop_css['.ast-separate-container .editor-post-title'] = array(
-					'margin-top'  => '0',
+				$desktop_css['.ast-separate-container .editor-post-title']          = array(
+					'margin-top' => '0',
 				);
 				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow']   = array(
 					'height' => '100%',
