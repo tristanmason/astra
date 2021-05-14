@@ -149,6 +149,21 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['main.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+                     /* Common Style felx based */
+                     {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['style-flex.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
 
                     /* Compatibility */
                     {
@@ -244,7 +259,157 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
-                    }
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/above-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/below-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/copyright/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/copyright/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/primary-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/primary-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/widget/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/above-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/above-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/account/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/account/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/below-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/below-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/edd-cart/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/edd-cart/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/mobile-menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/mobile-menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/mobile-trigger/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/mobile-trigger/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/off-canvas/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/off-canvas/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/primary-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/primary-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/search/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/search/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/site-identity/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/site-identity/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/widget/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/woo-cart/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
+                    },
                 ]
             }
         },
@@ -284,6 +449,10 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/frontend.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/main-rtl.css',
+                        dest: 'assets/css/minified/main.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
                         dest: 'assets/css/minified/extend-customizer.min-rtl.css',
                     },
@@ -311,8 +480,8 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
                     },
                     {
-                        src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        src: 'assets/css/unminified/compatibility/contact-form-7-main-rtl.css',
+                        dest: 'assets/css/minified/compatibility/contact-form-7-main.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
@@ -339,8 +508,20 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-grid.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout-grid.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
                         dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-grid-rtl.css',
+                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen-grid.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
@@ -367,6 +548,9 @@ module.exports = function (grunt) {
                     '!.git/**',
                     '!.github/**',
                     '!bin/**',
+                    '!docs/**',
+                    '!assets/dynamic-css.css',
+                    '!contributing.md',
                     '!.gitlab-ci.yml',
                     '!cghooks.lock',
                     '!tests/**',
@@ -447,6 +631,7 @@ module.exports = function (grunt) {
                         '!node_modules/**',
                         '!php-tests/**',
                         '!bin/**',
+                        '!docs/**',
                         '!admin/bsf-core/**'
                     ]
                 }
@@ -537,6 +722,7 @@ module.exports = function (grunt) {
                     '!node_modules/**',
                     '!php-tests/**',
                     '!bin/**',
+                    '!docs/**',
                     '!admin/bsf-core/**'
                 ],
                 overwrite: true,
@@ -638,6 +824,7 @@ module.exports = function (grunt) {
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+    grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
 
     // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {

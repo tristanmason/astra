@@ -10,7 +10,7 @@
 
  ( function( $ ) {
 
-	var isAstraHFBuilderActive    = AstraBuilderTransparemtData.is_astra_hf_builder_active || false;
+	var isAstraHFBuilderActive    = AstraBuilderTransparentData.is_astra_hf_builder_active || false;
 
 	/**
 	 * Transparent Logo Width
@@ -40,10 +40,10 @@
 
 				switch( displayOn ) {
 					case 'both':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'desktop':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'mobile':
 						selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
@@ -85,10 +85,10 @@
 
 				switch( displayOn ) {
 					case 'both':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'desktop':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'mobile':
 						selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
@@ -127,7 +127,7 @@
 	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-menu-h-color-responsive]', 'color', '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item:hover > .ast-menu-toggle, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .focus > .menu-link, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .focus > .ast-menu-toggle, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .current-menu-item > .menu-link, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .current-menu-ancestor > .menu-link, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .current-menu-item > .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .current-menu-ancestor > .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .menu-item:hover > .menu-link, .ast-theme-transparent-header .main-header-menu .current-menu-item > .menu-link, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .menu-link' );
 
 	// Primary SubMenu
-	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-submenu-bg-color-responsive]', 'background-color', '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu, .ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link' );
+	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-submenu-bg-color-responsive]', 'background-color', '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu, .ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .ast-builder-menu [CLASS*="ast-builder-menu-"] .main-header-menu .sub-menu .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu, .ast-header-break-point.ast-theme-transparent-header .main-header-menu .menu-item .sub-menu' );
 
 	astra_color_responsive_css( 'transparent-primary-header', 'astra-settings[transparent-submenu-color-responsive]', 'color', '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-item .menu-link,.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-item > .ast-menu-toggle, .astra-hfb-header.ast-theme-transparent-header [CLASS*="ast-builder-menu-"]  .main-header-menu .sub-menu .menu-item .menu-link, .astra-hfb-header.ast-theme-transparent-header [CLASS*="ast-builder-menu-"]  .main-header-menu .sub-menu .menu-item > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link, .ast-header-break-point.ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link' );
 
@@ -229,9 +229,16 @@
 	astra_color_responsive_css( 'transparent-header-social-color', 'astra-settings[transparent-header-social-icons-h-color]', 'fill', '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover svg' );
 	astra_color_responsive_css( 'transparent-header-social-color-label-h', 'astra-settings[transparent-header-social-icons-h-color]', 'color', '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' );
 	astra_css( 'astra-settings[transparent-header-widget-title-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .widget-title' );
-	astra_css( 'astra-settings[transparent-header-widget-content-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner' );
-	astra_css( 'astra-settings[transparent-header-widget-link-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a' );
-	astra_css( 'astra-settings[transparent-header-widget-link-h-color]', 'color', '.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover' );
+
+	if( AstraBuilderTransparentData.is_flex_based_css ) {
+		var transparent_header_widget = '.ast-theme-transparent-header .widget-area.header-widget-area.header-widget-area-inner';
+	}else{
+		var transparent_header_widget = '.ast-theme-transparent-header .widget-area.header-widget-area. header-widget-area-inner';
+	}
+	astra_css( 'astra-settings[transparent-header-widget-content-color]', 'color', transparent_header_widget );
+	astra_css( 'astra-settings[transparent-header-widget-link-color]', 'color', transparent_header_widget + ' a' );
+	astra_css( 'astra-settings[transparent-header-widget-link-h-color]', 'color', transparent_header_widget + ' a:hover' );
+
 	astra_css( 'astra-settings[transparent-header-button-text-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-bg-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] ..ast-custom-button:hover' );

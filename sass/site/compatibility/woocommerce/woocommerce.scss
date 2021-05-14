@@ -417,6 +417,10 @@ p.demo_store,
 	}
 }
 
+.ast-header-break-point.ast-hfb-header.ast-woocommerce-cart-menu .ast-site-header-cart {
+	padding: 0;
+}
+
 /**
  * Main WooCommerce styles
  */
@@ -1112,7 +1116,7 @@ p.demo_store,
 		background-color: $highlight;
 		color: $highlightext;
 		-webkit-font-smoothing: antialiased;
-		z-index: 9;
+		z-index: 99;
 	}
 
 	/**

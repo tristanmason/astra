@@ -24,6 +24,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Header Builder - Desktop Defaults.
 	 */
 	$defaults['header-desktop-items'] = array(
+		'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
 		'above'   =>
 			array(
 				'above_left'         => array(),
@@ -301,6 +302,35 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile-unit'  => 'px',
 	);
 
+
+	$margin_defaults = array(
+		'section-footer-builder-layout-padding',
+		'section-footer-builder-layout-margin',
+		'section-above-header-builder-padding',
+		'section-above-header-builder-margin',
+		'section-below-header-builder-padding',
+		'section-below-header-builder-margin',
+		'section-header-mobile-trigger-margin',
+		'section-primary-header-builder-padding',
+		'section-primary-header-builder-margin',
+		'title_tagline-margin',
+		'section-header-search-margin',
+		'header-account-margin',
+		'header-mobile-menu-menu-spacing',
+		'section-header-mobile-menu-margin',
+		'section-above-footer-builder-padding',
+		'section-above-footer-builder-margin',
+		'section-below-footer-builder-margin',
+		'section-footer-copyright-margin',
+		'section-footer-menu-margin',
+		'section-primary-footer-builder-padding',
+		'section-primary-footer-builder-margin',
+	);
+
+	foreach ( $margin_defaults as $margin_default ) {
+		$defaults[ $margin_default ] = Astra_Builder_Helper::$default_responsive_spacing;
+	}
+
 	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
 		$defaults = prepare_button_defaults( $defaults, $index );
@@ -308,6 +338,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		$defaults = prepare_social_icon_defaults( $defaults, $index );
 		$defaults = prepare_widget_defaults( $defaults, $index );
 		$defaults = prepare_menu_defaults( $defaults, $index );
+		$defaults = prepare_divider_defaults( $defaults, $index );
 	}
 
 	/**
@@ -659,7 +690,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'background-attachment' => 'scroll',
 	);
 	$defaults['off-canvas-close-color']             = '#3a3a3a';
-	$defaults['mobile-header-type']                 = 'off-canvas';
+	$defaults['mobile-header-type']                 = 'dropdown';
 	$defaults['off-canvas-inner-spacing']           = '';
 	$defaults['footer-menu-layout']                 = array(
 		'desktop' => 'horizontal',
@@ -886,7 +917,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']             = 'none';
+	$defaults['woo-header-cart-icon-style']             = 'outline';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
 	$defaults['woo-header-cart-icon-radius']            = 3;
@@ -915,7 +946,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * EDD-Cart.
 	*/
-	$defaults['edd-header-cart-icon-style']             = 'none';
+	$defaults['edd-header-cart-icon-style']             = 'outline';
 	$defaults['edd-header-cart-icon-color']             = '';
 	$defaults['edd-header-cart-icon-radius']            = 3;
 	$defaults['transparent-header-edd-cart-icon-color'] = '';
@@ -983,6 +1014,21 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-account-woo-menu']        = false;
 
 	$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
+
+	return $defaults;
+}
+
+/**
+ * Prepare Divider Defaults.
+ *
+ * @param array   $defaults defaults.
+ * @param integer $index index.
+ */
+function prepare_divider_defaults( $defaults, $index ) {
+
+	$defaults[ 'section-hb-divider-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-fb-divider-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
 
 	return $defaults;
 }
@@ -1071,6 +1117,10 @@ function prepare_button_defaults( $defaults, $index ) {
 	);
 	$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
 
+	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
 
 	$_prefix = 'button' . $index;
 
@@ -1153,6 +1203,9 @@ function prepare_button_defaults( $defaults, $index ) {
 		'mobile'  => 'center',
 	);
 
+	$defaults[ 'section-fb-button-' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-fb-button-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
+
 	return $defaults;
 }
 
@@ -1194,6 +1247,9 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'font-family-' . $_section ]               = 'inherit';
 	$defaults[ 'line-height-' . $_section ]               = '';
 	$defaults[ 'text-transform-' . $_section ]            = '';
+
+	$defaults[ 'section-hb-html-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
 
 
 	$_section = 'section-fb-html-' . $index;
@@ -1239,6 +1295,8 @@ function prepare_html_defaults( $defaults, $index ) {
 	$defaults[ 'font-family-' . $_section ]               = 'inherit';
 	$defaults[ 'text-transform-' . $_section ]            = '';
 	$defaults[ 'line-height-' . $_section ]               = '';
+
+	$defaults[ 'section-fb-html-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 	return $defaults;
 }
@@ -1313,6 +1371,9 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 			),
 	);
 
+	$defaults[ 'section-hb-social-icons-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
+
 	$defaults[ 'footer-social-' . $index . '-space' ]          = array(
 		'desktop' => '',
 		'tablet'  => '',
@@ -1380,6 +1441,8 @@ function prepare_social_icon_defaults( $defaults, $index ) {
 		'mobile'  => 'center',
 	);
 
+	$defaults[ 'section-fb-social-icons-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
 	return $defaults;
 }
 
@@ -1444,6 +1507,8 @@ function prepare_widget_defaults( $defaults, $index ) {
 		'mobile-unit'  => 'px',
 	);
 
+	$defaults[ 'sidebar-widgets-header-widget-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
 	// Widget Footer defaults.
 
 	// Colors.
@@ -1501,6 +1566,8 @@ function prepare_widget_defaults( $defaults, $index ) {
 		'tablet'  => 'center',
 		'mobile'  => 'center',
 	);
+
+	$defaults[ 'sidebar-widgets-footer-widget-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
 	return $defaults;
@@ -1582,7 +1649,12 @@ function prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-menu-hover-animation' ]        = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = 'fade';
+	$defaults[ 'header-' . $_prefix . '-submenu-container-animation' ] = '';
+
+	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = Astra_Builder_Helper::$default_responsive_spacing;
+
+
 
 	/**
 	 * Submenu

@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 const BuilderComponent = props => {
 
 	let value = props.control.setting.get();
+	let staleValue = {};
 
 	let baseDefault = {};
 	let defaultValue = props.control.params.default ? {
@@ -28,11 +29,24 @@ const BuilderComponent = props => {
 
 
 	const component_track = props.customizer.control('astra-settings[cloned-component-track]').setting;
+	const prevItems = [];
+	prevItems['revertDrag'] = false;
 
 	const [state, setState] = useState({
 		value: value,
-		layout: controlParams.layouts
+		layout: controlParams.layouts,
+		isPopup: false,
+		prevItems: prevItems
 	});
+
+	let contFlag = false;
+
+	if ( props.control.container ) {
+		contFlag = props.control.container[0].getAttribute( 'isPopup' );
+	}
+	if ("astra-settings[header-desktop-items]" === controlParams.group || "astra-settings[header-mobile-items]" === controlParams.group) {
+		staleValue = JSON.parse( JSON.stringify(state.value) )
+	}
 
 	const updateValues = (value, row = '') => {
 
@@ -104,6 +118,41 @@ const BuilderComponent = props => {
 	};
 
 	const onDragStop = () => {
+
+		if ( state.prevItems.revertDrag ) {
+			let row = state.prevItems.row;
+			let zone = state.prevItems.zone;
+			let restrictRow = state.prevItems.restrictRow;
+			let restrictZone = state.prevItems.restrictZone;
+			let updateState = state.value;
+			let update = updateState[row];
+			let updateItems = state.prevItems.staleValue[row][zone];
+			let popupRemoveUpdate = updateState[restrictRow];
+			let popupRemoveUpdateItems = state.prevItems.staleValue[restrictRow][restrictZone];
+
+			update[zone] = updateItems;
+			popupRemoveUpdate[restrictZone] = popupRemoveUpdateItems;
+			updateState[row][zone] = updateItems;
+			updateState[restrictRow][restrictZone] = popupRemoveUpdateItems;
+
+			setPopupFlag(true);
+
+			setState(prevState => ({
+				...prevState,
+				value: updateState
+			}));
+
+			updateValues(updateState, row );
+
+			let prevItems = [];
+			prevItems['revertDrag'] = false;
+
+			setState(prevState => ({
+				...prevState,
+				prevItems: prevItems
+			}));
+		}
+
 		let dropzones = document.querySelectorAll('.ahfb-builder-area');
 		for (let i = 0; i < dropzones.length; ++i) {
 			dropzones[i].classList.remove('ahfb-dragging-dropzones');
@@ -120,51 +169,51 @@ const BuilderComponent = props => {
 
 		AstraBuilderCustomizerData.component_limit = parseInt(AstraBuilderCustomizerData.component_limit);
 
-		let tmp_choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
+		const customizerBuilderchoices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
-		Object.keys(tmp_choices).forEach(function( choice) {
+		Object.keys(customizerBuilderchoices).forEach(function( choice) {
 
-			let tmp_choice = tmp_choices[choice];
+			let builderDataChoice = customizerBuilderchoices[choice];
 
-			if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
+			if( builderDataChoice.hasOwnProperty('builder') && builderDataChoice.hasOwnProperty('type')   ) {
 
-				let is_to_clone = tmp_choice.hasOwnProperty('clone') ? tmp_choice['clone']: true;
-				let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
+				let isToClone = builderDataChoice.hasOwnProperty('clone') ? builderDataChoice['clone']: true;
+				let isToDelete = builderDataChoice.hasOwnProperty('delete') ? builderDataChoice['delete']: true;
 
-				let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
+				let builderComponentType = builderDataChoice['builder'] + '-' + builderDataChoice['type'];
 
-				if( component_count[tmp_component_type] < AstraBuilderCustomizerData.component_limit ) {
-					is_to_clone = true;
+				if( component_count[builderComponentType] < AstraBuilderCustomizerData.component_limit ) {
+					isToClone = true;
 				}  else {
-					let tmp_section = tmp_choice.section.replace(/[0-9]+/g, '');
-					let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
-					is_to_clone = is_clone !== -1;
+					let componentSection = builderDataChoice.section.replace(/[0-9]+/g, ''); // Replace random numeric with empty string.
+					let isCloned =  component_count['removed-items'].findIndex((item) => { return item.startsWith(componentSection);} );
+					isToClone = isCloned !== -1;
 				}
 
-				tmp_choice['clone'] = is_to_clone;
+				builderDataChoice['clone'] = isToClone;
 
-				switch (component_count[tmp_component_type]) {
+				switch (component_count[builderComponentType]) {
 					case 1:
-						is_to_delete = false;
+						isToDelete = false;
 						break;
 					case 2:
-						is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
+						isToDelete = ( component_count['removed-items'].indexOf( builderDataChoice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
 						break;
 				}
 
-				tmp_choice['delete'] = is_to_delete;
+				builderDataChoice['delete'] = isToDelete;
 			}
 
 		});
 
 	}
 
-	const prepare_element = function (cloneData, clone_index) {
+	const prepareElement = function (cloneData, cloneIndex) {
 
 		switch ( cloneData.type ) {
 
 			case 'menu':
-				switch (clone_index) {
+				switch (cloneIndex) {
 					case 1:
 						cloneData.name = 'Primary Menu';
 						break;
@@ -172,19 +221,19 @@ const BuilderComponent = props => {
 						cloneData.name = 'Secondary Menu';
 						break;
 					default:
-						cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
+						cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + cloneIndex;
 						break;
 				}
 				break;
 
 			default:
-				let name = cloneData.name.replace(/[0-9]+/g, '');
-				cloneData.name = name + ' ' + clone_index;
+				let name = cloneData.name.replace(/[0-9]+/g, ''); // Replace random numeric with empty string.
+				cloneData.name = name + ' ' + cloneIndex;
 				break;
 
 		}
 
-		cloneData.section = cloneData.section.replace(/[0-9]+/g, clone_index);
+		cloneData.section = cloneData.section.replace(/[0-9]+/g, cloneIndex); // Replace random numeric with valid clone index.
 
 		return cloneData;
 	}
@@ -198,42 +247,42 @@ const BuilderComponent = props => {
 
 		let component_count = component_track.get(),
 			cloneData = Object.assign({},choices[item] ),
-			clone_section = cloneData.section.replace(/[0-9]+/g, ''),
-			clone_index,
-			tmp_removed_items = component_count['removed-items'],
-			clone_section_index = tmp_removed_items.findIndex(element => element.includes(clone_section)),
-			component_type = cloneData.builder + '-' + cloneData.type;
+			cloneSection = cloneData.section.replace(/[0-9]+/g, ''), // Remove random numeric with empty string.
+			cloneIndex,
+			removedBuilderItems = component_count['removed-items'],
+			cloneSection_index = removedBuilderItems.findIndex(element => element.includes(cloneSection)),
+			componentType = cloneData.builder + '-' + cloneData.type;
 
 		let updated_count = {};
 
-		if( clone_section_index != -1 ) {
-			clone_section = tmp_removed_items[clone_section_index];
-			clone_index = parseInt( clone_section.match(/\d+$/)[0] );
-			tmp_removed_items.splice(clone_section_index, 1);
-			updated_count['removed-items'] = tmp_removed_items;
+		if( cloneSection_index != -1 ) {
+			cloneSection = removedBuilderItems[cloneSection_index];
+			cloneIndex = parseInt( cloneSection.match(/\d+$/)[0] );
+			removedBuilderItems.splice(cloneSection_index, 1);
+			updated_count['removed-items'] = removedBuilderItems;
 
 		} else {
-			clone_index = component_count[ component_type ] + 1;
-			clone_section = cloneData.section.replace(/[0-9]+/g, clone_index);
-			updated_count[ component_type ] = clone_index;
+			cloneIndex = component_count[ componentType ] + 1;
+			cloneSection = cloneData.section.replace(/[0-9]+/g, cloneIndex); // Replace random numeric with valid clone index.
+			updated_count[ componentType ] = cloneIndex;
 		}
 
 		// Return if limit exceeds.
-		if( parseInt(clone_index ) > parseInt( AstraBuilderCustomizerData.component_limit ) ) {
+		if( parseInt(cloneIndex ) > parseInt( AstraBuilderCustomizerData.component_limit ) ) {
 			return;
 		}
 
-		let clone_type_id = cloneData.type + '-' + clone_index;
+		let cloneTypeId = cloneData.type + '-' + cloneIndex;
 
-		cloneData = prepare_element(cloneData, clone_index);
+		cloneData = prepareElement(cloneData, cloneIndex);
 
-		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
+		AstraBuilderCustomizerData.choices[controlParams.group][ cloneTypeId ] = cloneData;
 
 		sessionStorage.setItem('astra-builder-clone-in-progress', true);
 
 		var event = new CustomEvent('AstraBuilderCloneSectionControls', {
 			'detail': {
-				'clone_to_section': clone_section,
+				'clone_to_section': cloneSection,
 				'clone_from_section' : choices[item]['section']
 			}
 		});
@@ -244,7 +293,7 @@ const BuilderComponent = props => {
 		let updateState = state.value;
 		let update = updateState[row];
 		let items = update[zone];
-		items.push( clone_type_id );
+		items.push( cloneTypeId );
 		let updateItems = [];
 		items.forEach(function(item) {
 			updateItems.push({
@@ -263,7 +312,6 @@ const BuilderComponent = props => {
 	}
 
 	const removeItem = (item, row, zone) => {
-
 
 		let updateState = state.value;
 		let update = updateState[row];
@@ -295,6 +343,8 @@ const BuilderComponent = props => {
 		update[zone] = updateItems;
 		updateState[row][zone] = updateItems;
 
+		setPopupFlag(true);
+
 		setState(prevState => ({
 			...prevState,
 			value: updateState
@@ -307,18 +357,64 @@ const BuilderComponent = props => {
 		document.dispatchEvent(event);
 	};
 
+	const setPreviousItems = ( item, restrictRow, restrictZone ) => {
+
+		let prevItems = [];
+
+		prevItems['restrictRow'] = restrictRow;
+		prevItems['restrictZone'] = restrictZone;
+
+		for ( const [rowKey, value] of Object.entries(staleValue) ) {
+						
+			for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
+				
+				for( let zoneItem of zoneValue ) {
+					
+					if ( zoneItem === item.id ) {
+						prevItems['row'] = rowKey;
+						prevItems['zone'] = zoneKey;
+						prevItems['revertDrag'] = true;
+						prevItems['staleValue'] = staleValue;
+					}
+				}
+			}
+		}
+
+		return prevItems;
+	}
+
 	const onDragEnd = (row, zone, items) => {
+
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
+		let itemIncludesMenu = false;
+		let prevItems = [];
+
 		{
 			items.length > 0 && items.map(item => {
+
+				itemIncludesMenu = item.id.includes( 'menu' );
+
+				if ( ( 'popup' === row && ( ( "astra-settings[header-desktop-items]" === controlParams.group && itemIncludesMenu && 'mobile-menu' !== item.id ) || 'mobile-trigger' === item.id ) ) || 'popup' !== row && 'mobile-menu' === item.id ) {
+
+
+					prevItems = setPreviousItems( item, row, zone );
+
+					setState(prevState => ({
+						...prevState,
+						prevItems: prevItems
+					}));
+				} 
+				
 				updateItems.push(item.id);
 			});
 		}
 		;
 
-		if (!arraysEqual(update[zone], updateItems)) {
+
+		if (!arraysEqual(update[zone], updateItems) ) {
+
 			if ('astra-settings[header-desktop-items]' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {
 				if (update[row + '_left_center'].length > 0) {
 					update[row + '_left_center'].map(move => {
@@ -334,9 +430,10 @@ const BuilderComponent = props => {
 					updateState[row][row + '_right_center'] = [];
 				}
 			}
-
 			update[zone] = updateItems;
 			updateState[row][zone] = updateItems;
+
+			setPopupFlag(true);
 			setState(prevState => ({
 				...prevState,
 				value: updateState
@@ -381,10 +478,56 @@ const BuilderComponent = props => {
 		}
 	};
 
+	const setPopupFlag = (refresh) => {
+
+		let is_popup_flag = false;
+
+		if ( 'astra-settings[header-desktop-items]' === props.control.id ) {
+			controlParams.rows.map(row => {
+				var rowContents = state.value[row];
+
+				for ( const [key, value] of Object.entries(rowContents) ) {
+
+					if( value.includes('mobile-trigger') ) {
+						is_popup_flag = true;
+						return;
+					}
+				}
+			});
+		}
+		if ( 'astra-settings[header-mobile-items]' === props.control.id ) {
+			controlParams.rows.map(row => {
+				var rowContents = state.value[row];
+
+				for ( const [key, value] of Object.entries(rowContents) ) {
+
+					if( value.includes('mobile-trigger') ) {
+						is_popup_flag = true;
+						return;
+					}
+				}
+			});
+		}
+
+		if ( refresh ) {
+			setState(prevState => ({
+				...prevState,
+				isPopup: is_popup_flag
+			}));
+		}
+
+		if ( props.control.container ) {
+			props.control.container[0].setAttribute( 'isPopup', is_popup_flag );
+			contFlag = is_popup_flag;
+		}
+
+	}
+
+	setPopupFlag(false);
 	isCloneEnabled();
 
 	return <div className="ahfb-control-field ahfb-builder-items">
-		{controlParams.rows.includes('popup') &&
+		{ ( true === state.isPopup || true === contFlag ) && controlParams.rows.includes('popup') &&
 		<RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 					  focusItem={item => focusItem(item)}
 					  removeItem={(remove, row, zone) => removeItem(remove, row, zone)}

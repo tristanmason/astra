@@ -52,8 +52,6 @@
 
 	.main-header-bar-navigation {
 
-		height: 100%;
-
 		&:empty {
 		    padding: 0;
 		}
@@ -63,7 +61,6 @@
 		}
 
 		.menu-item-has-children > .menu-link:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
@@ -71,10 +68,6 @@
 			display: block;
 			z-index: 4;
 			position: relative;
-		}
-
-		&.toggle-on {
-			padding-top: 1em;
 		}
 	}
 
@@ -190,16 +183,12 @@
 		width: 100%;
 	}
 
-	.main-header-bar-navigation {
-		.menu-item-has-children > .menu-link:after {
-			display: none;
-		}
-	}
-
 	.main-header-bar {
 		display: block;
 		line-height: 3;
-
+		.ast-builder-html-element {
+			line-height: 1.85714285714286;
+		}
 		.main-header-bar-navigation {
 			line-height: 3;
 			.sub-menu {
@@ -222,13 +211,6 @@
 					font-weight: normal;
 					line-height: inherit;
 					transition: all .2s;
-					&::before {
-						font-weight: bold;
-						content: "\e900";
-						font-family: 'Astra';
-						text-decoration: inherit;
-						display: inline-block;
-					}
 				}
 			}
 			.ast-submenu-expanded {
@@ -317,7 +299,7 @@
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item > .sub-menu {
 				left: 100%;
 				right: auto;
-				
+
 			}
 			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item {
 				.ast-menu-toggle::before {

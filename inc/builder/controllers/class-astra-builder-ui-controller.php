@@ -195,12 +195,12 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$mobile_label     = astra_get_option( 'mobile-header-menu-label' );
 			$toggle_btn_style = astra_get_option( 'mobile-header-toggle-btn-style' );
 			$aria_controls    = '';
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$aria_controls = 'aria-controls="primary-menu"';
 			}
 			?>
 			<div class="ast-button-wrap">
-				<button type="button" class="menu-toggle main-header-menu-toggle ast-mobile-menu-trigger-<?php echo esc_attr( $toggle_btn_style ); ?>" <?php echo esc_attr( $aria_controls ); ?> aria-expanded="false">
+				<button type="button" class="menu-toggle main-header-menu-toggle ast-mobile-menu-trigger-<?php echo esc_attr( $toggle_btn_style ); ?>" <?php echo apply_filters( 'astra_nav_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> <?php echo esc_attr( $aria_controls ); ?> aria-expanded="false">
 					<span class="screen-reader-text">Main Menu</span>
 					<span class="mobile-menu-toggle-icon">
 						<?php

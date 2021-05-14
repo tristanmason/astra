@@ -329,7 +329,7 @@ function astra_wp_version_compare( $version, $compare ) {
 }
 
 /**
- * Get the theme author details 
+ * Get the theme author details
  *
  * @since  3.1.0
  * @return array            Return theme author URL and name.
@@ -377,6 +377,80 @@ function astra_remove_controls( $wp_customize ) {
 add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
 
 /**
+ * Add dropdown icon if menu item has children.
+ *
+ * @since 3.3.0
+ *
+ * @param string   $title The menu item title.
+ * @param WP_Post  $item All of our menu item data.
+ * @param stdClass $args All of our menu item args.
+ * @param int      $depth Depth of menu item.
+ * @return string The menu item.
+ */
+function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+	$role     = 'presentation';
+	$tabindex = '0';
+	$icon     = '';
+
+	/**
+	 * These menus are not overriden by the 'Astra_Custom_Nav_Walker' class present in Addon - Nav Menu module.
+	 *
+	 * Hence skipping these menus from getting overriden by blank SVG Icons and adding the icons from theme.
+	 *
+	 * @since 3.3.0
+	 */
+	$astra_menu_locations = array(
+		'ast-hf-menu-1',        // Builder - Primary menu.
+		'ast-hf-menu-2',        // Builder - Secondary menu.
+		'ast-hf-menu-3',
+		'ast-hf-menu-4',
+		'ast-hf-menu-5',
+		'ast-hf-menu-6',
+		'ast-hf-menu-7',
+		'ast-hf-menu-8',
+		'ast-hf-menu-9',
+		'ast-hf-menu-10',       // Cloned builder menus.
+		'ast-hf-mobile-menu',   // Builder - Mobile Menu.
+		'ast-hf-account-menu',  // Builder - Login Account Menu.
+		'primary-menu',         // Old header - Primary Menu.
+		'above_header-menu',    // Old header - Above Menu.
+		'below_header-menu',    // Old header - Below Menu.
+	);
+
+	$load_svg_menu_icons = false;
+
+	if ( defined( 'ASTRA_EXT_VER' ) ) {
+		// Check whether Astra Pro is active + Nav menu addon is deactivate + menu registered by Astra only.
+		if ( ! Astra_Ext_Extension::is_active( 'nav-menu' ) && in_array( $args->menu_id, $astra_menu_locations ) ) {
+			$load_svg_menu_icons = true;
+		}
+	} else {
+		// Check menu registered by Astra only.
+		if ( in_array( $args->menu_id, $astra_menu_locations ) ) {
+			$load_svg_menu_icons = true;
+		}
+	}
+
+	if ( $load_svg_menu_icons ) {
+		// Assign icons to only those menu which are registered by Astra.
+		$icon = Astra_Icons::get_icons( 'arrow' );
+	}
+	foreach ( $item->classes as $value ) {
+		if ( 'menu-item-has-children' === $value ) {
+			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
+		}
+	}
+	if ( 0 < $depth ) {
+		$title = $icon . $title;
+	}
+	return $title;
+}
+
+if ( Astra_Icons::is_svg_icons() ) {
+	add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
+}
+
+/**
  * Is theme existing header footer configs enable.
  *
  * @since 3.0.0
@@ -415,4 +489,89 @@ function astra_calculate_spacing( $value, $operation = '', $from = '', $from_uni
 	}
 
 	return $css;
+}
+
+/**
+ * Generate HTML Open markup
+ *
+ * @param string $context unique markup key.
+ * @param array  $args {
+ *      Contains markup arguments.
+ *     @type array  attrs    Initial attributes to apply to `open` markup.
+ *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
+ * }
+ * @since 3.3.0
+ * @return mixed
+ */
+function astra_markup_open( $context, $args = array() ) {
+	$defaults = array(
+		'open'    => '',
+		'attrs'   => array(),
+		'echo'    => true,
+		'content' => '',
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+	if ( $context ) {
+		$args     = apply_filters( "astra_markup_{$context}_open", $args );
+		$open_tag = $args['open'] ? sprintf( $args['open'], astra_attr( $context, $args['attrs'] ) ) : '';
+
+		if ( $args['echo'] ) {
+			echo $open_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $open_tag;
+		}
+	}
+	return false;
+}
+
+/**
+ * Generate HTML close markup
+ *
+ * @param string $context unique markup key.
+ * @param array  $args {
+ *      Contains markup arguments.
+ *     @type string close   Closing HTML markup.
+ *     @type array  attrs    Initial attributes to apply to `open` markup.
+ *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
+ * }
+ * @since 3.3.0
+ * @return mixed
+ */
+function astra_markup_close( $context, $args = array() ) {
+	$defaults = array(
+		'close' => '',
+		'attrs' => array(),
+		'echo'  => true,
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+	if ( $context ) {
+		$args      = apply_filters( "astra_markup_{$context}_close", $args );
+		$close_tag = $args['close'];
+		if ( $args['echo'] ) {
+			echo $close_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $close_tag;
+		}
+	}
+	return false;
+}
+
+/**
+ * Provision to update display rules for visibility of Related Posts section in Astra.
+ *
+ * @since 3.4.0
+ * @return bool
+ */
+function astra_target_rules_for_related_posts() {
+
+	$allow_related_posts = false;
+	$supported_post_type = apply_filters( 'astra_related_posts_supported_post_types', 'post' );
+
+	if ( astra_get_option( 'enable-related-posts' ) && is_singular( $supported_post_type ) ) {
+		$allow_related_posts = true;
+	}
+
+	return apply_filters( 'astra_showcase_related_posts', $allow_related_posts );
 }
