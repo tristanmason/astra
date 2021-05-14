@@ -309,9 +309,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
-				$background_style_data                   = empty( astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ) ) ? array(
+				$base_background_color                   = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
+				$background_style_data                   = empty( $base_background_color ) ? array(
 					'background-color' => '#ffffff',
-				) : astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
+				) : $base_background_color;
 				$desktop_css['.edit-post-visual-editor'] = array(
 					'padding' => '20px',
 				);
