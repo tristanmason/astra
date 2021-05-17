@@ -2,19 +2,21 @@ v3.5.0 (Unreleased)
 - New: Related Posts - Option to change "Related Posts" title.
 - New: Related Posts - Alignment option for "Related Posts" title.
 - Improvement: Related Posts - Added responsive support to posts Grid Column Layout.
-- Improvement: Builder - WooCommerce & EDD Cart - Compatibility with Border width option for cart outline style from Astra Pro.
-- Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
 - Fix: Text alignment issue for footer Widget 3 and Widget 4 when Astra Pro is deactivated.
 - Fix: Removed unwanted dividers from customizer setting sections.
-- Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users on responsive devices.
 - Fix: Editor selection color not visible on default background color setting.
 - Fix: Placeholder for title not visible when the default(white) background is set for the content.
 - Fix: Image caption not visible in the editor view.
+- Fix: Builder - WooCommerce & EDD cart - Duplicate transition CSS avoided in case normal Astra CSS icons.
+
+v3.4.3
+- Improvement: Builder - WooCommerce & EDD Cart - Compatibility with Border width option for cart outline style from Astra Pro. (https://wpastra.com/docs/remove-border-around-cart/)
 - Fix: Search widget not working inside menu on mobile devices.
 - Fix: Elementor popup close on click of input fields.
-- Fix: Builder - WooCommerce & EDD cart - Duplicate transition CSS avoided in case normal Astra CSS icons.
+- Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
+- Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users on responsive devices.
 
 v3.4.2
 - Fix: JS console error when Off-canvas type 'Dropdown' is selected.

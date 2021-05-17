@@ -496,7 +496,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param int    $default - Default grid count (fallback basically).
 		 *
 		 * @return int grid count.
-		 * @since x.x.x
+		 * @since 3.4.3
 		 */
 		public function get_grid_column_count( $type = 'archive', $device = 'desktop', $default = 2 ) {
 
