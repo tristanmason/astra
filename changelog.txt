@@ -1,5 +1,8 @@
 v3.4.4
 - Fix: Dropdown menu disappears while scrolling on mobile device.
+- Fix: Editor selection color not visible on default background color setting.
+- Fix: Placeholder for title not visible when the default(white) background is set for the content.
+- Fix: Image caption not visible in the editor view.
 
 v3.4.3
 - Improvement: Builder - WooCommerce & EDD Cart - Compatibility with Border width option for cart outline style from Astra Pro. (https://wpastra.com/docs/remove-border-around-cart/)
